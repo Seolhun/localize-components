@@ -1,18 +1,21 @@
 import * as React from 'react';
+
+import HeaderView from '../ui/layout/HeaderView';
+
 import './App.scss';
-import MarkdownView from './markdown/MarkdownView';
-const paging = require('../scripts/node/publishing/README.md');
 
 class App extends React.Component<{}> {
   render() {
     return (
-      <div>
-        <div className='App' >
-          <h1>First React Examples</h1>
-        </div>
-        <div>
-          <div>
-            <MarkdownView children={paging} />
+      <div className='App' >
+        <div className='container'>
+          <div className='row'>
+            <div className='col-sm-12'>
+              <h1>JavaScript, TypeScript, NodeJS with React</h1>
+            </div>
+            <div className='col-sm-12'>
+              <HeaderView />
+            </div>
           </div>
         </div>
       </div>

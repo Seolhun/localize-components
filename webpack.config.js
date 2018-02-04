@@ -6,20 +6,6 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
-const marked = require("marked");
-marked.setOptions({
-  renderer: new marked.Renderer(),
-  gfm: true,
-  tables: true,
-  breaks: false,
-  pedantic: false,
-  sanitize: false,
-  smartLists: true,
-  smartypants: false,
-  xhtml: false
-});
-const renderer = new marked.Renderer();
-
 module.exports = function (env) {
   const is_production = env === 'production';
   const output_dir = 'dist';
@@ -50,6 +36,10 @@ module.exports = function (env) {
     entry: {
       main: './src/main.tsx'
     },
+    resolve: {
+      extensions: ['.js', '.ts', '.tsx']
+    },
+    plugins: plugins,
     output: {
       path: path.resolve(__dirname, output_dir),
       filename: is_production ? '[name].[chunkhash].js' : '[name].js'
@@ -78,26 +68,8 @@ module.exports = function (env) {
         {
           test: /\.(png|ttf|otf|eot|svg|woff|woff2)$/,
           use: 'file-loader'
-        }, {
-          test: /\.md$/,
-          use: [{
-            loader: "html-loader"
-          }, {
-            loader: "markdown-loader",
-            options: {
-              pedantic: true,
-              renderer
-            }
-          }]
         }
       ]
     },
-    resolve: {
-      alias: {
-        app: path.resolve(__dirname, 'src/**')
-      },
-      extensions: ['.js', '.ts', '.tsx']
-    },
-    plugins: plugins
   };
 };
