@@ -15,7 +15,7 @@
 ## Content List
 - `Default method` test code
 - `Lodash` code Analysis
-- `Usedful example code`
+- `Useful example code`
 
 ## How to run
 1. npm install
