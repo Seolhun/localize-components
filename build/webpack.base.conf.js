@@ -20,13 +20,13 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.ts', '.tsx', '.json'],
+    extensions: ['.js', '.ts', '.tsx'],
     alias: {
       '@': resolve('src'),
-      'ui': path.resolve('src/ui'),
-      'assets': path.resolve('src/assets'),
-      'scss': path.resolve('src/assets/scss'),
-      'images': path.resolve('src/assets/images'),
+      components: path.resolve('src/components'),
+      assets: path.resolve('src/assets'),
+      scss: path.resolve('src/assets/scss'),
+      images: path.resolve('src/assets/images'),
     },
   },
 
@@ -43,7 +43,7 @@ module.exports = {
         exclude: /node_modules/
       }, {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('css-loader')
+        use: ['style-loader', 'css-loader']
       }, {
         test: /\.scss$/,
         use: [{
