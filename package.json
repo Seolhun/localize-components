@@ -7,9 +7,8 @@
     "build": "node build/build.js",
     "dev": "node build/dev-server.js",
     "test": "npm run test",
-    "push": "git remote set-url origin https://github.com/Seolhun/jtn-script-example.git && git add . && git commit -m 'Updated Markdown Contents' && git push",
-    "deploy": "git remote set-url origin https://github.com/Seolhun/seolhun.github.io.git && npm run build && gh-pages -b master -d dist",
-    "deploy:only": "gh-pages -b master -d dist"
+    "deploy": "git remote set-url origin https://github.com/Seolhun/seolhun.github.io.git && npm run build && gh-pages -b master -d dist && git remote set-url origin https://github.com/Seolhun/jtn-script-example.git",
+    "deploy:only": "git remote set-url origin https://github.com/Seolhun/seolhun.github.io.git && gh-pages -b master -d dist && git remote set-url origin https://github.com/Seolhun/jtn-script-example.git"
   },
   "repository": {
     "type": "git",
