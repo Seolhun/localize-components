@@ -8,7 +8,8 @@
     "dev": "node build/dev-server.js",
     "test": "npm run test",
     "push": "git remote set-url origin https://github.com/Seolhun/jtn-script-example.git && git add . && git commit -m 'Updated Markdown Contents' && git push",
-    "deploy": "git remote set-url origin https://github.com/Seolhun/seolhun.github.io.git && gatsby build && gh-pages -b master -d public"
+    "deploy": "git remote set-url origin https://github.com/Seolhun/seolhun.github.io.git && npm run build && gh-pages -b master -d dist",
+    "deploy:only": "gh-pages -b master -d dist"
   },
   "repository": {
     "type": "git",
@@ -42,8 +43,8 @@
     "@types/lodash": "^4.14.100",
     "@types/react": "^16.0.36",
     "@types/react-dom": "^16.0.3",
-    "@types/react-router-dom": "^4.2.3",
     "@types/react-router": "^4.0.21",
+    "@types/react-router-dom": "^4.2.3",
     "awesome-typescript-loader": "^3.4.1",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
@@ -56,6 +57,8 @@
     "friendly-errors-webpack-plugin": "^1.6.1",
     "html-webpack-plugin": "^2.30.1",
     "node-sass": "^4.7.2",
+    "optimize-css-assets-webpack-plugin": "^3.2.0",
+    "ora": "^1.4.0",
     "sass-loader": "^6.0.6",
     "shelljs": "^0.8.1",
     "style-loader": "^0.20.1",
