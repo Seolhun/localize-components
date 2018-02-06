@@ -4,6 +4,8 @@ import {
   Collapse, DropdownItem, DropdownMenu, DropdownToggle, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink, UncontrolledDropdown,
 } from 'reactstrap';
 
+import './HeaderView.scss';
+
 class HeaderView extends React.Component<{}, { isOpen: boolean }> {
   constructor(props) {
     super(props);

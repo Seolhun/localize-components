@@ -8,7 +8,7 @@ import GrammarView from './pages/grammar/GrammarView';
 import HomeView from './pages/HomeView';
 import DesignPatternView from './pages/pattern/DesignPatternView';
 
-import './App.scss';
+// import './App.scss';
 
 class App extends React.Component<{}> {
   render() {
