@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import { Input, InputGroup } from 'reactstrap';
+import { Button, InputGroup } from 'reactstrap';
 import Singleton from './structural/Singletone';
 
 // const Example = require('./Example.md');
@@ -13,7 +13,7 @@ class DesignPatternView extends React.Component<any, any> {
           <div className='col-sm-12'>
             <h1>DesignPatternView</h1>
             <InputGroup>
-              <Input onInput={() => this.singleton('onInput')} />
+              <Button onClick={() => this.singleton('onClick : ')} color='info'>Singleton</Button>
             </InputGroup>
           </div>
         </div>
