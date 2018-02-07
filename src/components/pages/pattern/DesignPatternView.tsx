@@ -1,22 +1,26 @@
-
 import * as React from 'react';
-import { Button, InputGroup } from 'reactstrap';
-import Singleton from './structural/Singletone';
+import { Button } from 'reactstrap';
 
-// const Example = require('./Example.md');
+import MarkdownView from '../../widget/markdown/MarkdownView';
+import Singleton from './structural/Singleton';
+
+const Example = require('./Example.md');
 
 class DesignPatternView extends React.Component<any, any> {
   render() {
     return (
-      <div className='container'>
-        <div className='row'>
-          <div className='col-sm-12'>
-            <h1>DesignPatternView</h1>
-            <InputGroup>
+      <div>
+        <div className='container'>
+          <div className='row'>
+            <div className='col-sm-12'>
               <Button onClick={() => this.singleton('onClick : ')} color='info'>Singleton</Button>
-            </InputGroup>
+            </div>
           </div>
         </div>
+        <MarkdownView
+          title='Example Markdown'
+          content={Example}
+        />
       </div>
     );
   }

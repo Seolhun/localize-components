@@ -3,7 +3,15 @@ const utils = require('./utils')
 const config = require('../config')
 
 const marked = require("marked");
+const highlightjs = require("highlight.js");
 const renderer = new marked.Renderer();
+marked.setOptions({
+  highlight: function (code, lang, callback) {
+    require('pygmentize-bundled')({ lang: lang, format: 'html' }, code, function (err, result) {
+      callback(err, result.toString());
+    });
+  }
+});
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir)
@@ -13,7 +21,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: {
-    main: './src/main.tsx'
+    main: resolve('./src/main.tsx')
   },
   output: {
     path: config.build.assetsRoot,
@@ -23,16 +31,15 @@ module.exports = {
       : config.dev.assetsPublicPath
   },
   resolve: {
-    extensions: ['.js', '.ts', '.tsx'],
+    extensions: ['.js', '.ts', '.tsx', 'scss'],
     alias: {
-      '@': resolve('src'),
-      components: path.resolve('src/components'),
-      assets: path.resolve('src/assets'),
-      scss: path.resolve('src/assets/scss'),
-      images: path.resolve('src/assets/images'),
+      '@': resolve('./src/'),
+      'components': resolve('./src/components'),
+      'assets': resolve('./src/assets'),
+      'scss': resolve('./src/assets/scss'),
+      'images': resolve('./src/assets/images'),
     },
   },
-
   module: {
     rules: [
       {
