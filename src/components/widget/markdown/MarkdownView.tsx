@@ -3,17 +3,26 @@ import { Button } from 'reactstrap';
 
 import './MarkdownView.scss';
 
-class MarkdownView extends React.Component<any, any> {
-  constructor(props: any) {
+export interface MarkdownViewProps extends React.Props<MarkdownView> {
+  title: string;
+  content: string;
+}
+
+export interface MarkdownViewState {
+  is_show: boolean;
+}
+
+class MarkdownView extends React.Component<MarkdownViewProps, MarkdownViewState> {
+  constructor(props: MarkdownViewProps) {
     super(props);
 
     this.state = {
-      isShow: false,
+      is_show: false,
     };
   }
 
   toggleMarkdown() {
-    this.setState({ isShow: !this.state.isShow });
+    this.setState({ is_show: !this.state.is_show });
   }
 
   render() {
@@ -25,18 +34,18 @@ class MarkdownView extends React.Component<any, any> {
           </div>
           <div className='col-sm-2'>
             <Button
-              color={this.state.isShow ? 'success' : 'info'}
+              color={this.state.is_show ? 'success' : 'info'}
               className='marginLeft'
               onClick={() => this.toggleMarkdown()}
             >
               {
-                this.state.isShow ? 'Show' : 'Hide'
+                this.state.is_show ? 'Show' : 'Hide'
               }
             </Button>
           </div>
           <div
             className='col-sm-12'
-            hidden={this.state.isShow}
+            hidden={this.state.is_show}
           >
             <div className='content' dangerouslySetInnerHTML={{ __html: this.props.content }}>
             </div>

@@ -1,7 +1,15 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 
-class SearchBarView extends Component<any, any> {
-  constructor(props: any) {
+export interface SearchBarViewProps extends React.Props<SearchBarView> {
+  search_word: string;
+}
+
+export interface SearchBarViewState {
+  search_word: string;
+}
+
+class SearchBarView extends React.Component<SearchBarViewProps, SearchBarViewState> {
+  constructor(props: SearchBarViewProps) {
     super(props);
 
     this.state = { search_word: this.props.search_word };

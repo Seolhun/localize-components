@@ -4,20 +4,29 @@ import { Collapse, Nav, Navbar, NavbarToggler, NavItem, NavLink } from 'reactstr
 
 import './HeaderView.scss';
 
-class HeaderView extends React.Component<{}, { isOpen: boolean }> {
+export interface HeaderViewProps extends React.Props<HeaderView> {
+}
+
+export interface HeaderViewState {
+  is_open: boolean;
+}
+
+class HeaderView extends React.Component<HeaderViewProps, HeaderViewState> {
   constructor(props) {
     super(props);
 
     this.toggle = this.toggle.bind(this);
     this.state = {
-      isOpen: false,
+      is_open: false,
     };
   }
+
   toggle() {
     this.setState({
-      isOpen: !this.state.isOpen,
+      is_open: !this.state.is_open,
     });
   }
+
   render() {
     return (
       <div>
@@ -25,7 +34,7 @@ class HeaderView extends React.Component<{}, { isOpen: boolean }> {
           <div className='container'>
             <Link className='navbar-brand nav-link' to='/'>JTN-React Project</Link>
             <NavbarToggler onClick={this.toggle} />
-            <Collapse isOpen={this.state.isOpen} navbar>
+            <Collapse isOpen={this.state.is_open} navbar>
               <Nav navbar>
                 <NavItem>
                   <ul className='navbar-nav'>
