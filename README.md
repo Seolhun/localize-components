@@ -1,22 +1,12 @@
-# All about JavaScript, TypeScript, NodeJS example.
+# React Typescript example with markdown
 - Author : [HunSeol](https://github.com/Seolhun/)
 
-## Goal
-- To understand how to changed typescript into javascript.
-- To analyze & build simple functional lib.
-- Show simple sample and example code on the Web. 
-
-## Requirement
+## Used stacks
 - TypeScript
 - Node
 - Webpack
 - React
 
-## Content List
-- `Default method` test code
-- `Lodash` code Analysis
-- `Useful example code`
-
-## How to run
+## Getting start
 1. npm install
 2. npm run dev
