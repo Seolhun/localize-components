@@ -3,6 +3,7 @@ import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import HeaderView from '../components/layout/HeaderView';
+import BasicView from './pages/basic/BasicView';
 import FunctionalView from './pages/funtional/FunctionalView';
 import GrammarView from './pages/grammar/GrammarView';
 import HomeView from './pages/HomeView';
@@ -20,6 +21,7 @@ class App extends React.Component<{}> {
             <div className='col-sm-12'>
               <Switch>
                 <Route exact path='/' component={HomeView} />
+                <Route path='/basic' component={BasicView} />
                 <Route path='/grammar' component={GrammarView} />
                 <Route path='/funtional' component={FunctionalView} />
                 <Route path='/pattern' component={DesignPatternView} />

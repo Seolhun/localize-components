@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { Button } from 'reactstrap';
 
-import MarkdownView from '../../widget/markdown/MarkdownView';
+// import MarkdownView from '../../widget/markdown/MarkdownView';
 import Singleton from './structural/Singleton';
 
-const Example = require('./Example.md');
+// const Example = require('./Example.md');
 
 class DesignPatternView extends React.Component<any, any> {
   render() {
@@ -17,10 +17,10 @@ class DesignPatternView extends React.Component<any, any> {
             </div>
           </div>
         </div>
-        <MarkdownView
+        {/* <MarkdownView
           title='Example Markdown'
           content={Example}
-        />
+        /> */}
       </div>
     );
   }

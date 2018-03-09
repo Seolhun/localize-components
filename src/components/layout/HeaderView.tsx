@@ -39,6 +39,9 @@ class HeaderView extends React.Component<HeaderViewProps, HeaderViewState> {
                 <NavItem>
                   <ul className='navbar-nav'>
                     <li className='nav-item'>
+                      <Link className='nav-link' to='/basic'>Basic</Link>
+                    </li>
+                    <li className='nav-item'>
                       <Link className='nav-link' to='/grammar'>Grammar</Link>
                     </li>
                     <li className='nav-item'>
