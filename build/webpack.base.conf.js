@@ -2,13 +2,6 @@ const path = require('path');
 const utils = require('./utils');
 const config = require('../config');
 
-var marked = require('marked');
-var hljs = require('highlight.js');
-var renderer = new marked.Renderer();
-renderer.code = function (code, language) {
-  return `<pre><code class="hljs ${language}>${hljs.highlight(language, code).value}</code></pre>`;
-};
-
 function resolve(dir) {
   return path.join(__dirname, '..', dir);
 }
@@ -27,21 +20,17 @@ module.exports = {
       : config.dev.assetsPublicPath,
   },
   resolve: {
-    extensions: ['.js', '.ts', '.tsx', 'scss'],
+    extensions: ['.js', 'jsx', '.ts', '.tsx', 'scss'],
     alias: {
-      '@': resolve('./src/'),
-      'components': resolve('./src/components'),
-      'assets': resolve('./src/assets'),
-      'scss': resolve('./src/assets/scss'),
-      'images': resolve('./src/assets/images'),
+      '@': resolve('src'),
     },
   },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(jsx|js)?$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test')],
+        include: [resolve('src'), resolve('_test')],
       }, {
         test: /\.(tsx|ts)?$/,
         loader: 'awesome-typescript-loader',
@@ -88,28 +77,6 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         },
-      }, {
-        test: /\.md$/,
-        use: [
-          {
-            loader: 'html-loader',
-          },
-          {
-            loader: 'markdown-loader',
-            options: {
-              pedantic: true,
-              gfm: true,
-              tables: true,
-              breaks: false,
-              pedantic: false,
-              sanitize: false,
-              smartLists: true,
-              smartypants: false,
-              xhtml: false,
-              renderer,
-            },
-          },
-        ],
       }],
   },
   plugins: [

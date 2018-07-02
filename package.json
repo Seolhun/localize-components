@@ -1,14 +1,12 @@
 {
-  "name": "jtn-script-example",
+  "name": "react-simple-components",
   "version": "1.0.0",
-  "description": "To test code with typescript and documentation about my study and practice.",
+  "description": "We just pursue simple and easy react components.",
   "main": "main.ts",
   "scripts": {
     "build": "node build/build.js",
     "dev": "node build/dev-server.js",
-    "test": "npm run test",
-    "deploy": "git remote set-url origin https://github.com/Seolhun/seolhun.github.io.git && npm run build && gh-pages -b master -d dist && git remote set-url origin https://github.com/Seolhun/jtn-script-example.git",
-    "deploy:only": "git remote set-url origin https://github.com/Seolhun/seolhun.github.io.git && gh-pages -b master -d dist && git remote set-url origin https://github.com/Seolhun/jtn-script-example.git"
+    "test": "npm run test"
   },
   "repository": {
     "type": "git",
@@ -19,26 +17,24 @@
     "example"
   ],
   "author": "seolhun",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Seolhun/jtn-script-example/issues"
   },
   "homepage": "https://github.com/Seolhun/jtn-script-example#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "bootstrap": "^4.0.0",
-    "gh-pages": "^1.1.0",
-    "highlight.js": "^9.12.0",
-    "html-loader": "^0.5.5",
     "jest": "^22.1.4",
     "lodash": "^4.17.5",
-    "markdown-loader": "^2.0.2",
-    "marked": "^0.3.12",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.0",
-    "reactstrap": "^5.0.0-beta"
+    "reactstrap": "^5.0.0-beta",
+    "rxjs": "^6.2.1",
+    "rxjs-compat": "^6.2.1"
   },
   "devDependencies": {
     "@types/jest": "^22.1.1",
@@ -65,6 +61,7 @@
     "shelljs": "^0.8.1",
     "style-loader": "^0.20.1",
     "ts-node": "^4.1.0",
+    "tslint-config-airbnb": "^5.9.2",
     "typescript": "^2.7.1",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.1",

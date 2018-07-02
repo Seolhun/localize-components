@@ -1,16 +1,13 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
-import App from './components//App';
-
-import 'bootstrap/dist/css/bootstrap.css';
+import App from '@/container/App';
+import '@/vendor';
 
 ReactDOM.render(
-  <div>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </div>,
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>,
   document.getElementById('app'),
 );
