@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 
-class HomeContainer extends Component {
+class HomeContainer extends React.Component {
   render() {
     return (
       <section className='row'>

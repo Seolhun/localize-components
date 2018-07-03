@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 
-class NotFoundView extends Component {
+class NotFoundView extends React.PureComponent {
   render() {
     return (
       <section className='row'>

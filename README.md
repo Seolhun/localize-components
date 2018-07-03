@@ -1,9 +1,8 @@
-# React Typescript example with markdown
+# React Simple Components
 - Author : [HunSeol](https://github.com/Seolhun/)
 
 ## Used stacks
 - TypeScript
-- Node
 - Webpack
 - React
 

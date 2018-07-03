@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import * as React from 'react';
 
 import { interval } from 'rxjs';
 import { combineAll, map, take } from 'rxjs/operators';
@@ -7,7 +7,7 @@ interface CombineAllContainerStates {
   result: any[];
 }
 
-class CombineAllContainer extends Component<{}, CombineAllContainerStates> {
+class CombineAllContainer extends React.Component<{}, CombineAllContainerStates> {
   constructor(props) {
     super(props);
     this.state = {
@@ -22,7 +22,7 @@ class CombineAllContainer extends Component<{}, CombineAllContainerStates> {
 
   render() {
     return (
-      <Fragment>
+      <React.Fragment>
         <section>
           <h2>CombineAllContainer</h2>
           <div className='row'>
@@ -37,7 +37,7 @@ class CombineAllContainer extends Component<{}, CombineAllContainerStates> {
             </div>
           </div>
         </section>
-      </Fragment>
+      </React.Fragment>
     );
   }
 }

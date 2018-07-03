@@ -1,6 +1,6 @@
-import React, { Component, Fragment } from 'react';
+import * as React from 'react';
 
-import { Observable } from 'rxjs';
+import * as Rx from 'rxjs';
 
 const dummy = require('./_dummy.json');
 import schema from './schema';
@@ -11,7 +11,7 @@ interface ObservableClickFromEventContainerStates {
   query: string;
 }
 
-class ObservableClickFromEventContainer extends Component<{}, ObservableClickFromEventContainerStates> {
+class ObservableClickFromEventContainer extends React.Component<{}, ObservableClickFromEventContainerStates> {
   constructor(props) {
     super(props);
     this.state = {
@@ -24,7 +24,7 @@ class ObservableClickFromEventContainer extends Component<{}, ObservableClickFro
     if (!button) {
       return;
     }
-    const clicks = Observable.fromEvent(button, 'click');
+    const clicks = Rx.Observable.fromEvent(button, 'click');
     const points = clicks.map((event: MouseEvent) => {
       return { x: event.clientX, y: event.clientY };
     });
@@ -60,7 +60,7 @@ class ObservableClickFromEventContainer extends Component<{}, ObservableClickFro
 
   render() {
     return (
-      <Fragment>
+      <React.Fragment>
         <section>
           <h2>ObservableClickFromEventContainer</h2>
           <div className='row'>
@@ -80,7 +80,7 @@ class ObservableClickFromEventContainer extends Component<{}, ObservableClickFro
             </div>
           </div>
         </section>
-      </Fragment>
+      </React.Fragment>
     );
   }
 }

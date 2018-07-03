@@ -1,32 +1,25 @@
-import React, { Component } from 'react';
-
-import PropTypes from 'prop-types';
+import * as React from 'react';
 
 import './TableComponent.css';
 
-interface PaginationComponentProps {
+export interface TableComponentProps {
   items: any[];
   schema: any[];
 
-  showScroll: boolean;
-  className: string;
-  children: ReactNode;
+  showScroll?: boolean;
+  className?: string;
+  children?: React.ReactNode;
 }
 
-interface PaginationComponentStates {}
+interface TableComponentStates {}
 
-TableComponent.propTypes = {
+class TableComponent extends React.Component<TableComponentProps, TableComponentStates> {
+  public static defaultProps: Partial<TableComponentProps> = {
+    showScroll: false,
+    className: '',
+    children: null,
+  };
 
-}
-
-TableComponent.defaultProps = {
-  showScroll: false,
-  className: '',
-  children: null,
-}
-
-
-class TableComponent extends Component {
   renderHeader() {
     return this.props.schema.map((schem) => {
       return <th key={schem.id}>

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 
 import PaginationComponent from '@/component/pagination';
 import TableComponent from '@/component/table';
@@ -17,7 +17,7 @@ interface TablePaginationViewStates {
   limit: number;
 }
 
-class TablePaginationView extends Component<{}, TablePaginationViewStates> {
+class TablePaginationView extends React.Component<{}, TablePaginationViewStates> {
   constructor(props) {
     super(props);
     this.state = {
@@ -44,9 +44,9 @@ class TablePaginationView extends Component<{}, TablePaginationViewStates> {
     });
   }
 
-  setPagingItems(pageIndex) {
+  setPagingItems(pageIndex): any[] {
     if (pageIndex < 1 || pageIndex > this.state.totalCount) {
-      return;
+      return [];
     }
     const offset = (pageIndex - 1) * this.state.limit;
     const limit = this.state.pageIndex * this.state.limit;

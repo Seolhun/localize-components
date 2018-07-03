@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import * as React from 'react';
 
 import { timer } from 'rxjs';
 import { combineLatest } from 'rxjs/operators';
@@ -7,7 +7,7 @@ interface CombineLastestContainerStates {
   result: any[];
 }
 
-class CombineLastestContainer extends Component<{}, CombineLastestContainerStates> {
+class CombineLastestContainer extends React.Component<{}, CombineLastestContainerStates> {
   constructor(props) {
     super(props);
     this.state = {
@@ -30,7 +30,7 @@ class CombineLastestContainer extends Component<{}, CombineLastestContainerState
 
   render() {
     return (
-      <Fragment>
+      <React.Fragment>
         <section>
           <h2>CombineLastestContainer</h2>
           <div className='row'>
@@ -45,7 +45,7 @@ class CombineLastestContainer extends Component<{}, CombineLastestContainerState
             </div>
           </div>
         </section>
-      </Fragment>
+      </React.Fragment>
     );
   }
 }

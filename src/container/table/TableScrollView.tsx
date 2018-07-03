@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 
 import BusController from '../../api/BusController';
 
@@ -10,7 +10,7 @@ interface TableScrollViewStates {
   items: any[];
 }
 
-class TableScrollView extends Component<{}, TableScrollViewStates> {
+class TableScrollView extends React.Component<{}, TableScrollViewStates> {
   constructor(props) {
     super(props);
     this.state = {

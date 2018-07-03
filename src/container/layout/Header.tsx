@@ -1,19 +1,19 @@
-import React from 'react';
+import * as React from 'react';
 import { Link } from 'react-router-dom';
 import { Collapse, Nav, Navbar, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 
 import routes from '@/routes/schema';
 
-import './HeaderView.scss';
+import './Header.scss';
 
-export interface HeaderViewProps extends React.Props<HeaderView> {
+export interface HeaderProps extends React.Props<Header> {
 }
 
-export interface HeaderViewState {
+export interface HeaderState {
   is_open: boolean;
 }
 
-class HeaderView extends React.Component<HeaderViewProps, HeaderViewState> {
+class Header extends React.Component<HeaderProps, HeaderState> {
   constructor(props) {
     super(props);
 
@@ -32,7 +32,10 @@ class HeaderView extends React.Component<HeaderViewProps, HeaderViewState> {
   renderNavs() {
     return routes.map((route, idx) => {
       return (
-        <li className='nav-item'>
+        <li
+          className='nav-item'
+          key={idx}
+        >
           <Link
             className='nav-link'
             to={route.path}
@@ -78,4 +81,4 @@ class HeaderView extends React.Component<HeaderViewProps, HeaderViewState> {
   }
 }
 
-export default HeaderView;
+export default Header;
