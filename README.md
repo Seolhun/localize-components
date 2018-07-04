@@ -1,10 +1,12 @@
-# React Simple Components
+# React Simple Components and Test
 - Author : [HunSeol](https://github.com/Seolhun/)
 
 ## Used stacks
 - TypeScript
-- Webpack
 - React
+- Webpack
+- RxJS
+- ReactStrap
 
 ## Getting start
 1. npm install
