@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import * as _ from 'lodash';
 
-import './PaginationComponent.css';
+import './PaginationComponent.scss';
 
 export interface PaginationComponentProps {
   pageIndex: number;
@@ -15,7 +15,10 @@ export interface PaginationComponentProps {
 
 interface PaginationComponentStates {}
 
-class PaginationComponent extends React.Component<PaginationComponentProps, PaginationComponentStates> {
+class PaginationComponent extends React.Component<
+  PaginationComponentProps,
+  PaginationComponentStates
+> {
   public static defaultProps: Partial<PaginationComponentProps> = {
     limit: 5,
     range: 5,
@@ -30,11 +33,14 @@ class PaginationComponent extends React.Component<PaginationComponentProps, Pagi
     const rangePageWithDots: any[] = [];
 
     const left = current - criteriaNumber < 1 ? 1 : current - criteriaNumber;
-    const right = current + criteriaNumber > totalPage ? totalPage : current + criteriaNumber;
+    const right =
+      current + criteriaNumber > totalPage
+        ? totalPage
+        : current + criteriaNumber;
 
     let condition: any = null;
     for (const i of rangePage) {
-      if ((i >= left && i <= right) || (i <= 2) || (i >= totalPage - 1)) {
+      if ((i >= left && i <= right) || i <= 2 || i >= totalPage - 1) {
         if (i - condition !== 1) {
           rangePageWithDots.push('....');
         }
@@ -46,13 +52,21 @@ class PaginationComponent extends React.Component<PaginationComponentProps, Pagi
   }
 
   renderPageBtn() {
-    const pages = this.pagination(this.props.pageIndex, this.props.totalCount, this.props.range);
+    const pages = this.pagination(
+      this.props.pageIndex,
+      this.props.totalCount,
+      this.props.range,
+    );
     return pages.map((pageNum, idx) => {
       return (
         <button
           key={idx}
-          className={`btn ${this.props.pageIndex === pageNum ? 'btn-success' : 'btn-primary'} margin-5`}
-          onClick={_.isNumber(pageNum) ? () => this.props.onClick(pageNum) : () => null}
+          className={`btn ${
+            this.props.pageIndex === pageNum ? 'btn-success' : 'btn-primary'
+          } margin-5`}
+          onClick={
+            _.isNumber(pageNum) ? () => this.props.onClick(pageNum) : () => null
+          }
         >
           {pageNum}
         </button>
@@ -63,11 +77,7 @@ class PaginationComponent extends React.Component<PaginationComponentProps, Pagi
   render() {
     return (
       <section>
-        <div>
-          {
-            this.renderPageBtn()
-          }
-        </div>
+        <div>{this.renderPageBtn()}</div>
       </section>
     );
   }

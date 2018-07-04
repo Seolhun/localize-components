@@ -37,7 +37,9 @@ class PromiseTest {
       try {
         setTimeout(() => {
           const car = new Car(name, doors);
-          console.log(`Reject car : name: ${car.getName} - doors : ${car.getDoor}`);
+          console.log(
+            `Reject car : name: ${car.getName} - doors : ${car.getDoor}`,
+          );
           reject();
         }, 1500);
       } catch (error) {
@@ -69,22 +71,26 @@ class PromiseTest {
     const getEven = this.getEvenValue();
     const getEven2 = this.getEvenValue();
 
-    Promise.all([getEven, getEven2]).then((car) => {
-      console.log('Promise All success', car);
-    }).catch((error) => {
-      console.log('Promise All error', error);
-    });
+    Promise.all([getEven, getEven2])
+      .then((car) => {
+        console.log('Promise All success', car);
+      })
+      .catch((error) => {
+        console.log('Promise All error', error);
+      });
   }
 
   promiseRace() {
     const getEven = this.getEvenValue();
     const getEven2 = this.getEvenValue();
 
-    Promise.race([getEven, getEven2]).then((car) => {
-      console.log('Promise Race success', car);
-    }).catch((error) => {
-      console.log('Promise Race error', error);
-    });
+    Promise.race([getEven, getEven2])
+      .then((car) => {
+        console.log('Promise Race success', car);
+      })
+      .catch((error) => {
+        console.log('Promise Race error', error);
+      });
   }
 
   nonPromiseCreateCar(name: string, doors: number): Car {

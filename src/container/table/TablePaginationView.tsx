@@ -17,7 +17,10 @@ interface TablePaginationViewStates {
   limit: number;
 }
 
-class TablePaginationView extends React.Component<{}, TablePaginationViewStates> {
+class TablePaginationView extends React.Component<
+  {},
+  TablePaginationViewStates
+> {
   constructor(props) {
     super(props);
     this.state = {

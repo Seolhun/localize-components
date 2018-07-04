@@ -1,5 +1,4 @@
-const schema = [
-  {
+const schema = [{
     id: 1,
     name: 'id',
     key: 'id'

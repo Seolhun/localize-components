@@ -11,7 +11,10 @@ interface ObservableClickFromEventContainerStates {
   query: string;
 }
 
-class ObservableClickFromEventContainer extends React.Component<{}, ObservableClickFromEventContainerStates> {
+class ObservableClickFromEventContainer extends React.Component<
+  {},
+  ObservableClickFromEventContainerStates
+> {
   constructor(props) {
     super(props);
     this.state = {
@@ -50,12 +53,7 @@ class ObservableClickFromEventContainer extends React.Component<{}, ObservableCl
   }
 
   renderList() {
-    return (
-      <TableComponent
-        items={dummy}
-        schema={schema}
-      />
-    );
+    return <TableComponent items={dummy} schema={schema} />;
   }
 
   render() {
@@ -63,21 +61,14 @@ class ObservableClickFromEventContainer extends React.Component<{}, ObservableCl
       <React.Fragment>
         <section>
           <h2>ObservableClickFromEventContainer</h2>
-          <div className='row'>
+          <div className="row">
             <div>
-              <button
-                className='btn btn-success'
-                id='button'
-              >
+              <button className="btn btn-success" id="button">
                 Button
               </button>
             </div>
-            <div className='col-sm-12'>
-              {this.state.query}
-            </div>
-            <div className='col-sm-12'>
-              {this.renderList()}
-            </div>
+            <div className="col-sm-12">{this.state.query}</div>
+            <div className="col-sm-12">{this.renderList()}</div>
           </div>
         </section>
       </React.Fragment>

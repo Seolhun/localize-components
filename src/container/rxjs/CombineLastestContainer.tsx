@@ -7,7 +7,10 @@ interface CombineLastestContainerStates {
   result: any[];
 }
 
-class CombineLastestContainer extends React.Component<{}, CombineLastestContainerStates> {
+class CombineLastestContainer extends React.Component<
+  {},
+  CombineLastestContainerStates
+> {
   constructor(props) {
     super(props);
     this.state = {
@@ -33,15 +36,11 @@ class CombineLastestContainer extends React.Component<{}, CombineLastestContaine
       <React.Fragment>
         <section>
           <h2>CombineLastestContainer</h2>
-          <div className='row'>
-            <div className='col-sm-12'>
-              {
-                this.state.result.map((result, idx) => {
-                  return <div key={idx}>
-                    {result}
-                  </div>;
-                })
-              }
+          <div className="row">
+            <div className="col-sm-12">
+              {this.state.result.map((result, idx) => {
+                return <div key={idx}>{result}</div>;
+              })}
             </div>
           </div>
         </section>

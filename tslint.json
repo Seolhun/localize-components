@@ -41,7 +41,7 @@
     "quotemark": {
       "options": [
         "single",
-        "jsx-single",
+        "jsx-double",
         "avoid-escape"
       ]
     },

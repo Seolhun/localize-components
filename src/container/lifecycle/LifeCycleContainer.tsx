@@ -53,7 +53,7 @@ class LifeCycleContainer extends React.Component<{}, LifeCycleContainerStates> {
     this.setState({
       update: true,
     });
-  }
+  };
 
   renderList() {
     if (this.priorities.length < 1) {
@@ -62,15 +62,9 @@ class LifeCycleContainer extends React.Component<{}, LifeCycleContainerStates> {
 
     return (
       <ol>
-        {
-          this.priorities.map((priority) => {
-            return (
-              <li key={priority}>
-                {priority}
-              </li>
-            );
-          })
-        }
+        {this.priorities.map((priority) => {
+          return <li key={priority}>{priority}</li>;
+        })}
       </ol>
     );
   }
@@ -79,16 +73,16 @@ class LifeCycleContainer extends React.Component<{}, LifeCycleContainerStates> {
     return (
       <section>
         <h2>LifeCycleContainer</h2>
-        <div className='row'>
-          <div className='col-sm-12'>
-            <button className='btn btn-primary' onClick={this.handleUpdate}>Update</button>
+        <div className="row">
+          <div className="col-sm-12">
+            <button className="btn btn-primary" onClick={this.handleUpdate}>
+              Update
+            </button>
             {this.state.update}
           </div>
         </div>
-        <div className='row'>
-          <div className='col-sm-12'>
-            {this.renderList()}
-          </div>
+        <div className="row">
+          <div className="col-sm-12">{this.renderList()}</div>
         </div>
       </section>
     );
