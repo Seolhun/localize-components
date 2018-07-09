@@ -5,7 +5,7 @@ import * as Rx from 'rxjs';
 const dummy = require('./_dummy.json');
 import schema from './schema';
 
-import TableComponent from '@/component/table';
+import { Table } from '@/component/table';
 
 interface ObservableClickFromEventContainerStates {
   query: string;
@@ -53,7 +53,7 @@ class ObservableClickFromEventContainer extends React.Component<
   }
 
   renderList() {
-    return <TableComponent items={dummy} schema={schema} />;
+    return <Table items={dummy} schema={schema} />;
   }
 
   render() {

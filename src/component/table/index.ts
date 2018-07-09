@@ -1,3 +1,13 @@
-import TableComponent from './TableComponent';
+import Table, { TableSchema } from './Table';
+import Td from './Td';
+import Th from './Th';
+import Tr from './Tr';
 
-export default TableComponent;
+export { Table, TableSchema, Td, Th, Tr };
+
+export default {
+  Table,
+  Td,
+  Th,
+  Tr,
+};

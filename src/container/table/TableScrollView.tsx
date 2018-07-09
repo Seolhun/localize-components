@@ -1,13 +1,11 @@
 import * as React from 'react';
 
 import BusController from '../../api/BusController';
-
-import TableComponent from '../../component/table';
-
+import { Table, TableSchema } from '@/component/table';
 import schema from './schema';
 
 interface TableScrollViewStates {
-  items: any[];
+  items: TableSchema[];
 }
 
 class TableScrollView extends React.Component<{}, TableScrollViewStates> {
@@ -30,11 +28,7 @@ class TableScrollView extends React.Component<{}, TableScrollViewStates> {
     return (
       <section>
         <div>
-          <TableComponent
-            items={this.state.items}
-            schema={schema}
-            showScroll={true}
-          />
+          <Table items={this.state.items} schema={schema} showScroll={true} />
         </div>
       </section>
     );

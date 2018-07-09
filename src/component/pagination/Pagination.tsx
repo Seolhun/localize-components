@@ -2,9 +2,9 @@ import * as React from 'react';
 
 import * as _ from 'lodash';
 
-import './PaginationComponent.scss';
+import './Pagination.scss';
 
-export interface PaginationComponentProps {
+export interface PaginationProps {
   pageIndex: number;
   totalCount: number;
   onClick: (pageNumber) => any;
@@ -13,13 +13,13 @@ export interface PaginationComponentProps {
   range?: number;
 }
 
-interface PaginationComponentStates {}
+interface PaginationStates {}
 
-class PaginationComponent extends React.Component<
-  PaginationComponentProps,
-  PaginationComponentStates
+class Pagination extends React.Component<
+  PaginationProps,
+  PaginationStates
 > {
-  public static defaultProps: Partial<PaginationComponentProps> = {
+  public static defaultProps: Partial<PaginationProps> = {
     limit: 5,
     range: 5,
   };
@@ -83,4 +83,4 @@ class PaginationComponent extends React.Component<
   }
 }
 
-export default PaginationComponent;
+export default Pagination;
