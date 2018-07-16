@@ -76,14 +76,14 @@ const routes = {
       color: 'info',
       path: '/table/pagination',
       label: 'TablePagination',
-      component: TableScrollView,
+      component: TablePaginationView,
     }),
     routeCreator({
       type: 2,
       color: 'info',
       path: '/table/scroll',
       label: 'TableScroll',
-      component: TablePaginationView,
+      component: TableScrollView,
     }),
   ],
   rxjs: [

@@ -15,58 +15,102 @@
 const schema = [
   {
     id: 1,
-    name: '사용일자',
-    key: 'USE_DT',
+    header: {
+      cell: '사용일자',
+    },
+    body: {
+      cell: 'USE_DT',
+    },
   },
   {
     id: 2,
-    name: '노선 ID',
-    key: 'BUS_ROUTE_ID',
+    header: {
+      cell: '노선 ID',
+    },
+    body: {
+      cell: 'BUS_ROUTE_ID',
+    },
   },
   {
     id: 3,
-    name: '노선번호',
-    key: 'BUS_ROUTE_NO',
+    header: {
+      cell: '노선번호',
+    },
+    body: {
+      cell: 'BUS_ROUTE_NO',
+    },
   },
   {
     id: 4,
-    name: '노선명',
-    key: 'BUS_ROUTE_NM',
+    header: {
+      cell: '노선명',
+    },
+    body: {
+      cell: 'BUS_ROUTE_NM',
+    },
   },
   {
     id: 5,
-    name: '표준 버스정류장 ID',
-    key: 'STND_BSST_ID',
+    header: {
+      cell: '표준 버스정류장 ID',
+    },
+    body: {
+      cell: 'STND_BSST_ID',
+    },
   },
   {
     id: 6,
-    name: '버스정류장 ARS 번호',
-    key: 'BSST_ARS_NO',
+    header: {
+      cell: '버스정류장 ARS 번호',
+    },
+    body: {
+      cell: 'BSST_ARS_NO',
+    },
   },
   {
     id: 7,
-    name: '역 ID',
-    key: 'BUS_STA_ID',
+    header: {
+      cell: '역 ID',
+    },
+    body: {
+      cell: 'BUS_STA_ID',
+    },
   },
   {
     id: 8,
-    name: '역명',
-    key: 'BUS_STA_NM',
+    header: {
+      cell: '역명',
+    },
+    body: {
+      cell: 'BUS_STA_NM',
+    },
   },
   {
     id: 9,
-    name: '총 승차 승객수',
-    key: 'RIDE_PASGR_NUM',
+    header: {
+      cell: '총 승차 승객수',
+    },
+    body: {
+      cell: 'RIDE_PASGR_NUM',
+    },
   },
   {
     id: 10,
-    name: '총 하차 승객 수',
-    key: 'ALIGHT_PASGER_NUM',
+    header: {
+      cell: '총 하차 승객 수',
+    },
+    body: {
+      cell: 'ALIGHT_PASGER_NUM',
+    },
   },
   {
     id: 11,
-    name: '등록일',
-    key: 'WORK_DT',
+    header: {
+      cell: '등록일',
+    },
+    body: {
+      cell: 'WORK_DT',
+    },
   },
 ];
 

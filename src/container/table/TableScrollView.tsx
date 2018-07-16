@@ -28,7 +28,11 @@ class TableScrollView extends React.Component<{}, TableScrollViewStates> {
     return (
       <section>
         <div>
-          <Table items={this.state.items} schema={schema} showScroll={true} />
+          <Table
+            items={this.state.items}
+            schema={schema}
+            showScroll={true}
+          />
         </div>
       </section>
     );

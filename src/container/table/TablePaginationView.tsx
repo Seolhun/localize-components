@@ -28,7 +28,7 @@ class TablePaginationView extends React.Component<
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     BusController.selectList(1, 1000, 20170301).then((response) => {
       this.setState({
         items: response.data.CardBusStatisticsServiceNew.row,
@@ -61,6 +61,8 @@ class TablePaginationView extends React.Component<
             pageIndex={this.state.pageIndex}
             totalCount={this.state.totalCount}
             onClick={this.handleChangePage}
+
+            limit={this.state.limit}
           />
         </div>
         <div>

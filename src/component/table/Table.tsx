@@ -8,14 +8,13 @@ import './Table.scss';
 
 export interface TableSchema {
   id: string | number;
-  key: string;
   header: {
-    cell?: (props?) => {} | string;
+    cell: string | ((props?) => any);
     onThClick?: () => {};
     onHovered?: () => {};
   };
   body: {
-    cell?: (props?) => {} | string;
+    cell: string | ((props?) => any);
     onTdClick?: () => {};
     onHovered?: () => {};
   };
@@ -52,10 +51,10 @@ class Table extends React.Component<TableProps, TableStates> {
       return (
         <Tr key={idx}>
           {this.props.schema.map((schem) => {
-            if (schem.body.cell && typeof schem.body.cell === 'function') {
+            if (typeof schem.body.cell === 'function') {
               return <Td key={schem.id}>{schem.body.cell(this.props)}</Td>;
             }
-            return <Td key={schem.id}>{item[schem.key]}</Td>;
+            return <Td key={schem.id}>{item[schem.body.cell]}</Td>;
           })}
         </Tr>
       );

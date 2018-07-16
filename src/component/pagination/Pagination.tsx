@@ -13,14 +13,9 @@ export interface PaginationProps {
   range?: number;
 }
 
-interface PaginationStates {}
-
-class Pagination extends React.Component<
-  PaginationProps,
-  PaginationStates
-> {
+class Pagination extends React.PureComponent<PaginationProps> {
   public static defaultProps: Partial<PaginationProps> = {
-    limit: 5,
+    limit: 10,
     range: 5,
   };
 
@@ -55,7 +50,7 @@ class Pagination extends React.Component<
     const pages = this.pagination(
       this.props.pageIndex,
       this.props.totalCount,
-      this.props.range,
+      this.props.limit,
     );
     return pages.map((pageNum, idx) => {
       return (
