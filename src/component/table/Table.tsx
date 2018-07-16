@@ -1,8 +1,8 @@
 import * as React from 'react';
 
-import Tr from './Tr';
-import Th from './Th';
 import Td from './Td';
+import Th from './Th';
+import Tr from './Tr';
 
 import './Table.scss';
 
@@ -10,15 +10,13 @@ export interface TableSchema {
   id: string | number;
   key: string;
   header: {
-    label: string;
-    value?: any;
-    cell?: () => {};
+    cell?: (props?) => {} | string;
     onThClick?: () => {};
     onHovered?: () => {};
   };
   body: {
-    value?: any;
-    cell?: () => {};
+    cell?: (props?) => {} | string;
+    onTdClick?: () => {};
     onHovered?: () => {};
   };
 }
@@ -54,6 +52,9 @@ class Table extends React.Component<TableProps, TableStates> {
       return (
         <Tr key={idx}>
           {this.props.schema.map((schem) => {
+            if (schem.body.cell && typeof schem.body.cell === 'function') {
+              return <Td key={schem.id}>{schem.body.cell(this.props)}</Td>;
+            }
             return <Td key={schem.id}>{item[schem.key]}</Td>;
           })}
         </Tr>

@@ -1,8 +1,8 @@
 import * as React from 'react';
 
+import BusController from '@/api/BusController';
 import Pagination from '@/component/pagination';
 import { Table } from '@/component/table';
-import BusController from '@/api/BusController';
 import schema from './schema';
 
 interface TablePaginationViewStates {
@@ -41,7 +41,7 @@ class TablePaginationView extends React.Component<
     this.setState({
       pageIndex: num,
     });
-  };
+  }
 
   setPagingItems(pageIndex): any[] {
     if (pageIndex < 1 || pageIndex > this.state.totalCount) {

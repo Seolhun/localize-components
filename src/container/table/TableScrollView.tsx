@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import BusController from '../../api/BusController';
 import { Table, TableSchema } from '@/component/table';
+import BusController from '../../api/BusController';
 import schema from './schema';
 
 interface TableScrollViewStates {
