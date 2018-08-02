@@ -10,7 +10,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: {
-    main: resolve('./src/main.tsx'),
+    main: resolve('./src/Main.tsx'),
   },
   output: {
     path: config.build.assetsRoot,
@@ -37,10 +37,7 @@ module.exports = {
         include: [resolve('src'), resolve('test')],
         exclude: /node_modules/,
       }, {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      }, {
-        test: /\.scss$/,
+        test: /\.(css|scss)$/,
         use: [{
           loader: 'style-loader',
         }, {

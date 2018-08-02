@@ -34,7 +34,7 @@ class Pagination extends React.PureComponent<PaginationProps> {
         : current + criteriaNumber;
 
     let condition: any = null;
-    for (const i of rangePage) {
+    rangePage.forEach((i) => {
       if ((i >= left && i <= right) || i <= 2 || i >= totalPage - 1) {
         if (i - condition !== 1) {
           rangePageWithDots.push('....');
@@ -42,7 +42,7 @@ class Pagination extends React.PureComponent<PaginationProps> {
         rangePageWithDots.push(i);
         condition = i;
       }
-    }
+    });
     return rangePageWithDots;
   }
 

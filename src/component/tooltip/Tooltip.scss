@@ -1,0 +1,87 @@
+@import '../../assets/scss/_mixin/responsive.scss';
+
+:local .tooltip {
+  background-color: #fff;
+  display: inline-block;
+  margin: 2px 5px;
+  position: relative;
+  cursor: help;
+
+  // // Will be Updated, Not Implmented
+  // .top-left {
+  //   top: 60px;
+  //   bottom: auto;
+  //   left: 0px;
+  //   right: auto;
+  // }
+
+  // .top-right {
+  //   top: 60px;
+  //   bottom: auto;
+  //   left: auto;
+  //   right: 0px;
+  // }
+
+  // .right {
+  //   top: -5px;
+  //   left: 105%;
+  // }
+
+  // .left {
+  //   top: -5px;
+  //   right: 105%;
+  // }
+
+  // .bottom-left {
+  //   top: auto;
+  //   bottom: 0px;
+  //   left: 0px;
+  //   right: auto;
+  // }
+
+  // .bottom-right {
+  //   top: auto;
+  //   bottom: 0px;
+  //   left: auto;
+  //   right: 0px;
+  // }
+
+  // Implmented
+  .top-center {
+    bottom: 150%;
+    left: 50%;
+    margin-left: -100px;
+  }
+
+  .bottom-center {
+    top: 150%;
+    left: 50%;
+    margin-left: -100px;
+  }
+
+  &:hover .message {
+    visibility: visible;
+  }
+  .message {
+    border-radius: 6px;
+    background-color: #fff;
+    padding: 5px 10px;
+    position: absolute;
+    text-align: center;
+    visibility: hidden;
+    width: 200px;
+    z-index: 200;
+    font-size: 14px;
+    // BottomArrow
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent transparent #5f42ff transparent;
+    }
+  }
+}

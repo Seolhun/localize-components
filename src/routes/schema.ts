@@ -1,15 +1,8 @@
 import HomeContainer from '@/container/home/HomeContainer';
 
-import TablePaginationView from '@/container/table/TablePaginationView';
-import TableScrollView from '@/container/table/TableScrollView';
-
 import BasicContainer from '@/container/comparison/component/BasicContainer';
 import FunctionalContainer from '@/container/comparison/component/FunctionalContainer';
 import PureContainer from '@/container/comparison/component/PureContainer';
-
-import RenderRxJsContainer, {
-  RxjsType,
-} from '@/container/rxjs/RenderRxJsContainer';
 
 import LifeCycleContainer from '@/container/lifecycle/LifeCycleContainer';
 
@@ -69,47 +62,22 @@ const routes = {
       component: FunctionalContainer,
     }),
   ],
-  table: [
-    // Example Component
-    routeCreator({
-      type: 2,
-      color: 'info',
-      path: '/table/pagination',
-      label: 'TablePagination',
-      component: TablePaginationView,
-    }),
-    routeCreator({
-      type: 2,
-      color: 'info',
-      path: '/table/scroll',
-      label: 'TableScroll',
-      component: TableScrollView,
-    }),
-  ],
-  rxjs: [
-    // RxJS
-    routeCreator({
-      type: 3,
-      color: 'primary',
-      path: '/rxjs/combine-all',
-      label: 'CombineAllContainer',
-      component: RenderRxJsContainer(RxjsType.conbineAll),
-    }),
-    routeCreator({
-      type: 3,
-      color: 'primary',
-      path: '/rxjs/combine-lastest',
-      label: 'CombineLastestContainer',
-      component: RenderRxJsContainer(RxjsType.combineLastest),
-    }),
-    routeCreator({
-      type: 3,
-      color: 'primary',
-      path: '/rxjs/click',
-      label: 'ObservableClickFromEventContainer',
-      component: RenderRxJsContainer(RxjsType.fromEvent),
-    }),
-  ],
+  // rxjs: [
+  //   routeCreator({
+  //     type: 3,
+  //     color: 'primary',
+  //     path: '/rxjs/combine-lastest',
+  //     label: 'CombineLastestContainer',
+  //     component: RenderRxJsContainer(RxjsType.combineLastest),
+  //   }),
+  //   routeCreator({
+  //     type: 3,
+  //     color: 'primary',
+  //     path: '/rxjs/click',
+  //     label: 'ObservableClickFromEventContainer',
+  //     component: RenderRxJsContainer(RxjsType.fromEvent),
+  //   }),
+  // ],
   lifecycle: [
     // LifeCycle
     routeCreator({
