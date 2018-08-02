@@ -1,0 +1,36 @@
+@import '../_variable/grid.scss';
+.row::after {
+  content: '';
+  clear: both;
+  display: table;
+}
+
+[class*='col-'] {
+  float: left;
+  padding: 10px;
+}
+
+[class*='just-col-'] {
+  float: left;
+  padding: 0px;
+}
+
+$col: 4.16666%;
+@for $i from 1 through 24 {
+  & .col-#{$i} {
+    width: $col * $i;
+  }
+  & .just-col-#{$i} {
+    width: $col * $i;
+  }
+}
+
+@media only screen and (max-width: map-get($map: $breakpoints, $key: md)) {
+  /* For mobile phones: */
+  [class*='col-'] {
+    width: 100%;
+  }
+  [class*='just-col'] {
+    width: 100%;
+  }
+}
