@@ -8,8 +8,18 @@ const Routes = () => {
   return (
     <div>
       <Switch>
-        {
-          Object.keys(routes).map((key) => routes[key].map((route) => {
+        {Object.keys(routes).map(key => {
+          if (!Array.isArray(routes[key])) {
+            return (
+              <Route
+                key={routes[key].label}
+                path={routes[key].path}
+                exact={routes[key].exact}
+                component={routes[key].component}
+              />
+            );
+          }
+          return routes[key].map(route => {
             return (
               <Route
                 key={route.label}
@@ -18,8 +28,8 @@ const Routes = () => {
                 component={route.component}
               />
             );
-          }))
-        }
+          });
+        })}
       </Switch>
     </div>
   );

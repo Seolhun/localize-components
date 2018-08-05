@@ -50,27 +50,38 @@ class Header extends React.Component<HeaderProps, HeaderState> {
   renderNavs() {
     const { dropdownIsOpen, clickedMenu } = this.state;
     return Object.keys(routes).map(key => {
+      if (!Array.isArray(routes[key])) {
+        return (
+          <Nav key={key} navbar>
+            <Link className="nav-link" to={routes[key].path}>
+              {routes[key].label}
+            </Link>
+          </Nav>
+        );
+      }
       return (
-        <Dropdown
-          key={key}
-          nav
-          isOpen={clickedMenu === key && dropdownIsOpen}
-          toggle={() => this.handleDropdownToggle(key)}>
-          <DropdownToggle nav caret>
-            {key}
-          </DropdownToggle>
-          <DropdownMenu key={key}>
-            {routes[key].map(route => {
-              return (
-                <DropdownItem key={route.label}>
-                  <Link className="nav-link" to={route.path}>
-                    {route.label}
-                  </Link>
-                </DropdownItem>
-              );
-            })}
-          </DropdownMenu>
-        </Dropdown>
+        <Nav key={key} navbar>
+          <Dropdown
+            key={key}
+            nav
+            isOpen={clickedMenu === key && dropdownIsOpen}
+            toggle={() => this.handleDropdownToggle(key)}>
+            <DropdownToggle nav caret>
+              {key}
+            </DropdownToggle>
+            <DropdownMenu key={key}>
+              {routes[key].map(route => {
+                return (
+                  <DropdownItem key={route.label}>
+                    <Link className="nav-link" to={route.path}>
+                      {route.label}
+                    </Link>
+                  </DropdownItem>
+                );
+              })}
+            </DropdownMenu>
+          </Dropdown>
+        </Nav>
       );
     });
   }
@@ -85,18 +96,12 @@ class Header extends React.Component<HeaderProps, HeaderState> {
             </Link>
             <NavbarToggler onClick={this.handleToggle} />
             <Collapse isOpen={this.state.is_open} navbar>
-              <Nav navbar>{this.renderNavs()}</Nav>
+              {this.renderNavs()}
               <Nav className="ml-auto" navbar>
                 <NavItem>
-                  <ul className="navbar-nav">
-                    <li className="nav-item">
-                      <NavLink
-                        href="https://github.com/seolhun"
-                        target="_blank">
-                        Github
-                      </NavLink>
-                    </li>
-                  </ul>
+                  <NavLink href="https://github.com/seolhun" target="_blank">
+                    Github
+                  </NavLink>
                 </NavItem>
               </Nav>
             </Collapse>
