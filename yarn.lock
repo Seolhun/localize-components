@@ -19,9 +19,9 @@
     reflect-metadata "^0.1.12"
     tslib "^1.8.1"
 
-"@seolhun/react-simple-components@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@seolhun/react-simple-components/-/react-simple-components-1.0.1.tgz#72fc5a9217956f78ec15c69f351322ac455cb3d5"
+"@seolhun/react-simple-components@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@seolhun/react-simple-components/-/react-simple-components-1.0.2.tgz#072a0e77fbb82a479fc5fc1a02398f787896f286"
   dependencies:
     axios "^0.18.0"
     bootstrap "^4.1.3"

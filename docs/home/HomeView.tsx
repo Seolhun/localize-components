@@ -1,7 +1,5 @@
 import * as React from 'react';
 
-// import { Alert } from '@/component';
-
 class HomeView extends React.PureComponent {
   render() {
     return (
