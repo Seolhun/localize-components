@@ -1,9 +1,6 @@
 {
   "compilerOptions": {
-    "lib": [
-      "es5",
-      "dom"
-    ],
+    "lib": ["es5", "dom"],
     "target": "es6",
     "module": "commonjs",
     "moduleResolution": "node",
@@ -19,18 +16,14 @@
     "noUnusedLocals": true,
     "strictNullChecks": true,
     "sourceMap": true,
-    "rootDir": "src",
+    "rootDir": ".",
     "outDir": "dist",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
-    },
+      "@/*": ["./src/*"]
+    }
   },
-  "exclude": [
-    ".vscode",
-    "dist",
-    "node_modules"
-  ],
+  "exclude": [".vscode", "dist", "node_modules"],
   "typeAcquisition": {
     "enable": true
   }

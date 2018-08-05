@@ -15,7 +15,9 @@
   "keywords": [
     "react",
     "typescript",
-    "component"
+    "component",
+    "ui",
+    "scss"
   ],
   "author": "seolhun",
   "license": "MIT",
@@ -26,6 +28,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.1.3",
+    "gh-pages": "^1.2.0",
     "lodash": "^4.17.5",
     "react": "^16.4.0",
     "react-dom": "^16.4.2",

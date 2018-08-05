@@ -13,7 +13,7 @@ import {
   NavLink,
 } from 'reactstrap';
 
-import routes from '@/routes/schema';
+import routes from '../routes/schema';
 import './Header.scss';
 
 export interface HeaderProps extends React.Props<Header> {}

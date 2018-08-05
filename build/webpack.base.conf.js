@@ -33,12 +33,12 @@ module.exports = {
       {
         test: /\.(jsx|js)?$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('_test')],
+        include: [resolve('src'), resolve('docs')],
       },
       {
         test: /\.(tsx|ts)?$/,
         loader: 'ts-loader',
-        include: [resolve('src'), resolve('test')],
+        include: [resolve('src'), resolve('docs')],
         exclude: /node_modules/,
       },
       {
