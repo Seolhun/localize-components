@@ -1,8 +1,8 @@
 {
-  "name": "react-simple-components",
+  "name": "@seolhun/react-simple-components",
   "version": "1.0.0",
   "description": "We just pursue simple and easy react components to customize.",
-  "main": "main.ts",
+  "main": "src/index.ts",
   "scripts": {
     "build": "node build/build.js",
     "dev": "node build/dev-server.js",
@@ -19,7 +19,7 @@
     "ui",
     "scss"
   ],
-  "author": "seolhun",
+  "author": "Seolhun",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/Seolhun/react-simple-components/issues"
@@ -44,6 +44,7 @@
     "babel-loader": "^7.1.2",
     "babel-preset-stage-2": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
+    "compression-webpack-plugin": "^1.1.11",
     "css-loader": "^1.0.0",
     "eventsource-polyfill": "^0.9.6",
     "friendly-errors-webpack-plugin": "^1.7.0",
@@ -63,6 +64,10 @@
     "webpack-dev-server": "^3.1.5",
     "webpack-hot-middleware": "^2.22.3",
     "webpack-merge": "^4.1.4"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "engines": {
     "node": ">= 6.0.0",

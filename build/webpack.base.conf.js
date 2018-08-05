@@ -13,7 +13,6 @@ module.exports = {
         ? resolve('./src/index.ts')
         : resolve('./docs/index.tsx'),
   },
-  mode: process.env.NODE_ENV,
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
@@ -22,6 +21,7 @@ module.exports = {
         ? config.build.assetsPublicPath
         : config.dev.assetsPublicPath,
   },
+  mode: process.env.NODE_ENV,
   resolve: {
     extensions: ['.js', 'jsx', '.ts', '.tsx', 'scss'],
     alias: {

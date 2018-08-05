@@ -1,11 +1,12 @@
 import * as React from 'react';
+import Button, { ButtonProps } from '@/component/button';
+import Alert, { AlertProps } from '@/component/alert';
+import Hr, { HrProps } from '@/component/Hr';
 
-import Button, { ButtonProps } from './button';
-import Alert, { AlertProps } from './alert';
-import Hr, { HrProps } from './Hr';
-
-export { React, Button, ButtonProps, Alert, AlertProps, Hr, HrProps };
+export { Button, ButtonProps, Alert, AlertProps, Hr, HrProps };
 export default {
+  React,
   Button,
   Alert,
+  Hr,
 };

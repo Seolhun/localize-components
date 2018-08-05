@@ -2,7 +2,54 @@ import * as React from 'react';
 
 import Button from '@/component/button';
 
-class ButtonView extends React.Component {
+export interface ButtonViewProps {}
+
+export interface ButtonViewState {
+  messages: string[];
+}
+class ButtonView extends React.Component<ButtonViewProps, ButtonViewState> {
+  constructor(props: ButtonViewProps) {
+    super(props);
+    this.state = {
+      messages: [],
+    };
+  }
+
+  handleClick = () => {
+    const { messages } = this.state;
+    this.setState({
+      messages: [...messages, 'onClick'],
+    });
+  };
+
+  handleFocus = () => {
+    const { messages } = this.state;
+    this.setState({
+      messages: [...messages, 'onFocus'],
+    });
+  };
+
+  handleonMouseOver = () => {
+    const { messages } = this.state;
+    this.setState({
+      messages: [...messages, 'onMouseOver'],
+    });
+  };
+
+  handleonMouseOut = () => {
+    const { messages } = this.state;
+    this.setState({
+      messages: [...messages, 'onMouseOut'],
+    });
+  };
+
+  handleBlur = () => {
+    const { messages } = this.state;
+    this.setState({
+      messages: [...messages, 'onBlur'],
+    });
+  };
+
   render() {
     return (
       <section>
@@ -14,24 +61,70 @@ class ButtonView extends React.Component {
         <div className="col-24">
           <Button
             className="btn-success"
-            onClick={() => null}
+            onClick={this.handleClick}
+            onFocus={this.handleFocus}
+            onMouseOver={this.handleonMouseOver}
+            onMouseOut={this.handleonMouseOut}
+            onBlur={this.handleBlur}
             style={{
               padding: '10px 20px',
             }}>
             btn-success
           </Button>
-          <Button className="btn-outline-success" onClick={() => null}>
+          <Button
+            className="btn-outline-success"
+            onClick={this.handleClick}
+            onFocus={this.handleFocus}
+            onMouseOver={this.handleonMouseOver}
+            onMouseOut={this.handleonMouseOut}
+            onBlur={this.handleBlur}
+            style={{
+              padding: '10px 20px',
+            }}>
             btn-outline-success
           </Button>
-          <Button className="btn-lighten-success" onClick={() => null}>
+          <Button
+            className="btn-lighten-success"
+            onClick={this.handleClick}
+            onFocus={this.handleFocus}
+            onMouseOver={this.handleonMouseOver}
+            onMouseOut={this.handleonMouseOut}
+            onBlur={this.handleBlur}
+            style={{
+              padding: '10px 20px',
+            }}>
             btn-lighten-success
           </Button>
-          <Button className="btn-darken-success" onClick={() => null}>
+          <Button
+            className="btn-darken-success"
+            onClick={this.handleClick}
+            onFocus={this.handleFocus}
+            onMouseOver={this.handleonMouseOver}
+            onMouseOut={this.handleonMouseOut}
+            onBlur={this.handleBlur}
+            style={{
+              padding: '10px 20px',
+            }}>
             btn-darken-success
           </Button>
-          <Button className="btn-darken-success" onClick={() => null} disabled>
+          <Button
+            className="btn-darken-success"
+            onClick={this.handleClick}
+            onFocus={this.handleFocus}
+            onMouseOver={this.handleonMouseOver}
+            onMouseOut={this.handleonMouseOut}
+            onBlur={this.handleBlur}
+            style={{
+              padding: '10px 20px',
+            }}
+            disabled>
             disabled
           </Button>
+        </div>
+        <div className="col-24">
+          {this.state.messages.map((message, idx) => (
+            <div key={idx}>{message}</div>
+          ))}
         </div>
       </section>
     );

@@ -1,37 +1,37 @@
 require('./check-versions')();
 
-let config = require('../config');
+const config = require('../config');
 if (!process.env.NODE_ENV) {
   process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV);
 }
 
-let opn = require('opn');
-let path = require('path');
-let express = require('express');
-let webpack = require('webpack');
-let proxyMiddleware = require('http-proxy-middleware');
-let webpackConfig =
+const opn = require('opn');
+const path = require('path');
+const express = require('express');
+const webpack = require('webpack');
+const proxyMiddleware = require('http-proxy-middleware');
+const webpackConfig =
   process.env.NODE_ENV === 'testing'
     ? require('./webpack.prod.conf')
     : require('./webpack.dev.conf');
 
 // default port where dev server listens for incoming traffic
-let port = process.env.PORT || config.dev.port;
+const port = process.env.PORT || config.dev.port;
 // automatically open browser, if not set will be false
-let autoOpenBrowser = !!config.dev.autoOpenBrowser;
+const autoOpenBrowser = !!config.dev.autoOpenBrowser;
 // Define HTTP proxies to your custom API backend
 // https://github.com/chimurai/http-proxy-middleware
-let proxyTable = config.dev.proxyTable;
+const proxyTable = config.dev.proxyTable;
 
-let app = express();
-let compiler = webpack(webpackConfig);
+const app = express();
+const compiler = webpack(webpackConfig);
 
-let devMiddleware = require('webpack-dev-middleware')(compiler, {
+const devMiddleware = require('webpack-dev-middleware')(compiler, {
   publicPath: webpackConfig.output.publicPath,
   quiet: true,
 });
 
-let hotMiddleware = require('webpack-hot-middleware')(compiler, {
+const hotMiddleware = require('webpack-hot-middleware')(compiler, {
   log: false,
   heartbeat: 2000,
 });

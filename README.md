@@ -1,13 +1,14 @@
-# React Simple Components and Test
+# React Simple Components to customizing
+
 - Author : [HunSeol](https://github.com/Seolhun/)
 
 ## Used stacks
-- TypeScript
+
 - React
-- Webpack
-- RxJS
-- ReactStrap
+- TypeScript
+- SCSS
 
 ## Getting start
-1. npm install
-2. npm run dev
+
+1.  yarn install
+2.  yarn dev
