@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Hr } from '@/component';
+import Hr from '@/component/hr';
 
 class HrView extends React.Component {
   render() {

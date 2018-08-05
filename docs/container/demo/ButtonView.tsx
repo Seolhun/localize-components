@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Button } from '@/component';
+import Button from '@/component/button';
 
 class ButtonView extends React.Component {
   render() {

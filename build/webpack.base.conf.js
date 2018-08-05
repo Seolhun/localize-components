@@ -8,7 +8,10 @@ function resolve(dir) {
 
 module.exports = {
   entry: {
-    main: resolve('./src/Main.tsx'),
+    main:
+      process.env.NODE_ENV === 'production'
+        ? resolve('./src/index.ts')
+        : resolve('./docs/index.tsx'),
   },
   mode: process.env.NODE_ENV,
   output: {

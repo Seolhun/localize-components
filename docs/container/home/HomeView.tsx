@@ -2,7 +2,7 @@ import * as React from 'react';
 
 // import { Alert } from '@/component';
 
-class AlertView extends React.Component {
+class HomeView extends React.PureComponent {
   render() {
     return (
       <section>
@@ -16,4 +16,4 @@ class AlertView extends React.Component {
   }
 }
 
-export default AlertView;
+export default HomeView;

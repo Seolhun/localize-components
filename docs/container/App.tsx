@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import Header from '@/container/layout/Header';
-import Routes from '@/routes';
+import Header from '../container/layout/Header';
+import Routes from '../routes';
 import './App.scss';
 
 class App extends React.Component {

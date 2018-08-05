@@ -1,7 +1,7 @@
-import HomeView from '@/container/home/HomeView';
-import ButtonView from '@/container/demo/ButtonView';
-import HrView from '@/container/demo/HrView';
-import AlertView from '@/container/demo/AlertView';
+import HomeView from '../container/home/HomeView';
+import ButtonView from '../container/demo/ButtonView';
+import HrView from '../container/demo/HrView';
+import AlertView from '../container/demo/AlertView';
 
 const routeCreator = ({
   type,
