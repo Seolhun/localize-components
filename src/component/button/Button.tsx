@@ -23,20 +23,16 @@ export interface ButtonProps {
 
 const Button: React.SFC<ButtonProps> = ({
   // is Required
-  children = null,
-  onClick = () => null,
+  children,
+  onClick,
   // is Not Required
-  onMouseOver = () => null,
-  onMouseOut = () => null,
-  onBlur = () => null,
-  onFocus = () => null,
-  className = 'btn-success',
-  fontSize = 12,
-  style = {
-    color: '',
-    backgroundColor: '',
-    padding: '10px 20px',
-  },
+  onMouseOver,
+  onMouseOut,
+  onBlur,
+  onFocus,
+  className,
+  fontSize,
+  style,
   disabled,
 }) => (
   <button
@@ -51,9 +47,25 @@ const Button: React.SFC<ButtonProps> = ({
       ...style,
       fontSize: `${fontSize}px`,
     }}
-    disabled={disabled}>
+    disabled={disabled}
+  >
     {children}
   </button>
 );
+
+Button.defaultProps = {
+  onMouseOver: () => null,
+  onMouseOut: () => null,
+  onBlur: () => null,
+  onFocus: () => null,
+  className: 'btn-success',
+  fontSize: 12,
+  style: {
+    color: '',
+    backgroundColor: '',
+    padding: '10px 20px',
+  },
+  disabled: false,
+};
 
 export default Button;

@@ -22,7 +22,7 @@ const POSITION = {
   C: 'center',
 };
 
-const setColor = color => {
+const setColor = (color) => {
   let styleColor = 'bg-color-';
   switch (color.toLowerCase()) {
     case COLOR.SUCCESS:
@@ -47,7 +47,7 @@ const setColor = color => {
   return styles[`${styleColor}`];
 };
 
-const setPosition = postion => {
+const setPosition = (postion) => {
   switch (postion.toLowerCase()) {
     case POSITION.TL:
       return styles[POSITION.TL];
@@ -79,13 +79,13 @@ export interface AlertProps {
 
 const Alert: React.SFC<AlertProps> = ({
   onClickClose,
-  message = 'Message',
-
-  isShow = false,
-  title = '',
-  buttonLabel = 'Confirm',
-  color = 'basic',
-  position = 'top-center',
+  message,
+  // is Not Required
+  isShow,
+  title,
+  buttonLabel,
+  color,
+  position,
 }) => {
   if (!isShow) {
     return null;
@@ -97,7 +97,8 @@ const Alert: React.SFC<AlertProps> = ({
       <div
         className={`${styles.alert} ${setColor(color)} ${setPosition(
           position,
-        )}`}>
+        )}`}
+      >
         <div className={styles.titleDiv}>{title}</div>
         <div className={styles.messageDiv}>{message}</div>
         <div className={styles.buttonDiv}>
@@ -111,6 +112,14 @@ const Alert: React.SFC<AlertProps> = ({
       </div>
     </Fragment>
   );
+};
+
+Alert.defaultProps = {
+  isShow: false,
+  title: '',
+  buttonLabel: 'Confirm',
+  color: 'basic',
+  position: 'top-center',
 };
 
 export default Alert;

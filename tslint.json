@@ -31,7 +31,7 @@
       }
     ],
     "quotemark": {
-      "options": ["single", "jsx-single", "avoid-escape"]
+      "options": ["single", "jsx-double", "avoid-escape"]
     },
     "variable-name": {
       "options": [

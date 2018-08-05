@@ -10,13 +10,7 @@ export interface HrProps {
   };
 }
 
-const Hr: React.SFC<HrProps> = ({
-  className = '',
-  color = '#000',
-  style = {
-    margin: '1rem 0',
-  },
-}) => (
+const Hr: React.SFC<HrProps> = ({ className, color, style }) => (
   <hr
     className={`${styles.separator} ${className}`}
     style={{
@@ -25,5 +19,13 @@ const Hr: React.SFC<HrProps> = ({
     }}
   />
 );
+
+Hr.defaultProps = {
+  className: '',
+  color: '#000',
+  style: {
+    margin: '1rem 0',
+  },
+};
 
 export default Hr;
