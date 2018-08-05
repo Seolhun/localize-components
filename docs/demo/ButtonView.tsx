@@ -1,7 +1,6 @@
 import * as React from 'react';
 
-import Button from '@/component/button';
-
+import { Button } from '@seolhun/react-simple-components';
 export interface ButtonViewProps {}
 
 export interface ButtonViewState {
@@ -68,7 +67,8 @@ class ButtonView extends React.Component<ButtonViewProps, ButtonViewState> {
             onBlur={this.handleBlur}
             style={{
               padding: '10px 20px',
-            }}>
+            }}
+          >
             btn-success
           </Button>
           <Button
@@ -80,7 +80,8 @@ class ButtonView extends React.Component<ButtonViewProps, ButtonViewState> {
             onBlur={this.handleBlur}
             style={{
               padding: '10px 20px',
-            }}>
+            }}
+          >
             btn-outline-success
           </Button>
           <Button
@@ -92,7 +93,8 @@ class ButtonView extends React.Component<ButtonViewProps, ButtonViewState> {
             onBlur={this.handleBlur}
             style={{
               padding: '10px 20px',
-            }}>
+            }}
+          >
             btn-lighten-success
           </Button>
           <Button
@@ -104,7 +106,8 @@ class ButtonView extends React.Component<ButtonViewProps, ButtonViewState> {
             onBlur={this.handleBlur}
             style={{
               padding: '10px 20px',
-            }}>
+            }}
+          >
             btn-darken-success
           </Button>
           <Button
@@ -117,7 +120,8 @@ class ButtonView extends React.Component<ButtonViewProps, ButtonViewState> {
             style={{
               padding: '10px 20px',
             }}
-            disabled>
+            disabled
+          >
             disabled
           </Button>
         </div>

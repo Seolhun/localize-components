@@ -1,25 +1,27 @@
-import React, { Fragment } from 'react';
+import * as React from 'react';
 
 const styles = require('./Alert.scss');
 import Button from '../button';
 
 const COLOR = {
   BASIC: 'basic',
-  SUCCESS: 'success',
-  PRIMARY: 'primary',
-  INFO: 'info',
-  WARNING: 'warning',
   DANGER: 'danger',
+  INFO: 'info',
+  PRIMARY: 'primary',
+  SUCCESS: 'success',
+  WARNING: 'warning',
 };
 
 const POSITION = {
-  TL: 'top-left',
-  TR: 'top-right',
-  TC: 'top-center',
+  BC: 'bottom-center',
   BL: 'bottom-left',
   BR: 'bottom-right',
-  BC: 'bottom-center',
   C: 'center',
+  L: 'left',
+  R: 'right',
+  TC: 'top-center',
+  TL: 'top-left',
+  TR: 'top-right',
 };
 
 const setColor = (color) => {
@@ -60,9 +62,13 @@ const setPosition = (postion) => {
     case POSITION.BC:
       return styles[POSITION.BC];
     case POSITION.C:
-      return styles[POSITION.C];
-    default:
       return styles[POSITION.TC];
+    case POSITION.R:
+      return styles[POSITION.R];
+    case POSITION.L:
+      return styles[POSITION.L];
+    default:
+      return styles[POSITION.C];
   }
 };
 
@@ -92,7 +98,7 @@ const Alert: React.SFC<AlertProps> = ({
   }
 
   return (
-    <Fragment>
+    <React.Fragment>
       <div className={styles.coverBackground} />
       <div
         className={`${styles.alert} ${setColor(color)} ${setPosition(
@@ -104,13 +110,10 @@ const Alert: React.SFC<AlertProps> = ({
         <div className={styles.buttonDiv}>
           <Button className={`btn btn-${color}`} onClick={onClickClose}>
             {buttonLabel}
-            style={{
-              padding: '10px 50px',
-            }}
           </Button>
         </div>
       </div>
-    </Fragment>
+    </React.Fragment>
   );
 };
 

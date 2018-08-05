@@ -34,7 +34,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     };
   }
 
-  handleDropdownToggle = clickedMenu => {
+  handleDropdownToggle = (clickedMenu) => {
     this.setState({
       clickedMenu,
       dropdownIsOpen: !this.state.dropdownIsOpen,
@@ -49,7 +49,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 
   renderNavs() {
     const { dropdownIsOpen, clickedMenu } = this.state;
-    return Object.keys(routes).map(key => {
+    return Object.keys(routes).map((key) => {
       if (!Array.isArray(routes[key])) {
         return (
           <Nav key={key} navbar>
@@ -65,12 +65,13 @@ class Header extends React.Component<HeaderProps, HeaderState> {
             key={key}
             nav
             isOpen={clickedMenu === key && dropdownIsOpen}
-            toggle={() => this.handleDropdownToggle(key)}>
+            toggle={() => this.handleDropdownToggle(key)}
+          >
             <DropdownToggle nav caret>
               {key}
             </DropdownToggle>
             <DropdownMenu key={key}>
-              {routes[key].map(route => {
+              {routes[key].map((route) => {
                 return (
                   <DropdownItem key={route.label}>
                     <Link className="nav-link" to={route.path}>

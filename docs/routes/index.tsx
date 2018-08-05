@@ -8,7 +8,7 @@ const Routes = () => {
   return (
     <div>
       <Switch>
-        {Object.keys(routes).map(key => {
+        {Object.keys(routes).map((key) => {
           if (!Array.isArray(routes[key])) {
             return (
               <Route
@@ -19,7 +19,7 @@ const Routes = () => {
               />
             );
           }
-          return routes[key].map(route => {
+          return routes[key].map((route) => {
             return (
               <Route
                 key={route.label}

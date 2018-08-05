@@ -8,18 +8,14 @@ function resolve(dir) {
 
 module.exports = {
   entry: {
-    main:
-      process.env.NODE_ENV === 'production'
-        ? resolve('./src/index.ts')
-        : resolve('./docs/index.tsx'),
+    index: process.env.NODE_ENV === 'production' ?
+      resolve('./src/index.ts') : resolve('./docs/index.tsx'),
   },
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
-    publicPath:
-      process.env.NODE_ENV === 'production'
-        ? config.build.assetsPublicPath
-        : config.dev.assetsPublicPath,
+    publicPath: process.env.NODE_ENV === 'production' ?
+      config.build.assetsPublicPath : config.dev.assetsPublicPath,
   },
   mode: process.env.NODE_ENV,
   resolve: {
@@ -29,8 +25,7 @@ module.exports = {
     },
   },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.(jsx|js)?$/,
         loader: 'babel-loader',
         include: [resolve('src'), resolve('docs')],
@@ -43,8 +38,7 @@ module.exports = {
       },
       {
         test: /\.(css|scss)$/,
-        use: [
-          {
+        use: [{
             loader: 'style-loader',
           },
           {

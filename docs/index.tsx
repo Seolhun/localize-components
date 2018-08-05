@@ -4,8 +4,8 @@ import { BrowserRouter } from 'react-router-dom';
 
 import Header from './layout/Header';
 import Routes from './routes';
-import './App.scss';
 
+import './index.scss';
 import './vendor';
 
 render(

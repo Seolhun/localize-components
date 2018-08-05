@@ -8,9 +8,9 @@ let OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 let env =
-  process.env.NODE_ENV === 'testing'
-    ? require('../config/test.env')
-    : config.build.env;
+  process.env.NODE_ENV === 'testing' ?
+  require('../config/test.env') :
+  config.build.env;
 
 let webpackConfig = merge(baseWebpackConfig, {
   module: {
@@ -22,8 +22,8 @@ let webpackConfig = merge(baseWebpackConfig, {
   devtool: config.build.productionSourceMap ? '#source-map' : false,
   output: {
     path: config.build.assetsRoot,
-    filename: utils.assetsPath('js/[name].[chunkhash].js'),
-    chunkFilename: utils.assetsPath('js/[id].[chunkhash].js'),
+    filename: utils.assetsPath('[name].[chunkhash].js'),
+    chunkFilename: utils.assetsPath('[id].[chunkhash].js'),
   },
   optimization: {
     minimizer: [

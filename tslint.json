@@ -1,6 +1,12 @@
 {
+  "extends": "tslint-config-airbnb",
+  "linterOptions": {
+    "exclude": [
+      "node_modules/*",
+      "build/*",
+    ]
+  },
   "defaultSeverity": "error",
-  "extends": ["tslint:recommended"],
   "jsRules": {},
   "rules": {
     "interface-name": {
