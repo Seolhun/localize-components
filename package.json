@@ -10,18 +10,19 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Seolhun/jtn-script-example"
+    "url": "git+https://github.com/Seolhun/react-simple-components"
   },
   "keywords": [
+    "react",
     "typescript",
-    "example"
+    "component"
   ],
   "author": "seolhun",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Seolhun/jtn-script-example/issues"
+    "url": "https://github.com/Seolhun/react-simple-components/issues"
   },
-  "homepage": "https://github.com/Seolhun/jtn-script-example#readme",
+  "homepage": "https://github.com/Seolhun/react-simple-components#readme",
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.1.3",
@@ -41,7 +42,6 @@
     "@types/react-dom": "^16.0.3",
     "@types/react-router": "^4.0.21",
     "@types/react-router-dom": "^4.2.3",
-    "awesome-typescript-loader": "^5.2.0",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-stage-2": "^6.24.1",
@@ -67,7 +67,7 @@
     "webpack-merge": "^4.1.4"
   },
   "engines": {
-    "node": ">= 4.0.0",
+    "node": ">= 6.0.0",
     "npm": ">= 3.0.0"
   }
 }
