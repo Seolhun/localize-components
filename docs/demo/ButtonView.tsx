@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Button } from '@seolhun/react-simple-components';
+import { Button } from '../../src/';
 export interface ButtonViewProps {}
 
 export interface ButtonViewState {

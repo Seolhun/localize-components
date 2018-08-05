@@ -19,19 +19,6 @@
     reflect-metadata "^0.1.12"
     tslib "^1.8.1"
 
-"@seolhun/react-simple-components@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@seolhun/react-simple-components/-/react-simple-components-1.0.2.tgz#072a0e77fbb82a479fc5fc1a02398f787896f286"
-  dependencies:
-    axios "^0.18.0"
-    bootstrap "^4.1.3"
-    gh-pages "^1.2.0"
-    lodash "^4.17.5"
-    react "^16.4.0"
-    react-dom "^16.4.2"
-    react-router-dom "^4.2.2"
-    reactstrap "^5.0.0-beta"
-
 "@types/history@*":
   version "4.7.0"
   resolved "https://registry.yarnpkg.com/@types/history/-/history-4.7.0.tgz#2fac51050c68f7d6f96c5aafc631132522f4aa3f"
