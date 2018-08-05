@@ -1,6 +1,6 @@
 {
   "name": "@seolhun/react-simple-components",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "We just pursue simple and easy react components to customize.",
   "main": "src/index.ts",
   "scripts": {
