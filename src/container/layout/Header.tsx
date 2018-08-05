@@ -34,34 +34,33 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     };
   }
 
-  handleDropdownToggle = (clickedMenu) => {
+  handleDropdownToggle = clickedMenu => {
     this.setState({
       clickedMenu,
       dropdownIsOpen: !this.state.dropdownIsOpen,
     });
-  }
+  };
 
   handleToggle = () => {
     this.setState({
       is_open: !this.state.is_open,
     });
-  }
+  };
 
   renderNavs() {
     const { dropdownIsOpen, clickedMenu } = this.state;
-    return Object.keys(routes).map((key) => {
+    return Object.keys(routes).map(key => {
       return (
         <Dropdown
           key={key}
           nav
           isOpen={clickedMenu === key && dropdownIsOpen}
-          toggle={() => this.handleDropdownToggle(key)}
-        >
+          toggle={() => this.handleDropdownToggle(key)}>
           <DropdownToggle nav caret>
             {key}
           </DropdownToggle>
           <DropdownMenu key={key}>
-            {routes[key].map((route) => {
+            {routes[key].map(route => {
               return (
                 <DropdownItem key={route.label}>
                   <Link className="nav-link" to={route.path}>
@@ -82,7 +81,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
         <Navbar color="faded" light expand="md">
           <div className="container">
             <Link className="navbar-brand nav-link" to="/">
-              Simple Components
+              Components
             </Link>
             <NavbarToggler onClick={this.handleToggle} />
             <Collapse isOpen={this.state.is_open} navbar>
@@ -93,8 +92,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
                     <li className="nav-item">
                       <NavLink
                         href="https://github.com/seolhun"
-                        target="_blank"
-                      >
+                        target="_blank">
                         Github
                       </NavLink>
                     </li>

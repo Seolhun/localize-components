@@ -6,12 +6,10 @@
 }
 
 [class*='col-'] {
-  float: left;
   padding: 10px;
 }
 
 [class*='just-col-'] {
-  float: left;
   padding: 0px;
 }
 
@@ -28,9 +26,13 @@ $col: 4.16666%;
 @media only screen and (max-width: map-get($map: $breakpoints, $key: md)) {
   /* For mobile phones: */
   [class*='col-'] {
+    float: left;
+    padding: 10px;
     width: 100%;
   }
   [class*='just-col'] {
+    float: left;
+    padding: 0px;
     width: 100%;
   }
 }

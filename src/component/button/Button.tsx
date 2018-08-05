@@ -2,41 +2,44 @@ import * as React from 'react';
 
 const styles = require('./Button.scss');
 
-interface ButtonProps {
+export interface ButtonProps {
   // isRequired
   children: React.ReactNode;
+  onClick: () => any;
   // isNotRequired
-  className: string;
-  onClick: () => void;
-  fontSize: number;
-  padding: string;
-  style: {
-    color: string;
-    backgroundColor: string;
+  className?: string;
+  fontSize?: number;
+  style?: {
+    color?: string;
+    backgroundColor?: string;
+    padding?: string;
   };
-  disabled: boolean;
+  disabled?: boolean;
 }
 
 const Button: React.SFC<ButtonProps> = ({
-  className = '',
+  // is Required
   onClick = () => null,
   children = null,
+  // is Not Required
+  className = 'btn-success',
   fontSize = 12,
-  padding = '',
-  style = '',
-  disabled = false,
+  style = {
+    color: '',
+    backgroundColor: '',
+    padding: '10px 20px',
+  },
+  disabled,
 }) => (
   <button
     type="button"
-    className={`${styles.btn} ${className || 'not-custom'}`}
+    className={`${styles.btn} ${className}`}
     onClick={onClick}
     style={{
       ...style,
       fontSize: `${fontSize}px`,
-      padding,
     }}
-    disabled={disabled}
-  >
+    disabled={disabled}>
     {children}
   </button>
 );

@@ -1,14 +1,6 @@
 @import '../../assets/scss/_mixin/responsive.scss';
 @import '../../assets/scss/_variable/grid.scss';
-@import '../../assets/scss/_sub/grid.scss';
-$defaultColors: ( main: #5f42ff, success: #28a745, primary: #0069d9, info: #369cc7, warning: #ebad1a, danger: #dc3545, basic: #979696, );
-@each $key,
-$value in $defaultColors {
-  :local .bg-color-#{$key} {
-    background-color: #fff;
-    border: 0.1px solid $value;
-  }
-}
+@import '../../assets/scss/_variable/color.scss';
 
 :local .coverBackground {
   position: fixed;
@@ -105,5 +97,12 @@ $value in $defaultColors {
     position: absolute;
     width: 100%;
     text-align: center;
+  }
+}
+
+@each $key, $value in $defaultColors {
+  :local .bg-color-#{$key} {
+    background-color: #fff;
+    border: 0.1px solid $value;
   }
 }

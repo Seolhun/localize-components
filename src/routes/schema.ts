@@ -1,16 +1,10 @@
-import HomeContainer from '@/container/home/HomeContainer';
-
-import BasicContainer from '@/container/comparison/component/BasicContainer';
-import FunctionalContainer from '@/container/comparison/component/FunctionalContainer';
-import PureContainer from '@/container/comparison/component/PureContainer';
-
-import LifeCycleContainer from '@/container/lifecycle/LifeCycleContainer';
-
-import NotFoundView from '@/container/common/NotFoundView';
+import HomeView from '@/container/home/HomeView';
+import ButtonView from '@/container/demo/ButtonView';
+import HrView from '@/container/demo/HrView';
+import AlertView from '@/container/demo/AlertView';
 
 const routeCreator = ({
   type,
-  color,
   path,
   label,
   exact = true,
@@ -19,7 +13,6 @@ const routeCreator = ({
 }) => {
   return {
     type,
-    color,
     path,
     label,
     exact,
@@ -29,74 +22,30 @@ const routeCreator = ({
 };
 
 const routes = {
-  home: [
+  home: routeCreator({
+    type: 0,
+    path: '/',
+    label: 'HomeView',
+    component: HomeView,
+  }),
+  components: [
     routeCreator({
       type: 0,
-      color: 'primary',
-      path: '/',
-      label: 'Home',
-      component: HomeContainer,
+      path: '/button',
+      label: 'ButtonView',
+      component: ButtonView,
     }),
-  ],
-  comparison: [
-    // Comparison Function in React
-    routeCreator({
-      type: 1,
-      color: 'success',
-      path: '/comparison/basic',
-      label: 'BasicComponent',
-      component: BasicContainer,
-    }),
-    routeCreator({
-      type: 1,
-      color: 'success',
-      path: '/comparison/pure',
-      label: 'PureComponent',
-      component: PureContainer,
-    }),
-    routeCreator({
-      type: 1,
-      color: 'success',
-      path: '/comparison/functional',
-      label: 'FunctionalComponent',
-      component: FunctionalContainer,
-    }),
-  ],
-  // rxjs: [
-  //   routeCreator({
-  //     type: 3,
-  //     color: 'primary',
-  //     path: '/rxjs/combine-lastest',
-  //     label: 'CombineLastestContainer',
-  //     component: RenderRxJsContainer(RxjsType.combineLastest),
-  //   }),
-  //   routeCreator({
-  //     type: 3,
-  //     color: 'primary',
-  //     path: '/rxjs/click',
-  //     label: 'ObservableClickFromEventContainer',
-  //     component: RenderRxJsContainer(RxjsType.fromEvent),
-  //   }),
-  // ],
-  lifecycle: [
-    // LifeCycle
-    routeCreator({
-      type: 4,
-      color: 'primary',
-      path: '/lifecycle',
-      label: 'LifeCycleContainer',
-      component: LifeCycleContainer,
-    }),
-  ],
-  error: [
-    // Error
     routeCreator({
       type: 0,
-      color: 'warning',
-      path: '*',
-      exact: false,
-      label: 'NotFoundView',
-      component: NotFoundView,
+      path: '/hr',
+      label: 'HrView',
+      component: HrView,
+    }),
+    routeCreator({
+      type: 0,
+      path: '/alert',
+      label: 'AlertView',
+      component: AlertView,
     }),
   ],
 };
