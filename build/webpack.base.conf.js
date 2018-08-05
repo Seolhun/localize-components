@@ -6,18 +6,18 @@ function resolve(dir) {
   return path.join(__dirname, '..', dir);
 }
 
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
 module.exports = {
   entry: {
     main: resolve('./src/Main.tsx'),
   },
+  mode: process.env.NODE_ENV,
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
-    publicPath: process.env.NODE_ENV === 'production'
-      ? config.build.assetsPublicPath
-      : config.dev.assetsPublicPath,
+    publicPath:
+      process.env.NODE_ENV === 'production'
+        ? config.build.assetsPublicPath
+        : config.dev.assetsPublicPath,
   },
   resolve: {
     extensions: ['.js', 'jsx', '.ts', '.tsx', 'scss'],
@@ -31,32 +31,39 @@ module.exports = {
         test: /\.(jsx|js)?$/,
         loader: 'babel-loader',
         include: [resolve('src'), resolve('_test')],
-      }, {
+      },
+      {
         test: /\.(tsx|ts)?$/,
         loader: 'awesome-typescript-loader',
         include: [resolve('src'), resolve('test')],
         exclude: /node_modules/,
-      }, {
+      },
+      {
         test: /\.(css|scss)$/,
-        use: [{
-          loader: 'style-loader',
-        }, {
-          loader: 'css-loader',
-          options: {
-            sourceMap: true,
+        use: [
+          {
+            loader: 'style-loader',
           },
-        }, {
-          loader: 'sass-loader',
-          options: {
-            sourceMap: true,
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+            },
           },
-        }],
-      }, {
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
+        ],
+      },
+      {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: utils.assetsPath('img/[name].[hash:7].[ext]')
+          name: utils.assetsPath('img/[name].[hash:7].[ext]'),
         },
       },
       {
@@ -64,7 +71,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: utils.assetsPath('media/[name].[hash:7].[ext]')
+          name: utils.assetsPath('media/[name].[hash:7].[ext]'),
         },
       },
       {
@@ -72,13 +79,9 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+          name: utils.assetsPath('fonts/[name].[hash:7].[ext]'),
         },
-      }],
+      },
+    ],
   },
-  plugins: [
-    new ExtractTextPlugin({
-      filename: '[name].css',
-    }),
-  ],
 };
