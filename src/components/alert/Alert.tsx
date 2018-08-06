@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 const styles = require('./Alert.scss');
-import Button from '../button';
+import Button from '../button/Button';
 
 const COLOR = {
   BASIC: 'basic',

@@ -23,7 +23,7 @@
       "@/*": ["./src/*"]
     }
   },
-  "exclude": [".vscode", "node_modules"],
+  "exclude": [".vscode", "node_modules", "docs"],
   "typeAcquisition": {
     "enable": true
   }
