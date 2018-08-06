@@ -1,6 +1,6 @@
 {
   "name": "@seolhun/react-simple-components",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "We just pursue simple and easy react components to customize.",
   "main": "dist/src/index.js",
   "scripts": {
@@ -54,10 +54,9 @@
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "ora": "^3.0.0",
     "sass-loader": "^7.1.0",
-    "ts-loader": "^4.4.2",
-
     "shelljs": "^0.8.2",
     "style-loader": "^0.21.0",
+    "ts-loader": "^4.4.2",
     "ts-node": "^7.0.0",
     "tslint-config-airbnb": "^5.9.2",
     "typescript": "^3.0.1",
