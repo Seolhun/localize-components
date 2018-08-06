@@ -1,14 +1,13 @@
 {
   "name": "@seolhun/react-simple-components",
-  "version": "1.0.7",
+  "version": "1.0.9",
   "description": "We just pursue simple and easy react components to customize.",
-  "main": "dist/index.js",
+  "main": "dist/src/index.js",
   "scripts": {
     "build": "node build/build.js",
     "dev": "node build/dev-server.js",
-    "transpile": "babel src -d dist --copy-files",
     "deploy": "gh-pages -d examples/dist",
-    "publish-demo": "npm run build && npm run deploy",
+    "prepublish": "tsc",
     "test": "jest"
   },
   "repository": {
@@ -38,8 +37,7 @@
     "@types/react": "^16.0.36",
     "@types/react-dom": "^16.0.3",
     "@types/react-router-dom": "^4.2.3",
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
