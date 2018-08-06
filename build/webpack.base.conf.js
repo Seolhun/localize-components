@@ -21,7 +21,7 @@ module.exports = {
   },
   mode: process.env.NODE_ENV,
   resolve: {
-    extensions: ['.js', 'jsx', '.ts', '.tsx', 'json', 'scss'],
+    extensions: ['.js', '.ts', '.tsx', 'json'],
     alias: {
       '@': resolve('src'),
     },
@@ -40,7 +40,11 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(scss|css)$/,
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.scss$/,
         use: [
           {
             loader: 'style-loader',
