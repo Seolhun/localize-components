@@ -8,12 +8,11 @@ function resolve(dir) {
 
 module.exports = {
   entry: {
-    index: process.env.NODE_ENV === 'production' ?
-      resolve('./src/index.ts') : resolve('./docs/index.tsx'),
+    index: resolve('./docs/index.tsx'),
   },
   output: {
     path: config.build.assetsRoot,
-    filename: '[name].js',
+    filename: 'bundle.js',
     publicPath: process.env.NODE_ENV === 'production' ?
       config.build.assetsPublicPath : config.dev.assetsPublicPath,
   },

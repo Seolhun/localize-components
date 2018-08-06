@@ -22,8 +22,8 @@ let webpackConfig = merge(baseWebpackConfig, {
   devtool: config.build.productionSourceMap ? '#source-map' : false,
   output: {
     path: config.build.assetsRoot,
-    filename: utils.assetsPath('dist/[name].js'),
-    chunkFilename: utils.assetsPath('dist/[id].[chunkhash].js'),
+    filename: utils.assetsPath('[name].js'),
+    chunkFilename: utils.assetsPath('[id].[chunkhash].js'),
   },
   optimization: {
     minimizer: [
