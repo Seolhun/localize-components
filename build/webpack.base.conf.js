@@ -1,6 +1,7 @@
 const path = require('path');
 const utils = require('./utils');
 const config = require('../config');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir);
@@ -13,18 +14,21 @@ module.exports = {
   output: {
     path: config.build.assetsRoot,
     filename: 'bundle.js',
-    publicPath: process.env.NODE_ENV === 'production' ?
-      config.build.assetsPublicPath : config.dev.assetsPublicPath,
+    publicPath:
+      process.env.NODE_ENV === 'production'
+        ? config.build.assetsPublicPath
+        : config.dev.assetsPublicPath,
   },
   mode: process.env.NODE_ENV,
   resolve: {
-    extensions: ['.js', 'jsx', '.ts', '.tsx', 'scss'],
+    extensions: ['.js', 'jsx', '.ts', '.tsx', 'json', 'scss'],
     alias: {
       '@': resolve('src'),
     },
   },
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.(jsx|js)?$/,
         loader: 'babel-loader',
         include: [resolve('src'), resolve('docs')],
@@ -36,8 +40,9 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(css|scss)$/,
-        use: [{
+        test: /\.(scss|css)$/,
+        use: [
+          {
             loader: 'style-loader',
           },
           {
@@ -80,4 +85,10 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: '[name].scss',
+      chunkFilename: '[id].scss',
+    }),
+  ],
 };

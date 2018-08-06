@@ -16,6 +16,7 @@
     "noUnusedLocals": true,
     "strictNullChecks": true,
     "sourceMap": true,
+    "inlineSources": true,
     "rootDir": ".",
     "outDir": "dist",
     "baseUrl": ".",
@@ -23,7 +24,8 @@
       "@/*": ["./src/*"]
     }
   },
-  "exclude": [".vscode", "node_modules", "docs"],
+  "include": ["./src/**/*"],
+  "exclude": [".vscode", "node_modules", "docs", "build", "config"],
   "typeAcquisition": {
     "enable": true
   }

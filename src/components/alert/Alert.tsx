@@ -24,7 +24,7 @@ const POSITION = {
   TR: 'top-right',
 };
 
-const setColor = (color) => {
+const setColor = color => {
   let styleColor = 'bg-color-';
   switch (color.toLowerCase()) {
     case COLOR.SUCCESS:
@@ -49,7 +49,7 @@ const setColor = (color) => {
   return styles[`${styleColor}`];
 };
 
-const setPosition = (postion) => {
+const setPosition = postion => {
   switch (postion.toLowerCase()) {
     case POSITION.TL:
       return styles[POSITION.TL];
@@ -103,8 +103,7 @@ const Alert: React.SFC<AlertProps> = ({
       <div
         className={`${styles.alert} ${setColor(color)} ${setPosition(
           position,
-        )}`}
-      >
+        )}`}>
         <div className={styles.titleDiv}>{title}</div>
         <div className={styles.messageDiv}>{message}</div>
         <div className={styles.buttonDiv}>
