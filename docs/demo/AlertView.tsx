@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Alert } from '../../src';
+import { Alert } from '@seolhun/react-simple-components';
 
 interface AlertViewState {
   isShow: boolean;

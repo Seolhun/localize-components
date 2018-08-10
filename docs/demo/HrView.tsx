@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Hr } from '../../src';
+import { Hr } from '@seolhun/react-simple-components';
 
 class HrView extends React.Component {
   render() {
