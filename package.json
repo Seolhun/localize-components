@@ -1,13 +1,14 @@
 {
   "name": "@seolhun/react-simple-components",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "We just pursue simple and easy react components to customize.",
   "main": "dist/src/index.js",
   "scripts": {
     "build": "node build/build.js",
     "dev": "node build/dev-server.js",
     "deploy": "gh-pages -d examples/dist",
-    "prepublish": "tsc",
+    "prepublish": "yarn style && tsc",
+    "style": "copyfiles src/**/*.scss dist/",
     "test": "jest"
   },
   "repository": {
@@ -28,7 +29,7 @@
   },
   "homepage": "https://github.com/Seolhun/react-simple-components#readme",
   "dependencies": {
-    "@seolhun/react-simple-components": "^1.0.11",
+    "@seolhun/react-simple-components": "^1.0.12",
     "react": "^16.4.0",
     "react-dom": "^16.4.2",
     "react-router-dom": "^4.2.2",
@@ -45,6 +46,7 @@
     "babel-preset-stage-2": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
     "compression-webpack-plugin": "^1.1.11",
+    "copyfiles": "^2.0.0",
     "css-loader": "^1.0.0",
     "eventsource-polyfill": "^0.9.6",
     "friendly-errors-webpack-plugin": "^1.7.0",
