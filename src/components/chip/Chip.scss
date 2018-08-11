@@ -1,0 +1,8 @@
+@import '../../assets/scss/_variable/color.scss';
+
+:local .Chip {
+  background-color: map-get($map: $defaultColors, $key: black-4);
+  border-radius: 6px;
+  border: 1px solid map-get($map: $defaultColors, $key: black-4);
+  color: #fff;
+}
