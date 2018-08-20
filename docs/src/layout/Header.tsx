@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { Link } from 'react-router-dom';
+import * as React from 'react'
+import { Link } from 'react-router-dom'
 import {
   Collapse,
   Dropdown,
@@ -11,45 +11,45 @@ import {
   NavbarToggler,
   NavItem,
   NavLink,
-} from 'reactstrap';
+} from 'reactstrap'
 
-import routes from '../routes/schema';
-import './Header.scss';
+import routes from '../routes/schema'
+import './Header.scss'
 
 export interface HeaderProps extends React.Props<Header> {}
 
 export interface HeaderState {
-  is_open: boolean;
-  clickedMenu: string;
-  dropdownIsOpen: boolean;
+  is_open: boolean
+  clickedMenu: string
+  dropdownIsOpen: boolean
 }
 
 class Header extends React.Component<HeaderProps, HeaderState> {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       is_open: false,
       clickedMenu: 'home',
       dropdownIsOpen: false,
-    };
+    }
   }
 
-  handleDropdownToggle = (clickedMenu) => {
+  handleDropdownToggle = clickedMenu => {
     this.setState({
       clickedMenu,
       dropdownIsOpen: !this.state.dropdownIsOpen,
-    });
-  };
+    })
+  }
 
   handleToggle = () => {
     this.setState({
       is_open: !this.state.is_open,
-    });
-  };
+    })
+  }
 
   renderNavs() {
-    const { dropdownIsOpen, clickedMenu } = this.state;
-    return Object.keys(routes).map((key) => {
+    const { dropdownIsOpen, clickedMenu } = this.state
+    return Object.keys(routes).map(key => {
       if (!Array.isArray(routes[key])) {
         return (
           <Nav key={key} navbar>
@@ -57,7 +57,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
               {routes[key].label}
             </Link>
           </Nav>
-        );
+        )
       }
       return (
         <Nav key={key} navbar>
@@ -71,20 +71,20 @@ class Header extends React.Component<HeaderProps, HeaderState> {
               {key}
             </DropdownToggle>
             <DropdownMenu key={key}>
-              {routes[key].map((route) => {
+              {routes[key].map(route => {
                 return (
                   <DropdownItem key={route.label}>
                     <Link className="nav-link" to={route.path}>
                       {route.label}
                     </Link>
                   </DropdownItem>
-                );
+                )
               })}
             </DropdownMenu>
           </Dropdown>
         </Nav>
-      );
-    });
+      )
+    })
   }
 
   render() {
@@ -109,8 +109,8 @@ class Header extends React.Component<HeaderProps, HeaderState> {
           </div>
         </Navbar>
       </div>
-    );
+    )
   }
 }
 
-export default Header;
+export default Header
