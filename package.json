@@ -1,6 +1,6 @@
 {
   "name": "@seolhun/localize-react-components",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "just pursue simple and easy react components to customize.",
   "main": "dist/src/index.js",
   "scripts": {
