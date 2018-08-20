@@ -1,34 +1,83 @@
 {
-  "name": "localize-react-components-docs",
+  "name": "@seolhun/localize-react-components-docs",
   "version": "1.0.0",
-  "description": "The description about localize-react-components with Storybook",
-  "main": "index.tsx",
+  "description": "just pursue simple and easy react components to customize.",
+  "main": "dist/src/index.js",
   "scripts": {
-    "build": "node ../build/build.js",
-    "dev": "node ../build/dev-server.js",
+    "build": "node build/build.js",
+    "dev": "node build/dev-server.js",
+    "deploy": "gh-pages -d ./dist",
     "test": "jest"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Seolhun/react-simple-components.git"
+    "url": "git+https://github.com/Seolhun/localize-react-components"
   },
   "keywords": [
     "react",
-    "storybook",
-    "typescript"
+    "typescript",
+    "ui",
+    "scss",
+    "docs"
   ],
-  "author": "shun10114 <shun10114@gmail.com> (“https://github.com/Seolhun/)",
+  "author": "Seolhun",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Seolhun/react-simple-components/issues"
+    "url": "https://github.com/Seolhun/localize-react-components/issues"
   },
-  "homepage": "https://github.com/Seolhun/react-simple-components#readme",
+  "homepage": "https://github.com/Seolhun/localize-react-components#readme",
   "dependencies": {
-    "@seolhun/react-simple-components": "^1.0.12",
+    "@seolhun/localize-react-components": "^1.0.0",
     "bootstrap": "^4.1.3",
     "react": "^16.4.0",
     "react-dom": "^16.4.2",
     "react-router-dom": "^4.2.2",
-    "reactstrap": "^5.0.0-beta"
+    "reactstrap": "^6.4.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.0.36",
+    "@types/react-dom": "^16.0.3",
+    "@types/react-router-dom": "^4.2.3",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "clean-webpack-plugin": "^0.1.19",
+    "compression-webpack-plugin": "^1.1.11",
+    "copyfiles": "^2.0.0",
+    "css-loader": "^1.0.0",
+    "eventsource-polyfill": "^0.9.6",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "gh-pages": "^1.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "lerna": "^3.1.1",
+    "mini-css-extract-plugin": "^0.4.1",
+    "node-sass": "^4.9.2",
+    "optimize-css-assets-webpack-plugin": "^3.2.0",
+    "ora": "^3.0.0",
+    "sass-loader": "^7.1.0",
+    "shelljs": "^0.8.2",
+    "style-loader": "^0.21.0",
+    "ts-loader": "^4.4.2",
+    "ts-node": "^7.0.0",
+    "tslint-config-airbnb": "^5.9.2",
+    "typescript": "^3.0.1",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.16.4",
+    "webpack-dev-server": "^3.1.5",
+    "webpack-hot-middleware": "^2.22.3",
+    "webpack-merge": "^4.1.4"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
   }
 }
