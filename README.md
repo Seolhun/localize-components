@@ -1,14 +1,15 @@
-# React Simple Components to customizing
-
+# Localize React Components
 - Author : [HunSeol](https://github.com/Seolhun/)
 
 ## Used stacks
-
 - React
 - TypeScript
 - SCSS
+- Storybook
 
 ## Getting start
+#### Install Package
+- yarn add @seolhun/localize-react-components
 
-1.  yarn install
-2.  yarn dev
+#### Run Docs
+- yarn run dev

@@ -1,28 +1,28 @@
-import * as React from 'react';
+import * as React from 'react'
 
-import { Alert } from '@seolhun/react-simple-components';
+import { Alert } from '@seolhun/localize-react-components'
 
 interface AlertViewState {
-  isShow: boolean;
+  isShow: boolean
 }
 
 class AlertView extends React.Component<{}, AlertViewState> {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       isShow: true,
-    };
+    }
   }
 
   handleIsShow = () => {
-    const { isShow } = this.state;
+    const { isShow } = this.state
     this.setState({
       isShow: !isShow,
-    });
-  };
+    })
+  }
 
   render() {
-    const { isShow } = this.state;
+    const { isShow } = this.state
 
     return (
       <section>
@@ -58,8 +58,8 @@ class AlertView extends React.Component<{}, AlertViewState> {
         <div className="col-24" />
         <div className="col-24" />
       </section>
-    );
+    )
   }
 }
 
-export default AlertView;
+export default AlertView
