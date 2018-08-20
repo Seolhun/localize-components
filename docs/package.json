@@ -4,6 +4,8 @@
   "description": "The description about localize-react-components with Storybook",
   "main": "index.tsx",
   "scripts": {
+    "build": "node ../build/build.js",
+    "dev": "node ../build/dev-server.js",
     "test": "jest"
   },
   "repository": {
