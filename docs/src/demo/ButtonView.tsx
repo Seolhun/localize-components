@@ -1,53 +1,53 @@
-import * as React from 'react'
+import * as React from 'react';
 
-import { Button } from '@seolhun/localize-react-components'
+import { Button } from '@seolhun/localize-react-components';
 export interface ButtonViewProps {}
 
 export interface ButtonViewState {
-  messages: string[]
+  messages: string[];
 }
 class ButtonView extends React.Component<ButtonViewProps, ButtonViewState> {
   constructor(props: ButtonViewProps) {
-    super(props)
+    super(props);
     this.state = {
       messages: [],
-    }
+    };
   }
 
   handleClick = () => {
-    const { messages } = this.state
+    const { messages } = this.state;
     this.setState({
       messages: [...messages, 'onClick'],
-    })
-  }
+    });
+  };
 
   handleFocus = () => {
-    const { messages } = this.state
+    const { messages } = this.state;
     this.setState({
       messages: [...messages, 'onFocus'],
-    })
-  }
+    });
+  };
 
   handleonMouseOver = () => {
-    const { messages } = this.state
+    const { messages } = this.state;
     this.setState({
       messages: [...messages, 'onMouseOver'],
-    })
-  }
+    });
+  };
 
   handleonMouseOut = () => {
-    const { messages } = this.state
+    const { messages } = this.state;
     this.setState({
       messages: [...messages, 'onMouseOut'],
-    })
-  }
+    });
+  };
 
   handleBlur = () => {
-    const { messages } = this.state
+    const { messages } = this.state;
     this.setState({
       messages: [...messages, 'onBlur'],
-    })
-  }
+    });
+  };
 
   render() {
     return (
@@ -131,8 +131,8 @@ class ButtonView extends React.Component<ButtonViewProps, ButtonViewState> {
           ))}
         </div>
       </section>
-    )
+    );
   }
 }
 
-export default ButtonView
+export default ButtonView;
