@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import Button from '../button/Button';
 
-const styles = require('./Alert.scss');
+import * as styles from './Alert.scss';
 
 const COLOR = {
   BASIC: 'basic',
@@ -25,7 +25,7 @@ const POSITION = {
   TR: 'top-right',
 };
 
-const setColor = (color) => {
+const setColor = color => {
   let styleColor = 'bg-color-';
   switch (color.toLowerCase()) {
     case COLOR.SUCCESS:
@@ -50,7 +50,7 @@ const setColor = (color) => {
   return styles[`${styleColor}`];
 };
 
-const setPosition = (postion) => {
+const setPosition = postion => {
   switch (postion.toLowerCase()) {
     case POSITION.TL:
       return styles[POSITION.TL];
@@ -103,7 +103,7 @@ const Alert: React.SFC<AlertProps> = ({
       <div className={styles.coverBackground} />
       <div
         className={`${styles.alert} ${setColor(color)} ${setPosition(
-          position,
+          position
         )}`}
       >
         <div className={styles.titleDiv}>{title}</div>

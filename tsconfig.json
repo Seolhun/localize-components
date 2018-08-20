@@ -25,7 +25,7 @@
     }
   },
   "include": ["./src/**/*"],
-  "exclude": [".vscode", "node_modules", "docs"],
+  "exclude": [".vscode", "node_modules", "docs", "./src/__test__/*"],
   "typeAcquisition": {
     "enable": true
   }

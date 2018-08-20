@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const styles = require('./Hr.scss');
+import * as styles from './Hr.scss';
 
 export interface HrProps {
   className?: string;
