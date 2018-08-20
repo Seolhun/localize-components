@@ -12,7 +12,11 @@
 
 ## Getting start
 #### Install Package
-- yarn add @seolhun/localize-react-components
+```bash
+$ yarn add @seolhun/localize-react-components
+```
 
 #### Run Docs
-- yarn run dev
+```bash
+$ yarn run dev
+```
