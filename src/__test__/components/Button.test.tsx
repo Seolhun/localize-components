@@ -8,14 +8,14 @@ import * as React from 'react';
 import setEnzymeConfiguration from '../_config_';
 import * as Enzyme from 'enzyme';
 
-import Button from '../../components/button';
+// import Button from '../../components/button';
 
 setEnzymeConfiguration(Enzyme);
 describe('Button Test', () => {
   const navbar = Enzyme.shallow(
-    <Button className="btn-success" onClick={() => null}>
+    <button className="btn-success" onClick={() => null}>
       btn-success
-    </Button>
+    </button>
   );
 
   test('Button contains text', () => {
