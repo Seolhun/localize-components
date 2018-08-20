@@ -34,10 +34,12 @@
   },
   "homepage": "https://github.com/Seolhun/localize-react-components#readme",
   "dependencies": {
+    "jest": "^23.5.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.2"
   },
   "devDependencies": {
+    "@types/jest": "^23.3.1",
     "@types/react": "^16.0.36",
     "@types/react-dom": "^16.0.3",
     "copyfiles": "^2.0.0",
