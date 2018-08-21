@@ -3,6 +3,7 @@ import * as React from 'react';
 import * as styles from './Hr.scss';
 
 export interface HrProps {
+  // isNotRequired
   className?: string;
   color?: string;
   style?: {

@@ -4,7 +4,7 @@ import * as styles from './Chip.scss';
 
 export interface ChipProps {
   content: string;
-
+  // isNotRequired
   className?: string;
   children?: React.ReactNode;
   style?: ChipStyleProps;
