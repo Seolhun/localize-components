@@ -1,12 +1,13 @@
 {
   "name": "@seolhun/localize-react-components",
   "version": "1.0.4",
-  "description": "just pursue simple and easy react components to customize.",
+  "description": "React components localizing and customizing style easily.",
   "main": "dist/src/index.js",
   "scripts": {
     "prepublish": "tsc && yarn style",
-    "style": "sass --update dist:. --style compressed && copyfiles src/**/*.css dist/",
+    "style": "sass --update src:dist/src --style compressed",
     "style:watch": "sass --watch dist:. --style compressed",
+    "style:copy": "copyfiles src/**/*.css dist/",
     "style:clean": "find . -name *.css* -type f -delete",
     "test": "jest",
     "test-with-coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage",
