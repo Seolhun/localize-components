@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import * as styles from './Hr.scss';
+import * as styles from './Hr.css';
 
 export interface HrProps {
   // isNotRequired

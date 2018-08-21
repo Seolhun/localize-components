@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import Button from '../button/Button';
 
-import * as styles from './Alert.scss';
+import * as styles from './Alert.css';
 
 export interface AlertProps {
   onClickClose: () => any;
