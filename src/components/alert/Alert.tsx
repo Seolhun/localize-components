@@ -2,9 +2,20 @@ import * as React from 'react';
 
 import Button from '../button/Button';
 
-import * as styles from './Alert.scss';
+import * as styles from './Alert.css';
 
-const COLOR = {
+export interface AlertProps {
+  onClickClose: () => any;
+  message: string;
+  // isNotRequired
+  title?: string;
+  isShow?: boolean;
+  buttonLabel?: string;
+  color?: string;
+  position?: string;
+}
+
+export const COLOR = {
   BASIC: 'basic',
   DANGER: 'danger',
   INFO: 'info',
@@ -13,7 +24,7 @@ const COLOR = {
   WARNING: 'warning',
 };
 
-const POSITION = {
+export const POSITION = {
   BC: 'bottom-center',
   BL: 'bottom-left',
   BR: 'bottom-right',
@@ -72,17 +83,6 @@ const setPosition = postion => {
       return styles[POSITION.C];
   }
 };
-
-export interface AlertProps {
-  onClickClose: () => any;
-  message: string;
-
-  title?: string;
-  isShow?: boolean;
-  buttonLabel?: string;
-  color?: string;
-  position?: string;
-}
 
 const Alert: React.SFC<AlertProps> = ({
   onClickClose,

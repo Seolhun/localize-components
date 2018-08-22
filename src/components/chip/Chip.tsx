@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-import * as styles from './Chip.scss';
+import * as styles from './Chip.css';
 
 export interface ChipProps {
   content: string;
-
+  // isNotRequired
   className?: string;
   children?: React.ReactNode;
   style?: ChipStyleProps;
