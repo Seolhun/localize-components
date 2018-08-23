@@ -3,7 +3,7 @@ import * as React from 'react';
 import Button from '../button';
 import { Input } from '../form';
 
-import styles from './InputConfirm.scss';
+import styles from './InputConfirm.css';
 
 export interface InputConfirmProps {
   // is Requiredd
@@ -49,7 +49,7 @@ export const POSITION = {
   C: 'center',
 };
 
-const setColor = color => {
+const setColor = (color) => {
   let styleColor = 'bg-color-';
   switch (color.toLowerCase()) {
     case COLOR.SUCCESS:
@@ -74,7 +74,7 @@ const setColor = color => {
   return styles[`${styleColor}`];
 };
 
-const setPosition = postion => {
+const setPosition = (postion) => {
   switch (postion.toLowerCase()) {
     case POSITION.TL:
       return styles[POSITION.TL];
@@ -100,21 +100,21 @@ const InputConfirm: React.StatelessComponent<InputConfirmProps> = ({
   onClickSubmit,
   value,
   // isNotRequired
-  cancelLabel,
-  children,
-  color,
-  errorMessage,
-  isShow,
-  onBlur,
-  onKeyDown,
-  placeholder,
-  position,
-  required,
-  styleType,
-  submitDisabled,
-  submitLabel,
-  title,
-  type,
+  cancelLabel = 'Cancel',
+  children = null,
+  color = COLOR.BASIC,
+  errorMessage = '',
+  isShow = false,
+  onBlur = () => null,
+  onKeyDown = () => null,
+  placeholder = '',
+  position = POSITION.TC,
+  required = true,
+  styleType = 'box',
+  submitDisabled = false,
+  submitLabel = 'Complete',
+  title = '',
+  type = 'text',
 }) => {
   if (!isShow) {
     return null;
@@ -182,24 +182,6 @@ const InputConfirm: React.StatelessComponent<InputConfirmProps> = ({
       </div>
     </React.Fragment>
   );
-};
-
-InputConfirm.defaultProps = {
-  cancelLabel: 'Cancel',
-  children: null,
-  color: COLOR.BASIC,
-  errorMessage: '',
-  isShow: false,
-  onBlur: () => null,
-  onKeyDown: () => null,
-  placeholder: '',
-  position: POSITION.TC,
-  required: true,
-  styleType: 'box',
-  submitDisabled: false,
-  submitLabel: 'Complete',
-  title: '',
-  type: 'text',
 };
 
 export default InputConfirm;

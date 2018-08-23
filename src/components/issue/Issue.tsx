@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-import styles from './Issue.scss';
+import styles from './Issue.css';
 
 export interface IssueProps {
   title: string;
-  //IsNotRequired
+  // IsNotRequired
   children: React.ReactNode;
   className: string;
   description: string;
@@ -12,9 +12,10 @@ export interface IssueProps {
 
 const Issue: React.StatelessComponent<IssueProps> = ({
   title,
-  description,
-  children,
-  className,
+  // IsNotRequired
+  children = null,
+  className = '',
+  description = '',
 }) => (
   <div className={`${styles.root} ${className}`}>
     <p className={styles.title}>{title}</p>
@@ -22,11 +23,5 @@ const Issue: React.StatelessComponent<IssueProps> = ({
     <div className={styles.resolver}>{children}</div>
   </div>
 );
-
-Issue.defaultProps = {
-  children: null,
-  className: '',
-  description: '',
-};
 
 export default Issue;
