@@ -1,33 +1,33 @@
-import * as React from 'react'
+import * as React from 'react';
 
-import { Alert } from '@seolhun/localize-react-components'
+import { Alert } from '@seolhun/localize-react-components';
 
 interface AlertViewState {
-  isShow: boolean
+  isShow: boolean;
 }
 
 class AlertView extends React.Component<{}, AlertViewState> {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       isShow: true,
-    }
+    };
   }
 
   handleIsShow = () => {
-    const { isShow } = this.state
+    const { isShow } = this.state;
     this.setState({
       isShow: !isShow,
-    })
-  }
+    });
+  };
 
   render() {
-    const { isShow } = this.state
+    const { isShow } = this.state;
 
     return (
       <section>
         <div className="row">
-          <div className="col-24">
+          <div className="col-20">
             <h1>Hr</h1>
           </div>
         </div>
@@ -55,11 +55,11 @@ class AlertView extends React.Component<{}, AlertViewState> {
           isShow={isShow}
           position="bottom-right"
         />
-        <div className="col-24" />
-        <div className="col-24" />
+        <div className="col-20" />
+        <div className="col-20" />
       </section>
-    )
+    );
   }
 }
 
-export default AlertView
+export default AlertView;

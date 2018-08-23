@@ -53,11 +53,11 @@ class ButtonView extends React.Component<ButtonViewProps, ButtonViewState> {
     return (
       <section>
         <div className="row">
-          <div className="col-24">
+          <div className="col-20">
             <h1>Button</h1>
           </div>
         </div>
-        <div className="col-24">
+        <div className="col-20">
           <Button
             className="btn-success"
             onClick={this.handleClick}
@@ -125,7 +125,7 @@ class ButtonView extends React.Component<ButtonViewProps, ButtonViewState> {
             disabled
           </Button>
         </div>
-        <div className="col-24">
+        <div className="col-20">
           {this.state.messages.map((message, idx) => (
             <div key={idx}>{message}</div>
           ))}
