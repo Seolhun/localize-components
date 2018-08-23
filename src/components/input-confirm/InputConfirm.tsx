@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import * as React from 'react';
 
 import Button from '../button';
 import { Input } from '../form';
@@ -94,7 +94,6 @@ const setPosition = postion => {
 };
 
 const InputConfirm: React.StatelessComponent<InputConfirmProps> = ({
-  // is Requiredd
   htmlFor,
   onChange,
   onClickClose,
@@ -122,7 +121,7 @@ const InputConfirm: React.StatelessComponent<InputConfirmProps> = ({
   }
 
   return (
-    <Fragment>
+    <React.Fragment>
       <div className={styles.coverBackground} />
       <div
         className={`${styles.InputConfirm} ${setColor(color)} ${setPosition(
@@ -153,7 +152,7 @@ const InputConfirm: React.StatelessComponent<InputConfirmProps> = ({
         </div>
         <div className={styles.buttonDiv}>
           {children || (
-            <Fragment>
+            <React.Fragment>
               <Button
                 className="btn btn-black-4"
                 onClick={onClickClose}
@@ -177,24 +176,24 @@ const InputConfirm: React.StatelessComponent<InputConfirmProps> = ({
               >
                 {submitLabel}
               </Button>
-            </Fragment>
+            </React.Fragment>
           )}
         </div>
       </div>
-    </Fragment>
+    </React.Fragment>
   );
 };
 
 InputConfirm.defaultProps = {
   cancelLabel: 'Cancel',
   children: null,
-  color: 'basic',
+  color: COLOR.BASIC,
   errorMessage: '',
   isShow: false,
   onBlur: () => null,
   onKeyDown: () => null,
   placeholder: '',
-  position: 'top-center',
+  position: POSITION.TC,
   required: true,
   styleType: 'box',
   submitDisabled: false,
