@@ -1,5 +1,4 @@
 @import '../_variable/grid.scss';
-
 .row::after {
   content: '';
   clear: both;
@@ -14,8 +13,8 @@
   padding: 0px;
 }
 
-$col: 4.1666666666%;
-@for $i from 1 through 24 {
+$col: 5%;
+@for $i from 1 through 20 {
   .col-#{$i} {
     width: $col * $i;
   }
