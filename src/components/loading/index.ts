@@ -1,9 +1,9 @@
 import Loading from './Loading';
-import Spinner from './Spinner';
+import Spinner, { SpinnerProps } from './Spinner';
+
+export { Loading, Spinner, SpinnerProps };
 
 export default {
   Loading,
   Spinner,
 };
-
-export { Loading, Spinner };
