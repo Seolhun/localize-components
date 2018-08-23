@@ -3,6 +3,10 @@ import Button, { ButtonProps } from './components/button/Button';
 import Card, { CardProps } from './components/card';
 import Chip, { ChipProps } from './components/chip/Chip';
 import Hr, { HrProps } from './components/hr/Hr';
+import InputConfirm, {
+  InputConfirmProps,
+} from './components/input-confirm/InputConfirm';
+import Issue, { IssueProps } from './components/issue/Issue';
 
 export {
   Alert,
@@ -15,6 +19,10 @@ export {
   ChipProps,
   Hr,
   HrProps,
+  InputConfirm,
+  InputConfirmProps,
+  Issue,
+  IssueProps,
 };
 
 export default {
@@ -23,4 +31,6 @@ export default {
   Button,
   Chip,
   Hr,
+  InputConfirm,
+  Issue,
 };

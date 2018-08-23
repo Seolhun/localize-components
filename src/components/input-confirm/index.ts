@@ -1,3 +1,5 @@
-import InputConfirm from './InputConfirm';
+import InputConfirm, { InputConfirmProps } from './InputConfirm';
+
+export { InputConfirmProps };
 
 export default InputConfirm;
