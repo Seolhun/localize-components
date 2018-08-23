@@ -31,7 +31,7 @@ export const STYLE_TYPE = {
   UNDERLINE: 'underline',
 };
 
-const Input: React.StatelessComponent<InputProps> = props => {
+const Input: React.StatelessComponent<InputProps> = (props) => {
   switch (props.styleType) {
     case STYLE_TYPE.BOX:
       return <BoxInput {...props} />;

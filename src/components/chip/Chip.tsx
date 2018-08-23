@@ -17,22 +17,16 @@ interface ChipStyleProps {
 }
 
 const Chip: React.SFC<ChipProps> = ({
-  className,
   content,
-  children,
-  style,
+  className = '',
+  children = null,
+  style = {},
 }) => {
   return (
     <div className={`${className} ${styles.Chip}`} style={style}>
       {children ? children : content}
     </div>
   );
-};
-
-Chip.defaultProps = {
-  className: '',
-  children: null,
-  style: {},
 };
 
 export default Chip;

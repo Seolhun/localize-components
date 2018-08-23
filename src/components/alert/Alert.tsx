@@ -36,7 +36,7 @@ export const POSITION = {
   TR: 'top-right',
 };
 
-const setColor = color => {
+const setColor = (color) => {
   let styleColor = 'bg-color-';
   switch (color.toLowerCase()) {
     case COLOR.SUCCESS:
@@ -61,7 +61,7 @@ const setColor = color => {
   return styles[`${styleColor}`];
 };
 
-const setPosition = postion => {
+const setPosition = (postion) => {
   switch (postion.toLowerCase()) {
     case POSITION.TL:
       return styles[POSITION.TL];
@@ -88,11 +88,11 @@ const Alert: React.SFC<AlertProps> = ({
   onClickClose,
   message,
   // is Not Required
-  isShow,
-  title,
-  buttonLabel,
-  color,
-  position,
+  isShow = false,
+  title = '',
+  buttonLabel = 'Confirm',
+  color = 'basic',
+  position = 'top-center',
 }) => {
   if (!isShow) {
     return null;
@@ -116,14 +116,6 @@ const Alert: React.SFC<AlertProps> = ({
       </div>
     </React.Fragment>
   );
-};
-
-Alert.defaultProps = {
-  isShow: false,
-  title: '',
-  buttonLabel: 'Confirm',
-  color: 'basic',
-  position: 'top-center',
 };
 
 export default Alert;

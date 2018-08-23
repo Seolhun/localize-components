@@ -1,16 +1,16 @@
 import * as React from 'react';
 
-import styles from './Card.scss';
+import styles from './Card.css';
 
 export interface CardProps {
   children: React.ReactNode;
   // IsNotRequired
   className?: string;
   style?: {
-    color?: string;
-    backgroundColor?: string;
-    padding?: string;
-    margin?: string;
+    color?: string,
+    backgroundColor?: string,
+    padding?: string,
+    margin?: string,
   };
 }
 

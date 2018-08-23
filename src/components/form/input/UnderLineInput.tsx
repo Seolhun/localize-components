@@ -1,8 +1,6 @@
 import * as React from 'react';
 
-import { INPUT_TYPE } from '../Input';
-
-import styles from './UnderLineInput.scss';
+import styles from './UnderLineInput.css';
 
 export interface UnderLineInputProps {
   value: string;
@@ -25,18 +23,18 @@ const UnderLineInput: React.StatelessComponent<UnderLineInputProps> = ({
   // isRequired
   value,
   htmlFor,
-  type,
   // isNotRequired
-  children,
-  className,
-  errorMessage,
-  hasError,
-  inputRef,
-  onBlur,
-  onChange,
-  onKeyDown,
-  placeholder,
-  required,
+  children = null,
+  className = '',
+  errorMessage = '',
+  hasError = false,
+  inputRef = () => null,
+  onBlur = () => null,
+  onChange = () => null,
+  onKeyDown = () => null,
+  placeholder = '',
+  required = true,
+  type = 'text',
 }) => (
   <React.Fragment>
     <label className={styles.underLineLabel} htmlFor={htmlFor}>
@@ -63,19 +61,5 @@ const UnderLineInput: React.StatelessComponent<UnderLineInputProps> = ({
     </div>
   </React.Fragment>
 );
-
-UnderLineInput.defaultProps = {
-  children: null,
-  className: '',
-  errorMessage: '',
-  hasError: false,
-  inputRef: () => null,
-  onBlur: () => null,
-  onChange: () => null,
-  onKeyDown: () => null,
-  placeholder: '',
-  required: true,
-  type: INPUT_TYPE.TEXT,
-};
 
 export default UnderLineInput;

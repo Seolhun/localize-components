@@ -14,9 +14,9 @@ export interface ButtonProps {
   className?: string;
   fontSize?: number;
   style?: {
-    color?: string;
-    backgroundColor?: string;
-    padding?: string;
+    color?: string,
+    backgroundColor?: string,
+    padding?: string,
   };
   disabled?: boolean;
 }
@@ -26,14 +26,18 @@ const Button: React.SFC<ButtonProps> = ({
   children,
   onClick,
   // is Not Required
-  onMouseOver,
-  onMouseOut,
-  onBlur,
-  onFocus,
-  className,
-  fontSize,
-  style,
-  disabled,
+  onMouseOver = () => null,
+  onMouseOut = () => null,
+  onBlur = () => null,
+  onFocus = () => null,
+  className = 'btn-success',
+  fontSize = 12,
+  style = {
+    color: '',
+    backgroundColor: '',
+    padding: '10px 20px',
+  },
+  disabled = false,
 }) => (
   <button
     type="button"
@@ -52,20 +56,5 @@ const Button: React.SFC<ButtonProps> = ({
     {children}
   </button>
 );
-
-Button.defaultProps = {
-  onMouseOver: () => null,
-  onMouseOut: () => null,
-  onBlur: () => null,
-  onFocus: () => null,
-  className: 'btn-success',
-  fontSize: 12,
-  style: {
-    color: '',
-    backgroundColor: '',
-    padding: '10px 20px',
-  },
-  disabled: false,
-};
 
 export default Button;

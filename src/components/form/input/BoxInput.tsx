@@ -1,8 +1,6 @@
 import * as React from 'react';
 
-import { INPUT_TYPE } from '../Input';
-
-import styles from './BoxInput.scss';
+import styles from './BoxInput.css';
 
 export interface BoxInputProps {
   value: string;
@@ -24,18 +22,18 @@ export interface BoxInputProps {
 const BoxInput: React.StatelessComponent<BoxInputProps> = ({
   value,
   htmlFor,
-  type,
   // isNotRequired
-  children,
-  className,
-  errorMessage,
-  hasError,
-  inputRef,
-  onBlur,
-  onChange,
-  onKeyDown,
-  placeholder,
-  required,
+  children = null,
+  className = '',
+  errorMessage = '',
+  hasError = false,
+  inputRef = () => null,
+  onBlur = () => null,
+  onChange = () => null,
+  onKeyDown = () => null,
+  placeholder = '',
+  required = true,
+  type = 'text',
 }) => (
   <React.Fragment>
     <label htmlFor={htmlFor}>
@@ -60,19 +58,5 @@ const BoxInput: React.StatelessComponent<BoxInputProps> = ({
     </div>
   </React.Fragment>
 );
-
-BoxInput.defaultProps = {
-  children: null,
-  className: '',
-  errorMessage: '',
-  hasError: false,
-  inputRef: () => null,
-  onBlur: () => null,
-  onChange: () => null,
-  onKeyDown: () => null,
-  placeholder: '',
-  required: true,
-  type: INPUT_TYPE.TEXT,
-};
 
 export default BoxInput;
