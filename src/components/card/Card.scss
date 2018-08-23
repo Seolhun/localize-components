@@ -1,0 +1,11 @@
+@import '../../assets/scss/_mixin/responsive.scss';
+:local .card {
+  border-radius: 8px;
+  padding: 35px;
+  margin: 10px;
+  height: auto;
+  background-color: #fff;
+  @include responsive(sm) {
+    height: auto;
+  }
+}
