@@ -1,22 +1,24 @@
-import Alert, { AlertProps, POSITION, COLOR } from './components/alert/Alert';
+import Alert, { AlertProps } from './components/alert/Alert';
 import Button, { ButtonProps } from './components/button/Button';
-import Hr, { HrProps } from './components/hr/Hr';
+import Card, { CardProps } from './components/card';
 import Chip, { ChipProps } from './components/chip/Chip';
+import Hr, { HrProps } from './components/hr/Hr';
 
 export {
-  POSITION,
-  COLOR,
-  Button,
-  ButtonProps,
   Alert,
   AlertProps,
-  Hr,
-  HrProps,
+  Button,
+  ButtonProps,
+  Card,
+  CardProps,
   Chip,
   ChipProps,
+  Hr,
+  HrProps,
 };
 
 export default {
+  Card,
   Alert,
   Button,
   Chip,
