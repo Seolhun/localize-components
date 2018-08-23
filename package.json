@@ -4,7 +4,7 @@
   "description": "React components localizing and customizing style easily.",
   "main": "dist/src/index.js",
   "scripts": {
-    "prepublish": "tsc && yarn style",
+    "prepublish": "rm -rf dist/ && tsc && yarn style",
     "style": "sass --update src:dist/src --style compressed",
     "style:watch": "sass --watch dist:. --style compressed",
     "style:copy": "copyfiles src/**/*.css dist/",
