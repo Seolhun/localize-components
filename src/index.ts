@@ -7,6 +7,8 @@ import InputConfirm, {
   InputConfirmProps,
 } from './components/input-confirm/InputConfirm';
 import Issue, { IssueProps } from './components/issue/Issue';
+import Loading from './components/loading/Loading';
+import Spinner, { SpinnerProps } from './components/loading/Spinner';
 
 export {
   Alert,
@@ -23,6 +25,9 @@ export {
   InputConfirmProps,
   Issue,
   IssueProps,
+  Loading,
+  Spinner,
+  SpinnerProps,
 };
 
 export default {
@@ -33,4 +38,6 @@ export default {
   Hr,
   InputConfirm,
   Issue,
+  Loading,
+  Spinner,
 };
