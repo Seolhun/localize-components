@@ -1,11 +1,12 @@
 import * as React from 'react';
 
+import { INPUT_TYPE } from '../Input';
+
 import styles from './UnderLineInput.scss';
 
 export interface UnderLineInputProps {
   value: string;
   htmlFor: string;
-  type: string;
   // isNotRequired
   children?: React.ReactNode;
   className?: string;
@@ -17,6 +18,7 @@ export interface UnderLineInputProps {
   onKeyDown?: () => any;
   placeholder?: string;
   required?: boolean;
+  type?: string;
 }
 
 const UnderLineInput: React.StatelessComponent<UnderLineInputProps> = ({
@@ -73,6 +75,7 @@ UnderLineInput.defaultProps = {
   onKeyDown: () => null,
   placeholder: '',
   required: true,
+  type: INPUT_TYPE.TEXT,
 };
 
 export default UnderLineInput;

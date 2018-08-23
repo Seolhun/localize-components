@@ -1,11 +1,12 @@
 import * as React from 'react';
 
+import { INPUT_TYPE } from '../Input';
+
 import styles from './BoxInput.scss';
 
 export interface BoxInputProps {
   value: string;
   htmlFor: string;
-  type: string;
   // isNotRequired
   children?: React.ReactNode;
   className?: string;
@@ -17,6 +18,7 @@ export interface BoxInputProps {
   onKeyDown?: () => any;
   placeholder?: string;
   required?: boolean;
+  type?: string;
 }
 
 const BoxInput: React.StatelessComponent<BoxInputProps> = ({
@@ -70,6 +72,7 @@ BoxInput.defaultProps = {
   onKeyDown: () => null,
   placeholder: '',
   required: true,
+  type: INPUT_TYPE.TEXT,
 };
 
 export default BoxInput;

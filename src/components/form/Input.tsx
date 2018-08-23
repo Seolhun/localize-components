@@ -7,18 +7,18 @@ export interface InputProps {
   htmlFor: string;
   value: string;
   // isNotRequired
-  children: React.ReactNode;
-  className: string;
-  errorMessage: string;
-  hasError: boolean;
-  inputRef: () => any;
-  onBlur: () => any;
-  onChange: () => any;
-  onKeyDown: () => any;
-  placeholder: string;
+  children?: React.ReactNode;
+  className?: string;
+  errorMessage?: string;
+  hasError?: boolean;
+  inputRef?: () => any;
+  onBlur?: () => any;
+  onChange?: () => any;
+  onKeyDown?: () => any;
+  placeholder?: string;
   required?: boolean;
   styleType?: string;
-  type: string;
+  type?: string;
 }
 
 export const INPUT_TYPE = {
