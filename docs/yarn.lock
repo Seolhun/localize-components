@@ -563,19 +563,9 @@
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.1.tgz#53f349bb986ab273d601175aa1b25a655ab90ee3"
 
-"@seolhun/localize-react-components@^1.0.5":
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/@seolhun/localize-react-components/-/localize-react-components-1.0.5.tgz#a0912c6a2bed20291c51727702dd1c342a3e91ed"
-  dependencies:
-    enzyme "^3.4.4"
-    enzyme-adapter-react-16 "^1.2.0"
-    jest "^23.5.0"
-    react "^16.4.0"
-    react-dom "^16.4.2"
-
-"@seolhun/localize-react-components@^1.0.7":
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/@seolhun/localize-react-components/-/localize-react-components-1.0.7.tgz#1d4cc88757409d8a8e111ceaf82576164c90c244"
+"@seolhun/localize-react-components@^1.0.5", "@seolhun/localize-react-components@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/@seolhun/localize-react-components/-/localize-react-components-1.0.8.tgz#8ad32201f5c0ebe70f49ae2e1339f47dca65f88a"
   dependencies:
     "@seolhun/localize-react-components" "^1.0.5"
     enzyme "^3.4.4"

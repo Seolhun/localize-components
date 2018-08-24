@@ -1,7 +1,9 @@
-import HomeView from '../home/HomeView';
+import HomeView from '../demo/HomeView';
 import ButtonView from '../demo/ButtonView';
 import HrView from '../demo/HrView';
 import AlertView from '../demo/AlertView';
+import SpinnerView from '../demo/SpinnerView';
+import InputConfirmView from '../demo/InputConfirmView';
 
 const routeCreator = ({
   type,
@@ -46,6 +48,18 @@ const routes = {
       path: '/alert',
       label: 'AlertView',
       component: AlertView,
+    }),
+    routeCreator({
+      type: 0,
+      path: '/alert',
+      label: 'SpinnerView',
+      component: SpinnerView,
+    }),
+    routeCreator({
+      type: 0,
+      path: '/confirm',
+      label: 'InputConfirmView',
+      component: InputConfirmView,
     }),
   ],
 };
