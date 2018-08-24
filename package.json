@@ -1,6 +1,6 @@
 {
   "name": "@seolhun/localize-react-components",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "React components localizing and customizing style easily.",
   "main": "dist/src/index.js",
   "scripts": {
@@ -11,7 +11,8 @@
     "style:clean": "find . -name *.css* -type f -delete",
     "test": "jest",
     "test-with-coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage",
-    "dev": "cd docs && node build/dev-server.js",
+    "docs:build": "cd docs && yarn build",
+    "docs:dev": "cd docs && yarn dev",
     "clean": "lerna clean",
     "packages:fix": "lerna run fix && echo",
     "packages:lint": "lerna run tslint",
