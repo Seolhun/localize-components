@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import styles from './Issue.css';
+const styles = require('./Issue.css');
 
 export interface IssueProps {
   title: string;

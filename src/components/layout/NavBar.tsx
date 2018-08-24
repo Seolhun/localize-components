@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import styles from './NavBar.css';
+const styles = require('./NavBar.css');
 
 export interface NavBarProps {
   children: React.ReactNode;

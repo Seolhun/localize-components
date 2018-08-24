@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import * as styles from './Chip.css';
+const styles = require('./Chip.css');
 
 export interface ChipProps {
   content: string;

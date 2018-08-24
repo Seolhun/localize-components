@@ -1,25 +1,31 @@
 import * as React from 'react';
-import styles from './Spinner.scss';
+
+const styles = require('./Spinner.css');
 
 export interface SpinnerProps {
-  type: string;
-  rect: string;
-  style: {
-    display: string;
-    alignItems: string;
-    justifyContent: string;
-    boxSizing: string;
+  type?: string;
+  rect?: string;
+  style?: {
+    alignItems?: string,
+    display?: string,
+    justifyContent?: string,
   };
 }
 
 export const TYPE = {
+  CUSTOM: 'custom',
+  DEFAULT: 'default',
   PAGE: 'page',
   SECTION: 'section',
-  DEFAULT: 'default',
-  CUSTOM: 'custom',
 };
 
 export const CUSTOM_STYLE = {
+  [TYPE.CUSTOM]: {},
+  [TYPE.DEFAULT]: {
+    width: '100%',
+    height: '100%',
+    padding: '30px',
+  },
   [TYPE.PAGE]: {
     background: '#f7f8fa',
     width: '100vw',
@@ -32,21 +38,17 @@ export const CUSTOM_STYLE = {
     padding: '30px',
     border: '1px solid rgba(0,0,0,.01)',
   },
-  [TYPE.DEFAULT]: {
-    width: '100%',
-    height: '100%',
-    padding: '30px',
-  },
-  [TYPE.CUSTOM]: {},
 };
 
 const Spinner: React.StatelessComponent<SpinnerProps> = ({
-  type,
-  rect,
-  style,
+  type = TYPE.DEFAULT,
+  rect = '50px',
+  style = {
+    alignItems: 'center',
+    display: 'flex',
+    justifyContent: 'center',
+  },
 }) => {
-  const resizeRect =
-    type === TYPE.DEFAULT || type === TYPE.CUSTOM ? rect : '50px';
   return (
     <div
       style={{
@@ -54,12 +56,7 @@ const Spinner: React.StatelessComponent<SpinnerProps> = ({
         ...CUSTOM_STYLE[type],
       }}
     >
-      <svg
-        className="_spinner"
-        width={rect}
-        height={resizeRect}
-        viewBox="0 0 66 66"
-      >
+      <svg className="_spinner" width={rect} height={rect} viewBox="0 0 66 66">
         <circle
           className={styles.path}
           fill="none"
@@ -72,17 +69,6 @@ const Spinner: React.StatelessComponent<SpinnerProps> = ({
       </svg>
     </div>
   );
-};
-
-Spinner.defaultProps = {
-  type: TYPE.DEFAULT,
-  rect: '45px',
-  style: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    boxSizing: 'borderBox',
-  },
 };
 
 export default Spinner;

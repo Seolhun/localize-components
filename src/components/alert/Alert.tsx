@@ -1,8 +1,9 @@
 import * as React from 'react';
 
 import Button from '../button/Button';
+import { Color, ColorType, Position, PositionType } from '../../types';
 
-import * as styles from './Alert.css';
+const styles = require('./Alert.css');
 
 export interface AlertProps {
   onClickClose: () => any;
@@ -11,51 +12,30 @@ export interface AlertProps {
   title?: string;
   isShow?: boolean;
   buttonLabel?: string;
-  color?: string;
-  position?: string;
+  color?: ColorType;
+  position?: PositionType;
 }
-
-export const COLOR = {
-  BASIC: 'basic',
-  DANGER: 'danger',
-  INFO: 'info',
-  PRIMARY: 'primary',
-  SUCCESS: 'success',
-  WARNING: 'warning',
-};
-
-export const POSITION = {
-  BC: 'bottom-center',
-  BL: 'bottom-left',
-  BR: 'bottom-right',
-  C: 'center',
-  L: 'left',
-  R: 'right',
-  TC: 'top-center',
-  TL: 'top-left',
-  TR: 'top-right',
-};
 
 const setColor = (color) => {
   let styleColor = 'bg-color-';
   switch (color.toLowerCase()) {
-    case COLOR.SUCCESS:
-      styleColor += COLOR.SUCCESS;
+    case Color.SUCCESS:
+      styleColor += Color.SUCCESS;
       break;
-    case COLOR.PRIMARY:
-      styleColor += COLOR.PRIMARY;
+    case Color.PRIMARY:
+      styleColor += Color.PRIMARY;
       break;
-    case COLOR.INFO:
-      styleColor += COLOR.INFO;
+    case Color.INFO:
+      styleColor += Color.INFO;
       break;
-    case COLOR.WARNING:
-      styleColor += COLOR.WARNING;
+    case Color.WARNING:
+      styleColor += Color.WARNING;
       break;
-    case COLOR.DANGER:
-      styleColor += COLOR.DANGER;
+    case Color.DANGER:
+      styleColor += Color.DANGER;
       break;
     default:
-      styleColor += COLOR.BASIC;
+      styleColor += Color.BASIC;
       break;
   }
   return styles[`${styleColor}`];
@@ -63,24 +43,24 @@ const setColor = (color) => {
 
 const setPosition = (postion) => {
   switch (postion.toLowerCase()) {
-    case POSITION.TL:
-      return styles[POSITION.TL];
-    case POSITION.TR:
-      return styles[POSITION.TR];
-    case POSITION.BL:
-      return styles[POSITION.BL];
-    case POSITION.BR:
-      return styles[POSITION.BR];
-    case POSITION.BC:
-      return styles[POSITION.BC];
-    case POSITION.C:
-      return styles[POSITION.TC];
-    case POSITION.R:
-      return styles[POSITION.R];
-    case POSITION.L:
-      return styles[POSITION.L];
+    case Position.TL:
+      return styles[Position.TL];
+    case Position.TR:
+      return styles[Position.TR];
+    case Position.BL:
+      return styles[Position.BL];
+    case Position.BR:
+      return styles[Position.BR];
+    case Position.BC:
+      return styles[Position.BC];
+    case Position.C:
+      return styles[Position.TC];
+    case Position.R:
+      return styles[Position.R];
+    case Position.L:
+      return styles[Position.L];
     default:
-      return styles[POSITION.C];
+      return styles[Position.C];
   }
 };
 

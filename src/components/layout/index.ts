@@ -1,8 +1,8 @@
-import NavBar from './NavBar';
-import Footer from './Footer';
-import Sidebar from './Sidebar';
+import NavBar, { NavBarProps } from './NavBar';
+import Footer, { FooterProps } from './Footer';
+import Sidebar, { SidebarProps } from './Sidebar';
 
-export { NavBar, Footer, Sidebar };
+export { NavBar, NavBarProps, Footer, FooterProps, Sidebar, SidebarProps };
 
 export default {
   NavBar,

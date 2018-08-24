@@ -3,7 +3,9 @@ import * as React from 'react';
 import Button from '../button';
 import { Input } from '../form';
 
-import styles from './InputConfirm.css';
+import { Color, Position } from '../../types';
+
+const styles = require('./InputConfirm.css');
 
 export interface InputConfirmProps {
   // is Requiredd
@@ -13,62 +15,43 @@ export interface InputConfirmProps {
   onClickSubmit: () => any;
   value: string;
   // isNotRequired
-  cancelLabel: string;
-  children: React.ReactNode;
-  color: string;
-  errorMessage: string;
-  isShow: boolean;
-  onBlur: () => any;
-  onKeyDown: () => any;
-  placeholder: string;
-  position: string;
-  required: boolean;
-  styleType: string;
-  submitDisabled: boolean;
-  submitLabel: string;
-  title: string;
-  type: string;
+  cancelLabel?: string;
+  children?: React.ReactNode;
+  color?: string;
+  errorMessage?: string;
+  isShow?: boolean;
+  onBlur?: () => any;
+  onKeyDown?: () => any;
+  placeholder?: string;
+  position?: string;
+  required?: boolean;
+  styleType?: string;
+  submitDisabled?: boolean;
+  submitLabel?: string;
+  title?: string;
+  type?: string;
 }
-
-export const COLOR = {
-  BASIC: 'basic',
-  SUCCESS: 'success',
-  PRIMARY: 'primary',
-  INFO: 'info',
-  WARNING: 'warning',
-  DANGER: 'danger',
-};
-
-export const POSITION = {
-  TL: 'top-left',
-  TR: 'top-right',
-  TC: 'top-center',
-  BL: 'bottom-left',
-  BR: 'bottom-right',
-  BC: 'bottom-center',
-  C: 'center',
-};
 
 const setColor = (color) => {
   let styleColor = 'bg-color-';
   switch (color.toLowerCase()) {
-    case COLOR.SUCCESS:
-      styleColor += COLOR.SUCCESS;
+    case Color.SUCCESS:
+      styleColor += Color.SUCCESS;
       break;
-    case COLOR.PRIMARY:
-      styleColor += COLOR.PRIMARY;
+    case Color.PRIMARY:
+      styleColor += Color.PRIMARY;
       break;
-    case COLOR.INFO:
-      styleColor += COLOR.INFO;
+    case Color.INFO:
+      styleColor += Color.INFO;
       break;
-    case COLOR.WARNING:
-      styleColor += COLOR.WARNING;
+    case Color.WARNING:
+      styleColor += Color.WARNING;
       break;
-    case COLOR.DANGER:
-      styleColor += COLOR.DANGER;
+    case Color.DANGER:
+      styleColor += Color.DANGER;
       break;
     default:
-      styleColor += COLOR.BASIC;
+      styleColor += Color.BASIC;
       break;
   }
   return styles[`${styleColor}`];
@@ -76,20 +59,20 @@ const setColor = (color) => {
 
 const setPosition = (postion) => {
   switch (postion.toLowerCase()) {
-    case POSITION.TL:
-      return styles[POSITION.TL];
-    case POSITION.TR:
-      return styles[POSITION.TR];
-    case POSITION.BL:
-      return styles[POSITION.BL];
-    case POSITION.BR:
-      return styles[POSITION.BR];
-    case POSITION.BC:
-      return styles[POSITION.BC];
-    case POSITION.C:
-      return styles[POSITION.C];
+    case Position.TL:
+      return styles[Position.TL];
+    case Position.TR:
+      return styles[Position.TR];
+    case Position.BL:
+      return styles[Position.BL];
+    case Position.BR:
+      return styles[Position.BR];
+    case Position.BC:
+      return styles[Position.BC];
+    case Position.C:
+      return styles[Position.C];
     default:
-      return styles[POSITION.TC];
+      return styles[Position.TC];
   }
 };
 
@@ -102,13 +85,13 @@ const InputConfirm: React.StatelessComponent<InputConfirmProps> = ({
   // isNotRequired
   cancelLabel = 'Cancel',
   children = null,
-  color = COLOR.BASIC,
+  color = Color.BASIC,
   errorMessage = '',
   isShow = false,
   onBlur = () => null,
   onKeyDown = () => null,
   placeholder = '',
-  position = POSITION.TC,
+  position = Position.TC,
   required = true,
   styleType = 'box',
   submitDisabled = false,

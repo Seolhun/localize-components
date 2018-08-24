@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './Footer.css';
+const styles = require('./Footer.css');
 
 export interface FooterProps {
   children: React.ReactNode;

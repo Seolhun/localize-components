@@ -1,5 +1,5 @@
-import Alert, { AlertProps, POSITION, COLOR } from './Alert';
+import Alert, { AlertProps } from './Alert';
 
-export { AlertProps, POSITION, COLOR };
+export { AlertProps };
 
 export default Alert;

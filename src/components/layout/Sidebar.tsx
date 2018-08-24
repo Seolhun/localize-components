@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import styles from './Sidebar.css';
+const styles = require('./Sidebar.css');
 
 export interface SidebarProps {
   children: React.ReactNode;
