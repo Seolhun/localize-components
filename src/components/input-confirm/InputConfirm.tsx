@@ -61,18 +61,24 @@ const setPosition = (postion) => {
   switch (postion.toLowerCase()) {
     case Position.TL:
       return styles[Position.TL];
+    case Position.TC:
+      return styles[Position.TC];
     case Position.TR:
       return styles[Position.TR];
-    case Position.BL:
-      return styles[Position.BL];
-    case Position.BR:
-      return styles[Position.BR];
-    case Position.BC:
-      return styles[Position.BC];
+    case Position.L:
+      return styles[Position.L];
     case Position.C:
       return styles[Position.C];
+    case Position.R:
+      return styles[Position.R];
+    case Position.BL:
+      return styles[Position.BL];
+    case Position.BC:
+      return styles[Position.BC];
+    case Position.BR:
+      return styles[Position.BR];
     default:
-      return styles[Position.TC];
+      return styles[Position.C];
   }
 };
 
@@ -91,7 +97,7 @@ const InputConfirm: React.StatelessComponent<InputConfirmProps> = ({
   onBlur = () => null,
   onKeyDown = () => null,
   placeholder = '',
-  position = Position.TC,
+  position = Position.C,
   required = true,
   styleType = 'box',
   submitIsDisabled = false,

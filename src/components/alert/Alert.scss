@@ -18,16 +18,11 @@
   -webkit-box-sizing: border-box;
   background-color: map-get($map: $defaultColors, $key: white);
   border-radius: 8px;
-  bottom: 0;
   box-sizing: border-box;
-  min-height: 200px;
-  height: auto;
-  left: 0;
+  height: 260px;
   margin: auto;
   position: fixed;
-  right: 0;
-  top: 0;
-  width: 550px;
+  width: 500px;
   z-index: 300;
   @include responsive(md) {
     width: 400px;
@@ -36,18 +31,19 @@
     width: 350px;
   }
   &.top-left {
+    top: 0;
+    left: 0;
     bottom: auto;
-    left: 0px;
     right: auto;
   }
   &.top-right {
+    top: 0;
+    right: 0;
     bottom: auto;
     left: auto;
-    right: 0;
   }
   &.top-center {
     top: 0;
-    bottom: 0;
     left: 0;
     right: 0;
     margin-left: auto;
@@ -55,14 +51,15 @@
   }
   &.center {
     top: 0;
-    bottom: auto;
-    margin: 0 auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
   }
   &.left {
     top: 0;
     bottom: 0;
     left: 0;
-    right: 0;
     margin-left: 0;
     margin-right: auto;
   }
@@ -82,14 +79,16 @@
   }
   &.bottom-right {
     top: auto;
-    bottom: 0px;
+    bottom: 0;
     left: auto;
-    right: 0px;
+    right: 0;
   }
   &.bottom-center {
-    top: auto;
     bottom: 0;
-    margin: 0 auto;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
   }
   .titleDiv {
     color: #303030;
