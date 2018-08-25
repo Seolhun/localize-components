@@ -43,34 +43,47 @@ $value in $defaultColors {
     width: 350px;
   }
   &.top-left {
-    top: 60px;
     bottom: auto;
     left: 0px;
     right: auto;
   }
   &.top-right {
-    top: 60px;
     bottom: auto;
     left: auto;
-    right: 0px;
+    right: 0;
   }
   &.top-center {
-    top: 60px;
-    bottom: auto;
-    margin: 0 auto;
-    left: 35%;
-  }
-  &.center {
-    position: fixed;
+    top: 0;
+    bottom: 0;
     left: 0;
     right: 0;
     margin-left: auto;
     margin-right: auto;
   }
+  &.center {
+    bottom: auto;
+    margin: 0 auto;
+  }
+  &.left {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-left: 0;
+    margin-right: auto;
+  }
+  &.right {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: 0;
+  }
   &.bottom-left {
     top: auto;
-    bottom: 0px;
-    left: 0px;
+    bottom: 0;
+    left: 0;
     right: auto;
   }
   &.bottom-right {
@@ -81,9 +94,8 @@ $value in $defaultColors {
   }
   &.bottom-center {
     top: auto;
-    bottom: 0px;
+    bottom: 0;
     margin: 0 auto;
-    left: 35%;
   }
   .titleDiv {
     color: #303030;

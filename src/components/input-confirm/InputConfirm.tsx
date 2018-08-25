@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as classnames from 'classnames';
 
 import Button from '../button';
 import { Input } from '../form';
@@ -25,7 +26,7 @@ export interface InputConfirmProps {
   position?: string;
   required?: boolean;
   styleType?: string;
-  submitDisabled?: boolean;
+  submitIsDisabled?: boolean;
   submitLabel?: string;
   title?: string;
   type?: string;
@@ -93,7 +94,7 @@ const InputConfirm: React.StatelessComponent<InputConfirmProps> = ({
   position = Position.TC,
   required = true,
   styleType = 'box',
-  submitDisabled = false,
+  submitIsDisabled = false,
   submitLabel = 'Complete',
   title = '',
   type = 'text',
@@ -106,9 +107,13 @@ const InputConfirm: React.StatelessComponent<InputConfirmProps> = ({
     <React.Fragment>
       <div className={styles.coverBackground} />
       <div
-        className={`${styles.InputConfirm} ${setColor(color)} ${setPosition(
-          position
-        )}`}
+        className={
+          classnames(
+            `${styles.InputConfirm}
+            ${setColor(color)}
+            ${setPosition(position)}
+          `)
+        }
       >
         <div className={styles.titleDiv}>{title}</div>
         <div className={styles.inputDiv}>
@@ -126,7 +131,7 @@ const InputConfirm: React.StatelessComponent<InputConfirmProps> = ({
           />
           <div
             className={`${styles.errorMessageDiv} ${
-              submitDisabled ? '' : styles.off
+              submitIsDisabled ? '' : styles.off
             }`}
           >
             {errorMessage}
@@ -136,7 +141,7 @@ const InputConfirm: React.StatelessComponent<InputConfirmProps> = ({
           {children || (
             <React.Fragment>
               <Button
-                className="btn btn-black-4"
+                className="btn btn-black"
                 onClick={onClickClose}
                 style={{
                   padding: '10px 50px',
@@ -145,16 +150,16 @@ const InputConfirm: React.StatelessComponent<InputConfirmProps> = ({
                 {cancelLabel}
               </Button>
               <Button
-                className="btn btn-main"
-                onClick={() => {
-                  if (!submitDisabled) {
-                    onClickSubmit();
+                className="btn btn-black"
+                onClick={(event) => {
+                  if (!submitIsDisabled) {
+                    onClickSubmit(event);
                   }
                 }}
                 style={{
                   padding: '10px 50px',
                 }}
-                disabled={submitDisabled}
+                disabled={submitIsDisabled}
               >
                 {submitLabel}
               </Button>

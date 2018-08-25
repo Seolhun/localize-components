@@ -18,11 +18,17 @@ class InputConfirmView extends React.Component<{}, InputConfirmViewState> {
 
   handleIsShow = (event) => {
     event.preventDefault();
-
     const { isShow } = this.state;
     this.setState({
       isShow: !isShow,
     });
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const { value } = this.state;
+    this.handleIsShow(event);
+    alert(`current input value is ${value}`);
   };
 
   handleInputValue = (event) => {
@@ -46,7 +52,7 @@ class InputConfirmView extends React.Component<{}, InputConfirmViewState> {
         <InputConfirm
           htmlFor=""
           onClickClose={this.handleIsShow}
-          onClickSubmit={this.handleIsShow}
+          onClickSubmit={this.handleSubmit}
           onChange={this.handleInputValue}
           isShow={isShow}
           position="top-center"

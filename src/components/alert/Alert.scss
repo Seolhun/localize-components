@@ -1,6 +1,5 @@
 @import '../../assets/scss/_mixin/responsive.scss';
 @import '../../assets/scss/_variable/color.scss';
-
 :local .coverBackground {
   position: fixed;
   width: 100%;
@@ -46,16 +45,17 @@
     right: 0;
   }
   &.top-center {
-    bottom: auto;
-    margin: 0 auto;
-  }
-  &.center {
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
     margin-left: auto;
     margin-right: auto;
+  }
+  &.center {
+    top: 0;
+    bottom: auto;
+    margin: 0 auto;
   }
   &.left {
     top: 0;
@@ -111,7 +111,8 @@
   }
 }
 
-@each $key, $value in $defaultColors {
+@each $key,
+$value in $defaultColors {
   :local .bg-color-#{$key} {
     background-color: #fff;
     border: 0.1px solid $value;
