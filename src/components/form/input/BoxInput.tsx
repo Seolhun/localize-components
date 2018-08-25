@@ -1,4 +1,5 @@
 import * as React from 'react';
+import * as classnames from 'classnames';
 
 const styles = require('./BoxInput.css');
 
@@ -7,7 +8,9 @@ export interface BoxInputProps {
   htmlFor: string;
   // isNotRequired
   children?: React.ReactNode;
-  className?: string;
+  inputClassName?: string;
+  labelClassName?: string;
+  errorClassName?: string;
   errorMessage?: string;
   hasError?: boolean;
   inputRef?: (event?) => any;
@@ -24,7 +27,9 @@ const BoxInput: React.StatelessComponent<BoxInputProps> = ({
   htmlFor,
   // isNotRequired
   children = null,
-  className = '',
+  inputClassName = '',
+  labelClassName = '',
+  errorClassName = '',
   errorMessage = '',
   hasError = false,
   inputRef = () => null,
@@ -36,13 +41,21 @@ const BoxInput: React.StatelessComponent<BoxInputProps> = ({
   type = 'text',
 }) => (
   <React.Fragment>
-    <label htmlFor={htmlFor}>
+    <label
+      className={classnames(`
+        ${styles.label}
+        ${labelClassName}
+        ${hasError ? styles.error : ''}
+      `)}
+      htmlFor={htmlFor}>
       {children}
       <input
         ref={inputRef}
-        className={`${styles.inputText} ${className} ${
-          hasError ? styles.error : ''
-        }`}
+        className={classnames(`
+          ${styles.input}
+          ${inputClassName}
+          ${hasError ? styles.error : ''}`
+        )}
         id={htmlFor}
         type={type}
         placeholder={placeholder}
@@ -53,7 +66,11 @@ const BoxInput: React.StatelessComponent<BoxInputProps> = ({
         required={required}
       />
     </label>
-    <div className={`${styles.errorDiv} ${hasError ? '' : styles.off}`}>
+    <div className={classnames(`
+      ${styles.errorDiv}
+      ${errorClassName}
+      ${hasError ? '' : styles.off}`
+    )}>
       {errorMessage}
     </div>
   </React.Fragment>

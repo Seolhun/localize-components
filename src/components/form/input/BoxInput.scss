@@ -1,37 +1,40 @@
 @import '../../../assets/scss/_variable/color.scss';
-:local .inputText {
-  background-color: map-get($map: $defaultColors, $key: white);
-  border-radius: 5px;
-  border: solid 1px map-get($map: $defaultColors, $key: black);
-  width: 100%;
-  max-width: 100%;
-  padding: 10px;
-  &:focus {
-    outline: none !important;
-  }
-  &::-webkit-input-placeholder {
-    /* Chrome/Opera/Safari */
-    color: map-get($map: $defaultColors, $key: black);
-  }
-  &::-moz-placeholder {
-    /* Firefox 19+ */
-    color: map-get($map: $defaultColors, $key: black);
-  }
-  &:-ms-input-placeholder {
-    /* IE 10+ */
-    color: map-get($map: $defaultColors, $key: black);
-  }
-  &:-moz-placeholder {
-    /* Firefox 18- */
-    color: map-get($map: $defaultColors, $key: black);
-  }
-}
 
-:local .errorDiv {
-  color: red;
-  margin: 5px 0;
-  display: inline;
-  &.off {
-    display: none;
+:local .label {
+  width: 100%;
+  .input {
+    background-color: map-get($map: $defaultColors, $key: white);
+    border-radius: 5px;
+    border: solid 1px map-get($map: $defaultColors, $key: black);
+    width: 100%;
+    padding: 10px;
+    &:focus {
+      outline: none !important;
+    }
+    &::-webkit-input-placeholder {
+      /* Chrome/Opera/Safari */
+      color: map-get($map: $defaultColors, $key: black);
+    }
+    &::-moz-placeholder {
+      /* Firefox 19+ */
+      color: map-get($map: $defaultColors, $key: black);
+    }
+    &:-ms-input-placeholder {
+      /* IE 10+ */
+      color: map-get($map: $defaultColors, $key: black);
+    }
+    &:-moz-placeholder {
+      /* Firefox 18- */
+      color: map-get($map: $defaultColors, $key: black);
+    }
+  }
+
+  .errorDiv {
+    color: map-get($map: $defaultColors, $key: danger);
+    margin: 5px 0;
+    display: inline;
+    &.off {
+      display: none;
+    }
   }
 }
