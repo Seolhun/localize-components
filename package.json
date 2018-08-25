@@ -24,7 +24,7 @@
   "main": "./src/index.ts",
   "scripts": {
     "build": "yarn style && tsc && yarn style:copy",
-    "dev": "concurrently \"yarn style:watch\" \"tsc --watch\" && yarn docs:dev",
+    "dev": "concurrently \"yarn style:watch\" \"tsc --watch\" \"yarn docs:dev\"",
     "style": "sass --update src:src --style compressed",
     "style:watch": "sass --watch src:dist/src --style compressed",
     "style:copy": "copyfiles src/**/*.css dist/",
@@ -41,6 +41,12 @@
     "prerelease": "yarn run packages",
     "release": "lerna publish --conventional-commits"
   },
+  "dependencies": {
+    "jest": "^23.5.0",
+    "classnames": "^2.2.6",
+    "enzyme-adapter-react-16": "^1.2.0",
+    "enzyme": "^3.4.4"
+  },
   "devDependencies": {
     "@types/jest": "23.3.1",
     "@types/react": "16.4.11",
@@ -54,11 +60,7 @@
     "typescript": "3.0.1"
   },
   "peerDependencies": {
-    "classnames": "^2.2.6",
     "concurrently": "^4.0.0",
-    "enzyme-adapter-react-16": "^1.2.0",
-    "enzyme": "^3.4.4",
-    "jest": "^23.5.0",
     "react-dom": "^16.4.2",
     "react": "^16.4.2"
   },

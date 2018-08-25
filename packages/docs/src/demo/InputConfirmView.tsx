@@ -55,7 +55,6 @@ class InputConfirmView extends React.Component<{}, InputConfirmViewState> {
           onClickSubmit={this.handleSubmit}
           onChange={this.handleInputValue}
           isShow={isShow}
-          position="top-center"
           value={value}
         />
       </section>

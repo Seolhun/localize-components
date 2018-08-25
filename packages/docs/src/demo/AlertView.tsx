@@ -31,32 +31,60 @@ class AlertView extends React.Component<{}, AlertViewState> {
             <h1>Hr</h1>
           </div>
         </div>
-        <Alert
-          onClickClose={this.handleIsShow}
-          message={'top-center'}
+        {/* <Alert
           isShow={isShow}
-          position="top-center"
-        />
-        <Alert
-          onClickClose={this.handleIsShow}
-          message={'center'}
-          isShow={isShow}
-          position="center"
-        />
-        <Alert
-          onClickClose={this.handleIsShow}
           message={'top-left'}
-          isShow={isShow}
+          onClickClose={this.handleIsShow}
           position="top-left"
         />
         <Alert
-          onClickClose={this.handleIsShow}
-          message={'bottom-right'}
           isShow={isShow}
-          position="bottom-right"
+          message={'top-center'}
+          onClickClose={this.handleIsShow}
+          position="top-center"
         />
-        <div className="col-20" />
-        <div className="col-20" />
+        <Alert
+          isShow={isShow}
+          message={'top-right'}
+          onClickClose={this.handleIsShow}
+          position="top-right"
+        /> */}
+        {/* <Alert
+          isShow={isShow}
+          message={'left'}
+          onClickClose={this.handleIsShow}
+          position="left"
+        /> */}
+        <Alert
+          isShow={isShow}
+          message={'center'}
+          onClickClose={this.handleIsShow}
+          position="center"
+        />
+        {/* <Alert
+          isShow={isShow}
+          message={'right'}
+          onClickClose={this.handleIsShow}
+          position="right"
+        /> */}
+        {/* <Alert
+          isShow={isShow}
+          message={'bottom-left'}
+          onClickClose={this.handleIsShow}
+          position="bottom-left"
+        />
+        <Alert
+          isShow={isShow}
+          message={'bottom-center'}
+          onClickClose={this.handleIsShow}
+          position="bottom-center"
+        />
+        <Alert
+          isShow={isShow}
+          message={'bottom-right'}
+          onClickClose={this.handleIsShow}
+          position="bottom-right"
+        /> */}
       </section>
     );
   }

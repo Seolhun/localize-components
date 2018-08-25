@@ -15,7 +15,7 @@
   .linkBtn {
     background: none !important;
     border: none;
-    color: map-get($map: $defaultColors, $key: black-3) !important;
+    color: map-get($map: $defaultColors, $key: black) !important;
     cursor: pointer;
     outline: none;
     padding: 0 15px;

@@ -1,6 +1,14 @@
-const DarkenColor = {};
+export const DarkenColor = {
+  BLACK: 'black',
+  GRAY: 'gray,',
+  PURPLE: 'purple',
+};
 
-const LightenColor = {};
+export const LightenColor = {
+  WHITE: 'white',
+  YELLOW: 'yellow,',
+  SKY: 'sky',
+};
 
 export const Color = {
   BASIC: 'basic',
@@ -9,12 +17,9 @@ export const Color = {
   PRIMARY: 'primary',
   SUCCESS: 'success',
   WARNING: 'warning',
-  DARKEN: {
-    ...DarkenColor,
-  },
-  LIGHTEN: {
-    ...LightenColor,
-  },
+  TRANSPARENT: 'transparent',
+  ...DarkenColor,
+  ...LightenColor,
 };
 
 export type ColorType =
@@ -23,6 +28,14 @@ export type ColorType =
   | 'info'
   | 'primary'
   | 'success'
-  | 'warning';
+  | 'warning'
+  // Darken
+  | 'black'
+  | 'gray,'
+  | 'purple'
+  // Lighten
+  | 'white'
+  | 'yellow,'
+  | 'sky';
 
 export default Color;

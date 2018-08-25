@@ -1,6 +1,10 @@
 version: 2
 jobs:
   build:
+    branches:
+      only:
+        - master
+        - develop
     docker:
       - image: circleci/node:8.10
     working_directory: ~/repo
@@ -13,13 +17,13 @@ jobs:
           - v1-dependencies-
 
       - run:
-          name: "Checking Versions..."
+          name: "Checking Versions"
           command: |
             node --version
             npm --version
 
       - run:
-          name: "Package Install..."
+          name: "Package Install"
           command: yarn install
 
       - save_cache:
@@ -27,4 +31,6 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      - run: yarn test
+      - run:
+          name: "Test using jest"
+          command: yarn test
