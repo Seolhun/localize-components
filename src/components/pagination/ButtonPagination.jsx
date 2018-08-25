@@ -24,7 +24,7 @@ class Pagination extends PureComponent {
     range: 5,
 
     activeButton: 'btn-main',
-    basicButton: 'btn-black-4',
+    basicButton: 'btn-black',
   };
 
   pagination(pageIndex, totalCount, range) {
@@ -37,11 +37,14 @@ class Pagination extends PureComponent {
     const rangePageWithDots = [];
 
     const left = current - criteriaNumber < 1 ? 1 : current - criteriaNumber;
-    const right = current + criteriaNumber > totalPage ? totalPage : current + criteriaNumber;
+    const right =
+      current + criteriaNumber > totalPage
+        ? totalPage
+        : current + criteriaNumber;
 
     let condition = null;
     rangePage.forEach((i) => {
-      if ((i >= left && i <= right) || ((i === 1)) || ((i === totalPage))) {
+      if ((i >= left && i <= right) || i === 1 || i === totalPage) {
         if (i - condition !== 1) {
           rangePageWithDots.push('....');
         }
@@ -54,14 +57,21 @@ class Pagination extends PureComponent {
 
   renderPageBtn() {
     const {
-      currentPage, totalCount, range, onClick, activeButton, basicButton,
+      currentPage,
+      totalCount,
+      range,
+      onClick,
+      activeButton,
+      basicButton,
     } = this.props;
     const pages = this.pagination(currentPage, totalCount, range);
-    return pages.map(pageNum => (
+    return pages.map((pageNum) => (
       <button
         key={pageNum}
         type="button"
-        className={`btn ${currentPage === pageNum ? basicButton : activeButton} ${styles.margin}`}
+        className={`btn ${
+          currentPage === pageNum ? basicButton : activeButton
+        } ${styles.margin}`}
         onClick={isNumber(pageNum) ? () => onClick(pageNum) : () => {}}
       >
         {pageNum}
@@ -72,15 +82,10 @@ class Pagination extends PureComponent {
   render() {
     return (
       <div>
-        <div>
-          {
-            this.renderPageBtn()
-          }
-        </div>
+        <div>{this.renderPageBtn()}</div>
       </div>
     );
   }
 }
-
 
 export default Pagination;
