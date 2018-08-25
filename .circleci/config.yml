@@ -32,5 +32,5 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - run:
-        name: "Test using jest"
-        command: yarn test
+          name: "Test using jest"
+          command: yarn test
