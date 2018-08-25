@@ -5,12 +5,12 @@ const styles = require('./Button.css');
 export interface ButtonProps {
   // isRequired
   children: React.ReactNode;
-  onClick: () => any;
   // isNotRequired
-  onMouseOver?: () => any;
-  onMouseOut?: () => any;
-  onBlur?: () => any;
-  onFocus?: () => any;
+  onClick?: (event?) => any;
+  onBlur?: (event?) => any;
+  onFocus?: (event?) => any;
+  onMouseOver?: (event?) => any;
+  onMouseOut?: (event?) => any;
   className?: string;
   fontSize?: number;
   style?: {
@@ -21,11 +21,11 @@ export interface ButtonProps {
   disabled?: boolean;
 }
 
-const Button: React.SFC<ButtonProps> = ({
+const Button: React.StatelessComponent<ButtonProps> = ({
   // is Required
   children,
-  onClick,
   // is Not Required
+  onClick = () => null,
   onMouseOver = () => null,
   onMouseOut = () => null,
   onBlur = () => null,
@@ -35,7 +35,6 @@ const Button: React.SFC<ButtonProps> = ({
   style = {
     color: '',
     backgroundColor: '',
-    padding: '10px 20px',
   },
   disabled = false,
 }) => (

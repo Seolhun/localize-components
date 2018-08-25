@@ -9,9 +9,9 @@ const styles = require('./InputConfirm.css');
 
 export interface InputConfirmProps {
   htmlFor: string;
-  onChange: (event: Event) => any;
-  onClickClose: (event: Event) => any;
-  onClickSubmit: (event: Event) => any;
+  onChange: (event?) => any;
+  onClickClose: (event?) => any;
+  onClickSubmit: (event?) => any;
   value: string;
   // isNotRequired
   cancelLabel?: string;

@@ -10,10 +10,10 @@ export interface BoxInputProps {
   className?: string;
   errorMessage?: string;
   hasError?: boolean;
-  inputRef?: () => any;
-  onBlur?: () => any;
-  onChange?: () => any;
-  onKeyDown?: () => any;
+  inputRef?: (event?) => any;
+  onBlur?: (event?) => any;
+  onChange?: (event?) => any;
+  onKeyDown?: (event?) => any;
   placeholder?: string;
   required?: boolean;
   type?: string;
