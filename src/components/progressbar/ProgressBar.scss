@@ -10,7 +10,7 @@ $progressHeight: 10px;
   display: -ms-flexbox;
   width: 100%;
   .ratioBox {
-    color: #7c69ff;
+    color: map-get($map: $defaultColors, $key: primary);;
     font-size: 14px;
     font-weight: 600;
     width: 100px;
@@ -21,7 +21,7 @@ $progressHeight: 10px;
     .name,
     .description {
       font-size: 14px;
-      color: map-get($map: $defaultColors, $key: black-3);
+      color: map-get($map: $defaultColors, $key: black);
     }
     .progressBar {
       position: relative;
@@ -33,7 +33,7 @@ $progressHeight: 10px;
       .percentagem {
         animation: animationProgress 3s ease-in-out;
         animation-fill-mode: forwards;
-        background: map-get($map: $defaultColors, $key: main-1);
+        background: map-get($map: $defaultColors, $key: primary);
         border-bottom-left-radius: 10px;
         border-bottom-right-radius: 10px;
         border-top-left-radius: 10px;

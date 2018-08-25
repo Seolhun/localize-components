@@ -141,16 +141,7 @@ const InputConfirm: React.StatelessComponent<InputConfirmProps> = ({
           {children || (
             <React.Fragment>
               <Button
-                className="btn btn-black"
-                onClick={onClickClose}
-                style={{
-                  padding: '10px 50px',
-                }}
-              >
-                {cancelLabel}
-              </Button>
-              <Button
-                className="btn btn-black"
+                className="btn btn-success"
                 onClick={(event) => {
                   if (!submitIsDisabled) {
                     onClickSubmit(event);
@@ -162,6 +153,15 @@ const InputConfirm: React.StatelessComponent<InputConfirmProps> = ({
                 disabled={submitIsDisabled}
               >
                 {submitLabel}
+              </Button>
+              <Button
+                className="btn btn-warning"
+                onClick={onClickClose}
+                style={{
+                  padding: '10px 50px',
+                }}
+              >
+                {cancelLabel}
               </Button>
             </React.Fragment>
           )}

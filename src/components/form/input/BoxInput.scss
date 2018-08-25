@@ -2,7 +2,7 @@
 :local .inputText {
   background-color: #fff;
   border-radius: 5px;
-  border: solid 1px map-get($map: $defaultColors, $key: black-5);
+  border: solid 1px map-get($map: $defaultColors, $key: black);
   width: 100%;
   max-width: 300px;
   padding: 10px;
@@ -11,19 +11,19 @@
   }
   &::-webkit-input-placeholder {
     /* Chrome/Opera/Safari */
-    color: map-get($map: $defaultColors, $key: black-3);
+    color: map-get($map: $defaultColors, $key: black);
   }
   &::-moz-placeholder {
     /* Firefox 19+ */
-    color: map-get($map: $defaultColors, $key: black-3);
+    color: map-get($map: $defaultColors, $key: black);
   }
   &:-ms-input-placeholder {
     /* IE 10+ */
-    color: map-get($map: $defaultColors, $key: black-3);
+    color: map-get($map: $defaultColors, $key: black);
   }
   &:-moz-placeholder {
     /* Firefox 18- */
-    color: map-get($map: $defaultColors, $key: black-3);
+    color: map-get($map: $defaultColors, $key: black);
   }
 }
 

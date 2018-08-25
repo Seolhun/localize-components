@@ -1,7 +1,14 @@
 @import '../../assets/scss/_mixin/responsive.scss';
-$defaultColors: ( main: #5f42ff, success: #28a745, primary: #0069d9, info: #369cc7, warning: #ebad1a, danger: #dc3545, basic: #979696, );
-@each $key,
-$value in $defaultColors {
+$defaultColors: (
+  basic: #979696,
+  danger: #dc3545,
+  info: #369cc7,
+  primary: #0069d9,
+  success: #28a745,
+  warning: #ebad1a,
+);
+
+@each $key, $value in $defaultColors {
   :local .bg-color-#{$key} {
     background-color: #fff;
     border: 0.1px solid $value;

@@ -13,6 +13,6 @@
     background-color: #fff;
   }
   &.evenBodyRow {
-    background-color: map-get($map: $defaultColors, $key: main-5);
+    background-color: map-get($map: $defaultColors, $key: primary);
   }
 }

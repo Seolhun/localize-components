@@ -1,11 +1,17 @@
 $defaultColors: (
-  purple: #5f42ff,
+  basic: #979696,
+  danger: #dc3545,
+  info: #369cc7,
+  primary: #0069d9,
+  success: #28a745,
+  warning: #ebad1a,
+  transparent: transparent,
+  // Darken
   black: #2a2a2a,
   gray: #f5eded,
-  success: #28a745,
-  primary: #0069d9,
-  info: #369cc7,
-  warning: #ebad1a,
-  danger: #dc3545,
-  basic: #979696,
+  purple: #5f42ff,
+  // Lighten
+  white: #fff,
+  yellow: yellow,
+  sky: skyblue,
 );

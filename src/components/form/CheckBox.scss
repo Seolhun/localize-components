@@ -20,14 +20,14 @@
     top: 0;
     width: 20px;
     height: 20px;
-    border: 1px solid map-get($map: $defaultColors, $key: black-2);
+    border: 1px solid map-get($map: $defaultColors, $key: black);
     background: #fff;
     border-radius: 4px;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
   }
   [type='checkbox']:not(:checked)+span:after,
   [type='checkbox']:checked+span:after {
-    color: map-get($map: $defaultColors, $key: main-1);
+    color: map-get($map: $defaultColors, $key: primary);
     content: '\f00c';
     font-family: FontAwesome;
     font-size: 14px;
@@ -50,18 +50,18 @@
   /* disabled checkbox */
   [type='checkbox']:disabled:not(:checked)+span:before,
   [type='checkbox']:disabled:checked+span:before {
-    border-color: map-get($map: $defaultColors, $key: black-2);
-    background-color: map-get($map: $defaultColors, $key: black-2);
+    border-color: map-get($map: $defaultColors, $key: black);
+    background-color: map-get($map: $defaultColors, $key: black);
   }
   [type='checkbox']:disabled:checked+span:after {
-    color: map-get($map: $defaultColors, $key: black-2);
+    color: map-get($map: $defaultColors, $key: black);
   }
   [type='checkbox']:disabled+span {
-    color: map-get($map: $defaultColors, $key: black-2);
+    color: map-get($map: $defaultColors, $key: black);
   }
   /* accessibility */
   [type='checkbox']:checked+span:before {
-    border: 1px solid map-get($map: $defaultColors, $key: main-1);
+    border: 1px solid map-get($map: $defaultColors, $key: primary);
     transition: all 0.3s;
   }
 }
