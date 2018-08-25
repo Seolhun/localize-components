@@ -8,11 +8,10 @@ import { Color, Position } from '../../types';
 const styles = require('./InputConfirm.css');
 
 export interface InputConfirmProps {
-  // is Requiredd
   htmlFor: string;
-  onChange: () => any;
-  onClickClose: () => any;
-  onClickSubmit: () => any;
+  onChange: (event: Event) => any;
+  onClickClose: (event: Event) => any;
+  onClickSubmit: (event: Event) => any;
   value: string;
   // isNotRequired
   cancelLabel?: string;

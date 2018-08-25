@@ -5,9 +5,9 @@ const styles = require('./Issue.css');
 export interface IssueProps {
   title: string;
   // IsNotRequired
-  children: React.ReactNode;
-  className: string;
-  description: string;
+  children?: React.ReactNode;
+  className?: string;
+  description?: string;
 }
 
 const Issue: React.StatelessComponent<IssueProps> = ({

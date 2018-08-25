@@ -4,6 +4,7 @@ import { InputConfirm } from '@seolhun/localize-react-components';
 
 interface InputConfirmViewState {
   isShow: boolean;
+  value: string;
 }
 
 class InputConfirmView extends React.Component<{}, InputConfirmViewState> {
@@ -11,18 +12,29 @@ class InputConfirmView extends React.Component<{}, InputConfirmViewState> {
     super(props);
     this.state = {
       isShow: true,
+      value: '',
     };
   }
 
-  handleIsShow = () => {
+  handleIsShow = (event) => {
+    event.preventDefault();
+
     const { isShow } = this.state;
     this.setState({
       isShow: !isShow,
     });
   };
 
+  handleInputValue = (event) => {
+    event.preventDefault();
+    const { value } = event.target;
+    this.setState({
+      value,
+    });
+  };
+
   render() {
-    const { isShow } = this.state;
+    const { isShow, value } = this.state;
 
     return (
       <section>
@@ -32,32 +44,14 @@ class InputConfirmView extends React.Component<{}, InputConfirmViewState> {
           </div>
         </div>
         <InputConfirm
+          htmlFor=""
           onClickClose={this.handleIsShow}
-          message={'top-center'}
+          onClickSubmit={this.handleIsShow}
+          onChange={this.handleInputValue}
           isShow={isShow}
           position="top-center"
+          value={value}
         />
-        <InputConfirm
-          onClickClose={this.handleIsShow}
-          message={'center'}
-          isShow={isShow}
-          position="center"
-        />
-        <InputConfirm
-          onClickClose={this.handleIsShow}
-          message={'top-left'}
-          isShow={isShow}
-          position="top-left"
-        />
-        <InputConfirm
-          htmlFor="Hello"
-          onClickClose={this.handleIsShow}
-          message={'bottom-right'}
-          isShow={isShow}
-          position="bottom-right"
-        />
-        <div className="col-20" />
-        <div className="col-20" />
       </section>
     );
   }
