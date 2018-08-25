@@ -4,17 +4,11 @@ const styles = require('./NavBar.css');
 
 export interface NavBarProps {
   children: React.ReactNode;
-  style?: {
-    height?: string,
-  };
+  // isNotRequired
+  style: object;
 }
 
-const NavBar: React.StatelessComponent<NavBarProps> = ({
-  children,
-  style = {
-    height: '70px',
-  },
-}) => (
+const NavBar: React.StatelessComponent<NavBarProps> = ({ children, style }) => (
   <nav className={styles.navbar} style={style}>
     {children}
   </nav>
