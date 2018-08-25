@@ -1,0 +1,11 @@
+@import '../../../assets/scss/_variable/color.scss';
+
+:local .headerRow {
+  display: table-row;
+  font-weight: bold;
+
+  height: 20px;
+  font-size: 16px;
+  font-weight: 600;
+  color: map-get($map: $defaultColors, $key: black-0);
+}

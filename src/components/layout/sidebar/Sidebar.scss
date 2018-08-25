@@ -1,0 +1,26 @@
+@import '../../../assets/scss/_mixin/responsive.scss';
+@import '../../../assets/scss/_variable/grid.scss';
+.sidebar {
+  background-color: #fff;
+  border-bottom: 1px solid rgba($color: #000000, $alpha: 0.15);
+  border-right: 1px solid rgba($color: #000000, $alpha: 0.15);
+  box-sizing: border-box;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: $sidebarSize;
+  padding-top: $headerSize;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  position: fixed;
+  @include responsive(lg) {
+    margin-left: -$sidebarSize;
+  }
+  @include responsive(md) {
+    margin-left: -$sidebarSize;
+  }
+  @include responsive(sm) {
+    margin-left: -$sidebarSize;
+  }
+}
