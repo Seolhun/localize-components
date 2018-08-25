@@ -1,8 +1,25 @@
 {
+  "author": "Seolhun",
   "name": "@seolhun/localize-react-components",
   "version": "1.0.8",
   "description": "React components localizing and customizing style easily.",
-  "main": "dist/src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Seolhun/localize-react-components"
+  },
+  "homepage": "https://github.com/Seolhun/localize-react-components#readme",
+  "bugs": {
+    "url": "https://github.com/Seolhun/localize-react-components/issues"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "component",
+    "ui",
+    "scss"
+  ],
+  "license": "MIT",
+  "main": "./src/index.ts",
   "scripts": {
     "build": "tsc && yarn style && yarn style:copy",
     "style": "sass --update src:src --style compressed",
@@ -16,27 +33,10 @@
     "clean": "lerna clean",
     "packages:fix": "lerna run fix && echo",
     "packages:lint": "lerna run tslint",
-    "packages:build": "lerna run build --ignore docz-example-*",
+    "packages:build": "lerna run build --ignore localize--*",
     "prerelease": "yarn run packages",
     "release": "lerna publish --conventional-commits"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Seolhun/localize-react-components"
-  },
-  "keywords": [
-    "react",
-    "typescript",
-    "component",
-    "ui",
-    "scss"
-  ],
-  "author": "Seolhun",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Seolhun/localize-react-components/issues"
-  },
-  "homepage": "https://github.com/Seolhun/localize-react-components#readme",
   "dependencies": {
     "@seolhun/localize-react-components": "^1.0.5",
     "classnames": "^2.2.6",
@@ -58,6 +58,9 @@
     "tslint-config-airbnb": "^5.10.0",
     "typescript": "3.0.1"
   },
+  "workspaces": [
+    "packages/*"
+  ],
   "publishConfig": {
     "access": "public"
   },
