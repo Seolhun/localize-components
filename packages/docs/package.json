@@ -1,7 +1,7 @@
 {
   "name": "@seolhun/localize-react-components-docs",
   "version": "1.0.0",
-  "description": "About React components localizing and customizing style easily.",
+  "description": "How to use localize-react-components",
   "main": "dist/src/index.js",
   "scripts": {
     "build": "node build/build.js",

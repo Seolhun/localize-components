@@ -1,8 +1,9 @@
 {
+  "private": true,
   "author": "Seolhun",
   "name": "@seolhun/localize-react-components",
   "version": "1.0.0",
-  "description": "React components localizing and customizing style easily.",
+  "description": "Localizing React components is rendered by stand-alone not affect other styles.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Seolhun/localize-react-components"
@@ -13,38 +14,32 @@
   },
   "keywords": [
     "react",
-    "typescript",
     "component",
+    "typescript",
     "ui",
-    "scss"
+    "scss",
+    "local"
   ],
   "license": "MIT",
   "main": "./src/index.ts",
   "scripts": {
-    "build": "tsc && yarn style && yarn style:copy",
+    "build": "yarn style && tsc && yarn style:copy",
+    "dev": "concurrently \"yarn style:watch\" \"tsc --watch\" && yarn docs:dev",
     "style": "sass --update src:src --style compressed",
-    "style:watch": "sass --watch src:src --style compressed",
+    "style:watch": "sass --watch src:dist/src --style compressed",
     "style:copy": "copyfiles src/**/*.css dist/",
     "style:clean": "find . -name *.css* -type f -delete",
     "test": "jest",
     "test-with-coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage",
-    "docs:build": "cd docs && yarn build",
-    "docs:dev": "cd docs && yarn dev",
+    "docs:build": "cd packages/docs/ && yarn build",
+    "docs:dev": "cd packages/docs/ && yarn dev",
     "clean": "lerna clean",
+    "packages:bs": "lerna bootstrap",
     "packages:fix": "lerna run fix && echo",
     "packages:lint": "lerna run tslint",
-    "packages:build": "lerna run build --ignore localize--*",
+    "packages:build": "yarn build && lerna run build",
     "prerelease": "yarn run packages",
     "release": "lerna publish --conventional-commits"
-  },
-  "dependencies": {
-    "@seolhun/localize-react-components": "^1.0.5",
-    "classnames": "^2.2.6",
-    "enzyme": "^3.4.4",
-    "enzyme-adapter-react-16": "^1.2.0",
-    "jest": "^23.5.0",
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2"
   },
   "devDependencies": {
     "@types/jest": "23.3.1",
@@ -57,6 +52,15 @@
     "ts-jest": "23.1.3",
     "tslint-config-airbnb": "^5.10.0",
     "typescript": "3.0.1"
+  },
+  "peerDependencies": {
+    "classnames": "^2.2.6",
+    "concurrently": "^4.0.0",
+    "enzyme-adapter-react-16": "^1.2.0",
+    "enzyme": "^3.4.4",
+    "jest": "^23.5.0",
+    "react-dom": "^16.4.2",
+    "react": "^16.4.2"
   },
   "workspaces": [
     "packages/*"
