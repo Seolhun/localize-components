@@ -28,3 +28,6 @@ yarn-error.*
 # Compile CSS files
 *.css
 *.css.map
+
+# Report
+coverage/
