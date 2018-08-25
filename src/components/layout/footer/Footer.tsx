@@ -1,5 +1,5 @@
 import React from 'react';
-import * as classNames from 'classnames';
+import * as classnames from 'classnames';
 
 const styles = require('./Footer.css');
 
@@ -15,7 +15,7 @@ const Footer: React.StatelessComponent<FooterProps> = ({
   children = '',
   style = {},
 }) => (
-  <footer className={classNames(`${styles.footer} ${className}`)} style={style}>
+  <footer className={classnames(`${styles.footer} ${className}`)} style={style}>
     {children}
   </footer>
 );
