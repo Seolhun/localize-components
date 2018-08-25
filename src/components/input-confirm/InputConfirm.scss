@@ -1,16 +1,9 @@
 @import '../../assets/scss/_mixin/responsive.scss';
-$defaultColors: (
-  basic: #979696,
-  danger: #dc3545,
-  info: #369cc7,
-  primary: #0069d9,
-  success: #28a745,
-  warning: #ebad1a,
-);
+@import '../../assets/scss/_variable/color.scss';
 
 @each $key, $value in $defaultColors {
   :local .bg-color-#{$key} {
-    background-color: #fff;
+    background-color: map-get($map: $defaultColors, $key: white);
     border: 0.1px solid $value;
   }
 }
@@ -31,7 +24,7 @@ $defaultColors: (
 :local .InputConfirm {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  background-color: #fff;
+  background-color: map-get($map: $defaultColors, $key: white);
   border-radius: 8px;
   bottom: 0;
   box-sizing: border-box;
@@ -123,7 +116,7 @@ $defaultColors: (
   }
   .errorMessageDiv {
     width: 100%;
-    color: red;
+    color: map-get($map: $defaultColors, $key: danger);
     font-size: 14px;
     margin: 5px;
     &.off {

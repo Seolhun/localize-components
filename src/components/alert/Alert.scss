@@ -16,11 +16,12 @@
 :local .alert {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  background-color: #fff;
+  background-color: map-get($map: $defaultColors, $key: white);
   border-radius: 8px;
   bottom: 0;
   box-sizing: border-box;
-  height: 260px;
+  min-height: 200px;
+  height: auto;
   left: 0;
   margin: auto;
   position: fixed;
@@ -114,7 +115,7 @@
 @each $key,
 $value in $defaultColors {
   :local .bg-color-#{$key} {
-    background-color: #fff;
+    background-color: map-get($map: $defaultColors, $key: white);
     border: 0.1px solid $value;
   }
 }
