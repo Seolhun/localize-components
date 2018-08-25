@@ -19,8 +19,8 @@ jobs:
             npm --version
 
       - run:
-        name: "Package Install..."
-        command: yarn install
+          name: "Package Install..."
+          command: yarn install
 
       - save_cache:
           paths:
