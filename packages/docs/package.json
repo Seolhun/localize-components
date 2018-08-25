@@ -1,6 +1,6 @@
 {
   "name": "@seolhun/localize-react-components-docs",
-  "version": "1.0.6",
+  "version": "1.0.1",
   "description": "About React components localizing and customizing style easily.",
   "main": "dist/src/index.js",
   "scripts": {
