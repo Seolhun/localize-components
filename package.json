@@ -39,6 +39,7 @@
   "homepage": "https://github.com/Seolhun/localize-react-components#readme",
   "dependencies": {
     "@seolhun/localize-react-components": "^1.0.5",
+    "classnames": "^2.2.6",
     "enzyme": "^3.4.4",
     "enzyme-adapter-react-16": "^1.2.0",
     "jest": "^23.5.0",
