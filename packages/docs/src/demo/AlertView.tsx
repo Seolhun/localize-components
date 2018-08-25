@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Alert } from '@seolhun/localize-react-components';
+import { Alert } from '../../../../dist/src';
 
 interface AlertViewState {
   isShow: boolean;

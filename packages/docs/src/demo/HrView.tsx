@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Hr } from '@seolhun/localize-react-components';
+import { Hr } from '../../../../dist/src';
 
 class HrView extends React.Component {
   render() {

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Spinner } from '@seolhun/localize-react-components';
+import { Spinner } from '../../../../dist/src';
 
 class SpinnerView extends React.Component {
   render() {

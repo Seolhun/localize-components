@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { InputConfirm } from '@seolhun/localize-react-components';
+import { InputConfirm } from '../../../../dist/src';
 
 interface InputConfirmViewState {
   isShow: boolean;

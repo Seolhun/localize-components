@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Button } from '@seolhun/localize-react-components';
+import { Button } from '../../../../dist/src';
 
 export interface ButtonViewProps {}
 

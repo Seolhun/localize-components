@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Loading } from '@seolhun/localize-react-components';
+import { Loading } from '../../../../dist/src';
 
 class LoadingView extends React.Component {
   render() {
