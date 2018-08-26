@@ -1,120 +1,14 @@
-@import '../../../assets/scss/_mixin/responsive.scss';
 @import '../../../assets/scss/_variable/color.scss';
 
-@each $key, $value in $defaultColors {
-  :local .bg-color-#{$key} {
-    background-color: map-get($map: $defaultColors, $key: white);
-    border: 0.1px solid $value;
-  }
-}
-
-:local .coverBackground {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 299;
-  cursor: pointer;
-}
-
 :local .InputConfirm {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  background-color: map-get($map: $defaultColors, $key: white);
-  border-radius: 8px;
-  box-sizing: border-box;
-  height: 260px;
-  margin: auto;
-  position: fixed;
-  width: 500px;
-  z-index: 300;
-  @include responsive(md) {
-    width: 400px;
+  color: map-get($map: $defaultColors, $key: black);
+  font-size: 16px;
+  padding: 5px 30px;
+  .input {
+    width: 100%;
+    max-width: 100%;
   }
-  @include responsive(sm) {
-    width: 350px;
-  }
-  &.top-left {
-    top: 0;
-    left: 0;
-    bottom: auto;
-    right: auto;
-  }
-  &.top-right {
-    top: 0;
-    right: 0;
-    bottom: auto;
-    left: auto;
-  }
-  &.top-center {
-    top: 0;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  &.center {
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-  }
-  &.left {
-    top: 0;
-    bottom: 0;
-    left: 0;
-    margin-left: 0;
-    margin-right: auto;
-  }
-  &.right {
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: 0;
-  }
-  &.bottom-left {
-    top: auto;
-    bottom: 0;
-    left: 0;
-    right: auto;
-  }
-  &.bottom-right {
-    top: auto;
-    bottom: 0;
-    left: auto;
-    right: 0;
-  }
-  &.bottom-center {
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .titleDiv {
-    color: #303030;
-    font-size: 22px;
-    font-weight: 600;
-    letter-spacing: 0.2px;
-    padding: 30px;
-  }
-  .inputDiv {
-    color: #2a2a2a;
-    font-size: 16px;
-    padding: 5px 30px;
-    .input {
-      width: 100%;
-      max-width: 100%;
-    }
-  }
-  .errorMessageDiv {
+  .errorMessageBox {
     width: 100%;
     color: map-get($map: $defaultColors, $key: danger);
     font-size: 14px;
@@ -122,11 +16,5 @@
     &.off {
       display: none;
     }
-  }
-  .buttonDiv {
-    bottom: 1em;
-    position: absolute;
-    width: 100%;
-    text-align: center;
   }
 }

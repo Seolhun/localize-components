@@ -3,13 +3,13 @@ import * as classnames from 'classnames';
 
 import { Color, ColorType, Position, PositionType } from '../../types';
 import Button from '../button';
-import { Input } from '../form';
+
+import { BasicConfirm, InputConfirm } from './child';
 
 const styles = require('./Confirm.css');
 
 export interface ConfirmProps {
   htmlFor: string;
-  onChange: (...args: any[]) => any;
   onClickClose: (...args: any[]) => any;
   onClickSubmit: (...args: any[]) => any;
   value: string;
@@ -18,9 +18,12 @@ export interface ConfirmProps {
   children?: React.ReactNode;
   color?: ColorType;
   errorMessage?: string;
+  inputType?: string;
   isShow?: boolean;
-  onBlur?: () => any;
-  onKeyDown?: () => any;
+  message?: string;
+  onBlur?: (...args: any[]) => any;
+  onChange: (...args: any[]) => any;
+  onKeyDown?: (...args: any[]) => any;
   placeholder?: string;
   position?: PositionType;
   required?: boolean;
@@ -28,11 +31,18 @@ export interface ConfirmProps {
   submitIsDisabled?: boolean;
   submitLabel?: string;
   title?: string;
-  inputType?: string;
-  type?: string;
+  type?: ConfirmType;
 }
 
-const setColor = (color) => {
+export type ConfirmType = 'basic' | 'input' | 'select' | 'checkbox';
+const ConfirmTypes = {
+  BASIC: 'basic',
+  INPUT: 'input',
+  SELECT: 'select',
+  CHECKBOX: 'checkbox',
+};
+
+const setColor = (color: string) => {
   let styleColor = 'bg-color-';
   switch (color.toLowerCase()) {
     case Color.SUCCESS:
@@ -57,7 +67,7 @@ const setColor = (color) => {
   return styles[`${styleColor}`];
 };
 
-const setPosition = (postion) => {
+const setPosition = (postion: string) => {
   switch (postion.toLowerCase()) {
     case Position.TL:
       return styles[Position.TL];
@@ -65,12 +75,12 @@ const setPosition = (postion) => {
       return styles[Position.TC];
     case Position.TR:
       return styles[Position.TR];
-    case Position.L:
-      return styles[Position.L];
-    case Position.C:
-      return styles[Position.C];
-    case Position.R:
-      return styles[Position.R];
+    case Position.LEFT:
+      return styles[Position.LEFT];
+    case Position.CENTER:
+      return styles[Position.CENTER];
+    case Position.RIGHT:
+      return styles[Position.RIGHT];
     case Position.BL:
       return styles[Position.BL];
     case Position.BC:
@@ -78,7 +88,16 @@ const setPosition = (postion) => {
     case Position.BR:
       return styles[Position.BR];
     default:
-      return styles[Position.C];
+      return styles[Position.CENTER];
+  }
+};
+
+const setRenderType = (props) => {
+  switch (props.type) {
+    case ConfirmTypes.INPUT:
+      return <InputConfirm {...props} />;
+    default:
+      return <BasicConfirm {...props} />;
   }
 };
 
@@ -93,27 +112,22 @@ const Confirm: React.StatelessComponent<ConfirmProps> = ({
   children = null,
   color = Color.BASIC,
   errorMessage = '',
+  inputType = 'search',
   isShow = false,
+  message = '',
   onBlur = () => null,
   onKeyDown = () => null,
   placeholder = '',
-  position = Position.C,
+  position = Position.CENTER,
   required = true,
   styleType = 'box',
   submitIsDisabled = false,
   submitLabel = 'Complete',
   title = '',
-  inputType = 'search',
+  type = 'basic',
 }) => {
   if (!isShow) {
     return null;
-  }
-
-  switch (type) {
-    case 'input':
-      break;
-    default:
-      break;
   }
 
   return (
@@ -127,56 +141,50 @@ const Confirm: React.StatelessComponent<ConfirmProps> = ({
           `
         )}
       >
-        <div className={styles.titleDiv}>{title}</div>
-        <div className={styles.inputDiv}>
-          <Input
-            className={styles.input}
-            type={inputType}
-            styleType={styleType}
-            htmlFor={htmlFor}
-            value={value}
-            placeholder={placeholder}
-            onChange={onChange}
-            onBlur={onBlur}
-            onKeyDown={onKeyDown}
-            required={required}
-          />
-          <div
-            className={`${styles.errorMessageDiv} ${
-              submitIsDisabled ? '' : styles.off
-            }`}
-          >
-            {errorMessage}
-          </div>
+        <div className={styles.headerDiv}>{title}</div>
+        <div className={styles.bodyDiv}>
+          {children ||
+            setRenderType({
+              htmlFor,
+              onChange,
+              onClickClose,
+              onClickSubmit,
+              value,
+              // isNotRequired
+              cancelLabel,
+              children,
+              color,
+              errorMessage,
+              inputType,
+              isShow,
+              message,
+              onBlur,
+              onKeyDown,
+              placeholder,
+              position,
+              required,
+              styleType,
+              submitIsDisabled,
+              submitLabel,
+              title,
+              type,
+            })}
         </div>
-        <div className={styles.buttonDiv}>
-          {children || (
-            <React.Fragment>
-              <Button
-                className="btn btn-success"
-                onClick={(event) => {
-                  if (!submitIsDisabled) {
-                    onClickSubmit(event);
-                  }
-                }}
-                style={{
-                  padding: '10px 50px',
-                }}
-                disabled={submitIsDisabled}
-              >
-                {submitLabel}
-              </Button>
-              <Button
-                className="btn btn-warning"
-                onClick={onClickClose}
-                style={{
-                  padding: '10px 50px',
-                }}
-              >
-                {cancelLabel}
-              </Button>
-            </React.Fragment>
-          )}
+        <div className={styles.footerDiv}>
+          <Button
+            className="btn btn-success"
+            onClick={(event) => {
+              if (!submitIsDisabled) {
+                onClickSubmit(event);
+              }
+            }}
+            disabled={submitIsDisabled}
+          >
+            {submitLabel}
+          </Button>
+          <Button className="btn btn-warning" onClick={onClickClose}>
+            {cancelLabel}
+          </Button>
         </div>
       </div>
     </React.Fragment>

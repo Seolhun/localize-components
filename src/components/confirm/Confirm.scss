@@ -98,32 +98,23 @@
     margin-left: auto;
     margin-right: auto;
   }
-  .titleDiv {
-    color: #303030;
+  .headerDiv {
+    color: map-get($map: $defaultColors, $key: black);
     font-size: 22px;
     font-weight: 600;
     letter-spacing: 0.2px;
-    padding: 30px;
+    padding: 20px 5px;
   }
-  .inputDiv {
+  .bodyDiv {
     color: #2a2a2a;
     font-size: 16px;
-    padding: 5px 30px;
+    padding: 5px 10px;
     .input {
       width: 100%;
       max-width: 100%;
     }
   }
-  .errorMessageDiv {
-    width: 100%;
-    color: map-get($map: $defaultColors, $key: danger);
-    font-size: 14px;
-    margin: 5px;
-    &.off {
-      display: none;
-    }
-  }
-  .buttonDiv {
+  .footerDiv {
     bottom: 1em;
     position: absolute;
     width: 100%;
