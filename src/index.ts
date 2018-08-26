@@ -1,17 +1,18 @@
 // types
 import { Size, Position, Color } from './types';
 // components
-import Alert, { AlertProps } from './components/alert/Alert';
-import Button, { ButtonProps } from './components/button/Button';
+import Alert, { AlertProps } from './components/alert';
+import Button, { ButtonProps } from './components/button';
 import Card, { CardProps } from './components/card';
-import Chip, { ChipProps } from './components/chip/Chip';
-import Hr, { HrProps } from './components/hr/Hr';
-import InputConfirm, {
+import Chip, { ChipProps } from './components/chip';
+import Hr, { HrProps } from './components/hr';
+import Confirm, {
+  InputConfirm,
   InputConfirmProps,
-} from './components/input-confirm/InputConfirm';
-import Issue, { IssueProps } from './components/issue/Issue';
-import Loading from './components/loading/Loading';
-import Spinner, { SpinnerProps } from './components/loading/Spinner';
+  ConfirmProps,
+} from './components/confirm';
+import Issue, { IssueProps } from './components/issue';
+import Spinner, { Loading, SpinnerProps } from './components/loading';
 
 export {
   // types
@@ -27,6 +28,8 @@ export {
   CardProps,
   Chip,
   ChipProps,
+  Confirm,
+  ConfirmProps,
   Hr,
   HrProps,
   InputConfirm,
@@ -39,10 +42,11 @@ export {
 };
 
 export default {
-  Card,
   Alert,
   Button,
+  Card,
   Chip,
+  Confirm,
   Hr,
   InputConfirm,
   Issue,
