@@ -3,7 +3,4 @@ import Spinner, { SpinnerProps } from './Spinner';
 
 export { Loading, Spinner, SpinnerProps };
 
-export default {
-  Loading,
-  Spinner,
-};
+export default Spinner;
