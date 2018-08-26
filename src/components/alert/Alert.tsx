@@ -1,7 +1,6 @@
 import * as React from 'react';
-
-import Button from '../button/Button';
 import { Color, ColorType, Position, PositionType } from '../../types';
+import Button from '../button';
 
 const styles = require('./Alert.css');
 
