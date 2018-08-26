@@ -1,12 +1,12 @@
-import * as React from 'react'
-import { render } from 'react-dom'
-import { BrowserRouter } from 'react-router-dom'
+import * as React from 'react';
+import { render } from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 
-import Header from './layout/Header'
-import Routes from './routes'
+import Header from './layout/Header';
+import Routes from './routes';
 
-import './index.scss'
-import './vendor'
+import './index.scss';
+import './vendor';
 
 render(
   <BrowserRouter>
@@ -18,4 +18,4 @@ render(
     </div>
   </BrowserRouter>,
   document.getElementById('app')
-)
+);
