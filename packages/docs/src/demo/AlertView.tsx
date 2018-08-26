@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import { Alert } from '../../../../dist/src';
 
-interface AlertViewState {
+export interface AlertViewState {
   isShow: boolean;
 }
 
@@ -31,12 +31,6 @@ class AlertView extends React.Component<{}, AlertViewState> {
             <h1>Hr</h1>
           </div>
         </div>
-        {/* <Alert
-          isShow={isShow}
-          message={'top-left'}
-          onClickClose={this.handleIsShow}
-          position="top-left"
-        />
         <Alert
           isShow={isShow}
           message={'top-center'}
@@ -45,46 +39,10 @@ class AlertView extends React.Component<{}, AlertViewState> {
         />
         <Alert
           isShow={isShow}
-          message={'top-right'}
-          onClickClose={this.handleIsShow}
-          position="top-right"
-        /> */}
-        {/* <Alert
-          isShow={isShow}
-          message={'left'}
-          onClickClose={this.handleIsShow}
-          position="left"
-        /> */}
-        <Alert
-          isShow={isShow}
           message={'center'}
           onClickClose={this.handleIsShow}
           position="center"
         />
-        {/* <Alert
-          isShow={isShow}
-          message={'right'}
-          onClickClose={this.handleIsShow}
-          position="right"
-        /> */}
-        {/* <Alert
-          isShow={isShow}
-          message={'bottom-left'}
-          onClickClose={this.handleIsShow}
-          position="bottom-left"
-        />
-        <Alert
-          isShow={isShow}
-          message={'bottom-center'}
-          onClickClose={this.handleIsShow}
-          position="bottom-center"
-        />
-        <Alert
-          isShow={isShow}
-          message={'bottom-right'}
-          onClickClose={this.handleIsShow}
-          position="bottom-right"
-        /> */}
       </section>
     );
   }

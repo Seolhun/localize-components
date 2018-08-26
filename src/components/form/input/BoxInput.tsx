@@ -13,10 +13,10 @@ export interface BoxInputProps {
   errorClassName?: string;
   errorMessage?: string;
   hasError?: boolean;
-  inputRef?: (event?) => any;
-  onBlur?: (event?) => any;
-  onChange?: (event?) => any;
-  onKeyDown?: (event?) => any;
+  inputRef?: (...args: any[]) => any;
+  onBlur?: (...args: any[]) => any;
+  onChange?: (...args: any[]) => any;
+  onKeyDown?: (...args: any[]) => any;
   placeholder?: string;
   required?: boolean;
   type?: string;
@@ -47,15 +47,15 @@ const BoxInput: React.StatelessComponent<BoxInputProps> = ({
         ${labelClassName}
         ${hasError ? styles.error : ''}
       `)}
-      htmlFor={htmlFor}>
+      htmlFor={htmlFor}
+    >
       {children}
       <input
         ref={inputRef}
         className={classnames(`
           ${styles.input}
           ${inputClassName}
-          ${hasError ? styles.error : ''}`
-        )}
+          ${hasError ? styles.error : ''}`)}
         id={htmlFor}
         type={type}
         placeholder={placeholder}
@@ -66,11 +66,12 @@ const BoxInput: React.StatelessComponent<BoxInputProps> = ({
         required={required}
       />
     </label>
-    <div className={classnames(`
+    <div
+      className={classnames(`
       ${styles.errorDiv}
       ${errorClassName}
-      ${hasError ? '' : styles.off}`
-    )}>
+      ${hasError ? '' : styles.off}`)}
+    >
       {errorMessage}
     </div>
   </React.Fragment>

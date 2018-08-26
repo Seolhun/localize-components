@@ -1,9 +1,9 @@
-import HomeView from '../demo/HomeView';
-import ButtonView from '../demo/ButtonView';
-import HrView from '../demo/HrView';
 import AlertView from '../demo/AlertView';
-import SpinnerView from '../demo/SpinnerView';
-import InputConfirmView from '../demo/InputConfirmView';
+import ButtonView from '../demo/ButtonView';
+import HomeView from '../demo/HomeView';
+import HrView from '../demo/HrView';
+import ConfirmView from '../demo/ConfirmView';
+import PreloaderView from '../demo/PreloaderView';
 
 const routeCreator = ({
   type,
@@ -33,9 +33,21 @@ const routes = {
   components: [
     routeCreator({
       type: 0,
+      path: '/alert',
+      label: 'AlertView',
+      component: AlertView,
+    }),
+    routeCreator({
+      type: 0,
       path: '/button',
       label: 'ButtonView',
       component: ButtonView,
+    }),
+    routeCreator({
+      type: 0,
+      path: '/confirm',
+      label: 'ConfirmView',
+      component: ConfirmView,
     }),
     routeCreator({
       type: 0,
@@ -45,21 +57,9 @@ const routes = {
     }),
     routeCreator({
       type: 0,
-      path: '/alert',
-      label: 'AlertView',
-      component: AlertView,
-    }),
-    routeCreator({
-      type: 0,
-      path: '/alert',
-      label: 'SpinnerView',
-      component: SpinnerView,
-    }),
-    routeCreator({
-      type: 0,
-      path: '/confirm',
-      label: 'InputConfirmView',
-      component: InputConfirmView,
+      path: '/preloader',
+      label: 'PreloaderView',
+      component: PreloaderView,
     }),
   ],
 };

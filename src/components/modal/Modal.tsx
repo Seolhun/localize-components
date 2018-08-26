@@ -1,24 +1,17 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 
-const Modal = ({ children, onClickClose, className }) => {
-  Modal.propTypes = {
-    children: PropTypes.node.isRequired,
-    onClickClose: PropTypes.func.isRequired,
-    className: PropTypes.string,
-  };
+interface Modal {
+  children: React.ReactNode;
+  onClickClose?: (...args: any[]) => any;
+  className?: string;
+}
 
-  Modal.defaultProps = {
-    className: '',
-  };
-
+const Modal = ({ children, onClickClose, className = '' }) => {
   return (
     <div className="modal md">
       <div className={`modal-content ${className} v-top slideInDown height-70`}>
         <div className="height-100">
-          <div>
-            {children}
-          </div>
+          <div>{children}</div>
           <div
             onClick={onClickClose}
             className="modal-close-btn"

@@ -12,9 +12,9 @@ export interface InputProps {
   errorMessage?: string;
   hasError?: boolean;
   inputRef?: () => any;
-  onBlur?: (event?) => any;
-  onChange?: (event?) => any;
-  onKeyDown?: (event?) => any;
+  onBlur?: (...args: any[]) => any;
+  onChange?: (...args: any[]) => any;
+  onKeyDown?: (...args: any[]) => any;
   placeholder?: string;
   required?: boolean;
   styleType?: string;

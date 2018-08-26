@@ -6,11 +6,11 @@ export interface ButtonProps {
   // isRequired
   children: React.ReactNode;
   // isNotRequired
-  onClick?: (event?) => any;
-  onBlur?: (event?) => any;
-  onFocus?: (event?) => any;
-  onMouseOver?: (event?) => any;
-  onMouseOut?: (event?) => any;
+  onClick?: (...args: any[]) => any;
+  onBlur?: (...args: any[]) => any;
+  onFocus?: (...args: any[]) => any;
+  onMouseOver?: (...args: any[]) => any;
+  onMouseOut?: (...args: any[]) => any;
   className?: string;
   fontSize?: number;
   style?: {

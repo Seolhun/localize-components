@@ -36,7 +36,8 @@ class ButtonView extends React.Component<ButtonViewProps, ButtonViewState> {
     });
   };
 
-  handleonMouseOut = () => {
+  handleonMouseOut = (event: Event) => {
+    event.preventDefault();
     const { messages } = this.state;
     this.setState({
       messages: [...messages, 'onMouseOut'],

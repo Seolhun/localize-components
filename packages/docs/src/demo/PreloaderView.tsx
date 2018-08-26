@@ -1,22 +1,22 @@
 import * as React from 'react';
 
-import { Spinner } from '../../../../dist/src';
+import { Preloader } from '../../../../dist/src';
 
-class SpinnerView extends React.Component {
+class PreloaderView extends React.Component {
   render() {
     return (
       <section>
         <div className="row">
           <div className="col-20">
-            <h1>Spinner</h1>
+            <h1>Preloader</h1>
           </div>
         </div>
         <div className="col-20">
-          <Spinner type="default" rect="45px" />
+          <Preloader />
         </div>
       </section>
     );
   }
 }
 
-export default SpinnerView;
+export default PreloaderView;

@@ -1,5 +1,5 @@
 {
-  "parser": "babylon",
+  "parser": "typescript",
   "requirePragma": false,
   "printWidth": 80,
   "tabWidth": 2,

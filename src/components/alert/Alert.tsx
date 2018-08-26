@@ -1,12 +1,12 @@
 import * as React from 'react';
-
-import Button from '../button/Button';
+import * as classnames from 'classnames';
 import { Color, ColorType, Position, PositionType } from '../../types';
+import Button from '../button';
 
 const styles = require('./Alert.css');
 
 export interface AlertProps {
-  onClickClose: () => any;
+  onClickClose: (...args: any[]) => any;
   message: string;
   // isNotRequired
   title?: string;
@@ -16,7 +16,7 @@ export interface AlertProps {
   position?: PositionType;
 }
 
-const setColor = (color) => {
+const setColor = (color: string) => {
   let styleColor = 'bg-color-';
   switch (color.toLowerCase()) {
     case Color.SUCCESS:
@@ -41,7 +41,7 @@ const setColor = (color) => {
   return styles[`${styleColor}`];
 };
 
-const setPosition = (postion) => {
+const setPosition = (postion: string) => {
   switch (postion.toLowerCase()) {
     case Position.TL:
       return styles[Position.TL];
@@ -49,12 +49,12 @@ const setPosition = (postion) => {
       return styles[Position.TC];
     case Position.TR:
       return styles[Position.TR];
-    case Position.L:
-      return styles[Position.L];
-    case Position.C:
-      return styles[Position.C];
-    case Position.R:
-      return styles[Position.R];
+    case Position.LEFT:
+      return styles[Position.LEFT];
+    case Position.CENTER:
+      return styles[Position.CENTER];
+    case Position.RIGHT:
+      return styles[Position.RIGHT];
     case Position.BL:
       return styles[Position.BL];
     case Position.BC:
@@ -62,7 +62,7 @@ const setPosition = (postion) => {
     case Position.BR:
       return styles[Position.BR];
     default:
-      return styles[Position.C];
+      return styles[Position.CENTER];
   }
 };
 
@@ -74,7 +74,7 @@ const Alert: React.SFC<AlertProps> = ({
   title = '',
   buttonLabel = 'Confirm',
   color = 'basic',
-  position = Position.C,
+  position = Position.CENTER,
 }) => {
   if (!isShow) {
     return null;
@@ -84,9 +84,9 @@ const Alert: React.SFC<AlertProps> = ({
     <React.Fragment>
       <div className={styles.coverBackground} />
       <div
-        className={`${styles.alert} ${setColor(color)} ${setPosition(
-          position
-        )}`}
+        className={classnames(
+          `${styles.alert} ${setColor(color)} ${setPosition(position)}`
+        )}
       >
         <div className={styles.titleDiv}>{title}</div>
         <div className={styles.messageDiv}>{message}</div>

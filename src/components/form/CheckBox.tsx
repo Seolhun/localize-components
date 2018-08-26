@@ -8,9 +8,9 @@ export interface CheckBoxProps {
   htmlFor: string;
   // isNotRequired
   className: string;
-  onChange: (event?) => any;
-  onClick: (event?) => any;
-  onBlur: (event?) => any;
+  onChange: (...args: any[]) => any;
+  onClick: (...args: any[]) => any;
+  onBlur: (...args: any[]) => any;
 }
 
 const CheckBox: React.StatelessComponent<CheckBoxProps> = ({
