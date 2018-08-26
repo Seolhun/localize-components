@@ -1,13 +1,13 @@
 import * as React from 'react';
 
-import { InputConfirm } from '../../../../dist/src';
+import { Confirm } from '../../../../dist/src';
 
-interface InputConfirmViewState {
+interface ConfirmViewViewState {
   isShow: boolean;
   value: string;
 }
 
-class InputConfirmView extends React.Component<{}, InputConfirmViewState> {
+class ConfirmViewView extends React.Component<{}, ConfirmViewViewState> {
   constructor(props) {
     super(props);
     this.state = {
@@ -49,17 +49,30 @@ class InputConfirmView extends React.Component<{}, InputConfirmViewState> {
             <h1>Hr</h1>
           </div>
         </div>
-        <InputConfirm
+        <Confirm
           htmlFor=""
           onClickClose={this.handleIsShow}
           onClickSubmit={this.handleSubmit}
           onChange={this.handleInputValue}
           isShow={isShow}
           value={value}
+          title="Title"
+          type="input"
+        />
+        <Confirm
+          htmlFor=""
+          onClickClose={this.handleIsShow}
+          onClickSubmit={this.handleSubmit}
+          onChange={this.handleInputValue}
+          isShow={isShow}
+          value={value}
+          title="Title"
+          message="Message"
+          position="top-left"
         />
       </section>
     );
   }
 }
 
-export default InputConfirmView;
+export default ConfirmViewView;
