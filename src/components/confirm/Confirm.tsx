@@ -1,34 +1,34 @@
 import * as React from 'react';
 import * as classnames from 'classnames';
 
+import { Color, ColorType, Position, PositionType } from '../../types';
 import Button from '../button';
 import { Input } from '../form';
 
-import { Color, Position } from '../../types';
+const styles = require('./Confirm.css');
 
-const styles = require('./InputConfirm.css');
-
-export interface InputConfirmProps {
+export interface ConfirmProps {
   htmlFor: string;
-  onChange: (event?) => any;
-  onClickClose: (event?) => any;
-  onClickSubmit: (event?) => any;
+  onChange: (...args: any[]) => any;
+  onClickClose: (...args: any[]) => any;
+  onClickSubmit: (...args: any[]) => any;
   value: string;
   // isNotRequired
   cancelLabel?: string;
   children?: React.ReactNode;
-  color?: string;
+  color?: ColorType;
   errorMessage?: string;
   isShow?: boolean;
   onBlur?: () => any;
   onKeyDown?: () => any;
   placeholder?: string;
-  position?: string;
+  position?: PositionType;
   required?: boolean;
   styleType?: string;
   submitIsDisabled?: boolean;
   submitLabel?: string;
   title?: string;
+  inputType?: string;
   type?: string;
 }
 
@@ -82,7 +82,7 @@ const setPosition = (postion) => {
   }
 };
 
-const InputConfirm: React.StatelessComponent<InputConfirmProps> = ({
+const Confirm: React.StatelessComponent<ConfirmProps> = ({
   htmlFor,
   onChange,
   onClickClose,
@@ -103,29 +103,35 @@ const InputConfirm: React.StatelessComponent<InputConfirmProps> = ({
   submitIsDisabled = false,
   submitLabel = 'Complete',
   title = '',
-  type = 'text',
+  inputType = 'search',
 }) => {
   if (!isShow) {
     return null;
+  }
+
+  switch (type) {
+    case 'input':
+      break;
+    default:
+      break;
   }
 
   return (
     <React.Fragment>
       <div className={styles.coverBackground} />
       <div
-        className={
-          classnames(
-            `${styles.InputConfirm}
+        className={classnames(
+          `${styles.Confirm}
             ${setColor(color)}
             ${setPosition(position)}
-          `)
-        }
+          `
+        )}
       >
         <div className={styles.titleDiv}>{title}</div>
         <div className={styles.inputDiv}>
           <Input
             className={styles.input}
-            type={type}
+            type={inputType}
             styleType={styleType}
             htmlFor={htmlFor}
             value={value}
@@ -177,4 +183,4 @@ const InputConfirm: React.StatelessComponent<InputConfirmProps> = ({
   );
 };
 
-export default InputConfirm;
+export default Confirm;
