@@ -12,7 +12,7 @@ import Confirm, {
   ConfirmProps,
 } from './components/confirm';
 import Issue, { IssueProps } from './components/issue';
-import Spinner, { Loading, SpinnerProps } from './components/loading';
+import Preloader, { PreloaderProps } from './components/preloader';
 
 export {
   // types
@@ -36,9 +36,8 @@ export {
   InputConfirmProps,
   Issue,
   IssueProps,
-  Loading,
-  Spinner,
-  SpinnerProps,
+  Preloader,
+  PreloaderProps,
 };
 
 export default {
@@ -50,6 +49,5 @@ export default {
   Hr,
   InputConfirm,
   Issue,
-  Loading,
-  Spinner,
+  Preloader,
 };
