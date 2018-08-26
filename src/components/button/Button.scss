@@ -12,7 +12,7 @@
   height: auto;
   line-height: 1.5;
   margin: 5px;
-  padding: 10 20px;
+  padding: 10px 30px;
   text-align: center;
   text-decoration: none;
   transition: background-color 0.3s, border-color 0.3s;
@@ -40,8 +40,7 @@
   }
 }
 
-@each $key,
-$value in $defaultColors {
+@each $key, $value in $defaultColors {
   .btn-#{$key} {
     background-color: $value;
     color: map-get($map: $defaultColors, $key: white);
