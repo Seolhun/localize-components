@@ -110,8 +110,7 @@
   }
 }
 
-@each $key,
-$value in $defaultColors {
+@each $key, $value in $defaultColors {
   :local .bg-color-#{$key} {
     background-color: map-get($map: $defaultColors, $key: white);
     border: 0.1px solid $value;

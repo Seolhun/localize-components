@@ -1,7 +1,7 @@
 import { Color, Position } from '../types';
 
-const setColor = (styles, color: string) => {
-  let styleColor = 'bg-color-';
+const setColor = (styles, color: string, name = 'bg-color-') => {
+  let styleColor = name;
   switch (color.toLowerCase()) {
     case Color.SUCCESS:
       styleColor += Color.SUCCESS;

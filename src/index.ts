@@ -13,6 +13,7 @@ import Confirm, {
 } from './components/confirm';
 import Issue, { IssueProps } from './components/issue';
 import Preloader, { PreloaderProps } from './components/preloader';
+import { Tab, TabItemType, TabProps, Tabs, TabsProps } from './components/tabs';
 
 export {
   // types
@@ -38,6 +39,11 @@ export {
   IssueProps,
   Preloader,
   PreloaderProps,
+  Tab,
+  TabItemType,
+  TabProps,
+  Tabs,
+  TabsProps,
 };
 
 export default {
@@ -50,4 +56,6 @@ export default {
   InputConfirm,
   Issue,
   Preloader,
+  Tab,
+  Tabs,
 };
