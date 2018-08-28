@@ -4,6 +4,7 @@ import HomeView from '../demo/HomeView';
 import HrView from '../demo/HrView';
 import ConfirmView from '../demo/ConfirmView';
 import PreloaderView from '../demo/PreloaderView';
+import TabsView from '../demo/TabsView';
 
 const routeCreator = ({
   type,
@@ -60,6 +61,12 @@ const routes = {
       path: '/preloader',
       label: 'PreloaderView',
       component: PreloaderView,
+    }),
+    routeCreator({
+      type: 0,
+      path: '/tabs',
+      label: 'TabsView',
+      component: TabsView,
     }),
   ],
 };

@@ -3,11 +3,11 @@ import * as React from 'react';
 const styles = require('./BasicConfirm.css');
 
 export interface BasicConfirmProps {
-  message: string;
+  message?: string;
 }
 
 const BasicConfirm: React.StatelessComponent<BasicConfirmProps> = ({
-  message,
+  message = '',
 }) => {
   return <div className={styles.BasicConfirm}>{message}</div>;
 };

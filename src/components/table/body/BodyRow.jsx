@@ -21,7 +21,7 @@ class BodyRow extends PureComponent {
         PropTypes.shape({
           name: PropTypes.string.isRequired,
           renderCell: PropTypes.func.isRequired,
-        }).isRequired,
+        }).isRequired
       ),
     }).isRequired,
     sortBy: PropTypes.string.isRequired,
@@ -40,12 +40,10 @@ class BodyRow extends PureComponent {
     if (event.target.parentNode.nodeName !== 'A') {
       onClickRow(item);
     }
-  }
+  };
 
   renderBodyRowByType() {
-    const {
-      body,
-    } = this.props;
+    const { body } = this.props;
     switch (body.type) {
       case ROW_TYPE.BASIC:
         return <BasicBodyRow {...this.props} />;
@@ -55,17 +53,14 @@ class BodyRow extends PureComponent {
   }
 
   render() {
-    const {
-      index,
-      onFocusRow,
-      onBlurRow,
-      item,
-    } = this.props;
+    const { index, onFocusRow, onBlurRow, item } = this.props;
     return (
       <div
         role="presentation"
-        className={`${styles.tableBodyRow} ${index % 2 === 0 ? styles.evenBodyRow : styles.oddBodyRow}`}
-        onClick={event => this.handleOnClickRowWithItem(event, item)}
+        className={`${styles.tableBodyRow} ${
+          index % 2 === 0 ? styles.evenBodyRow : styles.oddBodyRow
+        }`}
+        onClick={(event) => this.handleOnClickRowWithItem(event, item)}
         onFocus={onFocusRow}
         onBlur={onBlurRow}
       >

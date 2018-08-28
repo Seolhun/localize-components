@@ -43,102 +43,68 @@ const ConfirmTypes = {
   CHECKBOX: 'checkbox',
 };
 
-const setRenderType = (props) => {
-  switch (props.type) {
-    case ConfirmTypes.INPUT:
-      return <InputConfirm {...props} />;
-    default:
-      return <BasicConfirm {...props} />;
-  }
-};
-
-const Confirm: React.StatelessComponent<ConfirmProps> = ({
-  htmlFor,
-  onChange,
-  onClickClose,
-  onClickSubmit,
-  value,
-  // isNotRequired
-  cancelLabel = 'Cancel',
-  children = null,
-  color = Color.BASIC,
-  errorMessage = '',
-  inputType = 'search',
-  isShow = false,
-  message = '',
-  onBlur = () => null,
-  onKeyDown = () => null,
-  placeholder = '',
-  position = Position.CENTER,
-  required = true,
-  styleType = 'box',
-  submitIsDisabled = false,
-  submitLabel = 'Complete',
-  title = '',
-  type = 'basic',
-}) => {
-  if (!isShow) {
-    return null;
+class Confirm extends React.PureComponent<ConfirmProps> {
+  renderByType(type) {
+    switch (type) {
+      case ConfirmTypes.INPUT:
+        return <InputConfirm {...this.props} />;
+      default:
+        return <BasicConfirm {...this.props} />;
+    }
   }
 
-  return (
-    <React.Fragment>
-      <div className={styles.coverBackground} />
-      <div
-        className={classnames(`
+  render() {
+    const {
+      onClickClose,
+      onClickSubmit,
+      // isNotRequired
+      cancelLabel = 'Cancel',
+      children = null,
+      color = Color.BASIC,
+      isShow = false,
+      position = Position.CENTER,
+      submitIsDisabled = false,
+      submitLabel = 'Complete',
+      title = '',
+      type = 'basic',
+    } = this.props;
+    if (!isShow) {
+      return null;
+    }
+    return (
+      <React.Fragment>
+        <div className={styles.coverBackground} />
+        <div
+          className={classnames(`
           ${styles.Confirm}
           ${SetStyleUtils.setColor(styles, color)}
           ${SetStyleUtils.setPosition(styles, position)}
         `)}
-      >
-        <div className={styles.headerDiv}>{title}</div>
-        <div className={styles.bodyDiv}>
-          {children ||
-            setRenderType({
-              htmlFor,
-              onChange,
-              onClickClose,
-              onClickSubmit,
-              value,
-              // isNotRequired
-              cancelLabel,
-              children,
-              color,
-              errorMessage,
-              inputType,
-              isShow,
-              message,
-              onBlur,
-              onKeyDown,
-              placeholder,
-              position,
-              required,
-              styleType,
-              submitIsDisabled,
-              submitLabel,
-              title,
-              type,
-            })}
+        >
+          <div className={styles.headerDiv}>{title}</div>
+          <div className={styles.bodyDiv}>
+            {children || this.renderByType(type)}
+          </div>
+          <div className={styles.footerDiv}>
+            <Button
+              className="btn btn-success"
+              onClick={(event) => {
+                if (!submitIsDisabled) {
+                  onClickSubmit(event);
+                }
+              }}
+              disabled={submitIsDisabled}
+            >
+              {submitLabel}
+            </Button>
+            <Button className="btn btn-warning" onClick={onClickClose}>
+              {cancelLabel}
+            </Button>
+          </div>
         </div>
-        <div className={styles.footerDiv}>
-          <Button
-            className="btn btn-success"
-            onClick={(event) => {
-              if (!submitIsDisabled) {
-                onClickSubmit(event);
-              }
-            }}
-            disabled={submitIsDisabled}
-          >
-            {submitLabel}
-          </Button>
-          <Button className="btn btn-warning" onClick={onClickClose}>
-            {cancelLabel}
-          </Button>
-        </div>
-      </div>
-    </React.Fragment>
-  );
-};
+      </React.Fragment>
+    );
+  }
+}
 
 export default Confirm;
