@@ -1,8 +1,7 @@
 {
-  "private": true,
   "author": "Seolhun",
   "name": "@seolhun/localize-react-components",
-  "version": "1.0.0",
+  "version": "1.0.6",
   "description": "Localizing React components is rendered by stand-alone not affect other styles.",
   "repository": {
     "type": "git",
@@ -42,10 +41,10 @@
     "release": "lerna publish --conventional-commits"
   },
   "dependencies": {
-    "jest": "^23.5.0",
     "classnames": "^2.2.6",
+    "enzyme": "^3.4.4",
     "enzyme-adapter-react-16": "^1.2.0",
-    "enzyme": "^3.4.4"
+    "jest": "^23.5.0"
   },
   "devDependencies": {
     "@types/jest": "23.3.1",
@@ -61,8 +60,8 @@
   },
   "peerDependencies": {
     "concurrently": "^4.0.0",
-    "react-dom": "^16.4.2",
-    "react": "^16.4.2"
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
   },
   "workspaces": [
     "packages/*"
