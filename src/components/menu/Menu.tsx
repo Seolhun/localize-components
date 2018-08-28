@@ -11,12 +11,14 @@ export interface MenuProps {
   className?: string;
   defaultOpenKeys?: string[];
   defaultSelectedKeys?: string[];
+
   focusable?: boolean;
   getPopupContainer?: (triggerNode: Element) => HTMLElement;
   inlineCollapsed?: boolean;
   inlineIndent?: number;
   mode?: MenuMode;
   multiple?: boolean;
+
   onClick?: (...args: any[]) => any;
   onDeselect?: (...args: any[]) => any;
   onOpenChange?: (...args: any[]) => any;

@@ -1,10 +1,11 @@
 import * as React from 'react';
 import * as classnames from 'classnames';
 
-import { Color, ColorType, Position, PositionType } from '../../types';
 import Button from '../button';
-
 import { BasicConfirm, InputConfirm } from './child';
+
+import { Color, ColorType, Position, PositionType } from '../../types';
+import { SetStyleUtils } from '../../utils';
 
 const styles = require('./Confirm.css');
 
@@ -40,56 +41,6 @@ const ConfirmTypes = {
   INPUT: 'input',
   SELECT: 'select',
   CHECKBOX: 'checkbox',
-};
-
-const setColor = (color: string) => {
-  let styleColor = 'bg-color-';
-  switch (color.toLowerCase()) {
-    case Color.SUCCESS:
-      styleColor += Color.SUCCESS;
-      break;
-    case Color.PRIMARY:
-      styleColor += Color.PRIMARY;
-      break;
-    case Color.INFO:
-      styleColor += Color.INFO;
-      break;
-    case Color.WARNING:
-      styleColor += Color.WARNING;
-      break;
-    case Color.DANGER:
-      styleColor += Color.DANGER;
-      break;
-    default:
-      styleColor += Color.BASIC;
-      break;
-  }
-  return styles[`${styleColor}`];
-};
-
-const setPosition = (postion: string) => {
-  switch (postion.toLowerCase()) {
-    case Position.TL:
-      return styles[Position.TL];
-    case Position.TC:
-      return styles[Position.TC];
-    case Position.TR:
-      return styles[Position.TR];
-    case Position.LEFT:
-      return styles[Position.LEFT];
-    case Position.CENTER:
-      return styles[Position.CENTER];
-    case Position.RIGHT:
-      return styles[Position.RIGHT];
-    case Position.BL:
-      return styles[Position.BL];
-    case Position.BC:
-      return styles[Position.BC];
-    case Position.BR:
-      return styles[Position.BR];
-    default:
-      return styles[Position.CENTER];
-  }
 };
 
 const setRenderType = (props) => {
@@ -134,12 +85,11 @@ const Confirm: React.StatelessComponent<ConfirmProps> = ({
     <React.Fragment>
       <div className={styles.coverBackground} />
       <div
-        className={classnames(
-          `${styles.Confirm}
-            ${setColor(color)}
-            ${setPosition(position)}
-          `
-        )}
+        className={classnames(`
+          ${styles.Confirm}
+          ${SetStyleUtils.setColor(styles, color)}
+          ${SetStyleUtils.setPosition(styles, position)}
+        `)}
       >
         <div className={styles.headerDiv}>{title}</div>
         <div className={styles.bodyDiv}>
