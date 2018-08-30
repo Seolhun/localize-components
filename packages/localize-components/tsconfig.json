@@ -1,0 +1,8 @@
+{
+  "extends": "../../tsconfig.json",
+  "include": ["./src/**/*"],
+  "exclude": [".vscode", "node_modules", "packages/*", "./src/__test__/*"],
+  "typeAcquisition": {
+    "enable": true
+  }
+}
