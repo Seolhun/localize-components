@@ -1,5 +1,4 @@
 {
-  "private": true,
   "author": "Seolhun",
   "name": "@seolhun/localize-components",
   "version": "0.0.6",
@@ -47,9 +46,6 @@
     "react": "^16.4.2",
     "react-dom": "^16.4.2"
   },
-  "workspaces": [
-    "packages/*"
-  ],
   "publishConfig": {
     "access": "public"
   },

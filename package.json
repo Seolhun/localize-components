@@ -28,7 +28,7 @@
     "packages": "run-s packages:*",
     "packages:bs": "lerna bootstrap",
     "packages:fix": "lerna run fix && echo",
-    "packages:lint": "lerna run tslint",
+    "packages:lint": "lerna run tslint.json",
     "packages:build": "yarn build && lerna run build",
     "prerelease": "yarn run packages",
     "release": "lerna publish --conventional-commits",
