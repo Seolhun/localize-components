@@ -17,6 +17,7 @@ export interface ConfirmProps {
   // isNotRequired
   cancelLabel?: string;
   children?: React.ReactNode;
+  className?: string | undefined;
   color?: ColorType;
   errorMessage?: string;
   inputType?: string;
@@ -60,13 +61,14 @@ class Confirm extends React.PureComponent<ConfirmProps> {
       // isNotRequired
       cancelLabel = 'Cancel',
       children = null,
+      className = null,
       color = Color.BASIC,
       isShow = false,
       position = Position.CENTER,
       submitIsDisabled = false,
       submitLabel = 'Complete',
       title = '',
-      type = 'basic',
+      type = Color.BASIC,
     } = this.props;
     if (!isShow) {
       return null;
@@ -77,6 +79,7 @@ class Confirm extends React.PureComponent<ConfirmProps> {
         <div
           className={classnames(`
           ${styles.Confirm}
+          ${className}
           ${SetStyleUtils.setColor(styles, color)}
           ${SetStyleUtils.setPosition(styles, position)}
         `)}
