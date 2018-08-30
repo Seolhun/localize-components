@@ -1,7 +1,0 @@
-@import '../_variable/align.scss';
-
-@each $key, $value in $aligns {
-  .text-#{$key} {
-    text-align: $value;
-  }
-}
