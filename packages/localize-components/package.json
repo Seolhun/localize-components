@@ -30,7 +30,9 @@
     "style:copy": "copyfiles src/**/*.css dist/",
     "style:clean": "find . -name *.css* -type f -delete",
     "test": "jest",
-    "test-with-coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage"
+    "test-with-coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage",
+    "docs:build": "cd ../examples/ && yarn build",
+    "docs:dev": "cd ../examples/ && yarn dev"
   },
   "dependencies": {
     "classnames": "^2.2.6"
