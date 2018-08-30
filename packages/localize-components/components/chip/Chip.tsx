@@ -1,12 +1,18 @@
 import * as React from 'react';
+import * as classnames from 'classnames';
+
+import { ColorType, Color } from '../../types';
+import { SetStyleUtils } from '../../utils';
 
 const styles = require('./Chip.css');
 
 export interface ChipProps {
-  content: string;
+  children: React.ReactNode | string;
   // isNotRequired
-  className?: string;
-  children?: React.ReactNode;
+  className?: string | undefined;
+  color?: ColorType;
+  icon?: React.ReactNode;
+  onClickDelete?: (...args: any[]) => any;
   style?: ChipStyleProps;
 }
 
@@ -17,14 +23,27 @@ interface ChipStyleProps {
 }
 
 const Chip: React.SFC<ChipProps> = ({
-  content,
-  className = '',
-  children = null,
+  children,
+  // IsNotRequired
+  className = null,
+  icon = null,
+  onClickDelete = () => null,
   style = {},
+  color = Color.PRIMARY,
 }) => {
   return (
-    <div className={`${className} ${styles.Chip}`} style={style}>
-      {children ? children : content}
+    <div
+      className={classnames(`
+      ${className}
+      ${styles.Chip}
+      ${SetStyleUtils.setColor(styles, color, 'chip-')}
+    `)}
+      style={style}
+    >
+      {children}
+      <span className={styles.iconWrapper} onClick={onClickDelete}>
+        {icon}
+      </span>
     </div>
   );
 };
