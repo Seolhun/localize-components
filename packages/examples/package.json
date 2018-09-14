@@ -1,7 +1,7 @@
 {
   "name": "@seolhun/localize-components-examples",
   "version": "0.0.6",
-  "description": "How to use localize-components",
+  "description": "All about Localize-Components-Examples",
   "main": "dist/src/index.js",
   "scripts": {
     "build": "node build/build.js",
