@@ -26,5 +26,6 @@
         "react"
       ]
     }
-  }
+  },
+  "plugins": ["styled-components"]
 }

@@ -1,8 +1,7 @@
 import * as React from 'react';
 import * as classnames from 'classnames';
 
-import { ColorType, Color } from '../../types';
-import { SetStyleUtils } from '../../utils';
+import { ColorType } from '../../types';
 
 const styles = require('./Chip.css');
 
@@ -29,14 +28,13 @@ const Chip: React.SFC<ChipProps> = ({
   icon = null,
   onClickDelete = () => null,
   style = {},
-  color = Color.PRIMARY,
+  color = 'Color.PRIMARY',
 }) => {
   return (
     <div
       className={classnames(`
       ${className}
       ${styles.Chip}
-      ${SetStyleUtils.setColor(styles, color, 'chip-')}
     `)}
       style={style}
     >
