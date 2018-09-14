@@ -2,7 +2,7 @@
   "private": true,
   "author": "Seolhun",
   "name": "@seolhun/localize-components",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Localizing React components is rendered by stand-alone not affect other styles.",
   "repository": {
     "type": "git",
@@ -26,7 +26,6 @@
     "clean": "lerna clean",
     "deploy": "lerna version",
     "bs": "lerna bootstrap",
-    "packages": "run-s packages:*",
     "packages:fix": "lerna run fix && echo",
     "packages:lint": "lerna run tslint.json",
     "packages:build": "lerna run build",
