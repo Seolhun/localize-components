@@ -14,7 +14,7 @@ export interface TabsProps {
   onClickTab: (...args: any[]) => any;
   // isNotRequired
   children?: React.ReactNode;
-  className?: string | undefined;
+  className?: string;
   color?: ColorType;
   onClassName?: string;
   renderOptions?: React.ReactNode;
@@ -32,7 +32,7 @@ const Tabs: React.StatelessComponent<TabsProps> = ({
   onClickTab,
   // isNotRequired
   children = null,
-  className = null,
+  className = '',
   color = Color.PRIMARY,
   onClassName = '',
   renderOptions = null,

@@ -1,6 +1,7 @@
 import * as React from 'react';
 
-import { Button } from '../../../../dist/src';
+import { NewButton } from '../../../../dist/packages/core/src';
+import { Button } from '../../../../dist/packages/localize-components/src';
 
 export interface ButtonViewProps {}
 
@@ -60,6 +61,17 @@ class ButtonView extends React.Component<ButtonViewProps, ButtonViewState> {
           </div>
         </div>
         <div className="col-20">
+          <NewButton
+            className="btn-success"
+            onClick={this.handleClick}
+            onFocus={this.handleFocus}
+            onMouseOver={this.handleonMouseOver}
+            onMouseOut={this.handleonMouseOut}
+            onBlur={this.handleBlur}
+          >
+            btn-success >
+          </NewButton>
+          >
           <Button
             className="btn-success"
             onClick={this.handleClick}

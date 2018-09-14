@@ -32,11 +32,7 @@
     "packages:build": "yarn build && lerna run build",
     "prerelease": "yarn run packages",
     "release": "lerna publish --conventional-commits",
-    "release:beta": "yarn release --npm-tag=beta --preid=beta",
-    "precommit": "lint-staged",
-    "commit": "git-cz",
-    "contributors:add": "all-contributors add",
-    "contributors:generate": "all-contributors generate"
+    "release:beta": "yarn release --npm-tag=beta --preid=beta"
   },
   "dependencies": {
     "enzyme": "^3.4.4",
