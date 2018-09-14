@@ -1,7 +1,7 @@
 {
   "author": "Seolhun",
   "name": "@seolhun/localize-components",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Localizing React components is rendered by stand-alone not affect other styles.",
   "repository": {
     "type": "git",
@@ -35,8 +35,8 @@
     "docs:dev": "cd ../examples/ && yarn dev"
   },
   "dependencies": {
-    "classnames": "^2.2.6",
-    "@seolhun/localize-components-core": "0.0.7"
+    "@seolhun/localize-components-core": "^0.0.8",
+    "classnames": "^2.2.6"
   },
   "devDependencies": {
     "@types/react": "16.4.11",

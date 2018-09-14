@@ -1,6 +1,6 @@
 {
   "name": "@seolhun/localize-components-docs",
-  "version": "1.0.0",
+  "version": "0.0.8",
   "description": "How to use localize-components",
   "main": "dist/src/index.js",
   "scripts": {
