@@ -1,6 +1,6 @@
 {
   "name": "@seolhun/localize-components-examples",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "All about Localize-Components-Examples",
   "main": "dist/src/index.js",
   "scripts": {

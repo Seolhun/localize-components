@@ -1,6 +1,6 @@
 {
   "name": "@seolhun/localize-components-parser",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "All about localize-components",
   "main": "dist/src/index.js",
   "scripts": {

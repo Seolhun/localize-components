@@ -2,7 +2,7 @@
   "private": true,
   "author": "Seolhun",
   "name": "@seolhun/localize-components",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Localizing React components is rendered by stand-alone not affect other styles.",
   "repository": {
     "type": "git",
