@@ -24,11 +24,11 @@ jobs:
 
       - run:
           name: "Lerna Install Packages"
-          command: npm install
+          command: npm run install
 
       - run:
           name: "Lerna Packages Build"
-          command: npm packages:build
+          command: npm run packages:build
 
       - save_cache:
           paths:
