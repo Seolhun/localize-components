@@ -23,8 +23,8 @@ jobs:
             npm --version
 
       - run:
-          name: "Package Install"
-          command: yarn install
+          name: "Lerna Packages Build"
+          command: yarn packages:build
 
       - save_cache:
           paths:

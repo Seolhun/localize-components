@@ -24,12 +24,13 @@
   "main": "./src/index.ts",
   "scripts": {
     "clean": "lerna clean",
+    "deploy": "lerna version",
     "bs": "lerna bootstrap",
     "packages": "run-s packages:*",
-    "packages:bs": "lerna bootstrap",
     "packages:fix": "lerna run fix && echo",
     "packages:lint": "lerna run tslint.json",
-    "packages:build": "yarn build && lerna run build",
+    "packages:build": "lerna run build",
+    "packages:test": "lerna run test",
     "prerelease": "yarn run packages",
     "release": "lerna publish --conventional-commits",
     "release:beta": "yarn release --npm-tag=beta --preid=beta"

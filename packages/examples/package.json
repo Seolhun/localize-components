@@ -6,7 +6,6 @@
   "scripts": {
     "build": "node build/build.js",
     "dev": "node build/dev-server.js",
-    "deploy": "gh-pages -d ./dist",
     "test": "jest"
   },
   "repository": {
