@@ -23,6 +23,7 @@
   "license": "MIT",
   "main": "./src/index.ts",
   "scripts": {
+    "install": "yarn install",
     "build": "yarn style && tsc && yarn style:copy",
     "dev": "concurrently \"yarn style:watch\" \"tsc --watch\" \"yarn docs:dev\"",
     "style": "sass --update src:../../dist/packages/localize-components/src --style compressed",

@@ -28,6 +28,7 @@
     "bs": "lerna bootstrap",
     "packages:fix": "lerna run fix && echo",
     "packages:lint": "lerna run tslint.json",
+    "packages:install": "lerna run install",
     "packages:build": "lerna run build",
     "packages:test": "lerna run test",
     "prerelease": "yarn run packages",
