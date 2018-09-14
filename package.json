@@ -18,7 +18,8 @@
     "typescript",
     "ui",
     "scss",
-    "local"
+    "local",
+    "styled-component"
   ],
   "license": "MIT",
   "main": "./src/index.ts",
