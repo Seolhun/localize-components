@@ -32,12 +32,7 @@ const NewButton: React.StatelessComponent<NewButtonProps> = ({
   onMouseOut = () => null,
   onBlur = () => null,
   onFocus = () => null,
-  className = 'btn-success',
-  theme = Color.primary,
-  style = {
-    color: '',
-    backgroundColor: '',
-  },
+  className = 'btn',
   disabled = false,
 }) => (
   <button
@@ -47,9 +42,6 @@ const NewButton: React.StatelessComponent<NewButtonProps> = ({
     onMouseOut={onMouseOut}
     onBlur={onBlur}
     onFocus={onFocus}
-    style={{
-      ...style,
-    }}
     disabled={disabled}
   >
     {children}
@@ -57,14 +49,12 @@ const NewButton: React.StatelessComponent<NewButtonProps> = ({
 );
 
 const StyledNewButton = styled(NewButton)`
-  /* Adapt the colours based on primary prop */
-  background: ${({ theme }) => Color[theme]};
-  color: ${({ theme }) => Color[theme]};
-  font-size: 1em;
-  margin: 1em;
-  padding: 0.25em 1em;
-  border: 2px solid palevioletred;
-  border-radius: 3px;
+  background: ${({ theme }) => Color[theme].main};
+  color: ${({ theme }) => Color[theme].sub};
+  font-size: 14px;
+  padding: 0.5em 2em;
+  border: 2px solid ${({ theme }) => Color[theme].main};
+  border-radius: 6px;
 `;
 
 export default StyledNewButton;

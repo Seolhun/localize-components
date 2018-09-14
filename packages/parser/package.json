@@ -1,7 +1,7 @@
 {
   "name": "@seolhun/localize-components-parser",
   "version": "0.0.8",
-  "description": "All about localize-components",
+  "description": "Parser to extends other props",
   "main": "dist/src/index.js",
   "scripts": {
     "build": "node build/build.js",

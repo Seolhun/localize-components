@@ -62,16 +62,15 @@ class ButtonView extends React.Component<ButtonViewProps, ButtonViewState> {
         </div>
         <div className="col-20">
           <NewButton
-            className="btn-success"
             onClick={this.handleClick}
             onFocus={this.handleFocus}
             onMouseOver={this.handleonMouseOver}
             onMouseOut={this.handleonMouseOut}
             onBlur={this.handleBlur}
+            theme="primary"
           >
-            btn-success >
+            New-Button
           </NewButton>
-          >
           <Button
             className="btn-success"
             onClick={this.handleClick}
