@@ -2,7 +2,7 @@
   "private": true,
   "author": "Seolhun",
   "name": "@seolhun/localize-components",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "description": "Localizing React components is rendered by stand-alone not affect other styles.",
   "repository": {
     "type": "git",
@@ -24,19 +24,15 @@
   "main": "./src/index.ts",
   "scripts": {
     "clean": "lerna clean",
+    "deploy": "lerna version",
     "bs": "lerna bootstrap",
-    "packages": "run-s packages:*",
-    "packages:bs": "lerna bootstrap",
     "packages:fix": "lerna run fix && echo",
     "packages:lint": "lerna run tslint.json",
-    "packages:build": "yarn build && lerna run build",
+    "packages:build": "lerna run build",
+    "packages:test": "lerna run test",
     "prerelease": "yarn run packages",
     "release": "lerna publish --conventional-commits",
-    "release:beta": "yarn release --npm-tag=beta --preid=beta",
-    "precommit": "lint-staged",
-    "commit": "git-cz",
-    "contributors:add": "all-contributors add",
-    "contributors:generate": "all-contributors generate"
+    "release:beta": "yarn release --npm-tag=beta --preid=beta"
   },
   "dependencies": {
     "enzyme": "^3.4.4",

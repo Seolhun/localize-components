@@ -1,7 +1,7 @@
 {
   "author": "Seolhun",
   "name": "@seolhun/localize-components",
-  "version": "0.0.6",
+  "version": "0.0.8",
   "description": "Localizing React components is rendered by stand-alone not affect other styles.",
   "repository": {
     "type": "git",
@@ -17,14 +17,15 @@
     "typescript",
     "ui",
     "scss",
-    "local"
+    "local",
+    "styled-component"
   ],
   "license": "MIT",
   "main": "./src/index.ts",
   "scripts": {
     "build": "yarn style && tsc && yarn style:copy",
     "dev": "concurrently \"yarn style:watch\" \"tsc --watch\" \"yarn docs:dev\"",
-    "style": "sass --update src:src --style compressed",
+    "style": "sass --update src:../../dist/packages/localize-components/src --style compressed",
     "style:watch": "sass --watch src:dist/src --style compressed",
     "style:copy": "copyfiles src/**/*.css dist/",
     "style:clean": "find . -name *.css* -type f -delete",
@@ -34,6 +35,7 @@
     "docs:dev": "cd ../examples/ && yarn dev"
   },
   "dependencies": {
+    "@seolhun/localize-components-core": "^0.0.8",
     "classnames": "^2.2.6"
   },
   "devDependencies": {

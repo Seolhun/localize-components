@@ -1,36 +1,40 @@
-# version: 2
-# jobs:
-#   build:
-#     branches:
-#       only:
-#         - master
-#         - develop
-#     docker:
-#       - image: circleci/node:8.10
-#     working_directory: ~/repo
+version: 2
+jobs:
+  build:
+    branches:
+      only:
+        - master
+        - develop
+    docker:
+      - image: circleci/node:8.10
+    working_directory: ~/repo
 
-#     steps:
-#       - checkout
-#       - restore_cache:
-#           keys:
-#           - v1-dependencies-{{ checksum "package.json" }}
-#           - v1-dependencies-
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies-
 
-#       - run:
-#           name: "Checking Versions"
-#           command: |
-#             node --version
-#             npm --version
+      - run:
+          name: "Checking Versions"
+          command: |
+            node --version
+            npm --version
 
-#       - run:
-#           name: "Package Install"
-#           command: yarn install
+      - run:
+          name: "Lerna Install Packages"
+          command: npm run install
 
-#       - save_cache:
-#           paths:
-#             - node_modules
-#           key: v1-dependencies-{{ checksum "package.json" }}
+      - run:
+          name: "Lerna Packages Build"
+          command: npm run packages:build
 
-#       - run:
-#           name: "Test using jest"
-#           command: yarn test
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      # - run:
+      #     name: "Test using jest"
+      #     command: yarn test
