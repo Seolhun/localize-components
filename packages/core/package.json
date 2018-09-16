@@ -1,5 +1,6 @@
 {
   "author": "Seolhun",
+  "license": "MIT",
   "name": "@seolhun/localize-components-core",
   "version": "0.0.9",
   "description": "Base localizing react components",
@@ -20,7 +21,6 @@
     "local",
     "styled-component"
   ],
-  "license": "MIT",
   "main": "./src/index.ts",
   "scripts": {
     "install": "yarn install",
@@ -38,12 +38,6 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "styled-components": "^3.4.6"
-  },
-  "devDependencies": {
-    "@types/react": "16.4.11",
-    "babel-plugin-styled-components": "^1.7.1",
-    "copyfiles": "2.0.0",
-    "sass": "^1.13.0"
   },
   "peerDependencies": {
     "concurrently": "^4.0.0",
