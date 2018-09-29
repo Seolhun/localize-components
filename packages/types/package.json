@@ -1,0 +1,11 @@
+{
+  "name": "@seolhun/localize-components-types",
+  "version": "0.0.9",
+  "description": "Localized components type to use commonly",
+  "main": "index.ts",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "shun10114 <shun10114@gmail.com> (“https://github.com/Seolhun/)",
+  "license": "MIT"
+}

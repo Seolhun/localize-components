@@ -1,27 +1,14 @@
 {
-  "author": "Seolhun",
-  "license": "MIT",
   "name": "@seolhun/localize-components",
-  "version": "0.0.9",
   "description": "Localizing React components is rendered by stand-alone not affect other styles.",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Seolhun/localize-components"
-  },
-  "homepage": "https://github.com/Seolhun/localize-components#readme",
-  "bugs": {
-    "url": "https://github.com/Seolhun/localize-components/issues"
-  },
-  "keywords": [
-    "react",
-    "component",
-    "typescript",
-    "ui",
-    "scss",
-    "local",
-    "styled-component"
-  ],
+  "version": "0.0.9",
+  "license": "MIT",
   "main": "./src/index.ts",
+  "files": [
+    "dist/",
+    "package.json",
+    "README.md"
+  ],
   "scripts": {
     "install": "yarn install",
     "build": "yarn style && tsc && yarn style:copy",
@@ -35,14 +22,19 @@
     "docs:build": "cd ../examples/ && yarn build",
     "docs:dev": "cd ../examples/ && yarn dev"
   },
-  "publishConfig": {
-    "access": "public"
+  "dependencies": {
+    "@seolhun/localize-components": "^0.0.9",
+    "classnames": "^2.2.6",
+    "concurrently": "^4.0.0",
+    "enzyme-adapter-react-16": "^1.2.0",
+    "enzyme": "^3.4.4",
+    "jest": "^23.5.0",
+    "react-dom": "^16.4.2",
+    "react": "^16.4.2",
+    "styled-components": "^3.4.6"
   },
-  "files": [
-    "dist"
-  ],
-  "engines": {
-    "node": ">= 6.0.0",
-    "npm": ">= 3.0.0"
+  "peerDependencies": {
+    "react-dom": "^16.4.2",
+    "react": "^16.4.2"
   }
 }

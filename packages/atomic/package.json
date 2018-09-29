@@ -1,0 +1,37 @@
+{
+  "name": "@seolhun/localize-components-atomic",
+  "version": "0.0.9",
+  "description": "Base localizing react components",
+  "license": "MIT",
+  "main": "./src/index.ts",
+  "files": [
+    "dist/",
+    "package.json",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "yarn style && tsc && yarn style:copy",
+    "dev": "concurrently \"yarn style:watch\" \"tsc --watch\" \"yarn docs:dev\"",
+    "style": "sass --update src:../../dist/packages/core/src --style compressed",
+    "style:copy": "copyfiles src/**/*.css dist/",
+    "style:watch": "sass --watch src:dist/src --style compressed",
+    "style:clean": "find . -name *.css* -type f -delete",
+    "test": "jest",
+    "test-with-coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage",
+    "docs:build": "cd ../examples/ && yarn build",
+    "docs:dev": "cd ../examples/ && yarn dev"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "enzyme-adapter-react-16": "^1.2.0",
+    "enzyme": "^3.4.4",
+    "jest": "^23.5.0",
+    "react-dom": "^16.4.2",
+    "react": "^16.4.2",
+    "styled-components": "^3.4.6"
+  },
+  "peerDependencies": {
+    "react-dom": "^16.4.2",
+    "react": "^16.4.2"
+  }
+}
