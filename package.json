@@ -27,22 +27,26 @@
     "clean": "lerna clean",
     "deploy": "lerna version",
     "bs": "lerna bootstrap",
+    "packages:build": "lerna run build",
     "packages:fix": "lerna run fix && echo",
     "packages:lint": "lerna run tslint.json",
-    "packages:install": "lerna run install",
-    "packages:build": "lerna run build",
     "packages:test": "lerna run test",
     "prerelease": "yarn run packages",
     "release": "lerna publish --conventional-commits",
     "release:beta": "yarn release --npm-tag=beta --preid=beta"
   },
   "dependencies": {
+    "concurrently": "^4.0.0",
     "enzyme-adapter-react-16": "^1.2.0",
     "enzyme": "^3.4.4",
     "jest": "^23.5.0",
     "react-dom": "^16.4.2",
     "react-router-dom": "^4.2.2",
-    "react": "^16.4.0"
+    "react": "^16.4.0",
+    "styled-components": "^3.4.6",
+    "bootstrap": "^4.1.3",
+    "reactstrap": "^6.4.0",
+    "classnames": "^2.2.6"
   },
   "devDependencies": {
     "@types/jest": "23.3.1",

@@ -35,12 +35,7 @@
     "docs:build": "cd ../examples/ && yarn build",
     "docs:dev": "cd ../examples/ && yarn dev"
   },
-  "dependencies": {
-    "classnames": "^2.2.6",
-    "styled-components": "^3.4.6"
-  },
   "peerDependencies": {
-    "concurrently": "^4.0.0",
     "react": "^16.4.2",
     "react-dom": "^16.4.2"
   },
