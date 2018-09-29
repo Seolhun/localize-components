@@ -13,7 +13,7 @@
     "webpack": "node build/build.js",
     "build": "yarn style && tsc && yarn style:copy",
     "dev": "concurrently \"yarn style:watch\" \"tsc --watch\" \"yarn docs:dev\"",
-    "style": "sass --update src:../../dist/packages/core/src --style compressed",
+    "style": "sass --update src:../../dist/packages/localize-components-atomic/src --style compressed",
     "style:copy": "copyfiles src/**/*.css dist/",
     "style:watch": "sass --watch src:dist/src --style compressed",
     "style:clean": "find . -name *.css* -type f -delete",
@@ -25,16 +25,21 @@
   "dependencies": {
     "@seolhun/localize-components-types": "^0.0.9",
     "classnames": "^2.2.6",
-    "enzyme-adapter-react-16": "^1.2.0",
     "enzyme": "^3.4.4",
+    "enzyme-adapter-react-16": "^1.2.0",
     "jest": "^23.5.0",
-    "react-dom": "^16.4.2",
     "react": "^16.4.2",
+    "react-dom": "^16.4.2",
     "styled-components": "^3.4.6"
   },
+  "devDependencies": {
+    "@types/jest": "^23.3.2",
+    "@types/react": "^16.4.14",
+    "@types/react-dom": "^16.0.8"
+  },
   "peerDependencies": {
-    "react-dom": "^16.4.2",
-    "react": "^16.4.2"
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
   },
   "engines": {
     "node": ">= 6.0.0",
