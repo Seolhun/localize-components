@@ -1,0 +1,40 @@
+{
+  "name": "@seolhun/localize-components",
+  "description": "Localizing React components is rendered by stand-alone not affect other styles.",
+  "version": "0.0.9",
+  "license": "MIT",
+  "main": "./src/index.ts",
+  "files": [
+    "dist/",
+    "package.json",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "yarn style && tsc && yarn style:copy",
+    "dev": "concurrently \"yarn style:watch\" \"tsc --watch\" \"yarn docs:dev\"",
+    "style": "sass --update src:../../dist/packages/localize-components/src --style compressed",
+    "style:watch": "sass --watch src:dist/src --style compressed",
+    "style:copy": "copyfiles src/**/*.css dist/",
+    "style:clean": "find . -name *.css* -type f -delete",
+    "test": "jest",
+    "test-with-coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage",
+    "docs:build": "cd ../examples/ && yarn build",
+    "docs:dev": "cd ../examples/ && yarn dev"
+  },
+  "dependencies": {
+    "@seolhun/localize-components-atomic": "0.0.9",
+    "@seolhun/localize-components-types": "0.0.9",
+    "classnames": "^2.2.6",
+    "concurrently": "^4.0.0",
+    "enzyme-adapter-react-16": "^1.2.0",
+    "enzyme": "^3.4.4",
+    "jest": "^23.5.0",
+    "react-dom": "^16.4.2",
+    "react": "^16.4.2",
+    "styled-components": "^3.4.6"
+  },
+  "peerDependencies": {
+    "react-dom": "^16.4.2",
+    "react": "^16.4.2"
+  }
+}
