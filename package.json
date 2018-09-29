@@ -26,7 +26,8 @@
   "main": "./src/index.ts",
   "scripts": {
     "clean": "lerna clean",
-    "deploy": "lerna version",
+    "deploy": "lerna publish",
+    "version": "lerna version",
     "bs": "lerna bootstrap",
     "p:build": "lerna run build",
     "p:fix": "lerna run fix && echo",
@@ -35,14 +36,6 @@
     "prerelease": "yarn run packages",
     "release": "lerna publish --conventional-commits",
     "release:beta": "yarn release --npm-tag=beta --preid=beta"
-  },
-  "dependencies": {
-    "classnames": "^2.2.6",
-    "enzyme-adapter-react-16": "^1.2.0",
-    "enzyme": "^3.4.4",
-    "jest": "^23.5.0",
-    "react-dom": "^16.4.2",
-    "react": "^16.4.2"
   },
   "devDependencies": {
     "@types/jest": "23.3.1",
