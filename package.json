@@ -1,13 +1,11 @@
 {
   "private": true,
+  "license": "MIT",
   "author": {
     "name": "Seolhun",
     "email": "shun10116@gmail.com",
     "url": "https://github.com/Seolhun"
   },
-  "name": "@seolhun/localize-components",
-  "version": "0.0.9",
-  "description": "Localizing React components is rendered by stand-alone not affect other styles.",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Seolhun/localize-components"
@@ -25,7 +23,6 @@
     "local",
     "styled-component"
   ],
-  "license": "MIT",
   "main": "./src/index.ts",
   "scripts": {
     "clean": "lerna clean",

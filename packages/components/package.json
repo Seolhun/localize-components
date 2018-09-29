@@ -1,8 +1,8 @@
 {
-  "license": "MIT",
   "name": "@seolhun/localize-components",
-  "version": "0.0.9",
   "description": "Localizing React components is rendered by stand-alone not affect other styles.",
+  "version": "0.0.9",
+  "license": "MIT",
   "main": "./src/index.ts",
   "files": [
     "dist/",
