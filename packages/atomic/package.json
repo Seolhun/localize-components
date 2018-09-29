@@ -10,6 +10,7 @@
     "README.md"
   ],
   "scripts": {
+    "webpack": "node build/build.js",
     "build": "yarn style && tsc && yarn style:copy",
     "dev": "concurrently \"yarn style:watch\" \"tsc --watch\" \"yarn docs:dev\"",
     "style": "sass --update src:../../dist/packages/core/src --style compressed",
@@ -33,5 +34,9 @@
   "peerDependencies": {
     "react-dom": "^16.4.2",
     "react": "^16.4.2"
+  },
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
   }
 }
