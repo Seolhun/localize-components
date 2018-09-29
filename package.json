@@ -42,8 +42,7 @@
     "enzyme": "^3.4.4",
     "jest": "^23.5.0",
     "react-dom": "^16.4.2",
-    "react-router-dom": "^4.2.2",
-    "react": "^16.4.0"
+    "react": "^16.4.2"
   },
   "devDependencies": {
     "@types/jest": "23.3.1",

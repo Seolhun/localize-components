@@ -21,5 +21,9 @@
     "test-with-coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage",
     "docs:build": "cd ../examples/ && yarn build",
     "docs:dev": "cd ../examples/ && yarn dev"
+  },
+  "peerDependencies": {
+    "react-dom": "^16.4.2",
+    "react": "^16.4.2"
   }
 }

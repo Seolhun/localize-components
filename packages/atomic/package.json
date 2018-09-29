@@ -24,5 +24,9 @@
   "dependencies": {
     "concurrently": "^4.0.0",
     "styled-components": "^3.4.6"
+  },
+  "peerDependencies": {
+    "react-dom": "^16.4.2",
+    "react": "^16.4.2"
   }
 }
