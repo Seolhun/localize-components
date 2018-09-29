@@ -1,5 +1,5 @@
 {
-  "name": "localize-components",
+  "name": "@seolhun/localize-components",
   "description": "Localizing React components is rendered by stand-alone not affect other styles.",
   "version": "0.0.9",
   "license": "MIT",
@@ -22,8 +22,8 @@
     "docs:dev": "cd ../examples/ && yarn dev"
   },
   "dependencies": {
-    "localize-components-atomic": "0.0.9",
-    "localize-components-types": "0.0.9",
+    "@seolhun/localize-components-atomic": "0.0.9",
+    "@seolhun/localize-components-types": "0.0.9",
     "classnames": "^2.2.6",
     "concurrently": "^4.0.0",
     "enzyme-adapter-react-16": "^1.2.0",

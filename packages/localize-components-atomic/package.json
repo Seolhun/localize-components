@@ -1,5 +1,5 @@
 {
-  "name": "localize-components-atomic",
+  "name": "@seolhun/localize-components-atomic",
   "version": "0.0.9",
   "description": "Base localizing react components",
   "license": "MIT",
@@ -23,7 +23,7 @@
     "docs:dev": "cd ../examples/ && yarn dev"
   },
   "dependencies": {
-    "localize-components-types": "^0.0.9",
+    "@seolhun/localize-components-types": "^0.0.9",
     "classnames": "^2.2.6",
     "enzyme-adapter-react-16": "^1.2.0",
     "enzyme": "^3.4.4",
