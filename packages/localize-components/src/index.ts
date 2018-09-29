@@ -1,5 +1,3 @@
-// types
-import { Size, Position, Color } from './types';
 // components
 import Alert, { AlertProps } from './components/alert';
 import Confirm, {
@@ -14,10 +12,6 @@ import { Tab, TabItemType, TabProps, Tabs, TabsProps } from './components/tabs';
 import Preloader, { PreloaderProps } from './components/preloader';
 
 export {
-  // types
-  Size,
-  Position,
-  Color,
   // components
   Alert,
   AlertProps,

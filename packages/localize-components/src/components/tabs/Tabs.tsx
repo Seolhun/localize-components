@@ -1,8 +1,11 @@
 import * as React from 'react';
 import * as classnames from 'classnames';
 
-import { ColorType, Color } from '../../types';
-import { setColor } from '../../utils/SetStyleUtils';
+import {
+  Color,
+  ColorType,
+  SetStyleUtils,
+} from '@seolhun/localize-components-types';
 
 import Tab from './Tab';
 
@@ -47,7 +50,7 @@ const Tabs: React.StatelessComponent<TabsProps> = ({
             ${styles.tab}
             ${
               currentTab === key
-                ? onClassName || setColor(styles, color, 'on-')
+                ? onClassName || SetStyleUtils.setColor(styles, color, 'on-')
                 : ''
             }
           `)}

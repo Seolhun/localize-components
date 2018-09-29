@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as classnames from 'classnames';
 
-import { Input } from '../../form';
+import { Input } from '@seolhun/localize-components-atomic';
 
 const styles = require('./InputConfirm.css');
 
