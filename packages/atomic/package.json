@@ -1,27 +1,14 @@
 {
-  "author": "Seolhun",
   "license": "MIT",
-  "name": "@seolhun/localize-components-core",
+  "name": "@seolhun/localize-components-atomic",
   "version": "0.0.9",
   "description": "Base localizing react components",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Seolhun/localize-components"
-  },
-  "homepage": "https://github.com/Seolhun/localize-components#readme",
-  "bugs": {
-    "url": "https://github.com/Seolhun/localize-components/issues"
-  },
-  "keywords": [
-    "react",
-    "component",
-    "typescript",
-    "ui",
-    "scss",
-    "local",
-    "styled-component"
-  ],
   "main": "./src/index.ts",
+  "files": [
+    "dist/",
+    "package.json",
+    "README.md"
+  ],
   "scripts": {
     "build": "yarn style && tsc && yarn style:copy",
     "dev": "concurrently \"yarn style:watch\" \"tsc --watch\" \"yarn docs:dev\"",
@@ -34,14 +21,8 @@
     "docs:build": "cd ../examples/ && yarn build",
     "docs:dev": "cd ../examples/ && yarn dev"
   },
-  "publishConfig": {
-    "access": "public"
-  },
-  "files": [
-    "dist"
-  ],
-  "engines": {
-    "node": ">= 6.0.0",
-    "npm": ">= 3.0.0"
+  "dependencies": {
+    "concurrently": "^4.0.0",
+    "styled-components": "^3.4.6"
   }
 }
