@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Tabs } from '../../../dist/packages/localize-components/src';
+import { Tabs } from '@seolhun/localize-components';
 
 const TABS = {
   GRAPH: 'graph',

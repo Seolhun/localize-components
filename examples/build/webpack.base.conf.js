@@ -18,7 +18,7 @@ module.exports = {
   },
   mode: process.env.NODE_ENV,
   resolve: {
-    extensions: ['.js', '.ts', '.tsx', 'json'],
+    extensions: ['.js', 'jsx', '.ts', '.tsx', 'json'],
     alias: {
       '@': resolve('src'),
     },

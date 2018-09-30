@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Preloader } from '../../../dist/packages/localize-components/src';
+import { Preloader } from '@seolhun/localize-components';
 
 class PreloaderView extends React.Component {
   render() {
