@@ -1,6 +1,6 @@
 {
   "name": "@seolhun/localize-components-types",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Localized components type to use commonly",
   "main": "./src/index.ts",
   "scripts": {

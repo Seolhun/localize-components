@@ -1,7 +1,7 @@
 {
   "name": "@seolhun/localize-components-atomic",
   "description": "Localizing Atomic React components is rendered by stand-alone not affect other styles.",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "license": "MIT",
   "main": "./src/index.ts",
   "files": [
@@ -10,7 +10,7 @@
     "README.md"
   ],
   "scripts": {
-    "build": "yarn style && tsc && yarn style:copy",
+    "build": "yarn style && tsc && yarn style:copy && yarn style:clean",
     "style": "sass --update src:../../dist/packages/localize-components-atomic/src --style compressed",
     "style:watch": "sass --watch src:dist/src --style compressed",
     "style:copy": "copyfiles src/**/*.css dist/",
@@ -19,8 +19,7 @@
     "test-with-coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage"
   },
   "dependencies": {
-    "@seolhun/localize-components-atomic": "0.0.9",
-    "@seolhun/localize-components-types": "0.0.9",
+    "@seolhun/localize-components-types": "^0.0.10",
     "classnames": "^2.2.6",
     "enzyme": "^3.4.4",
     "enzyme-adapter-react-16": "^1.2.0",
