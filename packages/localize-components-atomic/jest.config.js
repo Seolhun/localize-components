@@ -1,5 +1,5 @@
 module.exports = {
-  roots: ['<rootDir>/packages/localize-components/src'],
+  roots: ['<rootDir>/packages/localize-components-atomic/src'],
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
     '^.+\\.ts?$': 'ts-jest',

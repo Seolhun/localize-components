@@ -3,6 +3,8 @@ import Button, { ButtonProps } from './components/button';
 import {
   Input,
   InputProps,
+  INPUT_TYPE,
+  INPUT_STYLE_TYPE,
   CheckBox,
   CheckBoxProps,
   SelectBox,
@@ -20,6 +22,8 @@ export {
   HrProps,
   Input,
   InputProps,
+  INPUT_TYPE,
+  INPUT_STYLE_TYPE,
   SelectBox,
   SelectBoxProps,
 };

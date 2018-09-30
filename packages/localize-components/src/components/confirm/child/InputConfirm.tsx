@@ -1,7 +1,11 @@
 import * as React from 'react';
 import * as classnames from 'classnames';
 
-import { Input } from '@seolhun/localize-components-atomic';
+import {
+  Input,
+  INPUT_TYPE,
+  INPUT_STYLE_TYPE,
+} from '@seolhun/localize-components-atomic';
 
 const styles = require('./InputConfirm.css');
 
@@ -15,7 +19,7 @@ export interface InputConfirmProps {
   onKeyDown?: () => any;
   placeholder?: string;
   required?: boolean;
-  styleType?: string;
+  inputStyleType?: string;
   submitIsDisabled?: boolean;
   inputType?: string;
 }
@@ -26,20 +30,20 @@ const InputConfirm: React.StatelessComponent<InputConfirmProps> = ({
   value,
   // isNotRequired
   errorMessage = '',
+  inputStyleType = INPUT_STYLE_TYPE.BOX,
+  inputType = INPUT_TYPE.SEARCH,
   onBlur = () => null,
   onKeyDown = () => null,
   placeholder = '',
   required = true,
-  styleType = 'box',
   submitIsDisabled = false,
-  inputType = 'search',
 }) => {
   return (
     <div className={styles.InputConfirm}>
       <Input
         className={styles.input}
         type={inputType}
-        styleType={styleType}
+        inputStyleType={inputStyleType}
         htmlFor={htmlFor}
         value={value}
         placeholder={placeholder}
