@@ -28,7 +28,8 @@
     "clean": "lerna clean",
     "deploy": "lerna publish",
     "version": "lerna version",
-    "bs": "lerna bootstrap"
+    "bs": "lerna bootstrap",
+    "build": "lerna run build"
   },
   "devDependencies": {
     "babel-core": "6.26.3",
