@@ -24,11 +24,15 @@ jobs:
 
       - run:
           name: "Lerna Install Packages"
+          command: yarn install
+
+      - run:
+          name: "Lerna Bootstrap packages"
           command: yarn bs
 
       - run:
           name: "Lerna Packages Build"
-          command: yarn packages:build
+          command: yarn build
 
       - save_cache:
           paths:

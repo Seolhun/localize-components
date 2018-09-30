@@ -11,7 +11,6 @@
   ],
   "scripts": {
     "build": "yarn style && tsc && yarn style:copy",
-    "dev": "concurrently \"yarn style:watch\" \"tsc --watch\" \"yarn docs:dev\"",
     "style": "sass --update src:../../dist/packages/localize-components/src --style compressed",
     "style:watch": "sass --watch src:dist/src --style compressed",
     "style:copy": "copyfiles src/**/*.css dist/",
