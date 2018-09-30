@@ -10,7 +10,7 @@
     "README.md"
   ],
   "scripts": {
-    "build": "yarn style && tsc && yarn style:copy",
+    "build": "yarn style && tsc && yarn style:copy && yarn style:clean",
     "style": "sass --update src:../../dist/packages/localize-components-atomic/src --style compressed",
     "style:watch": "sass --watch src:dist/src --style compressed",
     "style:copy": "copyfiles src/**/*.css dist/",
