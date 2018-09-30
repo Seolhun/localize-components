@@ -25,6 +25,7 @@
   ],
   "main": "./src/index.ts",
   "scripts": {
+    "dev": "yarn install && yarn build && yarn bs",
     "clean": "lerna clean",
     "deploy": "lerna publish",
     "version": "lerna version",

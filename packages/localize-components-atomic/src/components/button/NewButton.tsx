@@ -1,8 +1,9 @@
 import * as React from 'react';
+import styled from 'styled-components';
 
-const styles = require('./Button.css');
+import { Color, ColorType } from '@seolhun/localize-components-types';
 
-export interface ButtonProps {
+export interface NewButtonProps {
   // isRequired
   children: React.ReactNode;
   // isNotRequired
@@ -13,6 +14,7 @@ export interface ButtonProps {
   onMouseOut?: (...args: any[]) => any;
   className?: string;
   fontSize?: number;
+  theme?: ColorType;
   style?: {
     color?: string;
     backgroundColor?: string;
@@ -21,7 +23,7 @@ export interface ButtonProps {
   disabled?: boolean;
 }
 
-const Button: React.StatelessComponent<ButtonProps> = ({
+const NewButton: React.StatelessComponent<NewButtonProps> = ({
   // is Required
   children,
   // is Not Required
@@ -30,30 +32,29 @@ const Button: React.StatelessComponent<ButtonProps> = ({
   onMouseOut = () => null,
   onBlur = () => null,
   onFocus = () => null,
-  className = 'btn-success',
-  fontSize = 12,
-  style = {
-    color: '',
-    backgroundColor: '',
-  },
+  className = 'btn',
   disabled = false,
 }) => (
   <button
-    type="button"
-    className={`${styles.btn} ${className}`}
+    className={className}
     onClick={onClick}
     onMouseOver={onMouseOver}
     onMouseOut={onMouseOut}
     onBlur={onBlur}
     onFocus={onFocus}
-    style={{
-      ...style,
-      fontSize: `${fontSize}px`,
-    }}
     disabled={disabled}
   >
     {children}
   </button>
 );
 
-export default Button;
+const StyledNewButton = styled(NewButton)`
+  background: ${({ theme }) => Color[theme].main};
+  color: ${({ theme }) => Color[theme].sub};
+  font-size: 14px;
+  padding: 0.5em 2em;
+  border: 2px solid ${({ theme }) => Color[theme].main};
+  border-radius: 6px;
+`;
+
+export default StyledNewButton;

@@ -1,5 +1,10 @@
 // components
-import Button, { ButtonProps } from './components/button';
+import {
+  Button,
+  ButtonProps,
+  NewButton,
+  NewButtonProps,
+} from './components/button';
 import {
   Input,
   InputProps,
@@ -16,6 +21,8 @@ export {
   // components
   Button,
   ButtonProps,
+  NewButton,
+  NewButtonProps,
   CheckBox,
   CheckBoxProps,
   Hr,
@@ -30,6 +37,7 @@ export {
 
 export default {
   Button,
+  NewButton,
   CheckBox,
   Hr,
   Input,

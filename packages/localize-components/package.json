@@ -10,9 +10,10 @@
     "README.md"
   ],
   "scripts": {
-    "build": "yarn style && tsc && yarn style:copy && yarn style:clean",
+    "build": "yarn style:local && yarn style && tsc && yarn style:copy",
     "style": "sass --update src:../../dist/packages/localize-components/src --style compressed",
     "style:watch": "sass --watch src:dist/src --style compressed",
+    "style:local": "sass --update src:src --style compressed",
     "style:copy": "copyfiles src/**/*.css dist/",
     "style:clean": "find . -name *.css* -type f -delete",
     "test": "jest",

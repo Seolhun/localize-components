@@ -1,7 +1,9 @@
 import * as React from 'react';
 
-import { NewButton } from '../../../../dist/packages/localize-components-atomic/src';
-import { Button } from '../../../../dist/packages/localize-components/src';
+import {
+  Button,
+  NewButton,
+} from '../../../dist/packages/localize-components-atomic/src';
 
 export interface ButtonViewProps {}
 

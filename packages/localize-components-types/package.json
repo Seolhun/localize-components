@@ -4,8 +4,7 @@
   "description": "Localized components type to use commonly",
   "main": "./src/index.ts",
   "scripts": {
+    "build": "tsc",
     "test": "test"
-  },
-  "author": "shun10114 <shun10114@gmail.com> (“https://github.com/Seolhun/)",
-  "license": "MIT"
+  }
 }
