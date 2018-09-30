@@ -1,7 +1,12 @@
 import * as React from 'react';
 import * as classnames from 'classnames';
+import * as PropTypes from 'prop-types';
 
-import { Button } from '@seolhun/localize-components-atomic';
+import {
+  Button,
+  INPUT_TYPE,
+  INPUT_STYLE_TYPE,
+} from '@seolhun/localize-components-atomic';
 import { BasicConfirm, InputConfirm } from './child';
 
 import {
@@ -34,7 +39,7 @@ export interface ConfirmProps {
   placeholder?: string;
   position?: PositionType;
   required?: boolean;
-  styleType?: string;
+  inputStyleType?: string;
   submitIsDisabled?: boolean;
   submitLabel?: string;
   title?: string;
@@ -49,7 +54,60 @@ const ConfirmTypes = {
   CHECKBOX: 'checkbox',
 };
 
-class Confirm extends React.PureComponent<ConfirmProps> {
+class Confirm extends React.Component<ConfirmProps> {
+  static propTypes = {
+    htmlFor: PropTypes.string.isRequired,
+    onClickClose: PropTypes.func.isRequired,
+    onClickSubmit: PropTypes.func.isRequired,
+    value: PropTypes.string.isRequired,
+    // isNotRequired
+    cancelLabel: PropTypes.string,
+    children: PropTypes.node,
+    className: PropTypes.string,
+    color: PropTypes.string,
+    errorMessage: PropTypes.string,
+    inputStyleType: PropTypes.string,
+    inputType: PropTypes.string,
+    isShow: PropTypes.bool,
+    message: PropTypes.string,
+    onBlur: PropTypes.func,
+    onChange: PropTypes.func,
+    onKeyDown: PropTypes.func,
+    placeholder: PropTypes.string,
+    position: PropTypes.string,
+    required: PropTypes.bool,
+    submitIsDisabled: PropTypes.bool,
+    submitLabel: PropTypes.string,
+    title: PropTypes.string,
+    type: PropTypes.string,
+  };
+
+  static defaultProps = {
+    cancelLabel: 'Cancel',
+    children: null,
+    className: '',
+    color: Color.BASIC,
+    errorMessage: 'Error',
+    inputStyleType: INPUT_STYLE_TYPE.BOX,
+    inputType: INPUT_TYPE.SEARCH,
+    isShow: false,
+    message: '',
+    onBlur: () => null,
+    onChange: () => null,
+    onKeyDown: () => null,
+    placeholder: '',
+    position: Position.CENTER,
+    required: false,
+    submitIsDisabled: false,
+    submitLabel: 'Complete',
+    title: '',
+    type: ConfirmTypes.BASIC,
+  };
+
+  constructor(props) {
+    super(props);
+  }
+
   renderByType(type) {
     switch (type) {
       case ConfirmTypes.INPUT:
@@ -66,15 +124,16 @@ class Confirm extends React.PureComponent<ConfirmProps> {
       // isNotRequired
       cancelLabel = 'Cancel',
       children = null,
-      className = null,
+      className = '',
       color = Color.BASIC,
       isShow = false,
       position = Position.CENTER,
       submitIsDisabled = false,
       submitLabel = 'Complete',
       title = '',
-      type = Color.BASIC,
+      type = ConfirmTypes.BASIC,
     } = this.props;
+
     if (!isShow) {
       return null;
     }

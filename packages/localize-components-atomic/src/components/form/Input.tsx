@@ -17,7 +17,7 @@ export interface InputProps {
   onKeyDown?: (...args: any[]) => any;
   placeholder?: string;
   required?: boolean;
-  styleType?: string;
+  inputStyleType?: string;
   type?: string;
 }
 
@@ -26,14 +26,14 @@ export const INPUT_TYPE = {
   SEARCH: 'search',
 };
 
-export const STYLE_TYPE = {
+export const INPUT_STYLE_TYPE = {
   BOX: 'box',
   UNDERLINE: 'underline',
 };
 
 const Input: React.StatelessComponent<InputProps> = (props) => {
-  switch (props.styleType) {
-    case STYLE_TYPE.BOX:
+  switch (props.inputStyleType) {
+    case INPUT_STYLE_TYPE.BOX:
       return <BoxInput {...props} />;
     default:
       return <UnderLineInput {...props} />;
@@ -51,7 +51,7 @@ Input.defaultProps = {
   onKeyDown: () => null,
   placeholder: '',
   required: true,
-  styleType: STYLE_TYPE.BOX,
+  inputStyleType: INPUT_STYLE_TYPE.BOX,
   type: INPUT_TYPE.TEXT,
 };
 
