@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Confirm } from '@seolhun/localize-components';
+import { Confirm } from '../../../dist/packages/localize-components/src';
 
 interface ConfirmViewViewState {
   isShow: boolean;

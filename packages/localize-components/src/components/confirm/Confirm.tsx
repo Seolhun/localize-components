@@ -6,7 +6,7 @@ import {
   Button,
   INPUT_TYPE,
   INPUT_STYLE_TYPE,
-} from '@seolhun/localize-components-atomic';
+} from '@seolhun/localize-components';
 import { BasicConfirm, InputConfirm } from './child';
 
 import {

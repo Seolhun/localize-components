@@ -70,7 +70,7 @@
   },
   "workspaces": [
     "packages/*",
-    "examples/*"
+    "examples/**"
   ],
   "publishConfig": {
     "access": "public"

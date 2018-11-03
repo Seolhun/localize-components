@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Hr } from '@seolhun/localize-components-atomic';
+import { Hr } from '@seolhun/localize-components';
 
 class HrView extends React.Component {
   render() {

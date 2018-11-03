@@ -28,6 +28,5 @@ $ yarn run dev
 #### import
 ```js
 import { Button, anything } from '@seolhun/localize-components';
-or 
 import * as Components from '@seolhun/localize-components';
 ```

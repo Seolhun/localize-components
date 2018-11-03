@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as classnames from 'classnames';
-import { Button } from '@seolhun/localize-components-atomic';
+import { Button } from '@seolhun/localize-components';
 
 import {
   Color,
