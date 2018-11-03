@@ -1,18 +1,16 @@
-let path = require('path');
-let utils = require('./utils');
-let webpack = require('webpack');
-let config = require('../config');
-let merge = require('webpack-merge');
-let baseWebpackConfig = require('./webpack.base.conf');
-let OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
+const utils = require('./utils');
+const webpack = require('webpack');
+const config = require('../config');
+const merge = require('webpack-merge');
+const baseWebpackConfig = require('./webpack.base.conf');
+const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
-let env =
-  process.env.NODE_ENV === 'testing' ?
+const env = process.env.NODE_ENV === 'testing' ?
   require('../config/test.env') :
   config.build.env;
 
-let webpackConfig = merge(baseWebpackConfig, {
+const webpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({
       sourceMap: config.build.productionSourceMap,
@@ -57,8 +55,6 @@ let webpackConfig = merge(baseWebpackConfig, {
     new webpack.DefinePlugin({
       'process.env': env,
     }),
-    // Compress extracted CSS. We are using this plugin so that possible
-    // duplicated CSS from different components can be deduped.
     new OptimizeCSSPlugin({
       cssProcessorOptions: {
         safe: true,
@@ -68,18 +64,18 @@ let webpackConfig = merge(baseWebpackConfig, {
 });
 
 if (config.build.productionGzip) {
-  let CompressionWebpackPlugin = require('compression-webpack-plugin');
+  const CompressionWebpackPlugin = require('compression-webpack-plugin');
+  const zopfli = require('@gfx/zopfli');
 
   webpackConfig.plugins.push(
     new CompressionWebpackPlugin({
-      asset: '[path].gz[query]',
-      algorithm: 'gzip',
-      test: new RegExp(
-        '\\.(' + config.build.productionGzipExtensions.join('|') + ')$',
-      ),
-      threshold: 10240,
-      minRatio: 0.8,
-    }),
+      compressionOptions: {
+        numiterations: 15
+      },
+      algorithm(input, compressionOptions, callback) {
+        return zopfli.gzip(input, compressionOptions, callback);
+      }
+    })
   );
 }
 

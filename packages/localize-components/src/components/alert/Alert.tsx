@@ -7,10 +7,10 @@ import {
   ColorType,
   Position,
   PositionType,
-  SetStyleUtils,
 } from '@seolhun/localize-components-types';
+import { SetStyleUtils } from '@seolhun/localize-components-utils';
 
-const styles = require('./Alert.css');
+const styles = require('./Alert.scss');
 
 export interface AlertProps {
   onClickClose: (...args: any[]) => any;

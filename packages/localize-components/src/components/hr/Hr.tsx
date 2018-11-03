@@ -1,13 +1,13 @@
 import * as React from 'react';
 
-const styles = require('./Hr.css');
+const styles = require('./Hr.scss');
 
 export interface HrProps {
   // isNotRequired
   className?: string;
   color?: string;
   style?: {
-    margin?: string,
+    margin?: string;
   };
 }
 

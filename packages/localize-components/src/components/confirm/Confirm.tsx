@@ -14,10 +14,10 @@ import {
   ColorType,
   Position,
   PositionType,
-  SetStyleUtils,
 } from '@seolhun/localize-components-types';
+import { SetStyleUtils } from '@seolhun/localize-components-utils';
 
-const styles = require('./Confirm.css');
+const styles = require('./Confirm.scss');
 
 export interface ConfirmProps {
   htmlFor: string;

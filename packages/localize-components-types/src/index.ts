@@ -23,3 +23,11 @@ export {
   Position,
   PositionType,
 };
+
+export default {
+  Color,
+  LightenColor,
+  DarkenColor,
+  Size,
+  Position,
+};

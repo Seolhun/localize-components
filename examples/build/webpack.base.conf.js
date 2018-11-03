@@ -31,7 +31,7 @@ module.exports = {
       },
       {
         test: /\.(tsx|ts)?$/,
-        loader: 'ts-loader',
+        loader: 'awesome-typescript-loader',
         include: [resolve('src')],
         exclude: /node_modules/,
       },

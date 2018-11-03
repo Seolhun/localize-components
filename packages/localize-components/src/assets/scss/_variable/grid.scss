@@ -1,4 +1,4 @@
-$breakpoints: ( sm: 576px, md: 768px, lg: 992px, xl: 1200px, );
+$breakpoints: (sm: 576px, md: 768px, lg: 992px, xl: 1200px, );
 $minWidth: map-get($map: $breakpoints, $key: sm);
 $maxWidth: 100%;
 // layout

@@ -16,12 +16,15 @@
   left: 0;
   z-index: 99;
   position: fixed;
+
   @include responsive(lg) {
     margin-left: -$sidebarSize;
   }
+
   @include responsive(md) {
     margin-left: -$sidebarSize;
   }
+
   @include responsive(sm) {
     margin-left: -$sidebarSize;
   }

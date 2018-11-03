@@ -1,16 +1,16 @@
 import * as React from 'react';
 
-const styles = require('./Card.css');
+const styles = require('./Card.scss');
 
 export interface CardProps {
   children: React.ReactNode;
   // IsNotRequired
   className?: string;
   style?: {
-    color?: string,
-    backgroundColor?: string,
-    padding?: string,
-    margin?: string,
+    color?: string;
+    backgroundColor?: string;
+    padding?: string;
+    margin?: string;
   };
 }
 

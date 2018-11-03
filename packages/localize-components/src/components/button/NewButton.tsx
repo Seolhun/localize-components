@@ -1,5 +1,5 @@
 import * as React from 'react';
-import styled from 'styled-components';
+import styledComponents from 'styled-components';
 
 import { Color, ColorType } from '@seolhun/localize-components-types';
 
@@ -48,7 +48,7 @@ const NewButton: React.StatelessComponent<NewButtonProps> = ({
   </button>
 );
 
-const StyledNewButton = styled(NewButton)`
+const StyledNewButton = styledComponents(NewButton)`
   background: ${({ theme }) => Color[theme].main};
   color: ${({ theme }) => Color[theme].sub};
   font-size: 14px;

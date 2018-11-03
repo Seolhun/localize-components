@@ -1,6 +1,6 @@
-import React from 'react';
+import * as React from 'react';
 
-const styles = require('./Loading.css');
+const styles = require('./Loading.scss');
 
 const Loading = () => (
   <div className="_loading">

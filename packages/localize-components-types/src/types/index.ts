@@ -1,6 +1,6 @@
-import { Color, ColorType, LightenColor, DarkenColor } from './color';
-import { Size, SizeType } from './size';
-import { Position, PositionType } from './position';
+import { Color, ColorType, LightenColor, DarkenColor } from './Color';
+import { Size, SizeType } from './Size';
+import { Position, PositionType } from './Position';
 
 export {
   Color,

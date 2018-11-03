@@ -29,11 +29,9 @@ export type ColorType =
   | 'primary'
   | 'success'
   | 'warning'
-  // Darken
   | 'black'
   | 'gray,'
   | 'purple'
-  // Lighten
   | 'white'
   | 'yellow,'
   | 'sky';

@@ -1,16 +1,20 @@
 @import '../../assets/scss/_variable/color.scss';
+
 :local .checkBox {
+
   [type='checkbox']:not(:checked),
   [type='checkbox']:checked {
     position: absolute;
     left: -9999px;
   }
+
   [type='checkbox']:not(:checked)+span,
   [type='checkbox']:checked+span {
     position: relative;
     padding-left: 1.95em;
     cursor: pointer;
   }
+
   /* checkbox aspect */
   [type='checkbox']:not(:checked)+span:before,
   [type='checkbox']:checked+span:before {
@@ -25,6 +29,7 @@
     border-radius: 4px;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
   }
+
   [type='checkbox']:not(:checked)+span:after,
   [type='checkbox']:checked+span:after {
     color: map-get($map: $defaultColors, $key: primary);
@@ -38,27 +43,33 @@
     transition: all 0.3s;
     z-index: 5;
   }
+
   /* checked mark aspect changes */
   [type='checkbox']:not(:checked)+span:after {
     opacity: 0;
     transform: scale(0);
   }
+
   [type='checkbox']:checked+span:after {
     opacity: 1;
     transform: scale(1);
   }
+
   /* disabled checkbox */
   [type='checkbox']:disabled:not(:checked)+span:before,
   [type='checkbox']:disabled:checked+span:before {
     border-color: map-get($map: $defaultColors, $key: black);
     background-color: map-get($map: $defaultColors, $key: black);
   }
+
   [type='checkbox']:disabled:checked+span:after {
     color: map-get($map: $defaultColors, $key: black);
   }
+
   [type='checkbox']:disabled+span {
     color: map-get($map: $defaultColors, $key: black);
   }
+
   /* accessibility */
   [type='checkbox']:checked+span:before {
     border: 1px solid map-get($map: $defaultColors, $key: primary);
