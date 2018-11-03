@@ -33,44 +33,19 @@
     "bs": "lerna bootstrap"
   },
   "devDependencies": {
-    "babel-core": "6.26.3",
-    "babel-loader": "7.1.5",
-    "babel-plugin-styled-components": "^1.7.1",
-    "babel-preset-env": "1.7.0",
-    "babel-preset-es2015": "6.24.1",
-    "babel-preset-react": "6.24.1",
-    "babel-preset-stage-2": "6.24.1",
-    "clean-webpack-plugin": "0.1.19",
     "codacy-coverage": "3.0.0",
-    "compression-webpack-plugin": "1.1.11",
-    "copyfiles": "2.0.0",
-    "css-loader": "1.0.0",
-    "eventsource-polyfill": "0.9.6",
-    "friendly-errors-webpack-plugin": "1.7.0",
+    "express": "^4.16.3",
     "gh-pages": "1.2.0",
-    "html-webpack-plugin": "3.2.0",
-    "lerna": "3.4.0",
-    "mini-css-extract-plugin": "0.4.1",
-    "mocha-lcov-reporter": "1.3.0",
-    "node-sass": "4.9.3",
-    "optimize-css-assets-webpack-plugin": "3.2.0",
-    "ora": "3.0.0",
-    "sass": "^1.14.1",
-    "sass-loader": "7.1.0",
-    "shelljs": "0.8.2",
-    "style-loader": "0.22.1",
-    "ts-loader": "4.5.0",
-    "ts-node": "7.0.1",
+    "lerna": "3.4.3",
     "tslint-config-airbnb": "5.11.0",
-    "typescript": "^3.1.1",
-    "url-loader": "1.1.1",
-    "webpack": "4.16.5",
-    "webpack-hot-middleware": "2.22.3",
-    "webpack-merge": "4.1.4"
+    "prettier": "^1.14.2",
+    "tslint": "^5.11.0",
+    "tslint-config-prettier": "^1.15.0"
+
   },
   "workspaces": [
     "packages/*",
-    "examples/**"
+    "examples/*"
   ],
   "publishConfig": {
     "access": "public"

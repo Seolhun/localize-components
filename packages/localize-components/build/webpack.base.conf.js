@@ -8,7 +8,7 @@ function resolve(dir) {
 }
 module.exports = {
   entry: {
-    index: resolve('src/index.tsx'),
+    index: resolve('src/index.ts'),
   },
   output: {
     path: config.build.assetsRoot,
