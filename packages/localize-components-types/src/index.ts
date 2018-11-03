@@ -10,7 +10,6 @@ import {
   Position,
   PositionType,
 } from './types';
-import { SetStyleUtils } from './utils';
 
 export {
   Color,
@@ -23,6 +22,4 @@ export {
   // Position
   Position,
   PositionType,
-  // Utils
-  SetStyleUtils,
 };

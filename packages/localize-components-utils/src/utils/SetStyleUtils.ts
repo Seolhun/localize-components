@@ -1,4 +1,4 @@
-import { Color, Position } from '../types';
+import { Color, Position } from '@seolhun/localize-components-types';
 
 const setColor = (styles, color: string, prefix = 'bg-color-') => {
   let styleColor = prefix;

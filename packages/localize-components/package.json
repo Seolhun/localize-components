@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@seolhun/localize-components-types": "^0.0.10",
+    "@seolhun/localize-components-utils": "^0.0.10",
     "classnames": "^2.2.6",
     "concurrently": "^4.0.0",
     "enzyme": "^3.4.4",
