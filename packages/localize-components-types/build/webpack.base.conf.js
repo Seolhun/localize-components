@@ -30,6 +30,7 @@ module.exports = {
       resolve('src'),
       resolve('../../node_modules'),
     ],
+    symlinks: false,
     alias: {
       '@': resolve('src'),
     },
@@ -43,7 +44,7 @@ module.exports = {
       {
         test: /(\.ts|\.tsx)$/,
         loader: [{
-          loader: 'ts-loader',
+          loader: 'awesome-typescript-loader',
           options: {
             transpileOnly: true,
           },

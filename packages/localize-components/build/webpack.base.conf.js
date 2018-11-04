@@ -21,27 +21,33 @@ module.exports = {
     publicPath: process.env.NODE_ENV === 'production' ?
       config.build.assetsPublicPath : config.dev.assetsPublicPath,
   },
+  devtool: 'source-map',
   mode: process.env.NODE_ENV,
   resolve: {
     extensions: ['.js', 'jsx', '.ts', '.tsx', 'json'],
-    // modules: [
-    //   resolve('node_modules'),
-    //   resolve('src'),
-    //   resolve('../../node_modules'),
-    // ],
+    modules: [
+      resolve('node_modules'),
+      resolve('src'),
+      resolve('../../node_modules'),
+    ],
     alias: {
       '@': resolve('src'),
     },
   },
   module: {
     rules: [{
-        test: /\.(jsx|js)?$/,
+        test: /(\.js|\.jsx)$/,
         loader: 'babel-loader',
         include: [resolve('src')],
       },
       {
-        test: /\.(tsx|ts)?$/,
-        loader: 'ts-loader',
+        test: /(\.ts|\.tsx)$/,
+        loader: [{
+          loader: 'awesome-typescript-loader',
+          options: {
+            transpileOnly: true,
+          },
+        }],
         include: [resolve('src')],
         exclude: /node_modules/,
       },
