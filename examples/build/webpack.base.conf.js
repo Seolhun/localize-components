@@ -31,7 +31,16 @@ module.exports = {
       },
       {
         test: /\.(tsx|ts)?$/,
-        loader: 'awesome-typescript-loader',
+        loader: [{
+            loader: 'babel-loader'
+          },
+          {
+            loader: 'ts-loader',
+            options: {
+              transpileOnly: true,
+            },
+          },
+        ],
         include: [resolve('src')],
         exclude: /node_modules/,
       },

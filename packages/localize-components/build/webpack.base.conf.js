@@ -2,23 +2,33 @@ const path = require('path');
 const utils = require('./utils');
 const config = require('../config');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const FileManagerPlugin = require('filemanager-webpack-plugin')
+const {
+  BundleAnalyzerPlugin
+} = require('webpack-bundle-analyzer')
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir);
 }
+
 module.exports = {
   entry: {
     index: resolve('src/index.ts'),
   },
   output: {
     path: config.build.assetsRoot,
-    filename: 'bundle.js',
+    filename: `index.js`,
     publicPath: process.env.NODE_ENV === 'production' ?
       config.build.assetsPublicPath : config.dev.assetsPublicPath,
   },
   mode: process.env.NODE_ENV,
   resolve: {
     extensions: ['.js', 'jsx', '.ts', '.tsx', 'json'],
+    // modules: [
+    //   resolve('node_modules'),
+    //   resolve('src'),
+    //   resolve('../../node_modules'),
+    // ],
     alias: {
       '@': resolve('src'),
     },
@@ -31,7 +41,7 @@ module.exports = {
       },
       {
         test: /\.(tsx|ts)?$/,
-        loader: 'awesome-typescript-loader',
+        loader: 'ts-loader',
         include: [resolve('src')],
         exclude: /node_modules/,
       },
@@ -48,6 +58,7 @@ module.exports = {
             loader: 'css-loader',
             options: {
               sourceMap: true,
+              modules: true,
             },
           },
           {
@@ -88,6 +99,15 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].scss',
       chunkFilename: '[id].scss',
+    }),
+    new FileManagerPlugin({
+      onStart: [{
+        delete: ['./dist']
+      }],
+    }),
+    new BundleAnalyzerPlugin({
+      openAnalyzer: false,
+      analyzerMode: 'static',
     }),
   ],
 };

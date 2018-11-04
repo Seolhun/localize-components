@@ -1,10 +1,11 @@
 {
   "presets": [
     [
-      "env",
-      "stage-2",
-      "es2015",
-      "react",
+      "@babel/preset-env",
+      "@babel/preset-es2015",
+      "@babel/preset-react",
+      "@babel/preset-stage-2",
+      "@babel/polyfill",
       {
         "modules": false,
         "targets": {
@@ -20,10 +21,11 @@
   "env": {
     "test": {
       "presets": [
-        "env",
-        "stage-2",
-        "es2015",
-        "react"
+        "@babel/preset-env",
+        "@babel/preset-es2015",
+        "@babel/preset-react",
+        "@babel/preset-stage-2",
+        "@babel/polyfill"
       ]
     }
   },
