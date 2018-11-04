@@ -2,8 +2,7 @@ import * as React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
-import Header from './layout/Header';
-import Routes from './routes';
+import routes from './routes';
 
 import './index.scss';
 import './vendor';
@@ -11,11 +10,8 @@ import './vendor';
 render(
   <BrowserRouter>
     <div className="App">
-      <Header />
-      <main>
-        <Routes />
-      </main>
+      <Routes />
     </div>
   </BrowserRouter>,
-  document.getElementById('app')
+  document.getElementById('app'),
 );

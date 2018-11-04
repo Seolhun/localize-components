@@ -1,8 +1,12 @@
 {
   "extends": "../tsconfig.json",
-  "include": ["./src/**/*"],
-  "exclude": [".vscode", "node_modules", "packages/*", "./src/__test__/*"],
-  "typeAcquisition": {
-    "enable": true
-  }
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+    "declaration": true,
+    "types": ["node"],
+    "typeRoots": ["node_modules/@types"]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules/**"]
 }

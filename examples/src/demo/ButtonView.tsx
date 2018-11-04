@@ -20,21 +20,21 @@ class ButtonView extends React.Component<ButtonViewProps, ButtonViewState> {
     this.setState({
       messages: [...messages, 'onClick'],
     });
-  };
+  }
 
   handleFocus = () => {
     const { messages } = this.state;
     this.setState({
       messages: [...messages, 'onFocus'],
     });
-  };
+  }
 
   handleonMouseOver = () => {
     const { messages } = this.state;
     this.setState({
       messages: [...messages, 'onMouseOver'],
     });
-  };
+  }
 
   handleonMouseOut = (event: Event) => {
     event.preventDefault();
@@ -42,14 +42,14 @@ class ButtonView extends React.Component<ButtonViewProps, ButtonViewState> {
     this.setState({
       messages: [...messages, 'onMouseOut'],
     });
-  };
+  }
 
   handleBlur = () => {
     const { messages } = this.state;
     this.setState({
       messages: [...messages, 'onBlur'],
     });
-  };
+  }
 
   render() {
     return (

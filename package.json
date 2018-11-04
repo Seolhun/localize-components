@@ -30,7 +30,8 @@
     "deploy": "lerna publish",
     "version": "lerna version",
     "build": "lerna run build",
-    "bs": "lerna bootstrap"
+    "bs": "lerna bootstrap",
+    "link": "lerna link"
   },
   "devDependencies": {
     "codacy-coverage": "3.0.0",

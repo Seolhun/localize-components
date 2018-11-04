@@ -23,7 +23,7 @@ class HrView extends React.Component<{}, HrViewState> {
     this.setState({
       currentTab,
     });
-  };
+  }
 
   render() {
     return (

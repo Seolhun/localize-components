@@ -19,7 +19,7 @@ class AlertView extends React.Component<{}, AlertViewState> {
     this.setState({
       isShow: !isShow,
     });
-  };
+  }
 
   render() {
     const { isShow } = this.state;
