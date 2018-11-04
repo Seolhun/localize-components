@@ -1,25 +1,28 @@
-import { Color, Position } from '@seolhun/localize-components-types';
+import {
+  LocalizeColor,
+  LocalizePosition,
+} from '@seolhun/localize-components-types';
 
 const setColor = (styles, color: string, prefix = 'bg-color-') => {
   let styleColor = prefix;
   switch (color.toLowerCase()) {
-    case Color.SUCCESS:
-      styleColor += Color.SUCCESS;
+    case LocalizeColor.SUCCESS:
+      styleColor += LocalizeColor.SUCCESS;
       break;
-    case Color.PRIMARY:
-      styleColor += Color.PRIMARY;
+    case LocalizeColor.PRIMARY:
+      styleColor += LocalizeColor.PRIMARY;
       break;
-    case Color.INFO:
-      styleColor += Color.INFO;
+    case LocalizeColor.INFO:
+      styleColor += LocalizeColor.INFO;
       break;
-    case Color.WARNING:
-      styleColor += Color.WARNING;
+    case LocalizeColor.WARNING:
+      styleColor += LocalizeColor.WARNING;
       break;
-    case Color.DANGER:
-      styleColor += Color.DANGER;
+    case LocalizeColor.DANGER:
+      styleColor += LocalizeColor.DANGER;
       break;
     default:
-      styleColor += Color.BASIC;
+      styleColor += LocalizeColor.BASIC;
       break;
   }
   return styles[`${styleColor}`];
@@ -27,26 +30,26 @@ const setColor = (styles, color: string, prefix = 'bg-color-') => {
 
 const setPosition = (styles, postion: string) => {
   switch (postion.toLowerCase()) {
-    case Position.TL:
-      return styles[Position.TL];
-    case Position.TC:
-      return styles[Position.TC];
-    case Position.TR:
-      return styles[Position.TR];
-    case Position.LEFT:
-      return styles[Position.LEFT];
-    case Position.CENTER:
-      return styles[Position.CENTER];
-    case Position.RIGHT:
-      return styles[Position.RIGHT];
-    case Position.BL:
-      return styles[Position.BL];
-    case Position.BC:
-      return styles[Position.BC];
-    case Position.BR:
-      return styles[Position.BR];
+    case LocalizePosition.TL:
+      return styles[LocalizePosition.TL];
+    case LocalizePosition.TC:
+      return styles[LocalizePosition.TC];
+    case LocalizePosition.TR:
+      return styles[LocalizePosition.TR];
+    case LocalizePosition.LEFT:
+      return styles[LocalizePosition.LEFT];
+    case LocalizePosition.CENTER:
+      return styles[LocalizePosition.CENTER];
+    case LocalizePosition.RIGHT:
+      return styles[LocalizePosition.RIGHT];
+    case LocalizePosition.BL:
+      return styles[LocalizePosition.BL];
+    case LocalizePosition.BC:
+      return styles[LocalizePosition.BC];
+    case LocalizePosition.BR:
+      return styles[LocalizePosition.BR];
     default:
-      return styles[Position.CENTER];
+      return styles[LocalizePosition.CENTER];
   }
 };
 

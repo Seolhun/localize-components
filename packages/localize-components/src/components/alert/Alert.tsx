@@ -3,10 +3,10 @@ import * as classnames from 'classnames';
 import { Button } from '@seolhun/localize-components';
 
 import {
-  Color,
-  ColorType,
-  Position,
-  PositionType,
+  LocalizeColor,
+  LocalizeColorType,
+  LocalizePosition,
+  LocalizePositionType,
 } from '@seolhun/localize-components-types';
 import { SetStyleUtils } from '@seolhun/localize-components-utils';
 
@@ -18,9 +18,9 @@ export interface AlertProps {
   // isNotRequired
   buttonLabel?: string;
   className?: string | undefined;
-  color?: ColorType;
+  color?: LocalizeColorType;
   isShow?: boolean;
-  position?: PositionType;
+  position?: LocalizePositionType;
   title?: string;
 }
 
@@ -30,9 +30,9 @@ const Alert: React.SFC<AlertProps> = ({
   // is Not Required
   buttonLabel = 'Confirm',
   className = null,
-  color = Color.BASIC,
+  color = LocalizeColor.BASIC,
   isShow = false,
-  position = Position.CENTER,
+  position = LocalizePosition.CENTER,
   title = '',
 }) => {
   if (!isShow) {

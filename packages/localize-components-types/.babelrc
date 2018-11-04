@@ -2,10 +2,7 @@
   "presets": [
     [
       "@babel/preset-env",
-      "@babel/preset-es2015",
       "@babel/preset-react",
-      "@babel/preset-stage-2",
-      "@babel/polyfill",
       {
         "modules": false,
         "targets": {
@@ -22,12 +19,15 @@
     "test": {
       "presets": [
         "@babel/preset-env",
-        "@babel/preset-es2015",
         "@babel/preset-react",
-        "@babel/preset-stage-2",
-        "@babel/polyfill"
       ]
     }
   },
-  "plugins": ["styled-components"]
+  "plugins": [
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-transform-destructuring",
+    "@babel/plugin-transform-runtime"
+  ]
 }

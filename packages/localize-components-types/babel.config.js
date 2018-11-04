@@ -1,5 +1,4 @@
 module.exports = function (api) {
-  console.error('@@@@', api);
   // api.cache.forever()
   // api.cache.never()
   // api.cache.env()
@@ -11,13 +10,14 @@ module.exports = function (api) {
   api.cache.invalidate(() => isProduction);
   const presets = [
     "@babel/preset-env",
-    "@babel/preset-es2015",
     "@babel/preset-react",
-    "@babel/preset-stage-2",
-    "@babel/polyfill",
   ];
   const plugins = [
-    "babel-plugin-styled-components",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/plugin-transform-destructuring",
+    "@babel/plugin-transform-runtime",
   ];
   return {
     presets,

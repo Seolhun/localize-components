@@ -38,38 +38,16 @@ module.exports = {
     rules: [{
         test: /(\.js|\.jsx)$/,
         loader: 'babel-loader',
-        options: {
-          presets: [
-            "@babel/preset-env",
-            "@babel/preset-es2015",
-            "@babel/preset-react",
-            "@babel/preset-stage-2",
-            "@babel/polyfill",
-          ],
-        },
         include: [resolve('src')],
       },
       {
         test: /(\.ts|\.tsx)$/,
         loader: [{
-            loader: 'babel-loader',
-            options: {
-              presets: [
-                "@babel/preset-env",
-                "@babel/preset-es2015",
-                "@babel/preset-react",
-                "@babel/preset-stage-2",
-                "@babel/polyfill",
-              ]
-            },
+          loader: 'ts-loader',
+          options: {
+            transpileOnly: true,
           },
-          {
-            loader: 'ts-loader',
-            options: {
-              transpileOnly: true,
-            },
-          },
-        ],
+        }],
         include: [resolve('src')],
         exclude: /node_modules/,
       },

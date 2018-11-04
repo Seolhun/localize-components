@@ -1,16 +1,21 @@
-import { Color, ColorType, LightenColor, DarkenColor } from './Color';
-import { Size, SizeType } from './Size';
-import { Position, PositionType } from './Position';
+import {
+  LocalizeColor,
+  LocalizeColorType,
+  LocalizeLightenColor,
+  LocalizeDarkenColor,
+} from './LocalizeColor';
+import { LocalizeSize, LocalizeSizeType } from './LocalizeSize';
+import { LocalizePosition, LocalizePositionType } from './LocalizePosition';
 
 export {
-  Color,
-  ColorType,
-  LightenColor,
-  DarkenColor,
+  LocalizeColor,
+  LocalizeColorType,
+  LocalizeLightenColor,
+  LocalizeDarkenColor,
   // Size
-  Size,
-  SizeType,
+  LocalizeSize,
+  LocalizeSizeType,
   // Position
-  Position,
-  PositionType,
+  LocalizePosition,
+  LocalizePositionType,
 };

@@ -1,7 +1,10 @@
 import * as React from 'react';
 import styledComponents from 'styled-components';
 
-import { Color, ColorType } from '@seolhun/localize-components-types';
+import {
+  LocalizeColor,
+  LocalizeColorType,
+} from '@seolhun/localize-components-types';
 
 export interface NewButtonProps {
   // isRequired
@@ -14,7 +17,7 @@ export interface NewButtonProps {
   onMouseOut?: (...args: any[]) => any;
   className?: string;
   fontSize?: number;
-  theme?: ColorType;
+  theme?: LocalizeColorType;
   style?: {
     color?: string;
     backgroundColor?: string;
@@ -49,11 +52,11 @@ const NewButton: React.StatelessComponent<NewButtonProps> = ({
 );
 
 const StyledNewButton = styledComponents(NewButton)`
-  background: ${({ theme }) => Color[theme].main};
-  color: ${({ theme }) => Color[theme].sub};
+  background: ${({ theme }) => LocalizeColor[theme].main};
+  color: ${({ theme }) => LocalizeColor[theme].sub};
   font-size: 14px;
   padding: 0.5em 2em;
-  border: 2px solid ${({ theme }) => Color[theme].main};
+  border: 2px solid ${({ theme }) => LocalizeColor[theme].main};
   border-radius: 6px;
 `;
 

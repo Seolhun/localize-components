@@ -1,16 +1,16 @@
-export const DarkenColor = {
+export const LocalizeDarkenColor = {
   BLACK: 'black',
   GRAY: 'gray,',
   PURPLE: 'purple',
 };
 
-export const LightenColor = {
+export const LocalizeLightenColor = {
   WHITE: 'white',
   YELLOW: 'yellow,',
   SKY: 'sky',
 };
 
-export const Color = {
+export const LocalizeColor = {
   BASIC: 'basic',
   DANGER: 'danger',
   INFO: 'info',
@@ -18,11 +18,11 @@ export const Color = {
   SUCCESS: 'success',
   WARNING: 'warning',
   TRANSPARENT: 'transparent',
-  ...DarkenColor,
-  ...LightenColor,
+  ...LocalizeDarkenColor,
+  ...LocalizeLightenColor,
 };
 
-export type ColorType =
+export type LocalizeColorType =
   | 'basic'
   | 'danger'
   | 'info'
@@ -36,4 +36,4 @@ export type ColorType =
   | 'yellow,'
   | 'sky';
 
-export default Color;
+export default LocalizeColor;

@@ -1,7 +1,10 @@
 import * as React from 'react';
 import * as classnames from 'classnames';
 
-import { Color, ColorType } from '@seolhun/localize-components-types';
+import {
+  LocalizeColor,
+  LocalizeColorType,
+} from '@seolhun/localize-components-types';
 import { SetStyleUtils } from '@seolhun/localize-components-utils';
 
 import Tab from './Tab';
@@ -15,7 +18,7 @@ export interface TabsProps {
   // isNotRequired
   children?: React.ReactNode;
   className?: string;
-  color?: ColorType;
+  color?: LocalizeColorType;
   onClassName?: string;
   renderOptions?: React.ReactNode;
 }
@@ -33,7 +36,7 @@ const Tabs: React.StatelessComponent<TabsProps> = ({
   // isNotRequired
   children = null,
   className = '',
-  color = Color.PRIMARY,
+  color = LocalizeColor.PRIMARY,
   onClassName = '',
   renderOptions = null,
 }) => {
