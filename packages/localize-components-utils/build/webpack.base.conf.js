@@ -28,9 +28,9 @@ module.exports = {
     modules: [
       resolve('node_modules'),
       resolve('src'),
-      resolve('../../node_modules'),
+      resolve('../../node_modules/@seolhun/localize-components-types'),
     ],
-    symlinks: false,
+    symlinks: true,
     alias: {
       '@': resolve('src'),
     },
@@ -43,12 +43,7 @@ module.exports = {
       },
       {
         test: /(\.ts|\.tsx)$/,
-        loader: [{
-          loader: 'awesome-typescript-loader',
-          options: {
-            transpileOnly: true,
-          },
-        }],
+        loader: 'awesome-typescript-loader',
         include: [resolve('src')],
         exclude: /node_modules/,
       },

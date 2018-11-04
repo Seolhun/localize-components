@@ -10,7 +10,6 @@
     "test": "test"
   },
   "dependencies": {
-    "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/plugin-proposal-decorators": "^7.1.2",
@@ -21,6 +20,7 @@
     "@babel/preset-env": "^7.1.0",
     "@babel/preset-react": "^7.0.0",
     "@gfx/zopfli": "^1.0.9",
+    "@seolhun/localize-components-types": "^0.0.9",
     "awesome-typescript-loader": "^5.2.1",
     "babel-loader": "^8.0.4",
     "babel-plugin-styled-components": "^1.8.0",

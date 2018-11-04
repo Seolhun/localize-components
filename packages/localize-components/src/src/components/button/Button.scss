@@ -1,0 +1,117 @@
+@import '../../assets/scss/_mixin/responsive.scss';
+@import '../../assets/scss/_variable/color.scss';
+
+:local .btn {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  background-color: transparent;
+  border-radius: 6px;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 600;
+  height: auto;
+  line-height: 1.5;
+  margin: 5px;
+  padding: 10px 30px;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s, border-color 0.3s;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: auto;
+
+  @include responsive(md) {
+    font-size: 14px;
+  }
+
+  @include responsive(sm) {
+    font-size: 12px;
+  }
+
+  &:disabled {
+    background: map-get($map: $defaultColors, $key: basic);
+    border: 1px solid map-get($map: $defaultColors, $key: basic);
+    cursor: not-allowed !important;
+
+    &:hover {
+      background: map-get($map: $defaultColors, $key: basic);
+      border: 1px solid map-get($map: $defaultColors, $key: basic);
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+@each $key,
+$value in $defaultColors {
+  .btn-#{$key} {
+    background-color: $value;
+    color: map-get($map: $defaultColors, $key: white);
+    border: 1px solid $value;
+
+    &:hover {
+      background-color: darken($color: $value, $amount: 5);
+    }
+  }
+
+  .btn-lighten-#{$key} {
+    border: 1px solid lighten($color: $value, $amount: 5);
+    background-color: lighten($color: $value, $amount: 5);
+    color: map-get($map: $defaultColors, $key: white);
+
+    &:hover {
+      border: 1px solid darken($color: $value, $amount: 5);
+      background-color: darken($color: $value, $amount: 10);
+    }
+  }
+
+  .btn-darken-#{$key} {
+    border: 1px solid darken($color: $value, $amount: 5);
+    background-color: darken($color: $value, $amount: 5);
+    color: map-get($map: $defaultColors, $key: white);
+
+    &:hover {
+      border: 1px solid lighten($color: $value, $amount: 5);
+      background-color: lighten($color: $value, $amount: 10);
+    }
+  }
+
+  .btn-outline-#{$key} {
+    color: $value;
+    border: 1px solid $value;
+    background-color: map-get($map: $defaultColors, $key: white);
+
+    &:hover {
+      color: map-get($map: $defaultColors, $key: white);
+      background-color: $value;
+    }
+  }
+}
+
+.link-btn {
+  background: none !important;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  margin: 5px;
+  outline: none;
+  padding: 3px !important;
+  text-decoration: none;
+
+  &:hover {
+    color: map-get($map: $defaultColors, $key: main) !important;
+  }
+
+  &:active {
+    color: map-get($map: $defaultColors, $key: main) !important;
+  }
+}
+
+.btn:not(:disabled):not(.disabled) {
+  cursor: pointer;
+}
