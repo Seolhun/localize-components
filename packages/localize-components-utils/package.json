@@ -1,0 +1,47 @@
+{
+  "license": "MIT",
+  "name": "@seolhun/localize-components-utils",
+  "version": "0.0.11",
+  "description": "Localized components type to use commonly",
+  "main": "./src/index.ts",
+  "scripts": {
+    "build": "node build/build.js",
+    "bundle": "tsc",
+    "test": "test"
+  },
+  "dependencies": {
+    "@seolhun/localize-components-types": "^0.0.11",
+    "@types/jest": "^23.3.2",
+    "jest": "^23.6.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.5",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-transform-arrow-functions": "^7.0.0",
+    "@babel/plugin-transform-async-to-generator": "^7.1.0",
+    "@babel/plugin-transform-classes": "^7.1.0",
+    "@babel/plugin-transform-destructuring": "^7.1.3",
+    "@babel/plugin-transform-literals": "^7.0.0",
+    "@babel/plugin-transform-spread": "^7.0.0",
+    "@babel/polyfill": "^7.0.0",
+    "@babel/preset-env": "^7.1.5",
+    "@babel/preset-react": "^7.0.0",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-lodash": "^3.3.4",
+    "babel-plugin-styled-components": "^1.8.0",
+    "ts-jest": "^23.10.4",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.1.6"
+  },
+  "peerDependencies": {
+    "react": "^16.6.1",
+    "react-dom": "^16.4.0"
+  },
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
+  }
+}

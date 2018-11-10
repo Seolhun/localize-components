@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Alert } from '../../../../dist/packages/localize-components/src';
+import { Alert } from '@seolhun/localize-components';
 
 export interface AlertViewState {
   isShow: boolean;
@@ -19,7 +19,7 @@ class AlertView extends React.Component<{}, AlertViewState> {
     this.setState({
       isShow: !isShow,
     });
-  };
+  }
 
   render() {
     const { isShow } = this.state;

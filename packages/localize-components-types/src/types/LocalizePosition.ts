@@ -1,4 +1,4 @@
-export const Position = {
+export const LocalizePosition = {
   BC: 'bottom-center',
   BL: 'bottom-left',
   BR: 'bottom-right',
@@ -10,7 +10,7 @@ export const Position = {
   TR: 'top-right',
 };
 
-export type PositionType =
+export type LocalizePositionType =
   | 'bottom-center'
   | 'bottom-left'
   | 'bottom-right'
@@ -21,4 +21,4 @@ export type PositionType =
   | 'top-left'
   | 'top-right';
 
-export default Position;
+export default LocalizePosition;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Tabs } from '../../../../dist/packages/localize-components/src';
+import { Tabs } from '@seolhun/localize-components';
 
 const TABS = {
   GRAPH: 'graph',
@@ -23,7 +23,7 @@ class HrView extends React.Component<{}, HrViewState> {
     this.setState({
       currentTab,
     });
-  };
+  }
 
   render() {
     return (

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as classnames from 'classnames';
 
-import { ColorType } from '@seolhun/localize-components-types';
+import { LocalizeColorType } from '@seolhun/localize-components-types';
 
 const styles = require('./Chip.css');
 
@@ -9,7 +9,7 @@ export interface ChipProps {
   children: React.ReactNode | string;
   // isNotRequired
   className?: string | undefined;
-  color?: ColorType;
+  color?: LocalizeColorType;
   icon?: React.ReactNode;
   onClickDelete?: (...args: any[]) => any;
   style?: ChipStyleProps;

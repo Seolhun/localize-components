@@ -1,22 +1,53 @@
 {
   "compilerOptions": {
-    "lib": ["es5", "es6", "dom"],
     "target": "es5",
-    "module": "commonjs",
+    "module": "es2015",
     "moduleResolution": "node",
-    "jsx": "react",
     "allowSyntheticDefaultImports": true,
+    "lib": [
+      "dom",
+      "es5",
+      "es6",
+      "es7",
+    ],
+    "jsx": "react",
+    /* Enable all strict type-checking options. */
+    "strict": true,
+
+    /* Strict Type-Checking Options */
+    "noImplicitAny": false,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "noImplicitThis": true,
+    "alwaysStrict": true,
+
+    /* Additional Checks */
+    /* Report errors on unused locals. */
+    "noUnusedLocals": true,
+    /* Report errors on unused parameters. */
+    "noUnusedParameters": false,
+    /* Report error when not all code paths in function return a value. */
+    "noImplicitReturns": true,
+    /* Report errors for fallthrough cases in switch statement. */
+    "noFallthroughCasesInSwitch": true,
+
+    /* Debugging Options */
+    /* Report module resolution log messages. */
+    "traceResolution": false,
+    /* Print names of generated files part of the compilation. */
+    "listEmittedFiles": false,
+    /* Print names of files part of the compilation. */
+    "listFiles": false,
+    /* Stylize errors and messages using color and context. */
+    "pretty": true,
+
+    // Mine
     "declaration": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "noEmitOnError": true,
-    "noImplicitReturns": true,
-    "noImplicitThis": true,
-    "noUnusedLocals": true,
-    "strictNullChecks": true,
     "sourceMap": true,
-    "inlineSources": true,
-    // "noImplicitAny": false,
     "rootDir": ".",
     "outDir": "dist",
     "baseUrl": ".",
@@ -24,9 +55,12 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["./src/**/*"],
-  "exclude": [".vscode", "node_modules", "packages/*", "./src/__test__/*"],
-  "typeAcquisition": {
-    "enable": true
-  }
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "node_modules/**",
+    "packages/**",
+    "./src/__test__/**"
+  ],
 }

@@ -10,7 +10,7 @@ export interface SidebarProps {
   style?: object;
 }
 
-const Sidebar: React.StatelessComponent<SidebarProps> = ({
+const Sidebar: React.SFC<SidebarProps> = ({
   children,
   className,
   style,

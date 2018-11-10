@@ -23,16 +23,8 @@ jobs:
             npm --version
 
       - run:
-          name: "Lerna Install Packages"
-          command: yarn install
-
-      - run:
           name: "Lerna Bootstrap packages"
-          command: yarn bs
-
-      - run:
-          name: "Lerna Packages Build"
-          command: yarn build
+          command: yarn bundle
 
       - save_cache:
           paths:

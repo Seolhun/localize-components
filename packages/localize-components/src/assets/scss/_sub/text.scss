@@ -4,7 +4,8 @@
 @import '../_mixin/responsive.scss';
 
 // h1 ~ h6
-@each $key, $value in $headings {
+@each $key,
+$value in $headings {
   #{$key} {
     margin: 10px 0;
     line-height: 1.5em;
@@ -12,7 +13,9 @@
   }
 }
 
-@each $key, $value in $defaultColors {
+@each $key,
+$value in $defaultColors {
+
   // Text Color
   .text-#{$key}-lighten {
     color: $value;

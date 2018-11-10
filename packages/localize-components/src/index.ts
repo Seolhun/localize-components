@@ -9,18 +9,16 @@ import Card, { CardProps } from './components/card';
 import Chip, { ChipProps } from './components/chip';
 import Issue, { IssueProps } from './components/issue';
 import { Tab, TabItemType, TabProps, Tabs, TabsProps } from './components/tabs';
-import Preloader, { PreloaderProps } from './components/preloader';
 
 export {
-  // components
   Alert,
   AlertProps,
-  Confirm,
-  ConfirmProps,
   Card,
   CardProps,
   Chip,
   ChipProps,
+  Confirm,
+  ConfirmProps,
   InputConfirm,
   InputConfirmProps,
   Issue,
@@ -30,8 +28,6 @@ export {
   TabProps,
   Tabs,
   TabsProps,
-  Preloader,
-  PreloaderProps,
 };
 
 export default {
@@ -43,5 +39,4 @@ export default {
   Issue,
   Tab,
   Tabs,
-  Preloader,
 };

@@ -7,10 +7,11 @@ export interface HrProps {
   className?: string;
   color?: string;
   style?: {
-    margin?: string,
+    margin?: string;
   };
 }
 
+// tslint:disable-next-line:variable-name
 const Hr: React.SFC<HrProps> = ({
   className = '',
   color = '#000',

@@ -9,56 +9,67 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+
   @include responsive(lg) {
     width: 40%;
+
     &.top-center,
     &.bottom-center {
       left: 30% !important;
     }
   }
+
   @include responsive(md) {
     width: 50%;
+
     &.top-center,
     &.bottom-center {
       left: 25% !important;
     }
   }
+
   &.top-left {
     top: 0px;
     bottom: auto;
     left: 0px;
     right: auto;
   }
+
   &.top-right {
     top: 0px;
     bottom: auto;
     left: auto;
     right: 0px;
   }
+
   &.top-center {
     top: 0px;
     bottom: auto;
     margin: 0 auto;
     left: 35%;
   }
+
   &.bottom-left {
     top: auto;
     bottom: 0px;
     left: 0px;
     right: auto;
   }
+
   &.bottom-right {
     top: auto;
     bottom: 0px;
     left: auto;
     right: 0px;
   }
+
   &.bottom-center {
     top: auto;
     bottom: 0px;
     margin: 0 auto;
     left: 35%;
   }
+
   & .messageDiv {
     padding: 5px;
     font-size: 14px;

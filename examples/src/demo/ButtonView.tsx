@@ -1,7 +1,6 @@
 import * as React from 'react';
 
-import { NewButton } from '../../../../dist/packages/localize-components-atomic/src';
-import { Button } from '../../../../dist/packages/localize-components/src';
+import { Button, NewButton } from '@seolhun/localize-components-atomic';
 
 export interface ButtonViewProps {}
 
@@ -21,21 +20,21 @@ class ButtonView extends React.Component<ButtonViewProps, ButtonViewState> {
     this.setState({
       messages: [...messages, 'onClick'],
     });
-  };
+  }
 
   handleFocus = () => {
     const { messages } = this.state;
     this.setState({
       messages: [...messages, 'onFocus'],
     });
-  };
+  }
 
   handleonMouseOver = () => {
     const { messages } = this.state;
     this.setState({
       messages: [...messages, 'onMouseOver'],
     });
-  };
+  }
 
   handleonMouseOut = (event: Event) => {
     event.preventDefault();
@@ -43,14 +42,14 @@ class ButtonView extends React.Component<ButtonViewProps, ButtonViewState> {
     this.setState({
       messages: [...messages, 'onMouseOut'],
     });
-  };
+  }
 
   handleBlur = () => {
     const { messages } = this.state;
     this.setState({
       messages: [...messages, 'onBlur'],
     });
-  };
+  }
 
   render() {
     return (

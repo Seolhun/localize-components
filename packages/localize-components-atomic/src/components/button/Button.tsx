@@ -14,14 +14,14 @@ export interface ButtonProps {
   className?: string;
   fontSize?: number;
   style?: {
-    color?: string,
-    backgroundColor?: string,
-    padding?: string,
+    color?: string;
+    backgroundColor?: string;
+    padding?: string;
   };
   disabled?: boolean;
 }
 
-const Button: React.StatelessComponent<ButtonProps> = ({
+const Button: React.SFC<ButtonProps> = ({
   // is Required
   children,
   // is Not Required

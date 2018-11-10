@@ -6,13 +6,17 @@
   border-radius: 6px;
   border: 1px solid map-get($map: $defaultColors, $key: gray);
   color: map-get($map: $defaultColors, $key: white);
+
   &:hover {
     background-color: map-get($map: $defaultColors, $key: gray);
   }
-  @each $key, $value in $defaultColors {
+
+  @each $key,
+  $value in $defaultColors {
     &.chip-#{$key} {
       background-color: $value;
       border-color: $value;
+
       &:hover {
         background-color: darken($color: $value, $amount: 5);
       }

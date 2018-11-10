@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Confirm } from '../../../../dist/packages/localize-components/src';
+import { Confirm } from '@seolhun/localize-components';
 
 interface ConfirmViewViewState {
   isShow: boolean;
@@ -22,14 +22,14 @@ class ConfirmViewView extends React.Component<{}, ConfirmViewViewState> {
     this.setState({
       isShow: !isShow,
     });
-  };
+  }
 
   handleSubmit = (event) => {
     event.preventDefault();
     const { value } = this.state;
     this.handleIsShow(event);
     alert(`current input value is ${value}`);
-  };
+  }
 
   handleInputValue = (event) => {
     event.preventDefault();
@@ -37,7 +37,7 @@ class ConfirmViewView extends React.Component<{}, ConfirmViewViewState> {
     this.setState({
       value,
     });
-  };
+  }
 
   render() {
     const { isShow, value } = this.state;

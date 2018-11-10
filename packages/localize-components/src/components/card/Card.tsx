@@ -7,14 +7,14 @@ export interface CardProps {
   // IsNotRequired
   className?: string;
   style?: {
-    color?: string,
-    backgroundColor?: string,
-    padding?: string,
-    margin?: string,
+    color?: string;
+    backgroundColor?: string;
+    padding?: string;
+    margin?: string;
   };
 }
 
-const Card: React.StatelessComponent<CardProps> = ({
+const Card: React.SFC<CardProps> = ({
   className,
   children,
   style,

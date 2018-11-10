@@ -24,7 +24,7 @@ export interface InputConfirmProps {
   inputType?: string;
 }
 
-const InputConfirm: React.StatelessComponent<InputConfirmProps> = ({
+const InputConfirm: React.SFC<InputConfirmProps> = ({
   htmlFor,
   onChange,
   value,

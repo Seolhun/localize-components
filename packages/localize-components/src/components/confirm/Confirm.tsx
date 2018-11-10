@@ -10,12 +10,12 @@ import {
 import { BasicConfirm, InputConfirm } from './child';
 
 import {
-  Color,
-  ColorType,
-  Position,
-  PositionType,
-  SetStyleUtils,
+  LocalizeColor,
+  LocalizeColorType,
+  LocalizePosition,
+  LocalizePositionType,
 } from '@seolhun/localize-components-types';
+import { SetStyleUtils } from '@seolhun/localize-components-utils';
 
 const styles = require('./Confirm.css');
 
@@ -28,7 +28,7 @@ export interface ConfirmProps {
   cancelLabel?: string;
   children?: React.ReactNode;
   className?: string | undefined;
-  color?: ColorType;
+  color?: LocalizeColorType;
   errorMessage?: string;
   inputType?: string;
   isShow?: boolean;
@@ -37,7 +37,7 @@ export interface ConfirmProps {
   onChange: (...args: any[]) => any;
   onKeyDown?: (...args: any[]) => any;
   placeholder?: string;
-  position?: PositionType;
+  position?: LocalizePositionType;
   required?: boolean;
   inputStyleType?: string;
   submitIsDisabled?: boolean;
@@ -86,7 +86,7 @@ class Confirm extends React.Component<ConfirmProps> {
     cancelLabel: 'Cancel',
     children: null,
     className: '',
-    color: Color.BASIC,
+    color: LocalizeColor.BASIC,
     errorMessage: 'Error',
     inputStyleType: INPUT_STYLE_TYPE.BOX,
     inputType: INPUT_TYPE.SEARCH,
@@ -96,7 +96,7 @@ class Confirm extends React.Component<ConfirmProps> {
     onChange: () => null,
     onKeyDown: () => null,
     placeholder: '',
-    position: Position.CENTER,
+    position: LocalizePosition.CENTER,
     required: false,
     submitIsDisabled: false,
     submitLabel: 'Complete',
@@ -125,9 +125,9 @@ class Confirm extends React.Component<ConfirmProps> {
       cancelLabel = 'Cancel',
       children = null,
       className = '',
-      color = Color.BASIC,
+      color = LocalizeColor.BASIC,
       isShow = false,
-      position = Position.CENTER,
+      position = LocalizePosition.CENTER,
       submitIsDisabled = false,
       submitLabel = 'Complete',
       title = '',

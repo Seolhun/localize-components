@@ -6,7 +6,7 @@ export interface BasicConfirmProps {
   message?: string;
 }
 
-const BasicConfirm: React.StatelessComponent<BasicConfirmProps> = ({
+const BasicConfirm: React.SFC<BasicConfirmProps> = ({
   message = '',
 }) => {
   return <div className={styles.BasicConfirm}>{message}</div>;

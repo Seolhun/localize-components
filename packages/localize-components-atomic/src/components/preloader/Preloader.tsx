@@ -1,7 +1,6 @@
 import * as React from 'react';
 import * as classnames from 'classnames';
 
-// const styles = require('./Preloader.css');
 import './Preloader.css';
 
 export interface PreloaderProps {
@@ -13,7 +12,7 @@ export const TYPE = {
   PAGE: 'page',
 };
 
-const Preloader: React.StatelessComponent<PreloaderProps> = ({ type = '' }) => {
+const Preloader: React.SFC<PreloaderProps> = ({ type = '' }) => {
   return (
     <div className={classnames(`_Preloader ${type}`)}>
       <hr />

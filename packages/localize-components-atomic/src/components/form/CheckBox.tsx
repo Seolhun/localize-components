@@ -1,5 +1,4 @@
-import React from 'react';
-
+import * as React from 'react';
 const styles = require('./CheckBox.css');
 
 export interface CheckBoxProps {
@@ -13,7 +12,7 @@ export interface CheckBoxProps {
   onBlur: (...args: any[]) => any;
 }
 
-const CheckBox: React.StatelessComponent<CheckBoxProps> = ({
+const CheckBox: React.SFC<CheckBoxProps> = ({
   // isRequired
   children,
   value,

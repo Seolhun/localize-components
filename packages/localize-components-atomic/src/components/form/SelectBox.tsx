@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 const styles = require('./SelectBox.css');
 
@@ -13,7 +13,7 @@ export interface SelectBoxProps {
   onBlur: () => any;
 }
 
-const SelectBox: React.StatelessComponent<SelectBoxProps> = ({
+const SelectBox: React.SFC<SelectBoxProps> = ({
   children,
   value,
   htmlFor,

@@ -1,6 +1,7 @@
 @import '../_variable/color.scss';
 
-@each $key, $value in $defaultColors {
+@each $key,
+$value in $defaultColors {
   .text-#{$key} {
     color: $value;
   }

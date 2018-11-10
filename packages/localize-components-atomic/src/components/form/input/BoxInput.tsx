@@ -22,7 +22,7 @@ export interface BoxInputProps {
   type?: string;
 }
 
-const BoxInput: React.StatelessComponent<BoxInputProps> = ({
+const BoxInput: React.SFC<BoxInputProps> = ({
   value,
   htmlFor,
   // isNotRequired

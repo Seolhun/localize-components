@@ -10,7 +10,7 @@ export interface NavBarProps {
   style?: object;
 }
 
-const NavBar: React.StatelessComponent<NavBarProps> = ({
+const NavBar: React.SFC<NavBarProps> = ({
   children,
   className,
   style,
