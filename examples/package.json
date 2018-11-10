@@ -1,7 +1,7 @@
 {
   "license": "MIT",
   "name": "@seolhun/localize-components-examples",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "All about Localize-Components-Examples",
   "main": "dist/src/index.js",
   "files": [
@@ -15,9 +15,12 @@
     "test": "jest"
   },
   "dependencies": {
-    "@seolhun/localize-components-atomic": "^0.0.10",
-    "@seolhun/localize-components-types": "^0.0.10",
-    "@seolhun/localize-components-utils": "^0.0.10",
+    "@seolhun/localize-components": "^0.0.11",
+    "@seolhun/localize-components-atomic": "^0.0.11",
+    "@seolhun/localize-components-types": "^0.0.11",
+    "@seolhun/localize-components-utils": "^0.0.11",
+    "@types/react": "^16.7.2",
+    "@types/react-dom": "^16.0.9",
     "classnames": "^2.2.6",
     "prop-types": "^15.6.2",
     "react": "^16.6.1",
@@ -37,8 +40,6 @@
     "@babel/preset-env": "^7.1.5",
     "@babel/preset-react": "^7.0.0",
     "@gfx/zopfli": "^1.0.9",
-    "@types/react": "^16.7.1",
-    "awesome-typescript-loader": "^5.2.1",
     "babel-eslint": "^10.0.1",
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",

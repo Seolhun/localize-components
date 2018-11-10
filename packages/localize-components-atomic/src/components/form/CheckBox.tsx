@@ -12,7 +12,7 @@ export interface CheckBoxProps {
   onBlur: (...args: any[]) => any;
 }
 
-const CheckBox: React.StatelessComponent<CheckBoxProps> = ({
+const CheckBox: React.SFC<CheckBoxProps> = ({
   // isRequired
   children,
   value,

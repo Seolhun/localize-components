@@ -7,7 +7,7 @@ export interface TabProps {
   className?: string;
 }
 
-const Tab: React.StatelessComponent<TabProps> = ({
+const Tab: React.SFC<TabProps> = ({
   onClick,
   children,
   // isNotRequired

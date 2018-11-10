@@ -29,7 +29,7 @@ export interface TabItemType {
   render?: React.ReactNode;
 }
 
-const Tabs: React.StatelessComponent<TabsProps> = ({
+const Tabs: React.SFC<TabsProps> = ({
   currentTab,
   tabs,
   onClickTab,

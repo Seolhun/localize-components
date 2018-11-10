@@ -26,7 +26,7 @@ export interface NewButtonProps {
   disabled?: boolean;
 }
 
-const NewButton: React.StatelessComponent<NewButtonProps> = ({
+const NewButton: React.SFC<NewButtonProps> = ({
   // is Required
   children,
   // is Not Required

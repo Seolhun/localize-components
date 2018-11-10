@@ -34,7 +34,6 @@
     "link": "lerna link"
   },
   "devDependencies": {
-    "codacy-coverage": "3.0.0",
     "express": "^4.16.3",
     "gh-pages": "1.2.0",
     "lerna": "3.4.3",

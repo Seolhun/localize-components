@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Button, NewButton } from '@seolhun/localize-components';
+import { Button, NewButton } from '@seolhun/localize-components-atomic';
 
 export interface ButtonViewProps {}
 

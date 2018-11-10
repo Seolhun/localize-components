@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Preloader } from '@seolhun/localize-components';
+import { Preloader } from '@seolhun/localize-components-atomic';
 
 class PreloaderView extends React.Component {
   render() {

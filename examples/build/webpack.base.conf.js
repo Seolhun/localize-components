@@ -21,11 +21,11 @@ module.exports = {
       : config.dev.assetsPublicPath,
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx', '.css', '.json'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     modules: [
-      resolve('node_modules'),
       resolve('src'),
-      resolve('../../node_modules'),
+      resolve('node_modules'),
+      resolve('../node_modules'),
     ],
     alias: {
       '@': resolve('src'),
@@ -35,11 +35,25 @@ module.exports = {
     rules: [{
         test: /\.(js|jsx)$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('src/__test__')],
+        include: [
+          resolve('src'),
+          resolve('../dist'),
+        ],
       }, {
         test: /\.(ts|tsx)$/,
-        loader: 'ts-loader',
-        include: [resolve('src'), resolve('src/__test__')],
+        loader: [
+          { loader: 'babel-loader' },
+          {
+            loader: 'ts-loader',
+            options: {
+              transpileOnly: true,
+            },
+          },
+        ],
+        include: [
+          resolve('src'),
+          resolve('../dist'),
+        ],
       }, {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],

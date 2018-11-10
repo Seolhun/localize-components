@@ -10,7 +10,7 @@ export interface FooterProps {
   style?: object;
 }
 
-const Footer: React.StatelessComponent<FooterProps> = ({
+const Footer: React.SFC<FooterProps> = ({
   className = '',
   children = '',
   style = {},

@@ -1,6 +1,16 @@
 {
   "lerna": "3.1.4",
-  "version": "0.0.10",
   "npmClient": "yarn",
-  "useWorkspaces": true
+  "useWorkspaces": true,
+  "command": {
+    "publish": {
+      "allowBranch": ["master", "develop", "feature/*"],
+      "ignoreChanges": [
+        "examples",
+        "__test__",
+        "*.md"
+      ]
+    }
+  },
+  "version": "independent"
 }

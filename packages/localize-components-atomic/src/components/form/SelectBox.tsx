@@ -13,7 +13,7 @@ export interface SelectBoxProps {
   onBlur: () => any;
 }
 
-const SelectBox: React.StatelessComponent<SelectBoxProps> = ({
+const SelectBox: React.SFC<SelectBoxProps> = ({
   children,
   value,
   htmlFor,

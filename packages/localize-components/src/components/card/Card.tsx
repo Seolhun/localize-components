@@ -14,7 +14,7 @@ export interface CardProps {
   };
 }
 
-const Card: React.StatelessComponent<CardProps> = ({
+const Card: React.SFC<CardProps> = ({
   className,
   children,
   style,

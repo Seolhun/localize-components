@@ -19,7 +19,7 @@ export interface UnderLineInputProps {
   type?: string;
 }
 
-const UnderLineInput: React.StatelessComponent<UnderLineInputProps> = ({
+const UnderLineInput: React.SFC<UnderLineInputProps> = ({
   // isRequired
   value,
   htmlFor,

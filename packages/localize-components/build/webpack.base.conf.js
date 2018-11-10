@@ -33,11 +33,11 @@ module.exports = {
   },
   module: {
     rules: [{
-        test: /\.(js|jsx)$/,
+        test: /(\.js|\.jsx)$/,
         loader: 'babel-loader',
         include: [resolve('src'), resolve('src/__test__')],
       }, {
-        test: /\.(ts|tsx)$/,
+        test: /(\.ts|\.tsx)$/,
         loader: 'ts-loader',
         include: [resolve('src'), resolve('src/__test__')],
       }, {

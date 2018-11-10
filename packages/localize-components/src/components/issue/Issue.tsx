@@ -10,7 +10,7 @@ export interface IssueProps {
   description?: string;
 }
 
-const Issue: React.StatelessComponent<IssueProps> = ({
+const Issue: React.SFC<IssueProps> = ({
   title,
   // IsNotRequired
   children = null,

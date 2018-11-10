@@ -12,7 +12,7 @@ export const TYPE = {
   PAGE: 'page',
 };
 
-const Preloader: React.StatelessComponent<PreloaderProps> = ({ type = '' }) => {
+const Preloader: React.SFC<PreloaderProps> = ({ type = '' }) => {
   return (
     <div className={classnames(`_Preloader ${type}`)}>
       <hr />
