@@ -3,7 +3,6 @@
     "target": "es5",
     "module": "es2015",
     "moduleResolution": "node",
-    "inlineSourceMap": true,
     "allowSyntheticDefaultImports": true,
     "lib": [
       "dom",
@@ -12,7 +11,8 @@
       "es7",
     ],
     "jsx": "react",
-    "strict": true /* Enable all strict type-checking options. */ ,
+    /* Enable all strict type-checking options. */
+    "strict": true,
 
     /* Strict Type-Checking Options */
     "noImplicitAny": false,
@@ -23,23 +23,31 @@
     "alwaysStrict": true,
 
     /* Additional Checks */
-    "noUnusedLocals": true /* Report errors on unused locals. */ ,
-    "noUnusedParameters": false /* Report errors on unused parameters. */ ,
-    "noImplicitReturns": true /* Report error when not all code paths in function return a value. */ ,
-    "noFallthroughCasesInSwitch": true /* Report errors for fallthrough cases in switch statement. */ ,
+    /* Report errors on unused locals. */
+    "noUnusedLocals": true,
+    /* Report errors on unused parameters. */
+    "noUnusedParameters": false,
+    /* Report error when not all code paths in function return a value. */
+    "noImplicitReturns": true,
+    /* Report errors for fallthrough cases in switch statement. */
+    "noFallthroughCasesInSwitch": true,
 
     /* Debugging Options */
-    "traceResolution": false /* Report module resolution log messages. */ ,
-    "listEmittedFiles": false /* Print names of generated files part of the compilation. */ ,
-    "listFiles": false /* Print names of files part of the compilation. */ ,
-    "pretty": true /* Stylize errors and messages using color and context. */ ,
+    /* Report module resolution log messages. */
+    "traceResolution": false,
+    /* Print names of generated files part of the compilation. */
+    "listEmittedFiles": false,
+    /* Print names of files part of the compilation. */
+    "listFiles": false,
+    /* Stylize errors and messages using color and context. */
+    "pretty": true,
 
     // Mine
     "declaration": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "noEmitOnError": true,
-    "inlineSources": true,
+    "sourceMap": true,
     "rootDir": ".",
     "outDir": "dist",
     "baseUrl": ".",
@@ -47,6 +55,12 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["./src/**/*"],
-  "exclude": ["node_modules/**", "packages/**", "./src/__test__/**"],
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "node_modules/**",
+    "packages/**",
+    "./src/__test__/**"
+  ],
 }

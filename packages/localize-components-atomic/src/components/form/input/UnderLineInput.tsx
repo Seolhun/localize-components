@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const styles = require('./UnderLineInput.scss');
+const styles = require('./UnderLineInput.css');
 
 export interface UnderLineInputProps {
   value: string;
