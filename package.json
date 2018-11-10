@@ -28,7 +28,7 @@
     "bundle": "yarn clean -y && yarn bs && lerna exec yarn bundle",
     "clean": "lerna clean",
     "deploy": "lerna publish",
-    "deploy:ex": "surge --project ./examples/dist --domain localize-components.surge.sh",
+    "deploy:ex": "surge --project ./examples/dist/ --domain localize-components.surge.sh",
     "version": "lerna version",
     "bs": "lerna bootstrap",
     "link": "lerna link"
@@ -45,7 +45,7 @@
   },
   "workspaces": [
     "packages/*",
-    "examples/**"
+    "examples/*"
   ],
   "publishConfig": {
     "access": "public"

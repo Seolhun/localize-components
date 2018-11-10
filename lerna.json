@@ -2,6 +2,9 @@
   "lerna": "3.1.4",
   "npmClient": "yarn",
   "useWorkspaces": true,
+  "packages": [
+    "packages/**/*"
+  ],
   "command": {
     "publish": {
       "allowBranch": [
@@ -16,5 +19,5 @@
       ]
     }
   },
-  "version": "0.0.10"
+  "version": "0.0.11"
 }

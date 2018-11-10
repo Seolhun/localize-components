@@ -1,9 +1,9 @@
 {
   "license": "MIT",
   "name": "@seolhun/localize-components-examples",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "All about Localize-Components-Examples",
-  "main": "./src/Main.tsx",
+  "main": "./dist/index.js",
   "files": [
     "dist/",
     "package.json",
@@ -15,10 +15,10 @@
     "test": "jest"
   },
   "dependencies": {
-    "@seolhun/localize-components": "^0.0.10",
-    "@seolhun/localize-components-atomic": "^0.0.10",
-    "@seolhun/localize-components-types": "^0.0.10",
-    "@seolhun/localize-components-utils": "^0.0.10",
+    "@seolhun/localize-components": "^0.0.11",
+    "@seolhun/localize-components-atomic": "^0.0.11",
+    "@seolhun/localize-components-types": "^0.0.11",
+    "@seolhun/localize-components-utils": "^0.0.11",
     "@types/react": "^16.7.2",
     "@types/react-dom": "^16.0.9",
     "@types/react-router-dom": "^4.3.1",
@@ -87,5 +87,5 @@
     "node": ">= 6.0.0",
     "npm": ">= 3.0.0"
   },
-  "gitHead": "e6772ea33c97e591207dee22a52cdb222bf923c5"
+  "gitHead": "34a3d679eafb3f90a173786686e69f58cd5485db"
 }

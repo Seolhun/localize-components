@@ -1,9 +1,14 @@
 {
   "license": "MIT",
   "name": "@seolhun/localize-components-types",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Localized components type to use commonly",
-  "main": "./src/index.ts",
+  "main": "./dist/index.js",
+  "files": [
+    "dist/",
+    "package.json",
+    "README.md"
+  ],
   "scripts": {
     "build": "node build/build.js",
     "bundle": "tsc",
@@ -46,5 +51,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "e6772ea33c97e591207dee22a52cdb222bf923c5"
+  "gitHead": "34a3d679eafb3f90a173786686e69f58cd5485db"
 }

@@ -2,8 +2,8 @@
   "license": "MIT",
   "name": "@seolhun/localize-components",
   "description": "Localizing React components is rendered by stand-alone not affect other styles.",
-  "version": "0.0.10",
-  "main": "./src/index.ts",
+  "version": "0.0.11",
+  "main": "./dist/index.js",
   "files": [
     "dist/",
     "package.json",
@@ -12,17 +12,17 @@
   "scripts": {
     "build": "node build/build.js",
     "bundle": "yarn style:clean && tsc && yarn style && yarn style:local",
-    "style": "sass --update src:../../dist/packages/localize-components/src/ --style compressed",
-    "style:watch": "sass --watch src:dist/src --style compressed",
+    "style": "sass --update src:dist --style compressed",
+    "style:watch": "sass --watch src:dist --style compressed",
     "style:local": "sass --update src:src --style compressed",
     "style:clean": "find . -name *.css* -type f -delete",
     "test": "jest",
     "test-with-coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage"
   },
   "dependencies": {
-    "@seolhun/localize-components-atomic": "^0.0.10",
-    "@seolhun/localize-components-types": "^0.0.10",
-    "@seolhun/localize-components-utils": "^0.0.10",
+    "@seolhun/localize-components-atomic": "^0.0.11",
+    "@seolhun/localize-components-types": "^0.0.11",
+    "@seolhun/localize-components-utils": "^0.0.11",
     "@types/jest": "^23.3.2",
     "@types/react": "^16.7.2",
     "@types/react-dom": "^16.0.9",
@@ -66,5 +66,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "e6772ea33c97e591207dee22a52cdb222bf923c5"
+  "gitHead": "34a3d679eafb3f90a173786686e69f58cd5485db"
 }
