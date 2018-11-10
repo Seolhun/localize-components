@@ -4,7 +4,6 @@ jobs:
     branches:
       only:
         - master
-        - develop
     docker:
       - image: circleci/node:8.10
     working_directory: ~/repo
@@ -23,14 +22,22 @@ jobs:
             npm --version
 
       - run:
+          name: "install packages"
+          command: yarn install
+
+      - run:
           name: "Lerna Bootstrap packages"
           command: yarn bundle
+
+      - run:
+          name: "Deploy Examples into surge"
+          command: yarn deploy:ex
 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
 
-      # - run:
+          # - run:
       #     name: "Test using jest"
       #     command: yarn test
