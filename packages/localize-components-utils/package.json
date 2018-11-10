@@ -1,7 +1,7 @@
 {
   "license": "MIT",
   "name": "@seolhun/localize-components-utils",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Localized components type to use commonly",
   "main": "./dist/index.js",
   "files": [
@@ -15,7 +15,7 @@
     "test": "test"
   },
   "dependencies": {
-    "@seolhun/localize-components-types": "^0.0.11",
+    "@seolhun/localize-components-types": "^0.0.12",
     "@types/jest": "^23.3.2",
     "jest": "^23.6.0"
   },
@@ -52,5 +52,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "34a3d679eafb3f90a173786686e69f58cd5485db"
+  "gitHead": "e141282ad4d71ac85356a036a423576276d88841"
 }

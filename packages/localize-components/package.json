@@ -2,7 +2,7 @@
   "license": "MIT",
   "name": "@seolhun/localize-components",
   "description": "Localizing React components is rendered by stand-alone not affect other styles.",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "main": "./dist/index.js",
   "files": [
     "dist/",
@@ -20,9 +20,9 @@
     "test-with-coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage"
   },
   "dependencies": {
-    "@seolhun/localize-components-atomic": "^0.0.11",
-    "@seolhun/localize-components-types": "^0.0.11",
-    "@seolhun/localize-components-utils": "^0.0.11",
+    "@seolhun/localize-components-atomic": "^0.0.12",
+    "@seolhun/localize-components-types": "^0.0.12",
+    "@seolhun/localize-components-utils": "^0.0.12",
     "@types/jest": "^23.3.2",
     "@types/react": "^16.7.2",
     "@types/react-dom": "^16.0.9",
@@ -66,5 +66,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "34a3d679eafb3f90a173786686e69f58cd5485db"
+  "gitHead": "e141282ad4d71ac85356a036a423576276d88841"
 }
