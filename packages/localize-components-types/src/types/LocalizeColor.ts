@@ -1,12 +1,12 @@
 export const LocalizeDarkenColor = {
   BLACK: 'black',
-  GRAY: 'gray,',
+  GRAY: 'gray',
   PURPLE: 'purple',
 };
 
 export const LocalizeLightenColor = {
   WHITE: 'white',
-  YELLOW: 'yellow,',
+  YELLOW: 'yellow',
   SKY: 'sky',
 };
 
@@ -33,7 +33,7 @@ export type LocalizeColorType =
   | 'gray,'
   | 'purple'
   | 'white'
-  | 'yellow,'
+  | 'yellow'
   | 'sky';
 
 export default LocalizeColor;
