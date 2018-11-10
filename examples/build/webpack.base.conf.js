@@ -36,7 +36,6 @@ module.exports = {
         test: /\.(js|jsx)$/,
         loader: 'babel-loader',
       }, {
-        enforce: 'pre',
         test: /\.(ts|tsx)$/,
         loader: 'awesome-typescript-loader',
       }, {

@@ -9,7 +9,7 @@ module.exports = {
     assetsPublicPath: '',
     productionSourceMap: true,
     productionGzip: true,
-    productionGzipExtensions:  ['js', 'ts', 'css'],
+    productionGzipExtensions: ['js', 'ts', 'css'],
     bundleAnalyzerReport: process.env.npm_config_report
   },
   dev: {

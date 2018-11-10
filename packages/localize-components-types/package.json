@@ -1,7 +1,7 @@
 {
   "license": "MIT",
   "name": "@seolhun/localize-components-types",
-  "version": "0.0.11",
+  "version": "0.0.10",
   "description": "Localized components type to use commonly",
   "main": "./src/index.ts",
   "scripts": {
@@ -42,5 +42,9 @@
   "engines": {
     "node": ">= 6.0.0",
     "npm": ">= 3.0.0"
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "e6772ea33c97e591207dee22a52cdb222bf923c5"
 }

@@ -4,7 +4,11 @@
   "useWorkspaces": true,
   "command": {
     "publish": {
-      "allowBranch": ["master", "develop", "feature/*"],
+      "allowBranch": [
+        "master",
+        "develop",
+        "feature/*"
+      ],
       "ignoreChanges": [
         "examples",
         "__test__",
@@ -12,5 +16,5 @@
       ]
     }
   },
-  "version": "independent"
+  "version": "0.0.10"
 }
