@@ -1,29 +1,34 @@
 {
-  "presets": [
-    [
-      "env",
-      "es2015",
-      "react",
-      {
-        "modules": false,
-        "targets": {
-          "browsers": [
-            "> 1%",
-            "last 2 versions",
-            "not ie <= 8"
-          ]
-        }
-      }
-    ]
+	"presets": [
+    "@babel/preset-env",
+    "@babel/preset-react"
+	],
+  "plugins": [
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-transform-arrow-functions",
+    "@babel/plugin-transform-spread",
+    "@babel/plugin-transform-async-to-generator",
+    "@babel/plugin-transform-destructuring",
+    "@babel/plugin-transform-classes",
+    "@babel/plugin-transform-literals",
+    "lodash"
   ],
-  "env": {
-    "test": {
+	"env": {
+		"test": {
       "presets": [
-        "env",
-        "es2015",
-        "react"
+        "@babel/preset-env",
+        "@babel/preset-react"
+      ],
+      "plugins": [
+        "@babel/plugin-proposal-class-properties",
+        "@babel/plugin-transform-arrow-functions",
+        "@babel/plugin-transform-spread",
+        "@babel/plugin-transform-async-to-generator",
+        "@babel/plugin-transform-destructuring",
+        "@babel/plugin-transform-classes",
+        "@babel/plugin-transform-literals",
+        "lodash"
       ]
     }
-  },
-  "plugins": ["styled-components"]
+	}
 }

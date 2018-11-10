@@ -1,32 +1,34 @@
-const path = require('path');
-const config = require('../config');
-exports.assetsPath = function(_path) {
-  var assetsSubDirectory =
-    process.env.NODE_ENV === 'production'
-      ? config.build.assetsSubDirectory
-      : config.dev.assetsSubDirectory;
-  return path.posix.join(assetsSubDirectory, _path);
-};
+const path = require('path')
+const config = require('../config')
 
-exports.cssLoaders = function(options) {
+const IS_PRODUCTION = process.env.NODE_ENV === 'production';
+
+exports.assetsPath = function (_path) {
+  let assetsSubDirectory = IS_PRODUCTION
+    ? config.build.assetsSubDirectory
+    : config.dev.assetsSubDirectory;
+  return path.posix.join(assetsSubDirectory, _path)
+}
+
+exports.cssLoaders = function (options) {
   options = options || {};
 
-  var cssLoader = {
+  let cssLoader = {
     loader: 'css-loader',
     options: {
-      minimize: process.env.NODE_ENV === 'production',
+      minimize: IS_PRODUCTION,
       sourceMap: options.sourceMap,
     },
-  };
+  }
 
   // generate loader string to be used with extract text plugin
   function generateLoaders(loader, loaderOptions) {
-    var loaders = [cssLoader];
+    let loaders = [cssLoader];
     if (loader) {
       loaders.push({
         loader: loader + '-loader',
         options: Object.assign({}, loaderOptions, {
-          sourceMap: options.sourceMap,
+          sourceMap: options.sourceMap
         }),
       });
     }
@@ -35,23 +37,25 @@ exports.cssLoaders = function(options) {
     css: generateLoaders(),
     postcss: generateLoaders(),
     less: generateLoaders('less'),
-    sass: generateLoaders('sass', { indentedSyntax: true }),
+    sass: generateLoaders('sass', {
+      indentedSyntax: true
+    }),
     scss: generateLoaders('sass'),
     stylus: generateLoaders('stylus'),
-    styl: generateLoaders('stylus'),
-  };
-};
+    styl: generateLoaders('stylus')
+  }
+}
 
 // Generate loaders for standalone style files (outside of .vue)
-exports.styleLoaders = function(options) {
-  var output = [];
-  var loaders = exports.cssLoaders(options);
-  for (var extension in loaders) {
-    var loader = loaders[extension];
+exports.styleLoaders = function (options) {
+  let output = []
+  let loaders = exports.cssLoaders(options)
+  for (let extension in loaders) {
+    let loader = loaders[extension]
     output.push({
       test: new RegExp('\\.' + extension + '$'),
-      use: loader,
-    });
+      use: loader
+    })
   }
-  return output;
-};
+  return output
+}

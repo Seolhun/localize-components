@@ -2,7 +2,7 @@ import * as React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 
-import routes from './routes';
+import Routes from './routes';
 
 import './index.scss';
 import './vendor';

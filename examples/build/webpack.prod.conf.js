@@ -1,92 +1,78 @@
-let path = require('path');
-let utils = require('./utils');
-let webpack = require('webpack');
-let config = require('../config');
-let merge = require('webpack-merge');
-let baseWebpackConfig = require('./webpack.base.conf');
-let OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const path = require('path');
+const webpack = require('webpack');
+const merge = require('webpack-merge');
+const baseWebpackConfig = require('./webpack.base.conf');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 
-let env =
-  process.env.NODE_ENV === 'testing' ?
-  require('../config/test.env') :
-  config.build.env;
+const utils = require('./utils');
+const config = require('../config');
 
-let webpackConfig = merge(baseWebpackConfig, {
+const IS_TESTING = process.env.NODE_ENV === 'testing';
+
+const env = IS_TESTING
+  ? require('../config/test.env')
+  : config.build.env;
+
+const webpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({
       sourceMap: config.build.productionSourceMap,
-      extract: true,
-    }),
+      extract: true
+    })
   },
   devtool: config.build.productionSourceMap ? '#source-map' : false,
   output: {
     path: config.build.assetsRoot,
-    filename: utils.assetsPath('[name].js'),
-    chunkFilename: utils.assetsPath('[id].[chunkhash].js'),
-  },
-  optimization: {
-    minimizer: [
-      new UglifyJsPlugin({
-        sourceMap: true,
-      }),
-    ],
-    splitChunks: {
-      chunks: 'async',
-      minSize: 30000,
-      maxSize: 0,
-      minChunks: 1,
-      maxAsyncRequests: 5,
-      maxInitialRequests: 3,
-      automaticNameDelimiter: '~',
-      name: true,
-      cacheGroups: {
-        vendors: {
-          test: /[\\/]node_modules[\\/]/,
-          priority: -10,
-        },
-        default: {
-          minChunks: 2,
-          priority: -20,
-          reuseExistingChunk: true,
-        },
-      },
-    },
+    filename: utils.assetsPath('js/[name].[chunkhash].js'),
+    chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': env,
+      'process.env': env
     }),
-    // Compress extracted CSS. We are using this plugin so that possible
-    // duplicated CSS from different components can be deduped.
     new OptimizeCSSPlugin({
       cssProcessorOptions: {
-        safe: true,
-      },
+        safe: true
+      }
     }),
-  ],
-});
+    new HtmlWebpackPlugin({
+      filename: IS_TESTING
+        ? 'index.html'
+        : config.build.index,
+      template: 'index.html',
+      inject: true,
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true
+      },
+      chunksSortMode: 'dependency'
+    }),
+  ]
+})
 
 if (config.build.productionGzip) {
-  let CompressionWebpackPlugin = require('compression-webpack-plugin');
+  const CompressionWebpackPlugin = require('compression-webpack-plugin')
 
   webpackConfig.plugins.push(
     new CompressionWebpackPlugin({
       asset: '[path].gz[query]',
       algorithm: 'gzip',
       test: new RegExp(
-        '\\.(' + config.build.productionGzipExtensions.join('|') + ')$',
+        '\\.(' +
+        config.build.productionGzipExtensions.join('|') +
+        ')$'
       ),
       threshold: 10240,
-      minRatio: 0.8,
-    }),
-  );
+      minRatio: 0.8
+    })
+  )
 }
 
 if (config.build.bundleAnalyzerReport) {
-  let BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-    .BundleAnalyzerPlugin;
-  webpackConfig.plugins.push(new BundleAnalyzerPlugin());
+  const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+  webpackConfig.plugins.push(new BundleAnalyzerPlugin())
 }
 
-module.exports = webpackConfig;
+module.exports = webpackConfig
