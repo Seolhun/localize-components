@@ -5,9 +5,9 @@ import {
   Input,
   INPUT_TYPE,
   INPUT_STYLE_TYPE,
-} from '@seolhun/localize-components';
+} from '@seolhun/localize-components-atomic';
 
-const styles = require('./InputConfirm.scss');
+const styles = require('./InputConfirm.css');
 
 export interface InputConfirmProps {
   htmlFor: string;

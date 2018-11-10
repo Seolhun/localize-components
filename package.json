@@ -25,11 +25,10 @@
   ],
   "main": "./src/index.ts",
   "scripts": {
-    "all": "yarn install && yarn build && yarn bs",
+    "bundle": "yarn clean -y && yarn bs && lerna exec yarn bundle",
     "clean": "lerna clean",
     "deploy": "lerna publish",
     "version": "lerna version",
-    "build": "lerna run build",
     "bs": "lerna bootstrap",
     "link": "lerna link"
   },

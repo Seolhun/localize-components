@@ -3,7 +3,7 @@ import * as classnames from 'classnames';
 
 import { LocalizeColorType } from '@seolhun/localize-components-types';
 
-const styles = require('./Chip.scss');
+const styles = require('./Chip.css');
 
 export interface ChipProps {
   children: React.ReactNode | string;

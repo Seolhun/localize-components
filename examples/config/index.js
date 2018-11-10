@@ -9,7 +9,7 @@ module.exports = {
     assetsPublicPath: '',
     productionSourceMap: true,
     productionGzip: true,
-    productionGzipExtensions: ['js', 'css'],
+    productionGzipExtensions:  ['js', 'ts', 'css'],
     bundleAnalyzerReport: process.env.npm_config_report
   },
   dev: {
@@ -20,6 +20,6 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {},
-    cssSourceMap: false
+    cssSourceMap: false,
   }
 }

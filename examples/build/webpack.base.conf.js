@@ -11,7 +11,7 @@ const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 module.exports = {
   mode: process.env.NODE_ENV,
   entry: {
-    index: resolve('src/index.tsx'),
+    index: resolve('src/Main.tsx'),
   },
   output: {
     path: config.build.assetsRoot,
@@ -35,25 +35,10 @@ module.exports = {
     rules: [{
         test: /\.(js|jsx)$/,
         loader: 'babel-loader',
-        include: [
-          resolve('src'),
-          resolve('../dist'),
-        ],
       }, {
+        enforce: 'pre',
         test: /\.(ts|tsx)$/,
-        loader: [
-          { loader: 'babel-loader' },
-          {
-            loader: 'ts-loader',
-            options: {
-              transpileOnly: true,
-            },
-          },
-        ],
-        include: [
-          resolve('src'),
-          resolve('../dist'),
-        ],
+        loader: 'awesome-typescript-loader',
       }, {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
@@ -129,5 +114,4 @@ module.exports = {
       return assetFilename.endsWith('.css') || assetFilename.endsWith('.js');
     }
   },
-  devtool: 'source-map',
 };

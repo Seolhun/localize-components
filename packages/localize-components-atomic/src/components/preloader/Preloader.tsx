@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as classnames from 'classnames';
 
-import './Preloader.scss';
+import './Preloader.css';
 
 export interface PreloaderProps {
   type?: PreloaderType;

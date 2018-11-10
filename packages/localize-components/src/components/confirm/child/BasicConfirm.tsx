@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-const styles = require('./BasicConfirm.scss');
+const styles = require('./BasicConfirm.css');
 
 export interface BasicConfirmProps {
   message?: string;

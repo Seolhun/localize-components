@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as classnames from 'classnames';
-import { Button } from '@seolhun/localize-components';
+import { Button } from '@seolhun/localize-components-atomic';
 
 import {
   LocalizeColor,
@@ -10,7 +10,7 @@ import {
 } from '@seolhun/localize-components-types';
 import { SetStyleUtils } from '@seolhun/localize-components-utils';
 
-const styles = require('./Alert.scss');
+const styles = require('./Alert.css');
 
 export interface AlertProps {
   onClickClose: (...args: any[]) => any;

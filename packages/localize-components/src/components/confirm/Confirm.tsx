@@ -6,7 +6,7 @@ import {
   Button,
   INPUT_TYPE,
   INPUT_STYLE_TYPE,
-} from '@seolhun/localize-components';
+} from '@seolhun/localize-components-atomic';
 import { BasicConfirm, InputConfirm } from './child';
 
 import {
@@ -17,7 +17,7 @@ import {
 } from '@seolhun/localize-components-types';
 import { SetStyleUtils } from '@seolhun/localize-components-utils';
 
-const styles = require('./Confirm.scss');
+const styles = require('./Confirm.css');
 
 export interface ConfirmProps {
   htmlFor: string;
