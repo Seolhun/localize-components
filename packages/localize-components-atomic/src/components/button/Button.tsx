@@ -1,4 +1,8 @@
 import * as React from 'react';
+import {
+  LocalizeColor,
+  LocalizeColorType,
+} from '@seolhun/localize-components-types';
 
 const styles = require('./Button.css');
 
@@ -13,12 +17,9 @@ export interface ButtonProps {
   onMouseOut?: (...args: any[]) => any;
   className?: string;
   fontSize?: number;
-  style?: {
-    color?: string;
-    backgroundColor?: string;
-    padding?: string;
-  };
+  style?: {};
   disabled?: boolean;
+  theme?: LocalizeColorType;
 }
 
 const Button: React.SFC<ButtonProps> = ({
@@ -30,17 +31,15 @@ const Button: React.SFC<ButtonProps> = ({
   onMouseOut = () => null,
   onBlur = () => null,
   onFocus = () => null,
-  className = 'btn-success',
+  className = '',
   fontSize = 12,
-  style = {
-    color: '',
-    backgroundColor: '',
-  },
+  style = {},
   disabled = false,
+  theme = LocalizeColor.PRIMARY,
 }) => (
   <button
     type="button"
-    className={`${styles.btn} ${className}`}
+    className={`${styles.btn} ${className || `btn-${theme}`}`}
     onClick={onClick}
     onMouseOver={onMouseOver}
     onMouseOut={onMouseOut}

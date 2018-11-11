@@ -1,9 +1,7 @@
 import Button, { ButtonProps } from './Button';
-import NewButton, { NewButtonProps } from './NewButton';
 
-export { Button, ButtonProps, NewButton, NewButtonProps };
+export { Button, ButtonProps };
 
 export default {
   Button,
-  NewButton,
 };

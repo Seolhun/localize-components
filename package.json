@@ -20,8 +20,7 @@
     "typescript",
     "ui",
     "scss",
-    "local",
-    "styled-component"
+    "local"
   ],
   "main": "./src/index.ts",
   "scripts": {

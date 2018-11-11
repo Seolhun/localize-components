@@ -1,7 +1,7 @@
 {
   "license": "MIT",
   "name": "@seolhun/localize-components-utils",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "Localized components type to use commonly",
   "main": "./dist/index.js",
   "files": [
@@ -15,7 +15,7 @@
     "test": "test"
   },
   "dependencies": {
-    "@seolhun/localize-components-types": "^0.0.12",
+    "@seolhun/localize-components-types": "^0.0.13",
     "@types/jest": "^23.3.2",
     "jest": "^23.6.0"
   },
@@ -36,7 +36,6 @@
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
     "babel-plugin-lodash": "^3.3.4",
-    "babel-plugin-styled-components": "^1.8.0",
     "ts-jest": "^23.10.4",
     "ts-node": "^7.0.1",
     "typescript": "^3.1.6"

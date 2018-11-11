@@ -17,16 +17,15 @@
 #### Install Package
 ```bash
 $ yarn add @seolhun/localize-components
-```
-
-#### Run Docs
-```bash
-$ yarn run dev
+$ yarn add @seolhun/localize-components-atomic
 ```
 
 ## How to use
 #### import
 ```js
-import { Button, anything } from '@seolhun/localize-components';
-import * as Components from '@seolhun/localize-components';
+import { Button } from '@seolhun/localize-components-atomic';
+import { Alert } from '@seolhun/localize-components';
 ```
+
+## Examples
+[localize-components examples](http://locallize-cmponents.surge.sh/#/)
