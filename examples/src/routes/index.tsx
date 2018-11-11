@@ -1,37 +1,27 @@
 import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import schema from './schema';
+import routers from './routers';
 
 const Routes = () => {
   return (
     <div>
       <Switch>
-        {Object.keys(schema).map((key) => {
-          if (!Array.isArray(schema[key])) {
-            return (
-              <Route
-                key={schema[key].label}
-                path={schema[key].path}
-                exact={schema[key].exact}
-                component={schema[key].component}
-              />
-            );
-          }
-          return schema[key].map((route) => {
-            return (
-              <Route
-                key={route.label}
-                path={route.path}
-                exact={route.exact}
-                component={route.component}
-              />
-            );
-          });
+        {routers.map((router) => {
+          return (
+            <Route
+              key={router.label}
+              path={router.path}
+              exact={router.exact}
+              component={router.component}
+            />
+          );
         })}
       </Switch>
     </div>
   );
 };
+
+export { routers };
 
 export default Routes;

@@ -12,6 +12,7 @@
   "scripts": {
     "build": "node build/build.js",
     "bundle": "yarn style:clean && tsc && yarn style && yarn style:local",
+    "bundle:local": "tsc && yarn style && yarn style:local",
     "style": "sass --update src:dist --style compressed",
     "style:watch": "sass --watch src:dist --style compressed",
     "style:local": "sass --update src:src --style compressed",
@@ -49,7 +50,6 @@
     "babel-jest": "^23.6.0",
     "babel-loader": "^8.0.4",
     "babel-plugin-lodash": "^3.3.4",
-    "babel-plugin-styled-components": "^1.8.0",
     "sass": "^1.14.3",
     "ts-jest": "^23.10.4",
     "ts-node": "^7.0.1",

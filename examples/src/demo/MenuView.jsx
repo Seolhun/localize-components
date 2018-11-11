@@ -1,7 +1,10 @@
 
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import { Button } from '@seolhun/localize-components-atomic';
+import { LocalizeColor } from '@seolhun/localize-components-types';
+
+import { routers } from '../routes';
 
 const MenuView = () => {
   return (
@@ -10,15 +13,18 @@ const MenuView = () => {
         <h1>
           localize-components demo
         </h1>
-        <Button className="btn btn-primary">
-          Learn React
-        </Button>
-        <Button className="btn btn-danger">
-          Learn React
-        </Button>
-        <Button className="btn btn-outline-success">
-          Learn React
-        </Button>
+        {routers.map((router) => {
+          return (
+            <Link
+              key={router.name}
+              to={router.path}
+            >
+              <Button theme={LocalizeColor.PURPLE}>
+                {router.label}
+              </Button>
+            </Link>
+          );
+        })}
       </header>
     </div>
   )
