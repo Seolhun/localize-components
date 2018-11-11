@@ -27,7 +27,7 @@
     "bundle": "yarn clean -y && yarn bs && lerna exec yarn bundle",
     "clean": "lerna clean",
     "deploy": "lerna publish from-git",
-    "deploy:ex": "surge examples/dist/ localize-components.surge.sh",
+    "deploy:ex": "surge examples/dist/ http://localize-components.surge.sh",
     "version": "lerna version",
     "bs": "lerna bootstrap",
     "link": "lerna link"
