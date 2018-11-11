@@ -28,4 +28,4 @@ import { Alert } from '@seolhun/localize-components';
 ```
 
 ## Examples
-[localize-components examples](http://locallize-cmponents.surge.sh/#/)
+[localize-components examples](http://localize-cmponents.surge.sh/#/)
