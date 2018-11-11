@@ -6,6 +6,8 @@ import {
   LocalizeColorType,
 } from '@seolhun/localize-components-types';
 
+const styles = require('./Button.css');
+
 export interface NewButtonProps {
   // isRequired
   children: React.ReactNode;
@@ -18,11 +20,7 @@ export interface NewButtonProps {
   className?: string;
   fontSize?: number;
   theme?: LocalizeColorType;
-  style?: {
-    color?: string;
-    backgroundColor?: string;
-    padding?: string;
-  };
+  style?: {};
   disabled?: boolean;
 }
 
@@ -35,16 +33,23 @@ const NewButton: React.SFC<NewButtonProps> = ({
   onMouseOut = () => null,
   onBlur = () => null,
   onFocus = () => null,
-  className = 'btn',
+  className = 'btn btn-success',
+  fontSize = 12,
+  style = {},
   disabled = false,
 }) => (
   <button
-    className={className}
+    type="button"
+    className={`${styles.btn} ${className}`}
     onClick={onClick}
     onMouseOver={onMouseOver}
     onMouseOut={onMouseOut}
     onBlur={onBlur}
     onFocus={onFocus}
+    style={{
+      ...style,
+      fontSize: `${fontSize}px`,
+    }}
     disabled={disabled}
   >
     {children}

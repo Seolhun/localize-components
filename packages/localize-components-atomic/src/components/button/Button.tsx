@@ -13,11 +13,7 @@ export interface ButtonProps {
   onMouseOut?: (...args: any[]) => any;
   className?: string;
   fontSize?: number;
-  style?: {
-    color?: string;
-    backgroundColor?: string;
-    padding?: string;
-  };
+  style?: {};
   disabled?: boolean;
 }
 
@@ -32,10 +28,7 @@ const Button: React.SFC<ButtonProps> = ({
   onFocus = () => null,
   className = 'btn-success',
   fontSize = 12,
-  style = {
-    color: '',
-    backgroundColor: '',
-  },
+  style = {},
   disabled = false,
 }) => (
   <button

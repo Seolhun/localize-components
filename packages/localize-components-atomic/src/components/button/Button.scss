@@ -21,6 +21,7 @@
   vertical-align: middle;
   white-space: nowrap;
   width: auto;
+  outline: none;
 
   @include responsive(md) {
     font-size: 14px;
@@ -39,10 +40,6 @@
       background: map-get($map: $defaultColors, $key: basic);
       border: 1px solid map-get($map: $defaultColors, $key: basic);
     }
-  }
-
-  &:hover {
-    cursor: pointer;
   }
 }
 

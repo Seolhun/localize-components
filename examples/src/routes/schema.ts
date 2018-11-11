@@ -1,10 +1,10 @@
 import AlertView from '../demo/AlertView';
 import ButtonView from '../demo/ButtonView';
-import HomeView from '../demo/HomeView';
 import HrView from '../demo/HrView';
 import ConfirmView from '../demo/ConfirmView';
 import PreloaderView from '../demo/PreloaderView';
 import TabsView from '../demo/TabsView';
+import HomeView from '../demo/HomeView';
 
 const routeCreator = ({
   type,
