@@ -2,8 +2,6 @@
 import {
   Button,
   ButtonProps,
-  NewButton,
-  NewButtonProps,
 } from './components/button';
 import Hr, { HrProps } from './components/hr';
 import {
@@ -29,8 +27,6 @@ export {
   INPUT_TYPE,
   Input,
   InputProps,
-  NewButton,
-  NewButtonProps,
   Preloader,
   PreloaderProps,
   SelectBox,
@@ -42,7 +38,6 @@ export default {
   CheckBox,
   Hr,
   Input,
-  NewButton,
   Preloader,
   SelectBox,
 };

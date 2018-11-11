@@ -13,7 +13,7 @@ import { SetStyleUtils } from '@seolhun/localize-components-utils';
 const styles = require('./Alert.css');
 
 export interface AlertProps {
-  onClickClose: (...args: any[]) => any;
+  onClickClose: (...args: any[]) => void;
   message: string;
   // isNotRequired
   buttonLabel?: string;

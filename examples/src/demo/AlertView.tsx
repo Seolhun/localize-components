@@ -15,9 +15,10 @@ class AlertView extends React.Component<{}, AlertViewState> {
   }
 
   handleIsShow = () => {
-    const { isShow } = this.state;
-    this.setState({
-      isShow: !isShow,
+    this.setState(({ isShow }) => {
+      return {
+        isShow: !isShow,
+      }
     });
   }
 
@@ -28,21 +29,39 @@ class AlertView extends React.Component<{}, AlertViewState> {
       <section>
         <div className="row">
           <div className="col-20">
-            <h1>Hr</h1>
+            <h1>Alert</h1>
           </div>
+          <Alert
+            title="Give a Title"
+            message="Hello Alert"
+            isShow={isShow}
+            position="right"
+            onClickClose={this.handleIsShow}
+          />
+          <Alert
+            title="Give a Message"
+            message="Hello Alert"
+            isShow={isShow}
+            position="top-center"
+            onClickClose={this.handleIsShow}
+          />
+          <Alert
+            title="Give a buttonLabel"
+            message="Hello Alert"
+            buttonLabel="Button Label"
+            isShow={isShow}
+            position="left"
+            onClickClose={this.handleIsShow}
+          />
+          <Alert
+            title="Give a Color"
+            message="Hello Alert"
+            color="purple"
+            isShow={isShow}
+            position="bottom-center"
+            onClickClose={this.handleIsShow}
+          />
         </div>
-        <Alert
-          isShow={isShow}
-          message={'top-center'}
-          onClickClose={this.handleIsShow}
-          position="top-center"
-        />
-        <Alert
-          isShow={isShow}
-          message={'center'}
-          onClickClose={this.handleIsShow}
-          position="center"
-        />
       </section>
     );
   }

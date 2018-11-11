@@ -30,7 +30,7 @@ export type LocalizeColorType =
   | 'success'
   | 'warning'
   | 'black'
-  | 'gray,'
+  | 'gray'
   | 'purple'
   | 'white'
   | 'yellow'
