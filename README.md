@@ -7,6 +7,15 @@
 
 - Author : [HunSeol](https://github.com/Seolhun/)
 
+## Goal
+- localized-style for custom.
+- stylesheet variable(using props) on localize-components.
+- One components must has a one stylesheet and design. but components be changed using theme props.
+
+## Why
+- I just want to build react components has no side effect. because some components has a global stylesheet affect original project style sheet.
+- **I think that all components must be standalone anywhere, any environments.**
+
 ## Used stacks
 - React
 - TypeScript
