@@ -13,7 +13,9 @@
   height: auto;
   line-height: 1.5;
   margin: 5px;
+  outline: none;
   padding: 10px 30px;
+  cursor: pointer;
   text-align: center;
   text-decoration: none;
   transition: background-color 0.3s, border-color 0.3s;
@@ -21,7 +23,6 @@
   vertical-align: middle;
   white-space: nowrap;
   width: auto;
-  outline: none;
 
   @include responsive(md) {
     font-size: 14px;
@@ -43,8 +44,7 @@
   }
 }
 
-@each $key,
-$value in $defaultColors {
+@each $key, $value in $defaultColors {
   .btn-#{$key} {
     background-color: $value;
     color: map-get($map: $defaultColors, $key: white);
