@@ -2,7 +2,6 @@ const config = require('../config');
 const path = require('path');
 const utils = require('./utils');
 const webpack = require('webpack');
-const autoprefixer = require('autoprefixer')
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir);
@@ -10,11 +9,13 @@ function resolve(dir) {
 
 const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 
+console.error('@@@@ path', path.resolve(__dirname, '../../node_modules'))
+console.error('@@@@ resolve', resolve('../node_modules'),)
+
 module.exports = {
   mode: process.env.NODE_ENV,
   entry: {
-    index: resolve('src/Main.tsx'),
-    vendor: resolve('src/vendor/index.ts')
+    index: resolve('src/index.ts'),
   },
   output: {
     filename: '[name].js',
@@ -31,9 +32,6 @@ module.exports = {
       // resolve('node_modules'),
       resolve('../node_modules'),
     ],
-    alias: {
-      '@': resolve('src'),
-    },
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -69,26 +67,7 @@ module.exports = {
             },
           }
         ],
-      },
-      // {
-      //   loader: require.resolve('postcss-loader'),
-      //   options: {
-      //     ident: 'postcss',
-      //     plugins: () => [
-      //       require('postcss-flexbugs-fixes'),
-      //       autoprefixer({
-      //         browsers: [
-      //           '>1%',
-      //           'last 4 versions',
-      //           'Firefox ESR',
-      //           'not ie < 9', // React doesn't support IE8 anyway
-      //         ],
-      //         flexbox: 'no-2009',
-      //       }),
-      //     ],
-      //   },
-      // },
-      {
+      }, {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {
