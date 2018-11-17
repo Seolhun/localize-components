@@ -21,6 +21,7 @@ const externalList = [
   '@seolhun/localize-components-utils',
 ];
 const externals = dependencies.filter(dep => externalList.indexOf(dep) !== -1)
+console.error('@@@@', externals);
 
 module.exports = {
   mode: process.env.NODE_ENV,
