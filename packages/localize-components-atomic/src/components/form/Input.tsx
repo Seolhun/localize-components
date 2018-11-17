@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import BoxInput from './input/BoxInput';
 import UnderLineInput from './input/UnderLineInput';

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import * as classnames from 'classnames';
 
 import { LocalizeColorType } from '@seolhun/localize-components-types';
