@@ -1,6 +1,8 @@
+const config = require('../config');
 const path = require('path');
 const utils = require('./utils');
-const config = require('../config');
+const webpack = require('webpack');
+const autoprefixer = require('autoprefixer')
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir);
@@ -12,10 +14,12 @@ module.exports = {
   mode: process.env.NODE_ENV,
   entry: {
     index: resolve('src/Main.tsx'),
+    vendor: resolve('src/vendor/index.ts')
   },
   output: {
-    path: config.build.assetsRoot,
     filename: '[name].js',
+    chunkFilename: '[name].bundle.js',
+    path: config.build.assetsRoot,
     publicPath: IS_PRODUCTION
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath,
@@ -24,13 +28,18 @@ module.exports = {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     modules: [
       resolve('src'),
-      resolve('node_modules'),
+      // resolve('node_modules'),
       resolve('../node_modules'),
     ],
     alias: {
       '@': resolve('src'),
     },
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': config.dev.env
+    }),
+  ],
   module: {
     rules: [{
         test: /\.(js|jsx)$/,
@@ -43,20 +52,43 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       }, {
         test: /\.scss$/,
-        use: [{
-          loader: 'style-loader',
-        }, {
-          loader: 'css-loader',
-          options: {
-            sourceMap: true,
+        use: [
+          {
+            loader: 'style-loader',
           },
-        }, {
-          loader: 'sass-loader',
-          options: {
-            sourceMap: true,
-          },
-        }],
-      }, {
+          {
+            loader: 'css-loader',
+            options: {
+              minimize: true,
+              sourceMap: IS_PRODUCTION,
+            },
+          }, {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            },
+          }
+        ],
+      },
+      // {
+      //   loader: require.resolve('postcss-loader'),
+      //   options: {
+      //     ident: 'postcss',
+      //     plugins: () => [
+      //       require('postcss-flexbugs-fixes'),
+      //       autoprefixer({
+      //         browsers: [
+      //           '>1%',
+      //           'last 4 versions',
+      //           'Firefox ESR',
+      //           'not ie < 9', // React doesn't support IE8 anyway
+      //         ],
+      //         flexbox: 'no-2009',
+      //       }),
+      //     ],
+      //   },
+      // },
+      {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {
@@ -107,10 +139,13 @@ module.exports = {
   },
   performance: {
     hints: 'warning',
-    maxAssetSize: 200000,
+    maxAssetSize: 300000,
     maxEntrypointSize: 400000,
     assetFilter: function(assetFilename) {
-      return assetFilename.endsWith('.css') || assetFilename.endsWith('.js');
+      return assetFilename.endsWith('.css') ||
+      assetFilename.endsWith('.scss') ||
+      assetFilename.endsWith('.js') ||
+      assetFilename.endsWith('.ts');
     }
   },
 };

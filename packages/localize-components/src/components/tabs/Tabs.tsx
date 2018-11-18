@@ -1,11 +1,14 @@
-import * as React from 'react';
-import * as classnames from 'classnames';
+import React from 'react';
+import classnames from 'classnames';
 
 import {
   LocalizeColor,
   LocalizeColorType,
 } from '@seolhun/localize-components-types';
-import { SetStyleUtils } from '@seolhun/localize-components-utils';
+import {
+  SetStyleUtils
+} from '@seolhun/localize-components-utils';
+
 
 import Tab from './Tab';
 

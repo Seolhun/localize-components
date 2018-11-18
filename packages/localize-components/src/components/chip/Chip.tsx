@@ -1,7 +1,9 @@
-import * as React from 'react';
-import * as classnames from 'classnames';
+import React from 'react';
+import classnames from 'classnames';
 
-import { LocalizeColorType } from '@seolhun/localize-components-types';
+import {
+  LocalizeColorType,
+} from '@seolhun/localize-components-types';
 
 const styles = require('./Chip.css');
 

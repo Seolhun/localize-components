@@ -28,9 +28,6 @@ const webpackConfig = merge(baseWebpackConfig, {
     chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
   },
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env': env
-    }),
     new OptimizeCSSPlugin({
       cssProcessorOptions: {
         safe: true

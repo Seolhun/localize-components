@@ -1,14 +1,17 @@
-import * as React from 'react';
-import * as classnames from 'classnames';
-import { Button } from '@seolhun/localize-components-atomic';
-
+import React from 'react';
+import classnames from 'classnames';
+import {
+  Button,
+} from '@seolhun/localize-components-atomic';
 import {
   LocalizeColor,
   LocalizeColorType,
   LocalizePosition,
   LocalizePositionType,
 } from '@seolhun/localize-components-types';
-import { SetStyleUtils } from '@seolhun/localize-components-utils';
+import {
+  SetStyleUtils
+} from '@seolhun/localize-components-utils';
 
 const styles = require('./Alert.css');
 

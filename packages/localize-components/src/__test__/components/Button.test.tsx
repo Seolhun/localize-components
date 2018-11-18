@@ -3,7 +3,7 @@
  * @email [shun10114@gamil.com]
  */
 
-import * as React from 'react';
+import React from 'react';
 
 import setEnzymeConfiguration from '../_config_';
 import * as Enzyme from 'enzyme';

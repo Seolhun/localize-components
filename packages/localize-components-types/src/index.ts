@@ -3,28 +3,26 @@ import {
   LocalizeColorType,
   LocalizeLightenColor,
   LocalizeDarkenColor,
-  // Size
   LocalizeSize,
   LocalizeSizeType,
-  // Position
   LocalizePosition,
   LocalizePositionType,
 } from './types';
 
 export {
+  // Types
   LocalizeColor,
   LocalizeColorType,
   LocalizeLightenColor,
   LocalizeDarkenColor,
-  // Size
   LocalizeSize,
   LocalizeSizeType,
-  // Position
   LocalizePosition,
   LocalizePositionType,
 };
 
 export default {
+  // Types
   LocalizeColor,
   LocalizeLightenColor,
   LocalizeDarkenColor,
