@@ -4,8 +4,8 @@ module.exports = {
   build: {
     env: require('./prod.env'),
     assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsSubDirectory: '',
-    assetsPublicPath: '',
+    assetsSubDirectory: '../dist',
+    assetsPublicPath: '../dist',
     productionSourceMap: true,
     productionGzip: true,
     productionGzipExtensions: ['js', 'ts', 'css'],

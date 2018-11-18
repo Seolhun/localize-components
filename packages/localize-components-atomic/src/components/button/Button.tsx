@@ -2,7 +2,7 @@ import React from 'react';
 import {
   LocalizeColor,
   LocalizeColorType,
-} from '@seolhun/localize-components-types';
+} from '../../types';
 
 const styles = require('./Button.css');
 

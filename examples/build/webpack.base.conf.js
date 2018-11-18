@@ -142,7 +142,10 @@ module.exports = {
     maxAssetSize: 300000,
     maxEntrypointSize: 400000,
     assetFilter: function(assetFilename) {
-      return assetFilename.endsWith('.css') || assetFilename.endsWith('.js');
+      return assetFilename.endsWith('.css') ||
+      assetFilename.endsWith('.scss') ||
+      assetFilename.endsWith('.js') ||
+      assetFilename.endsWith('.ts');
     }
   },
 };

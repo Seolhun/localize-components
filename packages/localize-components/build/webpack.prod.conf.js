@@ -5,12 +5,6 @@ const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 const utils = require('./utils');
 const config = require('../config');
 
-const IS_TESTING = process.env.NODE_ENV === 'testing';
-
-const env = IS_TESTING
-  ? require('../config/test.env')
-  : config.build.env;
-
 const webpackConfig = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({
@@ -19,11 +13,6 @@ const webpackConfig = merge(baseWebpackConfig, {
     })
   },
   devtool: config.build.productionSourceMap ? 'inline-source-map' : false,
-  output: {
-    path: config.build.assetsRoot,
-    filename: utils.assetsPath('js/[name].[chunkhash].js'),
-    chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
-  },
   plugins: [
     new OptimizeCSSPlugin({
       cssProcessorOptions: {
@@ -54,7 +43,10 @@ if (config.build.productionGzip) {
 
 if (config.build.bundleAnalyzerReport) {
   const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-  webpackConfig.plugins.push(new BundleAnalyzerPlugin())
+  webpackConfig.plugins.push(new BundleAnalyzerPlugin({
+    openAnalyzer: false,
+    analyzerMode: 'static',
+  }))
 }
 
 module.exports = webpackConfig

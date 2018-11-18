@@ -1,0 +1,35 @@
+@import '../../assets/scss/_variable/color.scss';
+
+:local .root {
+  bottom: 0;
+  height: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+  top: 0;
+  width: auto;
+
+  .title {
+    color: map-get($map: $defaultColors, $key: black);
+    font-size: 40px;
+    font-weight: 600;
+    margin-bottom: 14px;
+    width: 100%;
+  }
+
+  .description {
+    color: map-get($map: $defaultColors, $key: black);
+    display: inline-block;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 60px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .resolver {
+    display: inline-block;
+    margin: 15px 10px;
+    width: 100%;
+  }
+}

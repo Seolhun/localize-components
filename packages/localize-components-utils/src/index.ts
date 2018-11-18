@@ -1,9 +1,12 @@
+// Utils
 import { SetStyleUtils } from './utils';
 
 export {
-  SetStyleUtils,
+  // Utils
+  SetStyleUtils
 };
 
 export default {
-  SetStyleUtils,
+  // Utils
+  SetStyleUtils
 };

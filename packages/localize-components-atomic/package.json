@@ -4,9 +4,12 @@
   "description": "Localizing React components is rendered by stand-alone not affect other styles.",
   "version": "0.0.13",
   "main": "./dist/index.js",
+  "typings": "dist/index.d.ts",
+  "source": "src/index.ts",
   "files": [
     "dist/",
     "package.json",
+    "CHANGELOG.md",
     "README.md"
   ],
   "scripts": {
@@ -17,12 +20,9 @@
     "style:watch": "sass --watch src:dist --style compressed",
     "style:local": "sass --update src:src --style compressed",
     "style:clean": "find . -name *.css* -type f -delete",
-    "test": "jest",
-    "test-with-coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage"
+    "test": "jest"
   },
   "dependencies": {
-    "@seolhun/localize-components-types": "^0.0.13",
-    "@seolhun/localize-components-utils": "^0.0.13",
     "classnames": "^2.2.6",
     "jest": "^23.6.0",
     "prop-types": "^15.6.2",
@@ -69,7 +69,6 @@
     "terser-webpack-plugin": "^1.1.0",
     "ts-jest": "^23.10.4",
     "ts-node": "^7.0.1",
-    "typescript": "^3.1.6",
     "webpack": "^4.25.1",
     "webpack-bundle-analyzer": "^3.0.3",
     "webpack-merge": "^4.1.4"

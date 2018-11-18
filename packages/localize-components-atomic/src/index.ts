@@ -1,4 +1,4 @@
-// components
+// Components
 import {
   Button,
   ButtonProps,
@@ -16,7 +16,22 @@ import {
 } from './components/form';
 import Preloader, { PreloaderProps } from './components/preloader';
 
+// Utils
+import { SetStyleUtils } from './utils';
+
+import {
+  LocalizeColor,
+  LocalizeColorType,
+  LocalizeLightenColor,
+  LocalizeDarkenColor,
+  LocalizeSize,
+  LocalizeSizeType,
+  LocalizePosition,
+  LocalizePositionType,
+} from './types';
+
 export {
+  // Components
   Button,
   ButtonProps,
   CheckBox,
@@ -31,13 +46,33 @@ export {
   PreloaderProps,
   SelectBox,
   SelectBoxProps,
+  // Types
+  LocalizeColor,
+  LocalizeColorType,
+  LocalizeLightenColor,
+  LocalizeDarkenColor,
+  LocalizeSize,
+  LocalizeSizeType,
+  LocalizePosition,
+  LocalizePositionType,
+  // Utils
+  SetStyleUtils
 };
 
 export default {
+  // Components
   Button,
   CheckBox,
   Hr,
   Input,
   Preloader,
   SelectBox,
+  // Types
+  LocalizeColor,
+  LocalizeLightenColor,
+  LocalizeDarkenColor,
+  LocalizeSize,
+  LocalizePosition,
+  // Utils
+  SetStyleUtils
 };
