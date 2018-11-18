@@ -20,11 +20,11 @@
     "style:watch": "sass --watch src:dist --style compressed",
     "style:local": "sass --update src:src --style compressed",
     "style:clean": "find . -name *.css* -type f -delete",
-    "test": "jest",
-    "test-with-coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage"
+    "test": "jest"
   },
   "dependencies": {
-    "@seolhun/localize-components-atomic": "^0.0.13",
+    "@seolhun/localize-components-types": "^0.0.13",
+    "@seolhun/localize-components-utils": "^0.0.13",
     "classnames": "^2.2.6",
     "jest": "^23.6.0",
     "prop-types": "^15.6.2",

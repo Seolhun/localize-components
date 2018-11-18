@@ -1,17 +1,22 @@
 import React from 'react';
-import * as classnames from 'classnames';
-import * as PropTypes from 'prop-types';
+import classnames from 'classnames';
+import PropTypes from 'prop-types';
 
 import {
   Button,
   INPUT_TYPE,
   INPUT_STYLE_TYPE,
+} from '@seolhun/localize-components-atomic';
+import {
   LocalizeColor,
   LocalizeColorType,
   LocalizePosition,
   LocalizePositionType,
+} from '@seolhun/localize-components-types';
+import {
   SetStyleUtils
-} from '@seolhun/localize-components-atomic';
+} from '@seolhun/localize-components-utils';
+
 import { BasicConfirm, InputConfirm } from './child';
 
 const styles = require('./Confirm.css');

@@ -7,14 +7,12 @@ const config = require('../config');
 const packages = require('../package.json')
 const utils = require('./utils');
 
-const IS_PRODUCTION = process.env.NODE_ENV === 'production';
-
 function resolve(dir) {
   return path.join(__dirname, '..', dir);
 }
 
-const externalList = ['@seolhun/localize-components-atomic/dist/'];
-const externals = Object.keys(packages.dependencies).concat(externalList);
+const IS_PRODUCTION = process.env.NODE_ENV === 'production';
+const dependencies = Object.keys(packages.dependencies)
 
 module.exports = {
   mode: process.env.NODE_ENV,
@@ -31,7 +29,7 @@ module.exports = {
     // filename: utils.assetsPath('js/[name].[chunkhash].js'),
     // chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
   },
-  externals,
+  externals: dependencies,
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     modules: [
@@ -133,7 +131,7 @@ module.exports = {
         new TerserPlugin({
         terserOptions: {
           parse: {
-            ecma: 8,
+            ecma: 6,
           },
           compress: {
             ecma: 5,

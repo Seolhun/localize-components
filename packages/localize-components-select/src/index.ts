@@ -1,42 +1,45 @@
-// components
-import Alert, { AlertProps } from './components/alert';
-import Confirm, {
-  InputConfirm,
-  InputConfirmProps,
-  ConfirmProps,
-} from './components/confirm';
-import Card, { CardProps } from './components/card';
-import Chip, { ChipProps } from './components/chip';
-import Issue, { IssueProps } from './components/issue';
-import { Tab, TabItemType, TabProps, Tabs, TabsProps } from './components/tabs';
+// Components
+import {
+  Button,
+  ButtonProps,
+} from './components/button';
+import Hr, { HrProps } from './components/hr';
+import {
+  CheckBox,
+  CheckBoxProps,
+  INPUT_STYLE_TYPE,
+  INPUT_TYPE,
+  Input,
+  InputProps,
+  SelectBox,
+  SelectBoxProps,
+} from './components/form';
+import Preloader, { PreloaderProps } from './components/preloader';
 
 export {
-  Alert,
-  AlertProps,
-  Card,
-  CardProps,
-  Chip,
-  ChipProps,
-  Confirm,
-  ConfirmProps,
-  InputConfirm,
-  InputConfirmProps,
-  Issue,
-  IssueProps,
-  Tab,
-  TabItemType,
-  TabProps,
-  Tabs,
-  TabsProps,
+  // Components
+  Button,
+  ButtonProps,
+  CheckBox,
+  CheckBoxProps,
+  Hr,
+  HrProps,
+  INPUT_STYLE_TYPE,
+  INPUT_TYPE,
+  Input,
+  InputProps,
+  Preloader,
+  PreloaderProps,
+  SelectBox,
+  SelectBoxProps,
 };
 
 export default {
-  Alert,
-  Confirm,
-  Card,
-  Chip,
-  InputConfirm,
-  Issue,
-  Tab,
-  Tabs,
+  // Components
+  Button,
+  CheckBox,
+  Hr,
+  Input,
+  Preloader,
+  SelectBox,
 };

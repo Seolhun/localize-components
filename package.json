@@ -24,7 +24,7 @@
   ],
   "main": "./src/index.ts",
   "scripts": {
-    "bundle": "yarn clean -y && yarn bs && lerna exec yarn bundle",
+    "bundle": "yarn clean -y && yarn bs -y && lerna exec yarn bundle",
     "clean": "lerna clean",
     "deploy": "lerna publish from-git",
     "deploy:ex": "surge examples/dist/ http://localize-components.surge.sh",

@@ -1,7 +1,7 @@
 import {
   LocalizeColor,
   LocalizePosition,
-} from '../types';
+} from '@seolhun/localize-components-types';
 
 const setColor = (styles, color: string, prefix = 'bg-color-') => {
   let styleColor = prefix;

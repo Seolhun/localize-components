@@ -14,7 +14,7 @@
   ],
   "scripts": {
     "build": "node build/build.js",
-    "bundle": "node build/build.js",
+    "bundle": "tsc",
     "test": "jest"
   },
   "dependencies": {

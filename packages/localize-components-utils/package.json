@@ -14,10 +14,11 @@
   ],
   "scripts": {
     "build": "node build/build.js",
-    "bundle": "node build/build.js",
+    "bundle": "tsc",
     "test": "jest"
   },
   "dependencies": {
+    "@seolhun/localize-components-types": "^0.0.13",
     "classnames": "^2.2.6",
     "jest": "^23.6.0"
   },
