@@ -1,0 +1,7 @@
+@import '../../assets/scss/_variable/color.scss';
+
+:local .BasicConfirm {
+  color: map-get($map: $defaultColors, $key: black);
+  font-size: 16px;
+  padding: 5px 30px;
+}

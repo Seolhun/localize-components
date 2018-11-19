@@ -1,7 +1,8 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button, LocalizeColor } from '@seolhun/localize-components-atomic';
+import { Button } from '@seolhun/localize-components-atomic';
+import { LocalizeColor } from '@seolhun/localize-components-types';
 
 import { routers } from '../routes';
 

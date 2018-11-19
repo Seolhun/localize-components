@@ -1,12 +1,13 @@
 // components
-import Alert, { AlertProps } from './components/alert';
+import Alert, { AlertProps } from '@seolhun/localize-components-alert';
 import Confirm, {
   InputConfirm,
   InputConfirmProps,
   ConfirmProps,
-} from './components/confirm';
+} from '@seolhun/localize-components-confirm';
+import Chip, { ChipProps } from '@seolhun/localize-components-chip';
+
 import Card, { CardProps } from './components/card';
-import Chip, { ChipProps } from './components/chip';
 import Issue, { IssueProps } from './components/issue';
 import { Tab, TabItemType, TabProps, Tabs, TabsProps } from './components/tabs';
 
