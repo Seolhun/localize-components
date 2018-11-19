@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-// import { Button } from '@seolhun/localize-components-atomic';
+import { Button } from '@seolhun/localize-components-atomic';
 // import { LocalizeColor } from '@seolhun/localize-components-types';
 
 import { routers } from '../routes';
@@ -21,9 +21,9 @@ class MenuView extends Component {
                 to={router.path}
               >
                 {router.label}
-                {/* <Button theme='basic'>
+                <Button theme='basic'>
                   {router.label}
-                </Button> */}
+                </Button>
               </Link>
             );
           })}

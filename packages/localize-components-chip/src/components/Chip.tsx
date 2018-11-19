@@ -5,7 +5,7 @@ import {
   LocalizeColorType,
 } from '@seolhun/localize-components-types';
 
-const styles = require('./Chip.css');
+const styles = require('./Chip.scss');
 
 export interface ChipProps {
   children: React.ReactNode | string;

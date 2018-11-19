@@ -12,7 +12,7 @@ import {
 
 import Tab from './Tab';
 
-const styles = require('./Tabs.css');
+const styles = require('./Tabs.scss');
 
 export interface TabsProps {
   currentTab: string;

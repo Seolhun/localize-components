@@ -4,7 +4,7 @@ import {
   LocalizeColorType,
 } from '@seolhun/localize-components-types';
 
-const styles = require('./Button.css');
+const styles = require('./Button.scss');
 
 export interface ButtonProps {
   // isRequired

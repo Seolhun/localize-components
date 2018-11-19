@@ -1,6 +1,6 @@
 import React from 'react';
 
-// import { Confirm } from '@seolhun/localize-components';
+import { Confirm } from '@seolhun/localize-components';
 
 interface ConfirmViewViewState {
   isShow: boolean;
@@ -40,7 +40,7 @@ class ConfirmViewView extends React.Component<{}, ConfirmViewViewState> {
   }
 
   render() {
-    // const { isShow, value } = this.state;
+    const { isShow, value } = this.state;
 
     return (
       <section>
@@ -49,7 +49,7 @@ class ConfirmViewView extends React.Component<{}, ConfirmViewViewState> {
             <h1>Hr</h1>
           </div>
         </div>
-        {/* <Confirm
+        <Confirm
           htmlFor=""
           onClickClose={this.handleIsShow}
           onClickSubmit={this.handleSubmit}
@@ -69,7 +69,7 @@ class ConfirmViewView extends React.Component<{}, ConfirmViewViewState> {
           title="Title"
           message="Message"
           position="top-left"
-        /> */}
+        />
       </section>
     );
   }
