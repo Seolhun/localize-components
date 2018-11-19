@@ -61,10 +61,7 @@ class BodyRow extends Component {
   constructor(props) {
     super(props);
     this.bodyRowRef = null;
-  }
-
-  setBodyRowRef = (ref) => {
-    this.bodyRowRef = ref;
+    this.bodyRowRef = React.createRef();
   }
 
   getSelectedBodyCellColorStyle = (cellIndex) => {
@@ -137,7 +134,7 @@ class BodyRow extends Component {
     return (
       <div
         className={styles.TableBodyRows}
-        ref={this.setBodyRowRef}
+        ref={this.bodyRowRef}
         style={{
           ...rowStyle,
         }}

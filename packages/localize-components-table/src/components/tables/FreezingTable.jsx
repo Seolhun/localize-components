@@ -118,9 +118,9 @@ class FreezingTable extends Component {
 
   constructor(props) {
     super(props);
-    this.tableRef = null;
-    this.unFreezingBodyScrollRef = null;
-    this.freezingColumnsRef = null;
+    this.tableRef = React.createRef();
+    this.unFreezingBodyScrollRef = React.createRef();
+    this.freezingColumnsRef = React.createRef();
 
     const dividedEntities = this.getEntitiesDividingFreezing(props.entities);
     const freezedCounts = dividedEntities.freezingBody.columns.length;
@@ -184,18 +184,6 @@ class FreezingTable extends Component {
         this.handleOnBodyScrollMouseWheel,
       );
     }
-  }
-
-  setTableRef = (ref) => {
-    this.tableRef = ref;
-  }
-
-  setUnFreezingBodyScrollRef = (ref) => {
-    this.unFreezingBodyScrollRef = ref;
-  }
-
-  setFreezingColumnsRef = (ref) => {
-    this.freezingColumnsRef = ref;
   }
 
   getEntitiesDividingFreezing = (entities) => {
@@ -439,7 +427,7 @@ class FreezingTable extends Component {
 
     return (
       <div
-        ref={this.setFreezingColumnsRef}
+        ref={this.freezingColumnsRef}
         className={styles.TableFixedColumns}
         style={{
           height: `${(tableHeight - (this.state.maxHeaderRowsHeight)) + 4}px`,
@@ -511,7 +499,7 @@ class FreezingTable extends Component {
           }
           : {}
         }
-        ref={this.setTableRef}
+        ref={this.tableRef}
       >
         <div
           className={isUnFrozen
@@ -534,7 +522,7 @@ class FreezingTable extends Component {
               left: `${this.state.maxCellWidth * freezedCounts}px`,
               width: `calc(100% - ${this.state.maxCellWidth * freezedCounts}px)`,
             }}
-            ref={this.setUnFreezingBodyScrollRef}
+            ref={this.unFreezingBodyScrollRef}
           >
             {items.map((item, rowIndex) => (
               <FreezingBodyRow

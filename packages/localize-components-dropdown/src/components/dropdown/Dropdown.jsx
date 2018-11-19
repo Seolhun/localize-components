@@ -43,6 +43,7 @@ class Dropdown extends Component {
     this.state = {
       isDropDownOn: false,
     };
+    this.dropdownRef = React.createRef();
   }
 
   componentDidMount() {
@@ -133,9 +134,7 @@ class Dropdown extends Component {
       <div className={className}>
         <div
           className={`menu-wrapper ${wrapperClassName}`}
-          ref={(c) => {
-            this.dropdown = c;
-          }}
+          ref={this.dropdownRef}
         >
           <Button
             style={{ width: '100%' }}

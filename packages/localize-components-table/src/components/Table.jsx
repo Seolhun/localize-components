@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
-import Card from 'components/card';
-
 import { DivTable, FreezingTable } from './tables';
 import { TABLE_TYPE, TABLE_CELL_SIZE } from './constants';
 
@@ -253,7 +251,7 @@ class Table extends Component {
     this.state = {
       isFixed: false,
     };
-    this.tableGridRef = null;
+    this.tableGridRef = React.createRef();;
   }
 
   componentDidMount() {
@@ -281,11 +279,9 @@ class Table extends Component {
 
     if (!renderNoData) {
       return (
-        <Card>
-          <div className='pd-lg center'>
-            <p className='description secondary'>{this.props.noDataMessage}</p>
-          </div>
-        </Card>
+        <div className='pd-lg center'>
+          <p className='description secondary'>{this.props.noDataMessage}</p>
+        </div>
       );
     }
     return renderNoData;
@@ -336,9 +332,7 @@ class Table extends Component {
         }}
       >
         <div
-          ref={(ref) => {
-            this.tableGridRef = ref;
-          }}
+          ref={this.tableGridRef}
           className={classnames(tableGridClassName, styles.TableGridContainer)}
           style={{
             ...tableGridStyle,

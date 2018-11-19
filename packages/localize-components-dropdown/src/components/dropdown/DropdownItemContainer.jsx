@@ -6,6 +6,11 @@ class DropdownItemContainer extends Component {
     children: PropTypes.node.isRequired,
   };
 
+  constructor(props) {
+    super(props);
+    this.dropdownItemsRef = React.createRef();
+  }
+
   componentDidMount() {
     const target = this.node.getElementsByClassName('on')[0];
 
@@ -20,9 +25,7 @@ class DropdownItemContainer extends Component {
     return (
       <div className='menu-md'>
         <ul
-          ref={(c) => {
-            this.node = c;
-          }}
+          ref={this.dropdownItemsRef}
           {...prop}
         >
           {children}

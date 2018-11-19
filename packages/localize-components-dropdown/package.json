@@ -14,7 +14,7 @@
   ],
   "scripts": {
     "build": "node build/build.js",
-    "bundle": "yarn style:clean && tsc && yarn style && yarn style:local",
+    "bundle": "node build/build.js",
     "bundle:local": "tsc && yarn style && yarn style:local",
     "style": "sass --update src:dist --style compressed",
     "style:watch": "sass --watch src:dist --style compressed",

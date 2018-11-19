@@ -69,11 +69,7 @@ class FreezingBodyRow extends Component {
 
   constructor(props) {
     super(props);
-    this.cellContainerRef = null;
-  }
-
-  setCellContainerRef = (ref) => {
-    this.cellContainerRef = ref;
+    this.cellContainerRef = React.createRef();
   }
 
   getSelectedBodyCellColorStyle = (cellIndex) => {
@@ -173,7 +169,7 @@ class FreezingBodyRow extends Component {
       <FreezingBodyCell
         {...this.props}
         key={`${column.name + cellIndex}`}
-        ref={this.setCellContainerRef}
+        ref={this.cellContainerRef}
         align={body.align}
         cellIndex={isFreezingColumns ? cellIndex : cellIndex + 1}
         column={column}

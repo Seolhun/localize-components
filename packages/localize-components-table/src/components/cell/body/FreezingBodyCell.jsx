@@ -69,11 +69,7 @@ class FreezingBodyCell extends Component {
 
   constructor(props) {
     super(props);
-    this.cellRef = null;
-  }
-
-  setCellRef = (ref) => {
-    this.cellRef = ref;
+    this.cellRef = React.createRef();
   }
 
   handleOnClick = (event) => {
@@ -144,7 +140,7 @@ class FreezingBodyCell extends Component {
     return (
       <div
         role='presentation'
-        ref={this.setCellRef}
+        ref={this.cellRef}
         className={classnames(
           cellClassName,
           bodyStyles.BodyCell,

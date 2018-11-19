@@ -64,11 +64,7 @@ class FreezingHeaderCell extends Component {
 
   constructor(props) {
     super(props);
-    this.cellRef = null;
-  }
-
-  setCellRef = (cellRef) => {
-    this.cellRef = cellRef;
+    this.cellRef = React.createRef();
   }
 
   handleOnClickHeaderRow = (event, name) => {
@@ -131,7 +127,7 @@ class FreezingHeaderCell extends Component {
 
     return (
       <div
-        ref={this.setCellRef}
+        ref={this.cellRef}
         role='presentation'
         className={classnames(
           commonStyles.Cell,
