@@ -17,12 +17,10 @@
   },
   "dependencies": {
     "@seolhun/localize-components-atomic": "^0.0.13",
-    "@seolhun/localize-components-table": "^0.0.13",
+    "@seolhun/localize-components-drawer": "^0.0.13",
     "@seolhun/localize-components-types": "^0.0.13",
     "@seolhun/localize-components-utils": "^0.0.13",
     "@seolhun/localize-components": "^0.0.13",
-    "@types/react": "^16.7.2",
-    "@types/react-dom": "^16.0.9",
     "classnames": "^2.2.6",
     "jest": "^23.6.0",
     "lodash": "^4.17.11",

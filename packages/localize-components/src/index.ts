@@ -6,7 +6,7 @@ import Confirm, {
   ConfirmProps,
 } from '@seolhun/localize-components-confirm';
 import Chip, { ChipProps } from '@seolhun/localize-components-chip';
-import Drawer from '@seolhun/localize-components-drawer';
+import { Drawer } from '@seolhun/localize-components-drawer';
 
 import Card, { CardProps } from './components/card';
 import Issue, { IssueProps } from './components/issue';

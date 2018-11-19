@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Drawer, } from '@seolhun/localize-components';
+import { Drawer, } from '@seolhun/localize-components-drawer';
 import { Button } from '@seolhun/localize-components-atomic';
 
 interface DrawerViewState {
