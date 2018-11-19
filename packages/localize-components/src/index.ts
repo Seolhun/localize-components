@@ -6,6 +6,7 @@ import Confirm, {
   ConfirmProps,
 } from '@seolhun/localize-components-confirm';
 import Chip, { ChipProps } from '@seolhun/localize-components-chip';
+import Drawer from '@seolhun/localize-components-drawer';
 
 import Card, { CardProps } from './components/card';
 import Issue, { IssueProps } from './components/issue';
@@ -20,6 +21,7 @@ export {
   ChipProps,
   Confirm,
   ConfirmProps,
+  Drawer,
   InputConfirm,
   InputConfirmProps,
   Issue,
@@ -32,10 +34,12 @@ export {
 };
 
 export default {
+  // Components
   Alert,
-  Confirm,
   Card,
   Chip,
+  Confirm,
+  Drawer,
   InputConfirm,
   Issue,
   Tab,

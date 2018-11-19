@@ -28,7 +28,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     modules: [
       resolve('src'),
-      // resolve('node_modules'),
+      resolve('node_modules'),
       resolve('../node_modules'),
     ],
     alias: {

@@ -35,7 +35,7 @@ module.exports = {
     modules: [
       resolve('src'),
       resolve('node_modules'),
-      resolve('../node_modules'),
+      resolve('../../node_modules'),
     ],
   },
   plugins: [

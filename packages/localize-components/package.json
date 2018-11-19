@@ -27,6 +27,7 @@
     "@seolhun/localize-components-alert": "^0.0.13",
     "@seolhun/localize-components-confirm": "^0.0.13",
     "@seolhun/localize-components-chip": "^0.0.13",
+    "@seolhun/localize-components-drawer": "^0.0.13",
     "@seolhun/localize-components-atomic": "^0.0.13",
     "@seolhun/localize-components-types": "^0.0.13",
     "@seolhun/localize-components-utils": "^0.0.13",

@@ -7,11 +7,11 @@ const TABS = {
   TABLE: 'table',
 };
 
-interface HrViewState {
+interface TabsViewState {
   currentTab: string;
 }
 
-class HrView extends React.Component<{}, HrViewState> {
+class TabsView extends React.Component<{}, TabsViewState> {
   constructor(props) {
     super(props);
     this.state = {
@@ -55,4 +55,4 @@ class HrView extends React.Component<{}, HrViewState> {
   }
 }
 
-export default HrView;
+export default TabsView;

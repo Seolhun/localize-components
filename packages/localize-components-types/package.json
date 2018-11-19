@@ -20,7 +20,8 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "jest": "^23.6.0",
-    "lodash": "^4.17.11"
+    "lodash": "^4.17.11",
+    "react": "^16.6.3"
   },
   "devDependencies": {
     "@babel/core": "^7.1.5",

@@ -1,10 +1,11 @@
 import AlertView from '../demo/AlertView';
 import ButtonView from '../demo/ButtonView';
-import HrView from '../demo/HrView';
 import ConfirmView from '../demo/ConfirmView';
+import DrawerView from '../demo/DrawerView';
+import HomeView from '../demo/HomeView';
+import HrView from '../demo/HrView';
 import PreloaderView from '../demo/PreloaderView';
 import TabsView from '../demo/TabsView';
-import HomeView from '../demo/HomeView';
 
 const routerCreator = ({
   type,
@@ -48,6 +49,12 @@ const routers = [
     path: '/confirm',
     label: 'ConfirmView',
     component: ConfirmView,
+  }),
+  routerCreator({
+    type: 0,
+    path: '/drawer',
+    label: 'DrawerView',
+    component: DrawerView,
   }),
   routerCreator({
     type: 0,
