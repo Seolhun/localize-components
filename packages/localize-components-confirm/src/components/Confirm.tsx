@@ -5,10 +5,10 @@ import PropTypes from 'prop-types';
 import {
   Button,
 } from '@seolhun/localize-components-button';
-import {
-  INPUT_TYPE,
-  INPUT_STYLE_TYPE,
-} from '@seolhun/localize-components-form';
+// import {
+//   INPUT_TYPE,
+//   INPUT_STYLE_TYPE,
+// } from '@seolhun/localize-components-form';
 import {
   LocalizeColor,
   LocalizeColorType,
@@ -90,22 +90,22 @@ class Confirm extends React.Component<ConfirmProps> {
     cancelLabel: 'Cancel',
     children: null,
     className: '',
-    color: LocalizeColor.BASIC,
+    color: 'purple', // LocalizeColor.PURPLE ||
     errorMessage: 'Error',
-    inputStyleType: INPUT_STYLE_TYPE.BOX,
-    inputType: INPUT_TYPE.SEARCH,
+    inputStyleType: 'box', // INPUT_STYLE_TYPE.BOX ||
+    inputType: 'search', // INPUT_TYPE.SEARCH ||
     isShow: false,
     message: '',
     onBlur: () => null,
     onChange: () => null,
     onKeyDown: () => null,
     placeholder: '',
-    position: LocalizePosition.CENTER,
+    position: 'center', // LocalizePosition.CENTER ||
     required: false,
     submitIsDisabled: false,
     submitLabel: 'Complete',
     title: '',
-    type: ConfirmTypes.BASIC,
+    type: 'basic', // ConfirmTypes.BASIC
   };
 
   constructor(props) {
@@ -129,7 +129,7 @@ class Confirm extends React.Component<ConfirmProps> {
       cancelLabel = 'Cancel',
       children = null,
       className = '',
-      color = LocalizeColor.BASIC,
+      color = LocalizeColor.PURPLE,
       isShow = false,
       position = LocalizePosition.CENTER,
       submitIsDisabled = false,

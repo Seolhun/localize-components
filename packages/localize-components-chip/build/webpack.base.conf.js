@@ -4,7 +4,6 @@ const TerserPlugin = require('terser-webpack-plugin')
 const webpack = require('webpack');
 
 const config = require('../config');
-const packages = require('../package.json')
 const utils = require('./utils');
 
 const IS_PRODUCTION = process.env.NODE_ENV === 'production';
@@ -12,9 +11,6 @@ const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 function resolve(dir) {
   return path.join(__dirname, '..', dir);
 }
-
-const externalList = ['@seolhun/localize-components-atomic/dist/'];
-const externals = Object.keys(packages.dependencies).concat(externalList);
 
 module.exports = {
   mode: process.env.NODE_ENV,
@@ -28,10 +24,7 @@ module.exports = {
     publicPath: IS_PRODUCTION
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath,
-    // filename: utils.assetsPath('js/[name].[chunkhash].js'),
-    // chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
   },
-  externals,
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     modules: [
@@ -133,10 +126,10 @@ module.exports = {
         new TerserPlugin({
         terserOptions: {
           parse: {
-            ecma: 8,
+            ecma: 6,
           },
           compress: {
-            ecma: 5,
+            ecma: 6,
             warnings: false,
             comparisons: false,
           },
@@ -144,7 +137,7 @@ module.exports = {
             safari10: true,
           },
           output: {
-            ecma: 5,
+            ecma: 6,
             comments: false,
             ascii_only: true,
           },

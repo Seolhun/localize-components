@@ -4,7 +4,6 @@ const TerserPlugin = require('terser-webpack-plugin')
 const webpack = require('webpack');
 
 const config = require('../config');
-const packages = require('../package.json')
 const utils = require('./utils');
 
 function resolve(dir) {
@@ -12,7 +11,6 @@ function resolve(dir) {
 }
 
 const IS_PRODUCTION = process.env.NODE_ENV === 'production';
-const dependencies = Object.keys(packages.dependencies)
 
 module.exports = {
   mode: process.env.NODE_ENV,
@@ -26,10 +24,7 @@ module.exports = {
     publicPath: IS_PRODUCTION
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath,
-    // filename: utils.assetsPath('js/[name].[chunkhash].js'),
-    // chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
   },
-  externals: dependencies,
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     modules: [
@@ -131,10 +126,10 @@ module.exports = {
         new TerserPlugin({
         terserOptions: {
           parse: {
-            ecma: 6,
+            ecma:65,
           },
           compress: {
-            ecma: 5,
+            ecma: 6,
             warnings: false,
             comparisons: false,
           },
@@ -142,7 +137,7 @@ module.exports = {
             safari10: true,
           },
           output: {
-            ecma: 5,
+            ecma: 6,
             comments: false,
             ascii_only: true,
           },

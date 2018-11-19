@@ -10,10 +10,3 @@ export {
   HeaderCell,
   FreezingHeaderCell,
 };
-
-export default {
-  BodyCell,
-  FreezingBodyCell,
-  HeaderCell,
-  FreezingHeaderCell,
-};

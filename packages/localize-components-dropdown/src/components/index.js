@@ -6,8 +6,3 @@ export {
   Dropdown,
   DropdownSearch,
 };
-
-export default {
-  Dropdown,
-  DropdownSearch,
-};

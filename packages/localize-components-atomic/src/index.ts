@@ -38,13 +38,3 @@ export {
   SelectBox,
   SelectBoxProps,
 };
-
-export default {
-  // Components
-  Button,
-  CheckBox,
-  Hr,
-  Input,
-  Preloader,
-  SelectBox,
-};

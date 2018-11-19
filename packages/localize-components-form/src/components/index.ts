@@ -12,9 +12,3 @@ export {
   SelectBox,
   SelectBoxProps,
 };
-
-export default {
-  Input,
-  CheckBox,
-  SelectBox,
-};

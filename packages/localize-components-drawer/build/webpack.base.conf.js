@@ -123,10 +123,10 @@ module.exports = {
         new TerserPlugin({
         terserOptions: {
           parse: {
-            ecma: 8,
+            ecma: 6,
           },
           compress: {
-            ecma: 5,
+            ecma: 6,
             warnings: false,
             comparisons: false,
           },
@@ -134,7 +134,7 @@ module.exports = {
             safari10: true,
           },
           output: {
-            ecma: 5,
+            ecma: 6,
             comments: false,
             ascii_only: true,
           },

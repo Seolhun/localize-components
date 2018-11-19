@@ -1,5 +1,5 @@
 import React from 'react';
-const styles = require('./CheckBox.css');
+const styles = require('./CheckBox.scss');
 
 export interface CheckBoxProps {
   children: React.ReactNode;

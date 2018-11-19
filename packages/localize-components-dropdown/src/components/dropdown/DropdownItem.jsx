@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FormattedMessage } from 'react-intl';
 
-const setIcon = (prop) => {
-  const { radio, className } = prop;
+const setIcon = ({ radio, className }) => {
   if (!radio) {
     return null;
   }
@@ -12,29 +10,30 @@ const setIcon = (prop) => {
     : <i className='material-icons md-13'>radio_button_unchecked</i>;
 };
 
-const DropdownItem = (props) => {
-  const {
-    viewUnit,
-    className,
-    item,
-    onClick,
-    radio,
-  } = props;
+const DropdownItem = ({
+  item,
+  onClick,
+  // isNotRequired
+  className,
+  labelKey,
+  noDataMessage,
+  radio,
+  valueKey,
+}) => {
   return (
     <li
       className={className}
       onClick={onClick}
-      data-view-unit={viewUnit.toString()}
     >
       {setIcon(props)}
       <span
         onClick={onClick}
-        data-view-unit={viewUnit.toString()}
+        data-view-unit={item[valueKey]}
         className={`${radio ? 'ic-left' : ''}`}
       >
-        {typeof item === 'string'
-          ? item
-          : <FormattedMessage {...item} />
+        {item[labelKey]
+          ? item[labelKey]
+          : {noDataMessage}
         }
       </span>
     </li>
@@ -42,22 +41,25 @@ const DropdownItem = (props) => {
 };
 
 DropdownItem.propTypes = {
-  className: PropTypes.string,
-  viewUnit: PropTypes.oneOfType([
-    PropTypes.number,
-    PropTypes.string,
-  ]).isRequired,
   item: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.object,
   ]).isRequired,
   onClick: PropTypes.func.isRequired,
+  // isNotRequired
+  className: PropTypes.string,
+  labelKey: PropTypes.string,
+  noDataMessage: PropTypes.string,
   radio: PropTypes.bool,
+  valueKey: PropTypes.string,
 };
 
 DropdownItem.defaultProps = {
   className: '',
+  labelKey: 'label',
+  noDataMessage: 'no data...',
   radio: false,
+  valueKey: 'value',
 };
 
 export default DropdownItem;

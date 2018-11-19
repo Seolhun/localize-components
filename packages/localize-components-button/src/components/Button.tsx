@@ -35,7 +35,7 @@ const Button: React.SFC<ButtonProps> = ({
   fontSize = 12,
   style = {},
   disabled = false,
-  theme = LocalizeColor.PRIMARY,
+  theme = LocalizeColor.PURPLE,
 }) => (
   <button
     type="button"

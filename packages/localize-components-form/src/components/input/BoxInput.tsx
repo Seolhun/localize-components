@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 
-const styles = require('./BoxInput.css');
+const styles = require('./BoxInput.scss');
 
 export interface BoxInputProps {
   value: string;

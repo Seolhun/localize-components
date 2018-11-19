@@ -1,12 +1,9 @@
 // Utils
-import { SetStyleUtils } from './utils';
+import SetStyleUtils from './utils/SetStyleUtils';
 
 export {
   // Utils
   SetStyleUtils
 };
 
-export default {
-  // Utils
-  SetStyleUtils
-};
+export default SetStyleUtils;

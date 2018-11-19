@@ -2,7 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import {
   Button,
-} from '@seolhun/localize-components-atomic';
+} from '@seolhun/localize-components-button';
 import {
   LocalizeColor,
   LocalizeColorType,
@@ -33,7 +33,7 @@ const Alert: React.SFC<AlertProps> = ({
   // is Not Required
   buttonLabel = 'Confirm',
   className = null,
-  color = LocalizeColor.BASIC,
+  color = LocalizeColor.PURPLE,
   isShow = false,
   position = LocalizePosition.CENTER,
   title = '',

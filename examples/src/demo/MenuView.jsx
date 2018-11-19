@@ -19,7 +19,7 @@ const MenuView = () => {
               key={router.name}
               to={router.path}
             >
-              <Button theme={LocalizeColor.PURPLE}>
+              <Button theme='basic'>
                 {router.label}
               </Button>
             </Link>

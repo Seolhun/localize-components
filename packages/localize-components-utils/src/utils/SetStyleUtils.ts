@@ -54,8 +54,3 @@ const setPosition = (styles, postion: string) => {
 };
 
 export { setColor, setPosition };
-
-export default {
-  setColor,
-  setPosition,
-};

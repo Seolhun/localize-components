@@ -7,7 +7,7 @@ import {
   throttle,
 } from 'lodash';
 
-import Spinner from '../spinner';
+import Preloader from '@seolhun/localize-components-preloader';
 
 import './DropdownSearch.scss';
 
@@ -379,7 +379,7 @@ class DropdownSearch extends Component {
               ) : this.renderDropdownList()}
               {this.props.spinner && (
                 <li className='dropdown-search-disabled disabled dropdown-search-spinner'>
-                  <Spinner rect='19px' className='spinner-custom' />
+                  <Preloader />
                 </li>
               )}
             </ul>

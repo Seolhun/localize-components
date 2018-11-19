@@ -24,8 +24,8 @@
     "test-with-coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage"
   },
   "dependencies": {
-    "@seolhun/localize-components-button": "^0.0.13",
     "@seolhun/localize-components-form": "^0.0.13",
+    "@seolhun/localize-components-button": "^0.0.13",
     "@seolhun/localize-components-types": "^0.0.13",
     "@seolhun/localize-components-utils": "^0.0.13",
     "classnames": "^2.2.6",

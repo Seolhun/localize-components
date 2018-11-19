@@ -1,6 +1,6 @@
 import React from 'react';
 
-const styles = require('./SelectBox.css');
+const styles = require('./SelectBox.scss');
 
 export interface SelectBoxProps {
   children: React.ReactNode;

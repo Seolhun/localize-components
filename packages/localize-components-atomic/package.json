@@ -27,8 +27,6 @@
     "@seolhun/localize-components-form": "^0.0.13",
     "@seolhun/localize-components-hr": "^0.0.13",
     "@seolhun/localize-components-preloader": "^0.0.13",
-    "@seolhun/localize-components-types": "^0.0.13",
-    "@seolhun/localize-components-utils": "^0.0.13",
     "classnames": "^2.2.6",
     "jest": "^23.6.0",
     "lodash": "^4.17.11",

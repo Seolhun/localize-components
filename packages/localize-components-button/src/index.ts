@@ -8,6 +8,4 @@ export {
   ButtonProps,
 };
 
-export default {
-  Button,
-};
+export default Button;

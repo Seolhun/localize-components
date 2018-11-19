@@ -32,16 +32,3 @@ export {
   Tabs,
   TabsProps,
 };
-
-export default {
-  // Components
-  Alert,
-  Card,
-  Chip,
-  Confirm,
-  Drawer,
-  InputConfirm,
-  Issue,
-  Tab,
-  Tabs,
-};

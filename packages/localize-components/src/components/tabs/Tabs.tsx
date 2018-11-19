@@ -39,7 +39,7 @@ const Tabs: React.SFC<TabsProps> = ({
   // isNotRequired
   children = null,
   className = '',
-  color = LocalizeColor.PRIMARY,
+  color = LocalizeColor.PURPLE,
   onClassName = '',
   renderOptions = null,
 }) => {
