@@ -10,8 +10,7 @@
     "@babel/plugin-transform-async-to-generator",
     "@babel/plugin-transform-destructuring",
     "@babel/plugin-transform-classes",
-    "@babel/plugin-transform-literals",
-    "lodash"
+    "@babel/plugin-transform-literals"
   ],
 	"env": {
 		"test": {
@@ -26,8 +25,7 @@
         "@babel/plugin-transform-async-to-generator",
         "@babel/plugin-transform-destructuring",
         "@babel/plugin-transform-classes",
-        "@babel/plugin-transform-literals",
-        "lodash"
+        "@babel/plugin-transform-literals"
       ]
     }
 	}
