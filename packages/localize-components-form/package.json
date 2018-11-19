@@ -1,6 +1,6 @@
 {
   "license": "MIT",
-  "name": "localize-components-form",
+  "name": "@seolhun/localize-components-form",
   "description": "Localizing React components is rendered by stand-alone not affect other styles.",
   "version": "0.0.13",
   "main": "./dist/index.js",
@@ -27,6 +27,7 @@
     "@seolhun/localize-components-utils": "^0.0.13",
     "classnames": "^2.2.6",
     "jest": "^23.6.0",
+    "lodash": "^4.17.11",
     "prop-types": "^15.6.2",
     "react": "^16.6.1",
     "react-dom": "^16.4.0"

@@ -1,0 +1,46 @@
+:local .FreezingTable {
+  .FreezingTableBody {
+    box-sizing: border-box;
+    overflow: hidden;
+    position: static !important;
+    z-index: 50;
+  }
+  .UnFrozenTable {
+    box-sizing: border-box;
+    position: relative !important;
+    z-index: 50;
+  }
+
+  .InnerScrollContainer {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  .TableScrollBody {
+    height: 100%;
+    overflow: auto;
+    position: relative;
+  }
+  .TableFixedHeaders {
+    left: 0;
+    overflow: hidden !important;
+    position: absolute !important;
+    top: 0;
+    z-index: 10;
+  }
+  .TableHeaders {
+    left: 0;
+    overflow: hidden !important;
+    position: absolute !important;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+  }
+  .TableFixedColumns {
+    left: 0;
+    overflow: hidden !important;
+    position: absolute !important;
+    top: 0;
+    z-index: 5;
+  }
+}

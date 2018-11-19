@@ -2,8 +2,10 @@
 import {
   Button,
   ButtonProps,
-} from './components/button';
-import Hr, { HrProps } from './components/hr';
+} from '@seolhun/localize-components-button';
+
+import Hr, { HrProps } from '@seolhun/localize-components-hr';
+
 import {
   CheckBox,
   CheckBoxProps,
@@ -13,8 +15,11 @@ import {
   InputProps,
   SelectBox,
   SelectBoxProps,
-} from './components/form';
-import Preloader, { PreloaderProps } from './components/preloader';
+} from '@seolhun/localize-components-form';
+
+import Preloader, {
+  PreloaderProps
+} from '@seolhun/localize-components-preloader';
 
 export {
   // Components

@@ -1,45 +1,30 @@
-// Components
 import {
-  Button,
-  ButtonProps,
-} from './components/button';
-import Hr, { HrProps } from './components/hr';
-import {
-  CheckBox,
-  CheckBoxProps,
-  INPUT_STYLE_TYPE,
-  INPUT_TYPE,
+  // InputBox
   Input,
   InputProps,
+  INPUT_TYPE,
+  INPUT_STYLE_TYPE,
+  // CheckBox
+  CheckBox,
+  CheckBoxProps,
+  // SelectBox
   SelectBox,
-  SelectBoxProps,
-} from './components/form';
-import Preloader, { PreloaderProps } from './components/preloader';
+  SelectBoxProps
+} from './components';
 
 export {
-  // Components
-  Button,
-  ButtonProps,
-  CheckBox,
-  CheckBoxProps,
-  Hr,
-  HrProps,
-  INPUT_STYLE_TYPE,
-  INPUT_TYPE,
   Input,
   InputProps,
-  Preloader,
-  PreloaderProps,
+  INPUT_TYPE,
+  INPUT_STYLE_TYPE,
+  CheckBox,
+  CheckBoxProps,
   SelectBox,
   SelectBoxProps,
 };
 
 export default {
-  // Components
-  Button,
-  CheckBox,
-  Hr,
   Input,
-  Preloader,
+  CheckBox,
   SelectBox,
 };

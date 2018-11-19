@@ -1,0 +1,8 @@
+:local .BodyCell {
+  background-color: #fff;
+  color: #4d5256;
+  height: 40px;
+  &.active {
+    background-color: #f1f8fe;
+  }
+}

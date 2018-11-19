@@ -17,7 +17,7 @@ const dependencies = Object.keys(packages.dependencies)
 module.exports = {
   mode: process.env.NODE_ENV,
   entry: {
-    index: resolve('src/index.ts'),
+    index: resolve('src/index.js'),
   },
   output: {
     path: config.build.assetsRoot,
