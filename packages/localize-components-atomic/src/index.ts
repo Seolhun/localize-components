@@ -4,22 +4,21 @@ import {
   ButtonProps,
 } from '@seolhun/localize-components-button';
 
-import Hr, { HrProps } from '@seolhun/localize-components-hr';
-
 import {
   CheckBox,
   CheckBoxProps,
+  Input,
   INPUT_STYLE_TYPE,
   INPUT_TYPE,
-  Input,
   InputProps,
   SelectBox,
   SelectBoxProps,
 } from '@seolhun/localize-components-form';
 
-import Preloader, {
-  PreloaderProps
-} from '@seolhun/localize-components-preloader';
+import Hr, { HrProps } from './components/hr';
+import Spinner, {
+  SpinnerProps,
+} from './components/spinner';
 
 export {
   // Components
@@ -33,8 +32,8 @@ export {
   INPUT_TYPE,
   Input,
   InputProps,
-  Preloader,
-  PreloaderProps,
+  Spinner,
+  SpinnerProps,
   SelectBox,
   SelectBoxProps,
 };

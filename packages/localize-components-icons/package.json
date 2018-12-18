@@ -1,6 +1,6 @@
 {
   "license": "MIT",
-  "name": "@seolhun/localize-components-types",
+  "name": "@seolhun/localize-components-icons",
   "description": "Localizing React components is rendered by stand-alone not affect other styles.",
   "version": "0.0.13",
   "main": "./dist/index.js",
@@ -14,14 +14,23 @@
   ],
   "scripts": {
     "build": "node build/build.js",
-    "bundle": "tsc",
+    "bundle": "yarn style:clean && tsc && yarn style && yarn style:local",
+    "bundle:local": "tsc && yarn style && yarn style:local",
+    "style": "sass --update src:dist --style compressed",
+    "style:watch": "sass --watch src:dist --style compressed",
+    "style:local": "sass --update src:src --style compressed",
+    "style:clean": "find . -name *.css* -type f -delete",
     "test": "jest"
   },
   "dependencies": {
+    "@seolhun/localize-components-types": "^0.0.13",
+    "@seolhun/localize-components-utils": "^0.0.13",
     "classnames": "^2.2.6",
     "jest": "^23.6.0",
     "lodash": "^4.17.11",
-    "react": "^16.6.3"
+    "prop-types": "^15.6.2",
+    "react": "^16.6.1",
+    "react-dom": "^16.4.0"
   },
   "devDependencies": {
     "@babel/core": "^7.1.5",
@@ -46,6 +55,8 @@
     "clean-webpack-plugin": "^0.1.19",
     "compression-webpack-plugin": "^2.0.0",
     "css-loader": "^1.0.1",
+    "enzyme": "^3.4.4",
+    "enzyme-adapter-react-16": "^1.2.0",
     "event-source-polyfill": "^1.0.3",
     "filemanager-webpack-plugin": "^2.0.5",
     "friendly-errors-webpack-plugin": "^1.7.0",

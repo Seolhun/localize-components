@@ -11,6 +11,7 @@
     "@babel/plugin-transform-classes",
     "@babel/plugin-transform-destructuring",
     "@babel/plugin-transform-literals",
+    "@babel/plugin-transform-react-constant-elements",
     "@babel/plugin-transform-spread"
   ],
 	"env": {
@@ -27,6 +28,7 @@
         "@babel/plugin-transform-classes",
         "@babel/plugin-transform-destructuring",
         "@babel/plugin-transform-literals",
+        "@babel/plugin-transform-react-constant-elements",
         "@babel/plugin-transform-spread"
       ]
     }
