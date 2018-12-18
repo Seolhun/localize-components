@@ -27,12 +27,12 @@
 
     &:hover {
       transition: all 150 linear;
-      opacity: .85;
+      background-color: lighten($color: $value, $amount: 15);
     }
 
     &:active {
       transition: all 150 linear;
-      opacity: .75;
+      background-color: lighten($color: $value, $amount: 25);
     }
   }
 
@@ -42,12 +42,12 @@
 
     &:hover {
       transition: all 150 linear;
-      opacity: .85;
+      background-color: darken($color: $value, $amount: 15);
     }
 
     &:active {
       transition: all 150 linear;
-      opacity: .75;
+      background-color: darken($color: $value, $amount: 25);
     }
   }
 

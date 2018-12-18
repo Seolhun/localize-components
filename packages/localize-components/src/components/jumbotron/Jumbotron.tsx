@@ -57,7 +57,7 @@ class Jumbotron extends PureComponent<JumbotronProps> {
     return (
       <section
         className={classnames(
-          '__LocalizeHermes Jumbotron',
+          '__Localize Jumbotron',
           getThemeStyle(theme, { themeType }),
           getAlignStyle(align),
           className,

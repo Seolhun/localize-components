@@ -1,5 +1,5 @@
-import HermesView from '../containers/HermesView';
 import HomeView from '../containers/HomeView';
+import LocalizeView from '../containers/LocalizeView';
 
 const routerCreator = ({
   type,
@@ -28,9 +28,9 @@ const routers = [
   }),
   routerCreator({
     type: 0,
-    path: '/hermes',
-    label: 'Hermes',
-    component: HermesView,
+    path: '/localize',
+    label: 'Localize',
+    component: LocalizeView,
   }),
 ];
 

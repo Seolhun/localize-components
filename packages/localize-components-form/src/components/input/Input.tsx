@@ -13,6 +13,8 @@ import {
   getThemeStyle,
 } from '@seolhun/localize-components-utils';
 
+import './Input.css';
+
 export interface InputProps {
   // isRequired
   /**
@@ -262,7 +264,7 @@ class Input extends PureComponent<InputProps, InputState> {
     return (
       <div
         className={classnames(
-          '__LocalizeHermes',
+          '__Localize',
           className,
         )}
       >
