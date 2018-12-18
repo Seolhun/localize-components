@@ -20,7 +20,7 @@
 - React
 - TypeScript
 - SCSS
-- Storybook
+- Docz
 
 ## Getting start
 #### Install Package
