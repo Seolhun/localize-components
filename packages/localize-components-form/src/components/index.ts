@@ -1,5 +1,5 @@
 import CheckBox, { CheckBoxProps } from './checkbox';
-import Input, { InputProps } from './Input';
+import Input, { InputProps } from './input';
 
 export {
   Input,
