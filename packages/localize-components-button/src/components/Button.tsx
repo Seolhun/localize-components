@@ -12,6 +12,8 @@ import {
   getThemeStyleKey,
 } from '@seolhun/localize-components-utils';
 
+import './Button.css';
+
 export interface ButtonProps {
   // isRequired
   /**
@@ -97,7 +99,7 @@ const Button: SFC<ButtonProps> = ({
     type='button'
     className={classnames(
       className,
-      '__LocalizeHermes Button',
+      '__Localize Button',
       `Button-${getThemeStyleKey(theme, { themeType })}`,
     )}
     onClick={onClick}

@@ -26,7 +26,7 @@ const Spinner: SFC<SpinnerProps> = ({
       className={classnames(
         className,
         'Spinner',
-        '__LocalizeHermes',
+        '__Localize',
       )}
       style={{
         ...style,

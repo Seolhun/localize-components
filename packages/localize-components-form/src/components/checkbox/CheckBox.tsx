@@ -98,7 +98,7 @@ const CheckBox: SFC<CheckBoxProps> = ({
       htmlFor={item[usedKey]}
       className={classnames(
         className,
-        '__LocalizeHermes CheckBox',
+        '__Localize CheckBox',
       )}
       onMouseOut={onMouseOut}
       onMouseOver={onMouseOver}
