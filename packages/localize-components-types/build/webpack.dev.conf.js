@@ -21,7 +21,7 @@ module.exports = merge(baseWebpackConfig, {
     new FriendlyErrorsPlugin(),
     new webpack.ProvidePlugin({
       $: 'jquery',
-      moment: 'moment',
+      moment: 'moment'
     }),
   ]
 })

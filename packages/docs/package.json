@@ -23,7 +23,7 @@
     "@seolhun/localize-components-atomic": "^0.0.13",
     "@seolhun/localize-components-types": "^0.0.13",
     "@seolhun/localize-components-utils": "^0.0.13",
-    "react": "^16.6.1"
+    "react": "^16.6.3"
   },
   "devDependencies": {
     "@babel/core": "^7.1.5",

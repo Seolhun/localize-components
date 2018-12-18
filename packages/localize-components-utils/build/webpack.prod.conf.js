@@ -1,5 +1,6 @@
 const merge = require('webpack-merge');
 const baseWebpackConfig = require('./webpack.base.conf');
+const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 
 const utils = require('./utils');
 const config = require('../config');
@@ -12,6 +13,13 @@ const webpackConfig = merge(baseWebpackConfig, {
     })
   },
   devtool: config.build.productionSourceMap ? 'source-map' : false,
+  plugins: [
+    new OptimizeCSSPlugin({
+      cssProcessorOptions: {
+        safe: true
+      }
+    }),
+  ]
 })
 
 if (config.build.productionGzip) {

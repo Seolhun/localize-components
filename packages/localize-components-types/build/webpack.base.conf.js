@@ -5,10 +5,10 @@ const config = require('../config');
 const utils = require('./utils');
 
 const TerserPlugin = require('terser-webpack-plugin')
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 
@@ -28,8 +28,6 @@ module.exports = {
     publicPath: IS_PRODUCTION
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath,
-    // filename: utils.assetsPath('js/[name].[chunkhash].js'),
-    // chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
   },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
@@ -48,10 +46,10 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': config.dev.env,
     }),
-    new CleanWebpackPlugin(["dist"]),
+    new CleanWebpackPlugin(['dist']),
     new MiniCssExtractPlugin({
-      filename: "[name].css",
-      chunkFilename: "[id].css"
+      filename: '[name].css',
+      chunkFilename: '[id].css'
     })
   ],
   module: {
@@ -75,22 +73,27 @@ module.exports = {
         test: /\.scss$/,
         use: [
           {
-            loader: 'style-loader',
+            loader: 'file-loader',
+            options: {
+              name: '[name].css',
+            }
           },
           {
-            loader: 'css-loader',
-            options: {
-              minimize: true,
-              sourceMap: IS_PRODUCTION,
-            },
+            loader: 'extract-loader'
           },
           {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: IS_PRODUCTION,
-            },
+            loader: 'css-loader?-url'
           },
-        ],
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: () => [require('autoprefixer')]
+            }
+          },
+          {
+            loader: 'sass-loader'
+          }
+        ]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
