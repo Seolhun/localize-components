@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { ReactNode, SFC } from 'react';
+
 import classnames from 'classnames';
 
 import {
-  LocalizeColor,
-  LocalizeColorType,
+  Themes,
+  ThemeType,
 } from '@seolhun/localize-components-types';
 import {
-  SetStyleUtils
+  getThemeStyle,
 } from '@seolhun/localize-components-utils';
-
 
 import Tab from './Tab';
 
@@ -19,29 +19,29 @@ export interface TabsProps {
   tabs: TabItemType[];
   onClickTab: (...args: any[]) => any;
   // isNotRequired
-  children?: React.ReactNode;
+  children?: ReactNode;
   className?: string;
-  color?: LocalizeColorType;
+  theme?: ThemeType;
   onClassName?: string;
-  renderOptions?: React.ReactNode;
+  options?: ReactNode;
 }
 
 export interface TabItemType {
-  label: React.ReactNode | string;
+  label: ReactNode | string;
   key: string;
-  render?: React.ReactNode;
+  render?: ReactNode;
 }
 
-const Tabs: React.SFC<TabsProps> = ({
+const Tabs: SFC<TabsProps> = ({
   currentTab,
   tabs,
   onClickTab,
   // isNotRequired
   children = null,
   className = '',
-  color = LocalizeColor.PURPLE,
+  theme = Themes.PRIMARY,
   onClassName = '',
-  renderOptions = null,
+  options = null,
 }) => {
   return (
     <>
@@ -53,7 +53,7 @@ const Tabs: React.SFC<TabsProps> = ({
             ${styles.tab}
             ${
               currentTab === key
-                ? onClassName || SetStyleUtils.setColor(styles, color, 'on-')
+                ? onClassName || getThemeStyle(theme)
                 : ''
             }
           `)}
@@ -62,7 +62,7 @@ const Tabs: React.SFC<TabsProps> = ({
             {label}
           </Tab>
         ))}
-        {renderOptions}
+        {options}
       </div>
       {children ||
         tabs.map(({ render, key }) => {

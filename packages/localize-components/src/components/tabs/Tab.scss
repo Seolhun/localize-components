@@ -3,7 +3,7 @@
 @import '../../assets/scss/_variable/color.scss';
 :local .tab {
   border-bottom: 2px solid transparent;
-  color: map-get($map: $defaultColors, $key: gray);
+  color: map-get($map: $color_list, $key: gray);
   font-size: 14px;
   font-weight: 400;
   outline: none;

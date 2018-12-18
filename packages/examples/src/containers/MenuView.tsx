@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 
 import { routers } from '../routes';
 
-import Jumbotron from '../components/jumbotron';
+import { Jumbotron } from '@seolhun/localize-components';
+import { Button } from '@seolhun/localize-components-atomic';
 
 class MenuView extends Component {
 
@@ -23,13 +24,16 @@ class MenuView extends Component {
 
             {routers.map((router) => {
               return (
-                <Link
-                  key={router.label}
-                  className='__LocalizeHermes btn btn-primary'
-                  to={router.path}
+                <Button
+                  theme='primary'
                 >
-                  {router.label}
-                </Link>
+                  <Link
+                    key={router.label}
+                    to={router.path}
+                  >
+                    {router.label}
+                  </Link>
+                </Button>
               );
             })}
           </header>

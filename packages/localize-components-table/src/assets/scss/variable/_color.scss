@@ -1,0 +1,31 @@
+$color_list: (
+  // Brand
+  main: rgb(89, 87, 255),
+  main-1: darken($color: rgb(89, 87, 255), $amount: 5),
+  main-2: darken($color: rgb(89, 87, 255), $amount: 10),
+
+  gray: rgb(50, 51, 52),       // 700 #323334
+  gray-1: rgb(96, 98, 100),    // 600 #606264
+  gray-2: rgb(151, 151, 151),  // 500 #979797
+  gray-3: rgb(202, 202, 202),  // 400 #cacaca
+  gray-4: rgb(229, 229, 229),  // 300 #e5e5e5
+  gray-5: rgb(238, 238, 238),  // 200 #eeeeee
+  gray-6: rgb(245, 245, 245),  // 100 #f5f5f5
+
+  // Default
+  basic: #d1d5da,
+  danger: rgb(227, 41, 41),
+  info: #369cc7,
+  primary: #0069d9,
+  success: #28a745,
+  warning: #ebad1a,
+  transparent: transparent,
+  // Darken
+  black: #2a2a2a,
+  purple: #5f42ff,
+  royalblue: royalblue,
+  // Lighten
+  white: #fff,
+  yellow: yellow,
+  sky: skyblue,
+);

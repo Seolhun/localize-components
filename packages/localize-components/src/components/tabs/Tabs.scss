@@ -3,8 +3,8 @@
 @import '../../assets/scss/_variable/color.scss';
 :local .tab {
   border-bottom: none;
-  border: 0.5px solid map-get($map: $defaultColors, $key: gray);
-  color: map-get($map: $defaultColors, $key: black);
+  border: 0.5px solid map-get($map: $color_list, $key: gray);
+  color: map-get($map: $color_list, $key: black);
   font-size: 14px;
   font-weight: 400;
   outline: none;
@@ -20,7 +20,7 @@
     outline: none;
   }
 
-  @each $key, $value in $defaultColors {
+  @each $key, $value in $color_list {
     &.on-#{$key} {
       color: $value;
       font-weight: 600;

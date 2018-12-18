@@ -1,16 +1,19 @@
 import React from 'react';
+
 import classnames from 'classnames';
+
 import {
   Button,
 } from '@seolhun/localize-components-button';
 import {
-  LocalizeColor,
-  LocalizeColorType,
-  LocalizePosition,
-  LocalizePositionType,
+  Position,
+  PositionType,
+  Themes,
+  ThemeType,
 } from '@seolhun/localize-components-types';
 import {
-  SetStyleUtils
+  getPositionStyle,
+  getThemeStyle,
 } from '@seolhun/localize-components-utils';
 
 const styles = require('./Alert.scss');
@@ -21,9 +24,9 @@ export interface AlertProps {
   // isNotRequired
   buttonLabel?: string;
   className?: string | undefined;
-  color?: LocalizeColorType;
+  theme?: ThemeType;
   isShow?: boolean;
-  position?: LocalizePositionType;
+  position?: PositionType;
   title?: string;
 }
 
@@ -33,9 +36,9 @@ const Alert: React.SFC<AlertProps> = ({
   // is Not Required
   buttonLabel = 'Confirm',
   className = null,
-  color = LocalizeColor.PURPLE,
+  theme = Themes.PRIMARY,
   isShow = false,
-  position = LocalizePosition.CENTER,
+  position = Position.CENTER,
   title = '',
 }) => {
   if (!isShow) {
@@ -46,17 +49,17 @@ const Alert: React.SFC<AlertProps> = ({
     <>
       <div className={styles.coverBackground} />
       <div
-        className={classnames(`
-          ${styles.alert}
-          ${className}
-          ${SetStyleUtils.setColor(styles, color)}
-          ${SetStyleUtils.setPosition(styles, position)}
-        `)}
+        className={classnames(
+          styles.alert,
+          className,
+          getThemeStyle(theme),
+          getPositionStyle(position),
+        )}
       >
         <div className={styles.titleDiv}>{title}</div>
         <div className={styles.messageDiv}>{message}</div>
         <div className={styles.buttonDiv}>
-          <Button className={`btn btn-${color}`} onClick={onClickClose}>
+          <Button className={`btn btn-${theme}`} onClick={onClickClose}>
             {buttonLabel}
           </Button>
         </div>

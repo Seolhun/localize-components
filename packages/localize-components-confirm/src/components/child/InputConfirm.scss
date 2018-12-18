@@ -1,7 +1,7 @@
 @import '../../assets/scss/_variable/color.scss';
 
 :local .InputConfirm {
-  color: map-get($map: $defaultColors, $key: black);
+  color: map-get($map: $color_list, $key: black);
   font-size: 16px;
   padding: 5px 30px;
   .input {
@@ -10,7 +10,7 @@
   }
   .errorMessageBox {
     width: 100%;
-    color: map-get($map: $defaultColors, $key: danger);
+    color: map-get($map: $color_list, $key: danger);
     font-size: 14px;
     margin: 5px;
     &.off {

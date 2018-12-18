@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import Jumbotron from '../components/jumbotron';
+import { Jumbotron } from '@seolhun/localize-components';
 
 export interface HermesViewState {
   isShow: boolean;

@@ -69,7 +69,7 @@ class Confirm extends React.Component<ConfirmProps> {
     cancelLabel: PropTypes.string,
     children: PropTypes.node,
     className: PropTypes.string,
-    color: PropTypes.string,
+    theme: PropTypes.string,
     errorMessage: PropTypes.string,
     inputStyleType: PropTypes.string,
     inputType: PropTypes.string,
@@ -91,10 +91,10 @@ class Confirm extends React.Component<ConfirmProps> {
     cancelLabel: 'Cancel',
     children: null,
     className: '',
-    color: 'purple', // LocalizeColor.PURPLE ||
-    errorMessage: 'Error',
-    inputStyleType: 'box', // INPUT_STYLE_TYPE.BOX ||
-    inputType: 'search', // INPUT_TYPE.SEARCH ||
+    theme:   .
+    errorMessage: Error,
+    inputStyleType: 'box',
+    inputType: 'search',
     isShow: false,
     message: '',
     onBlur: () => null,
