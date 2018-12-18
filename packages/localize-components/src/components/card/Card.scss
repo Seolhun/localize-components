@@ -1,11 +1,12 @@
-@import '../../assets/scss/_mixin/responsive.scss';
-@import '../../assets/scss/_variable/color.scss';
-:local .card {
+@import '../../assets/scss/mixin/responsive.scss';
+@import '../../assets/scss/variable/color';
+
+:local .Card {
   border-radius: 8px;
   padding: 35px;
   margin: 10px;
   height: auto;
-  background-color: map-get($map: $defaultColors, $key: white);
+  background-color: map-get($map: $color_list, $key: white);
   @include responsive(sm) {
     height: auto;
   }

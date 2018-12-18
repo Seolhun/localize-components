@@ -4,6 +4,7 @@ jobs:
     branches:
       only:
         - master
+        - develop
     docker:
       - image: circleci/node:8.10
     working_directory: ~/repo
@@ -16,22 +17,53 @@ jobs:
           - v1-dependencies-
 
       - run:
-          name: "Checking Versions"
+          name: "Checking versions"
           command: |
             node --version
             npm --version
+            yarn --version
 
       - run:
           name: "install packages"
           command: yarn install
 
       - run:
-          name: "Lerna Bootstrap packages"
+          name: "Lerna bootstrap packages"
+          command: yarn bs
+
+      - run:
+          name: "Lerna packages bundling"
           command: yarn bundle
 
       - run:
-          name: "Deploy Examples into surge"
-          command: yarn deploy:ex
+          name: "Deploy examples into surge"
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              yarn deploy:ex
+            fi
+            if [ "${CIRCLE_BRANCH}" == "develop" ]; then
+              yarn deploy:ex:dev
+            fi
+
+      - run:
+          name: "Deploy docs into surge"
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              yarn deploy:docs
+            fi
+            if [ "${CIRCLE_BRANCH}" == "develop" ]; then
+              yarn deploy:docs:dev
+            fi
+
+      # - run:
+      #     name: "Deploy Localize-Components into surge"
+      #     command: |
+      #       if [ "${CIRCLE_BRANCH}" == "master" ]; then
+      #         yarn deploy:h
+      #       fi
+      #       if [ "${CIRCLE_BRANCH}" == "develop" ]; then
+      #         yarn deploy:h:dev
+      #       fi
 
       - save_cache:
           paths:

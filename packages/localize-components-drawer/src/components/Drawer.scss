@@ -1,0 +1,25 @@
+:local .drawerBackground {
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  position: fixed;
+  text-align: initial;
+  bottom: 0;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(45, 45, 60, 0.7);
+  text-align: initial;
+  color: #4d5256;
+}
+
+:local .drawer {
+  min-width: 490px;
+  max-width: 710px;
+  animation-duration: 0.5s;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 101;
+}

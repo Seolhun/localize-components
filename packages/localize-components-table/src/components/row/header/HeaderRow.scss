@@ -1,0 +1,20 @@
+:local .TableHeaerRows {
+  display: table-header-group; // like 'thead'
+  .HeaderRow {
+    background: #f4f5f8;
+    color: #4d5256;
+    display: table-row; // like 'tr'
+  }
+}
+
+:local .FixedHeaderRow {
+  position: fixed;
+  top: 50px;
+  z-index: 1;
+
+  // Will be Fixed
+  margin-right: 30px;
+  &:nth-child(1) {
+    z-index: 2;
+  }
+}

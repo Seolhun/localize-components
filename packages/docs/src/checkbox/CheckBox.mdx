@@ -1,0 +1,161 @@
+---
+name: CheckBox
+route: /checkbox
+---
+
+import { Playground, PropsTable } from 'docz';
+import { CheckBox } from '@seolhun/localize-components-atomic';
+
+import CheckBoxPropsTable from './CheckBoxPropsTable';
+
+# CheckBox
+
+## PropsTable
+<PropsTable of={CheckBoxPropsTable} />
+
+## Default
+
+<Playground>
+  <CheckBox
+    item={{
+      label: 'Is label',
+      value: 'Is value'
+    }}
+  />
+  <CheckBox
+    item={{
+      label: 'Is label2',
+      value: 'Is value2'
+    }}
+    checked
+  />
+</Playground>
+
+## Give a theme
+
+<Playground>
+  <CheckBox
+    theme='danger'
+    item={{
+      label: 'Is label2',
+      value: 'Is value2'
+    }}
+  >
+    Click me
+  </CheckBox>
+  <CheckBox
+    theme='danger'
+    item={{
+      label: 'Is label2',
+      value: 'Is value2'
+    }}
+    checked
+  >
+    Click me
+  </CheckBox>
+  <hr />
+
+  <CheckBox
+    theme='info'
+    item={{
+      label: 'Is label2',
+      value: 'Is value2'
+    }}
+  >
+    Click me
+  </CheckBox>
+  <CheckBox
+    theme='info'
+    item={{
+      label: 'Is label2',
+      value: 'Is value2'
+    }}
+    checked
+  >
+    Click me
+  </CheckBox>
+  <hr />
+
+  <CheckBox
+    theme='success'
+    item={{
+      label: 'Is label2',
+      value: 'Is value2'
+    }}
+  >
+    Click me
+  </CheckBox>
+  <CheckBox
+    theme='success'
+    item={{
+      label: 'Is label2',
+      value: 'Is value2'
+    }}
+    checked
+  >
+    Click me
+  </CheckBox>
+  <hr />
+
+  <CheckBox
+    theme='main'
+    item={{
+      label: 'Is label2',
+      value: 'Is value2'
+    }}
+  >
+    Click me
+  </CheckBox>
+  <CheckBox
+    theme='main'
+    item={{
+      label: 'Is label2',
+      value: 'Is value2'
+    }}
+    checked
+  >
+    Click me
+  </CheckBox>
+</Playground>
+
+## Give a custom keys
+<Playground>
+  <CheckBox
+    item={{
+      customLabel: 'Is label',
+      customValue: 'Is value'
+    }}
+    labelKey='customLabel'
+    valueKey='customValue'
+  />
+  <CheckBox
+    item={{
+      customLabel: 'Is label2',
+      customValue: 'Is value2'
+    }}
+    labelKey='customLabel'
+    valueKey='customValue'
+    checked
+  />
+</Playground>
+
+## Give a changing main key (label -> value)
+<Playground>
+  <CheckBox
+    item={{
+      customLabel: 'Rendered Label',
+      customValue: 'Rendered Value'
+    }}
+    labelKey='customLabel'
+    valueKey='customValue'
+  />
+  <CheckBox
+    item={{
+      customLabel: 'Rendered Label',
+      customValue: 'Rendered Value'
+    }}
+    labelKey='customLabel'
+    valueKey='customValue'
+    useValueKey
+  />
+</Playground>

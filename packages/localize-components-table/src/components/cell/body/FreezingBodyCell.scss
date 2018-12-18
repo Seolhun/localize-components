@@ -1,0 +1,12 @@
+:local .FreezingBodyCell {
+  align-items: center;
+  display: flex;
+  font-size: 13px;
+  height: 100%;
+  padding: 0 1.5em;
+  position: absolute;
+
+  &:hover {
+    background-color: #f1f8fe;
+  }
+}

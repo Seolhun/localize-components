@@ -1,20 +1,20 @@
-
 const path = require('path');
-const TerserPlugin = require('terser-webpack-plugin')
 const webpack = require('webpack');
 
 const config = require('../config');
-const packages = require('../package.json')
 const utils = require('./utils');
+
+const TerserPlugin = require('terser-webpack-plugin')
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir);
 }
-
-const externalList = ['@seolhun/localize-components-atomic/dist/'];
-const externals = Object.keys(packages.dependencies).concat(externalList);
 
 module.exports = {
   mode: process.env.NODE_ENV,
@@ -28,62 +28,79 @@ module.exports = {
     publicPath: IS_PRODUCTION
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath,
-    // filename: utils.assetsPath('js/[name].[chunkhash].js'),
-    // chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
   },
-  externals,
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
     modules: [
       resolve('src'),
       resolve('node_modules'),
-      resolve('../node_modules'),
+      resolve('../../node_modules'),
     ],
+    alias: {
+      containers: resolve('src/containers'),
+      components: resolve('src/components'),
+      assets: resolve('src/assets'),
+    },
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': config.dev.env
+      'process.env': config.dev.env,
     }),
-    new webpack.ProvidePlugin({
-      React: "react",
-    }),
+    new CleanWebpackPlugin(['dist']),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css'
+    })
   ],
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         loader: 'babel-loader',
-      }, {
+      },
+      {
         test: /\.(ts|tsx)$/,
         loader: 'awesome-typescript-loader',
-      }, {
+      },
+      {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      }, {
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader'
+        ],
+      },
+      {
         test: /\.scss$/,
         use: [
           {
-            loader: 'style-loader',
+            loader: 'file-loader',
+            options: {
+              name: '[name].css',
+            }
           },
           {
-            loader: 'css-loader',
+            loader: 'extract-loader'
+          },
+          {
+            loader: 'css-loader?-url'
+          },
+          {
+            loader: 'postcss-loader',
             options: {
-              minimize: true,
-              sourceMap: IS_PRODUCTION,
-            },
-          }, {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true,
-            },
+              plugins: () => [require('autoprefixer')]
+            }
+          },
+          {
+            loader: 'sass-loader'
           }
-        ],
-      }, {
+        ]
+      },
+      {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: utils.assetsPath('img/[name].[hash:7].[ext]')
+          name: utils.assetsPath('img/[name].[hash:7].[ext]'),
         },
       },
       {
@@ -91,7 +108,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: utils.assetsPath('media/[name].[hash:7].[ext]')
+          name: utils.assetsPath('media/[name].[hash:7].[ext]'),
         },
       },
       {
@@ -99,12 +116,20 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+          name: utils.assetsPath('fonts/[name].[hash:7].[ext]'),
         },
-      }
+      },
     ],
   },
   optimization: {
+    minimizer: [
+      new UglifyJsPlugin({
+        cache: true,
+        parallel: true,
+        sourceMap: true,
+      }),
+      new OptimizeCSSAssetsPlugin({})
+    ],
     splitChunks: {
       chunks: 'async',
       minSize: 30000,
@@ -117,53 +142,56 @@ module.exports = {
       cacheGroups: {
         vendors: {
           test: /[\\/]node_modules[\\/]/,
-          priority: -10
+          priority: -10,
         },
         default: {
           minChunks: 2,
           priority: -20,
-          reuseExistingChunk: true
-        }
-      }
+          reuseExistingChunk: true,
+        },
+      },
     },
     namedModules: true,
     ...(IS_PRODUCTION && {
       minimize: true,
       minimizer: [
         new TerserPlugin({
-        terserOptions: {
-          parse: {
-            ecma: 8,
+          terserOptions: {
+            parse: {
+              ecma: 6,
+            },
+            compress: {
+              ecma: 6,
+              warnings: false,
+              comparisons: false,
+            },
+            mangle: {
+              safari10: true,
+            },
+            output: {
+              ecma: 6,
+              comments: false,
+              ascii_only: true,
+            },
           },
-          compress: {
-            ecma: 5,
-            warnings: false,
-            comparisons: false,
-          },
-          mangle: {
-            safari10: true,
-          },
-          output: {
-            ecma: 5,
-            comments: false,
-            ascii_only: true,
-          },
-        },
-        parallel: true,
-        cache: true,
-        sourceMap: true,
-      })],
+          parallel: true,
+          cache: true,
+          sourceMap: IS_PRODUCTION,
+        }),
+      ],
     }),
   },
   performance: {
     hints: 'warning',
-    maxAssetSize: 300000,
-    maxEntrypointSize: 400000,
+    maxAssetSize: 550000,
+    maxEntrypointSize: 550000,
     assetFilter: function(assetFilename) {
-      return assetFilename.endsWith('.css') ||
-      assetFilename.endsWith('.scss') ||
-      assetFilename.endsWith('.js') ||
-      assetFilename.endsWith('.ts');
-    }
+      return (
+        assetFilename.endsWith('.css') ||
+        assetFilename.endsWith('.scss') ||
+        assetFilename.endsWith('.js') ||
+        assetFilename.endsWith('.ts')
+      );
+    },
   },
 };

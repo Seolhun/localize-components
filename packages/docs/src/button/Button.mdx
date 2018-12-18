@@ -1,0 +1,49 @@
+---
+name: Button
+route: /button
+---
+
+import { Playground, PropsTable } from 'docz';
+import { Button } from '@seolhun/localize-components-atomic';
+
+import ButtonPropsTable from './ButtonPropsTable';
+
+# Button
+
+## PropsTable
+<PropsTable of={ButtonPropsTable} />
+
+## Default
+
+<Playground>
+  <Button>Click me</Button>
+</Playground>
+
+## Give a theme
+
+<Playground>
+  <Button theme='danger'>Click me</Button>
+  <Button theme='info'>Click me</Button>
+  <Button theme='success'>Click me</Button>
+  <Button theme='main'>Click me</Button>
+</Playground>
+
+## Give a themeType outline
+
+<Playground>
+  <Button themeType='outline'>Click me</Button>
+  <Button theme='danger' themeType='outline'>Click me</Button>
+  <Button theme='info' themeType='outline'>Click me</Button>
+  <Button theme='success' themeType='outline'>Click me</Button>
+  <Button theme='main' themeType='outline'>Click me</Button>
+</Playground>
+
+## Give a themeType gradient
+
+<Playground>
+  <Button themeType='gradient'>Click me</Button>
+  <Button theme='danger' themeType='gradient'>Click me</Button>
+  <Button theme='info' themeType='gradient'>Click me</Button>
+  <Button theme='success' themeType='gradient'>Click me</Button>
+  <Button theme='main' themeType='gradient'>Click me</Button>
+</Playground>

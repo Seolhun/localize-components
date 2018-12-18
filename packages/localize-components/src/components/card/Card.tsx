@@ -1,5 +1,7 @@
 import React from 'react';
 
+import classnames from 'classnames';
+
 const styles = require('./Card.css');
 
 export interface CardProps {
@@ -19,7 +21,13 @@ const Card: React.SFC<CardProps> = ({
   children,
   style,
 }) => (
-  <div className={`${styles.card} ${className}`} style={style}>
+  <div
+    className={classnames(
+      className,
+      styles.Card,
+    )}
+    style={style}
+  >
     {children}
   </div>
 );

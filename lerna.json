@@ -3,20 +3,18 @@
   "npmClient": "yarn",
   "useWorkspaces": true,
   "packages": [
-    "packages/*",
-    "examples/**"
+    "packages/*"
   ],
   "command": {
     "publish": {
       "allowBranch": [
         "master",
-        "develop",
-        "feature/*"
+        "develop"
       ],
       "ignoreChanges": [
-        "examples",
-        "__test__",
-        "*.md"
+        "packages/localize-components-table",
+        "**/__test__",
+        "**/*.md"
       ]
     }
   },

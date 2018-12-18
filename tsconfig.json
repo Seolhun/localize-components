@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "es2015",
+    "module": "es6",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "lib": [
@@ -9,9 +9,11 @@
       "es5",
       "es6",
       "es7",
+      "es2018"
     ],
     "jsx": "react",
     /* Enable all strict type-checking options. */
+    // https://stackoverflow.com/questions/36795819/when-should-i-use-curly-braces-for-es6-import/36796281#36796281
     "strict": true,
 
     /* Strict Type-Checking Options */
@@ -47,17 +49,10 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "noEmitOnError": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "rootDir": ".",
     "outDir": "dist",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
   },
-  "include": [
-    "./src/**/*"
-  ],
   "exclude": [
     "node_modules/**",
     "packages/**",

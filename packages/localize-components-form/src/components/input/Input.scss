@@ -1,0 +1,118 @@
+@import '../../assets/scss/variable/color.scss';
+@import '../../assets/scss/variable/fontSize.scss';
+
+.__LocalizeHermes {
+  .InputBox {
+    background-color: map-get($map: $color_list, $key: gray-5);
+    border-radius: 3px;
+    border: 1px solid transparent;
+    display: flex;
+    height: 50px;
+    padding: 0;
+    transition: border-color 0.5s, background-color 0.5s;
+    vertical-align: middle;
+    width: 100%;
+
+    &:required {
+      color: map-get($map: $color_list, $key: warning);
+    }
+
+    &:disabled {
+      cursor: not-allowed !important;
+    }
+
+    // Not used style but used javascript logic for giving dynamic color
+    &.isFocused {
+      background-color: transparent !important;
+      border: 1px solid map-get($map: $color_list, $key: main);
+    }
+
+    input {
+      background-color: transparent;
+      border: 0;
+      color: map-get($map: $color_list, $key: gray-1);
+      cursor: text;
+      display: block;
+      height: auto;
+      line-height: 25px;
+      margin: auto 10px;
+      outline: none;
+      padding: 0;
+      white-space: nowrap;
+      width: 100%;
+
+      &::placeholder {
+        font-size: 14px;
+        font-weight: 300;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.90;
+        letter-spacing: -0.3px;
+        color: map-get($map: $color_list, $key: gray-2) !important;
+      }
+
+      &:required {
+        color: map-get($map: $color_list, $key: warning);
+      }
+
+      // // Not used style but used javascript logic for giving dynamic color
+      // &:focus {}
+
+      &:disabled {
+        background-color: map-get($map: $color_list, $key: basic);
+        border: 1px solid map-get($map: $color_list, $key: basic);
+        cursor: not-allowed !important;
+
+        &:hover {
+          background-color: map-get($map: $color_list, $key: basic);
+          border: 1px solid map-get($map: $color_list, $key: basic);
+        }
+      }
+    }
+
+    .InputEnterButton {
+      align-items: center;
+      background-color: map-get($map: $color_list, $key: gray-3);
+      border-radius: 0 3px 3px 0;
+      color: map-get($map: $color_list, $key: white);
+      cursor: pointer;
+      display: inline-flex;
+      flex-basis: 50px;
+      flex-shrink: 0;
+      float: right;
+      height: 100%;
+      justify-content: center;
+      vertical-align: middle;
+      width: 50px;
+
+      &.isFilled {
+        background-color: map-get($map: $color_list, $key: gray-1);
+      }
+
+      &.hasError {
+        background-color: map-get($map: $color_list, $key: gray-3) !important;
+        cursor: not-allowed !important;
+      }
+
+      &:hover, &:active {
+        background-color: map-get($map: $color_list, $key: gray-2);
+      }
+    }
+  }
+
+  .ErrorBox {
+    display: flex;
+    font-size: map-get($map: $font_sizes, $key: h6);
+    font-weight: 300;
+    height: auto;
+    min-height: 10px;
+    letter-spacing: -0.2px;
+    line-height: 0.90;
+    margin-top: 10px;
+    vertical-align: middle;
+    width: 100%;
+    &.hasError {
+      color: map-get($map: $color_list, $key: danger) !important;
+    }
+  }
+}

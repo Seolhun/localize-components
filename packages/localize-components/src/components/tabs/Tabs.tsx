@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { ReactNode, SFC } from 'react';
+
 import classnames from 'classnames';
 
 import {
-  LocalizeColor,
-  LocalizeColorType,
+  Themes,
+  ThemeType,
 } from '@seolhun/localize-components-types';
 import {
-  SetStyleUtils
+  getThemeStyle,
 } from '@seolhun/localize-components-utils';
-
 
 import Tab from './Tab';
 
@@ -19,63 +19,61 @@ export interface TabsProps {
   tabs: TabItemType[];
   onClickTab: (...args: any[]) => any;
   // isNotRequired
-  children?: React.ReactNode;
+  children?: ReactNode;
   className?: string;
-  color?: LocalizeColorType;
+  theme?: ThemeType;
   onClassName?: string;
-  renderOptions?: React.ReactNode;
+  options?: ReactNode;
 }
 
 export interface TabItemType {
-  label: React.ReactNode | string;
+  label: ReactNode | string;
   key: string;
-  render?: React.ReactNode;
+  render?: ReactNode;
 }
 
-const Tabs: React.SFC<TabsProps> = ({
+const Tabs: SFC<TabsProps> = ({
   currentTab,
   tabs,
   onClickTab,
   // isNotRequired
   children = null,
   className = '',
-  color = LocalizeColor.PRIMARY,
+  theme = Themes.PRIMARY,
   onClassName = '',
-  renderOptions = null,
+  options = null,
 }) => {
   return (
-    <React.Fragment>
+    <>
       <div className={className}>
         {tabs.map(({ label, key }) => (
           <Tab
             key={key}
-            className={classnames(`
-            ${styles.tab}
-            ${
+            className={classnames(
+              styles.Tab,
               currentTab === key
-                ? onClassName || SetStyleUtils.setColor(styles, color, 'on-')
-                : ''
-            }
-          `)}
+                ? onClassName || getThemeStyle(theme)
+                : '',
+            )}
             onClick={() => onClickTab(key)}
           >
             {label}
           </Tab>
         ))}
-        {renderOptions}
+        {options}
       </div>
       {children ||
         tabs.map(({ render, key }) => {
           return (
             <div
               key={key}
-              className={`${currentTab === key ? '' : styles.off}`}
+              className={currentTab === key ? '' : styles.off}
             >
               {render}
             </div>
           );
         })}
-    </React.Fragment>
+    </>
   );
 };
 

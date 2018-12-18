@@ -1,4 +1,5 @@
-@import '../../assets/scss/_variable/color.scss';
+@import '../../assets/scss/mixin/responsive.scss';
+@import '../../assets/scss/variable/color';
 
 :local .root {
   bottom: 0;
@@ -10,7 +11,7 @@
   width: auto;
 
   .title {
-    color: map-get($map: $defaultColors, $key: black);
+    color: map-get($map: $color_list, $key: black);
     font-size: 40px;
     font-weight: 600;
     margin-bottom: 14px;
@@ -18,7 +19,7 @@
   }
 
   .description {
-    color: map-get($map: $defaultColors, $key: black);
+    color: map-get($map: $color_list, $key: black);
     display: inline-block;
     font-size: 24px;
     font-weight: 600;

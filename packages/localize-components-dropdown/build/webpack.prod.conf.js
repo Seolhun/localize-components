@@ -12,7 +12,7 @@ const webpackConfig = merge(baseWebpackConfig, {
       extract: true
     })
   },
-  devtool: config.build.productionSourceMap ? 'inline-source-map' : false,
+  devtool: config.build.productionSourceMap ? 'source-map' : false,
   plugins: [
     new OptimizeCSSPlugin({
       cssProcessorOptions: {
