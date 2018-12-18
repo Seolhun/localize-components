@@ -51,15 +51,15 @@ jobs:
               yarn deploy:docs:dev
             fi
 
-      - run:
-          name: "Deploy Hermes into surge"
-          command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              yarn deploy:h
-            fi
-            if [ "${CIRCLE_BRANCH}" == "develop" ]; then
-              yarn deploy:h:dev
-            fi
+      # - run:
+      #     name: "Deploy Localize-Components into surge"
+      #     command: |
+      #       if [ "${CIRCLE_BRANCH}" == "master" ]; then
+      #         yarn deploy:h
+      #       fi
+      #       if [ "${CIRCLE_BRANCH}" == "develop" ]; then
+      #         yarn deploy:h:dev
+      #       fi
 
       - save_cache:
           paths:
