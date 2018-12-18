@@ -12,8 +12,8 @@ import {
 
 import { getNumberWithCommas } from '../../utils/PrintDataUtils';
 
-import bodyStyles from './BodyCell.scss';
-import styles from '../Cell.scss';
+import bodyStyles from './BodyCell.css';
+import styles from '../Cell.css';
 
 const EMPTY_CELL_VALUE = '-';
 

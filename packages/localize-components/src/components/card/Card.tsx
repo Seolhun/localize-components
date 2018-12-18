@@ -2,7 +2,7 @@ import React from 'react';
 
 import classnames from 'classnames';
 
-const styles = require('./Card.scss');
+const styles = require('./Card.css');
 
 export interface CardProps {
   children: React.ReactNode;

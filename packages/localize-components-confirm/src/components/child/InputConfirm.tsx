@@ -6,7 +6,7 @@ import {
   Input,
 } from '@seolhun/localize-components-form';
 
-const styles = require('./InputConfirm.scss');
+const styles = require('./InputConfirm.css');
 
 export interface InputConfirmProps {
   htmlFor: string;

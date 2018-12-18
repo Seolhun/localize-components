@@ -10,7 +10,7 @@ import {
   getThemeStyle,
 } from '@seolhun/localize-components-utils';
 
-const styles = require('./Chip.scss');
+const styles = require('./Chip.css');
 
 export interface ChipProps {
   children: ReactNode | string;

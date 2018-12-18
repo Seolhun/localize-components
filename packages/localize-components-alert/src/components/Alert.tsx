@@ -16,7 +16,7 @@ import {
   getThemeStyle,
 } from '@seolhun/localize-components-utils';
 
-const styles = require('./Alert.scss');
+const styles = require('./Alert.css');
 
 export interface AlertProps {
   onClickClose: (...args: any[]) => void;

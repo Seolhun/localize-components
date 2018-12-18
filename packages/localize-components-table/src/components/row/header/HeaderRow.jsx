@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { range } from 'lodash';
 
 import { HeaderCell } from '../../cell';
-import styles from './HeaderRow.scss';
+import styles from './HeaderRow.css';
 
 const HeaderRow = ({
   header,

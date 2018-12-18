@@ -13,8 +13,8 @@ import {
 import { getFlexAlign } from '../../utils/TableHelperUtils';
 import { getNumberWithCommas } from '../../utils/PrintDataUtils';
 
-import bodyStyles from './BodyCell.scss';
-import styles from './FreezingBodyCell.scss';
+import bodyStyles from './BodyCell.css';
+import styles from './FreezingBodyCell.css';
 
 const EMPTY_CELL_VALUE = '-';
 

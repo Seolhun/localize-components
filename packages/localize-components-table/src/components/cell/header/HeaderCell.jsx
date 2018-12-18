@@ -9,8 +9,8 @@ import {
   BORDER_COLOR,
 } from '../../constants';
 
-import headerStyles from './HeaderCell.scss';
-import styles from '../Cell.scss';
+import headerStyles from './HeaderCell.css';
+import styles from '../Cell.css';
 
 const EMPTY_CELL_VALUE = '-';
 

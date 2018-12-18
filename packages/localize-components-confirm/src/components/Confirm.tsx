@@ -22,7 +22,7 @@ import {
 
 import { BasicConfirm, InputConfirm } from './child';
 
-const styles = require('./Confirm.scss');
+const styles = require('./Confirm.css');
 
 export interface ConfirmProps {
   htmlFor: string;

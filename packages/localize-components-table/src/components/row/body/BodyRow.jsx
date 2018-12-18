@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { BodyCell } from '../../cell';
-import styles from './BodyRow.scss';
+import styles from './BodyRow.css';
 
 class BodyRow extends Component {
   static propTypes = {

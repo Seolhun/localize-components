@@ -2,7 +2,7 @@ import React, { Component, ReactNode } from 'react';
 
 import classnames from 'classnames';
 
-const styles = require('./Drawer.scss');
+const styles = require('./Drawer.css');
 
 interface DrawerProps {
   onClickClose: (...args: any[]) => void;

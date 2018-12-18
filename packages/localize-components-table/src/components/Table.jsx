@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import { DivTable, FreezingTable } from './tables';
 import { TABLE_TYPE, TABLE_CELL_SIZE } from './constants';
 
-import styles from './Table.scss';
+import styles from './Table.css';
 
 class Table extends Component {
   static propTypes = {

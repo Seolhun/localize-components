@@ -6,7 +6,7 @@ import { TABLE_CELL_SIZE } from '../constants';
 import { FreezingHeaderRow } from '../row/header';
 import { FreezingBodyRow } from '../row/body';
 
-import styles from './FreezingTable.scss';
+import styles from './FreezingTable.css';
 
 class FreezingTable extends Component {
   static propTypes = {

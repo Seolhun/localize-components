@@ -15,7 +15,7 @@ import {
 
 import classnames from 'classnames';
 
-import './Jumbotron.scss';
+import './Jumbotron.css';
 
 interface JumbotronProps {
   title: string;

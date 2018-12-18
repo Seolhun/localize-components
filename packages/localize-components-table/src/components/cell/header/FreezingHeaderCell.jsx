@@ -7,9 +7,9 @@ import {
   DEFAULT_HEADER_ROW_STYLE,
   BORDER_COLOR,
 } from '../../constants';
-import commonStyles from '../Cell.scss';
-import headerStyles from './HeaderCell.scss';
-import freezingStyles from './FreezingHeaderCell.scss';
+import commonStyles from '../Cell.css';
+import headerStyles from './HeaderCell.css';
+import freezingStyles from './FreezingHeaderCell.css';
 
 import { getFlexAlign } from '../../utils/TableHelperUtils';
 

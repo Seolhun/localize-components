@@ -11,7 +11,7 @@ import {
   Spinner
 } from '@seolhun/localize-components-atmic';
 
-import './DropdownSearch.scss';
+import './DropdownSearch.css';
 
 class DropdownSearch extends Component {
   static propTypes = {
