@@ -24,6 +24,7 @@
     "@seolhun/localize-components-types": "^0.0.13",
     "@seolhun/localize-components-utils": "^0.0.13",
     "docz-theme-default": "^0.13.4",
+    "docz": "^0.12.13",
     "react": "^16.6.3"
   },
   "devDependencies": {
@@ -50,7 +51,6 @@
     "clean-webpack-plugin": "^0.1.19",
     "compression-webpack-plugin": "^2.0.0",
     "css-loader": "^1.0.1",
-    "docz": "^0.12.13",
     "enzyme": "^3.4.4",
     "enzyme-adapter-react-16": "^1.2.0",
     "event-source-polyfill": "^1.0.3",
