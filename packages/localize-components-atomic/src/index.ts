@@ -8,11 +8,7 @@ import {
   CheckBox,
   CheckBoxProps,
   Input,
-  INPUT_STYLE_TYPE,
-  INPUT_TYPE,
   InputProps,
-  SelectBox,
-  SelectBoxProps,
 } from '@seolhun/localize-components-form';
 
 import Hr, { HrProps } from './components/hr';
@@ -28,12 +24,8 @@ export {
   CheckBoxProps,
   Hr,
   HrProps,
-  INPUT_STYLE_TYPE,
-  INPUT_TYPE,
   Input,
   InputProps,
   Spinner,
   SpinnerProps,
-  SelectBox,
-  SelectBoxProps,
 };

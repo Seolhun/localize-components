@@ -5,7 +5,7 @@ import classnames from 'classnames';
 const styles = require('./Drawer.scss');
 
 interface DrawerProps {
-  onClickClose: (args?: any[]) => void;
+  onClickClose: (...args: any[]) => void;
   // isNotRequired
   className: string;
   children: ReactNode;

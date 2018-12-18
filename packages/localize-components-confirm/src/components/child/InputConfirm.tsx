@@ -4,25 +4,23 @@ import classnames from 'classnames';
 
 import {
   Input,
-  INPUT_STYLE_TYPE,
-  INPUT_TYPE,
 } from '@seolhun/localize-components-form';
 
 const styles = require('./InputConfirm.scss');
 
 export interface InputConfirmProps {
   htmlFor: string;
-  onChange: (...args: any[]) => any;
+  onChange: (...args: any[]) => void;
   value: string;
   // isNotRequired
   errorMessage?: string;
-  onBlur?: () => any;
-  onKeyDown?: () => any;
+  inputStyleType?: string;
+  onBlur?: (...args: any[]) => void;
+  onKeyDown?: (...args: any[]) => void;
   placeholder?: string;
   required?: boolean;
-  inputStyleType?: string;
   submitIsDisabled?: boolean;
-  inputType?: string;
+  type?: string;
 }
 
 const InputConfirm: React.SFC<InputConfirmProps> = ({
@@ -31,20 +29,18 @@ const InputConfirm: React.SFC<InputConfirmProps> = ({
   value,
   // isNotRequired
   errorMessage = '',
-  inputStyleType = INPUT_STYLE_TYPE.BOX,
-  inputType = INPUT_TYPE.SEARCH,
   onBlur = () => null,
   onKeyDown = () => null,
   placeholder = '',
   required = true,
   submitIsDisabled = false,
+  type = 'search',
 }) => {
   return (
     <div className={styles.InputConfirm}>
       <Input
         className={styles.input}
-        type={inputType}
-        inputStyleType={inputStyleType}
+        type={type}
         htmlFor={htmlFor}
         value={value}
         placeholder={placeholder}
@@ -54,10 +50,10 @@ const InputConfirm: React.SFC<InputConfirmProps> = ({
         required={required}
       />
       <div
-        className={classnames(`
-          ${styles.errorMessageBox}
-          ${submitIsDisabled ? '' : styles.off}
-        `)}
+        className={classnames(
+          styles.errorMessageBox,
+          submitIsDisabled ? '' : styles.off,
+        )}
       >
         {errorMessage}
       </div>
