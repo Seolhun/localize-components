@@ -17,6 +17,9 @@
         "examples",
         "__test__",
         "*.md"
+      ],
+      "ignore": [
+        "packages/localize-components-table"
       ]
     }
   },
