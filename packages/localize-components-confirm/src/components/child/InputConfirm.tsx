@@ -41,12 +41,10 @@ const InputConfirm: React.SFC<InputConfirmProps> = ({
       <Input
         className={styles.input}
         type={type}
-        htmlFor={htmlFor}
         value={value}
         placeholder={placeholder}
         onChange={onChange}
         onBlur={onBlur}
-        onKeyDown={onKeyDown}
         required={required}
       />
       <div

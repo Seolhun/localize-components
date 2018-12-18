@@ -43,10 +43,10 @@ export interface InputProps {
    */
   fontSize?: number;
   /**
-   * Set this to change Input hasEror
-   * @default false
+   * Set this to change Input htmlFor
+   * @default ''
    */
-  hasError?: boolean;
+  htmlFor?: string;
   /**
    * Set this to change Input message
    * @default ''
@@ -310,7 +310,6 @@ class Input extends PureComponent<InputProps, InputState> {
             </div>
           )}
         </div>
-
         <div
           className={classnames(
             'ErrorBox',
