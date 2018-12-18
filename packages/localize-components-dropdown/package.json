@@ -14,17 +14,17 @@
   ],
   "scripts": {
     "build": "node build/build.js",
-    "bundle": "yarn style:clean && tsc && yarn style && yarn style:local",
+    "bundle": "yarn style:clean && tsc && yarn style",
+    "prebundle": "rm -rf dist",
     "bundle:local": "tsc && yarn style && yarn style:local",
     "style": "sass --update src:dist --style compressed",
     "style:watch": "sass --watch src:dist --style compressed",
     "style:local": "sass --update src:src --style compressed",
-    "style:clean": "find . -name *.css* -type f -delete",
+    "style:clean": "find ./src -name *.css* -type f -delete",
     "test": "jest"
   },
   "dependencies": {
-    "@seolhun/localize-components-preloader": "^0.0.13",
-    "@seolhun/localize-components-button": "^0.0.13",
+    "@seolhun/localize-components-atomic": "^0.0.13",
     "classnames": "^2.2.6",
     "jest": "^23.6.0",
     "lodash": "^4.17.11",

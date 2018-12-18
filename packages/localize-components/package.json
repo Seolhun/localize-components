@@ -14,14 +14,14 @@
   ],
   "scripts": {
     "build": "node build/build.js",
-    "bundle": "yarn style:clean && tsc && yarn style && yarn style:local",
+    "bundle": "yarn style:clean && tsc && yarn style",
+    "prebundle": "rm -rf dist",
     "bundle:local": "tsc && yarn style && yarn style:local",
     "style": "sass --update src:dist --style compressed",
     "style:watch": "sass --watch src:dist --style compressed",
     "style:local": "sass --update src:src --style compressed",
-    "style:clean": "find . -name *.css* -type f -delete",
-    "test": "jest",
-    "test-with-coverage": "jest --coverage && cat ./coverage/lcov.info | codacy-coverage"
+    "style:clean": "find ./src -name *.css* -type f -delete",
+    "test": "jest"
   },
   "dependencies": {
     "@seolhun/localize-components-alert": "^0.0.13",
