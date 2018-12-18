@@ -1,6 +1,6 @@
-import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
+import React from 'react';
 
 import {
   Button,
@@ -10,13 +10,14 @@ import {
 //   INPUT_STYLE_TYPE,
 // } from '@seolhun/localize-components-form';
 import {
-  LocalizeColor,
-  LocalizeColorType,
-  LocalizePosition,
-  LocalizePositionType,
+  Position,
+  PositionType,
+  Themes,
+  ThemeStyle,
 } from '@seolhun/localize-components-types';
 import {
-  SetStyleUtils
+  getPositionStyle,
+  getThemeStyle,
 } from '@seolhun/localize-components-utils';
 
 import { BasicConfirm, InputConfirm } from './child';
@@ -32,7 +33,7 @@ export interface ConfirmProps {
   cancelLabel?: string;
   children?: React.ReactNode;
   className?: string | undefined;
-  color?: LocalizeColorType;
+  theme?: ThemeStyle;
   errorMessage?: string;
   inputType?: string;
   isShow?: boolean;
@@ -41,7 +42,7 @@ export interface ConfirmProps {
   onChange: (...args: any[]) => any;
   onKeyDown?: (...args: any[]) => any;
   placeholder?: string;
-  position?: LocalizePositionType;
+  position?: PositionType;
   required?: boolean;
   inputStyleType?: string;
   submitIsDisabled?: boolean;
@@ -68,7 +69,7 @@ class Confirm extends React.Component<ConfirmProps> {
     cancelLabel: PropTypes.string,
     children: PropTypes.node,
     className: PropTypes.string,
-    color: PropTypes.string,
+    theme: PropTypes.string,
     errorMessage: PropTypes.string,
     inputStyleType: PropTypes.string,
     inputType: PropTypes.string,
@@ -90,10 +91,10 @@ class Confirm extends React.Component<ConfirmProps> {
     cancelLabel: 'Cancel',
     children: null,
     className: '',
-    color: 'purple', // LocalizeColor.PURPLE ||
-    errorMessage: 'Error',
-    inputStyleType: 'box', // INPUT_STYLE_TYPE.BOX ||
-    inputType: 'search', // INPUT_TYPE.SEARCH ||
+    theme: 'primary',
+    errorMessage: '',
+    inputStyleType: 'box',
+    inputType: 'search',
     isShow: false,
     message: '',
     onBlur: () => null,
@@ -129,9 +130,9 @@ class Confirm extends React.Component<ConfirmProps> {
       cancelLabel = 'Cancel',
       children = null,
       className = '',
-      color = LocalizeColor.PURPLE,
+      theme = Themes.PRIMARY,
       isShow = false,
-      position = LocalizePosition.CENTER,
+      position = Position.CENTER,
       submitIsDisabled = false,
       submitLabel = 'Complete',
       title = '',
@@ -142,15 +143,15 @@ class Confirm extends React.Component<ConfirmProps> {
       return null;
     }
     return (
-      <React.Fragment>
+      <>
         <div className={styles.coverBackground} />
         <div
-          className={classnames(`
-          ${styles.Confirm}
-          ${className}
-          ${SetStyleUtils.setColor(styles, color)}
-          ${SetStyleUtils.setPosition(styles, position)}
-        `)}
+          className={classnames(
+            styles.Confirm,
+            className,
+            getThemeStyle(theme),
+            getPositionStyle(position),
+          )}
         >
           <div className={styles.headerDiv}>{title}</div>
           <div className={styles.bodyDiv}>
@@ -158,7 +159,7 @@ class Confirm extends React.Component<ConfirmProps> {
           </div>
           <div className={styles.footerDiv}>
             <Button
-              className="btn btn-success"
+              className='btn btn-success'
               onClick={(event) => {
                 if (!submitIsDisabled) {
                   onClickSubmit(event);
@@ -168,12 +169,12 @@ class Confirm extends React.Component<ConfirmProps> {
             >
               {submitLabel}
             </Button>
-            <Button className="btn btn-warning" onClick={onClickClose}>
+            <Button className='btn btn-warning' onClick={onClickClose}>
               {cancelLabel}
             </Button>
           </div>
         </div>
-      </React.Fragment>
+      </>
     );
   }
 }

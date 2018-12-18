@@ -1,18 +1,18 @@
-@import '../assets/scss/_variable/color.scss';
+@import '../assets/scss/mixin/responsive.scss';
+@import '../assets/scss/variable/color';
 
 :local .Chip {
   display: block;
-  background-color: map-get($map: $defaultColors, $key: gray);
+  background-color: map-get($map: $color_list, $key: gray);
   border-radius: 6px;
-  border: 1px solid map-get($map: $defaultColors, $key: gray);
-  color: map-get($map: $defaultColors, $key: white);
+  border: 1px solid map-get($map: $color_list, $key: gray);
+  color: map-get($map: $color_list, $key: white);
 
   &:hover {
-    background-color: map-get($map: $defaultColors, $key: gray);
+    background-color: map-get($map: $color_list, $key: gray);
   }
 
-  @each $key,
-  $value in $defaultColors {
+  @each $key, $value in $color_list {
     &.chip-#{$key} {
       background-color: $value;
       border-color: $value;

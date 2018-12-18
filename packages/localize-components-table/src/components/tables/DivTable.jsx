@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import { HeaderRow } from '../row/header';
@@ -116,7 +116,7 @@ class DivTable extends Component {
     }
 
     return (
-      <Fragment>
+      <>
         <HeaderRow
           {...this.props}
           header={entities.header}
@@ -130,7 +130,7 @@ class DivTable extends Component {
             rowIndex={rowIndex}
           />
         ))}
-      </Fragment>
+      </>
     );
   }
 }

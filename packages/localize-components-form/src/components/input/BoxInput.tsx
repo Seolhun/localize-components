@@ -40,7 +40,7 @@ const BoxInput: React.SFC<BoxInputProps> = ({
   required = true,
   type = 'text',
 }) => (
-  <React.Fragment>
+  <>
     <label
       className={classnames(`
         ${styles.label}
@@ -74,7 +74,7 @@ const BoxInput: React.SFC<BoxInputProps> = ({
     >
       {errorMessage}
     </div>
-  </React.Fragment>
+  </>
 );
 
 export default BoxInput;

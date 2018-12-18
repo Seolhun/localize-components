@@ -13,7 +13,10 @@ const Tab: React.SFC<TabProps> = ({
   // isNotRequired
   className = '',
 }) => (
-  <button onClick={onClick} className={className}>
+  <button
+    className={className}
+    onClick={onClick}
+  >
     {children}
   </button>
 );

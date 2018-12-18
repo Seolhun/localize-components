@@ -1,5 +1,5 @@
-@import '../assets/scss/_mixin/responsive.scss';
-@import '../assets/scss/_variable/color.scss';
+@import '../assets/scss/mixin/responsive.scss';
+@import '../assets/scss/variable/color';
 
 :local .coverBackground {
   position: fixed;
@@ -17,7 +17,7 @@
 :local .alert {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  background-color: map-get($map: $defaultColors, $key: white);
+  background-color: map-get($map: $color_list, $key: white);
   border-radius: 8px;
   box-sizing: border-box;
   height: 260px;
@@ -125,10 +125,9 @@
   }
 }
 
-@each $key,
-$value in $defaultColors {
+@each $key, $value in $color_list {
   :local .bg-color-#{$key} {
-    background-color: map-get($map: $defaultColors, $key: white);
+    background-color: map-get($map: $color_list, $key: white);
     border: 0.1px solid $value;
   }
 }

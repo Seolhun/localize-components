@@ -14,12 +14,10 @@
         "feature/*"
       ],
       "ignoreChanges": [
-        "examples",
+        "packages/localize-components-table",
+        "packages/examples",
         "__test__",
         "*.md"
-      ],
-      "ignore": [
-        "packages/localize-components-table"
       ]
     }
   },

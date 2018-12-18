@@ -36,7 +36,7 @@ const UnderLineInput: React.SFC<UnderLineInputProps> = ({
   required = true,
   type = 'text',
 }) => (
-  <React.Fragment>
+  <>
     <label className={styles.underLineLabel} htmlFor={htmlFor}>
       <input
         ref={inputRef}
@@ -59,7 +59,7 @@ const UnderLineInput: React.SFC<UnderLineInputProps> = ({
     <div className={`${styles.errorDiv} ${hasError ? '' : styles.off}`}>
       {errorMessage}
     </div>
-  </React.Fragment>
+  </>
 );
 
 export default UnderLineInput;
