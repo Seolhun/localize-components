@@ -1,4 +1,4 @@
-import { Locale, LocaleType } from '@airbloc/hermes-types';
+import { Locale, LocaleType } from '@seolhun/localize-components-types';
 
 import en from './en';
 import ko from './ko';

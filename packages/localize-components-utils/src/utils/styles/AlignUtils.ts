@@ -1,7 +1,7 @@
 import {
   Align,
   AlignType,
-} from '@airbloc/hermes-types';
+} from '@seolhun/localize-components-types';
 
 const LocalStyles = require('./LocalStyles.css');
 

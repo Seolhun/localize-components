@@ -1,7 +1,7 @@
 import {
   InlineStyleHandler,
   InlineStyleState,
-} from '@airbloc/hermes-types';
+} from '@seolhun/localize-components-types';
 
 export const hexToRgba = (hex: string) => {
   if (hex[0] === '#') {

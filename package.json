@@ -29,6 +29,9 @@
     "clean": "lerna clean --yes",
     "deploy": "lerna publish from-git",
     "deploy:ex": "surge examples/dist/ http://localize-components.surge.sh",
+    "deploy:ex:dev": "surge packages/examples/dist/ http://dev.localize-components.examples.surge.sh",
+    "deploy:docs": "surge packages/docs/dist/ http://localize-components.docs.surge.sh",
+    "deploy:docs:dev": "surge packages/docs/dist/ http://dev.localize-components.docs.surge.sh",
     "version": "lerna version",
     "bs": "lerna bootstrap",
     "link": "lerna link"

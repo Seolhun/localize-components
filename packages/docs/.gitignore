@@ -31,3 +31,7 @@ yarn-error.*
 
 # Report
 coverage/
+
+# Docz
+.docz
+

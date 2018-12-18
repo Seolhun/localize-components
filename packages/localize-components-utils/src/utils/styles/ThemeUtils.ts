@@ -2,8 +2,8 @@ import {
   LightenTheme,
   ThemeStyle,
   ThemeType,
-} from '@airbloc/hermes-types';
-import { ThemeStyleOptions } from '@airbloc/hermes-types';
+} from '@seolhun/localize-components-types';
+import { ThemeStyleOptions } from '@seolhun/localize-components-types';
 
 const LocalStyles = require('./LocalStyles.css');
 
