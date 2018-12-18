@@ -13,13 +13,13 @@ class MenuView extends Component {
     return (
       <div className='App'>
         <Jumbotron
-          title='Hello, Hermes'
-          description='Hermes is made for getting my data rights'
+          title='Hello, Localize-Components'
+          description='Localize-Components is made for getting my data rights'
           theme='white'
         >
           <header className='App-header'>
             <h1>
-              Hermes demo
+              Localize-Components demo
             </h1>
 
             {routers.map((router) => {

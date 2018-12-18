@@ -2,38 +2,38 @@ import React, { Component } from 'react';
 
 import { Jumbotron } from '@seolhun/localize-components';
 
-export interface HermesViewState {
+export interface HomeViewState {
   isShow: boolean;
 }
 
-class HermesView extends Component<null, HermesViewState> {
+class HomeView extends Component<null, HomeViewState> {
   render() {
     return (
       <section>
         <Jumbotron
-          title='Hello, Localize'
-          description='Hermes is made for getting my data rights'
+          title='Hello, Localize-Components'
+          description='Localize-Components is made for preventing local styles'
           theme='primary'
         >
 
         </Jumbotron>
         <Jumbotron
           title='Hello, Hi-Cord'
-          description='Hermes is made for getting my data rights'
+          description='Localize-Components is made for preventing local styles'
           theme='yellow'
         >
 
         </Jumbotron>
         <Jumbotron
           title='Hello, Data rights'
-          description='Hermes is made for getting my data rights'
+          description='Localize-Components is made for preventing local styles'
           theme='danger'
         >
 
         </Jumbotron>
         <Jumbotron
           title='Hello, Developers'
-          description='Hermes is made for getting my data rights'
+          description='Localize-Components is made for preventing local styles'
           theme='purple'
         >
 
@@ -43,4 +43,4 @@ class HermesView extends Component<null, HermesViewState> {
   }
 }
 
-export default HermesView;
+export default HomeView;
