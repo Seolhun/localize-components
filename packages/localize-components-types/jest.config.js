@@ -1,16 +1,14 @@
 module.exports = {
-  roots: ['<rootDir>/packages/localize-components/src'],
-  transform: {
-    '^.+\\.tsx?$': 'ts-jest',
-    '^.+\\.ts?$': 'ts-jest',
-  },
-  testRegex: '(/_tests/.*|(\\.|/)(test|spec))\\.tsx?$',
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+  roots: ['.'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
   moduleNameMapper: {
-    '^@/(.*)': '<rootDir>/src/$1',
+    '^@/(.*)': './src/$1',
   },
-  testPathIgnorePatterns: [
-    '<rootDir>/node_modules/',
-    '<rootDir>/src/__tests__/_config_/',
-  ],
+  transform: {
+    '^.+\\.ts?(x)$': 'ts-jest',
+  },
+  testEnvironment: 'node',
+  testMatch: ['<rootDir>/src/**/?(*.)+(spec|test).ts?(x)'],
+  testPathIgnorePatterns: ['/node_modules/', '/src/__test__/_config_/'],
+  transformIgnorePatterns: ['/node_modules/', '/src/__test__/_config_/'],
 };

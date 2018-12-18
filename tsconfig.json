@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "es2015",
+    "module": "es6",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "lib": [
@@ -9,6 +9,7 @@
       "es5",
       "es6",
       "es7",
+      "es2018"
     ],
     "jsx": "react",
     /* Enable all strict type-checking options. */
@@ -48,17 +49,10 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "noEmitOnError": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "rootDir": ".",
     "outDir": "dist",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
   },
-  "include": [
-    "./src/**/*"
-  ],
   "exclude": [
     "node_modules/**",
     "packages/**",

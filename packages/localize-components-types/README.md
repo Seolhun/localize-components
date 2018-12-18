@@ -1,32 +1,69 @@
-# Localize Components
-[![CircleCI](https://circleci.com/gh/Seolhun/localize-components/tree/master.svg?style=svg)](https://circleci.com/gh/Seolhun/localize-components/tree/master)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2f4e28800ffd40f49437308309cbae45)](https://app.codacy.com/app/shun10114/localize-components?utm_source=github.com&utm_medium=referral&utm_content=Seolhun/localize-components&utm_campaign=badger)
-[![codebeat badge](https://codebeat.co/badges/5f191928-a3e9-469d-beed-445bb4cde65d)](https://codebeat.co/projects/github-com-seolhun-localize-components-master)
+# Airbloc hermes project
+
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/)
 
-- Author : [HunSeol](https://github.com/Seolhun/)
+## Status
+- master
+[![CircleCI](https://circleci.com/gh/airbloc/airbloc-hermes/tree/master.svg?style=svg)](https://circleci.com/gh/airbloc/airbloc-hermes/tree/master)
+
+## Modules
+- hermes
+- hermes-utils
+- hermes-types
+- hermes-examples
+- hermes-docs
 
 ## Used stacks
-- React
 - TypeScript
 - SCSS
-- Storybook
+- React
 
 ## Getting start
+
 #### Install Package
+- NPM
 ```bash
-$ yarn add @seolhun/localize-components
+$ npm install @airbloc/hermes@latest
 ```
 
-#### Run Docs
+- Yarn
 ```bash
-$ yarn run dev
+$ yarn add @airbloc/hermes@latest
 ```
 
-## How to use
-#### import
-```js
-import { Button, anything } from '@seolhun/localize-components';
-or 
-import * as Components from '@seolhun/localize-components';
+- JavaScript - CDN
+```javascript
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Hermex Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="http://airbloc-hermes.surge.sh/index.js"></script>
+</head>
+<body>
+  <section id='airbloc-hermes' />
+</body>
+<script type="text/javascript">
+  window.Airbloc.render('#airbloc-hermes', {
+    locale: 'ko',
+    position: 'bottom-right',
+    theme: {
+      mainColor: '#28a745',
+      subColor: '#0069d9',
+      useGradient: true,
+    },
+    subTheme: {
+      mainColor: '#28a745',
+    },
+  });
+</script>
+</html>
 ```
+
+## Docs
+[airbloc-hermes docs](http://airbloc-hermes-docs.surge.sh/)
+
+## Examples
+[airbloc-hermes examples](http://airbloc-hermes-examples.surge.sh/#/)
