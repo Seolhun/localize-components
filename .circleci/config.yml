@@ -17,7 +17,7 @@ jobs:
           - v1-dependencies-
 
       - run:
-          name: "Checking Versions"
+          name: "Checking versions"
           command: |
             node --version
             npm --version
@@ -28,11 +28,15 @@ jobs:
           command: yarn install
 
       - run:
-          name: "Lerna Bootstrap packages"
+          name: "Lerna bootstrap packages"
+          command: yarn bs
+
+      - run:
+          name: "Lerna packages bundling"
           command: yarn bundle
 
       - run:
-          name: "Deploy Examples into surge"
+          name: "Deploy examples into surge"
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               yarn deploy:ex
@@ -42,7 +46,7 @@ jobs:
             fi
 
       - run:
-          name: "Deploy Docs into surge"
+          name: "Deploy docs into surge"
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
               yarn deploy:docs
