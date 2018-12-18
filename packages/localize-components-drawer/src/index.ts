@@ -1,5 +1,5 @@
 // Components
-import Drawer from './Drawer';
+import Drawer from './components';
 
 export {
   Drawer,

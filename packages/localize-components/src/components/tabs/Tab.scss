@@ -1,6 +1,8 @@
 
 
-@import '../../assets/scss/_variable/color.scss';
+@import '../../assets/scss/mixin/responsive.scss';
+@import '../../assets/scss/variable/color';
+
 :local .tab {
   border-bottom: 2px solid transparent;
   color: map-get($map: $color_list, $key: gray);

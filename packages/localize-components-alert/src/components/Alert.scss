@@ -125,8 +125,7 @@
   }
 }
 
-@each $key,
-$value in $color_list {
+@each $key, $value in $color_list {
   :local .bg-color-#{$key} {
     background-color: map-get($map: $color_list, $key: white);
     border: 0.1px solid $value;

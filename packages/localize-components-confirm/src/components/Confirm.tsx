@@ -91,8 +91,8 @@ class Confirm extends React.Component<ConfirmProps> {
     cancelLabel: 'Cancel',
     children: null,
     className: '',
-    theme:   .
-    errorMessage: Error,
+    theme: 'primary',
+    errorMessage: '',
     inputStyleType: 'box',
     inputType: 'search',
     isShow: false,

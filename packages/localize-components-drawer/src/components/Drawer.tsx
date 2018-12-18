@@ -1,10 +1,17 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component, ReactNode } from 'react';
+
 import classnames from 'classnames';
 
-import styles from './Drawer.scss';
+const styles = require('./Drawer.scss');
 
-class Drawer extends Component {
+interface DrawerProps {
+  onClickClose: (args?: any[]) => void;
+  // isNotRequired
+  className: string;
+  children: ReactNode;
+}
+
+class Drawer extends Component<DrawerProps> {
   componentDidMount() {
     document.addEventListener('keydown', this.handleESCtoCloseDrawer, false);
     document.body.style.overflow = 'hidden';
@@ -23,10 +30,13 @@ class Drawer extends Component {
 
   handleClickCloseDrawer = () => {
     this.props.onClickClose();
-  };
+  }
 
   render() {
-    const { className, children, onClickClose } = this.props;
+    const {
+      className,
+      children,
+    } = this.props;
 
     return (
       <>
@@ -48,7 +58,7 @@ class Drawer extends Component {
           <div className='row'>
             <div
               className='drawerClose col-xs-1 mz ib v-top right height-100vh'
-              onClick={onClickClose}
+              onClick={this.handleClickCloseDrawer}
               role='presentation'
             >
               <div className='pd'>
@@ -75,17 +85,8 @@ class Drawer extends Component {
   }
 }
 
-Drawer.propTypes = {
-  onClickClose: PropTypes.func.isRequired,
-  // isNotRequired
-  className: PropTypes.string,
-  children: PropTypes.node,
-};
-
-Drawer.defaultProps = {
-  // isNotRequired
-  className: '',
-  children: <div />,
+export {
+  DrawerProps,
 };
 
 export default Drawer;

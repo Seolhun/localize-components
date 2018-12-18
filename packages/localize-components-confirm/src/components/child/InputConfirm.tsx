@@ -1,13 +1,14 @@
 import React from 'react';
+
 import classnames from 'classnames';
 
 import {
   Input,
-  INPUT_TYPE,
   INPUT_STYLE_TYPE,
+  INPUT_TYPE,
 } from '@seolhun/localize-components-form';
 
-import styles from './InputConfirm.scss';
+const styles = require('./InputConfirm.scss');
 
 export interface InputConfirmProps {
   htmlFor: string;

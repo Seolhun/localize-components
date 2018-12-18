@@ -1,6 +1,9 @@
-@import '../../../assets/scss/_mixin/responsive.scss';
-@import '../../../assets/scss/_variable/grid.scss';
-@import '../../../assets/scss/_variable/color.scss';
+@import '../../../assets/scss/mixin/responsive.scss';
+@import '../../../assets/scss/variable/color';
+
+
+$sidebarSize: 250px;
+$headerSize: 60px;
 
 :local .sidebar {
   background-color: map-get($map: $color_list, $key: white);

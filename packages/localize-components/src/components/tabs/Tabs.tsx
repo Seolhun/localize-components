@@ -49,14 +49,12 @@ const Tabs: SFC<TabsProps> = ({
         {tabs.map(({ label, key }) => (
           <Tab
             key={key}
-            className={classnames(`
-            ${styles.tab}
-            ${
+            className={classnames(
+              styles.Tab,
               currentTab === key
                 ? onClassName || getThemeStyle(theme)
-                : ''
-            }
-          `)}
+                : '',
+            )}
             onClick={() => onClickTab(key)}
           >
             {label}
@@ -69,7 +67,7 @@ const Tabs: SFC<TabsProps> = ({
           return (
             <div
               key={key}
-              className={`${currentTab === key ? '' : styles.off}`}
+              className={currentTab === key ? '' : styles.off}
             >
               {render}
             </div>

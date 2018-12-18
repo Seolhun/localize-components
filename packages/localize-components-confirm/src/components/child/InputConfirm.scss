@@ -1,4 +1,5 @@
-@import '../../assets/scss/_variable/color.scss';
+@import '../../assets/scss/mixin/responsive.scss';
+@import '../../assets/scss/variable/color';
 
 :local .InputConfirm {
   color: map-get($map: $color_list, $key: black);
@@ -8,6 +9,7 @@
     width: 100%;
     max-width: 100%;
   }
+
   .errorMessageBox {
     width: 100%;
     color: map-get($map: $color_list, $key: danger);
