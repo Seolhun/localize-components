@@ -7,7 +7,9 @@ import {
   throttle,
 } from 'lodash';
 
-import Preloader from '@seolhun/localize-components-preloader';
+import {
+  Spinner
+} from '@seolhun/localize-components-atmic';
 
 import './DropdownSearch.scss';
 

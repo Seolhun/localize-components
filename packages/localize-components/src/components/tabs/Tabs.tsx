@@ -44,7 +44,7 @@ const Tabs: React.SFC<TabsProps> = ({
   renderOptions = null,
 }) => {
   return (
-    <React.Fragment>
+    <>
       <div className={className}>
         {tabs.map(({ label, key }) => (
           <Tab
@@ -75,7 +75,7 @@ const Tabs: React.SFC<TabsProps> = ({
             </div>
           );
         })}
-    </React.Fragment>
+    </>
   );
 };
 

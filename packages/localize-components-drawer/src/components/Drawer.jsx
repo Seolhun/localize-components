@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 
@@ -29,7 +29,7 @@ class Drawer extends Component {
     const { className, children, onClickClose } = this.props;
 
     return (
-      <Fragment>
+      <>
         <div
           className={styles.drawerBackground}
           onClick={this.handleClickCloseDrawer}
@@ -70,7 +70,7 @@ class Drawer extends Component {
             </div>
           </div>
         </div>
-      </Fragment>
+      </>
     );
   }
 }

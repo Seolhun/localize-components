@@ -43,7 +43,7 @@ const Alert: React.SFC<AlertProps> = ({
   }
 
   return (
-    <React.Fragment>
+    <>
       <div className={styles.coverBackground} />
       <div
         className={classnames(`
@@ -61,7 +61,7 @@ const Alert: React.SFC<AlertProps> = ({
           </Button>
         </div>
       </div>
-    </React.Fragment>
+    </>
   );
 };
 

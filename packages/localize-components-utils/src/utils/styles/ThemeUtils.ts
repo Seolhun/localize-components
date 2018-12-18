@@ -43,14 +43,12 @@ export const getThemeStyleKey = (
 
 export const getThemeStyle = (
   theme: ThemeType,
-  options: ThemeStyleOptions,
+  options: ThemeStyleOptions = {
+    themeType: ThemeStyle.Background,
+  },
   styles = LocalStyles,
 ) => {
-  const {
-    themeType = ThemeStyle.Background,
-    useHover = false,
-  } = options;
-  const themeKey = getThemeStyleKey(theme, { themeType, useHover });
+  const themeKey = getThemeStyleKey(theme, options);
   return styles[themeKey];
 };
 
