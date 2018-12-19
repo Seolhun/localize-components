@@ -36,16 +36,6 @@ jobs:
           command: yarn bundle
 
       - run:
-          name: "Deploy examples into surge"
-          command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              yarn deploy:ex
-            fi
-            if [ "${CIRCLE_BRANCH}" == "develop" ]; then
-              yarn deploy:ex:dev
-            fi
-
-      - run:
           name: "Deploy docs into surge"
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
@@ -53,6 +43,16 @@ jobs:
             fi
             if [ "${CIRCLE_BRANCH}" == "develop" ]; then
               yarn deploy:docs:dev
+            fi
+            
+      - run:
+          name: "Deploy examples into surge"
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              yarn deploy:ex
+            fi
+            if [ "${CIRCLE_BRANCH}" == "develop" ]; then
+              yarn deploy:ex:dev
             fi
 
       # - run:
