@@ -1,5 +1,7 @@
 import React, { PureComponent, ReactNode } from 'react';
 
+import { css } from '@emotion/core';
+
 import {
   Align,
   AlignType,

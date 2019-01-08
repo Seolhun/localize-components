@@ -24,6 +24,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.6",
     "@seolhun/localize-components-alert": "^0.0.13",
     "@seolhun/localize-components-chip": "^0.0.13",
     "@seolhun/localize-components-confirm": "^0.0.13",
@@ -57,6 +58,7 @@
     "awesome-typescript-loader": "^5.2.1",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
+    "babel-plugin-emotion": "^10.0.6",
     "clean-webpack-plugin": "^0.1.19",
     "compression-webpack-plugin": "^2.0.0",
     "css-loader": "^1.0.1",
