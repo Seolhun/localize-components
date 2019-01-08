@@ -1,7 +1,3 @@
----
-name: Localize React Components
-route: /
----
 # Localize React Components
 
 [![CircleCI](https://circleci.com/gh/Seolhun/localize-components/tree/master.svg?style=svg)](https://circleci.com/gh/Seolhun/localize-components/tree/master)
@@ -11,11 +7,20 @@ route: /
 
 - Author : [HunSeol](https://github.com/Seolhun/)
 
+## Goal
+- localized-style for custom.
+- stylesheet variable(using props) on localize-components.
+- One components must has a one stylesheet and design. but components be changed using theme props.
+
+## Why
+- I just want to build react components has no side effect. because some components has a global stylesheet affect original project style sheet.
+- **I think that all components must be standalone anywhere, any environments.**
+
 ## Used stacks
 - React
 - TypeScript
 - SCSS
-- Storybook
+- emotion
 - Docz
 
 ## Getting start
@@ -33,4 +38,10 @@ import { Alert } from '@seolhun/localize-components';
 ```
 
 ## Examples
-[localize-components examples](http://localize-components.surge.sh/#/)
+### PROD
+- Docs : [localize-components-examples.surge.sh](http://localize-components-docs.surge.sh/#/)
+- Examples : [localize-components-examples.surge.sh](http://localize-components-examples.surge.sh/#/)
+
+### DEV
+- Docs : [dev.localize-components-examples.surge.sh](http://dev.localize-components-docs.surge.sh/#/)
+- Examples : [dev.localize-components-examples.surge.sh](http://dev.localize-components-examples.surge.sh/#/)

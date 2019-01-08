@@ -18,7 +18,7 @@ class LocalizeView extends Component<null, LocalizeViewState> {
 
         </Jumbotron>
         <Jumbotron
-          title='Hello, AB180'
+          title='Hello, Seolhun'
           description='Localize-Components is made for preventing local styles'
           theme='success'
         >
