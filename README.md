@@ -37,4 +37,10 @@ import { Alert } from '@seolhun/localize-components';
 ```
 
 ## Examples
-[localize-components examples](http://localize-components.surge.sh/#/)
+### PROD
+- Docs : [localize-components-examples.surge.sh](http://localize-components-docs.surge.sh/#/)
+- Examples : [localize-components-examples.surge.sh](http://localize-components-examples.surge.sh/#/)
+
+### DEV
+- Docs : [dev.localize-components-examples.surge.sh](http://dev.localize-components-docs.surge.sh/#/)
+- Examples : [dev.localize-components-examples.surge.sh](http://dev.localize-components-examples.surge.sh/#/)
