@@ -6,15 +6,15 @@ import {
   Button,
 } from '@seolhun/localize-components-button';
 import {
+  getPositionStyle,
+  getThemeStyle,
+} from '@seolhun/localize-components-styled-utils';
+import {
   Position,
   PositionType,
   Themes,
   ThemeType,
 } from '@seolhun/localize-components-types';
-import {
-  getPositionStyle,
-  getThemeStyle,
-} from '@seolhun/localize-components-utils';
 
 const styles = require('./Alert.css');
 

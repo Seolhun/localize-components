@@ -3,12 +3,12 @@ import React, { ReactNode, SFC } from 'react';
 import classnames from 'classnames';
 
 import {
+  getThemeStyle,
+} from '@seolhun/localize-components-styled-utils';
+import {
   Themes,
   ThemeType,
 } from '@seolhun/localize-components-types';
-import {
-  getThemeStyle,
-} from '@seolhun/localize-components-utils';
 
 const styles = require('./Chip.css');
 

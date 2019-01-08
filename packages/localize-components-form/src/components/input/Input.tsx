@@ -3,15 +3,15 @@ import React, { PureComponent, ReactNode } from 'react';
 import classnames from 'classnames';
 
 import {
+  getThemeStyle,
+} from '@seolhun/localize-components-styled-utils';
+import {
   BrandTheme,
   ThemeStyle,
   ThemeStyleType,
   ThemeType,
   ValidationResponse,
 } from '@seolhun/localize-components-types';
-import {
-  getThemeStyle,
-} from '@seolhun/localize-components-utils';
 
 import './Input.css';
 

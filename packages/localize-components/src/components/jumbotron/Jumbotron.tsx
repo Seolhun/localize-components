@@ -1,7 +1,9 @@
 import React, { PureComponent, ReactNode } from 'react';
 
-import { css } from '@emotion/core';
-
+import {
+  getAlignStyle,
+  getThemeStyle,
+} from '@seolhun/localize-components-styled-utils';
 import {
   Align,
   AlignType,
@@ -10,10 +12,6 @@ import {
   ThemeStyleType,
   ThemeType,
 } from '@seolhun/localize-components-types';
-import {
-  getAlignStyle,
-  getThemeStyle,
-} from '@seolhun/localize-components-utils';
 
 import classnames from 'classnames';
 

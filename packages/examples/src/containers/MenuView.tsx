@@ -15,29 +15,36 @@ class MenuView extends Component {
         <Jumbotron
           title='Hello, Localize-Components'
           description='Localize-Components is made for getting my data rights'
-          theme='white'
+          theme='WHITE'
         >
           <header className='App-header'>
             <h1>
               Localize-Components demo
             </h1>
+            <Button
+              size='medium'
+              disabled
+            >
+              Hello
+            </Button>
 
             {routers.map((router) => {
               return (
-                <Button
-                  theme='primary'
+                <Link
+                  key={router.label}
+                  to={router.path}
                 >
-                  <Link
-                    key={router.label}
-                    to={router.path}
+                  <Button
+                    size='medium'
+                    mainColor='DANGER'
                   >
                     {router.label}
-                  </Link>
-                </Button>
+                  </Button>
+                </Link>
               );
             })}
           </header>
-        </Jumbotron>
+        </Jumbotron>;
       </div>
     );
   }

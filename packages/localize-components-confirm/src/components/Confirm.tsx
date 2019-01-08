@@ -5,20 +5,18 @@ import React from 'react';
 import {
   Button,
 } from '@seolhun/localize-components-button';
-// import {
-//   INPUT_TYPE,
-//   INPUT_STYLE_TYPE,
-// } from '@seolhun/localize-components-form';
+
+import {
+  getPositionStyle,
+  getThemeStyle,
+} from '@seolhun/localize-components-styled-utils';
+
 import {
   Position,
   PositionType,
   Themes,
   ThemeStyle,
 } from '@seolhun/localize-components-types';
-import {
-  getPositionStyle,
-  getThemeStyle,
-} from '@seolhun/localize-components-utils';
 
 import { BasicConfirm, InputConfirm } from './child';
 

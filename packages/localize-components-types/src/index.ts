@@ -30,10 +30,6 @@ import {
   PositionType,
 } from './types/styles/Position';
 import {
-  Size,
-  SizeType,
-} from './types/styles/Size';
-import {
   BrandTheme,
   DarkenTheme,
   LightenTheme,
@@ -63,9 +59,6 @@ export {
   // Position
   Position,
   PositionType,
-  // Size
-  Size,
-  SizeType,
   // Theme
   BrandTheme,
   DarkenTheme,
@@ -87,8 +80,6 @@ export default {
   Align,
   // Position
   Position,
-  // Size
-  Size,
   // Theme
   BrandTheme,
   DarkenTheme,

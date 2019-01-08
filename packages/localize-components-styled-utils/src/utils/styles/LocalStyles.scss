@@ -1,0 +1,154 @@
+@import '../../assets//scss/variable/color';
+@import '../../assets//scss/variable/align';
+
+// Color
+@each $key, $value in $color_list {
+  :local .text-#{$key} {
+    color: $value;
+  }
+
+  :local .outline-#{$key} {
+    border: 1px solid $value !important;
+  }
+
+  :local .background-darken-#{$key} {
+    background-color: $value;
+    color: map-get($map: $color_list, $key: white);
+  }
+
+  :local .background-lighten-#{$key} {
+    background-color: $value;
+    color: map-get($map: $color_list, $key: gray);
+  }
+
+  :local .background-darken-#{$key}-hover {
+    background-color: $value;
+    color: map-get($map: $color_list, $key: white);
+
+    &:hover {
+      transition: all 150 linear;
+      background-color: lighten($color: $value, $amount: 15);
+    }
+
+    &:active {
+      transition: all 150 linear;
+      background-color: lighten($color: $value, $amount: 25);
+    }
+  }
+
+  :local .background-lighten-#{$key}-hover {
+    background-color: $value;
+    color: map-get($map: $color_list, $key: gray);
+
+    &:hover {
+      transition: all 150 linear;
+      background-color: darken($color: $value, $amount: 15);
+    }
+
+    &:active {
+      transition: all 150 linear;
+      background-color: darken($color: $value, $amount: 25);
+    }
+  }
+
+  :local .gradient-darken-#{$key} {
+    background-image: linear-gradient(
+      to bottom right,
+      $value,
+      darken($color: $value, $amount: 20)
+    );
+    color: map-get($map: $color_list, $key: white) ;
+  }
+
+  :local .gradient-lighten-#{$key} {
+    background-image: linear-gradient(
+      to bottom right,
+      $value,
+      darken($color: $value, $amount: 20)
+    );
+    color: map-get($map: $color_list, $key: gray);
+  }
+}
+
+// Position
+:local .top-center {
+  top: 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+:local .top-left {
+  top: 0;
+  left: 10px;
+  bottom: auto;
+  right: auto;
+}
+
+:local .top-right {
+  top: 0;
+  right: 10px;
+  bottom: auto;
+  left: auto;
+}
+
+:local .center {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+:local .left {
+  top: 0;
+  bottom: 0;
+  left: 10px;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+:local .right {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 10px;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+:local .bottom-center {
+  bottom: 15px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+:local .bottom-left {
+  top: auto;
+  bottom: 15px;
+  left: 10px;
+  right: auto;
+}
+
+:local .bottom-right {
+  top: auto;
+  bottom: 15px;
+  left: auto;
+  right: 10px;
+}
+
+// Align
+@each $key, $value in $aligns {
+  :local .align-#{$key} {
+    text-align: $value;
+  }
+}
+
+@each $key, $value in $flex_aligns {
+  :local .flex-align-#{$key} {
+    justify-content: $value;
+  }
+}
