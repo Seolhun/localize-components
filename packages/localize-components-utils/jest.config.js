@@ -1,16 +1,23 @@
 module.exports = {
-  roots: ['.'],
-  transform: {
-    '^.+\\.ts?(x)$': 'ts-jest',
-  },
+  rootDir: '.',
+  setupTestFrameworkScriptFile: '<rootDir>/src/__test__/_config_/index.ts',
   testMatch: [
-    '<rootDir>/src/**/?(*.)+(spec|test).ts?(x)'
+    '<rootDir>/src/**/*.test.ts?(x)',
   ],
   moduleFileExtensions: [
-    'ts', 'tsx', 'js', 'jsx',
+    'ts', 'tsx', 'js', 'jsx', 'json'
   ],
   testPathIgnorePatterns: [
     '/node_modules/',
     '/src/__test__/_config_/'
   ],
+  preset: 'ts-jest',
+  globals: {
+    'ts-jest': {
+      diagnostics: {
+        pathRegex: /\.(spec|test)\.ts?(x)$/,
+        warnOnly: true,
+      }
+    }
+  }
 };
