@@ -23,7 +23,9 @@
     "@seolhun/localize-components": "^0.0.13",
     "@seolhun/localize-components-atomic": "^0.0.13",
     "@seolhun/localize-components-types": "^0.0.13",
+    "@seolhun/localize-components-styled-types": "^0.0.13",
     "@seolhun/localize-components-utils": "^0.0.13",
+    "@seolhun/localize-components-styled-utils": "^0.0.13",
     "docz": "^0.12.13",
     "docz-theme-default": "^0.13.4",
     "react": "^16.6.3"

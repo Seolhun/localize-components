@@ -42,27 +42,8 @@ export const Themes = {
   ...LightenTheme,
 };
 
-export enum ThemeStyle {
-  Background = 'background',
-  Gradient = 'gradient',
-  Outline = 'outline',
-  Text = 'text',
-}
-
-export type ThemeStyleType =
-  | ThemeStyle.Background
-  | ThemeStyle.Gradient
-  | ThemeStyle.Outline
-  | ThemeStyle.Text;
-
-export interface ThemeStyleOptions {
-  themeType?: ThemeStyleType;
-  useHover?: boolean;
-}
-
 export default {
   DarkenTheme,
   LightenTheme,
   Themes,
-  ThemeStyle,
 };

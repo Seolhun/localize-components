@@ -8,7 +8,6 @@ import {
   SizeType,
   ThemeConfig,
   Themes,
-  ThemeStyleType,
   ThemesType,
 } from '@seolhun/localize-components-styled-types';
 import {
@@ -86,11 +85,6 @@ export interface ButtonProps {
    * @default ThemeConfiguration.SUB_THEME
    */
   subColor?: ThemesType;
-  /**
-   * Set this to change Button ours theme type
-   * @default 'background'
-   */
-  themeType?: ThemeStyleType;
 }
 
 const Button: SFC<ButtonProps> = ({
