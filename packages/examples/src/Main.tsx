@@ -11,10 +11,10 @@ import './Main.scss';
 
 render(
   <HashRouter>
-    <div className='App'>
+    <section>
       <MenuView />
       <Routes />
-    </div>
+    </section>
   </HashRouter>,
   document.getElementById('app'),
 );
