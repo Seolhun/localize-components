@@ -33,7 +33,7 @@ class MenuView extends Component {
             >
               <Button
                 size='medium'
-                mainColor='WHITE'
+                mainColor='white'
               >
                 {router.label}
               </Button>

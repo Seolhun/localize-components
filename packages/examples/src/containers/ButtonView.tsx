@@ -9,7 +9,7 @@ class MenuView extends Component {
     return (
       <div className='container'>
         <div className='row'>
-          <div className='row'>
+          <div className='col-sm-12'>
             <Button
               size='large'
             >

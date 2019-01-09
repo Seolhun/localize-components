@@ -1,6 +1,8 @@
 import React, { ReactNode, SFC } from 'react';
 
 import styled from '@emotion/styled';
+import { darken, lighten } from 'polished';
+
 import classnames from 'classnames';
 
 import {
@@ -12,7 +14,6 @@ import {
 } from '@seolhun/localize-components-styled-types';
 import {
   getIsLightenTheme,
-  getLightenDarkenColor,
 } from '@seolhun/localize-components-styled-utils';
 
 export interface ButtonProps {
@@ -96,6 +97,7 @@ const Button: SFC<ButtonProps> = ({
   onMouseOver = () => null,
   disabled,
   children,
+  fontSize = 12,
   style,
 }: ButtonProps) => (
   <button
@@ -131,14 +133,14 @@ const StyledButton = styled(Button)<ButtonProps>`
     mainColor = ThemeConfig.MAIN_THEME,
   }: ButtonProps) => {
     if (getIsLightenTheme(mainColor)) {
-      return Themes.BLACK;
+      return Themes.black;
     }
-    return Themes.WHITE;
+    return Themes.white;
   }};
   cursor: pointer;
   display: inline-block;
   font-size: ${({ fontSize = 12 }: ButtonProps) => `${fontSize}px`};
-  font-weight: 600;
+  font-weight: 500;
   height: auto;
   line-height: 1.5;
   margin: 5px;
@@ -147,10 +149,10 @@ const StyledButton = styled(Button)<ButtonProps>`
     switch (size) {
       case Size.LARGE:
         return '15px 30px';
-      case Size.SMALL:
-        return '5px 20px';
-      default:
+      case Size.MEDIUM:
         return '10px 25px';
+      default:
+        return '5px 20px';
     }
   }};
   text-align: center;
@@ -168,18 +170,18 @@ const StyledButton = styled(Button)<ButtonProps>`
     background-color: ${({
       mainColor = ThemeConfig.MAIN_THEME,
     }: ButtonProps) => {
-      return getLightenDarkenColor(Themes[mainColor], 20);
+      if (getIsLightenTheme(mainColor)) {
+        return darken(0.1, Themes[mainColor]);
+      }
+      return lighten(0.1, Themes[mainColor]);
     }};
   }
 
-  &:disabled {
-    background-color: ${Themes.LIGHT_GRAY};
-    color: ${Themes.WHITE};
-    cursor: not-allowed;
 
-    &:hover {
-      background-color: ${getLightenDarkenColor(Themes.GRAY, 20)};
-    }
+  &:disabled {
+    background-color: ${Themes.light_gray};
+    color: ${Themes.white};
+    cursor: not-allowed;
   }
 `;
 
