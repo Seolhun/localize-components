@@ -19,9 +19,13 @@ export default {
         }]
       }
     },
-    radii: '4px',
     themeConfig: {
       codemirrorTheme: 'dracula'
+    },
+    radii: '4px',
+    container: {
+      width: ['100%', '100%', 920],
+      padding: ['20px', '0 40px 40px'],
     },
     showPlaygroundEditor: true,
     styles: {

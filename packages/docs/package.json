@@ -19,6 +19,7 @@
     "docz:build": "docz build"
   },
   "dependencies": {
+    "@emotion/core": "^10.0.6",
     "@emotion/styled": "^10.0.6",
     "@seolhun/localize-components": "^0.0.13",
     "@seolhun/localize-components-atomic": "^0.0.13",

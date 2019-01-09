@@ -76,14 +76,13 @@ export interface ButtonProps {
   size?: SizeType;
   /**
    * Set this to change Button ours mainColor
-   * @default ThemeConfiguration.MAIN_THEME
+   * @default ThemeConfig.MAIN_THEME = royal_blue
    * @see https://emotion.sh/docs/theming
-   * @description Naming is Because of emotion default props 'theme'
    */
   mainColor?: ThemesType;
   /**
    * Set this to change Button ours subColor
-   * @default ThemeConfiguration.SUB_THEME
+   * @default ThemeConfig.SUB_THEME = gray
    */
   subColor?: ThemesType;
 }
@@ -97,7 +96,6 @@ const Button: SFC<ButtonProps> = ({
   onMouseOver = () => null,
   disabled,
   children,
-  fontSize = 12,
   style,
 }: ButtonProps) => (
   <button
