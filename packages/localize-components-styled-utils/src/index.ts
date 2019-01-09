@@ -19,8 +19,6 @@ import {
 // Theme
 import {
   getIsLightenTheme,
-  getThemeStyle,
-  getThemeStyleKey,
 } from './utils/styles/ThemeUtils';
 
 export {
@@ -35,8 +33,6 @@ export {
   getPositionStyle,
   // Theme
   getIsLightenTheme,
-  getThemeStyle,
-  getThemeStyleKey,
 };
 
 export default {
@@ -51,6 +47,4 @@ export default {
   getPositionStyle,
   // Theme
   getIsLightenTheme,
-  getThemeStyle,
-  getThemeStyleKey,
 };

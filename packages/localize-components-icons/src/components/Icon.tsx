@@ -2,7 +2,7 @@ import React, { SFC } from 'react';
 
 import classnames from 'classnames';
 
-import { getAlignStyle } from '@seolhun/localize-components-styled-utils';
+import { getAlignStyle } from '@seolhun/localize-components-utils';
 import { Align, AlignType } from '@seolhun/localize-components-types';
 
 import getIconByName, { IconType } from './contents';
