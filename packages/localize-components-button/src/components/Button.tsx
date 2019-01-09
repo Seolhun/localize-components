@@ -77,7 +77,6 @@ export interface ButtonProps {
   /**
    * Set this to change Button ours mainColor
    * @default ThemeConfig.MAIN_THEME = royal_blue
-   * @see https://emotion.sh/docs/theming
    */
   mainColor?: ThemesType;
   /**
