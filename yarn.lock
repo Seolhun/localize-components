@@ -1131,6 +1131,16 @@
     "@emotion/sheet" "0.9.2"
     "@emotion/utils" "0.11.1"
 
+"@emotion/core@^10.0.6":
+  version "10.0.6"
+  resolved "https://registry.yarnpkg.com/@emotion/core/-/core-10.0.6.tgz#c10d7884a525728f05589b31da1c804a5d7449fa"
+  dependencies:
+    "@emotion/cache" "10.0.0"
+    "@emotion/css" "^10.0.6"
+    "@emotion/serialize" "^0.11.3"
+    "@emotion/sheet" "0.9.2"
+    "@emotion/utils" "0.11.1"
+
 "@emotion/css@^10.0.5":
   version "10.0.5"
   resolved "https://registry.yarnpkg.com/@emotion/css/-/css-10.0.5.tgz#3bc6593fb98ba096a1ccd843d9f32744929b6cfd"
@@ -1138,6 +1148,14 @@
     "@emotion/serialize" "^0.11.3"
     "@emotion/utils" "0.11.1"
     babel-plugin-emotion "^10.0.5"
+
+"@emotion/css@^10.0.6":
+  version "10.0.6"
+  resolved "https://registry.yarnpkg.com/@emotion/css/-/css-10.0.6.tgz#50b325e6ee18f0ca791036149a985e3b40a9354b"
+  dependencies:
+    "@emotion/serialize" "^0.11.3"
+    "@emotion/utils" "0.11.1"
+    babel-plugin-emotion "^10.0.6"
 
 "@emotion/hash@0.7.1":
   version "0.7.1"
