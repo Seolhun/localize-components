@@ -26,8 +26,8 @@
     "@seolhun/localize-components-styled-utils": "^0.0.13",
     "@seolhun/localize-components-types": "^0.0.13",
     "@seolhun/localize-components-utils": "^0.0.13",
-    "docz": "^0.12.13",
-    "docz-theme-default": "^0.13.4",
+    "docz": "^0.13.7",
+    "docz-theme-default": "^0.13.7",
     "polished": "^2.3.3",
     "react": "^16.6.3"
   },
