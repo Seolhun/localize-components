@@ -11,12 +11,12 @@
       "src/types"
     ]
   },
-  "include": ["./src/**/*"],
   "exclude": [
     ".vscode",
     "node_modules/**",
-    "packages/*",
-    "./src/__test__/*"
+    "packages/**",
+    "./src/__test__/**",
+    "./src/**/*.test.ts",
   ],
   "typeAcquisition": {
     "enable": true

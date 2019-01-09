@@ -54,8 +54,10 @@
     "outDir": "dist",
   },
   "exclude": [
+    ".vscode",
     "node_modules/**",
     "packages/**",
-    "./src/__test__/**"
+    "./src/__test__/**",
+    "./src/**/*.test.ts",
   ],
 }

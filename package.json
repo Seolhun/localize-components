@@ -46,8 +46,7 @@
     "typescript": "^3.2.2"
   },
   "workspaces": [
-    "packages/*",
-    "examples/**"
+    "packages/*"
   ],
   "publishConfig": {
     "access": "public"
