@@ -11,33 +11,20 @@ class LocalizeView extends Component<null, LocalizeViewState> {
     return (
       <section>
         <Jumbotron
+          title='Hello, Jumbotron'
+          description='Localize-Components is made for preventing local styles'
+          theme='success'
+        />
+        <Jumbotron
           title='Hello, Localize-Components'
           description='Localize-Components is made for preventing local styles'
           theme='royalblue'
-        >
-
-        </Jumbotron>
+        />
         <Jumbotron
-          title='Hello, Seolhun'
-          description='Localize-Components is made for preventing local styles'
-          theme='success'
-        >
-
-        </Jumbotron>
-        <Jumbotron
-          title='Hello, Data rights'
+          title='Hello, Styled Components'
           description='Localize-Components is made for preventing local styles'
           theme='warning'
-        >
-
-        </Jumbotron>
-        <Jumbotron
-          title='Hello, Designers'
-          description='Localize-Components is made for preventing local styles'
-          theme='basic'
-        >
-
-        </Jumbotron>
+        />
       </section>
     );
   }

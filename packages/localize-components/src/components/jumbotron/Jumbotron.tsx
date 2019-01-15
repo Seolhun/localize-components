@@ -1,10 +1,6 @@
 import React, { PureComponent, ReactNode } from 'react';
 
 import {
-  getAlignStyle,
-  getThemeStyle,
-} from '@seolhun/localize-components-styled-utils';
-import {
   Align,
   AlignType,
   Themes,
@@ -12,6 +8,10 @@ import {
   ThemeStyleType,
   ThemeType,
 } from '@seolhun/localize-components-types';
+import {
+  getAlignStyle,
+  getThemeStyle,
+} from '@seolhun/localize-components-utils';
 
 import classnames from 'classnames';
 

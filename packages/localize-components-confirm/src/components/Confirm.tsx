@@ -9,7 +9,7 @@ import {
 import {
   getPositionStyle,
   getThemeStyle,
-} from '@seolhun/localize-components-styled-utils';
+} from '@seolhun/localize-components-utils';
 
 import {
   Position,

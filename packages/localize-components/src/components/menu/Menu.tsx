@@ -23,9 +23,9 @@ export interface MenuProps {
   onDeselect?: (...args: any[]) => any;
   onOpenChange?: (...args: any[]) => any;
   onSelect?: (...args: any[]) => any;
-  openAnimation?: string | Object;
+  openAnimation?: string | {};
   openKeys?: string[];
-  openTransitionName?: string | Object;
+  openTransitionName?: string | {};
   prefixCls?: string;
   selectable?: boolean;
   selectedKeys?: string[];

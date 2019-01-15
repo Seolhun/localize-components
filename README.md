@@ -17,9 +17,13 @@
 - **I think that all components must be standalone anywhere, any environments.**
 
 ## Used stacks
-- React
 - TypeScript
-- SCSS
+- React
+- Webpack 4
+- Babel 7
+- Lerna
+- emotion
+- polished
 - Docz
 
 ## Getting start

@@ -1,5 +1,5 @@
-import HomeView from '../containers/HomeView';
-import LocalizeView from '../containers/LocalizeView';
+import ButtonView from '../containers/ButtonView';
+import JumbotronView from '../containers/JumbotronView';
 
 const routerCreator = ({
   type,
@@ -22,15 +22,15 @@ const routerCreator = ({
 const routers = [
   routerCreator({
     type: 0,
-    path: '/',
-    label: 'Home',
-    component: HomeView,
+    path: '/button',
+    label: 'Button',
+    component: ButtonView,
   }),
   routerCreator({
     type: 0,
-    path: '/localize',
-    label: 'Localize',
-    component: LocalizeView,
+    path: '/jumbotron',
+    label: 'Jumbotron',
+    component: JumbotronView,
   }),
 ];
 

@@ -5,9 +5,18 @@
     "outDir": "dist",
     "rootDir": "src",
     "types": ["node"],
-    "typeRoots": ["node_modules/@types", "src/types"]
+    "typeRoots": [
+      "node_modules/@types",
+      "src/types",
+    ],
   },
-  "exclude": [".vscode", "node_modules/**", "packages/*", "./src/__test__/*"],
+  "exclude": [
+    ".vscode",
+    "node_modules/**",
+    "packages/**",
+    "./src/__test__/**",
+    "./src/**/*.test.ts",
+  ],
   "typeAcquisition": {
     "enable": true
   }

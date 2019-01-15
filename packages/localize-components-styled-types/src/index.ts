@@ -22,9 +22,6 @@ import {
   DarkenTheme,
   LightenTheme,
   Themes,
-  ThemeStyle,
-  ThemeStyleOptions,
-  ThemeStyleType,
   ThemesType,
 } from './types/styles/Theme';
 
@@ -49,9 +46,6 @@ export {
   DarkenTheme,
   LightenTheme,
   Themes,
-  ThemeStyle,
-  ThemeStyleOptions,
-  ThemeStyleType,
   ThemesType,
 };
 
@@ -73,5 +67,4 @@ export default {
   DarkenTheme,
   LightenTheme,
   Themes,
-  ThemeStyle,
 };
