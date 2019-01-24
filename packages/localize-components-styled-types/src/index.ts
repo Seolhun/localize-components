@@ -13,7 +13,7 @@ import {
 import {
   FontSizes,
   FontSizeType,
-} from './types/styles/FontSize';
+} from './types/styles/FontSizes';
 import {
   Position,
   PositionType,

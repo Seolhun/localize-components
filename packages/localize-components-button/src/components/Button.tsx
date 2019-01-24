@@ -131,7 +131,7 @@ const StyledButton = styled(Button)<ButtonProps>`
     mainColor = ThemeConfig.MAIN_THEME,
   }: ButtonProps) => {
     if (getIsLightenTheme(mainColor)) {
-      return Themes.black;
+      return Themes.dark_gray;
     }
     return Themes.white;
   }};

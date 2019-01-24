@@ -344,25 +344,25 @@ export interface InputBoxProps {
   mainColor?: ThemesType;
   /**
    * Set this to change Button ours subColor
-   * @default ThemeConfig.SUB_THEME = gray
+   * @default ThemeConfig.SUB_THEME
    */
   subColor?: ThemesType;
 }
 
 const StyledInputBox = styled.div<InputBoxProps>`
-  background-color: ${Themes.white};
+  background-color: ${({
+    subColor = ThemeConfig.SUB_THEME,
+  }: InputBoxProps) => {
+    return getValidTheme(subColor);
+  }};
   border-radius: 3px;
   border: 2px solid transparent;
   display: flex;
-  height: 50px;
+  height: 40px;
   padding: 0;
   transition: border-color 0.3s, background-color 0.3s;
   vertical-align: middle;
   width: 100%;
-
-  &:required {
-    color: ${Themes.black};
-  }
 
   &:disabled {
     cursor: not-allowed;
@@ -385,21 +385,20 @@ const StyledInputBox = styled.div<InputBoxProps>`
     }: InputBoxProps) => {
       return getValidTheme(mainColor);
     }};
-    color: ${({
-      mainColor = ThemeConfig.MAIN_THEME,
-    }: InputBoxProps) => {
-      if (getIsLightenTheme(mainColor)) {
-        return Themes.white;
-      }
-      return Themes.black;
-    }};
   }
 `;
 
 const StyledInput = styled.input<InputProps>`
     background-color: transparent;
     border: 0;
-    color: : ${Themes.gray};
+    color: ${({
+      subColor = ThemeConfig.SUB_THEME,
+    }: InputBoxProps) => {
+      if (getIsLightenTheme(subColor)) {
+        return Themes.dark_gray;
+      }
+      return Themes.white;
+    }};
     cursor: text;
     display: block;
     height: auto;
@@ -411,13 +410,13 @@ const StyledInput = styled.input<InputProps>`
     width: 100%;
 
     &::placeholder {
-      font-size: 14px;
+      font-size: ${FontSizes.H5};
       font-weight: 300;
       font-style: normal;
       font-stretch: normal;
       line-height: 1.90;
       letter-spacing: -0.3px;
-      color: ${Themes.light_gray};
+      color: ${lighten(0.1, Themes.light_gray)};
     }
 
     &:required {
@@ -425,13 +424,9 @@ const StyledInput = styled.input<InputProps>`
     }
 
     &:disabled {
-      background-color: ${Themes.basic};
-      border: 2px solid ${Themes.basic};
+      background-color: ${Themes.light_gray};
+      border: 2px solid ${Themes.light_gray};
       cursor: not-allowed !important;
-    }
-
-    &:hover {
-      color: ${Themes.black};
     }
   }
 `;
