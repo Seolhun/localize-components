@@ -1,0 +1,40 @@
+---
+name: Input
+route: /input
+---
+
+import { Playground, PropsTable } from 'docz';
+import { Input } from '@seolhun/localize-components-atomic';
+import { Themes } from '@seolhun/localize-components-styled-types';
+
+import InputPropsTable from './InputPropsTable';
+
+# Input
+
+## PropsTable
+<PropsTable of={InputPropsTable} />
+
+## Default
+
+<Playground>
+  <Input value='' placeholder='Localize Component' />
+  <Input value='' subColor='#000' placeholder='Localize Component' />
+</Playground>
+
+## Give a mainColor
+
+<Playground>
+  <Input mainColor='danger' value='danger' />
+  <Input mainColor='primary' value='primary' />
+  <Input mainColor='light_gray' value='light_gray' />
+  <Input mainColor='#41FF2B' value='#41FF2B' />
+</Playground>
+
+## Give a subColor
+
+<Playground>
+  <Input mainColor='danger' subColor='dark_gray' value='dark_gray' />
+  <Input mainColor='primary' subColor='gray' value='gray' />
+  <Input mainColor='light_gray' subColor='light_gray' value='light_gray' />
+  <Input mainColor='#41FF2B' subColor='#000' value='#000' />
+</Playground>

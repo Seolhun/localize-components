@@ -5,6 +5,7 @@ route: /button
 
 import { Playground, PropsTable } from 'docz';
 import { Button } from '@seolhun/localize-components-atomic';
+import { Themes } from '@seolhun/localize-components-styled-types';
 
 import ButtonPropsTable from './ButtonPropsTable';
 
@@ -17,6 +18,16 @@ import ButtonPropsTable from './ButtonPropsTable';
 
 <Playground>
   <Button>Click me</Button>
+</Playground>
+
+## Give a mainColor
+
+<Playground>
+  <Button mainColor='danger'>danger</Button>
+  <Button mainColor='primary'>primary</Button>
+  <Button mainColor='royal_blue'>royal_blue</Button>
+  <Button mainColor='white'>white</Button>
+  <Button mainColor='light_gray'>light_gray</Button>
 </Playground>
 
 ## Give a size

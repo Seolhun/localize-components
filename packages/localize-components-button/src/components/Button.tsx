@@ -14,6 +14,7 @@ import {
 } from '@seolhun/localize-components-styled-types';
 import {
   getIsLightenTheme,
+  getValidTheme,
 } from '@seolhun/localize-components-styled-utils';
 
 export interface ButtonProps {
@@ -76,14 +77,12 @@ export interface ButtonProps {
   size?: SizeType;
   /**
    * Set this to change Button ours mainColor
-   * @default ThemeConfiguration.MAIN_THEME
-   * @see https://emotion.sh/docs/theming
-   * @description Naming is Because of emotion default props 'theme'
+   * @default ThemeConfig.MAIN_THEME = royal_blue
    */
   mainColor?: ThemesType;
   /**
    * Set this to change Button ours subColor
-   * @default ThemeConfiguration.SUB_THEME
+   * @default ThemeConfig.SUB_THEME = gray
    */
   subColor?: ThemesType;
 }
@@ -97,7 +96,6 @@ const Button: SFC<ButtonProps> = ({
   onMouseOver = () => null,
   disabled,
   children,
-  fontSize = 12,
   style,
 }: ButtonProps) => (
   <button
@@ -127,13 +125,13 @@ const StyledButton = styled(Button)<ButtonProps>`
   background-color: ${({
     mainColor = ThemeConfig.MAIN_THEME,
   }: ButtonProps) => {
-    return Themes[mainColor];
+    return getValidTheme(mainColor);
   }};
   color: ${({
     mainColor = ThemeConfig.MAIN_THEME,
   }: ButtonProps) => {
     if (getIsLightenTheme(mainColor)) {
-      return Themes.black;
+      return Themes.dark_gray;
     }
     return Themes.white;
   }};
@@ -171,9 +169,9 @@ const StyledButton = styled(Button)<ButtonProps>`
       mainColor = ThemeConfig.MAIN_THEME,
     }: ButtonProps) => {
       if (getIsLightenTheme(mainColor)) {
-        return darken(0.1, Themes[mainColor]);
+        return darken(0.1, getValidTheme(mainColor));
       }
-      return lighten(0.1, Themes[mainColor]);
+      return lighten(0.1, getValidTheme(mainColor));
     }};
   }
 
