@@ -11,6 +11,10 @@ import {
   AlignType,
 } from './types/styles/Align';
 import {
+  FontSizes,
+  FontSizeType,
+} from './types/styles/FontSize';
+import {
   Position,
   PositionType,
 } from './types/styles/Position';
@@ -36,6 +40,9 @@ export {
   // Align
   Align,
   AlignType,
+  // FontSize
+  FontSizeType,
+  FontSizes,
   // Position
   Position,
   PositionType,
@@ -59,6 +66,8 @@ export default {
    */
   // Align
   Align,
+  // FontSize
+  FontSizes,
   // Position
   Position,
   // Size

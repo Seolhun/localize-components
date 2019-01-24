@@ -13,6 +13,7 @@ import {
 } from '@seolhun/localize-components-styled-types';
 import {
   getIsLightenTheme,
+  getValidTheme,
 } from '@seolhun/localize-components-styled-utils';
 import {
   ValidationResponse,
@@ -355,7 +356,7 @@ const StyledInputBox = styled.div<InputBoxProps>`
   display: flex;
   height: 50px;
   padding: 0;
-  transition: border-color 0.5s, background-color 0.5s;
+  transition: border-color 0.3s, background-color 0.3s;
   vertical-align: middle;
   width: 100%;
 
@@ -372,9 +373,9 @@ const StyledInputBox = styled.div<InputBoxProps>`
       mainColor = ThemeConfig.MAIN_THEME,
     }: InputBoxProps) => {
       if (getIsLightenTheme(mainColor)) {
-        return darken(0.1, Themes[mainColor]);
+        return darken(0.1, getValidTheme(mainColor));
       }
-      return lighten(0.1, Themes[mainColor]);
+      return lighten(0.1, getValidTheme(mainColor));
     }};
   }
 
@@ -382,7 +383,7 @@ const StyledInputBox = styled.div<InputBoxProps>`
     border: 2px solid ${({
       mainColor = ThemeConfig.MAIN_THEME,
     }: InputBoxProps) => {
-      return Themes[mainColor];
+      return getValidTheme(mainColor);
     }};
     color: ${({
       mainColor = ThemeConfig.MAIN_THEME,
@@ -416,14 +417,7 @@ const StyledInput = styled.input<InputProps>`
       font-stretch: normal;
       line-height: 1.90;
       letter-spacing: -0.3px;
-      color: ${({
-        mainColor = ThemeConfig.MAIN_THEME,
-      }: InputProps) => {
-        if (getIsLightenTheme(mainColor)) {
-          return Themes.white;
-        }
-        return Themes.black;
-      }};
+      color: ${Themes.light_gray};
     }
 
     &:required {

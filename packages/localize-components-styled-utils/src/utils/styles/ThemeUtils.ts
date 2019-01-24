@@ -1,5 +1,6 @@
 import {
   LightenTheme,
+  Themes,
   ThemesType,
 } from '@seolhun/localize-components-styled-types';
 
@@ -10,6 +11,17 @@ export const getIsLightenTheme = (theme: ThemesType) => {
   return isLightenTheme;
 };
 
+export const getValidTheme = (theme: ThemesType) => {
+  const isLightenTheme = Object.keys(Themes).map((key) => {
+    return key;
+  }).includes(theme);
+  if (isLightenTheme) {
+    return Themes[theme];
+  }
+  return theme;
+};
+
 export default {
   getIsLightenTheme,
+  getValidTheme,
 };

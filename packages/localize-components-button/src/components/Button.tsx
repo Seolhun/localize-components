@@ -14,6 +14,7 @@ import {
 } from '@seolhun/localize-components-styled-types';
 import {
   getIsLightenTheme,
+  getValidTheme,
 } from '@seolhun/localize-components-styled-utils';
 
 export interface ButtonProps {
@@ -124,7 +125,7 @@ const StyledButton = styled(Button)<ButtonProps>`
   background-color: ${({
     mainColor = ThemeConfig.MAIN_THEME,
   }: ButtonProps) => {
-    return Themes[mainColor];
+    return getValidTheme(mainColor);
   }};
   color: ${({
     mainColor = ThemeConfig.MAIN_THEME,
@@ -168,9 +169,9 @@ const StyledButton = styled(Button)<ButtonProps>`
       mainColor = ThemeConfig.MAIN_THEME,
     }: ButtonProps) => {
       if (getIsLightenTheme(mainColor)) {
-        return darken(0.1, Themes[mainColor]);
+        return darken(0.1, getValidTheme(mainColor));
       }
-      return lighten(0.1, Themes[mainColor]);
+      return lighten(0.1, getValidTheme(mainColor));
     }};
   }
 

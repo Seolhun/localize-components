@@ -19,7 +19,7 @@ function resolve(dir) {
 module.exports = {
   mode: process.env.NODE_ENV,
   entry: {
-    index: resolve('src/index.tsx'),
+    index: resolve('src/index.ts'),
   },
   output: {
     path: config.build.assetsRoot,
