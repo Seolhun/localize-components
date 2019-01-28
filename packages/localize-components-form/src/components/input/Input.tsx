@@ -6,6 +6,7 @@ import { darken, lighten } from 'polished';
 import classnames from 'classnames';
 
 import {
+  ColorProps,
   FontSizes,
   ThemeConfig,
   Themes,
@@ -104,12 +105,12 @@ export interface InputProps {
    */
   style?: {};
   /**
-   * Set this to change Button ours mainColor
+   * Set this to change Input ours mainColor
    * @default ThemeConfig.MAIN_THEME = royal_blue
    */
   mainColor?: ThemesType;
   /**
-   * Set this to change Button ours subColor
+   * Set this to change Input ours subColor
    * @default ThemeConfig.SUB_THEME = gray
    */
   subColor?: ThemesType;
@@ -336,23 +337,10 @@ export class Input extends PureComponent<InputProps, InputState> {
   }
 }
 
-export interface InputBoxProps {
-  /**
-   * Set this to change Button ours mainColor
-   * @default ThemeConfig.MAIN_THEME = royal_blue
-   */
-  mainColor?: ThemesType;
-  /**
-   * Set this to change Button ours subColor
-   * @default ThemeConfig.SUB_THEME
-   */
-  subColor?: ThemesType;
-}
-
-const StyledInputBox = styled.div<InputBoxProps>`
+const StyledInputBox = styled.div<ColorProps>`
   background-color: ${({
     subColor = ThemeConfig.SUB_THEME,
-  }: InputBoxProps) => {
+  }: ColorProps) => {
     return getValidTheme(subColor);
   }};
   border-radius: 3px;
@@ -371,7 +359,7 @@ const StyledInputBox = styled.div<InputBoxProps>`
   &:hover {
     border: 2px solid ${({
       mainColor = ThemeConfig.MAIN_THEME,
-    }: InputBoxProps) => {
+    }: ColorProps) => {
       if (getIsLightenTheme(mainColor)) {
         return darken(0.1, getValidTheme(mainColor));
       }
@@ -382,7 +370,7 @@ const StyledInputBox = styled.div<InputBoxProps>`
   &.isFocused {
     border: 2px solid ${({
       mainColor = ThemeConfig.MAIN_THEME,
-    }: InputBoxProps) => {
+    }: ColorProps) => {
       return getValidTheme(mainColor);
     }};
   }
@@ -393,7 +381,7 @@ const StyledInput = styled.input<InputProps>`
     border: 0;
     color: ${({
       subColor = ThemeConfig.SUB_THEME,
-    }: InputBoxProps) => {
+    }: ColorProps) => {
       if (getIsLightenTheme(subColor)) {
         return Themes.dark_gray;
       }

@@ -44,6 +44,19 @@ export const Themes = {
   ...LightenTheme,
 };
 
+export interface ColorProps {
+  /**
+   * Set this to change Button ours mainColor
+   * @default ThemeConfig.MAIN_THEME = royal_blue
+   */
+  mainColor?: ThemesType;
+  /**
+   * Set this to change Button ours subColor
+   * @default ThemeConfig.SUB_THEME
+   */
+  subColor?: ThemesType;
+}
+
 export default {
   DarkenTheme,
   LightenTheme,

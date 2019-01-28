@@ -23,6 +23,7 @@ import {
   SizeType,
 } from './types/styles/Size';
 import {
+  ColorProps,
   DarkenTheme,
   LightenTheme,
   Themes,
@@ -50,6 +51,7 @@ export {
   Size,
   SizeType,
   // Theme
+  ColorProps,
   DarkenTheme,
   LightenTheme,
   Themes,
