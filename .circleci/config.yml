@@ -1,11 +1,9 @@
-version: 2.1
+version: 2.0
 jobs:
-  executors:
-    build-environment:
-      docker:
-        - image: circleci/node:8.10
-      working_directory: ~/seolhun
   build:
+    docker:
+      - image: circleci/node:8.10
+    working_directory: ~/seolhun
     branches:
       only:
         - master
