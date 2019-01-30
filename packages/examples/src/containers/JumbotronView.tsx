@@ -12,17 +12,17 @@ class LocalizeView extends Component<null, LocalizeViewState> {
       <section>
         <Jumbotron
           title='Hello, Jumbotron'
-          description='Localize-Components is made for preventing local styles'
+          description='Localize-Components is made for localized style without side-effect'
           theme='success'
         />
         <Jumbotron
           title='Hello, Localize-Components'
-          description='Localize-Components is made for preventing local styles'
+          description='Localize-Components is made for localized style without side-effect'
           theme='royalblue'
         />
         <Jumbotron
           title='Hello, Styled Components'
-          description='Localize-Components is made for preventing local styles'
+          description='Localize-Components is made for localized style without side-effect'
           theme='warning'
         />
       </section>
