@@ -38,3 +38,12 @@ import InputPropsTable from './InputPropsTable';
   <Input mainColor='light_gray' subColor='light_gray' value='light_gray' />
   <Input mainColor='#41FF2B' subColor='#000' value='#000' />
 </Playground>
+
+## Give a renderValue
+
+<Playground>
+  <Input value='Value' renderValue={(value) => `Custom_${value}`} />
+  <Input value='Value' renderValue={(value) => (
+    `<button>${value}</button>`
+  )} />
+</Playground>

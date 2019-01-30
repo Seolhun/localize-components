@@ -37,7 +37,8 @@ export type ThemesType =
   | 'white'
   | 'yellow'
   | DarkenTheme
-  | LightenTheme;
+  | LightenTheme
+  | string;
 
 export const Themes = {
   ...DarkenTheme,

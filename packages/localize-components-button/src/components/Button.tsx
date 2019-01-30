@@ -101,7 +101,7 @@ const Button: SFC<ButtonProps> = ({
   <button
     className={classnames(
       className,
-      'Localize__Button',
+      '__Localize__',
     )}
     type='button'
     onClick={onClick}

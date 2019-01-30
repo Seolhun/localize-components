@@ -1,4 +1,6 @@
 import ButtonView from '../containers/ButtonView';
+import CheckboxView from '../containers/CheckboxView';
+import InputView from '../containers/InputView';
 import JumbotronView from '../containers/JumbotronView';
 
 const routerCreator = ({
@@ -25,6 +27,18 @@ const routers = [
     path: '/button',
     label: 'Button',
     component: ButtonView,
+  }),
+  routerCreator({
+    type: 0,
+    path: '/checkbox',
+    label: 'Checkbox',
+    component: CheckboxView,
+  }),
+  routerCreator({
+    type: 0,
+    path: '/input',
+    label: 'Input',
+    component: InputView,
   }),
   routerCreator({
     type: 0,
