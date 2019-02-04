@@ -1,0 +1,23 @@
+---
+name: Alert
+route: /alert
+---
+
+import { Playground, PropsTable } from 'docz';
+import { Alert } from '@seolhun/localize-components';
+
+import AlertPropsTable from './AlertPropsTable';
+
+# Alert
+
+## PropsTable
+<PropsTable of={ButtonPropsTable} />
+
+## Default
+
+<Playground>
+  <Alert
+    onClickClose={() => null}
+    message={'Alert'}
+  />
+</Playground>

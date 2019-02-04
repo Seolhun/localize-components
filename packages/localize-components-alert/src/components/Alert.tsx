@@ -1,5 +1,6 @@
 import React from 'react';
 
+import styled from '@emotion/styled';
 import classnames from 'classnames';
 
 import {
@@ -28,6 +29,7 @@ export interface AlertProps {
   isShow?: boolean;
   position?: PositionType;
   title?: string;
+  zIndex?: number;
 }
 
 const Alert: React.SFC<AlertProps> = ({
@@ -40,6 +42,7 @@ const Alert: React.SFC<AlertProps> = ({
   isShow = false,
   position = Position.CENTER,
   title = '',
+  zIndex = 1000,
 }) => {
   if (!isShow) {
     return null;
@@ -47,7 +50,7 @@ const Alert: React.SFC<AlertProps> = ({
 
   return (
     <>
-      <div className={styles.coverBackground} />
+      <CoverBackground />
       <div
         className={classnames(
           styles.alert,
@@ -67,5 +70,18 @@ const Alert: React.SFC<AlertProps> = ({
     </>
   );
 };
+
+const CoverBackground = styled.div`
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 299;
+  cursor: pointer;
+`;
 
 export default Alert;

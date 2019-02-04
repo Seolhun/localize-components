@@ -130,6 +130,7 @@ const CheckBox: SFC<CheckBoxProps> = ({
           label: item[labelKey],
           value: item[valueKey],
         })}
+        value={item[usedKey]}
         name={groupName}
       />
       <StyledCheckMark

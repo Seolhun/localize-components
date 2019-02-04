@@ -9,6 +9,8 @@ import {
   CheckBoxProps,
   Input,
   InputProps,
+  Switch,
+  SwitchProps,
 } from '@seolhun/localize-components-form';
 
 import Hr, { HrProps } from './components/hr';
@@ -17,7 +19,6 @@ import Spinner, {
 } from './components/spinner';
 
 export {
-  // Components
   Button,
   ButtonProps,
   CheckBox,
@@ -28,4 +29,15 @@ export {
   InputProps,
   Spinner,
   SpinnerProps,
+  Switch,
+  SwitchProps,
+};
+
+export default {
+  Button,
+  CheckBox,
+  Hr,
+  Input,
+  Spinner,
+  Switch,
 };
