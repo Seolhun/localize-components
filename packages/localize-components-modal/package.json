@@ -1,6 +1,6 @@
 {
   "license": "MIT",
-  "name": "@seolhun/localize-components-alert",
+  "name": "@seolhun/localize-components-modal",
   "description": "Localizing React components is rendered by stand-alone not affect other styles.",
   "version": "0.0.13",
   "main": "./dist/index.js",

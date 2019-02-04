@@ -13,15 +13,14 @@
 ## What packages is changed?
 - [ ] docs
 - [ ] localize-components
-- [ ] localize-components-alert
 - [ ] localize-components-atomic
 - [ ] localize-components-button
 - [ ] localize-components-chip
-- [ ] localize-components-confirm
 - [ ] localize-components-drawer
 - [ ] localize-components-dropdown
 - [ ] localize-components-form
 - [ ] localize-components-icons
+- [ ] localize-components-modal
 - [ ] localize-components-styled-types
 - [ ] localize-components-table
 - [ ] localize-components-utils

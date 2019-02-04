@@ -45,17 +45,22 @@ export const Themes = {
   ...LightenTheme,
 };
 
-export interface ColorProps {
+export interface StyledProps {
   /**
-   * Set this to change Button ours mainColor
+   * Set this to change Localize Style ours mainColor
    * @default ThemeConfig.MAIN_THEME = royal_blue
    */
   mainColor?: ThemesType;
   /**
-   * Set this to change Button ours subColor
+   * Set this to change Localize Style ours subColor
    * @default ThemeConfig.SUB_THEME
    */
   subColor?: ThemesType;
+  /**
+   * Set this to change Localize Style ours subColor
+   * @default 1000
+   */
+  zIndex?: number;
 }
 
 export default {

@@ -1,15 +1,23 @@
-// components
-import Confirm, {
+import {
+  Alert,
+  AlertProps,
+  Confirm,
+  ConfirmProps,
   InputConfirm,
   InputConfirmProps,
-  ConfirmProps,
 } from './components';
 
 export {
+  Alert,
+  AlertProps,
   Confirm,
   ConfirmProps,
   InputConfirm,
   InputConfirmProps,
 };
 
-export default Confirm;
+export default {
+  Alert,
+  Confirm,
+  InputConfirm,
+};

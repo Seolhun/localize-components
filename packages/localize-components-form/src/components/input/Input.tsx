@@ -6,7 +6,7 @@ import { darken, lighten } from 'polished';
 import classnames from 'classnames';
 
 import {
-  ColorProps,
+  StyledProps,
   FontSizes,
   ThemeConfig,
   Themes,
@@ -372,10 +372,10 @@ export class Input extends PureComponent<InputProps, InputState> {
   }
 }
 
-const StyledInputBox = styled.div<ColorProps>`
+const StyledInputBox = styled.div<StyledProps>`
   background-color: ${({
     subColor = ThemeConfig.SUB_THEME,
-  }: ColorProps) => {
+  }: StyledProps) => {
     return getValidTheme(subColor);
   }};
   border-radius: 3px;
@@ -394,7 +394,7 @@ const StyledInputBox = styled.div<ColorProps>`
   &:hover {
     border: 2px solid ${({
       mainColor = ThemeConfig.MAIN_THEME,
-    }: ColorProps) => {
+    }: StyledProps) => {
       if (getIsLightenTheme(mainColor)) {
         return darken(0.1, getValidTheme(mainColor));
       }
@@ -405,7 +405,7 @@ const StyledInputBox = styled.div<ColorProps>`
   &.isFocused {
     border: 2px solid ${({
       mainColor = ThemeConfig.MAIN_THEME,
-    }: ColorProps) => {
+    }: StyledProps) => {
       return getValidTheme(mainColor);
     }};
   }
@@ -429,7 +429,7 @@ const StyledDivInput = styled.div<InputProps>`
   border: 0;
   color: ${({
     subColor = ThemeConfig.SUB_THEME,
-  }: ColorProps) => {
+  }: StyledProps) => {
     if (getIsLightenTheme(subColor)) {
       return Themes.dark_gray;
     }
@@ -462,7 +462,7 @@ const StyledInput = styled.input<InputProps>`
   border: 0;
   color: ${({
     subColor = ThemeConfig.SUB_THEME,
-  }: ColorProps) => {
+  }: StyledProps) => {
     if (getIsLightenTheme(subColor)) {
       return Themes.dark_gray;
     }

@@ -10,7 +10,7 @@ import {
   getValidTheme,
 } from '@seolhun//localize-components-styled-utils';
 import {
-  ColorProps,
+  StyledProps,
   ThemeConfig,
   ThemesType,
 } from '@seolhun/localize-components-styled-types';
@@ -166,10 +166,10 @@ const StyledCheckBox = styled.input`
   width: 0;
 `;
 
-const StyledCheckMark = styled.span<ColorProps>`
+const StyledCheckMark = styled.span<StyledProps>`
   background-color: ${({
     mainColor = ThemeConfig.MAIN_THEME,
-  }: ColorProps) => {
+  }: StyledProps) => {
     return getValidTheme(mainColor);
   }};
   border-radius: 3px;
@@ -184,7 +184,7 @@ const StyledCheckMark = styled.span<ColorProps>`
   .CheckBox:hover ~ & {
     border: 1px solid ${({
       mainColor = ThemeConfig.MAIN_THEME,
-    }: ColorProps) => {
+    }: StyledProps) => {
       if (getIsLightenTheme(mainColor)) {
         return getValidTheme(mainColor);
       }
@@ -194,7 +194,7 @@ const StyledCheckMark = styled.span<ColorProps>`
     input:checked ~ & {
       background-color: ${({
         mainColor = ThemeConfig.MAIN_THEME,
-      }: ColorProps) => {
+      }: StyledProps) => {
         if (getIsLightenTheme(mainColor)) {
           return darken(0.1, getValidTheme(mainColor));
         }
@@ -218,7 +218,7 @@ const StyledCheckMark = styled.span<ColorProps>`
     -webkit-transform: rotate(45deg);
     border: solid ${({
       subColor = ThemeConfig.SUB_THEME,
-    }: ColorProps) => {
+    }: StyledProps) => {
       return getValidTheme(subColor);
     }};
     border-width: 0 2px 2px 0;

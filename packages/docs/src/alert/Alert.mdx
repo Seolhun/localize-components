@@ -11,13 +11,15 @@ import AlertPropsTable from './AlertPropsTable';
 # Alert
 
 ## PropsTable
-<PropsTable of={ButtonPropsTable} />
+<PropsTable of={AlertPropsTable} />
 
 ## Default
 
 <Playground>
   <Alert
     onClickClose={() => null}
-    message={'Alert'}
+    title='Alert title'
+    message='Alert message'
+    isShow
   />
 </Playground>

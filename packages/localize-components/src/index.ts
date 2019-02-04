@@ -1,11 +1,11 @@
 // components
-import Alert, { AlertProps } from '@seolhun/localize-components-alert';
+import Alert, { AlertProps } from '@seolhun/localize-components-modal';
 import Chip, { ChipProps } from '@seolhun/localize-components-chip';
 import Confirm, {
   ConfirmProps,
   InputConfirm,
   InputConfirmProps,
-} from '@seolhun/localize-components-confirm';
+} from '@seolhun/localize-components-modal';
 import { Drawer } from '@seolhun/localize-components-drawer';
 
 import Card, { CardProps } from './components/card';

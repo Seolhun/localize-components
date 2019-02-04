@@ -1,5 +1,5 @@
-@import '../assets/scss/mixin/responsive.scss';
-@import '../assets/scss/variable/color';
+@import '../../assets/scss/mixin/responsive.scss';
+@import '../../assets/scss/variable/color';
 
 @each $key, $value in $color_list {
   :local .bg-color-#{$key} {

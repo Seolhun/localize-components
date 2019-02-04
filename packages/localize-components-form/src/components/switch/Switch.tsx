@@ -8,7 +8,7 @@ import {
   getValidTheme,
 } from '@seolhun//localize-components-styled-utils';
 import {
-  ColorProps,
+  StyledProps,
   ThemeConfig,
   ThemesType,
 } from '@seolhun/localize-components-styled-types';
@@ -165,11 +165,11 @@ const StyledSwitchInput = styled.input`
   height: 0;
 `;
 
-const StyledSlider = styled.span<ColorProps>`
+const StyledSlider = styled.span<StyledProps>`
   -webkit-transition: .4s;
   background-color: ${({
     mainColor = ThemeConfig.MAIN_THEME,
-  }: ColorProps) => {
+  }: StyledProps) => {
     return getValidTheme(mainColor);
   }};
   border-radius: 34px;
@@ -185,7 +185,7 @@ const StyledSlider = styled.span<ColorProps>`
     -webkit-transition: .4s;
     background-color: ${({
       subColor = ThemeConfig.SUB_THEME,
-    }: ColorProps) => {
+    }: StyledProps) => {
       return getValidTheme(subColor);
     }};
     border-radius: 50%;

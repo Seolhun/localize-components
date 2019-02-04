@@ -1,6 +1,14 @@
 import InputConfirm, { InputConfirmProps } from './child/InputConfirm';
 import Confirm, { ConfirmProps } from './Confirm';
 
-export { InputConfirm, InputConfirmProps, Confirm, ConfirmProps };
+export {
+  Confirm,
+  ConfirmProps,
+  InputConfirm,
+  InputConfirmProps,
+};
 
-export default Confirm;
+export default {
+  Confirm,
+  InputConfirm,
+};
