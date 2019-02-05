@@ -5,6 +5,7 @@ import {
   InputConfirm,
   InputConfirmProps,
 } from './confirm';
+import Modal, { ModalProps } from './modal';
 
 export {
   Alert,
@@ -13,10 +14,13 @@ export {
   ConfirmProps,
   InputConfirm,
   InputConfirmProps,
+  Modal,
+  ModalProps,
 };
 
 export default {
   Alert,
   Confirm,
   InputConfirm,
+  Modal,
 };

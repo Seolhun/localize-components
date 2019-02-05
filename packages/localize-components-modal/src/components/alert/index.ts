@@ -5,6 +5,4 @@ export {
   AlertProps,
 };
 
-export default {
-  Alert,
-};
+export default Alert;

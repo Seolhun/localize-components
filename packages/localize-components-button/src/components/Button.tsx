@@ -120,16 +120,16 @@ const StyledButton = styled(Button)<ButtonProps>`
   -moz-user-select: none;
   -ms-user-select: none;
   -webkit-user-select: none;
-  border-radius: 3px;
+  border-radius: 6px;
   border: 1px solid transparent;
   background-color: ${({
     mainColor = ThemeConfig.MAIN_THEME,
-  }: ButtonProps) => {
+  }) => {
     return getValidTheme(mainColor);
   }};
   color: ${({
     mainColor = ThemeConfig.MAIN_THEME,
-  }: ButtonProps) => {
+  }) => {
     if (getIsLightenTheme(mainColor)) {
       return Themes.dark_gray;
     }
@@ -137,13 +137,13 @@ const StyledButton = styled(Button)<ButtonProps>`
   }};
   cursor: pointer;
   display: inline-block;
-  font-size: ${({ fontSize = 12 }: ButtonProps) => `${fontSize}px`};
+  font-size: ${({ fontSize = 12 }) => `${fontSize}px`};
   font-weight: 500;
   height: auto;
   line-height: 1.5;
   margin: 5px;
   outline: none;
-  padding: ${({ size }: ButtonProps) => {
+  padding: ${({ size }) => {
     switch (size) {
       case Size.LARGE:
         return '15px 30px';
@@ -167,7 +167,7 @@ const StyledButton = styled(Button)<ButtonProps>`
   &:hover {
     background-color: ${({
       mainColor = ThemeConfig.MAIN_THEME,
-    }: ButtonProps) => {
+    }) => {
       if (getIsLightenTheme(mainColor)) {
         return darken(0.1, getValidTheme(mainColor));
       }

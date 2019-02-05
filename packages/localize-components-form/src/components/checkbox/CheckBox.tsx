@@ -172,7 +172,7 @@ const StyledCheckMark = styled.span<StyledProps>`
   }: StyledProps) => {
     return getValidTheme(mainColor);
   }};
-  border-radius: 3px;
+  border-radius: 6px;
   border: 1px solid transparent;
   height: 16px;
   left: 0;

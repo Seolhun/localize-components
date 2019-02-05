@@ -6,8 +6,8 @@ import { darken, lighten } from 'polished';
 import classnames from 'classnames';
 
 import {
-  StyledProps,
   FontSizes,
+  StyledProps,
   ThemeConfig,
   Themes,
   ThemesType,
@@ -378,7 +378,7 @@ const StyledInputBox = styled.div<StyledProps>`
   }: StyledProps) => {
     return getValidTheme(subColor);
   }};
-  border-radius: 3px;
+  border-radius: 6px;
   border: 2px solid ${Themes.light_gray};
   display: flex;
   height: 40px;
@@ -502,7 +502,7 @@ const StyledInput = styled.input<InputProps>`
 const StyledEnterButton = styled.button`
   align-items: center;
   background-color: ${Themes.gray};
-  border-radius: 0 3px 3px 0;
+  border-radius: 0 6px 6px 0;
   color: ${Themes.white};
   cursor: pointer;
   display: inline-flex;

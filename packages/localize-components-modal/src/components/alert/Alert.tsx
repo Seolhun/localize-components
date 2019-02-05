@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
-import styled from '@emotion/styled';
 import classnames from 'classnames';
 
 import {
@@ -9,79 +8,116 @@ import {
 import {
   Position,
   PositionType,
-  Themes,
-  ThemeType,
-} from '@seolhun/localize-components-types';
-import {
-  getPositionStyle,
-  getThemeStyle,
-} from '@seolhun/localize-components-utils';
+  Size,
+  SizeType,
+  ThemeConfig,
+  ThemesType,
+} from '@seolhun/localize-components-styled-types';
+import Modal from '../modal';
 
 const styles = require('./Alert.css');
 
 export interface AlertProps {
+  /**
+   * Set this to change Modal body children node
+   */
+  body: ReactNode | string;
+  /**
+   * Set this to toggle Alert Modal event handler
+   */
   onClickClose: (...args: any[]) => void;
-  message: string;
   // isNotRequired
+  /**
+   * Set this to change Modal button label
+   * @default null
+   */
   buttonLabel?: string;
-  className?: string | undefined;
-  theme?: ThemeType;
+  /**
+   * Set this to change Modal className
+   * @default null
+   */
+  className?: string;
+  /**
+   * Set this to change Modal showing or not
+   * @default null
+   */
   isShow?: boolean;
+  /**
+   * Set this to change Modal size
+   * @default medium
+   */
+  size?: SizeType;
+  /**
+   * Set this to change Modal ours mainColor
+   * @default ThemeConfig.MAIN_THEME = royal_blue
+   */
+  mainColor?: ThemesType;
+  /**
+   * Set this to change Modal ours subColor
+   * @default ThemeConfig.SUB_THEME = gray
+   */
+  subColor?: ThemesType;
+  /**
+   * Set this to change Modal rendering children node
+   * @default null
+   */
   position?: PositionType;
-  title?: string;
+  /**
+   * Set this to change Modal header children node
+   * @default null
+   */
+  header?: ReactNode | string;
+  /**
+   * Set this to change Modal rendering children node
+   * @default null
+   */
   zIndex?: number;
 }
 
 const Alert: React.SFC<AlertProps> = ({
+  body,
   onClickClose,
-  message,
   // is Not Required
   buttonLabel = 'Confirm',
   className = null,
-  theme = Themes.PRIMARY,
   isShow = false,
+  mainColor = ThemeConfig.MAIN_THEME,
   position = Position.CENTER,
-  title = '',
+  size = Size.MEDIUM,
+  subColor = ThemeConfig.SUB_THEME,
+  header = null,
   zIndex = 1000,
 }) => {
-  if (!isShow) {
-    return null;
-  }
-
   return (
-    <>
-      <CoverBackground />
-      <div
-        className={classnames(
-          styles.alert,
-          className,
-          getThemeStyle(theme),
-          getPositionStyle(position),
-        )}
-      >
-        <div className={styles.titleDiv}>{title}</div>
-        <div className={styles.messageDiv}>{message}</div>
-        <div className={styles.buttonDiv}>
-          <Button className={`btn btn-${theme}`} onClick={onClickClose}>
+    <Modal
+      className={classnames(
+        styles.Alert,
+        className,
+      )}
+      onClickClose={onClickClose}
+      header={
+        <div>{header}</div>
+      }
+      body={
+        <div>{body}</div>
+      }
+      footer={
+        <div className={styles.Alert__Buttons}>
+          <Button
+            onClick={onClickClose}
+            mainColor={mainColor}
+            subColor={subColor}
+          >
             {buttonLabel}
           </Button>
         </div>
-      </div>
-    </>
+      }
+      position={position}
+      size={size}
+      zIndex={zIndex}
+      isShow={isShow}
+    />
   );
 };
-
-const CoverBackground = styled.div`
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  z-index: 299;
-  cursor: pointer;
-`;
 
 export default Alert;
