@@ -5,17 +5,17 @@
 
 import React from 'react';
 
-import setEnzymeConfiguration from '../_config_';
 import * as Enzyme from 'enzyme';
+import setEnzymeConfiguration from '../_config_';
 
 // import Button from '../../components/button';
 
 setEnzymeConfiguration(Enzyme);
 describe('Button Test', () => {
   const navbar = Enzyme.shallow(
-    <button className="btn-success" onClick={() => null}>
+    <button className='btn-success' onClick={() => null}>
       btn-success
-    </button>
+    </button>,
   );
 
   test('Button contains text', () => {
