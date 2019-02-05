@@ -3,16 +3,21 @@ import {
   CheckBoxProps,
   Input,
   InputProps,
+  Switch,
+  SwitchProps,
 } from './components';
 
 export {
-  Input,
-  InputProps,
   CheckBox,
   CheckBoxProps,
+  Input,
+  InputProps,
+  Switch,
+  SwitchProps,
 };
 
 export default {
-  Input,
   CheckBox,
+  Input,
+  Switch,
 };

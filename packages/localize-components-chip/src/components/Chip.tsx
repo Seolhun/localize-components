@@ -19,10 +19,10 @@ export interface ChipProps {
   theme?: ThemeType;
   icon?: ReactNode;
   onClickDelete?: (...args: any[]) => any;
-  style?: ChipStyleProps;
+  style?: ChipStyledProps;
 }
 
-interface ChipStyleProps {
+interface ChipStyledProps {
   border?: string;
   borderRadius?: string;
   color?: string;

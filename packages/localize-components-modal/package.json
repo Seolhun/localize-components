@@ -1,6 +1,6 @@
 {
   "license": "MIT",
-  "name": "@seolhun/localize-components",
+  "name": "@seolhun/localize-components-modal",
   "description": "Localizing React components is rendered by stand-alone not affect other styles.",
   "version": "0.0.13",
   "main": "./dist/index.js",
@@ -25,10 +25,7 @@
   },
   "dependencies": {
     "@emotion/styled": "^10.0.6",
-    "@seolhun/localize-components-modal": "^0.0.13",
-    "@seolhun/localize-components-chip": "^0.0.13",
-    "@seolhun/localize-components-modal": "^0.0.13",
-    "@seolhun/localize-components-drawer": "^0.0.13",
+    "@seolhun/localize-components-button": "^0.0.13",
     "@seolhun/localize-components-styled-types": "^0.0.13",
     "@seolhun/localize-components-styled-utils": "^0.0.13",
     "@seolhun/localize-components-types": "^0.0.13",

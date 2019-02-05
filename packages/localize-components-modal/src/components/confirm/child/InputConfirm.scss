@@ -1,0 +1,22 @@
+@import '../../../assets/scss/mixin/responsive.scss';
+@import '../../../assets/scss/variable/color';
+
+:local .InputConfirm {
+  color: map-get($map: $color_list, $key: black);
+  font-size: 16px;
+  padding: 5px 30px;
+  .input {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .errorMessageBox {
+    width: 100%;
+    color: map-get($map: $color_list, $key: danger);
+    font-size: 14px;
+    margin: 5px;
+    &.off {
+      display: none;
+    }
+  }
+}

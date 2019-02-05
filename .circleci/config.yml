@@ -1,14 +1,13 @@
-version: 2
+version: 2.0
 jobs:
   build:
+    docker:
+      - image: circleci/node:8.10
+    working_directory: ~/seolhun
     branches:
       only:
         - master
         - develop
-    docker:
-      - image: circleci/node:8.10
-    working_directory: ~/repo
-
     steps:
       - checkout
       - restore_cache:

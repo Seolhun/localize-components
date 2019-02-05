@@ -1,0 +1,11 @@
+:local .Alert {
+  max-height: 450px;
+  height: 250px;
+
+  .Alert__Buttons {
+    align-self: center;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
+}
