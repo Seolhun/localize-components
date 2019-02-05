@@ -1,4 +1,5 @@
 import React from 'react';
+
 import classnames from 'classnames';
 
 const styles = require('./Sidebar.css');
@@ -16,7 +17,7 @@ const Sidebar: React.SFC<SidebarProps> = ({
   style,
 }) => (
   <aside className={classnames(`${styles.sidebar} ${className}`)} style={style}>
-    <div className="menu-items">{children}</div>
+    <div className='menu-items'>{children}</div>
   </aside>
 );
 

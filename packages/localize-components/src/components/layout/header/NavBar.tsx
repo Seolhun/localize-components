@@ -1,4 +1,5 @@
 import React from 'react';
+
 import classnames from 'classnames';
 
 const styles = require('./NavBar.css');
