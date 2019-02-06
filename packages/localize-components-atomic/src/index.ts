@@ -3,7 +3,6 @@ import {
   Button,
   ButtonProps,
 } from '@seolhun/localize-components-button';
-
 import {
   CheckBox,
   CheckBoxProps,
@@ -13,6 +12,7 @@ import {
   SwitchProps,
 } from '@seolhun/localize-components-form';
 
+import Chip, { ChipProps } from './components/chip';
 import Hr, { HrProps } from './components/hr';
 import Spinner, {
   SpinnerProps,
@@ -23,6 +23,8 @@ export {
   ButtonProps,
   CheckBox,
   CheckBoxProps,
+  Chip,
+  ChipProps,
   Hr,
   HrProps,
   Input,
@@ -36,6 +38,7 @@ export {
 export default {
   Button,
   CheckBox,
+  Chip,
   Hr,
   Input,
   Spinner,

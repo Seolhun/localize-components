@@ -6,15 +6,15 @@ const baseWebpackConfig = require('./webpack.base.conf');
 const config = require('../config');
 const utils = require('./utils');
 
-Object.keys(baseWebpackConfig.entry).forEach(function (name) {
-  baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name])
-})
+Object.keys(baseWebpackConfig.entry).forEach((name) => {
+  baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name]);
+});
 
 module.exports = merge(baseWebpackConfig, {
   module: {
     rules: utils.styleLoaders({
-      sourceMap: config.dev.cssSourceMap
-    })
+      sourceMap: config.dev.cssSourceMap,
+    }),
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
@@ -22,8 +22,8 @@ module.exports = merge(baseWebpackConfig, {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: config.dev.index,
-      inject: true
+      inject: true,
     }),
     new FriendlyErrorsPlugin(),
-  ]
-})
+  ],
+});

@@ -1,5 +1,4 @@
 // components
-import Chip, { ChipProps } from '@seolhun/localize-components-chip';
 import { Drawer } from '@seolhun/localize-components-drawer';
 import {
   Alert,
@@ -22,8 +21,6 @@ export {
   AlertProps,
   Card,
   CardProps,
-  Chip,
-  ChipProps,
   Confirm,
   ConfirmProps,
   Drawer,
@@ -45,7 +42,6 @@ export {
 export default {
   Alert,
   Card,
-  Chip,
   Confirm,
   Drawer,
   InputConfirm,

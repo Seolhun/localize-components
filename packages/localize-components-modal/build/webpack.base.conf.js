@@ -1,6 +1,6 @@
 
 const path = require('path');
-const TerserPlugin = require('terser-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
 
 const config = require('../config');
@@ -37,10 +37,10 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': config.dev.env
+      'process.env': config.dev.env,
     }),
     new webpack.ProvidePlugin({
-      React: "react",
+      React: 'react',
     }),
   ],
   module: {
@@ -71,14 +71,14 @@ module.exports = {
             options: {
               sourceMap: true,
             },
-          }
+          },
         ],
       }, {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: utils.assetsPath('img/[name].[hash:7].[ext]')
+          name: utils.assetsPath('img/[name].[hash:7].[ext]'),
         },
       },
       {
@@ -86,7 +86,7 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: utils.assetsPath('media/[name].[hash:7].[ext]')
+          name: utils.assetsPath('media/[name].[hash:7].[ext]'),
         },
       },
       {
@@ -94,9 +94,9 @@ module.exports = {
         loader: 'url-loader',
         options: {
           limit: 10000,
-          name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
+          name: utils.assetsPath('fonts/[name].[hash:7].[ext]'),
         },
-      }
+      },
     ],
   },
   optimization: {
@@ -112,53 +112,53 @@ module.exports = {
       cacheGroups: {
         vendors: {
           test: /[\\/]node_modules[\\/]/,
-          priority: -10
+          priority: -10,
         },
         default: {
           minChunks: 2,
           priority: -20,
-          reuseExistingChunk: true
-        }
-      }
+          reuseExistingChunk: true,
+        },
+      },
     },
     namedModules: true,
     ...(IS_PRODUCTION && {
       minimize: true,
       minimizer: [
         new TerserPlugin({
-        terserOptions: {
-          parse: {
-            ecma: 6,
+          terserOptions: {
+            parse: {
+              ecma: 6,
+            },
+            compress: {
+              ecma: 6,
+              warnings: false,
+              comparisons: false,
+            },
+            mangle: {
+              safari10: true,
+            },
+            output: {
+              ecma: 6,
+              comments: false,
+              ascii_only: true,
+            },
           },
-          compress: {
-            ecma: 6,
-            warnings: false,
-            comparisons: false,
-          },
-          mangle: {
-            safari10: true,
-          },
-          output: {
-            ecma: 6,
-            comments: false,
-            ascii_only: true,
-          },
-        },
-        parallel: true,
-        cache: true,
-        sourceMap: true,
-      })],
+          parallel: true,
+          cache: true,
+          sourceMap: true,
+        })],
     }),
   },
   performance: {
     hints: 'warning',
     maxAssetSize: 300000,
     maxEntrypointSize: 400000,
-    assetFilter: function(assetFilename) {
-      return assetFilename.endsWith('.css') ||
-      assetFilename.endsWith('.scss') ||
-      assetFilename.endsWith('.js') ||
-      assetFilename.endsWith('.ts');
-    }
+    assetFilter(assetFilename) {
+      return assetFilename.endsWith('.css')
+      || assetFilename.endsWith('.scss')
+      || assetFilename.endsWith('.js')
+      || assetFilename.endsWith('.ts');
+    },
   },
 };
