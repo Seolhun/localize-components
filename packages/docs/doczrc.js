@@ -3,9 +3,9 @@
  * @see https://github.com/pedronauck/docz/tree/master/packages/docz-theme-default
  */
 export default {
-  title: "Localize Components",
-  src: "./src",
-  dest: "/dist",
+  title: 'Localize Components',
+  src: './src',
+  dest: '/dist',
   port: 8000,
   description: 'Localized-components without effect',
   indexHtml: 'public/index.html',
@@ -25,7 +25,7 @@ export default {
   themeConfig: {
     mode: 'dark',
     logo: {
-      src: "/public/logo.png",
+      src: '/public/logo.png',
       width: 150,
     },
     codemirrorTheme: 'dracula',
@@ -40,11 +40,11 @@ export default {
   modifyBundlerConfig: (config) => {
     config.module.rules.push({
       test: /\.scss$/,
-      use: ["style-loader", "css-loader", "sass-loader"],
+      use: ['style-loader', 'css-loader', 'sass-loader'],
     });
     config.module.rules.push({
       test: /\.css$/,
-      use: ["style-loader", "css-loader"],
+      use: ['style-loader', 'css-loader'],
     });
     return config;
   },
