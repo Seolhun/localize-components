@@ -1,11 +1,17 @@
 module.exports = {
-  roots: ['<rootDir>/packages/localize-components/src'],
+  // roots: ['<rootDir>/packages/localize-components/src'],
+  rootDir: '.',
+  setupTestFrameworkScriptFile: '<rootDir>/src/__test__/_config_/index.ts',
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
     '^.+\\.ts?$': 'ts-jest',
   },
-  testRegex: '(/_tests/.*|(\\.|/)(test|spec))\\.tsx?$',
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+  testMatch: [
+    '<rootDir>/src/**/*.(test|spec).ts?(x)',
+  ],
+  moduleFileExtensions: [
+    'ts', 'tsx', 'js', 'jsx', 'json',
+  ],
   moduleNameMapper: {
     '^@/(.*)': '<rootDir>/src/$1',
   },
@@ -13,4 +19,13 @@ module.exports = {
     '<rootDir>/node_modules/',
     '<rootDir>/src/__tests__/_config_/',
   ],
+  preset: 'ts-jest',
+  globals: {
+    'ts-jest': {
+      diagnostics: {
+        pathRegex: /\.(spec|test)\.ts?(x)$/,
+        warnOnly: true,
+      },
+    },
+  },
 };

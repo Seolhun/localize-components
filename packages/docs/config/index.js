@@ -1,4 +1,4 @@
-const path = require('path')
+const path = require('path');
 
 module.exports = {
   build: {
@@ -9,8 +9,8 @@ module.exports = {
     assetsPublicPath: '',
     productionSourceMap: true,
     productionGzip: true,
-    productionGzipExtensions: ['js', 'ts', 'css', 'scss','html'],
-    bundleAnalyzerReport: process.env.npm_config_report
+    productionGzipExtensions: ['js', 'ts', 'css', 'scss', 'html'],
+    bundleAnalyzerReport: process.env.npm_config_report,
   },
   dev: {
     env: require('./dev.env'),
@@ -21,5 +21,5 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {},
     cssSourceMap: false,
-  }
-}
+  },
+};

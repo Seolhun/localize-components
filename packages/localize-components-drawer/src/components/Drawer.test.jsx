@@ -1,3 +1,4 @@
+import React from 'react';
 import Drawer from './Drawer';
 
 const requiredProps = {
@@ -15,7 +16,7 @@ describe('<Drawer />', () => {
     const wrapper = shallow(
       <Drawer {...requiredProps}>
         <div className={mockClass} />
-      </Drawer>
+      </Drawer>,
     );
     expect(wrapper.find(`div.${mockClass}`)).toHaveLength(1);
   });
