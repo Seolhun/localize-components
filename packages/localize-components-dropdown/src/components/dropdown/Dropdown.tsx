@@ -1,42 +1,43 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-
-import DropdownItemContainer from './DropdownItemContainer';
-import DropdownItem from './DropdownItem';
 
 import Button from '@seolhun/localize-components-button';
+import { ThemesType } from '@seolhun/localize-components-styled-types';
 
-class Dropdown extends Component {
-  static propTypes = {
-    onClickListItem: PropTypes.func.isRequired,
-    // isNotRequired
-    selectedItem: PropTypes.oneOfType([
-      PropTypes.number,
-      PropTypes.string,
-    ]),
-    itemList: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
-    renderList: PropTypes.oneOfType([PropTypes.func, PropTypes.node]),
-    renderNoData: PropTypes.func,
-    buttonClassName: PropTypes.string,
-    className: PropTypes.string,
-    disabled: PropTypes.bool,
-    itemSuffix: PropTypes.string,
-    radio: PropTypes.bool,
-    wrapperClassName: PropTypes.string,
-  };
+interface DropdownProps {
+  onClickListItem: (...args:any[]) => void;
+  // isNotRequired
+  selectedItem: {
+    [key: string]: any,
+  },
+  itemList: DropdownItem[],
+  /**
+   * Set this to change CheckBox ours mainColor
+   * @default ThemeConfig.MAIN_THEME = royal_blue
+   */
+  mainColor?: ThemesType;
+  /**
+   * Set this to change CheckBox ours subColor
+   * @default ThemeConfig.SUB_THEME = gray
+   */
+  subColor?: ThemesType;
+  /**
+   * Set this to change CheckBox valueKey
+   * @default 'value'
+   */
+  valueKey?: string;
+  /**
+   * Set this to change CheckBox labelKey
+   * @default 'label'
+   */
+  labelKey?: string;
+}
 
-  static defaultProps = {
-    selectedItem: '',
-    itemList: [],
-    renderList: null,
-    renderNoData: () => null,
-    buttonClassName: 'btn-sub left ic-flex-right',
-    wrapperClassName: '',
-    itemSuffix: '',
-    className: '',
-    disabled: false,
-    radio: false,
-  };
+interface DropdownItem {
+  [key: string]: any,
+}
+
+class Dropdown extends Component<DropdownProps> {
+  private dropdownRef: any;
 
   constructor(props) {
     super(props);
@@ -55,7 +56,7 @@ class Dropdown extends Component {
   }
 
   handleClickDocument = (e) => {
-    if (this.dropdown && !this.dropdown.contains(e.target)) {
+    if (this.dropdownRef && !this.dropdownRef.contains(e.target)) {
       this.setState({ isDropDownOn: false });
     }
   };

@@ -375,7 +375,7 @@ export class Input extends PureComponent<InputProps, InputState> {
 const StyledInputBox = styled.div<StyledProps>`
   background-color: ${({
     subColor = ThemeConfig.SUB_THEME,
-  }: StyledProps) => {
+  }) => {
     return getValidTheme(subColor);
   }};
   border-radius: 6px;
@@ -394,7 +394,7 @@ const StyledInputBox = styled.div<StyledProps>`
   &:hover {
     border: 2px solid ${({
       mainColor = ThemeConfig.MAIN_THEME,
-    }: StyledProps) => {
+    }) => {
       if (getIsLightenTheme(mainColor)) {
         return darken(0.1, getValidTheme(mainColor));
       }
@@ -405,13 +405,36 @@ const StyledInputBox = styled.div<StyledProps>`
   &.isFocused {
     border: 2px solid ${({
       mainColor = ThemeConfig.MAIN_THEME,
-    }: StyledProps) => {
+    }) => {
       return getValidTheme(mainColor);
     }};
   }
 `;
 
 const StyledDivInput = styled.div<InputProps>`
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+  background-color: transparent;
+  border: 0;
+  color: ${({
+    subColor = ThemeConfig.SUB_THEME,
+  }) => {
+    if (getIsLightenTheme(subColor)) {
+      return Themes.dark_gray;
+    }
+    return Themes.white;
+  }};
+  cursor: text;
+  display: block;
+  font-size: ${(({ fontSize = 12 }) => `${fontSize}px`)};
+  height: auto;
+  line-height: 25px;
+  margin: auto 10px;
+  outline: none;
+  padding: 0;
+  white-space: nowrap;
+  width: 100%;
+
   &:empty:before {
     content: attr(data-placeholder);
     font-size: ${FontSizes.H5};
@@ -420,31 +443,15 @@ const StyledDivInput = styled.div<InputProps>`
     font-stretch: normal;
     line-height: 1.90;
     letter-spacing: -0.3px;
-    color: ${lighten(0.1, Themes.light_gray)};
+    color: ${({
+      subColor = ThemeConfig.SUB_THEME,
+    }) => {
+      if (getIsLightenTheme(subColor)) {
+        return lighten(0.4, Themes.dark_gray)
+      }
+      return lighten(0.1, Themes.light_gray)
+    }};
   }
-
-  -moz-appearance: textfield;
-  -webkit-appearance: textfield;
-  background-color: transparent;
-  border: 0;
-  color: ${({
-    subColor = ThemeConfig.SUB_THEME,
-  }: StyledProps) => {
-    if (getIsLightenTheme(subColor)) {
-      return Themes.dark_gray;
-    }
-    return Themes.white;
-  }};
-  font-size: ${(({ fontSize = 12 }) => `${fontSize}px`)};
-  cursor: text;
-  display: block;
-  height: auto;
-  line-height: 25px;
-  margin: auto 10px;
-  outline: none;
-  padding: 0;
-  white-space: nowrap;
-  width: 100%;
 
   &:required {
     color: ${Themes.warning};
@@ -462,7 +469,7 @@ const StyledInput = styled.input<InputProps>`
   border: 0;
   color: ${({
     subColor = ThemeConfig.SUB_THEME,
-  }: StyledProps) => {
+  }) => {
     if (getIsLightenTheme(subColor)) {
       return Themes.dark_gray;
     }

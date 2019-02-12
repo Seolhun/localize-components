@@ -229,8 +229,8 @@ const CloseButton = styled.div<StyledProps>`
   line-height: 1;
   padding: 0.6rem;
   position: absolute;
-  right: 0.5rem;
-  top: 0.5rem;
+  right: 0.25rem;
+  top: 0.25rem;
   z-index: ${(({ zIndex = 1000 }) => zIndex - 1)};
 
   color: ${({
@@ -313,32 +313,24 @@ const ModalContent = styled.div<StyledProps>`
   width: 100%;
 
   &.Header {
-    border-bottom: 0.02em solid ${Themes.light_gray};
+    border-bottom: 0.03em solid ${Themes.light_gray};
     border-radius: 6px 6px 0 0;
     font-size: 22px;
-    height: 15%;
+    height: 20%;
     overflow: auto;
-
-    & > div {
-      align-items: center;
-    }
   }
 
   &.Body {
-    height: 70%;
+    height: 60%;
     overflow: auto;
   }
 
   &.Footer {
-    border-top: 0.02em solid ${Themes.light_gray};
+    border-top: 0.03em solid ${Themes.light_gray};
     bottom: 0;
-    height: 15%;
+    height: 20%;
     overflow: auto;
     position: absolute;
-
-    & > div {
-      align-items: center;
-    }
   }
 
   & > div {

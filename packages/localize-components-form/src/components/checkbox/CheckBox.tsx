@@ -84,10 +84,10 @@ export interface CheckBoxProps {
   valueKey?: string;
 }
 
+
 export interface CheckBoxItemProps {
-  label: string;
-  value: string;
-}
+  [key: string]: any,
+};
 
 const CheckBox: SFC<CheckBoxProps> = ({
   item,
