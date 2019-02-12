@@ -32,9 +32,10 @@ class CheckBoxView extends Component {
             <CheckBox
               mainColor='primary'
               item={{
-                label: 'label',
+                name: 'label',
                 value: 'value',
               }}
+              labelKey='name'
               checked
             />
             <CheckBox
