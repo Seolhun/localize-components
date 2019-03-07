@@ -17,7 +17,7 @@
 - [ ] localize-components-button
 - [ ] localize-components-chip
 - [ ] localize-components-drawer
-- [ ] localize-components-dropdown
+<!-- - [ ] localize-components-dropdown -->
 - [ ] localize-components-form
 - [ ] localize-components-icons
 - [ ] localize-components-modal

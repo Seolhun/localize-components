@@ -11,9 +11,7 @@
     ],
   },
   "exclude": [
-    ".vscode",
     "node_modules/**",
-    "packages/**",
     "./src/__test__/**",
     "./src/**/*.test.ts",
   ],
