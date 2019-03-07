@@ -1,40 +1,47 @@
 ---
-name: Switch
+name: Radio
 menu: Forms
 ---
 
 import { Playground, PropsTable } from 'docz';
-import { Switch } from '@seolhun/localize-components-atomic';
+import { Radio } from '@seolhun/localize-components-atomic';
 import { Themes } from '@seolhun/localize-components-styled-types';
 
-import SwitchPropsTable from './SwitchPropsTable';
+import RadioPropsTable from './RadioPropsTable';
 
-# Switch
+# Radio
 
 ## Default
 
 <Playground>
-  <Switch
+  <Radio
     item={{
       label: 'label',
       value: 'value',
     }}
-    checked
+    groupName='localize'
   />
-  <Switch
+  <Radio
     item={{
       label: 'label',
       value: 'value',
     }}
-    subColor='#000'
-    checked
+    groupName='localize'
+  />
+    <Radio
+    item={{
+      label: 'label',
+      value: 'value',
+    }}
+    groupName='localize'
+
   />
 </Playground>
 
 ## Give a mainColor
 
 <Playground>
-  <Switch
+  <Radio
     item={{
       label: 'label',
       value: 'value',
@@ -42,7 +49,7 @@ import SwitchPropsTable from './SwitchPropsTable';
     mainColor='danger'
     checked
   />
-  <Switch
+  <Radio
     item={{
       label: 'label',
       value: 'value',
@@ -50,7 +57,7 @@ import SwitchPropsTable from './SwitchPropsTable';
     mainColor='primary'
     checked
   />
-  <Switch
+  <Radio
     item={{
       label: 'label',
       value: 'value',
@@ -58,7 +65,7 @@ import SwitchPropsTable from './SwitchPropsTable';
     mainColor='light_gray'
     checked
   />
-  <Switch
+  <Radio
     item={{
       label: 'label',
       value: 'value',
@@ -71,7 +78,7 @@ import SwitchPropsTable from './SwitchPropsTable';
 ## Give a subColor
 
 <Playground>
-  <Switch
+  <Radio
     item={{
       label: 'label',
       value: 'value',
@@ -80,7 +87,7 @@ import SwitchPropsTable from './SwitchPropsTable';
     subColor='dark_gray'
     checked
   />
-  <Switch
+  <Radio
     item={{
       label: 'label',
       value: 'value',
@@ -89,7 +96,7 @@ import SwitchPropsTable from './SwitchPropsTable';
     subColor='gray'
     checked
   />
-  <Switch
+  <Radio
     item={{
       label: 'label',
       value: 'value',
@@ -98,7 +105,7 @@ import SwitchPropsTable from './SwitchPropsTable';
     subColor='purple'
     checked
   />
-  <Switch
+  <Radio
     item={{
       label: 'label',
       value: 'value',
@@ -111,4 +118,4 @@ import SwitchPropsTable from './SwitchPropsTable';
 
 ## PropsTable
 
-<PropsTable of={SwitchPropsTable} />
+<PropsTable of={RadioPropsTable} />

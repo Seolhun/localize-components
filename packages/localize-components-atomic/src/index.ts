@@ -8,6 +8,8 @@ import {
   CheckBoxProps,
   Input,
   InputProps,
+  Radio,
+  RadioProps,
   Switch,
   SwitchProps,
 } from '@seolhun/localize-components-form';
@@ -29,6 +31,8 @@ export {
   HrProps,
   Input,
   InputProps,
+  Radio,
+  RadioProps,
   Spinner,
   SpinnerProps,
   Switch,
@@ -41,6 +45,7 @@ export default {
   Chip,
   Hr,
   Input,
+  Radio,
   Spinner,
   Switch,
 };
