@@ -46,7 +46,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': config.dev.env,
     }),
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',

@@ -36,17 +36,12 @@ module.exports = {
       resolve('node_modules'),
       resolve('../../node_modules'),
     ],
-    alias: {
-      containers: resolve('src/containers'),
-      components: resolve('src/components'),
-      assets: resolve('src/assets'),
-    },
   },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': config.dev.env,
     }),
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',

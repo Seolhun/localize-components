@@ -51,7 +51,7 @@
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
     "chalk": "^2.4.2",
-    "clean-webpack-plugin": "^0.1.19",
+    "clean-webpack-plugin": "^2.0.0",
     "compression-webpack-plugin": "^2.0.0",
     "css-loader": "^1.0.1",
     "enzyme": "^3.4.4",

@@ -33,7 +33,7 @@ const hotMiddleware = webpackHotMiddleware(compiler, {
 });
 
 if (!process.env.NODE_ENV) {
-  process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV);
+  process.env.NODE_ENV = config.dev.env.NODE_ENV;
 }
 
 compiler.plugin('compilation', (compilation) => {

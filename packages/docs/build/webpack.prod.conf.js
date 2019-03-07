@@ -9,6 +9,7 @@ const config = require('../config');
 const IS_TESTING = process.env.NODE_ENV === 'testing';
 
 const webpackConfig = merge(baseWebpackConfig, {
+  mode: 'production',
   module: {
     rules: utils.styleLoaders({
       sourceMap: config.build.productionSourceMap,

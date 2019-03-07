@@ -8,12 +8,12 @@ const webpack = require('webpack');
 const proxyMiddleware = require('http-proxy-middleware');
 const historyApiFallback = require('connect-history-api-fallback');
 
+const config = require('../config');
+
 const IS_PROD = process.env.NODE_ENV === 'production';
 const webpackConfig = IS_PROD
   ? require('./webpack.prod.conf')
   : require('./webpack.dev.conf');
-
-const config = require('../config');
 
 const port = process.env.PORT || config.dev.port;
 const autoOpenBrowser = !!config.dev.autoOpenBrowser;
@@ -33,7 +33,7 @@ const hotMiddleware = webpackHotMiddleware(compiler, {
 });
 
 if (!process.env.NODE_ENV) {
-  process.env.NODE_ENV = JSON.parse(config.dev.env.NODE_ENV);
+  process.env.NODE_ENV = config.dev.env.NODE_ENV;
 }
 
 compiler.plugin('compilation', (compilation) => {
@@ -70,13 +70,13 @@ app.use(hotMiddleware);
 const staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory);
 app.use(staticPath, express.static('./static'));
 
-const uri = `http://localhost:${port}`;
 
-let _resolve;
+let resolveFn;
 const readyPromise = new Promise((resolve) => {
-  _resolve = resolve;
+  resolveFn = resolve;
 });
 
+const uri = `http://localhost${port}`;
 console.log('> Starting dev server...');
 devMiddleware.waitUntilValid(() => {
   console.log('###########################');
@@ -86,7 +86,7 @@ devMiddleware.waitUntilValid(() => {
   if (autoOpenBrowser && process.env.NODE_ENV !== 'testing') {
     opn(uri);
   }
-  _resolve();
+  resolveFn();
 });
 
 const server = app.listen(port);
