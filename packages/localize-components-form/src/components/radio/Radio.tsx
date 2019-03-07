@@ -1,12 +1,10 @@
 import React, { SFC } from 'react';
 
 import styled from '@emotion/styled';
-import { darken, lighten } from 'polished';
 
 import classnames from 'classnames';
 
 import {
-  getIsLightenTheme,
   getValidTheme,
 } from '@seolhun//localize-components-styled-utils';
 import {
@@ -15,81 +13,81 @@ import {
   ThemesType,
 } from '@seolhun/localize-components-styled-types';
 
-export interface CheckBoxProps {
+export interface RadioProps {
   /**
-   * Set this to change CheckBox label
+   * Set this to change Radio label
    * @default '{}'
    */
-  item: CheckBoxItemProps;
+  item: RadioItemProps;
   // isNotRequired
   /**
-   * Set this to change CheckBox checked
+   * Set this to change Radio checked
    * @default false
    */
   checked?: boolean;
   /**
-   * Set this to change CheckBox className
+   * Set this to change Radio className
    * @default ''
    */
   className?: string;
   /**
-   * Set this to change CheckBox groupName
+   * Set this to change Radio groupName
    * @default ''
    */
   groupName?: string;
   /**
-   * Set this to change CheckBox labelKey
+   * Set this to change Radio labelKey
    * @default 'label'
    */
   labelKey?: string;
   /**
-   * Set this to change CheckBox onChange
+   * Set this to change Radio onChange
    * @default () => null
    */
-  onChange?: (item: CheckBoxItemProps) => void;
+  onChange?: (item: RadioItemProps) => void;
   /**
-   * Set this to change CheckBox onMouseOver
+   * Set this to change Radio onMouseOver
    * @default () => null
    */
   onMouseOver?: (...agrs: any[]) => void;
   /**
-   * Set this to change CheckBox onMouseOut
+   * Set this to change Radio onMouseOut
    * @default () => null
    */
   onMouseOut?: (...agrs: any[]) => void;
   /**
-   * Set this to change CheckBox useValueKey
+   * Set this to change Radio useValueKey
    * @default false
    */
   useValueKey?: boolean;
   /**
-   * Set this to change CheckBox stype
+   * Set this to change Radio stype
    * @default {}
    */
   style?: {};
   /**
-   * Set this to change CheckBox ours mainColor
+   * Set this to change Radio ours mainColor
    * @default ThemeConfig.MAIN_THEME = royal_blue
    */
   mainColor?: ThemesType;
   /**
-   * Set this to change CheckBox ours subColor
+   * Set this to change Radio ours subColor
    * @default ThemeConfig.SUB_THEME = gray
    */
   subColor?: ThemesType;
   /**
-   * Set this to change CheckBox valueKey
+   * Set this to change Radio valueKey
    * @default 'value'
    */
   valueKey?: string;
 }
 
 
-export interface CheckBoxItemProps {
+export interface RadioItemProps {
   [key: string]: any,
 };
 
-const CheckBox: SFC<CheckBoxProps> = ({
+const Radio: SFC<RadioProps> = ({
   item,
   // IsNotRequired
   checked = false,
@@ -109,8 +107,15 @@ const CheckBox: SFC<CheckBoxProps> = ({
     ? valueKey
     : labelKey;
 
+  const handleOnChange = () => {
+    onChange({
+      label: item[labelKey],
+      value: item[valueKey],
+    });
+  }
+
   return (
-    <StyledCheckBoxLabel
+    <StyledRadioLabel
       key={item[usedKey]}
       htmlFor={item[usedKey]}
       className={classnames(
@@ -121,15 +126,12 @@ const CheckBox: SFC<CheckBoxProps> = ({
       onMouseOver={onMouseOver}
     >
       {item[usedKey]}
-      <StyledCheckBox
+      <StyledRadio
+        type='radio'
         id={item[usedKey]}
         checked={checked}
-        className='__Localize__CheckBox'
-        type='checkbox'
-        onChange={() => onChange({
-          label: item[labelKey],
-          value: item[valueKey],
-        })}
+        className='__Localize__Radio'
+        onChange={handleOnChange}
         value={item[usedKey]}
         name={groupName}
       />
@@ -140,11 +142,11 @@ const CheckBox: SFC<CheckBoxProps> = ({
           ...style,
         }}
       />
-    </StyledCheckBoxLabel>
+    </StyledRadioLabel>
   );
 };
 
-const StyledCheckBoxLabel = styled.label`
+const StyledRadioLabel = styled.label`
   -moz-user-select: none;
   -ms-user-select: none;
   -webkit-user-select: none;
@@ -157,7 +159,7 @@ const StyledCheckBoxLabel = styled.label`
   width: 100%;
 `;
 
-const StyledCheckBox = styled.input`
+const StyledRadio = styled.input`
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -171,8 +173,12 @@ const StyledCheckMark = styled.span<StyledProps>`
   }: StyledProps) => {
     return getValidTheme(mainColor);
   }};
-  border-radius: 6px;
-  border: 1px solid transparent;
+  border-radius: 50%;
+  border: 1px solid ${({
+    mainColor = ThemeConfig.MAIN_THEME,
+  }: StyledProps) => {
+    return getValidTheme(mainColor);
+  }};
   height: 16px;
   left: 0;
   position: absolute;
@@ -180,26 +186,21 @@ const StyledCheckMark = styled.span<StyledProps>`
   transition: border-color 0.5s, background-color 0.5s;
   width: 16px;
 
-  .__Localize__CheckBox:hover ~ & {
+  .__Localize__Radio:checked ~ & {
+    display: block;
     border: 1px solid ${({
-      mainColor = ThemeConfig.MAIN_THEME,
+      subColor = ThemeConfig.SUB_THEME,
     }: StyledProps) => {
-      if (getIsLightenTheme(mainColor)) {
-        return getValidTheme(mainColor);
-      }
-      return getValidTheme(mainColor);
+      return getValidTheme(subColor);
     }};
+  }
 
-    input:checked ~ & {
-      background-color: ${({
-        mainColor = ThemeConfig.MAIN_THEME,
-      }: StyledProps) => {
-        if (getIsLightenTheme(mainColor)) {
-          return darken(0.1, getValidTheme(mainColor));
-        }
-        return lighten(0.1, getValidTheme(mainColor));
-      }};
-    }
+  .__Localize__Radio:hover ~ & {
+    border: 1px solid ${({
+      subColor = ThemeConfig.SUB_THEME,
+    }: StyledProps) => {
+      return getValidTheme(subColor);
+    }};
   }
 
   &:after {
@@ -208,25 +209,30 @@ const StyledCheckMark = styled.span<StyledProps>`
     display: none;
   }
 
-  .__Localize__CheckBox:checked ~ &:after {
+  .__Localize__Radio:checked ~ &:after {
     display: block;
+    transform: scale(1.0);
   }
 
   &:after {
     -ms-transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
-    border: solid ${({
+    background: ${({
       subColor = ThemeConfig.SUB_THEME,
     }: StyledProps) => {
       return getValidTheme(subColor);
     }};
-    border-width: 0 2px 2px 0;
+    border: 1px solid ${({
+      subColor = ThemeConfig.SUB_THEME,
+    }: StyledProps) => {
+      return getValidTheme(subColor);
+    }};
     height: 8px;
-    left: 5px;
-    top: 2px;
-    transform: rotate(45deg);
-    width: 4px;
+    left: 2.5px;
+    top: 2.5px;
+    width: 8px;
+    border-radius: 50%;
   }
 `;
 
-export default CheckBox;
+export default Radio;
