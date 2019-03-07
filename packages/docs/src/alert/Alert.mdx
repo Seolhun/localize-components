@@ -1,0 +1,60 @@
+---
+name: Alert
+route: /alert
+---
+
+import { Playground, PropsTable } from 'docz';
+import { Alert } from '@seolhun/localize-components';
+
+import AlertPropsTable from './AlertPropsTable';
+
+# Alert
+
+## PropsTable
+
+<PropsTable of={AlertPropsTable} />
+
+## Caution
+- [Docz - RoadMap](http://feedback.docz.site/roadmap?sort=trending)
+
+> Docz is not supported knobs(Under Review) not yet. If you want to see this, add isShow Props.
+
+## Default
+
+<Playground>
+  <Alert
+    header='Alert title'
+    body='Alert message'
+    isShow
+  />
+</Playground>
+
+## Give a Position
+
+<Playground>
+  <Alert
+    header='Alert title'
+    body='Alert top-center'
+    position='top-center'
+  />
+  <Alert
+    header='Alert title'
+    body='Alert top-right'
+    position='top-right'
+  />
+  <Alert
+    header='Alert title'
+    body='Alert right'
+    position='right'
+  />
+  <Alert
+    header='Alert title'
+    body='Alert bottom-right'
+    position='bottom-right'
+  />
+  <Alert
+    header='Alert title'
+    body='Alert bottom-center'
+    position='bottom-center'
+  />
+</Playground>

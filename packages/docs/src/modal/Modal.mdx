@@ -1,0 +1,83 @@
+---
+name: Modal
+route: /modal
+---
+
+import { Playground, PropsTable } from 'docz';
+import { Modal } from '@seolhun/localize-components';
+
+import ModalPropsTable from './ModalPropsTable';
+
+# Modal
+
+## PropsTable
+
+<PropsTable of={ModalPropsTable} />
+
+## Caution
+- [Docz - RoadMap](http://feedback.docz.site/roadmap?sort=trending)
+
+> Docz is not supported knobs(Under Review) not yet. If you want to see this, add isShow Props.
+
+## Default
+
+<Playground>
+  <Modal
+    header={<div>Modal header</div>}
+    body={<div>Modal body</div>}
+    footer={<div>Modal footer</div>}
+    isShow
+  />
+</Playground>
+
+## Give a Size
+
+<Playground>
+  <Modal
+    header={<div>Modal small</div>}
+    body={<div>Modal body</div>}
+    footer={<div>Modal footer</div>}
+    size='small'
+  />
+  <Modal
+    header={<div>Modal Medium</div>}
+    body={<div>Modal body</div>}
+    footer={<div>Modal footer</div>}
+    size='medium'
+  />
+  <Modal
+    header={<div>Modal Large</div>}
+    body={<div>Modal body</div>}
+    footer={<div>Modal footer</div>}
+    size='large'
+  />
+</Playground>
+
+## Give a Position
+
+<Playground>
+  <Modal
+    header={<div>Modal top-left</div>}
+    body={<div>Modal body</div>}
+    footer={<div>Modal footer</div>}
+    position='top-left'
+  />
+  <Modal
+    header={<div>Modal right</div>}
+    body={<div>Modal body</div>}
+    footer={<div>Modal footer</div>}
+    position='right'
+  />
+  <Modal
+    header={<div>Modal center</div>}
+    body={<div>Modal body</div>}
+    footer={<div>Modal footer</div>}
+  />
+  <Modal
+    header={<div>Modal left</div>}
+    body={<div>Modal body</div>}
+    footer={<div>Modal footer</div>}
+    position='left'
+  />
+</Playground>
+

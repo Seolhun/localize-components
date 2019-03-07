@@ -1,8 +1,19 @@
 import React, { SFC } from 'react';
 
+import styled from '@emotion/styled';
+import { darken, lighten } from 'polished';
+
 import classnames from 'classnames';
 
-import { Themes, ThemeType } from '@seolhun/localize-components-types';
+import {
+  getIsLightenTheme,
+  getValidTheme,
+} from '@seolhun//localize-components-styled-utils';
+import {
+  StyledProps,
+  ThemeConfig,
+  ThemesType,
+} from '@seolhun/localize-components-styled-types';
 
 export interface CheckBoxProps {
   /**
@@ -57,10 +68,15 @@ export interface CheckBoxProps {
    */
   style?: {};
   /**
-   * Set this to change CheckBox ours theme
-   * @default 'main'
+   * Set this to change CheckBox ours mainColor
+   * @default ThemeConfig.MAIN_THEME = royal_blue
    */
-  theme?: ThemeType;
+  mainColor?: ThemesType;
+  /**
+   * Set this to change CheckBox ours subColor
+   * @default ThemeConfig.SUB_THEME = gray
+   */
+  subColor?: ThemesType;
   /**
    * Set this to change CheckBox valueKey
    * @default 'value'
@@ -68,10 +84,10 @@ export interface CheckBoxProps {
   valueKey?: string;
 }
 
+
 export interface CheckBoxItemProps {
-  label: string;
-  value: string;
-}
+  [key: string]: any,
+};
 
 const CheckBox: SFC<CheckBoxProps> = ({
   item,
@@ -85,43 +101,133 @@ const CheckBox: SFC<CheckBoxProps> = ({
   onMouseOver = () => null,
   useValueKey = false,
   style = {},
-  theme = Themes.PRIMARY,
   valueKey = 'value',
+  mainColor = ThemeConfig.MAIN_THEME,
+  subColor = ThemeConfig.SUB_THEME,
 }) => {
   const usedKey = useValueKey
     ? valueKey
     : labelKey;
 
   return (
-    <label
+    <StyledCheckBoxLabel
       key={item[usedKey]}
       htmlFor={item[usedKey]}
       className={classnames(
+        '__Localize__',
         className,
-        '__Localize CheckBox',
       )}
       onMouseOut={onMouseOut}
       onMouseOver={onMouseOver}
     >
       {item[usedKey]}
-      <input
+      <StyledCheckBox
         id={item[usedKey]}
-        type='checkbox'
         checked={checked}
+        className='CheckBox'
+        type='checkbox'
         onChange={() => onChange({
           label: item[labelKey],
           value: item[valueKey],
         })}
+        value={item[usedKey]}
         name={groupName}
       />
-      <span
-        className={`CheckMark CheckMark-${theme}`}
+      <StyledCheckMark
+        className='CheckMark'
+        mainColor={mainColor}
+        subColor={subColor}
         style={{
           ...style,
         }}
       />
-    </label>
+    </StyledCheckBoxLabel>
   );
 };
+
+const StyledCheckBoxLabel = styled.label`
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  padding-left: 30px;
+  position: relative;
+  user-select: none;
+  width: 100%;
+`;
+
+const StyledCheckBox = styled.input`
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+`;
+
+const StyledCheckMark = styled.span<StyledProps>`
+  background-color: ${({
+    mainColor = ThemeConfig.MAIN_THEME,
+  }: StyledProps) => {
+    return getValidTheme(mainColor);
+  }};
+  border-radius: 6px;
+  border: 1px solid transparent;
+  height: 16px;
+  left: 0;
+  position: absolute;
+  top: 5px;
+  transition: border-color 0.5s, background-color 0.5s;
+  width: 16px;
+
+  .CheckBox:hover ~ & {
+    border: 1px solid ${({
+      mainColor = ThemeConfig.MAIN_THEME,
+    }: StyledProps) => {
+      if (getIsLightenTheme(mainColor)) {
+        return getValidTheme(mainColor);
+      }
+      return getValidTheme(mainColor);
+    }};
+
+    input:checked ~ & {
+      background-color: ${({
+        mainColor = ThemeConfig.MAIN_THEME,
+      }: StyledProps) => {
+        if (getIsLightenTheme(mainColor)) {
+          return darken(0.1, getValidTheme(mainColor));
+        }
+        return lighten(0.1, getValidTheme(mainColor));
+      }};
+    }
+  }
+
+  &:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+
+  .CheckBox:checked ~ &:after {
+    display: block;
+  }
+
+  &:after {
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    border: solid ${({
+      subColor = ThemeConfig.SUB_THEME,
+    }: StyledProps) => {
+      return getValidTheme(subColor);
+    }};
+    border-width: 0 2px 2px 0;
+    height: 8px;
+    left: 5px;
+    top: 2px;
+    transform: rotate(45deg);
+    width: 4px;
+  }
+`;
 
 export default CheckBox;

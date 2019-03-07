@@ -1,12 +1,15 @@
 // components
-import Alert, { AlertProps } from '@seolhun/localize-components-alert';
-import Chip, { ChipProps } from '@seolhun/localize-components-chip';
-import Confirm, {
+import { Drawer } from '@seolhun/localize-components-drawer';
+import {
+  Alert,
+  AlertProps,
+  Confirm,
   ConfirmProps,
   InputConfirm,
   InputConfirmProps,
-} from '@seolhun/localize-components-confirm';
-import { Drawer } from '@seolhun/localize-components-drawer';
+  Modal,
+  ModalProps,
+} from '@seolhun/localize-components-modal';
 
 import Card, { CardProps } from './components/card';
 import Issue, { IssueProps } from './components/issue';
@@ -18,8 +21,6 @@ export {
   AlertProps,
   Card,
   CardProps,
-  Chip,
-  ChipProps,
   Confirm,
   ConfirmProps,
   Drawer,
@@ -28,10 +29,25 @@ export {
   Issue,
   IssueProps,
   Jumbotron,
+  Modal,
+  ModalProps,
   JumbotronProps,
   Tab,
   TabItemType,
   TabProps,
   Tabs,
   TabsProps,
+};
+
+export default {
+  Alert,
+  Card,
+  Confirm,
+  Drawer,
+  InputConfirm,
+  Issue,
+  Jumbotron,
+  Modal,
+  Tab,
+  Tabs,
 };

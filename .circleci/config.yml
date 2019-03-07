@@ -1,20 +1,19 @@
-version: 2
+version: 2.0
 jobs:
   build:
+    docker:
+      - image: circleci/node:8.10
+    working_directory: ~/seolhun
     branches:
       only:
         - master
         - develop
-    docker:
-      - image: circleci/node:8.10
-    working_directory: ~/repo
-
     steps:
       - checkout
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "package.json" }}
-          - v1-dependencies-
+          - node-dependencies-{{ checksum "package.json" }}
+          - node-dependencies-
 
       - run:
           name: "Checking versions"
@@ -31,6 +30,11 @@ jobs:
           name: "Lerna bootstrap packages"
           command: yarn bs
 
+      - save_cache:
+          paths:
+            - node_modules
+          key: node-dependencies-{{ checksum "package.json" }}
+
       - run:
           name: "Lerna packages bundling"
           command: yarn bundle
@@ -44,7 +48,7 @@ jobs:
             if [ "${CIRCLE_BRANCH}" == "develop" ]; then
               yarn deploy:docs:dev
             fi
-            
+
       - run:
           name: "Deploy examples into surge"
           command: |
@@ -54,22 +58,3 @@ jobs:
             if [ "${CIRCLE_BRANCH}" == "develop" ]; then
               yarn deploy:ex:dev
             fi
-
-      # - run:
-      #     name: "Deploy Localize-Components into surge"
-      #     command: |
-      #       if [ "${CIRCLE_BRANCH}" == "master" ]; then
-      #         yarn deploy:h
-      #       fi
-      #       if [ "${CIRCLE_BRANCH}" == "develop" ]; then
-      #         yarn deploy:h:dev
-      #       fi
-
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-
-          # - run:
-      #     name: "Test using jest"
-      #     command: yarn test

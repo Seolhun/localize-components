@@ -11,6 +11,10 @@ import {
   AlignType,
 } from './types/styles/Align';
 import {
+  FontSizes,
+  FontSizeType,
+} from './types/styles/FontSizes';
+import {
   Position,
   PositionType,
 } from './types/styles/Position';
@@ -19,6 +23,7 @@ import {
   SizeType,
 } from './types/styles/Size';
 import {
+  StyledProps,
   DarkenTheme,
   LightenTheme,
   Themes,
@@ -36,6 +41,9 @@ export {
   // Align
   Align,
   AlignType,
+  // FontSize
+  FontSizeType,
+  FontSizes,
   // Position
   Position,
   PositionType,
@@ -43,6 +51,7 @@ export {
   Size,
   SizeType,
   // Theme
+  StyledProps,
   DarkenTheme,
   LightenTheme,
   Themes,
@@ -59,6 +68,8 @@ export default {
    */
   // Align
   Align,
+  // FontSize
+  FontSizes,
   // Position
   Position,
   // Size

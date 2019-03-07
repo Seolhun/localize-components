@@ -1,14 +1,12 @@
 const path = require('path');
 const webpack = require('webpack');
-
-const config = require('../config');
-const utils = require('./utils');
-
-const TerserPlugin = require('terser-webpack-plugin')
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const TerserPlugin = require('terser-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const utils = require('./utils');
+const config = require('../config');
 
 const IS_PRODUCTION = process.env.NODE_ENV === 'production';
 
@@ -19,7 +17,7 @@ function resolve(dir) {
 module.exports = {
   mode: process.env.NODE_ENV,
   entry: {
-    index: resolve('src/index.tsx'),
+    index: resolve('src/index.ts'),
   },
   output: {
     path: config.build.assetsRoot,
@@ -48,11 +46,11 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': config.dev.env,
     }),
-    new CleanWebpackPlugin(["dist"]),
+    new CleanWebpackPlugin(['dist']),
     new MiniCssExtractPlugin({
-      filename: "[name].css",
-      chunkFilename: "[id].css"
-    })
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+    }),
   ],
   module: {
     rules: [
@@ -68,7 +66,7 @@ module.exports = {
         test: /\.css$/,
         use: [
           MiniCssExtractPlugin.loader,
-          'css-loader'
+          'css-loader',
         ],
       },
       {
@@ -125,7 +123,7 @@ module.exports = {
         parallel: true,
         sourceMap: true,
       }),
-      new OptimizeCSSAssetsPlugin({})
+      new OptimizeCSSAssetsPlugin({}),
     ],
     splitChunks: {
       chunks: 'async',
@@ -182,12 +180,12 @@ module.exports = {
     hints: 'warning',
     maxAssetSize: 550000,
     maxEntrypointSize: 550000,
-    assetFilter: function(assetFilename) {
+    assetFilter(assetFilename) {
       return (
-        assetFilename.endsWith('.css') ||
-        assetFilename.endsWith('.scss') ||
-        assetFilename.endsWith('.js') ||
-        assetFilename.endsWith('.ts')
+        assetFilename.endsWith('.css')
+        || assetFilename.endsWith('.scss')
+        || assetFilename.endsWith('.js')
+        || assetFilename.endsWith('.ts')
       );
     },
   },

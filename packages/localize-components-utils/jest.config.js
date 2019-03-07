@@ -5,11 +5,11 @@ module.exports = {
     '<rootDir>/src/**/*.test.ts?(x)',
   ],
   moduleFileExtensions: [
-    'ts', 'tsx', 'js', 'jsx', 'json'
+    'ts', 'tsx', 'js', 'jsx', 'json',
   ],
   testPathIgnorePatterns: [
     '/node_modules/',
-    '/src/__test__/_config_/'
+    '/src/__test__/_config_/',
   ],
   preset: 'ts-jest',
   globals: {
@@ -17,7 +17,7 @@ module.exports = {
       diagnostics: {
         pathRegex: /\.(spec|test)\.ts?(x)$/,
         warnOnly: true,
-      }
-    }
-  }
+      },
+    },
+  },
 };

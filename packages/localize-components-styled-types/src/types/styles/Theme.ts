@@ -1,8 +1,10 @@
+import { SizeType } from './Size';
 
 export enum DarkenTheme {
   basic = '#d1d5da',
   black = '#2a2a2a',
   danger = '#E32929',
+  dark_gray = '#202021',
   gray = '#323334',
   primary = '#0069d9',
   purple = '#5f42ff',
@@ -13,7 +15,7 @@ export enum DarkenTheme {
 
 export enum LightenTheme {
   info = '#369cc7',
-  light_gray = '#979797',
+  light_gray = '#cccc',
   sky = '#87CEEB',
   white = '#fff',
   yellow = '#FFFF00',
@@ -23,6 +25,7 @@ export type ThemesType =
   | 'basic'
   | 'black'
   | 'danger'
+  | 'dark_gray'
   | 'gray'
   | 'info'
   | 'light_gray'
@@ -35,12 +38,36 @@ export type ThemesType =
   | 'white'
   | 'yellow'
   | DarkenTheme
-  | LightenTheme;
+  | LightenTheme
+  | string;
 
 export const Themes = {
   ...DarkenTheme,
   ...LightenTheme,
 };
+
+export interface StyledProps {
+  /**
+   * Set this to change Localize Style ours mainColor
+   * @default ThemeConfig.MAIN_THEME = royal_blue
+   */
+  mainColor?: ThemesType;
+  /**
+   * Set this to change Localize Style ours subColor
+   * @default ThemeConfig.SUB_THEME
+   */
+  subColor?: ThemesType;
+  /**
+   * Set this to change Localize Style ours size
+   * @default medium
+   */
+  size?: SizeType;
+  /**
+   * Set this to change Localize Style ours subColor
+   * @default 1000
+   */
+  zIndex?: number;
+}
 
 export default {
   DarkenTheme,

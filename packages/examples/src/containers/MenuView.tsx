@@ -13,8 +13,9 @@ class MenuView extends Component {
     return (
       <Jumbotron
         title='Hello, Localize-Components'
-        description='Localize-Components is made for localized style without effect'
+        description='Localize-Components is made for localized style without side-effect'
         theme='primary'
+        align='center'
       >
         {routers.map((router) => {
           return (
