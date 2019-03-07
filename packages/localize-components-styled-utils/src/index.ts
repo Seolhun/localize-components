@@ -1,10 +1,3 @@
-/**
- * Styles Utils
- */
-// Align
-import {
-  getAlignStyle,
-} from './utils/styles/AlignUtils';
 // Position
 import {
   getBottomPositionStyle,
@@ -17,8 +10,6 @@ import {
 } from './utils/styles/ThemeUtils';
 
 export {
-  // Styles
-  getAlignStyle,
   // Position
   getBottomPositionStyle,
   getPositionStyle,
@@ -28,8 +19,6 @@ export {
 };
 
 export default {
-  // Styles
-  getAlignStyle,
   // Position
   getBottomPositionStyle,
   getPositionStyle,
