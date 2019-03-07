@@ -8,14 +8,13 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const utils = require('./utils');
 const config = require('../config');
 
-const IS_PRODUCTION = process.env.NODE_ENV === 'production';
+const IS_PRODUCTION = !!process.env.NODE_ENV === 'production';
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir);
 }
 
 module.exports = {
-  mode: process.env.NODE_ENV,
   entry: {
     index: resolve('src/index.ts'),
   },
@@ -42,7 +41,7 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': config.dev.env,
+      'process.env': JSON.stringify(config.dev.env),
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({

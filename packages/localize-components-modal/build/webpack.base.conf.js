@@ -6,14 +6,13 @@ const webpack = require('webpack');
 const config = require('../config');
 const utils = require('./utils');
 
-const IS_PRODUCTION = process.env.NODE_ENV === 'production';
+const IS_PRODUCTION = !!process.env.NODE_ENV === 'production';
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir);
 }
 
 module.exports = {
-  mode: process.env.NODE_ENV,
   entry: {
     index: resolve('src/index.ts'),
   },
@@ -37,7 +36,7 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': config.dev.env,
+      'process.env': JSON.stringify(config.dev.env),
     }),
     new webpack.ProvidePlugin({
       React: 'react',

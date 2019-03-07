@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'react-dom';
+import ReactDOM from 'react-dom';
 import { HashRouter } from 'react-router-dom';
 
 import MenuView from './containers/MenuView';
@@ -9,7 +9,9 @@ import './vendor';
 
 import './Main.scss';
 
-render(
+console.error('@@@@@@@')
+
+ReactDOM.render(
   <HashRouter>
     <section>
       <MenuView />

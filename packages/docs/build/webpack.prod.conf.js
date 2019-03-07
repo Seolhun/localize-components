@@ -64,7 +64,7 @@ if (config.build.productionGzip) {
 }
 
 if (config.build.bundleAnalyzerReport) {
-  const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+  const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
   webpackConfig.plugins.push(new BundleAnalyzerPlugin());
 }
 

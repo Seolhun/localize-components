@@ -10,8 +10,8 @@ const historyApiFallback = require('connect-history-api-fallback');
 
 const config = require('../config');
 
-const IS_PROD = process.env.NODE_ENV === 'production';
-const webpackConfig = IS_PROD
+const IS_PRODUCTION = !!process.env.NODE_ENV === 'production';
+const webpackConfig = IS_PRODUCTION
   ? require('./webpack.prod.conf')
   : require('./webpack.dev.conf');
 

@@ -8,26 +8,23 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const utils = require('./utils');
 const config = require('../config');
 
-const IS_PRODUCTION = process.env.NODE_ENV === 'production';
+const IS_PRODUCTION = !!process.env.NODE_ENV === 'production';
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir);
 }
 
 module.exports = {
-  mode: process.env.NODE_ENV,
   entry: {
     index: resolve('src/index.ts'),
   },
   output: {
     path: config.build.assetsRoot,
-    filename: utils.assetsPath('[name].js'),
-    chunkFilename: utils.assetsPath('[id].js'),
+    filename: utils.assetsPath('[name].[chunkhash].js'),
+    chunkFilename: utils.assetsPath('[id].[chunkhash].js'),
     publicPath: IS_PRODUCTION
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath,
-    // filename: utils.assetsPath('js/[name].[chunkhash].js'),
-    // chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
   },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
@@ -39,7 +36,7 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': config.dev.env,
+      'process.env': JSON.stringify(config.dev.env),
     }),
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
