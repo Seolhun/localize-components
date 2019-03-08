@@ -10,6 +10,8 @@ import {
   InputProps,
   Radio,
   RadioProps,
+  RadioGroup,
+  RadioGroupProps,
   Switch,
   SwitchProps,
 } from '@seolhun/localize-components-form';
@@ -33,6 +35,8 @@ export {
   InputProps,
   Radio,
   RadioProps,
+  RadioGroup,
+  RadioGroupProps,
   Spinner,
   SpinnerProps,
   Switch,
@@ -46,6 +50,7 @@ export default {
   Hr,
   Input,
   Radio,
+  RadioGroup,
   Spinner,
   Switch,
 };
