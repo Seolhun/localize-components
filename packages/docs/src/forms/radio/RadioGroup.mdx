@@ -1,42 +1,47 @@
 ---
-name: Radio
+name: RadioGroup
 menu: Forms
 ---
 
 import { Playground, PropsTable } from 'docz';
-import { Radio } from '@seolhun/localize-components-atomic';
+import { RadioGroup, Radio } from '@seolhun/localize-components-atomic';
 import { Themes } from '@seolhun/localize-components-styled-types';
 
-import RadioPropsTable from './RadioPropsTable';
+import RadioGroupPropsTable from './RadioGroupPropsTable';
 
-# Radio
+# RadioGroup
 
 ## Default
 
 <Playground>
-  <Radio
-    item={{
-      label: 'label',
-      value: 'value',
-    }}
-    checked
-    name='localize'
-  />
-  <Radio
-    item={{
-      label: 'label',
-      value: 'value',
-    }}
-    name='localize'
-  />
-    <Radio
-    item={{
-      label: 'label',
-      value: 'value',
-    }}
-    name='localize'
-
-  />
+  <RadioGroup groupName='localize'>
+    {props => (
+      <>
+        <Radio
+          {...props}
+          item={{
+            label: 'label',
+            value: 'value',
+          }}
+          checked
+        />
+        <Radio
+          {...props}
+          item={{
+            label: 'label',
+            value: 'value',
+          }}
+        />
+        <Radio
+          {...props}
+          item={{
+            label: 'label',
+            value: 'value',
+          }}
+        />
+      </>
+    )}
+  </RadioGroup>
 </Playground>
 
 ## Give a mainColor
@@ -119,4 +124,4 @@ import RadioPropsTable from './RadioPropsTable';
 
 ## PropsTable
 
-<PropsTable of={RadioPropsTable} />
+<PropsTable of={RadioGroupPropsTable} />

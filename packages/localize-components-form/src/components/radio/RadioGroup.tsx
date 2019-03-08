@@ -58,7 +58,7 @@ export interface RadioGroupProps {
 
 const RadioGroup: SFC<RadioGroupProps> = ({
   children = () => null,
-  groupName = 'radioGroup',
+  groupName = new Date().toDateString(),
   labelKey = 'label',
   valueKey = 'value',
   useValueKey = false,
