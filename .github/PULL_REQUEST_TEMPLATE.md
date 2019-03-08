@@ -7,12 +7,13 @@
 - [ ] localize-components-button
 - [ ] localize-components-chip
 - [ ] localize-components-drawer
-<!-- - [ ] localize-components-dropdown -->
 - [ ] localize-components-form
 - [ ] localize-components-icons
 - [ ] localize-components-modal
 - [ ] localize-components-styled-types
+- [ ] localize-components-styled-utils
 - [ ] localize-components-table
+- [ ] localize-components-types
 - [ ] localize-components-utils
 - [ ] localize-components-utils-event
 

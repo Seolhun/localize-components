@@ -47,79 +47,91 @@ import RadioGroupPropsTable from './RadioGroupPropsTable';
 ## Give a mainColor
 
 <Playground>
-  <Radio
-    item={{
-      label: 'label',
-      value: 'value',
-    }}
-    mainColor='danger'
-    checked
-  />
-  <Radio
-    item={{
-      label: 'label',
-      value: 'value',
-    }}
-    mainColor='primary'
-    checked
-  />
-  <Radio
-    item={{
-      label: 'label',
-      value: 'value',
-    }}
-    mainColor='light_gray'
-    checked
-  />
-  <Radio
-    item={{
-      label: 'label',
-      value: 'value',
-    }}
-    mainColor='#41FF2B'
-    checked
-  />
+  <RadioGroup groupName='localize'>
+    {props => (
+      <>
+        <Radio
+          item={{
+            label: 'label',
+            value: 'value',
+          }}
+          mainColor='danger'
+          checked
+        />
+        <Radio
+          item={{
+            label: 'label',
+            value: 'value',
+          }}
+          mainColor='primary'
+          checked
+        />
+        <Radio
+          item={{
+            label: 'label',
+            value: 'value',
+          }}
+          mainColor='light_gray'
+          checked
+        />
+        <Radio
+          item={{
+            label: 'label',
+            value: 'value',
+          }}
+          mainColor='#41FF2B'
+          checked
+        />
+      </>
+    )}
+  </RadioGroup>
 </Playground>
 
 ## Give a subColor
 
 <Playground>
-  <Radio
-    item={{
-      label: 'label',
-      value: 'value',
-    }}
-    mainColor='danger'
-    subColor='dark_gray'
-    checked
-  />
-  <Radio
-    item={{
-      label: 'label',
-      value: 'value',
-    }}
-    mainColor='primary'
-    subColor='gray'
-    checked
-  />
-  <Radio
-    item={{
-      label: 'label',
-      value: 'value',
-    }}
-    mainColor='light_gray'
-    subColor='purple'
-    checked
-  />
-  <Radio
-    item={{
-      label: 'label',
-      value: 'value',
-    }}
-    mainColor='#41FF2B'
-    subColor='#000'
-    checked
-  />
+  <RadioGroup groupName='localize'>
+    {props => (
+      <>
+        <Radio
+          item={{
+            label: 'label',
+            value: 'value',
+          }}
+          mainColor='danger'
+          subColor='dark_gray'
+          checked
+        />
+        <Radio
+          item={{
+            label: 'label',
+            value: 'value',
+          }}
+          mainColor='primary'
+          subColor='gray'
+          checked
+        />
+        <Radio
+          item={{
+            label: 'label',
+            value: 'value',
+          }}
+          mainColor='light_gray'
+          subColor='purple'
+          checked
+        />
+        <Radio
+          item={{
+            label: 'label',
+            value: 'value',
+          }}
+          mainColor='#41FF2B'
+          subColor='#000'
+          checked
+        />
+      </>
+    )}
+  </RadioGroup>
 </Playground>
 
 ## PropsTable

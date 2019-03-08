@@ -14,15 +14,13 @@ export type RadioGroupAlign = 'vertical' | 'horizontal' | string;
 export interface RadioGroupProps {
   /**
    * Set this to change Radio Group children
-   * @default () => null
    */
   children: (props: RadioGroupProps) => ReactNode;
-
   /**
    * Set this to change Radio Group name
-   * @default ''
    */
   groupName?: string;
+
   /**
    * Set this to change Radio Group labelKey
    * @default 'label'
@@ -57,8 +55,8 @@ export interface RadioGroupProps {
 }
 
 const RadioGroup: SFC<RadioGroupProps> = ({
-  children = () => null,
-  groupName = new Date().toDateString(),
+  children,
+  groupName,
   labelKey = 'label',
   valueKey = 'value',
   useValueKey = false,
