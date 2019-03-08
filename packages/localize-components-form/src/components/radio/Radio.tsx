@@ -13,13 +13,15 @@ import {
   ThemesType,
 } from '@seolhun/localize-components-styled-types';
 
+import { RadioGroupAlign } from './RadioGroup';
+
 export interface RadioProps {
   /**
    * Set this to change Radio label
    * @default '{}'
    */
   item: RadioItemProps;
-  // isNotRequired
+
   /**
    * Set this to change Radio checked
    * @default false
@@ -80,6 +82,12 @@ export interface RadioProps {
    * @default 'value'
    */
   valueKey?: string;
+
+  /**
+   * Set this to change Radio Group align
+   * @default undefined
+   */
+  align?: RadioGroupAlign;
 }
 
 
@@ -102,6 +110,7 @@ const Radio: SFC<RadioProps> = ({
   valueKey = 'value',
   mainColor = ThemeConfig.MAIN_THEME,
   subColor = ThemeConfig.SUB_THEME,
+  align,
 }) => {
   const usedKey = useValueKey
     ? valueKey
@@ -124,6 +133,7 @@ const Radio: SFC<RadioProps> = ({
       )}
       onMouseOut={onMouseOut}
       onMouseOver={onMouseOver}
+      align={align}
     >
       {item[usedKey]}
       <StyledRadio
@@ -146,17 +156,39 @@ const Radio: SFC<RadioProps> = ({
   );
 };
 
-const StyledRadioLabel = styled.label`
+interface SizeProps {
+    /**
+   * Set this to change Radio Group align
+   * @default undefined
+   */
+  align?: RadioGroupAlign;
+}
+
+const StyledRadioLabel = styled.label<SizeProps>`
   -moz-user-select: none;
   -ms-user-select: none;
   -webkit-user-select: none;
   align-items: center;
   cursor: pointer;
-  display: flex;
+  display: ${({
+    align,
+  }) => {
+    if (align === 'horizontal') {
+      return 'inline-flex';
+    }
+    return 'flex';
+  }};
   padding-left: 30px;
   position: relative;
   user-select: none;
-  width: 100%;
+  width: ${({
+    align,
+  }) => {
+    if (align === 'horizontal') {
+      return 'auto';
+    }
+    return '100%';
+  }};
 `;
 
 const StyledRadio = styled.input`
@@ -211,6 +243,7 @@ const StyledCheckMark = styled.span<StyledProps>`
 
   .__Localize__Radio:checked ~ &:after {
     display: block;
+    transition: transform .3s ease-out;
     transform: scale(1.0);
   }
 
