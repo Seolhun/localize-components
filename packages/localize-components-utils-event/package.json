@@ -2,7 +2,7 @@
   "license": "MIT",
   "name": "@seolhun/localize-components-utils-event",
   "description": "Localizing React components is rendered by stand-alone not affect other styles.",
-  "version": "0.0.13",
+  "version": "0.1.0",
   "main": "./dist/index.js",
   "typings": "dist/index.d.ts",
   "source": "src/index.ts",
