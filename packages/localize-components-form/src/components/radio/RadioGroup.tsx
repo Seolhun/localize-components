@@ -1,5 +1,7 @@
 import React, { SFC, ReactNode } from 'react';
 
+import styled from '@emotion/styled';
+
 import {
   ThemeConfig,
   ThemesType,
@@ -52,6 +54,16 @@ export interface RadioGroupProps {
    * @default 'vertical'
    */
   align?: RadioGroupAlign;
+  /**
+   * Set this to change Radio Group gap
+   * @default '10px'
+   */
+  gap?: string;
+}
+
+interface RadioGroupContainerProps {
+  align: RadioGroupAlign;
+  gap: string;
 }
 
 const RadioGroup: SFC<RadioGroupProps> = ({
@@ -63,10 +75,15 @@ const RadioGroup: SFC<RadioGroupProps> = ({
   mainColor = ThemeConfig.MAIN_THEME,
   subColor = ThemeConfig.SUB_THEME,
   align = 'vertical',
+  gap = '10px',
 }) => {
 
   return (
-    <div className='__Localize__'>
+    <RadioGroupContainer
+      className='__Localize__RadioGroup'
+      align={align}
+      gap={gap}
+    >
       {children({
         children,
         groupName,
@@ -77,8 +94,20 @@ const RadioGroup: SFC<RadioGroupProps> = ({
         subColor,
         align,
       })}
-    </div>
+    </RadioGroupContainer>
   )
 }
+
+const RadioGroupContainer = styled.div<RadioGroupContainerProps>`
+  & > *:not(:last-child) {
+    margin-right: ${({ align, gap }) => {
+      if (align === 'horizontal') {
+        return `${gap}`;
+      }
+      return '0';
+    }};
+  }
+`;
+
 
 export default RadioGroup;
