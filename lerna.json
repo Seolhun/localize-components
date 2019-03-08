@@ -1,5 +1,6 @@
 {
   "lerna": "3.4.2",
+  "version": "0.0.13",
   "npmClient": "yarn",
   "useWorkspaces": true,
   "packages": [
@@ -12,11 +13,13 @@
         "develop"
       ],
       "ignoreChanges": [
+        "packages/localize-components-docs",
+        "packages/localize-components-examples",
+        "packages/localize-components-drawer",
         "packages/localize-components-table",
         "**/__test__",
         "**/*.md"
       ]
     }
-  },
-  "version": "0.0.13"
+  }
 }
