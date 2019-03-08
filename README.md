@@ -7,14 +7,14 @@
 
 - Author : [HunSeol](https://github.com/Seolhun/)
 
-## Goal
-- localized-style for custom.
-- stylesheet variable(using props) on localize-components.
-- One components must has a one stylesheet and design. but components be changed using theme props.
-
 ## Why
-- I just want to build react components has no side effect. because some components has a global stylesheet affect original project style sheet.
-- **I think that all components must be standalone anywhere, any environments.**
+- I just want to build react components withpout side-effect. 
+  - All components have global stylesheet affecting origin product style.
+
+## Goal
+- localized-style withput side-effect.
+- All components are standalone withput dipendencies.
+- All components be changed by React Context.
 
 ## Used stacks
 - TypeScript
@@ -26,6 +26,24 @@
 - polished
 - Docz
 
+## Current Versioning 
+- Beta Release
+  - @seolhun/localize-components@0.1.0
+  - @seolhun/localize-components-atomic@0.1.0
+  - @seolhun/localize-components-button@0.1.0
+  - @seolhun/localize-components-modal@0.1.0
+  - @seolhun/localize-components-form@0.1.0
+
+- Develop
+  - @seolhun/localize-components-drawer@0.0.14
+  - @seolhun/localize-components-icons@0.0.14
+  - @seolhun/localize-components-styled-types@0.1.0
+  - @seolhun/localize-components-styled-utils@0.1.0
+  - @seolhun/localize-components-table@0.0.14
+  - @seolhun/localize-components-types@0.1.0
+  - @seolhun/localize-components-utils-event@0.1.0
+  - @seolhun/localize-components-utils@0.1.0
+
 ## Getting start
 #### Install Package
 ```bash
@@ -36,8 +54,8 @@ $ yarn add @seolhun/localize-components-atomic
 ## How to use
 #### import
 ```js
-import { Button } from '@seolhun/localize-components-atomic';
 import { Alert } from '@seolhun/localize-components';
+import { Button } from '@seolhun/localize-components-atomic';
 ```
 
 ## Examples

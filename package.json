@@ -32,7 +32,8 @@
     "deploy:ex:dev": "surge packages/examples/dist/ http://dev.localize-components-examples.surge.sh",
     "deploy:docs": "surge packages/docs/dist/ http://localize-components-docs.surge.sh",
     "deploy:docs:dev": "surge packages/docs/dist/ http://dev.localize-components-docs.surge.sh",
-    "release": "lerna publish from-git",
+    "release": "lerna publish",
+    "prerelease": "lerna publish from-git",
     "release:beta": "lerna publish from-git --canary",
     "bs": "lerna bootstrap",
     "link": "lerna link"
