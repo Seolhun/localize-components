@@ -201,16 +201,12 @@ const StyledRadio = styled.input`
 
 const StyledCheckMark = styled.span<StyledProps>`
   background-color: ${({
-    mainColor = ThemeConfig.MAIN_THEME,
+    subColor = ThemeConfig.SUB_THEME,
   }: StyledProps) => {
-    return getValidTheme(mainColor);
+    return getValidTheme(subColor);
   }};
   border-radius: 50%;
-  border: 1px solid ${({
-    mainColor = ThemeConfig.MAIN_THEME,
-  }: StyledProps) => {
-    return getValidTheme(mainColor);
-  }};
+  border: 1px solid transparent;
   height: 16px;
   left: 0;
   position: absolute;
@@ -221,17 +217,17 @@ const StyledCheckMark = styled.span<StyledProps>`
   .__Localize__Radio:checked ~ & {
     display: block;
     border: 1px solid ${({
-      subColor = ThemeConfig.SUB_THEME,
-    }: StyledProps) => {
-      return getValidTheme(subColor);
+      mainColor = ThemeConfig.MAIN_THEME,
+    }) => {
+      return getValidTheme(mainColor);
     }};
   }
 
   .__Localize__Radio:hover ~ & {
     border: 1px solid ${({
-      subColor = ThemeConfig.SUB_THEME,
-    }: StyledProps) => {
-      return getValidTheme(subColor);
+      mainColor = ThemeConfig.MAIN_THEME,
+    }) => {
+      return getValidTheme(mainColor);
     }};
   }
 
@@ -251,14 +247,14 @@ const StyledCheckMark = styled.span<StyledProps>`
     -ms-transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
     background: ${({
-      subColor = ThemeConfig.SUB_THEME,
-    }: StyledProps) => {
-      return getValidTheme(subColor);
+      mainColor = ThemeConfig.MAIN_THEME,
+    }) => {
+      return getValidTheme(mainColor);
     }};
     border: 1px solid ${({
-      subColor = ThemeConfig.SUB_THEME,
-    }: StyledProps) => {
-      return getValidTheme(subColor);
+      mainColor = ThemeConfig.MAIN_THEME,
+    }) => {
+      return getValidTheme(mainColor);
     }};
     height: 8px;
     left: 2.5px;

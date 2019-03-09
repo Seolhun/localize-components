@@ -6,7 +6,7 @@ export interface ThemeConfigProps {
 }
 
 const ThemeConfig: ThemeConfigProps = {
-  MAIN_THEME: 'royal_blue',
+  MAIN_THEME: 'primary',
   SUB_THEME: 'white',
 };
 
