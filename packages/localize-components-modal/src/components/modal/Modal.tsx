@@ -24,7 +24,7 @@ export interface ModalProps {
    * Set this to toggle Modal event handler
    * @default null
    */
-  onClickClose?: (...args: any[]) => void;
+  onClick?: (...args: any[]) => void;
   /**
    * Set this to change Modal className
    * @default null
@@ -89,13 +89,22 @@ class Modal extends Component<ModalProps, ModalState> {
     };
   }
 
+  static getDerivedStateFromProps(props, state) {
+    if (props.onClick && (props.isShow !== state.isShow)) {
+      return {
+        isShow: props.isShow
+      };
+    }
+    return null;
+  }
+
   handleIsShow = () => {
     const {
-      onClickClose,
+      onClick,
     } = this.props;
 
-    if (onClickClose) {
-      onClickClose();
+    if (onClick) {
+      onClick();
       return;
     }
 
@@ -151,50 +160,42 @@ class Modal extends Component<ModalProps, ModalState> {
             mainColor={mainColor}
             subColor={subColor}
           >
-            <span>
-              X
-            </span>
+            X
           </CloseButton>
           {header && (
             <ModalContent
               className={classnames(
-                'Header',
+                '__Localize__Modal__Header',
               )}
               size={size}
               mainColor={mainColor}
               subColor={subColor}
             >
-              <div>
-                {header}
-              </div>
+              {header}
             </ModalContent>
           )}
           {body && (
             <ModalContent
               className={classnames(
-                'Body',
+                '__Localize__Modal__Body',
               )}
               size={size}
               mainColor={mainColor}
               subColor={subColor}
             >
-              <div>
-                {body}
-              </div>
+              {body}
             </ModalContent>
           )}
           {footer && (
             <ModalContent
               className={classnames(
-                'Footer',
+                '__Localize__Modal__Footer',
               )}
               size={size}
               mainColor={mainColor}
               subColor={subColor}
             >
-              <div>
-                {footer}
-              </div>
+              {footer}
             </ModalContent>
           )}
         </ModalContainer>
@@ -225,12 +226,11 @@ const CloseButton = styled.div<StyledProps>`
   cursor: pointer;
   display: flex;
   font-weight: 700;
-  height: 12px;
   line-height: 1;
-  padding: 0.6rem;
+  padding: 10px;
   position: absolute;
-  right: 0.25rem;
-  top: 0.25rem;
+  right: 5px;
+  top: 5px;
   z-index: ${(({ zIndex = 1000 }) => zIndex - 1)};
 
   color: ${({
@@ -312,21 +312,22 @@ const ModalContent = styled.div<StyledProps>`
   letter-spacing: 0.2px;
   width: 100%;
 
-  &.Header {
-    border-bottom: 0.03em solid ${Themes.light_gray};
+  &.__Localize__Modal__Header {
+    border-bottom: 0.03rem solid ${Themes.light_gray};
     border-radius: 6px 6px 0 0;
     font-size: 22px;
     height: 20%;
     overflow: auto;
+    width: 92%;
   }
 
-  &.Body {
+  &.__Localize__Modal__Body {
     height: 60%;
     overflow: auto;
   }
 
-  &.Footer {
-    border-top: 0.03em solid ${Themes.light_gray};
+  &.__Localize__Modal__Footer {
+    border-top: 0.03rem solid ${Themes.light_gray};
     bottom: 0;
     height: 20%;
     overflow: auto;

@@ -13,6 +13,7 @@ import {
   ThemeConfig,
   ThemesType,
 } from '@seolhun/localize-components-styled-types';
+
 import Modal from '../modal';
 
 const styles = require('./Alert.css');
@@ -25,7 +26,7 @@ export interface AlertProps {
   /**
    * Set this to toggle Alert Modal event handler
    */
-  onClickClose: (...args: any[]) => void;
+  onClick: (...args: any[]) => void;
   // isNotRequired
   /**
    * Set this to change Modal button label
@@ -76,7 +77,7 @@ export interface AlertProps {
 
 const Alert: React.SFC<AlertProps> = ({
   body,
-  onClickClose,
+  onClick,
   // is Not Required
   buttonLabel = 'Confirm',
   className = null,
@@ -94,7 +95,7 @@ const Alert: React.SFC<AlertProps> = ({
         styles.Alert,
         className,
       )}
-      onClickClose={onClickClose}
+      onClick={onClick}
       header={
         <div>{header}</div>
       }
@@ -104,7 +105,7 @@ const Alert: React.SFC<AlertProps> = ({
       footer={
         <div className={styles.Alert__Buttons}>
           <Button
-            onClick={onClickClose}
+            onClick={onClick}
             mainColor={mainColor}
             subColor={subColor}
           >

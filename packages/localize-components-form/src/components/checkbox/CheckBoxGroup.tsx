@@ -1,4 +1,4 @@
-import React, { SFC, ReactNode, useState, useEffect } from 'react';
+import React, { SFC, ReactNode } from 'react';
 
 import styled from '@emotion/styled';
 

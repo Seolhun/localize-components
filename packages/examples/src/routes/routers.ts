@@ -3,6 +3,7 @@ import CheckboxView from '../containers/CheckboxView';
 import InputView from '../containers/InputView';
 import RadioView from '../containers/RadioView';
 import JumbotronView from '../containers/JumbotronView';
+import ModalView from '../containers/ModalView';
 
 const routerCreator = ({
   type,
@@ -21,6 +22,7 @@ const routerCreator = ({
 };
 
 const routers = [
+  // Atomic
   routerCreator({
     type: 0,
     path: '/button',
@@ -45,11 +47,18 @@ const routers = [
     label: 'Radio',
     component: RadioView,
   }),
+  // Components
   routerCreator({
     type: 1,
     path: '/jumbotron',
     label: 'Jumbotron',
     component: JumbotronView,
+  }),
+  routerCreator({
+    type: 1,
+    path: '/modal',
+    label: 'Modal',
+    component: ModalView,
   }),
 ];
 

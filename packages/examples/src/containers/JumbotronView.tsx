@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 
 import { Jumbotron } from '@seolhun/localize-components';
 
-export interface LocalizeViewState {
+export interface JumbotronViewState {
   isShow: boolean;
 }
 
-class LocalizeView extends Component<null, LocalizeViewState> {
+class JumbotronView extends Component<null, JumbotronViewState> {
   render() {
     return (
       <section>
@@ -30,4 +30,4 @@ class LocalizeView extends Component<null, LocalizeViewState> {
   }
 }
 
-export default LocalizeView;
+export default JumbotronView;
