@@ -13,41 +13,35 @@ class RadioView extends Component {
             <h2>Default</h2>
             <Radio
               item={{
-                label: 'label1',
-                value: 'value1',
+                label: 'label',
+                value: 'value',
               }}
-              subColor='danger'
-              mainColor='primary'
+              groupName='localize'
+            />
+            <Radio
+              item={{
+                label: 'label',
+                value: 'value',
+              }}
               checked
+              groupName='localize'
             />
-            <Radio
+              <Radio
               item={{
-                label: 'label2',
-                value: 'value2',
+                label: 'label',
+                value: 'value',
               }}
-              mainColor='#FFF'
-              subColor='primary'
-            />
-            <Radio
-              item={{
-                label: 'label3',
-                value: 'value3',
-              }}
-              mainColor='#FFF'
-              subColor='primary'
+              groupName='localize'
             />
           </div>
-        </div>
-        <div className='row'>
           <div className='col-sm-12'>
-            <h2>Give a main & subColor</h2>
+            <h2>Give a mainColor</h2>
             <Radio
               item={{
                 label: 'label',
                 value: 'value',
               }}
               mainColor='danger'
-              subColor='dark_gray'
               checked
             />
             <Radio
@@ -56,7 +50,43 @@ class RadioView extends Component {
                 value: 'value',
               }}
               mainColor='primary'
-              subColor='gray'
+              checked
+            />
+            <Radio
+              item={{
+                label: 'label',
+                value: 'value',
+              }}
+              mainColor='light_gray'
+              checked
+            />
+            <Radio
+              item={{
+                label: 'label',
+                value: 'value',
+              }}
+              mainColor='#41FF2B'
+              checked
+            />
+          </div>
+          <div className='col-sm-12'>
+            <h2>Give a subColor</h2>
+            <Radio
+              item={{
+                label: 'label',
+                value: 'value',
+              }}
+              mainColor='danger'
+              subColor="yellow"
+              checked
+            />
+            <Radio
+              item={{
+                label: 'label',
+                value: 'value',
+              }}
+              mainColor='primary'
+              subColor="danger"
               checked
             />
             <Radio

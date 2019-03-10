@@ -22,75 +22,74 @@ class CheckBoxView extends Component {
           <div className='col-sm-12'>
             <h2>Give a mainColor</h2>
             <CheckBox
+              item={{
+                label: 'label',
+                value: 'value',
+              }}
               mainColor='danger'
+              checked
+            />
+            <CheckBox
               item={{
                 label: 'label',
                 value: 'value',
               }}
-              checked
-            />
-            <CheckBox
               mainColor='primary'
-              item={{
-                name: 'label',
-                value: 'value',
-              }}
-              labelKey='name'
               checked
             />
             <CheckBox
+              item={{
+                label: 'label',
+                value: 'value',
+              }}
               mainColor='light_gray'
-              item={{
-                label: 'label',
-                value: 'value',
-              }}
               checked
             />
             <CheckBox
-              mainColor='#41FF2B'
               item={{
                 label: 'label',
                 value: 'value',
               }}
+              mainColor='#41FF2B'
               checked
             />
           </div>
           <div className='col-sm-12'>
             <h2>Give a subColor</h2>
             <CheckBox
+              item={{
+                label: 'label',
+                value: 'value',
+              }}
               mainColor='danger'
-              subColor='dark_gray'
+              subColor='yellow'
+              checked
+            />
+            <CheckBox
               item={{
                 label: 'label',
                 value: 'value',
               }}
-              checked
-            />
-            <CheckBox
               mainColor='primary'
-              subColor='gray'
+              subColor='danger'
+              checked
+            />
+            <CheckBox
               item={{
                 label: 'label',
                 value: 'value',
               }}
-              checked
-            />
-            <CheckBox
               mainColor='light_gray'
-              subColor='light_gray'
+              subColor='purple'
+              checked
+            />
+            <CheckBox
               item={{
                 label: 'label',
                 value: 'value',
               }}
-              checked
-            />
-            <CheckBox
               mainColor='#41FF2B'
               subColor='#000'
-              item={{
-                label: 'label',
-                value: 'value',
-              }}
               checked
             />
           </div>

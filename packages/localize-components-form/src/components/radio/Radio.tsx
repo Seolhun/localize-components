@@ -11,6 +11,7 @@ import {
   StyledProps,
   ThemeConfig,
   ThemesType,
+  DarkenTheme,
 } from '@seolhun/localize-components-styled-types';
 
 import { RadioGroupAlign } from './RadioGroup';
@@ -88,8 +89,12 @@ export interface RadioProps {
    * @default undefined
    */
   align?: RadioGroupAlign;
+  /**
+   * Set this to change CheckBox Group onClick
+   * @default undefined
+   */
+  onClickItems?: (...args: any[]) => any;
 }
-
 
 export interface RadioItemProps {
   [key: string]: any,
@@ -111,6 +116,7 @@ const Radio: SFC<RadioProps> = ({
   mainColor = ThemeConfig.MAIN_THEME,
   subColor = ThemeConfig.SUB_THEME,
   align,
+  onClickItems,
 }) => {
   const usedKey = useValueKey
     ? valueKey
@@ -121,6 +127,13 @@ const Radio: SFC<RadioProps> = ({
       label: item[labelKey],
       value: item[valueKey],
     });
+
+    if (onClickItems) {
+      onClickItems({
+        label: item[labelKey],
+        value: item[valueKey],
+      });
+    }
   }
 
   return (
@@ -143,7 +156,7 @@ const Radio: SFC<RadioProps> = ({
         className='__Localize__Radio'
         onChange={handleOnChange}
         value={item[usedKey]}
-        name={groupName}
+        name={groupName || item[usedKey]}
       />
       <StyledCheckMark
         mainColor={mainColor}
@@ -178,6 +191,7 @@ const StyledRadioLabel = styled.label<SizeProps>`
     }
     return 'flex';
   }};
+  height: auto;
   padding-left: 30px;
   position: relative;
   user-select: none;
@@ -206,11 +220,12 @@ const StyledCheckMark = styled.span<StyledProps>`
     return getValidTheme(subColor);
   }};
   border-radius: 50%;
-  border: 1px solid transparent;
+  border: 1px solid ${DarkenTheme.dark_gray};
+  display: inline-flex;
   height: 16px;
+  justify-content: flex-start;
   left: 0;
   position: absolute;
-  top: 5px;
   transition: border-color 0.5s, background-color 0.5s;
   width: 16px;
 

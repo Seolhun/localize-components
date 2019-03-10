@@ -42,11 +42,11 @@ const routers = [
   routerCreator({
     type: 0,
     path: '/radio',
-    label: 'radio',
+    label: 'Radio',
     component: RadioView,
   }),
   routerCreator({
-    type: 0,
+    type: 1,
     path: '/jumbotron',
     label: 'Jumbotron',
     component: JumbotronView,
