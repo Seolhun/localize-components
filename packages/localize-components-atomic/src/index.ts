@@ -6,6 +6,8 @@ import {
 import {
   CheckBox,
   CheckBoxProps,
+  CheckBoxGroup,
+  CheckBoxGroupProps,
   Input,
   InputProps,
   Radio,
@@ -27,6 +29,8 @@ export {
   ButtonProps,
   CheckBox,
   CheckBoxProps,
+  CheckBoxGroup,
+  CheckBoxGroupProps,
   Chip,
   ChipProps,
   Hr,

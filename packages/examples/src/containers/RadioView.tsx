@@ -1,9 +1,9 @@
 
 import React, { Component } from 'react';
 
-import { CheckBox } from '@seolhun/localize-components-atomic';
+import { Radio } from '@seolhun/localize-components-atomic';
 
-class CheckBoxView extends Component {
+class RadioView extends Component {
 
   render() {
     return (
@@ -11,17 +11,32 @@ class CheckBoxView extends Component {
         <div className='row'>
           <div className='col-sm-12'>
             <h2>Default</h2>
-            <CheckBox
+            <Radio
+              item={{
+                label: 'label',
+                value: 'value',
+              }}
+              groupName='localize'
+            />
+            <Radio
               item={{
                 label: 'label',
                 value: 'value',
               }}
               checked
+              groupName='localize'
+            />
+              <Radio
+              item={{
+                label: 'label',
+                value: 'value',
+              }}
+              groupName='localize'
             />
           </div>
           <div className='col-sm-12'>
             <h2>Give a mainColor</h2>
-            <CheckBox
+            <Radio
               item={{
                 label: 'label',
                 value: 'value',
@@ -29,7 +44,7 @@ class CheckBoxView extends Component {
               mainColor='danger'
               checked
             />
-            <CheckBox
+            <Radio
               item={{
                 label: 'label',
                 value: 'value',
@@ -37,7 +52,7 @@ class CheckBoxView extends Component {
               mainColor='primary'
               checked
             />
-            <CheckBox
+            <Radio
               item={{
                 label: 'label',
                 value: 'value',
@@ -45,7 +60,7 @@ class CheckBoxView extends Component {
               mainColor='light_gray'
               checked
             />
-            <CheckBox
+            <Radio
               item={{
                 label: 'label',
                 value: 'value',
@@ -56,25 +71,25 @@ class CheckBoxView extends Component {
           </div>
           <div className='col-sm-12'>
             <h2>Give a subColor</h2>
-            <CheckBox
+            <Radio
               item={{
                 label: 'label',
                 value: 'value',
               }}
               mainColor='danger'
-              subColor='yellow'
+              subColor="yellow"
               checked
             />
-            <CheckBox
+            <Radio
               item={{
                 label: 'label',
                 value: 'value',
               }}
               mainColor='primary'
-              subColor='danger'
+              subColor="danger"
               checked
             />
-            <CheckBox
+            <Radio
               item={{
                 label: 'label',
                 value: 'value',
@@ -83,7 +98,7 @@ class CheckBoxView extends Component {
               subColor='purple'
               checked
             />
-            <CheckBox
+            <Radio
               item={{
                 label: 'label',
                 value: 'value',
@@ -99,4 +114,4 @@ class CheckBoxView extends Component {
   }
 }
 
-export default CheckBoxView;
+export default RadioView;

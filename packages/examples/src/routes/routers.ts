@@ -1,6 +1,7 @@
 import ButtonView from '../containers/ButtonView';
 import CheckboxView from '../containers/CheckboxView';
 import InputView from '../containers/InputView';
+import RadioView from '../containers/RadioView';
 import JumbotronView from '../containers/JumbotronView';
 
 const routerCreator = ({
@@ -8,7 +9,6 @@ const routerCreator = ({
   path,
   label,
   exact = true,
-  onEnter = () => null,
   component,
 }) => {
   return {
@@ -16,7 +16,6 @@ const routerCreator = ({
     path,
     label,
     exact,
-    onEnter,
     component,
   };
 };
@@ -42,6 +41,12 @@ const routers = [
   }),
   routerCreator({
     type: 0,
+    path: '/radio',
+    label: 'Radio',
+    component: RadioView,
+  }),
+  routerCreator({
+    type: 1,
     path: '/jumbotron',
     label: 'Jumbotron',
     component: JumbotronView,

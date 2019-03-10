@@ -1,4 +1,4 @@
-import React, { SFC, ReactNode } from 'react';
+import React, { SFC, ReactNode, useState, useEffect } from 'react';
 
 import styled from '@emotion/styled';
 
@@ -11,67 +11,67 @@ export interface RadioItemProps {
   [key: string]: any,
 };
 
-export type RadioGroupAlign = 'vertical' | 'horizontal' | string;
+export type CheckBoxGroupAlign = 'vertical' | 'horizontal' | string;
 
-export interface RadioGroupProps {
+export interface CheckBoxGroupProps {
   /**
-   * Set this to change Radio Group children
+   * Set this to change CheckBox Group children
    */
-  children: (props: RadioGroupProps) => ReactNode;
+  children: (props: CheckBoxGroupProps) => ReactNode;
   /**
-   * Set this to change Radio Group name
+   * Set this to change CheckBox Group name
    */
   groupName?: string;
 
   /**
-   * Set this to change Radio Group labelKey
+   * Set this to change CheckBox Group labelKey
    * @default 'label'
    */
   labelKey?: string;
   /**
-   * Set this to change Radio Group valueKey
+   * Set this to change CheckBox Group valueKey
    * @default 'value'
    */
   valueKey?: string;
   /**
-   * Set this to change Radio Group useValueKey
+   * Set this to change CheckBox Group useValueKey
    * @default false
    */
   useValueKey?: boolean;
   /**
-   * Set this to change Radio Group ours mainColor
+   * Set this to change CheckBox Group ours mainColor
    * @default ThemeConfig.MAIN_THEME = royal_blue
    */
   mainColor?: ThemesType;
   /**
-   * Set this to change Radio Group ours subColor
+   * Set this to change CheckBox Group ours subColor
    * @default ThemeConfig.SUB_THEME = gray
    */
   subColor?: ThemesType;
 
   /**
-   * Set this to change Radio Group align
+   * Set this to change CheckBox Group align
    * @default 'vertical'
    */
-  align?: RadioGroupAlign;
+  align?: CheckBoxGroupAlign;
   /**
-   * Set this to change Radio Group gap
+   * Set this to change CheckBox Group gap
    * @default '10px'
    */
   gap?: string;
   /**
-   * Set this to change Radio Group onClick
+   * Set this to change CheckBox Group onClick
    * @default () => any;
    */
   onClickItems?: (...args: any[]) => any;
 }
 
-interface RadioGroupContainerProps {
-  align: RadioGroupAlign;
+interface CheckBoxGroupContainerProps {
+  align: CheckBoxGroupAlign;
   gap: string;
 }
 
-const RadioGroup: SFC<RadioGroupProps> = ({
+const CheckBoxGroup: SFC<CheckBoxGroupProps> = ({
   children,
   groupName,
   labelKey = 'label',
@@ -85,8 +85,8 @@ const RadioGroup: SFC<RadioGroupProps> = ({
 }) => {
 
   return (
-    <RadioGroupContainer
-      className='__Localize__RadioGroup'
+    <CheckBoxGroupContainer
+      className='__Localize__CheckBoxGroup'
       align={align}
       gap={gap}
     >
@@ -101,11 +101,11 @@ const RadioGroup: SFC<RadioGroupProps> = ({
         align,
         onClickItems,
       })}
-    </RadioGroupContainer>
+    </CheckBoxGroupContainer>
   )
 }
 
-const RadioGroupContainer = styled.div<RadioGroupContainerProps>`
+const CheckBoxGroupContainer = styled.div<CheckBoxGroupContainerProps>`
   & > *:not(:last-child) {
     margin-right: ${({ align, gap }) => {
       if (align === 'horizontal') {
@@ -117,4 +117,4 @@ const RadioGroupContainer = styled.div<RadioGroupContainerProps>`
 `;
 
 
-export default RadioGroup;
+export default CheckBoxGroup;
