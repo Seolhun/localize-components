@@ -1,0 +1,24 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "package.json",
+        "packages/docs/package.json",
+        "packages/examples/package.json",
+        "packages/localize-components-atomic/package.json",
+        "packages/localize-components-button/package.json",
+        "packages/localize-components-drawer/package.json",
+        "packages/localize-components-form/package.json",
+        "packages/localize-components-icons/package.json",
+        "packages/localize-components-modal/package.json",
+        "packages/localize-components-styled-types/package.json",
+        "packages/localize-components-styled-utils/package.json",
+        "packages/localize-components-table/package.json",
+        "packages/localize-components-types/package.json",
+        "packages/localize-components-utils-event/package.json",
+        "packages/localize-components-utils/package.json",
+        "packages/localize-components/package.json"
+      ]
+    }
+  }
+}
