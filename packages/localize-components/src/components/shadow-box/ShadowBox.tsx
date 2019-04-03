@@ -1,4 +1,4 @@
-import React, { Component, createRef, ReactNode, DOMElement } from 'react';
+import React, { Component, createRef, ReactNode } from 'react';
 
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
