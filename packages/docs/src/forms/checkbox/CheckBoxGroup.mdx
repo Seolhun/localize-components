@@ -1,0 +1,228 @@
+---
+name: CheckBoxGroup
+menu: Forms
+---
+
+import { Playground, PropsTable } from 'docz';
+import { CheckBoxGroup, CheckBox } from '@seolhun/localize-components-atomic';
+import { Themes } from '@seolhun/localize-components-styled-types';
+
+import CheckBoxGroupPropsTable from './CheckBoxGroupPropsTable';
+
+# CheckBoxGroup
+
+## Default
+
+<Playground>
+  <CheckBoxGroup groupName='localize'>
+    {props => (
+      <>
+        <CheckBox
+          {...props}
+          item={{
+            label: 'label',
+            value: 'value',
+          }}
+          checked
+        />
+        <CheckBox
+          {...props}
+          item={{
+            label: 'label',
+            value: 'value',
+          }}
+          checked
+        />
+      </>
+    )}
+  </CheckBoxGroup>
+</Playground>
+
+## Give a mainColor
+
+<Playground>
+  <CheckBoxGroup
+    groupName='localize2'
+    mainColor='danger'
+  >
+    {props => (
+      <>
+        <CheckBox
+          {...props}
+          item={{
+            label: 'label',
+            value: 'value',
+          }}
+          checked
+        />
+        <CheckBox
+          {...props}
+          item={{
+            label: 'label',
+            value: 'value',
+          }}
+          checked
+        />
+      </>
+    )}
+  </CheckBoxGroup>
+</Playground>
+
+## Give a subColor
+
+<Playground>
+  <CheckBoxGroup
+    groupName='localize3'
+    mainColor='danger'
+    subColor='yellow'
+  >
+    {props => (
+      <>
+        <CheckBox
+          {...props}
+          item={{
+            label: 'label',
+            value: 'value',
+          }}
+          checked
+        />
+        <CheckBox
+          {...props}
+          item={{
+            label: 'label',
+            value: 'value',
+          }}
+          checked
+        />
+      </>
+    )}
+  </CheckBoxGroup>
+</Playground>
+
+## Give a align
+
+<Playground>
+  <CheckBoxGroup
+    groupName='localize4'
+    mainColor='danger'
+    align='vertical'
+  >
+    {props => (
+      <>
+        <CheckBox
+          {...props}
+          item={{
+            label: 'label',
+            value: 'value',
+          }}
+          checked
+        />
+        <CheckBox
+          {...props}
+          item={{
+            label: 'label',
+            value: 'value',
+          }}
+          checked
+        />
+      </>
+    )}
+  </CheckBoxGroup>
+  <CheckBoxGroup
+    groupName='localize7'
+    mainColor='green'
+    align='horizontal'
+  >
+    {props => (
+      <>
+        <CheckBox
+          {...props}
+          item={{
+            label: 'label',
+            value: 'value',
+          }}
+          checked
+        />
+        <CheckBox
+          {...props}
+          item={{
+            label: 'label',
+            value: 'value',
+          }}
+          checked
+        />
+      </>
+    )}
+  </CheckBoxGroup>
+</Playground>
+
+## Give a align & gap
+
+<Playground>
+  <CheckBoxGroup
+    groupName='localize7'
+    mainColor='black'
+    align='horizontal'
+    gap='30px'
+  >
+    {props => (
+      <>
+        <CheckBox
+          {...props}
+          item={{
+            label: 'label',
+            value: 'value',
+          }}
+          checked
+        />
+        <CheckBox
+          {...props}
+          item={{
+            label: 'label',
+            value: 'value',
+          }}
+          checked
+        />
+      </>
+    )}
+  </CheckBoxGroup>
+  <CheckBoxGroup
+    groupName='localize7'
+    mainColor='sky'
+    align='horizontal'
+    gap='10em'
+  >
+    {props => (
+      <>
+        <CheckBox
+          {...props}
+          item={{
+            label: 'label',
+            value: 'value',
+          }}
+          checked
+        />
+        <CheckBox
+          {...props}
+          item={{
+            label: 'label',
+            value: 'value',
+          }}
+          checked
+        />
+        <CheckBox
+          {...props}
+          item={{
+            label: 'label',
+            value: 'value',
+          }}
+          checked
+        />
+      </>
+    )}
+  </CheckBoxGroup>
+</Playground>
+
+## PropsTable
+
+<PropsTable of={CheckBoxGroupPropsTable} />

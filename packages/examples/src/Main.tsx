@@ -9,8 +9,6 @@ import './vendor';
 
 import './Main.scss';
 
-console.error('@@@@@@@')
-
 ReactDOM.render(
   <HashRouter>
     <section>

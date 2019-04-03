@@ -1,0 +1,8 @@
+@import '../../../assets/scss/mixin/responsive.scss';
+@import '../../../assets/scss/variable/color';
+
+:local .BasicConfirm {
+  color: map-get($map: $color_list, $key: black);
+  font-size: 16px;
+  padding: 5px 30px;
+}

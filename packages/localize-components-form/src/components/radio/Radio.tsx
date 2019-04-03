@@ -11,6 +11,7 @@ import {
   StyledProps,
   ThemeConfig,
   ThemesType,
+  DarkenTheme,
 } from '@seolhun/localize-components-styled-types';
 
 import { RadioGroupAlign } from './RadioGroup';
@@ -88,8 +89,12 @@ export interface RadioProps {
    * @default undefined
    */
   align?: RadioGroupAlign;
+  /**
+   * Set this to change CheckBox Group onClick
+   * @default undefined
+   */
+  onClickItems?: (...args: any[]) => any;
 }
-
 
 export interface RadioItemProps {
   [key: string]: any,
@@ -111,6 +116,7 @@ const Radio: SFC<RadioProps> = ({
   mainColor = ThemeConfig.MAIN_THEME,
   subColor = ThemeConfig.SUB_THEME,
   align,
+  onClickItems,
 }) => {
   const usedKey = useValueKey
     ? valueKey
@@ -121,6 +127,13 @@ const Radio: SFC<RadioProps> = ({
       label: item[labelKey],
       value: item[valueKey],
     });
+
+    if (onClickItems) {
+      onClickItems({
+        label: item[labelKey],
+        value: item[valueKey],
+      });
+    }
   }
 
   return (
@@ -143,7 +156,7 @@ const Radio: SFC<RadioProps> = ({
         className='__Localize__Radio'
         onChange={handleOnChange}
         value={item[usedKey]}
-        name={groupName}
+        name={groupName || item[usedKey]}
       />
       <StyledCheckMark
         mainColor={mainColor}
@@ -178,6 +191,7 @@ const StyledRadioLabel = styled.label<SizeProps>`
     }
     return 'flex';
   }};
+  height: auto;
   padding-left: 30px;
   position: relative;
   user-select: none;
@@ -201,37 +215,34 @@ const StyledRadio = styled.input`
 
 const StyledCheckMark = styled.span<StyledProps>`
   background-color: ${({
-    mainColor = ThemeConfig.MAIN_THEME,
+    subColor = ThemeConfig.SUB_THEME,
   }: StyledProps) => {
-    return getValidTheme(mainColor);
+    return getValidTheme(subColor);
   }};
   border-radius: 50%;
-  border: 1px solid ${({
-    mainColor = ThemeConfig.MAIN_THEME,
-  }: StyledProps) => {
-    return getValidTheme(mainColor);
-  }};
+  border: 1px solid ${DarkenTheme.dark_gray};
+  display: inline-flex;
   height: 16px;
+  justify-content: flex-start;
   left: 0;
   position: absolute;
-  top: 5px;
   transition: border-color 0.5s, background-color 0.5s;
   width: 16px;
 
   .__Localize__Radio:checked ~ & {
     display: block;
     border: 1px solid ${({
-      subColor = ThemeConfig.SUB_THEME,
-    }: StyledProps) => {
-      return getValidTheme(subColor);
+      mainColor = ThemeConfig.MAIN_THEME,
+    }) => {
+      return getValidTheme(mainColor);
     }};
   }
 
   .__Localize__Radio:hover ~ & {
     border: 1px solid ${({
-      subColor = ThemeConfig.SUB_THEME,
-    }: StyledProps) => {
-      return getValidTheme(subColor);
+      mainColor = ThemeConfig.MAIN_THEME,
+    }) => {
+      return getValidTheme(mainColor);
     }};
   }
 
@@ -251,14 +262,14 @@ const StyledCheckMark = styled.span<StyledProps>`
     -ms-transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
     background: ${({
-      subColor = ThemeConfig.SUB_THEME,
-    }: StyledProps) => {
-      return getValidTheme(subColor);
+      mainColor = ThemeConfig.MAIN_THEME,
+    }) => {
+      return getValidTheme(mainColor);
     }};
     border: 1px solid ${({
-      subColor = ThemeConfig.SUB_THEME,
-    }: StyledProps) => {
-      return getValidTheme(subColor);
+      mainColor = ThemeConfig.MAIN_THEME,
+    }) => {
+      return getValidTheme(mainColor);
     }};
     height: 8px;
     left: 2.5px;

@@ -14,6 +14,7 @@ import {
 import Card, { CardProps } from './components/card';
 import Issue, { IssueProps } from './components/issue';
 import Jumbotron, { JumbotronProps } from './components/jumbotron';
+import ShadowBox, { ShadowBoxProps } from './components/shadow-box';
 import { Tab, TabItemType, TabProps, Tabs, TabsProps } from './components/tabs';
 
 export {
@@ -29,9 +30,11 @@ export {
   Issue,
   IssueProps,
   Jumbotron,
+  JumbotronProps,
   Modal,
   ModalProps,
-  JumbotronProps,
+  ShadowBox,
+  ShadowBoxProps,
   Tab,
   TabItemType,
   TabProps,
@@ -48,6 +51,7 @@ export default {
   Issue,
   Jumbotron,
   Modal,
+  ShadowBox,
   Tab,
   Tabs,
 };

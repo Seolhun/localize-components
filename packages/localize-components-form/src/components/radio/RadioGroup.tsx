@@ -59,6 +59,11 @@ export interface RadioGroupProps {
    * @default '10px'
    */
   gap?: string;
+  /**
+   * Set this to change Radio Group onClick
+   * @default () => any;
+   */
+  onClickItems?: (...args: any[]) => any;
 }
 
 interface RadioGroupContainerProps {
@@ -76,6 +81,7 @@ const RadioGroup: SFC<RadioGroupProps> = ({
   subColor = ThemeConfig.SUB_THEME,
   align = 'vertical',
   gap = '10px',
+  onClickItems = () => null,
 }) => {
 
   return (
@@ -93,6 +99,7 @@ const RadioGroup: SFC<RadioGroupProps> = ({
         mainColor,
         subColor,
         align,
+        onClickItems,
       })}
     </RadioGroupContainer>
   )
