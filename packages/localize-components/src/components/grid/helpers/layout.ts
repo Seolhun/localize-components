@@ -12,7 +12,7 @@ export default {
     lg: {
       name: 'lg',
       order: 3,
-      maxWidth: 1330,
+      maxWidth: 1200,
       gutter: {
         paddingRight: `${GUTTER_SIZE.LG}px`,
       },
