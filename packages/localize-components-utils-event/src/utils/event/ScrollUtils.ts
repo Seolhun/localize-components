@@ -1,6 +1,6 @@
-import { preventDefault } from '../common';
+import { preventDefault } from './CommonEventUtils';
 
-export function disabledScrollByKey(event) {
+const disabledScrollByKey = (event) => {
   const SCROLL_KEYS = ['ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight'];
   if (SCROLL_KEYS.includes(event.key)) {
     preventDefault(event);

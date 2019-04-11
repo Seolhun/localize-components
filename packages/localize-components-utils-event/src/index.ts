@@ -2,11 +2,12 @@ import {
   preventDefault,
   addEvent,
   removeEvent,
-} from './utils/common';
-
-import {
+  // Touch
+  getTouchDirection,
+  getTouchData,
+  // Scroll
   preventWindowScroll,
-} from './utils/scroll';
+} from './utils/event';
 
 import {
   getClientWindowSize,
@@ -14,11 +15,14 @@ import {
 } from './utils/window';
 
 export {
-  // common
+  // Common
   preventDefault,
   addEvent,
   removeEvent,
-  // scroll
+  // Touch
+  getTouchDirection,
+  getTouchData,
+  // Scroll
   preventWindowScroll,
   // window
   getClientWindowSize,
@@ -26,11 +30,14 @@ export {
 };
 
 export default {
-  // common
+  // Common
   preventDefault,
   addEvent,
   removeEvent,
-  // scroll
+  // Touch
+  getTouchDirection,
+  getTouchData,
+  // Scroll
   preventWindowScroll,
   // window
   getClientWindowSize,

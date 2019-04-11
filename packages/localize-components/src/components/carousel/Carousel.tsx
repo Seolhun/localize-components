@@ -124,9 +124,6 @@ class Carousel extends Component<CarouselProps, CarouselState> {
     } = this.state;
 
     const imageWidth = this.getImageMaxWidthByClient(displayedImageCount);
-    const itemsCounts = items.length - 1;
-    const pageIsFirst = pageIndex <= 0;
-    const pageIsLast = pageIndex + displayedImageCount > itemsCounts;
 
     return (
       <CarouselWrapper
