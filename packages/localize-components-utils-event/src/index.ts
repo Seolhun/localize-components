@@ -1,9 +1,38 @@
-import { EventUtils } from './utils';
+import {
+  preventDefault,
+  addEvent,
+  removeEvent,
+} from './utils/common';
+
+import {
+  preventWindowScroll,
+} from './utils/scroll';
+
+import {
+  getClientWindowSize,
+  getScrollSize
+} from './utils/window';
 
 export {
-  EventUtils,
+  // common
+  preventDefault,
+  addEvent,
+  removeEvent,
+  // scroll
+  preventWindowScroll,
+  // window
+  getClientWindowSize,
+  getScrollSize
 };
 
 export default {
-  EventUtils,
+  // common
+  preventDefault,
+  addEvent,
+  removeEvent,
+  // scroll
+  preventWindowScroll,
+  // window
+  getClientWindowSize,
+  getScrollSize
 };

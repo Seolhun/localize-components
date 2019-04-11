@@ -14,13 +14,8 @@
   ],
   "scripts": {
     "build": "node build/build.js",
-    "bundle": "yarn style:clean && tsc && yarn style",
+    "bundle": "tsc",
     "prebundle": "rm -rf dist",
-    "bundle:local": "tsc && yarn style && yarn style:local",
-    "style": "sass --update src:dist --style compressed",
-    "style:watch": "sass --watch src:dist --style compressed",
-    "style:local": "sass --update src:src --style compressed",
-    "style:clean": "find ./src -name *.css* -type f -delete",
     "test": "jest"
   },
   "dependencies": {
