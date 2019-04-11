@@ -28,7 +28,7 @@
     "@seolhun/localize-components-types": "^0.1.0",
     "@seolhun/localize-components-utils": "^0.1.0",
     "docz": "^0.13.7",
-    "docz-theme-default": "^0.13.7",
+    "docz-theme-default": "^1.0.0",
     "jest": "^24.1.0",
     "polished": "^3.1.0",
     "prop-types": "^15.6.2",
