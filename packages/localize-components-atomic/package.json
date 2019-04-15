@@ -2,7 +2,7 @@
   "license": "MIT",
   "name": "@seolhun/localize-components-atomic",
   "description": "Localizing React components is rendered by stand-alone not affect other styles.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "./dist/index.js",
   "typings": "dist/index.d.ts",
   "source": "src/index.ts",
@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@emotion/styled": "^10.0.6",
-    "@seolhun/localize-components-button": "^0.1.0",
+    "@seolhun/localize-components-button": "^0.1.1",
     "@seolhun/localize-components-form": "^0.1.0",
     "@seolhun/localize-components-styled-types": "^0.1.0",
     "@seolhun/localize-components-styled-utils": "^0.1.0",

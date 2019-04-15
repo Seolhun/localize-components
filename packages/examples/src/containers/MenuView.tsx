@@ -14,8 +14,7 @@ class MenuView extends Component {
       <Jumbotron
         title='Hello, Localize-Components'
         description='Localize-Components is made for localized style without side-effect'
-        theme='primary'
-        align='center'
+        mainColor='primary'
       >
         <div>
           <h2>Atomic Components</h2>

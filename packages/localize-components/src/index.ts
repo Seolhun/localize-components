@@ -12,6 +12,8 @@ import {
 } from '@seolhun/localize-components-modal';
 
 import Card, { CardProps } from './components/card';
+import Carousel from './components/carousel';
+import GridContainer, { Row, Column } from './components/grid';
 import Issue, { IssueProps } from './components/issue';
 import Jumbotron, { JumbotronProps } from './components/jumbotron';
 import ShadowBox, { ShadowBoxProps } from './components/shadow-box';
@@ -22,6 +24,10 @@ export {
   AlertProps,
   Card,
   CardProps,
+  Carousel,
+  GridContainer,
+  Row,
+  Column,
   Confirm,
   ConfirmProps,
   Drawer,

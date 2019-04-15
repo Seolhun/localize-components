@@ -13,17 +13,17 @@ class JumbotronView extends Component<null, JumbotronViewState> {
         <Jumbotron
           title='Hello, Jumbotron'
           description='Localize-Components is made for localized style without side-effect'
-          theme='success'
+          mainColor='success'
         />
         <Jumbotron
           title='Hello, Localize-Components'
           description='Localize-Components is made for localized style without side-effect'
-          theme='royalblue'
+          mainColor='royalblue'
         />
         <Jumbotron
           title='Hello, Styled Components'
           description='Localize-Components is made for localized style without side-effect'
-          theme='warning'
+          mainColor='warning'
         />
       </section>
     );

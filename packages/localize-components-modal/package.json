@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@emotion/styled": "^10.0.6",
-    "@seolhun/localize-components-button": "^0.1.0",
+    "@seolhun/localize-components-button": "^0.1.1",
     "@seolhun/localize-components-styled-types": "^0.1.0",
     "@seolhun/localize-components-styled-utils": "^0.1.0",
     "@seolhun/localize-components-types": "^0.1.0",
