@@ -8,7 +8,7 @@
 - Author : [HunSeol](https://github.com/Seolhun/)
 
 ## Why
-- I just want to build react components withpout side-effect. 
+- I just want to build react components withpout side-effect.
   - All components have global stylesheet affecting origin product style.
 
 ## Goal
@@ -26,29 +26,29 @@
 - polished
 - Docz
 
-## Current Versioning 
+## Current Versioning
 - Release
-  - @seolhun/localize-components-docs@0.1.2
-  - @seolhun/localize-components-examples@0.1.2
+  - @seolhun/localize-components-docs@0.1.4
+  - @seolhun/localize-components-examples@0.1.3
 
 - Alpha Release
-  - @seolhun/localize-components@0.1.2
-  - @seolhun/localize-components-atomic@0.1.2
-  - @seolhun/localize-components-button@0.1.2
+  - @seolhun/localize-components@0.1.3
+  - @seolhun/localize-components-atomic@0.1.3
+  - @seolhun/localize-components-button@0.1.3
 
-- Beta Release  
-  - @seolhun/localize-components-modal@0.1.1
-  - @seolhun/localize-components-form@0.1.1
-  - @seolhun/localize-components-styled-types@0.1.1
-  - @seolhun/localize-components-styled-utils@0.1.1
-  - @seolhun/localize-components-utils-event@0.1.1
-  - @seolhun/localize-components-types@0.1.1 (Deprecated)
-  - @seolhun/localize-components-utils@0.1.1 (Deprecated)
+- Beta Release
+  - @seolhun/localize-components-modal@0.1.2
+  - @seolhun/localize-components-form@0.1.2
+  - @seolhun/localize-components-styled-types@0.1.2
+  - @seolhun/localize-components-styled-utils@0.1.2
+  - @seolhun/localize-components-utils-event@0.1.2
+  - @seolhun/localize-components-types@0.1.2 (Deprecated)
+  - @seolhun/localize-components-utils@0.1.2 (Deprecated)
 
 - Develop
-  - @seolhun/localize-components-drawer@0.0.15
-  - @seolhun/localize-components-icons@0.0.15
-  - @seolhun/localize-components-table@0.0.15
+  - @seolhun/localize-components-drawer@0.0.16
+  - @seolhun/localize-components-icons@0.0.16
+  - @seolhun/localize-components-table@0.0.16
 
 ## Getting start
 #### Install Package
