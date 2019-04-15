@@ -2,18 +2,20 @@ version: 2.1
 executors:
   build-ci-env:
     docker:
-      - image: circleci/node:8.10
+      - image: "circleci/node:8.10"
     working_directory: ~/seolhun
 
 jobs:
-  install-dependencies:
+  build-production:
     executor: build-ci-env
     steps:
       - checkout
+
       - restore_cache:
           keys:
             - dependencies-cache-{{ checksum "package.json" }}
             - dependencies-cache-
+
       - run:
           name: "Checking versions"
           command: |
@@ -34,18 +36,13 @@ jobs:
           paths:
             - node_modules
 
-  build-production:
-    executor: build-ci-env
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - dependencies-cache-{{ checksum "package.json" }}
-            - dependencies-cache-
-
       - run:
           name: "Lerna packages bundling"
           command: yarn bundle
+
+      - run:
+          name: "Show all files"
+          command: ls -al
 
       - persist_to_workspace:
           root: .
@@ -58,6 +55,10 @@ jobs:
       - checkout
       - attach_workspace:
           at: .
+
+      - run:
+          name: "Show all files"
+          command: ls -al
 
       - run:
           name: "Deploy docs into surge"
@@ -83,34 +84,26 @@ jobs:
           command: yarn deploy:ex
 
 workflows:
-  version: 2
+  version: 2.1
   build-and-deploy:
     jobs:
-      - install-dependencies:
-          filters:
-            branches:
-              only:
-                - master
-                - develop
       - build-production:
-          requires:
-            - install-dependencies
           filters:
             branches:
               only:
                 - master
                 - develop
+
       - deploy-develop:
           requires:
-            - install-dependencies
             - build-production
           filters:
             branches:
               only:
                 - develop
+
       - deploy-production:
           requires:
-            - install-dependencies
             - build-production
           filters:
             branches:
