@@ -15,13 +15,12 @@ import {
 import classnames from 'classnames';
 
 interface JumbotronProps {
+  // isNotRequired
   /**
    * Set this to change Button rendering children node
    * @default null
    */
   children: ReactNode;
-
-  // isNotRequired
   /**
    * Set this to change Button className
    * @default ''
@@ -94,8 +93,7 @@ const StyledJumbotron = styled.div<JumbotronProps>(({
 });
 
 const Jumbotron: SFC<JumbotronProps> = ({
-  children,
-  // isNotRequired
+  children = null,
   className = '',
   description = null,
   mainColor = ThemeConfig.MAIN_THEME,
@@ -128,7 +126,9 @@ const Jumbotron: SFC<JumbotronProps> = ({
       {description && (
         <h5>{description}</h5>
       )}
-      {children}
+      {children && (
+        children
+      )}
     </StyledJumbotron>
   );
 }
