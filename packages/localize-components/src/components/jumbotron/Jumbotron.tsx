@@ -20,7 +20,7 @@ interface JumbotronProps {
    * Set this to change Button rendering children node
    * @default null
    */
-  children: ReactNode;
+  children?: ReactNode;
   /**
    * Set this to change Button className
    * @default ''
@@ -88,7 +88,9 @@ const StyledJumbotron = styled.div<JumbotronProps>(({
     backgroundColor: getValidTheme(mainColor),
     color: styledColor(),
     height: 'auto',
+    minHeight: '200px',
     padding: '35px',
+    width: '100%',
   }
 });
 
