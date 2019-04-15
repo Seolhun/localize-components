@@ -1,19 +1,21 @@
-version: 2.1
-executors:
-  build-ci-env:
+version: 2.0
+jobs:
+  build:
     docker:
       - image: circleci/node:8.10
-    working_directory: ~/seolhun
-
-jobs:
-  install-dependencies:
-    executor: build-ci-env
+    working_directory: ~/localize-components
+    branches:
+      only:
+        - master
+        - develop
     steps:
       - checkout
+
       - restore_cache:
           keys:
-            - dependencies-cache-{{ checksum "package.json" }}
-            - dependencies-cache-
+            - node-dependencies-{{ checksum "package.json" }}
+            - node-dependencies-
+
       - run:
           name: "Checking versions"
           command: |
@@ -31,88 +33,32 @@ jobs:
 
       - save_cache:
           key: node-dependencies-{{ checksum "package.json" }}
+          keys:
+            - node-dependencies-{{ checksum "package.json" }}
+            - node-dependencies-
           paths:
             - node_modules
-
-  build-production:
-    executor: build-ci-env
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - dependencies-cache-{{ checksum "package.json" }}
-            - dependencies-cache-
 
       - run:
           name: "Lerna packages bundling"
           command: yarn bundle
 
-      - persist_to_workspace:
-          root: .
-          paths:
-            - dist
-
-  deploy-develop:
-    executor: build-ci-env
-    steps:
-      - checkout
-      - attach_workspace:
-          at: .
-
       - run:
           name: "Deploy docs into surge"
-          command: yarn deploy:docs:dev
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              yarn deploy:docs
+            fi
+            if [ "${CIRCLE_BRANCH}" == "develop" ]; then
+              yarn deploy:docs:dev
+            fi
 
       - run:
           name: "Deploy examples into surge"
-          command: yarn deploy:ex:dev
-
-  deploy-production:
-    executor: build-ci-env
-    steps:
-      - checkout
-      - attach_workspace:
-          at: .
-
-      - run:
-          name: "Deploy docs into surge"
-          command: yarn deploy:docs
-
-      - run:
-          name: "Deploy examples into surge"
-          command: yarn deploy:ex
-
-workflows:
-  version: 2.1
-  build-and-deploy:
-    jobs:
-      - install-dependencies:
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - build-production:
-          requires:
-            - install-dependencies
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-      - deploy-develop:
-          requires:
-            - install-dependencies
-            - build-production
-          filters:
-            branches:
-              only:
-                - develop
-      - deploy-production:
-          requires:
-            - install-dependencies
-            - build-production
-          filters:
-            branches:
-              only:
-                - master
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              yarn deploy:ex
+            fi
+            if [ "${CIRCLE_BRANCH}" == "develop" ]; then
+              yarn deploy:ex:dev
+            fi
