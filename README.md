@@ -28,27 +28,26 @@
 
 ## Current Versioning 
 - Beta Release
-  - @seolhun/localize-components@0.1.0
-  - @seolhun/localize-components-atomic@0.1.0
-  - @seolhun/localize-components-button@0.1.0
+  - @seolhun/localize-components@0.1.1
+  - @seolhun/localize-components-atomic@0.1.1
+  - @seolhun/localize-components-button@0.1.1
   - @seolhun/localize-components-modal@0.1.0
   - @seolhun/localize-components-form@0.1.0
+  - @seolhun/localize-components-styled-types@0.1.0
+  - @seolhun/localize-components-styled-utils@0.1.0
+  - @seolhun/localize-components-utils-event@0.1.0
+  - @seolhun/localize-components-types@0.1.0 (Deprecated)
+  - @seolhun/localize-components-utils@0.1.0 (Deprecated)
 
 - Develop
   - @seolhun/localize-components-drawer@0.0.14
   - @seolhun/localize-components-icons@0.0.14
-  - @seolhun/localize-components-styled-types@0.1.0
-  - @seolhun/localize-components-styled-utils@0.1.0
   - @seolhun/localize-components-table@0.0.14
-  - @seolhun/localize-components-types@0.1.0
-  - @seolhun/localize-components-utils-event@0.1.0
-  - @seolhun/localize-components-utils@0.1.0
 
 ## Getting start
 #### Install Package
 ```bash
-$ yarn add @seolhun/localize-components
-$ yarn add @seolhun/localize-components-atomic
+$ yarn add @seolhun/localize-components @seolhun/localize-components-atomic
 ```
 
 ## How to use
