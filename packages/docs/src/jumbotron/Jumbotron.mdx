@@ -1,0 +1,52 @@
+---
+name: Jumbotron
+menu: Components
+---
+
+import { Playground, PropsTable } from 'docz';
+import { Jumbotron } from '@seolhun/localize-components';
+import { Button } from '@seolhun/localize-components-atomic';
+import { Themes } from '@seolhun/localize-components-styled-types';
+
+import JumbotronPropsTable from './JumbotronPropsTable';
+
+# Jumbotron
+
+## Default
+
+<Playground>
+  <Jumbotron>Click me</Jumbotron>
+</Playground>
+
+## Give a mainColor
+
+<Playground>
+  <Jumbotron mainColor='primary'>primary</Jumbotron>
+  <Jumbotron mainColor='danger'>danger</Jumbotron>
+  <Jumbotron mainColor='light_gray'>light_gray</Jumbotron>
+  <Jumbotron mainColor='#41FF2B'>#41FF2B</Jumbotron>
+</Playground>
+
+## Give a Title
+
+<Playground>
+  <Jumbotron title='Hello jumbotron'>
+    <Button mainColor='white'>
+      Click!!
+    </Button>
+  </Jumbotron>
+</Playground>
+
+## Give a Description
+
+<Playground>
+  <Jumbotron description='Hello, jumbotron'>
+    <Button mainColor='white'>
+      Click!!
+    </Button>
+  </Jumbotron>
+</Playground>
+
+## PropsTable
+
+<PropsTable of={JumbotronPropsTable} />
