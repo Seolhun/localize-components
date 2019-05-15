@@ -15,7 +15,6 @@ import {
 } from '@seolhun/localize-components-styled-types';
 import {
   getIsLightenTheme,
-  getPositionStyle,
   getValidTheme,
 } from '@seolhun/localize-components-styled-utils';
 
@@ -148,8 +147,8 @@ class Modal extends Component<ModalProps, ModalState> {
         <ModalContainer
           className={classnames(
             className,
-            getPositionStyle(position),
           )}
+          position={position}
           size={size}
           mainColor={mainColor}
           subColor={subColor}

@@ -12,10 +12,8 @@
         "develop"
       ],
       "ignoreChanges": [
-        "packages/localize-components-docs",
-        "packages/localize-components-examples",
-        "packages/localize-components-drawer",
-        "packages/localize-components-table",
+        "packages/docs",
+        "packages/examples",
         "**/__test__",
         "**/*.md"
       ]

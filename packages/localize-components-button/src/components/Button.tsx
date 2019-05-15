@@ -68,11 +68,6 @@ export interface ButtonProps {
   onMouseOver?: (...args: any[]) => void;
   /**
    * Set this to change Button style
-   * @default {}
-   */
-  style?: {};
-  /**
-   * Set this to change Button style
    * @default medium
    */
   size?: SizeType;
@@ -86,6 +81,11 @@ export interface ButtonProps {
    * @default ThemeConfig.SUB_THEME = gray
    */
   subColor?: ThemesType;
+  /**
+   * Set this to change Button style
+   * @default {}
+   */
+  style?: {};
 }
 
 

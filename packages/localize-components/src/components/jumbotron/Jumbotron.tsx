@@ -111,8 +111,8 @@ const Jumbotron: SFC<JumbotronProps> = ({
   return (
     <StyledJumbotron
       className={classnames(
-        className,
         '__Localize__',
+        className,
       )}
       mainColor={mainColor}
       onBlur={onBlur}

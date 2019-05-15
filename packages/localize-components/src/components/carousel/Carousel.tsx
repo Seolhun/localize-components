@@ -3,7 +3,9 @@ import React, { Component, createRef, RefObject } from 'react';
 import { debounce } from 'lodash';
 import styled from '@emotion/styled';
 
-import { getClientWindowSize } from '@seolhun/localize-components-utils-event';
+import {
+  getClientWindowSize
+} from '@seolhun/localize-components-utils-event';
 
 const PAGINATION = {
   PREV: 'prev',
