@@ -12,8 +12,8 @@
   - All components have global stylesheet affecting origin product style.
 
 ## Goal
-- localized-style withput side-effect.
-- All components are standalone withput dipendencies.
+- localized-style without side-effect.
+- All components are standalone without dipendencies.
 - All components be changed by React Context.
 
 ## Used stacks

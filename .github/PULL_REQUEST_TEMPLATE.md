@@ -9,11 +9,9 @@
 - [ ] @seolhun/localize-components-form
 
 - [ ] @seolhun/localize-components-types
-- [ ] @seolhun/localize-components-types-style
 - [ ] @seolhun/localize-components-styled-types
 - [ ] @seolhun/localize-components-styled-utils
 - [ ] @seolhun/localize-components-utils-event
-- [ ] @seolhun/localize-components-utils-style
 
 ## Purpose
 
