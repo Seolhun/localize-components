@@ -1,3 +1,8 @@
+// Position
+import {
+  getPositionStyle
+} from './utils/PositionUtils';
+
 // Theme
 import {
   getIsLightenTheme,
@@ -5,12 +10,16 @@ import {
 } from './utils/ThemeUtils';
 
 export {
+  // Position
+  getPositionStyle,
   // Theme
   getIsLightenTheme,
   getValidTheme,
 };
 
 export default {
+  // Position
+  getPositionStyle,
   // Theme
   getIsLightenTheme,
   getValidTheme,
