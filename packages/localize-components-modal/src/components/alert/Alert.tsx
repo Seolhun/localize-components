@@ -16,7 +16,7 @@ import {
 
 import Modal from '../modal';
 
-const styles = require('./Alert.css');
+import './Alert.scss';
 
 export interface AlertProps {
   /**
@@ -92,7 +92,7 @@ const Alert: React.SFC<AlertProps> = ({
   return (
     <Modal
       className={classnames(
-        styles.Alert,
+        `__Localize__Alert`,
         className,
       )}
       onClick={onClick}
@@ -103,7 +103,7 @@ const Alert: React.SFC<AlertProps> = ({
         <div>{body}</div>
       }
       footer={
-        <div className={styles.Alert__Buttons}>
+        <div className={`Alert__Buttons`}>
           <Button
             onClick={onClick}
             mainColor={mainColor}

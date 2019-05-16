@@ -2,7 +2,7 @@ import React from 'react';
 
 import classnames from 'classnames';
 
-const styles = require('./NavBar.css');
+import './NavBar.scss';
 
 export interface NavBarProps {
   children: React.ReactNode;
@@ -16,7 +16,7 @@ const NavBar: React.SFC<NavBarProps> = ({
   className,
   style,
 }) => (
-  <nav className={classnames(`${styles.navbar} ${className}`)} style={style}>
+  <nav className={classnames(`__Localize__Navbar ${className}`)} style={style}>
     {children}
   </nav>
 );

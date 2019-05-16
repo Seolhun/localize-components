@@ -1,6 +1,6 @@
 import React from 'react';
 
-const styles = require('./Hr.css');
+import './Hr.scss';
 
 export interface HrProps {
   // isNotRequired
@@ -20,7 +20,7 @@ const Hr: React.SFC<HrProps> = ({
   },
 }) => (
   <hr
-    className={`${styles.separator} ${className}`}
+    className={`__Localize__HR ${className}`}
     style={{
       ...style,
       borderTop: `1px solid ${color}`,
