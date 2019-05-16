@@ -16,6 +16,7 @@ import {
 import {
   getIsLightenTheme,
   getValidTheme,
+  getPositionStyle,
 } from '@seolhun/localize-components-styled-utils';
 
 export interface ModalProps {
@@ -51,7 +52,7 @@ export interface ModalProps {
   subColor?: ThemesType;
   /**
    * Set this to change Modal rendering children node
-   * @default null
+   * @default 'center'
    */
   position?: PositionType;
   /**
@@ -261,18 +262,13 @@ const CloseButton = styled.div<StyledProps>`
   }
 `;
 
-const ModalContainer = styled.div<StyledProps>`
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  background-color: ${({
-    subColor = ThemeConfig.SUB_THEME,
-  }) => {
-    return getValidTheme(subColor);
-  }};
-  border-radius: 6px;
-  box-sizing: border-box;
-  margin: auto;
-  max-height: ${({ size }) => {
+const ModalContainer = styled.div<StyledProps>(({
+  position = Position.CENTER,
+  size = Size.MEDIUM,
+  subColor = ThemeConfig.SUB_THEME,
+  zIndex = 1000,
+}) => {
+  const getMaxHeight = () => {
     switch (size) {
       case Size.LARGE:
         return '800px';
@@ -281,22 +277,33 @@ const ModalContainer = styled.div<StyledProps>`
       default:
         return '500px';
     }
-  }};
-  height: 100%;
-  position: fixed;
-  max-width: ${({ size }) => {
+  }
+
+  const getMaxWidth = () => {
     switch (size) {
       case Size.LARGE:
-        return '600px';
+        return '800px';
       case Size.MEDIUM:
-        return '500px';
+        return '650px';
       default:
-        return '400px';
+        return '500px';
     }
-  }};
-  width: 100%;
-  z-index: ${(({ zIndex = 1000 }) => zIndex - 1)}
-`;
+  }
+
+  return {
+    backgroundColor: getValidTheme(subColor),
+    borderRadius: '6px',
+    boxSizing: 'border-box',
+    height: '100%',
+    margin: 'auto',
+    maxHeight: getMaxHeight(),
+    maxWidth: getMaxWidth(),
+    position: 'fixed',
+    width: '100%',
+    zIndex: zIndex - 1,
+    ...getPositionStyle(position),
+  }
+});
 
 const ModalContent = styled.div<StyledProps>`
   color: ${({

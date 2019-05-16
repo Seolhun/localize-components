@@ -1,7 +1,7 @@
 @import '../../assets/scss/mixin/responsive.scss';
 @import '../../assets/scss/variable/color';
 
-:local .root {
+.__Localize__Issue {
   bottom: 0;
   height: auto;
   left: 0;
@@ -10,7 +10,7 @@
   top: 0;
   width: auto;
 
-  .title {
+  .Title {
     color: map-get($map: $color_list, $key: black);
     font-size: 40px;
     font-weight: 600;
@@ -18,7 +18,7 @@
     width: 100%;
   }
 
-  .description {
+  .Description {
     color: map-get($map: $color_list, $key: black);
     display: inline-block;
     font-size: 24px;
@@ -28,7 +28,7 @@
     width: 100%;
   }
 
-  .resolver {
+  .Resolver {
     display: inline-block;
     margin: 15px 10px;
     width: 100%;

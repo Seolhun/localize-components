@@ -41,7 +41,7 @@ jobs:
 
       - run:
           name: "Lerna packages bundling"
-          command: yarn bundle
+          command: yarn rollup
 
       - run:
           name: "Deploy docs into surge"

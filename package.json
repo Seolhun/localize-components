@@ -24,6 +24,7 @@
   ],
   "main": "./src/index.ts",
   "scripts": {
+    "rollup": "yarn clean && yarn bs && lerna exec yarn rollup",
     "build": "yarn clean && yarn bs && lerna exec yarn build",
     "bundle": "yarn clean && yarn bs && lerna exec yarn bundle",
     "clean": "lerna clean --yes",

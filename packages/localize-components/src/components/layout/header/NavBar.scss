@@ -3,7 +3,7 @@
 
 $headerSize: 60px;
 
-:local .navbar {
+.__Localize__Navbar {
   background-color: map-get($map: $color_list, $key: white);
   border-bottom: 1px solid map-get($map: $color_list, $key: basic);
   top: 0;
