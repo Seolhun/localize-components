@@ -11,7 +11,7 @@
     "README.md"
   ],
   "scripts": {
-    "rollup": "rollup -c",
+    "rollup": "node build/build.js",
     "prerollup": "rm -rf dist",
     "build": "node build/build.js",
     "prebuild": "rm -rf dist",
@@ -76,12 +76,6 @@
     "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-loader": "^3.0.0",
     "rimraf": "^2.6.3",
-    "rollup": "^1.12.1",
-    "rollup-plugin-commonjs": "^10.0.0",
-    "rollup-plugin-node-resolve": "^5.0.0",
-    "rollup-plugin-postcss": "^2.0.3",
-    "rollup-plugin-sass": "^1.2.2",
-    "rollup-plugin-typescript2": "^0.21.0",
     "sass": "^1.14.3",
     "sass-loader": "^7.1.0",
     "semver": "^6.0.0",
