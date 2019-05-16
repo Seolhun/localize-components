@@ -1,12 +1,15 @@
-
 const path = require('path');
-const TerserPlugin = require('terser-webpack-plugin');
 const webpack = require('webpack');
+const TerserPlugin = require('terser-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const config = require('../config');
 const utils = require('./utils');
+const config = require('../config');
 
 const IS_PRODUCTION = !!process.env.NODE_ENV === 'production';
+
+const externals = Object.keys(require('../package.json').dependencies).filter(key => !key.startsWith('@'));
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir);
@@ -23,8 +26,6 @@ module.exports = {
     publicPath: IS_PRODUCTION
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath,
-    // filename: utils.assetsPath('js/[name].[chunkhash].js'),
-    // chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
   },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
@@ -33,46 +34,73 @@ module.exports = {
       resolve('node_modules'),
       resolve('../../node_modules'),
     ],
+    alias: {
+      containers: resolve('src/containers'),
+      components: resolve('src/components'),
+      assets: resolve('src/assets'),
+    },
   },
   plugins: [
     new webpack.DefinePlugin({
       'process.env': JSON.stringify(config.dev.env),
     }),
+    new CleanWebpackPlugin(),
+    new MiniCssExtractPlugin({
+      filename: '[name].css',
+      chunkFilename: '[id].css',
+    }),
     new webpack.ProvidePlugin({
       React: 'react',
     }),
   ],
+  externals: {
+    ...externals,
+    react: 'React',
+  },
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         loader: 'babel-loader',
-      }, {
+      },
+      {
         test: /\.(ts|tsx)$/,
         loader: 'awesome-typescript-loader',
-      }, {
+      },
+      {
         test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
-      }, {
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+        ],
+      },
+      {
         test: /\.scss$/,
         use: [
           {
-            loader: 'style-loader',
+            loader: 'file-loader',
+            options: {
+              name: '[name].css',
+            },
           },
           {
-            loader: 'css-loader',
+            loader: 'extract-loader',
+          },
+          {
+            loader: 'css-loader?-url',
+          },
+          {
+            loader: 'postcss-loader',
             options: {
-              minimize: true,
-              sourceMap: IS_PRODUCTION,
-            },
-          }, {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: true,
+              plugins: () => [require('autoprefixer')],
             },
           },
+          {
+            loader: 'sass-loader',
+          },
         ],
-      }, {
+      },
+      {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {
@@ -145,19 +173,22 @@ module.exports = {
           },
           parallel: true,
           cache: true,
-          sourceMap: true,
-        })],
+          sourceMap: IS_PRODUCTION,
+        }),
+      ],
     }),
   },
   performance: {
     hints: 'warning',
-    maxAssetSize: 300000,
-    maxEntrypointSize: 400000,
+    maxAssetSize: 550000,
+    maxEntrypointSize: 550000,
     assetFilter(assetFilename) {
-      return assetFilename.endsWith('.css')
-      || assetFilename.endsWith('.scss')
-      || assetFilename.endsWith('.js')
-      || assetFilename.endsWith('.ts');
+      return (
+        assetFilename.endsWith('.css')
+        || assetFilename.endsWith('.scss')
+        || assetFilename.endsWith('.js')
+        || assetFilename.endsWith('.ts')
+      );
     },
   },
 };

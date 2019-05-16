@@ -53,6 +53,9 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
+    new webpack.ProvidePlugin({
+      React: 'react',
+    }),
   ],
   module: {
     rules: [
@@ -131,6 +134,9 @@ module.exports = {
         cache: true,
         parallel: true,
         sourceMap: true,
+        uglifyOptions: {
+          ecma: 8,
+        },
       }),
       new OptimizeCSSAssetsPlugin({}),
     ],

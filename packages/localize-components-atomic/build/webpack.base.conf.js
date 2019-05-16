@@ -10,6 +10,8 @@ const config = require('../config');
 
 const IS_PRODUCTION = !!process.env.NODE_ENV === 'production';
 
+const externals = Object.keys(require('../package.json').dependencies).filter(key => !key.startsWith('@'));
+
 function resolve(dir) {
   return path.join(__dirname, '..', dir);
 }
@@ -48,7 +50,14 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
+    new webpack.ProvidePlugin({
+      React: 'react',
+    }),
   ],
+  externals: {
+    ...externals,
+    react: 'React',
+  },
   module: {
     rules: [
       {
@@ -124,6 +133,9 @@ module.exports = {
         cache: true,
         parallel: true,
         sourceMap: true,
+        uglifyOptions: {
+          ecma: 8,
+        },
       }),
       new OptimizeCSSAssetsPlugin({}),
     ],

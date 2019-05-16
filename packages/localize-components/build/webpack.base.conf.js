@@ -5,10 +5,13 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
 const utils = require('./utils');
 const config = require('../config');
 
 const IS_PRODUCTION = !!process.env.NODE_ENV === 'production';
+
+const externals = Object.keys(require('../package.json').dependencies).filter(key => !key.startsWith('@'));
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir);
@@ -48,7 +51,14 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
+    new webpack.ProvidePlugin({
+      React: 'react',
+    }),
   ],
+  externals: {
+    ...externals,
+    react: 'React',
+  },
   module: {
     rules: [
       {
@@ -124,6 +134,9 @@ module.exports = {
         cache: true,
         parallel: true,
         sourceMap: true,
+        uglifyOptions: {
+          ecma: 8,
+        },
       }),
       new OptimizeCSSAssetsPlugin({}),
     ],
