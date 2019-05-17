@@ -6,7 +6,7 @@ import typescript from 'rollup-plugin-typescript2';
 
 import pkg from './package.json';
 
-const externals = Object.keys(pkg.dependencies).filter(key => !key.startsWith('@'));
+const externals = Object.keys(pkg.dependencies);
 
 export default {
   input: 'src/index.ts',
