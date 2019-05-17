@@ -32,15 +32,15 @@ export default {
     commonjs({
       include: /node_modules/,
     }),
+    babel({
+      exclude: /node_modules/,
+    }),
     postcss({
       extract: true,
       plugins: [
         autoprefixer,
       ],
       modules: true,
-    }),
-    babel({
-      exclude: /node_modules/,
     }),
   ],
   output: [
