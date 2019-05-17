@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "rollup": "node build/build.js",
-    "prerollup": "rm -rf dist",
+    "prerollup": "rm -rf dist && rm -rf .rpt2_cache",
     "build": "node build/build.js",
     "prebuild": "rm -rf dist",
     "bundle": "node build/build.js",
