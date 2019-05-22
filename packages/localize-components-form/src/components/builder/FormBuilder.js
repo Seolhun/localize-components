@@ -65,10 +65,6 @@ export const FORM_PROPERTIES = {
    * @type boolean
    */
   isOnChangeValidation: 'isOnChangeValidation',
-  /**
-   * @default false
-   * @type boolean
-   */
 };
 
 // Will be improvement considering browser
@@ -188,8 +184,8 @@ class FormBuilder {
       throw new Error('onValidation properties must return { hasError: boolean, message: string }');
     }
 
-    if (!htmlFor) {
-      throw new Error('htmlFor property is required, Set unique name to use Form key');
+    if (!key && !htmlFor) {
+      throw new Error('One of key and htmlFor property is required, Set unique name to use Form key');
     }
 
     return {
