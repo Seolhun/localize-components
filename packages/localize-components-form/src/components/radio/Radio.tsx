@@ -69,12 +69,12 @@ export interface RadioProps {
    */
   style?: {};
   /**
-   * Set this to change Radio ours mainColor
+   * Set this to change Radio mainColor
    * @default ThemeConfig.MAIN_THEME = royal_blue
    */
   mainColor?: ThemesType;
   /**
-   * Set this to change Radio ours subColor
+   * Set this to change Radio subColor
    * @default ThemeConfig.SUB_THEME = gray
    */
   subColor?: ThemesType;

@@ -72,12 +72,12 @@ export interface ButtonProps {
    */
   size?: SizeType;
   /**
-   * Set this to change Button ours mainColor
+   * Set this to change Button mainColor
    * @default ThemeConfig.MAIN_THEME = royal_blue
    */
   mainColor?: ThemesType;
   /**
-   * Set this to change Button ours subColor
+   * Set this to change Button subColor
    * @default ThemeConfig.SUB_THEME = gray
    */
   subColor?: ThemesType;
@@ -171,8 +171,8 @@ const Button: SFC<ButtonProps> = ({
 }) => (
   <StyledButton
     className={classnames(
+      '__Localize__Button',
       className,
-      '__Localize__',
     )}
     type='button'
     disabled={disabled}

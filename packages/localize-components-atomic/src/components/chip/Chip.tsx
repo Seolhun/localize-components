@@ -49,12 +49,12 @@ export interface ChipProps {
    */
   onMouseOver?: (...args: any[]) => void;
   /**
-   * Set this to change Chip ours mainColor
+   * Set this to change Chip mainColor
    * @default ThemeConfig.MAIN_THEME = royal_blue
    */
   mainColor?: ThemesType;
   /**
-   * Set this to change Chip ours subColor
+   * Set this to change Chip subColor
    * @default ThemeConfig.SUB_THEME = gray
    */
   subColor?: ThemesType;

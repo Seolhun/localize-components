@@ -49,12 +49,12 @@ export interface AlertProps {
    */
   size?: SizeType;
   /**
-   * Set this to change Modal ours mainColor
+   * Set this to change Modal mainColor
    * @default ThemeConfig.MAIN_THEME = royal_blue
    */
   mainColor?: ThemesType;
   /**
-   * Set this to change Modal ours subColor
+   * Set this to change Modal subColor
    * @default ThemeConfig.SUB_THEME = gray
    */
   subColor?: ThemesType;
