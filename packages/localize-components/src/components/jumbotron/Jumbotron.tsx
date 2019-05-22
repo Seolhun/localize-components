@@ -32,7 +32,7 @@ interface JumbotronProps {
    */
   description?: string;
   /**
-   * Set this to change Button ours mainColor
+   * Set this to change Button mainColor
    * @default ThemeConfig.MAIN_THEME = royal_blue
    */
   mainColor?: ThemesType;

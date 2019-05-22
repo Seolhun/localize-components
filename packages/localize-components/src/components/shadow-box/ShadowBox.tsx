@@ -1,7 +1,7 @@
 import React, { Component, createRef, ReactNode } from 'react';
 
+import classnames from 'classnames';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
 
 import layout from '../../assets/layout';
 import { fadeIn } from '../../assets/animation';
@@ -101,11 +101,12 @@ class ShadowBox extends Component<ShadowBoxProps> {
     return (
       isShow && (
         <ShadowBoxWrapper
-          className={className}
-          css={css`
-            ${style}
-          `}
           ref={this.wrapperRef}
+          className={classnames(
+            '__Localize__ShadowBox',
+            className
+          )}
+          css={style}
         >
           <ShadowBoxContainer>
             <CloseContainer onClick={onClose}>

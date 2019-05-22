@@ -39,12 +39,12 @@ export interface RadioGroupProps {
    */
   useValueKey?: boolean;
   /**
-   * Set this to change Radio Group ours mainColor
+   * Set this to change Radio Group mainColor
    * @default ThemeConfig.MAIN_THEME = royal_blue
    */
   mainColor?: ThemesType;
   /**
-   * Set this to change Radio Group ours subColor
+   * Set this to change Radio Group subColor
    * @default ThemeConfig.SUB_THEME = gray
    */
   subColor?: ThemesType;

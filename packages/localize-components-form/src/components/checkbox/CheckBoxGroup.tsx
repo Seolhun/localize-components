@@ -39,12 +39,12 @@ export interface CheckBoxGroupProps {
    */
   useValueKey?: boolean;
   /**
-   * Set this to change CheckBox Group ours mainColor
+   * Set this to change CheckBox Group mainColor
    * @default ThemeConfig.MAIN_THEME = royal_blue
    */
   mainColor?: ThemesType;
   /**
-   * Set this to change CheckBox Group ours subColor
+   * Set this to change CheckBox Group subColor
    * @default ThemeConfig.SUB_THEME = gray
    */
   subColor?: ThemesType;
