@@ -39,7 +39,7 @@
     "react-dom": "^16.8.6"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.4",
+    "@babel/core": "^7.4.5",
     "@babel/plugin-proposal-class-properties": "^7.4.4",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/plugin-transform-arrow-functions": "^7.2.0",
@@ -50,7 +50,7 @@
     "@babel/plugin-transform-react-constant-elements": "^7.2.0",
     "@babel/plugin-transform-spread": "^7.2.2",
     "@babel/polyfill": "^7.4.4",
-    "@babel/preset-env": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
     "@types/react": "^16.7.6",
     "autoprefixer": "^9.4.3",
