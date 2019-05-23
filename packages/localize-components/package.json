@@ -77,7 +77,7 @@
     "ora": "^3.0.0",
     "postcss-loader": "^3.0.0",
     "rimraf": "^2.6.3",
-    "rollup": "^1.12.1",
+    "rollup": "^1.12.2",
     "rollup-plugin-commonjs": "^10.0.0",
     "rollup-plugin-node-resolve": "^5.0.0",
     "rollup-plugin-sass": "^1.2.2",
