@@ -1,6 +1,7 @@
 import React, { SFC } from 'react';
 
 import classnames from 'classnames';
+import { css } from '@emotion/core'
 
 import { ThemesType } from '@seolhun/localize-components-styled-types';
 
@@ -43,7 +44,7 @@ export const SidebarItemIcon: SFC<SidebarItemIconProps> = ({
         '__Localize__SidebarItemIcon',
         className
       )}
-      css={style}
+      css={css(style)}
       {...props}
     >
       {item.renderIcon(item)}
