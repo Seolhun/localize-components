@@ -8,7 +8,6 @@ jobs:
       only:
         - master
         - develop
-        - greenkeeper/*
     steps:
       - checkout
 
