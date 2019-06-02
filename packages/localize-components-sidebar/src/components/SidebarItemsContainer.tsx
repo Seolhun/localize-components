@@ -3,61 +3,61 @@ import React, { SFC, ReactNode } from 'react';
 import classnames from 'classnames';
 import styled from '@emotion/styled';
 
-export interface SidebarItemsProps {
+export interface SidebarItemsContainerProps {
   /**
-   * Set this to change SidebarItems children
+   * Set this to change SidebarItemsContainer children
    */
   children: ReactNode;
 
   /**
-   * Set this to change SidebarItems className
+   * Set this to change SidebarItemsContainer className
    * @default false
    */
   isSizer?: boolean;
   /**
-   * Set this to change SidebarItems className
+   * Set this to change SidebarItemsContainer className
    * @default ''
    */
   className?: string;
   /**
-   * Set this to change SidebarItems onBlur
+   * Set this to change SidebarItemsContainer onBlur
    * @default 'main'
    */
   onBlur?: (...args: any[]) => void;
   /**
-   * Set this to change SidebarItems onClick
+   * Set this to change SidebarItemsContainer onClick
    * @default () => null
    */
   onClick?: (...args: any[]) => void;
   /**
-   * Set this to change SidebarItems onFocus
+   * Set this to change SidebarItemsContainer onFocus
    * @default () => null
    */
   onFocus?: (...args: any[]) => void;
   /**
-   * Set this to change SidebarItems onMouseOut
+   * Set this to change SidebarItemsContainer onMouseOut
    * @default () => null
    */
   onMouseOut?: (...args: any[]) => void;
   /**
-   * Set this to change SidebarItems onMouseOver
+   * Set this to change SidebarItemsContainer onMouseOver
    * @default () => null
    */
   onMouseOver?: (...args: any[]) => void;
   /**
-   * Set this to change SidebarItems style
+   * Set this to change SidebarItemsContainer style
    * @default {}
    */
   style?: {};
 }
 
-const StyledSidebarItemsItems = styled.div<SidebarItemsProps>(() => {
+const StyledSidebarItemsContainer = styled.div<SidebarItemsContainerProps>(() => {
   return {
 
   }
 })
 
-export const SidebarItems: SFC<SidebarItemsProps> = ({
+export const SidebarItemsContainer: SFC<SidebarItemsContainerProps> = ({
   children,
   className,
   style,
@@ -65,9 +65,9 @@ export const SidebarItems: SFC<SidebarItemsProps> = ({
   ...props
 }) => {
   return (
-    <StyledSidebarItemsItems
+    <StyledSidebarItemsContainer
       className={classnames(
-        '__Localize__SidebarItems',
+        '__Localize__SidebarItemsContainer',
         className
       )}
       isSizer={isSizer}
@@ -75,8 +75,8 @@ export const SidebarItems: SFC<SidebarItemsProps> = ({
       {...props}
     >
       {children}
-    </StyledSidebarItemsItems>
+    </StyledSidebarItemsContainer>
   )
 }
 
-export default SidebarItems;
+export default SidebarItemsContainer;

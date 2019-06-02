@@ -2,7 +2,6 @@ import React, { SFC, ReactNode } from 'react';
 
 import classnames from 'classnames';
 import styled from '@emotion/styled';
-import { css } from '@emotion/core';
 
 import {
   ThemesType,
@@ -11,7 +10,7 @@ import {
 
 import SidebarItemLabel from './SidebarItemLabel';
 import SidebarItemIcon from './SidebarItemIcon';
-import SidebarItems from './SidebarItems';
+import SidebarItemsContainer from './SidebarItemsContainer';
 
 export interface SidebarItemProps {
     /**
@@ -50,6 +49,16 @@ export interface SidebarProps {
    * @default ''
    */
   className?: string;
+  /**
+   * Set this to change Button className
+   * @default 50
+   */
+  iconWidth?: number;
+    /**
+   * Set this to change Button labelWidth
+   * @default 150
+   */
+  labelWidth?: number;
   /**
    * Set this to change Sidebar onBlur
    * @default 'main'
@@ -92,7 +101,7 @@ export interface SidebarProps {
   style?: {};
 }
 
-const StyledSidebar = styled.div<StyledProps>(() => {
+const StyledSidebar = styled.aside<StyledProps>(() => {
   return {
 
   }
@@ -102,6 +111,8 @@ export const Sidebar: SFC<SidebarProps> = ({
   className,
   style,
   items,
+  iconWidth = 50,
+  labelWidth = 150,
   ...props
 }) => {
   return (
@@ -110,27 +121,31 @@ export const Sidebar: SFC<SidebarProps> = ({
         '__Localize__Sidebar',
         className
       )}
-      css={css(style)}
+      css={style}
       {...props}
     >
-      <SidebarItems>
+      <SidebarItemsContainer>
         {items.map((item) => (
           <SidebarItemIcon
             item={item}
+            style={{
+              width: `${iconWidth}px`
+            }}
             {...props}
           />
         ))}
-      </SidebarItems>
-      <SidebarItems
-        isSizer
-      >
+      </SidebarItemsContainer>
+      <SidebarItemsContainer isSizer>
         {items.map((item) => (
           <SidebarItemLabel
             item={item}
+            style={{
+              width: `${iconWidth}px`
+            }}
             {...props}
           />
         ))}
-      </SidebarItems>
+      </SidebarItemsContainer>
     </StyledSidebar>
   )
 }
