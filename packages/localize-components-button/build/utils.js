@@ -1,7 +1,7 @@
 const path = require('path');
 const config = require('../config');
 
-const IS_PRODUCTION = process.env.NODE_ENV === 'production';
+const IS_PRODUCTION = !!process.env.NODE_ENV === 'production';
 
 exports.assetsPath = function (_path) {
   const assetsSubDirectory = IS_PRODUCTION

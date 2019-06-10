@@ -3,26 +3,37 @@
  * @see https://github.com/pedronauck/docz/tree/master/packages/docz-theme-default
  */
 export default {
+  // Docz Conf
   title: 'Localize Components',
   src: './src',
   dest: '/dist',
   port: 8000,
   description: 'Localized-components without effect',
+  repository: 'https://github.com/Seolhun/localize-components',
   indexHtml: 'public/index.html',
   hashRouter: true,
   typescript: true,
-  //
+  propsParser: false,
+  codeSandbox: false,
+  menu: [
+    'Home',
+    'Atomic',
+    'Components',
+    // 'Compatibility',
+  ],
   ordering: 'ascending',
   htmlContext: {
     favicon: '/public/favicon.ico',
     head: {
       links: [{
         rel: 'stylesheet',
-        href: 'https://codemirror.net/theme/dracula.css'
-      }]
-    }
+        href: 'https://codemirror.net/theme/dracula.css',
+      }],
+    },
   },
+  // Style Conf
   themeConfig: {
+    repository: 'https://github.com/Seolhun/localize-components',
     mode: 'dark',
     logo: {
       src: '/public/logo.png',

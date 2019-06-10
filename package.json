@@ -24,15 +24,17 @@
   ],
   "main": "./src/index.ts",
   "scripts": {
+    "rollup": "yarn clean && yarn bs && lerna exec yarn rollup",
     "build": "yarn clean && yarn bs && lerna exec yarn build",
     "bundle": "yarn clean && yarn bs && lerna exec yarn bundle",
     "clean": "lerna clean --yes",
-    "deploy": "lerna publish from-git",
     "deploy:ex": "surge packages/examples/dist/ http://localize-components-examples.surge.sh",
     "deploy:ex:dev": "surge packages/examples/dist/ http://dev.localize-components-examples.surge.sh",
     "deploy:docs": "surge packages/docs/dist/ http://localize-components-docs.surge.sh",
     "deploy:docs:dev": "surge packages/docs/dist/ http://dev.localize-components-docs.surge.sh",
-    "version": "lerna version",
+    "release": "lerna publish",
+    "prerelease": "lerna publish from-git",
+    "release:beta": "lerna publish from-git --canary",
     "bs": "lerna bootstrap",
     "link": "lerna link"
   },
@@ -42,14 +44,14 @@
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
-    "gh-pages": "1.2.0",
-    "lerna": "^3.4.2",
+    "gh-pages": "2.0.1",
+    "lerna": "^3.4.3",
     "prettier": "^1.14.2",
-    "surge": "^0.20.1",
+    "surge": "^0.21.0",
     "tslint": "^5.11.0",
     "tslint-config-airbnb": "^5.11.1",
     "tslint-config-prettier": "^1.15.0",
-    "typescript": "^3.2.2"
+    "typescript": "^3.4.5"
   },
   "workspaces": [
     "packages/*"
@@ -64,5 +66,6 @@
     "node": ">= 6.0.0",
     "npm": ">= 3.0.0"
   },
-  "version": "0.0.9"
+  "version": "0.0.9",
+  "name": "localize-components"
 }

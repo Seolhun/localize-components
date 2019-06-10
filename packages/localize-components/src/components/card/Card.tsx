@@ -2,7 +2,7 @@ import React from 'react';
 
 import classnames from 'classnames';
 
-const styles = require('./Card.css');
+import './Card.scss';
 
 export interface CardProps {
   children: React.ReactNode;
@@ -23,8 +23,8 @@ const Card: React.SFC<CardProps> = ({
 }) => (
   <div
     className={classnames(
+      '__Localize__Card',
       className,
-      styles.Card,
     )}
     style={style}
   >

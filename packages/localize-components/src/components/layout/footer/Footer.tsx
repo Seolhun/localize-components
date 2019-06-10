@@ -2,7 +2,7 @@ import React from 'react';
 
 import classnames from 'classnames';
 
-const styles = require('./Footer.css');
+import './Footer.scss';
 
 export interface FooterProps {
   children: React.ReactNode;
@@ -16,7 +16,7 @@ const Footer: React.SFC<FooterProps> = ({
   children = '',
   style = {},
 }) => (
-  <footer className={classnames(`${styles.footer} ${className}`)} style={style}>
+  <footer className={classnames(`__Localize__Footer ${className}`)} style={style}>
     {children}
   </footer>
 );

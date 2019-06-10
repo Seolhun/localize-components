@@ -14,24 +14,42 @@ class MenuView extends Component {
       <Jumbotron
         title='Hello, Localize-Components'
         description='Localize-Components is made for localized style without side-effect'
-        theme='primary'
-        align='center'
+        mainColor='primary'
       >
-        {routers.map((router) => {
-          return (
-            <Link
-              key={router.label}
-              to={router.path}
-            >
-              <Button
-                size='medium'
-                mainColor='white'
+        <div>
+          <h2>Atomic Components</h2>
+          {routers.filter((router) => router.type === 0).map((router) => {
+            return (
+              <Link
+                key={router.label}
+                to={router.path}
               >
-                {router.label}
-              </Button>
-            </Link>
-          );
-        })}
+                <Button
+                  size='medium'
+                  mainColor='white'
+                >
+                  {router.label}
+                </Button>
+              </Link>
+            );
+          })}
+          <h2>Components</h2>
+          {routers.filter((router) => router.type === 1).map((router) => {
+            return (
+              <Link
+                key={router.label}
+                to={router.path}
+              >
+                <Button
+                  size='medium'
+                  mainColor='danger'
+                >
+                  {router.label}
+                </Button>
+              </Link>
+            );
+          })}
+        </div>
       </Jumbotron>
     );
   }

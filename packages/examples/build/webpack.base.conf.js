@@ -1,21 +1,24 @@
 const path = require('path');
 const webpack = require('webpack');
+
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+
+const postCssFlexBugsFixed = require('postcss-flexbugs-fixes');
+const autoprefixer = require('autoprefixer');
+
 const utils = require('./utils');
 const config = require('../config');
 
-const IS_PRODUCTION = process.env.NODE_ENV === 'production';
+const IS_PRODUCTION = !!process.env.NODE_ENV === 'production';
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir);
 }
 
 module.exports = {
-  mode: process.env.NODE_ENV,
   entry: {
     index: resolve('src/Main.tsx'),
   },
@@ -26,8 +29,6 @@ module.exports = {
     publicPath: IS_PRODUCTION
       ? config.build.assetsPublicPath
       : config.dev.assetsPublicPath,
-    // filename: utils.assetsPath('js/[name].[chunkhash].js'),
-    // chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
   },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
@@ -44,12 +45,14 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': config.dev.env,
+      'process.env': JSON.stringify(config.dev.env),
     }),
-    new CleanWebpackPlugin(['dist']),
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',
+    }),
+    new webpack.ProvidePlugin({
+      React: 'react',
     }),
   ],
   module: {
@@ -63,32 +66,39 @@ module.exports = {
         loader: 'awesome-typescript-loader',
       },
       {
-        test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-        ],
-      },
-      {
-        test: /\.scss$/,
-        use: [
-          {
-            loader: 'style-loader',
+        test: /\.s?css$/,
+        use: [{
+          loader: MiniCssExtractPlugin.loader,
+        }, {
+          loader: 'css-loader',
+          options: {
+            importLoaders: 2,
+            sourceMap: IS_PRODUCTION,
           },
-          {
-            loader: 'css-loader',
-            options: {
-              minimize: true,
-              sourceMap: IS_PRODUCTION,
-            },
+        }, {
+          loader: 'postcss-loader',
+          options: {
+            ident: 'postcss',
+            plugins: () => [
+              postCssFlexBugsFixed,
+              autoprefixer({
+                browsers: [
+                  '>1%',
+                  'last 4 versions',
+                  'Firefox ESR',
+                  'not ie < 9',
+                ],
+                flexbox: 'no-2009',
+              }),
+            ],
           },
-          {
-            loader: 'sass-loader',
-            options: {
-              sourceMap: IS_PRODUCTION,
-            },
+        }, {
+          loader: 'sass-loader',
+          options: {
+            minimize: true,
+            sourceMap: true,
           },
-        ],
+        }],
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -122,6 +132,9 @@ module.exports = {
         cache: true,
         parallel: true,
         sourceMap: true,
+        uglifyOptions: {
+          ecma: 8,
+        },
       }),
       new OptimizeCSSAssetsPlugin({}),
     ],

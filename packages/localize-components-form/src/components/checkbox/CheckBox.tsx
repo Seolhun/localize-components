@@ -15,13 +15,15 @@ import {
   ThemesType,
 } from '@seolhun/localize-components-styled-types';
 
+import { CheckBoxGroupAlign } from './CheckBoxGroup';
+
 export interface CheckBoxProps {
   /**
    * Set this to change CheckBox label
    * @default '{}'
    */
   item: CheckBoxItemProps;
-  // isNotRequired
+
   /**
    * Set this to change CheckBox checked
    * @default false
@@ -68,12 +70,12 @@ export interface CheckBoxProps {
    */
   style?: {};
   /**
-   * Set this to change CheckBox ours mainColor
+   * Set this to change CheckBox mainColor
    * @default ThemeConfig.MAIN_THEME = royal_blue
    */
   mainColor?: ThemesType;
   /**
-   * Set this to change CheckBox ours subColor
+   * Set this to change CheckBox subColor
    * @default ThemeConfig.SUB_THEME = gray
    */
   subColor?: ThemesType;
@@ -82,6 +84,17 @@ export interface CheckBoxProps {
    * @default 'value'
    */
   valueKey?: string;
+
+  /**
+   * Set this to change Radio Group align
+   * @default undefined
+   */
+  align?: CheckBoxGroupAlign;
+  /**
+   * Set this to change CheckBox Group onClick
+   * @default undefined
+   */
+  onClickItems?: (...args: any[]) => any;
 }
 
 
@@ -104,10 +117,26 @@ const CheckBox: SFC<CheckBoxProps> = ({
   valueKey = 'value',
   mainColor = ThemeConfig.MAIN_THEME,
   subColor = ThemeConfig.SUB_THEME,
+  align,
+  onClickItems,
 }) => {
   const usedKey = useValueKey
     ? valueKey
     : labelKey;
+
+  const handleOnChange = (item) => {
+    onChange({
+      label: item[labelKey],
+      value: item[valueKey],
+    });
+
+    if (onClickItems) {
+      onClickItems({
+        label: item[labelKey],
+        value: item[valueKey],
+      });
+    }
+  }
 
   return (
     <StyledCheckBoxLabel
@@ -119,22 +148,19 @@ const CheckBox: SFC<CheckBoxProps> = ({
       )}
       onMouseOut={onMouseOut}
       onMouseOver={onMouseOver}
+      align={align}
     >
       {item[usedKey]}
       <StyledCheckBox
         id={item[usedKey]}
         checked={checked}
-        className='CheckBox'
+        className='__Localize__CheckBox'
         type='checkbox'
-        onChange={() => onChange({
-          label: item[labelKey],
-          value: item[valueKey],
-        })}
+        onChange={handleOnChange}
         value={item[usedKey]}
-        name={groupName}
+        name={groupName || item[usedKey]}
       />
       <StyledCheckMark
-        className='CheckMark'
         mainColor={mainColor}
         subColor={subColor}
         style={{
@@ -145,17 +171,41 @@ const CheckBox: SFC<CheckBoxProps> = ({
   );
 };
 
-const StyledCheckBoxLabel = styled.label`
+interface SizeProps {
+  /**
+ * Set this to change Radio Group align
+ * @default undefined
+ */
+align?: CheckBoxGroupAlign;
+}
+
+
+const StyledCheckBoxLabel = styled.label<SizeProps>`
   -moz-user-select: none;
   -ms-user-select: none;
   -webkit-user-select: none;
   align-items: center;
   cursor: pointer;
-  display: flex;
+  display: ${({
+    align,
+  }) => {
+    if (align === 'horizontal') {
+      return 'inline-flex';
+    }
+    return 'flex';
+  }};
+  height: auto;
   padding-left: 30px;
   position: relative;
   user-select: none;
-  width: 100%;
+  width: ${({
+    align,
+  }) => {
+    if (align === 'horizontal') {
+      return 'auto';
+    }
+    return '100%';
+  }};
 `;
 
 const StyledCheckBox = styled.input`
@@ -174,14 +224,15 @@ const StyledCheckMark = styled.span<StyledProps>`
   }};
   border-radius: 6px;
   border: 1px solid transparent;
+  display: inline-flex;
   height: 16px;
+  justify-content: flex-start;
   left: 0;
   position: absolute;
-  top: 5px;
   transition: border-color 0.5s, background-color 0.5s;
   width: 16px;
 
-  .CheckBox:hover ~ & {
+  .__Localize__CheckBox:hover ~ & {
     border: 1px solid ${({
       mainColor = ThemeConfig.MAIN_THEME,
     }: StyledProps) => {
@@ -209,7 +260,7 @@ const StyledCheckMark = styled.span<StyledProps>`
     display: none;
   }
 
-  .CheckBox:checked ~ &:after {
+  .__Localize__CheckBox:checked ~ &:after {
     display: block;
   }
 

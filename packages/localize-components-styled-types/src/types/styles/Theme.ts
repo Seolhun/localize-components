@@ -1,4 +1,5 @@
 import { SizeType } from './Size';
+import { PositionType } from './Position';
 
 export enum DarkenTheme {
   basic = '#d1d5da',
@@ -48,25 +49,40 @@ export const Themes = {
 
 export interface StyledProps {
   /**
-   * Set this to change Localize Style ours mainColor
+   * Set this to change Localize Style className
+   * @default '''
+   */
+  className?: string,
+  /**
+   * Set this to change Localize Style mainColor
    * @default ThemeConfig.MAIN_THEME = royal_blue
    */
   mainColor?: ThemesType;
   /**
-   * Set this to change Localize Style ours subColor
+   * Set this to change Localize Style subColor
    * @default ThemeConfig.SUB_THEME
    */
   subColor?: ThemesType;
   /**
-   * Set this to change Localize Style ours size
+   * Set this to change Localize Style position
+   * @default medium
+   */
+  position?: PositionType;
+  /**
+   * Set this to change Localize Style size
    * @default medium
    */
   size?: SizeType;
   /**
-   * Set this to change Localize Style ours subColor
+   * Set this to change Localize Style subColor
    * @default 1000
    */
   zIndex?: number;
+  /**
+   * Set this to change Localize Style style
+   * @default {}
+   */
+  style?: {};
 }
 
 export default {

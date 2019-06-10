@@ -24,6 +24,7 @@ export interface ButtonProps {
    * @default null
    */
   children: ReactNode;
+
   // isNotRequired
   /**
    * Set this to change Button className
@@ -67,83 +68,40 @@ export interface ButtonProps {
   onMouseOver?: (...args: any[]) => void;
   /**
    * Set this to change Button style
-   * @default {}
-   */
-  style?: {};
-  /**
-   * Set this to change Button style
    * @default medium
    */
   size?: SizeType;
   /**
-   * Set this to change Button ours mainColor
+   * Set this to change Button mainColor
    * @default ThemeConfig.MAIN_THEME = royal_blue
    */
   mainColor?: ThemesType;
   /**
-   * Set this to change Button ours subColor
+   * Set this to change Button subColor
    * @default ThemeConfig.SUB_THEME = gray
    */
   subColor?: ThemesType;
+  /**
+   * Set this to change Button style
+   * @default {}
+   */
+  style?: {};
 }
 
-const Button: SFC<ButtonProps> = ({
-  className,
-  onBlur = () => null,
-  onClick = () => null,
-  onFocus = () => null,
-  onMouseOut = () => null,
-  onMouseOver = () => null,
-  disabled,
-  children,
-  style,
-}: ButtonProps) => (
-  <button
-    className={classnames(
-      className,
-      '__Localize__',
-    )}
-    type='button'
-    onClick={onClick}
-    onMouseOver={onMouseOver}
-    onMouseOut={onMouseOut}
-    onBlur={onBlur}
-    onFocus={onFocus}
-    disabled={disabled}
-    style={style}
-  >
-    {children}
-  </button>
-);
 
-const StyledButton = styled(Button)<ButtonProps>`
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  border-radius: 6px;
-  border: 1px solid transparent;
-  background-color: ${({
-    mainColor = ThemeConfig.MAIN_THEME,
-  }) => {
-    return getValidTheme(mainColor);
-  }};
-  color: ${({
-    mainColor = ThemeConfig.MAIN_THEME,
-  }) => {
+const StyledButton = styled.button<ButtonProps>(({
+  fontSize = 12,
+  mainColor = ThemeConfig.MAIN_THEME,
+  size = Size.MEDIUM,
+}) => {
+  const styledColor = () => {
     if (getIsLightenTheme(mainColor)) {
       return Themes.dark_gray;
     }
     return Themes.white;
-  }};
-  cursor: pointer;
-  display: inline-block;
-  font-size: ${({ fontSize = 12 }) => `${fontSize}px`};
-  font-weight: 500;
-  height: auto;
-  line-height: 1.5;
-  margin: 5px;
-  outline: none;
-  padding: ${({ size }) => {
+  };
+
+  const styledSize = () => {
     switch (size) {
       case Size.LARGE:
         return '15px 30px';
@@ -152,35 +110,84 @@ const StyledButton = styled(Button)<ButtonProps>`
       default:
         return '5px 20px';
     }
-  }};
-  text-align: center;
-  text-decoration: none;
-  transition: background-color 0.3s, border-color 0.3s;
-  user-select: none;
-  vertical-align: middle;
-  white-space: nowrap;
-
-  &:not(:disabled):not(.disabled) {
-    cursor: pointer;
   }
 
-  &:hover {
-    background-color: ${({
-      mainColor = ThemeConfig.MAIN_THEME,
-    }) => {
-      if (getIsLightenTheme(mainColor)) {
-        return darken(0.1, getValidTheme(mainColor));
-      }
-      return lighten(0.1, getValidTheme(mainColor));
-    }};
+  const styledHoverStyle = () => {
+    if (getIsLightenTheme(mainColor)) {
+      return darken(0.1, getValidTheme(mainColor));
+    }
+    return lighten(0.1, getValidTheme(mainColor));
   }
 
+  return {
+    borderRadius: '6px',
+    border: '1px solid transparent',
+    backgroundColor: getValidTheme(mainColor),
+    color: styledColor(),
+    cursor: 'pointer',
+    display: 'inline-block',
+    fontSize: `${fontSize}px`,
+    fontWeight: 500,
+    height: 'auto',
+    outline: 'none',
+    padding: styledSize(),
+    textAlign: 'center',
+    textDecoration: 'none',
+    transition: 'background-color 0.3s, border-color 0.3s',
+    userSelect: 'none',
+    verticalAlign: 'middle',
+    whiteSpace: 'nowrap',
 
-  &:disabled {
-    background-color: ${Themes.light_gray};
-    color: ${Themes.white};
-    cursor: not-allowed;
+    '&:not(:disabled):not(.disabled)': {
+      cursor: 'pointer',
+    },
+
+    '&:hover': {
+      backgroundColor: styledHoverStyle(),
+    },
+
+    '&:disabled': {
+      backgroundColor: Themes.light_gray,
+      color: Themes.white,
+      cursor: 'not-allowed',
+    }
   }
-`;
+})
 
-export default StyledButton;
+const Button: SFC<ButtonProps> = ({
+  children,
+
+  className = '',
+  disabled = false,
+  fontSize = 12,
+  mainColor = ThemeConfig.MAIN_THEME,
+  onBlur = () => null,
+  onClick = () => null,
+  onFocus = () => null,
+  onMouseOut = () => null,
+  onMouseOver = () => null,
+  size = Size.MEDIUM,
+  style = {},
+}) => (
+  <StyledButton
+    className={classnames(
+      '__Localize__Button',
+      className,
+    )}
+    type='button'
+    disabled={disabled}
+    fontSize={fontSize}
+    mainColor={mainColor}
+    onBlur={onBlur}
+    onClick={onClick}
+    onFocus={onFocus}
+    onMouseOut={onMouseOut}
+    onMouseOver={onMouseOver}
+    size={size}
+    style={style}
+  >
+    {children}
+  </StyledButton>
+);
+
+export default Button;

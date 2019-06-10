@@ -2,32 +2,32 @@ import React, { Component } from 'react';
 
 import { Jumbotron } from '@seolhun/localize-components';
 
-export interface LocalizeViewState {
+export interface JumbotronViewState {
   isShow: boolean;
 }
 
-class LocalizeView extends Component<null, LocalizeViewState> {
+class JumbotronView extends Component<null, JumbotronViewState> {
   render() {
     return (
       <section>
         <Jumbotron
           title='Hello, Jumbotron'
           description='Localize-Components is made for localized style without side-effect'
-          theme='success'
+          mainColor='success'
         />
         <Jumbotron
           title='Hello, Localize-Components'
           description='Localize-Components is made for localized style without side-effect'
-          theme='royalblue'
+          mainColor='royalblue'
         />
         <Jumbotron
           title='Hello, Styled Components'
           description='Localize-Components is made for localized style without side-effect'
-          theme='warning'
+          mainColor='warning'
         />
       </section>
     );
   }
 }
 
-export default LocalizeView;
+export default JumbotronView;

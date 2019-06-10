@@ -1,20 +1,17 @@
 ## What kind of change does this PR introduce?
 
-- [ ] docs
-- [ ] examples
-- [ ] localize-components
-- [ ] localize-components-atomic
-- [ ] localize-components-button
-- [ ] localize-components-chip
-- [ ] localize-components-drawer
-- [ ] localize-components-dropdown
-- [ ] localize-components-form
-- [ ] localize-components-icons
-- [ ] localize-components-modal
-- [ ] localize-components-styled-types
-- [ ] localize-components-table
-- [ ] localize-components-utils
-- [ ] localize-components-utils-event
+- [ ] @seolhun/localize-components-docs
+- [ ] @seolhun/localize-components-examples
+- [ ] @seolhun/localize-components
+- [ ] @seolhun/localize-components-atomic
+- [ ] @seolhun/localize-components-button
+- [ ] @seolhun/localize-components-modal
+- [ ] @seolhun/localize-components-form
+
+- [ ] @seolhun/localize-components-types
+- [ ] @seolhun/localize-components-styled-types
+- [ ] @seolhun/localize-components-styled-utils
+- [ ] @seolhun/localize-components-utils-event
 
 ## Purpose
 

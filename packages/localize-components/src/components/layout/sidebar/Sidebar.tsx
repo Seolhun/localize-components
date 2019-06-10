@@ -2,7 +2,7 @@ import React from 'react';
 
 import classnames from 'classnames';
 
-const styles = require('./Sidebar.css');
+import './Sidebar.scss';
 
 export interface SidebarProps {
   children: React.ReactNode;
@@ -16,7 +16,7 @@ const Sidebar: React.SFC<SidebarProps> = ({
   className,
   style,
 }) => (
-  <aside className={classnames(`${styles.sidebar} ${className}`)} style={style}>
+  <aside className={classnames(`__Localize__Sidebar ${className}`)} style={style}>
     <div className='menu-items'>{children}</div>
   </aside>
 );

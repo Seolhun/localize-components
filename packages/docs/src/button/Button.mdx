@@ -1,19 +1,15 @@
 ---
 name: Button
-route: /button
+menu: Atomic
 ---
 
-import { Playground, PropsTable } from 'docz';
+import { Playground, Props } from 'docz';
 import { Button } from '@seolhun/localize-components-atomic';
 import { Themes } from '@seolhun/localize-components-styled-types';
 
 import ButtonPropsTable from './ButtonPropsTable';
 
 # Button
-
-## PropsTable
-
-<PropsTable of={ButtonPropsTable} />
 
 ## Default
 
@@ -24,11 +20,10 @@ import ButtonPropsTable from './ButtonPropsTable';
 ## Give a mainColor
 
 <Playground>
-  <Button mainColor='danger'>danger</Button>
   <Button mainColor='primary'>primary</Button>
-  <Button mainColor='royal_blue'>royal_blue</Button>
-  <Button mainColor='white'>white</Button>
+  <Button mainColor='danger'>danger</Button>
   <Button mainColor='light_gray'>light_gray</Button>
+  <Button mainColor='#41FF2B'>#41FF2B</Button>
 </Playground>
 
 ## Give a size
@@ -38,3 +33,7 @@ import ButtonPropsTable from './ButtonPropsTable';
   <Button size='medium'>Click me</Button>
   <Button size='large'>Click me</Button>
 </Playground>
+
+## PropsTable
+
+<Props of={ButtonPropsTable} />

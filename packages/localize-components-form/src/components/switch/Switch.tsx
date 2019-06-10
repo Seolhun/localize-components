@@ -66,12 +66,12 @@ export interface SwitchProps {
    */
   style?: {};
   /**
-   * Set this to change Switch ours mainColor
+   * Set this to change Switch mainColor
    * @default ThemeConfig.MAIN_THEME = royal_blue
    */
   mainColor?: ThemesType;
   /**
-   * Set this to change Switch ours subColor
+   * Set this to change Switch subColor
    * @default ThemeConfig.SUB_THEME = gray
    */
   subColor?: ThemesType;

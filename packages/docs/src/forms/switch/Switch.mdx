@@ -1,0 +1,114 @@
+---
+name: Switch
+menu: Forms
+---
+
+import { Playground, Props } from 'docz';
+import { Switch } from '@seolhun/localize-components-atomic';
+import { Themes } from '@seolhun/localize-components-styled-types';
+
+import SwitchPropsTable from './SwitchPropsTable';
+
+# Switch
+
+## Default
+
+<Playground>
+  <Switch
+    item={{
+      label: 'label',
+      value: 'value',
+    }}
+    checked
+  />
+  <Switch
+    item={{
+      label: 'label',
+      value: 'value',
+    }}
+    subColor='#000'
+    checked
+  />
+</Playground>
+
+## Give a mainColor
+
+<Playground>
+  <Switch
+    item={{
+      label: 'label',
+      value: 'value',
+    }}
+    mainColor='danger'
+    checked
+  />
+  <Switch
+    item={{
+      label: 'label',
+      value: 'value',
+    }}
+    mainColor='primary'
+    checked
+  />
+  <Switch
+    item={{
+      label: 'label',
+      value: 'value',
+    }}
+    mainColor='light_gray'
+    checked
+  />
+  <Switch
+    item={{
+      label: 'label',
+      value: 'value',
+    }}
+    mainColor='#41FF2B'
+    checked
+  />
+</Playground>
+
+## Give a subColor
+
+<Playground>
+  <Switch
+    item={{
+      label: 'label',
+      value: 'value',
+    }}
+    mainColor='danger'
+    subColor='dark_gray'
+    checked
+  />
+  <Switch
+    item={{
+      label: 'label',
+      value: 'value',
+    }}
+    mainColor='primary'
+    subColor='gray'
+    checked
+  />
+  <Switch
+    item={{
+      label: 'label',
+      value: 'value',
+    }}
+    mainColor='light_gray'
+    subColor='purple'
+    checked
+  />
+  <Switch
+    item={{
+      label: 'label',
+      value: 'value',
+    }}
+    mainColor='#41FF2B'
+    subColor='#000'
+    checked
+  />
+</Playground>
+
+## PropsTable
+
+<Props of={SwitchPropsTable} />

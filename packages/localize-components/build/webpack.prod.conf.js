@@ -6,6 +6,7 @@ const utils = require('./utils');
 const config = require('../config');
 
 const webpackConfig = merge(baseWebpackConfig, {
+  mode: 'production',
   module: {
     rules: utils.styleLoaders({
       sourceMap: config.build.productionSourceMap,
@@ -42,7 +43,7 @@ if (config.build.productionGzip) {
 }
 
 if (config.build.bundleAnalyzerReport) {
-  const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+  const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
   webpackConfig.plugins.push(new BundleAnalyzerPlugin({
     openAnalyzer: false,
     analyzerMode: 'static',

@@ -15,8 +15,8 @@ import {
 } from '@seolhun/localize-components-styled-types';
 import {
   getIsLightenTheme,
-  getPositionStyle,
   getValidTheme,
+  getPositionStyle,
 } from '@seolhun/localize-components-styled-utils';
 
 export interface ModalProps {
@@ -24,7 +24,7 @@ export interface ModalProps {
    * Set this to toggle Modal event handler
    * @default null
    */
-  onClickClose?: (...args: any[]) => void;
+  onClick?: (...args: any[]) => void;
   /**
    * Set this to change Modal className
    * @default null
@@ -41,18 +41,18 @@ export interface ModalProps {
    */
   size?: SizeType;
   /**
-   * Set this to change Modal ours mainColor
+   * Set this to change Modal mainColor
    * @default ThemeConfig.MAIN_THEME = royal_blue
    */
   mainColor?: ThemesType;
   /**
-   * Set this to change Modal ours subColor
+   * Set this to change Modal subColor
    * @default ThemeConfig.SUB_THEME = gray
    */
   subColor?: ThemesType;
   /**
    * Set this to change Modal rendering children node
-   * @default null
+   * @default 'center'
    */
   position?: PositionType;
   /**
@@ -89,13 +89,22 @@ class Modal extends Component<ModalProps, ModalState> {
     };
   }
 
+  static getDerivedStateFromProps(props, state) {
+    if (props.onClick && (props.isShow !== state.isShow)) {
+      return {
+        isShow: props.isShow
+      };
+    }
+    return null;
+  }
+
   handleIsShow = () => {
     const {
-      onClickClose,
+      onClick,
     } = this.props;
 
-    if (onClickClose) {
-      onClickClose();
+    if (onClick) {
+      onClick();
       return;
     }
 
@@ -139,8 +148,8 @@ class Modal extends Component<ModalProps, ModalState> {
         <ModalContainer
           className={classnames(
             className,
-            getPositionStyle(position),
           )}
+          position={position}
           size={size}
           mainColor={mainColor}
           subColor={subColor}
@@ -151,50 +160,42 @@ class Modal extends Component<ModalProps, ModalState> {
             mainColor={mainColor}
             subColor={subColor}
           >
-            <span>
-              X
-            </span>
+            X
           </CloseButton>
           {header && (
             <ModalContent
               className={classnames(
-                'Header',
+                '__Localize__Modal__Header',
               )}
               size={size}
               mainColor={mainColor}
               subColor={subColor}
             >
-              <div>
-                {header}
-              </div>
+              {header}
             </ModalContent>
           )}
           {body && (
             <ModalContent
               className={classnames(
-                'Body',
+                '__Localize__Modal__Body',
               )}
               size={size}
               mainColor={mainColor}
               subColor={subColor}
             >
-              <div>
-                {body}
-              </div>
+              {body}
             </ModalContent>
           )}
           {footer && (
             <ModalContent
               className={classnames(
-                'Footer',
+                '__Localize__Modal__Footer',
               )}
               size={size}
               mainColor={mainColor}
               subColor={subColor}
             >
-              <div>
-                {footer}
-              </div>
+              {footer}
             </ModalContent>
           )}
         </ModalContainer>
@@ -225,12 +226,11 @@ const CloseButton = styled.div<StyledProps>`
   cursor: pointer;
   display: flex;
   font-weight: 700;
-  height: 12px;
   line-height: 1;
-  padding: 0.6rem;
+  padding: 10px;
   position: absolute;
-  right: 0.25rem;
-  top: 0.25rem;
+  right: 5px;
+  top: 5px;
   z-index: ${(({ zIndex = 1000 }) => zIndex - 1)};
 
   color: ${({
@@ -262,18 +262,13 @@ const CloseButton = styled.div<StyledProps>`
   }
 `;
 
-const ModalContainer = styled.div<StyledProps>`
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  background-color: ${({
-    subColor = ThemeConfig.SUB_THEME,
-  }) => {
-    return getValidTheme(subColor);
-  }};
-  border-radius: 6px;
-  box-sizing: border-box;
-  margin: auto;
-  max-height: ${({ size }) => {
+const ModalContainer = styled.div<StyledProps>(({
+  position = Position.CENTER,
+  size = Size.MEDIUM,
+  subColor = ThemeConfig.SUB_THEME,
+  zIndex = 1000,
+}) => {
+  const getMaxHeight = () => {
     switch (size) {
       case Size.LARGE:
         return '800px';
@@ -282,22 +277,33 @@ const ModalContainer = styled.div<StyledProps>`
       default:
         return '500px';
     }
-  }};
-  height: 100%;
-  position: fixed;
-  max-width: ${({ size }) => {
+  }
+
+  const getMaxWidth = () => {
     switch (size) {
       case Size.LARGE:
-        return '600px';
+        return '800px';
       case Size.MEDIUM:
-        return '500px';
+        return '650px';
       default:
-        return '400px';
+        return '500px';
     }
-  }};
-  width: 100%;
-  z-index: ${(({ zIndex = 1000 }) => zIndex - 1)}
-`;
+  }
+
+  return {
+    backgroundColor: getValidTheme(subColor),
+    borderRadius: '6px',
+    boxSizing: 'border-box',
+    height: '100%',
+    margin: 'auto',
+    maxHeight: getMaxHeight(),
+    maxWidth: getMaxWidth(),
+    position: 'fixed',
+    width: '100%',
+    zIndex: zIndex - 1,
+    ...getPositionStyle(position),
+  }
+});
 
 const ModalContent = styled.div<StyledProps>`
   color: ${({
@@ -312,21 +318,22 @@ const ModalContent = styled.div<StyledProps>`
   letter-spacing: 0.2px;
   width: 100%;
 
-  &.Header {
-    border-bottom: 0.03em solid ${Themes.light_gray};
+  &.__Localize__Modal__Header {
+    border-bottom: 0.03rem solid ${Themes.light_gray};
     border-radius: 6px 6px 0 0;
     font-size: 22px;
     height: 20%;
     overflow: auto;
+    width: 92%;
   }
 
-  &.Body {
+  &.__Localize__Modal__Body {
     height: 60%;
     overflow: auto;
   }
 
-  &.Footer {
-    border-top: 0.03em solid ${Themes.light_gray};
+  &.__Localize__Modal__Footer {
+    border-top: 0.03rem solid ${Themes.light_gray};
     bottom: 0;
     height: 20%;
     overflow: auto;

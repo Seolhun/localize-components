@@ -1,21 +1,21 @@
 const path = require('path');
 const webpack = require('webpack');
 const TerserPlugin = require('terser-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const utils = require('./utils');
 const config = require('../config');
 
-const IS_PRODUCTION = process.env.NODE_ENV === 'production';
+const IS_PRODUCTION = !!process.env.NODE_ENV === 'production';
+
+const externals = Object.keys(require('../package.json').dependencies).filter(key => !key.startsWith('@'));
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir);
 }
 
 module.exports = {
-  mode: process.env.NODE_ENV,
   entry: {
     index: resolve('src/index.ts'),
   },
@@ -42,14 +42,20 @@ module.exports = {
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env': config.dev.env,
+      'process.env': JSON.stringify(config.dev.env),
     }),
-    new CleanWebpackPlugin(['dist']),
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
+    new webpack.ProvidePlugin({
+      React: 'react',
+    }),
   ],
+  externals: {
+    ...externals,
+    react: 'React',
+  },
   module: {
     rules: [
       {
@@ -125,6 +131,9 @@ module.exports = {
         cache: true,
         parallel: true,
         sourceMap: true,
+        uglifyOptions: {
+          ecma: 8,
+        },
       }),
       new OptimizeCSSAssetsPlugin({}),
     ],

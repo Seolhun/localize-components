@@ -1,6 +1,6 @@
 import React from 'react';
 
-const styles = require('./Issue.css');
+import './Issue.scss';
 
 export interface IssueProps {
   title: string;
@@ -17,10 +17,10 @@ const Issue: React.SFC<IssueProps> = ({
   className = '',
   description = '',
 }) => (
-  <div className={`${styles.root} ${className}`}>
-    <p className={styles.title}>{title}</p>
-    <p className={styles.description}>{description}</p>
-    <div className={styles.resolver}>{children}</div>
+  <div className={`__Localize__Issue ${className}`}>
+    <p className={`Title`}>{title}</p>
+    <p className={`Description`}>{description}</p>
+    <div className={`Resolver`}>{children}</div>
   </div>
 );
 

@@ -1,0 +1,113 @@
+---
+name: CheckBox
+menu: Forms
+---
+
+import { Playground, Props } from 'docz';
+import { CheckBox } from '@seolhun/localize-components-atomic';
+import { Themes } from '@seolhun/localize-components-styled-types';
+
+import CheckBoxPropsTable from './CheckBoxPropsTable';
+
+# CheckBox
+
+## Default
+
+<Playground>
+  <CheckBox
+    item={{
+      label: 'label',
+      value: 'value',
+    }}
+    checked
+  />
+  <CheckBox
+    item={{
+      label: 'label',
+      value: 'value',
+    }}
+    checked
+  />
+</Playground>
+
+## Give a mainColor
+
+<Playground>
+  <CheckBox
+    item={{
+      label: 'label',
+      value: 'value',
+    }}
+    mainColor='danger'
+    checked
+  />
+  <CheckBox
+    item={{
+      label: 'label',
+      value: 'value',
+    }}
+    mainColor='primary'
+    checked
+  />
+  <CheckBox
+    item={{
+      label: 'label',
+      value: 'value',
+    }}
+    mainColor='light_gray'
+    checked
+  />
+  <CheckBox
+    item={{
+      label: 'label',
+      value: 'value',
+    }}
+    mainColor='#41FF2B'
+    checked
+  />
+</Playground>
+
+## Give a subColor
+
+<Playground>
+  <CheckBox
+    item={{
+      label: 'label',
+      value: 'value',
+    }}
+    mainColor='danger'
+    subColor='yellow'
+    checked
+  />
+  <CheckBox
+    item={{
+      label: 'label',
+      value: 'value',
+    }}
+    mainColor='primary'
+    subColor='danger'
+    checked
+  />
+  <CheckBox
+    item={{
+      label: 'label',
+      value: 'value',
+    }}
+    mainColor='light_gray'
+    subColor='purple'
+    checked
+  />
+  <CheckBox
+    item={{
+      label: 'label',
+      value: 'value',
+    }}
+    mainColor='#41FF2B'
+    subColor='#000'
+    checked
+  />
+</Playground>
+
+## PropsTable
+
+<Props of={CheckBox} />

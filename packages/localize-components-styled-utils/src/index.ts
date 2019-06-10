@@ -1,26 +1,16 @@
-/**
- * Styles Utils
- */
-// Align
-import {
-  getAlignStyle,
-} from './utils/styles/AlignUtils';
 // Position
 import {
-  getBottomPositionStyle,
-  getPositionStyle,
-} from './utils/styles/PositionUtils';
+  getPositionStyle
+} from './utils/PositionUtils';
+
 // Theme
 import {
   getIsLightenTheme,
   getValidTheme,
-} from './utils/styles/ThemeUtils';
+} from './utils/ThemeUtils';
 
 export {
-  // Styles
-  getAlignStyle,
   // Position
-  getBottomPositionStyle,
   getPositionStyle,
   // Theme
   getIsLightenTheme,
@@ -28,10 +18,7 @@ export {
 };
 
 export default {
-  // Styles
-  getAlignStyle,
   // Position
-  getBottomPositionStyle,
   getPositionStyle,
   // Theme
   getIsLightenTheme,

@@ -13,9 +13,10 @@ import {
   ThemeConfig,
   ThemesType,
 } from '@seolhun/localize-components-styled-types';
+
 import Modal from '../modal';
 
-const styles = require('./Alert.css');
+import './Alert.scss';
 
 export interface AlertProps {
   /**
@@ -25,7 +26,7 @@ export interface AlertProps {
   /**
    * Set this to toggle Alert Modal event handler
    */
-  onClickClose: (...args: any[]) => void;
+  onClick: (...args: any[]) => void;
   // isNotRequired
   /**
    * Set this to change Modal button label
@@ -48,12 +49,12 @@ export interface AlertProps {
    */
   size?: SizeType;
   /**
-   * Set this to change Modal ours mainColor
+   * Set this to change Modal mainColor
    * @default ThemeConfig.MAIN_THEME = royal_blue
    */
   mainColor?: ThemesType;
   /**
-   * Set this to change Modal ours subColor
+   * Set this to change Modal subColor
    * @default ThemeConfig.SUB_THEME = gray
    */
   subColor?: ThemesType;
@@ -76,7 +77,7 @@ export interface AlertProps {
 
 const Alert: React.SFC<AlertProps> = ({
   body,
-  onClickClose,
+  onClick,
   // is Not Required
   buttonLabel = 'Confirm',
   className = null,
@@ -91,10 +92,10 @@ const Alert: React.SFC<AlertProps> = ({
   return (
     <Modal
       className={classnames(
-        styles.Alert,
+        `__Localize__Alert`,
         className,
       )}
-      onClickClose={onClickClose}
+      onClick={onClick}
       header={
         <div>{header}</div>
       }
@@ -102,9 +103,9 @@ const Alert: React.SFC<AlertProps> = ({
         <div>{body}</div>
       }
       footer={
-        <div className={styles.Alert__Buttons}>
+        <div className={`Alert__Buttons`}>
           <Button
-            onClick={onClickClose}
+            onClick={onClick}
             mainColor={mainColor}
             subColor={subColor}
           >

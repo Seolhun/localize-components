@@ -31,3 +31,6 @@ yarn-error.*
 
 # Report
 coverage/
+
+# Rollup
+.rpt2_cache

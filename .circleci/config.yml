@@ -3,17 +3,18 @@ jobs:
   build:
     docker:
       - image: circleci/node:8.10
-    working_directory: ~/seolhun
+    working_directory: ~/localize-components
     branches:
       only:
         - master
         - develop
     steps:
       - checkout
+
       - restore_cache:
           keys:
-          - node-dependencies-{{ checksum "package.json" }}
-          - node-dependencies-
+            - node-dependencies-{{ checksum "package.json" }}
+            - node-dependencies-
 
       - run:
           name: "Checking versions"
@@ -31,13 +32,16 @@ jobs:
           command: yarn bs
 
       - save_cache:
+          key: node-dependencies-{{ checksum "package.json" }}
+          keys:
+            - node-dependencies-{{ checksum "package.json" }}
+            - node-dependencies-
           paths:
             - node_modules
-          key: node-dependencies-{{ checksum "package.json" }}
 
       - run:
           name: "Lerna packages bundling"
-          command: yarn bundle
+          command: yarn rollup
 
       - run:
           name: "Deploy docs into surge"
