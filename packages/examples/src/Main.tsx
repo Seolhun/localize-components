@@ -6,7 +6,6 @@ import MenuView from './containers/MenuView';
 import Routes from './routes';
 
 import './vendor';
-
 import './Main.scss';
 
 ReactDOM.render(
