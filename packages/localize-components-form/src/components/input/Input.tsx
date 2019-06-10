@@ -40,7 +40,7 @@ export interface InputProps {
    */
   className?: string;
   /**
-   * Set this to change Input ours main disabled
+   * Set this to change Input main disabled
    * @default false
    */
   disabled?: boolean;
@@ -105,12 +105,12 @@ export interface InputProps {
    */
   style?: {};
   /**
-   * Set this to change Input ours mainColor
+   * Set this to change Input mainColor
    * @default ThemeConfig.MAIN_THEME = royal_blue
    */
   mainColor?: ThemesType;
   /**
-   * Set this to change Input ours subColor
+   * Set this to change Input subColor
    * @default ThemeConfig.SUB_THEME = gray
    */
   subColor?: ThemesType;

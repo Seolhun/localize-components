@@ -70,12 +70,12 @@ export interface CheckBoxProps {
    */
   style?: {};
   /**
-   * Set this to change CheckBox ours mainColor
+   * Set this to change CheckBox mainColor
    * @default ThemeConfig.MAIN_THEME = royal_blue
    */
   mainColor?: ThemesType;
   /**
-   * Set this to change CheckBox ours subColor
+   * Set this to change CheckBox subColor
    * @default ThemeConfig.SUB_THEME = gray
    */
   subColor?: ThemesType;

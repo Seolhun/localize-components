@@ -5,7 +5,6 @@ const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 const postCssFlexBugsFixed = require('postcss-flexbugs-fixes');
 const autoprefixer = require('autoprefixer');
@@ -48,7 +47,6 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': JSON.stringify(config.dev.env),
     }),
-    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',

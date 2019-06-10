@@ -12,7 +12,7 @@
   ],
   "scripts": {
     "rollup": "docz build",
-    "prerollup": "rm -rf dist",
+    "prerollup": "rm -rf dist && rm -rf .rpt2_cache",
     "build": "docz build",
     "prebuild": "rm -rf dist",
     "bundle": "docz build",
