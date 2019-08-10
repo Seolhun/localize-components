@@ -12,17 +12,10 @@
     "README.md"
   ],
   "scripts": {
-    "rollup": "rollup -c",
-    "prerollup": "rm -rf dist && rm -rf .rpt2_cache",
-    "build": "node build/build.js",
-    "prebuild": "rm -rf dist",
-    "bundle": "yarn style:clean && tsc && yarn style",
+    "build": "rollup -c",
+    "prebuild": "rm -rf dist && rm -rf .rpt2_cache",
+    "bundle": "node build/build.js",
     "prebundle": "rm -rf dist",
-    "bundle:local": "tsc && yarn style && yarn style:local",
-    "style": "sass --update src:dist --style compressed",
-    "style:watch": "sass --watch src:dist --style compressed",
-    "style:local": "sass --update src:src --style compressed",
-    "style:clean": "find ./src -name *.css* -type f -delete",
     "test": "jest"
   },
   "dependencies": {
