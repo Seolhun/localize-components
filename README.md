@@ -26,19 +26,19 @@
 - polished
 - Docz
 
-## Current Versioning
- - @seolhun/localize-components-docs: 0.1.4 => 0.1.5
- - @seolhun/localize-components-examples: 0.1.3 => 0.1.4
- - @seolhun/localize-components-atomic: 0.1.3 => 0.1.4
- - @seolhun/localize-components-button: 0.1.3 => 0.1.4
- - @seolhun/localize-components-form: 0.1.2 => 0.1.3
- - @seolhun/localize-components-modal: 0.1.2 => 0.1.3
- - @seolhun/localize-components-sidebar: 0.1.3 => 0.1.4
- - @seolhun/localize-components-styled-types: 0.1.2 => 0.1.3
- - @seolhun/localize-components-styled-utils: 0.1.2 => 0.1.3
- - @seolhun/localize-components-types: 0.1.2 => 0.1.3
- - @seolhun/localize-components-utils-event: 0.1.2 => 0.1.3
- - @seolhun/localize-components: 0.1.3 => 0.1.4
+## Successfully published version
+ - @seolhun/localize-components-docs@0.1.5
+ - @seolhun/localize-components-examples@0.1.4
+ - @seolhun/localize-components-atomic@0.1.4
+ - @seolhun/localize-components-button@0.1.4
+ - @seolhun/localize-components-form@0.1.3
+ - @seolhun/localize-components-modal@0.1.3
+ - @seolhun/localize-components-sidebar@0.1.4
+ - @seolhun/localize-components-styled-types@0.1.3
+ - @seolhun/localize-components-styled-utils@0.1.3
+ - @seolhun/localize-components-types@0.1.3
+ - @seolhun/localize-components-utils-event@0.1.3
+ - @seolhun/localize-components@0.1.4
 
 
 ## Getting start
