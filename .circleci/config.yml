@@ -2,7 +2,7 @@ version: 2.0
 jobs:
   build:
     docker:
-      - image: circleci/node:8.10
+      - image: node:10.16.2-stretch
     working_directory: ~/localize-components
     branches:
       only:
