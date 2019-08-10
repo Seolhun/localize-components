@@ -40,9 +40,6 @@
  - @seolhun/localize-components-utils-event: 0.1.2 => 0.1.3
  - @seolhun/localize-components: 0.1.3 => 0.1.4
 
-- Deprecated
-  - @seolhun/localize-components-types@0.1.2 (Deprecated)
-  - @seolhun/localize-components-utils@0.1.2 (Deprecated)
 
 ## Getting start
 #### Install Package
