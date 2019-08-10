@@ -11,16 +11,10 @@
     "README.md"
   ],
   "scripts": {
-    "rollup": "docz build",
-    "prerollup": "rm -rf dist && rm -rf .rpt2_cache",
+    "dev": "docz dev",
     "build": "docz build",
     "prebuild": "rm -rf dist",
-    "bundle": "docz build",
-    "prebundle": "rm -rf dist",
-    "dev": "node build/dev-server.js",
-    "test": "jest",
-    "docz:dev": "docz dev",
-    "docz:build": "docz build"
+    "test": "jest"
   },
   "dependencies": {
     "@emotion/core": "^10.0.6",
@@ -60,8 +54,8 @@
     "clean-webpack-plugin": "^3.0.0",
     "compression-webpack-plugin": "^3.0.0",
     "css-loader": "^2.1.1",
-    "docz": "^1.0.0",
-    "docz-theme-default": "^1.0.0",
+    "docz": "^1.2.0",
+    "docz-theme-default": "^1.2.0",
     "enzyme": "^3.4.4",
     "enzyme-adapter-react-16": "^1.2.0",
     "event-source-polyfill": "^1.0.3",
