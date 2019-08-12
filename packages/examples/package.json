@@ -13,7 +13,7 @@
   "scripts": {
     "build": "node build/build.js",
     "prebuild": "rm -rf dist",
-    "dev": "node build/dev-server.js --watch",
+    "dev": "node build/dev-server.js",
     "test": "jest"
   },
   "dependencies": {

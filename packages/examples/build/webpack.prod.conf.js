@@ -29,9 +29,8 @@ const webpackConfig = merge(baseWebpackConfig, {
       },
     }),
     new HtmlWebpackPlugin({
-      filename: IS_TESTING
-        ? 'index.html'
-        : config.build.index,
+      filename: IS_TESTING ?
+        'index.html' : config.build.index,
       template: 'index.html',
       inject: true,
       minify: {
@@ -64,7 +63,9 @@ if (config.build.productionGzip) {
 }
 
 if (config.build.bundleAnalyzerReport) {
-  const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+  const {
+    BundleAnalyzerPlugin
+  } = require('webpack-bundle-analyzer');
   webpackConfig.plugins.push(new BundleAnalyzerPlugin());
 }
 

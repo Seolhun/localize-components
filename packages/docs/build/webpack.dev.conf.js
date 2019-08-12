@@ -12,6 +12,11 @@ Object.keys(baseWebpackConfig.entry).forEach((name) => {
 
 module.exports = merge(baseWebpackConfig, {
   mode: 'development',
+  watch: true,
+  watchOptions: {
+    aggregateTimeout: 300,
+    poll: 1000
+  },
   module: {
     rules: utils.styleLoaders({
       sourceMap: config.dev.cssSourceMap,

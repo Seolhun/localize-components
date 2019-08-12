@@ -14,6 +14,7 @@
   "scripts": {
     "build": "rollup -c",
     "prebuild": "rm -rf dist && rm -rf .rpt2_cache",
+    "bundle": "rollup -c",
     "bundle:local": "tsc && yarn style && yarn style:local",
     "style": "sass --update src:dist --style compressed",
     "style:watch": "sass --watch src:dist --style compressed",
