@@ -101,7 +101,6 @@ const StyledCircle = styled.span<CircleProps>(({
     justifyContent: 'center',
     width: `${size}px`,
     height: `${size}px`,
-    padding: '3px',
 
     borderRadius: '50%',
     border: `1px solid ${getValidTheme(mainColor)}`,
