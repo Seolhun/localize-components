@@ -61,10 +61,10 @@ export interface SwitchProps {
    */
   useValueKey?: boolean;
   /**
-   * Set this to change Switch stype
+   * Set this to change Switch css
    * @default {}
    */
-  style?: {};
+  css?: {};
   /**
    * Set this to change Switch mainColor
    * @default ThemeConfig.MAIN_THEME = royal_blue
@@ -98,7 +98,7 @@ const Switch: FunctionComponent<SwitchProps> = ({
   onChange = () => null,
   onMouseOut = () => null,
   onMouseOver = () => null,
-  style = {},
+  css = {},
   subColor = ThemeConfig.SUB_THEME,
   useValueKey = false,
   valueKey = 'value',
@@ -134,9 +134,7 @@ const Switch: FunctionComponent<SwitchProps> = ({
         className='Slider'
         mainColor={mainColor}
         subColor={subColor}
-        style={{
-          ...style,
-        }}
+        css={css}
       />
     </StyledSwitchLabel>
   );
