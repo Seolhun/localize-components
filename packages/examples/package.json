@@ -13,7 +13,7 @@
   "scripts": {
     "build": "node build/build.js",
     "prebuild": "rm -rf dist",
-    "dev": "node build/dev-server.js",
+    "dev": "node build/dev-server.js --watch",
     "test": "jest"
   },
   "dependencies": {
@@ -98,5 +98,11 @@
     "node": ">= 6.0.0",
     "npm": ">= 3.0.0"
   },
+  "browsers": [
+    ">1%",
+    "last 4 versions",
+    "Firefox ESR",
+    "not ie < 9"
+  ],
   "gitHead": "34a3d679eafb3f90a173786686e69f58cd5485db"
 }
