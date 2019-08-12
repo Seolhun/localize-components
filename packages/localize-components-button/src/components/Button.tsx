@@ -132,10 +132,6 @@ const StyledButton = styled.button<ButtonProps>(({
     verticalAlign: 'middle',
     whiteSpace: 'nowrap',
 
-    '&:not(:disabled):not(.disabled)': {
-      cursor: 'pointer',
-    },
-
     '&:hover': {
       backgroundColor: getThemeHoverStyle(mainColor),
     },
@@ -151,10 +147,6 @@ const StyledButton = styled.button<ButtonProps>(({
 const Button: FunctionComponent<ButtonProps> = ({
   children,
   className = '',
-  disabled = false,
-  fontSize = 12,
-  mainColor = ThemeConfig.MAIN_THEME,
-  size = Size.MEDIUM,
   style = {},
   ...props
 }) => (
@@ -164,10 +156,6 @@ const Button: FunctionComponent<ButtonProps> = ({
       className,
     )}
     type='button'
-    disabled={disabled}
-    fontSize={fontSize}
-    mainColor={mainColor}
-    size={size}
     style={style}
     {...props}
   >
