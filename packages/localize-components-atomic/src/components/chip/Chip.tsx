@@ -59,16 +59,15 @@ export interface ChipProps {
    */
   subColor?: ThemesType;
   /**
-   * Set this to change Chip style
+   * Set this to change Chip css
    * @default {}
    */
-  style?: {};
+  css?: {};
 }
 
 const StyledChip = styled.button<ChipProps>(({
   mainColor = ThemeConfig.MAIN_THEME,
   subColor = ThemeConfig.SUB_THEME,
-  style = {},
 }) => {
   return {
     borderRadius: '6px',
@@ -95,13 +94,13 @@ const StyledChip = styled.button<ChipProps>(({
       color: Themes.white,
       cursor: 'not-allowed',
     },
-    ...style,
   }
 })
 
 const Chip: FunctionComponent<ChipProps> = ({
   children,
   className = '',
+  css = {},
   ...props
 }) => {
   return (
@@ -110,6 +109,7 @@ const Chip: FunctionComponent<ChipProps> = ({
         '__Localize__',
         className,
       )}
+      css={css}
       { ...props }
     >
       {children}

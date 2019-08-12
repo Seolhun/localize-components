@@ -79,10 +79,10 @@ export interface StyledProps {
    */
   zIndex?: number;
   /**
-   * Set this to change Localize Style style
+   * Set this to change Localize Style css
    * @default {}
    */
-  style?: {};
+  css?: {};
 }
 
 export default {

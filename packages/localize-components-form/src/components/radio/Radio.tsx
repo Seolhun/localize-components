@@ -64,10 +64,10 @@ export interface RadioProps {
    */
   useValueKey?: boolean;
   /**
-   * Set this to change Radio stype
+   * Set this to change Radio css
    * @default {}
    */
-  style?: {};
+  css?: {};
   /**
    * Set this to change Radio mainColor
    * @default ThemeConfig.MAIN_THEME = royal_blue
@@ -111,7 +111,7 @@ const Radio: FunctionComponent<RadioProps> = ({
   onMouseOut = () => null,
   onMouseOver = () => null,
   useValueKey = false,
-  style = {},
+  css = {},
   valueKey = 'value',
   mainColor = ThemeConfig.MAIN_THEME,
   subColor = ThemeConfig.SUB_THEME,
@@ -161,9 +161,7 @@ const Radio: FunctionComponent<RadioProps> = ({
       <StyledCheckMark
         mainColor={mainColor}
         subColor={subColor}
-        style={{
-          ...style,
-        }}
+        css={css}
       />
     </StyledRadioLabel>
   );
