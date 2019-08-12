@@ -1,8 +1,8 @@
 {
   "license": "MIT",
-  "name": "@seolhun/localize-components-styled-utils",
-  "description": "Localizing React components is rendered by stand-alone not affect other styles.",
-  "version": "0.1.3",
+  "name": "@seolhun/localize-components-hooks",
+  "description": "Localizing React components hooks",
+  "version": "0.0.1",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "files": [
@@ -20,7 +20,6 @@
     "@seolhun/localize-components-styled-types": "^0.1.3",
     "classnames": "^2.2.6",
     "lodash": "^4.17.11",
-    "polished": "^3.4.1",
     "react": "^16.8.6"
   },
   "devDependencies": {
