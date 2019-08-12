@@ -1,8 +1,8 @@
-import React, { SFC } from 'react';
+import React, { FunctionComponent } from 'react';
 
 import { ButtonProps } from '@seolhun/localize-components-atomic';
 
-const ButtonPropsTable: SFC<ButtonProps> = () => {
+const ButtonPropsTable: FunctionComponent<ButtonProps> = () => {
   return (
     <div></div>
   );

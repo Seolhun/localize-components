@@ -1,4 +1,4 @@
-import React, { SFC, ReactNode } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 
 import styled from '@emotion/styled';
 
@@ -71,7 +71,7 @@ interface RadioGroupContainerProps {
   gap: string;
 }
 
-const RadioGroup: SFC<RadioGroupProps> = ({
+const RadioGroup: FunctionComponent<RadioGroupProps> = ({
   children,
   groupName,
   labelKey = 'label',

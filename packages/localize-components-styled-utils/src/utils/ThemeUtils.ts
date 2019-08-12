@@ -1,3 +1,5 @@
+import { darken, lighten } from 'polished';
+
 import {
   LightenTheme,
   Themes,
@@ -21,7 +23,23 @@ export const getValidTheme = (theme: ThemesType) => {
   return theme;
 };
 
+export const getThemeHoverStyle = (theme: ThemesType) => {
+  if (getIsLightenTheme(theme)) {
+    return darken(0.1, getValidTheme(theme));
+  }
+  return lighten(0.1, getValidTheme(theme));
+}
+
+export const getThemeColorStyle = (theme: ThemesType) => {
+  if (getIsLightenTheme(theme)) {
+    return Themes.dark_gray;
+  }
+  return Themes.white;
+};
+
 export default {
   getIsLightenTheme,
   getValidTheme,
+  getThemeHoverStyle,
+  getThemeColorStyle,
 };

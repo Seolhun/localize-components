@@ -75,12 +75,12 @@ export interface AlertProps {
   zIndex?: number;
 }
 
-const Alert: React.SFC<AlertProps> = ({
+const Alert: React.FunctionComponent<AlertProps> = ({
   body,
   onClick,
   // is Not Required
   buttonLabel = 'Confirm',
-  className = null,
+  className = '',
   isShow = false,
   mainColor = ThemeConfig.MAIN_THEME,
   position = Position.CENTER,

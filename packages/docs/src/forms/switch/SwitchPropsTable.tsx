@@ -1,8 +1,8 @@
-import React, { SFC } from 'react';
+import React, { FunctionComponent } from 'react';
 
 import { SwitchProps } from '@seolhun/localize-components-atomic';
 
-const SwitchPropsTable: SFC<SwitchProps> = () => {
+const SwitchPropsTable: FunctionComponent<SwitchProps> = () => {
   return (
     <div></div>
   );

@@ -1,8 +1,8 @@
-import React, { SFC } from 'react';
+import React, { FunctionComponent } from 'react';
 
 import { InputProps } from '@seolhun/localize-components-atomic';
 
-const InputPropsTable: SFC<InputProps> = () => {
+const InputPropsTable: FunctionComponent<InputProps> = () => {
   return (
     <div></div>
   );

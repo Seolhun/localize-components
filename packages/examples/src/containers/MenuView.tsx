@@ -1,5 +1,5 @@
 
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { routers } from '../routes';
@@ -7,52 +7,49 @@ import { routers } from '../routes';
 import { Jumbotron } from '@seolhun/localize-components';
 import { Button } from '@seolhun/localize-components-atomic';
 
-class MenuView extends Component {
-
-  render() {
-    return (
-      <Jumbotron
-        title='Hello, Localize-Components'
-        description='Localize-Components is made for localized style without side-effect'
-        mainColor='primary'
-      >
-        <div>
-          <h2>Atomic Components</h2>
-          {routers.filter((router) => router.type === 0).map((router) => {
-            return (
-              <Link
-                key={router.label}
-                to={router.path}
+const MenuView = () => {
+  return (
+    <Jumbotron
+      title='Hello, Localize-Components'
+      description='Localize-Components is made for localized style without side-effect'
+      mainColor='primary'
+    >
+      <div>
+        <h2>Atomic Components</h2>
+        {routers.filter((router) => router.type === 0).map((router) => {
+          return (
+            <Link
+              key={router.label}
+              to={router.path}
+            >
+              <Button
+                size='medium'
+                mainColor='white'
               >
-                <Button
-                  size='medium'
-                  mainColor='white'
-                >
-                  {router.label}
-                </Button>
-              </Link>
-            );
-          })}
-          <h2>Components</h2>
-          {routers.filter((router) => router.type === 1).map((router) => {
-            return (
-              <Link
-                key={router.label}
-                to={router.path}
+                {router.label}
+              </Button>
+            </Link>
+          );
+        })}
+        <h2>Components</h2>
+        {routers.filter((router) => router.type === 1).map((router) => {
+          return (
+            <Link
+              key={router.label}
+              to={router.path}
+            >
+              <Button
+                size='medium'
+                mainColor='danger'
               >
-                <Button
-                  size='medium'
-                  mainColor='danger'
-                >
-                  {router.label}
-                </Button>
-              </Link>
-            );
-          })}
-        </div>
-      </Jumbotron>
-    );
-  }
+                {router.label}
+              </Button>
+            </Link>
+          );
+        })}
+      </div>
+    </Jumbotron>
+  );
 }
 
 export default MenuView;

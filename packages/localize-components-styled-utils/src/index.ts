@@ -7,6 +7,8 @@ import {
 import {
   getIsLightenTheme,
   getValidTheme,
+  getThemeHoverStyle,
+  getThemeColorStyle,
 } from './utils/ThemeUtils';
 
 export {
@@ -15,6 +17,8 @@ export {
   // Theme
   getIsLightenTheme,
   getValidTheme,
+  getThemeHoverStyle,
+  getThemeColorStyle,
 };
 
 export default {
@@ -23,4 +27,6 @@ export default {
   // Theme
   getIsLightenTheme,
   getValidTheme,
+  getThemeHoverStyle,
+  getThemeColorStyle,
 };

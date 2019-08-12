@@ -1,8 +1,8 @@
-import React, { SFC } from 'react';
+import React, { FunctionComponent } from 'react';
 
 import { ModalProps } from '@seolhun/localize-components';
 
-const ModalPropsTable: SFC<ModalProps> = () => {
+const ModalPropsTable: FunctionComponent<ModalProps> = () => {
   return (
     <div></div>
   );

@@ -1,4 +1,4 @@
-import React, { SFC } from 'react';
+import React, { FC } from 'react';
 
 import styled from '@emotion/styled';
 import { darken, lighten } from 'polished';
@@ -102,7 +102,7 @@ export interface CheckBoxItemProps {
   [key: string]: any,
 };
 
-const CheckBox: SFC<CheckBoxProps> = ({
+const CheckBox: FC<CheckBoxProps> = ({
   item,
   // IsNotRequired
   checked = false,

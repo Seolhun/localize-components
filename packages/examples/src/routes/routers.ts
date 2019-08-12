@@ -4,6 +4,7 @@ import InputView from '../containers/InputView';
 import RadioView from '../containers/RadioView';
 import JumbotronView from '../containers/JumbotronView';
 import ModalView from '../containers/ModalView';
+import FigureView from '../containers/FigureView';
 
 const routerCreator = ({
   type,
@@ -46,6 +47,12 @@ const routers = [
     path: '/radio',
     label: 'Radio',
     component: RadioView,
+  }),
+  routerCreator({
+    type: 0,
+    path: '/figure',
+    label: 'Figure',
+    component: FigureView,
   }),
   // Components
   routerCreator({

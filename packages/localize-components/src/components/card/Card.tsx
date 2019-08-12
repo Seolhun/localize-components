@@ -16,7 +16,7 @@ export interface CardProps {
   };
 }
 
-const Card: React.SFC<CardProps> = ({
+const Card: React.FunctionComponent<CardProps> = ({
   className,
   children,
   style,

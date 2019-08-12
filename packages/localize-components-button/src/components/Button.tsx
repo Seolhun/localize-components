@@ -1,8 +1,6 @@
-import React, { ReactNode, SFC } from 'react';
+import React, { ReactNode, FunctionComponent } from 'react';
 
 import styled from '@emotion/styled';
-import { darken, lighten } from 'polished';
-
 import classnames from 'classnames';
 
 import {
@@ -13,8 +11,9 @@ import {
   ThemesType,
 } from '@seolhun/localize-components-styled-types';
 import {
-  getIsLightenTheme,
   getValidTheme,
+  getThemeHoverStyle,
+  getThemeColorStyle,
 } from '@seolhun/localize-components-styled-utils';
 
 export interface ButtonProps {
@@ -93,14 +92,8 @@ const StyledButton = styled.button<ButtonProps>(({
   fontSize = 12,
   mainColor = ThemeConfig.MAIN_THEME,
   size = Size.MEDIUM,
+  style = {},
 }) => {
-  const styledColor = () => {
-    if (getIsLightenTheme(mainColor)) {
-      return Themes.dark_gray;
-    }
-    return Themes.white;
-  };
-
   const styledSize = () => {
     switch (size) {
       case Size.LARGE:
@@ -112,62 +105,45 @@ const StyledButton = styled.button<ButtonProps>(({
     }
   }
 
-  const styledHoverStyle = () => {
-    if (getIsLightenTheme(mainColor)) {
-      return darken(0.1, getValidTheme(mainColor));
-    }
-    return lighten(0.1, getValidTheme(mainColor));
-  }
-
   return {
+    display: 'inline-block',
     borderRadius: '6px',
     border: '1px solid transparent',
     backgroundColor: getValidTheme(mainColor),
-    color: styledColor(),
-    cursor: 'pointer',
-    display: 'inline-block',
-    fontSize: `${fontSize}px`,
-    fontWeight: 500,
     height: 'auto',
-    outline: 'none',
     padding: styledSize(),
-    textAlign: 'center',
-    textDecoration: 'none',
+
+    cursor: 'pointer',
+    outline: 'none',
     transition: 'background-color 0.3s, border-color 0.3s',
     userSelect: 'none',
+
+    color: getThemeColorStyle(mainColor),
+    fontSize: `${fontSize}px`,
+    fontWeight: 500,
+    textDecoration: 'none',
+    textAlign: 'center',
     verticalAlign: 'middle',
     whiteSpace: 'nowrap',
 
-    '&:not(:disabled):not(.disabled)': {
-      cursor: 'pointer',
-    },
-
     '&:hover': {
-      backgroundColor: styledHoverStyle(),
+      backgroundColor: getThemeHoverStyle(mainColor),
     },
 
     '&:disabled': {
       backgroundColor: Themes.light_gray,
       color: Themes.white,
       cursor: 'not-allowed',
-    }
+    },
+    ...style,
   }
 })
 
-const Button: SFC<ButtonProps> = ({
+const Button: FunctionComponent<ButtonProps> = ({
   children,
-
   className = '',
-  disabled = false,
-  fontSize = 12,
-  mainColor = ThemeConfig.MAIN_THEME,
-  onBlur = () => null,
-  onClick = () => null,
-  onFocus = () => null,
-  onMouseOut = () => null,
-  onMouseOver = () => null,
-  size = Size.MEDIUM,
   style = {},
+  ...props
 }) => (
   <StyledButton
     className={classnames(
@@ -175,16 +151,7 @@ const Button: SFC<ButtonProps> = ({
       className,
     )}
     type='button'
-    disabled={disabled}
-    fontSize={fontSize}
-    mainColor={mainColor}
-    onBlur={onBlur}
-    onClick={onClick}
-    onFocus={onFocus}
-    onMouseOut={onMouseOut}
-    onMouseOver={onMouseOver}
-    size={size}
-    style={style}
+    {...props}
   >
     {children}
   </StyledButton>

@@ -1,4 +1,4 @@
-import React, { SFC } from 'react';
+import React, { FunctionComponent } from 'react';
 
 import styled from '@emotion/styled';
 
@@ -100,7 +100,7 @@ export interface RadioItemProps {
   [key: string]: any,
 };
 
-const Radio: SFC<RadioProps> = ({
+const Radio: FunctionComponent<RadioProps> = ({
   item,
   // IsNotRequired
   checked = false,

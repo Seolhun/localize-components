@@ -1,8 +1,8 @@
-import React, { SFC } from 'react';
+import React, { FunctionComponent } from 'react';
 
 import { AlertProps } from '@seolhun/localize-components';
 
-const AlertPropsTable: SFC<AlertProps> = () => {
+const AlertPropsTable: FunctionComponent<AlertProps> = () => {
   return (
     <div></div>
   );

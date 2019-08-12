@@ -1,4 +1,4 @@
-import React, { SFC } from 'react';
+import React, { FunctionComponent } from 'react';
 
 import classnames from 'classnames';
 import { css } from '@emotion/core'
@@ -32,7 +32,7 @@ export interface SidebarItemIconProps {
   style?: {};
 }
 
-export const SidebarItemIcon: SFC<SidebarItemIconProps> = ({
+export const SidebarItemIcon: FunctionComponent<SidebarItemIconProps> = ({
   item,
   style,
   className,

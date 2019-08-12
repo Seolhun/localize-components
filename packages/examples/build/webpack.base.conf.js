@@ -26,9 +26,8 @@ module.exports = {
     path: config.build.assetsRoot,
     filename: utils.assetsPath('[name].js'),
     chunkFilename: utils.assetsPath('[id].js'),
-    publicPath: IS_PRODUCTION
-      ? config.build.assetsPublicPath
-      : config.dev.assetsPublicPath,
+    publicPath: IS_PRODUCTION ?
+      config.build.assetsPublicPath : config.dev.assetsPublicPath,
   },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
@@ -56,8 +55,7 @@ module.exports = {
     }),
   ],
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.(js|jsx)$/,
         loader: 'babel-loader',
       },
@@ -82,12 +80,6 @@ module.exports = {
             plugins: () => [
               postCssFlexBugsFixed,
               autoprefixer({
-                browsers: [
-                  '>1%',
-                  'last 4 versions',
-                  'Firefox ESR',
-                  'not ie < 9',
-                ],
                 flexbox: 'no-2009',
               }),
             ],
@@ -195,10 +187,10 @@ module.exports = {
     maxEntrypointSize: 550000,
     assetFilter(assetFilename) {
       return (
-        assetFilename.endsWith('.css')
-        || assetFilename.endsWith('.scss')
-        || assetFilename.endsWith('.js')
-        || assetFilename.endsWith('.ts')
+        assetFilename.endsWith('.css') ||
+        assetFilename.endsWith('.scss') ||
+        assetFilename.endsWith('.js') ||
+        assetFilename.endsWith('.ts')
       );
     },
   },

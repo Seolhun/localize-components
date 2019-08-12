@@ -1,8 +1,8 @@
-import React, { SFC } from 'react';
+import React, { FunctionComponent } from 'react';
 
 import { CheckBoxProps } from '@seolhun/localize-components-atomic';
 
-const CheckBoxPropsTable: SFC<CheckBoxProps> = () => {
+const CheckBoxPropsTable: FunctionComponent<CheckBoxProps> = () => {
   return (
     <div></div>
   );

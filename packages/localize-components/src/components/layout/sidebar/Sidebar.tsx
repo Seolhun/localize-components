@@ -11,7 +11,7 @@ export interface SidebarProps {
   style?: object;
 }
 
-const Sidebar: React.SFC<SidebarProps> = ({
+const Sidebar: React.FunctionComponent<SidebarProps> = ({
   children,
   className,
   style,
