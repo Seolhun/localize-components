@@ -45,10 +45,10 @@ export interface SidebarItemsContainerProps {
    */
   onMouseOver?: (...args: any[]) => void;
   /**
-   * Set this to change SidebarItemsContainer style
+   * Set this to change SidebarItemsContainer css
    * @default {}
    */
-  style?: {};
+  css?: {};
 }
 
 const StyledSidebarItemsContainer = styled.div<SidebarItemsContainerProps>(() => {
@@ -60,7 +60,7 @@ const StyledSidebarItemsContainer = styled.div<SidebarItemsContainerProps>(() =>
 export const SidebarItemsContainer: FunctionComponent<SidebarItemsContainerProps> = ({
   children,
   className,
-  style,
+  css = {},
   isSizer = false,
   ...props
 }) => {
@@ -71,7 +71,7 @@ export const SidebarItemsContainer: FunctionComponent<SidebarItemsContainerProps
         className
       )}
       isSizer={isSizer}
-      css={style}
+      css={css}
       {...props}
     >
       {children}

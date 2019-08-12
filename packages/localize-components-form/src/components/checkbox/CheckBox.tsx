@@ -65,11 +65,6 @@ export interface CheckBoxProps {
    */
   useValueKey?: boolean;
   /**
-   * Set this to change CheckBox stype
-   * @default {}
-   */
-  style?: {};
-  /**
    * Set this to change CheckBox mainColor
    * @default ThemeConfig.MAIN_THEME = royal_blue
    */
@@ -84,6 +79,11 @@ export interface CheckBoxProps {
    * @default 'value'
    */
   valueKey?: string;
+  /**
+   * Set this to change CheckBox css
+   * @default {}
+   */
+  css?: {};
 
   /**
    * Set this to change Radio Group align
@@ -113,7 +113,7 @@ const CheckBox: FC<CheckBoxProps> = ({
   onMouseOut = () => null,
   onMouseOver = () => null,
   useValueKey = false,
-  style = {},
+  css = {},
   valueKey = 'value',
   mainColor = ThemeConfig.MAIN_THEME,
   subColor = ThemeConfig.SUB_THEME,
@@ -163,9 +163,7 @@ const CheckBox: FC<CheckBoxProps> = ({
       <StyledCheckMark
         mainColor={mainColor}
         subColor={subColor}
-        style={{
-          ...style,
-        }}
+        css={css}
       />
     </StyledCheckBoxLabel>
   );
@@ -173,10 +171,10 @@ const CheckBox: FC<CheckBoxProps> = ({
 
 interface SizeProps {
   /**
- * Set this to change Radio Group align
- * @default undefined
- */
-align?: CheckBoxGroupAlign;
+   * Set this to change Radio Group align
+   * @default undefined
+   */
+  align?: CheckBoxGroupAlign;
 }
 
 
