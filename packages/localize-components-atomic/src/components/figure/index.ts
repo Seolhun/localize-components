@@ -5,6 +5,4 @@ export {
   CircleProps,
 }
 
-export default {
-  Circle,
-}
+export default Circle;
