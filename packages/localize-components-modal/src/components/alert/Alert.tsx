@@ -80,7 +80,7 @@ const Alert: React.FunctionComponent<AlertProps> = ({
   onClick,
   // is Not Required
   buttonLabel = 'Confirm',
-  className = null,
+  className = '',
   isShow = false,
   mainColor = ThemeConfig.MAIN_THEME,
   position = Position.CENTER,

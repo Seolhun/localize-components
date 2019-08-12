@@ -1,7 +1,6 @@
 import React, { ReactNode, FunctionComponent } from 'react';
 
 import styled from '@emotion/styled';
-import { darken, lighten } from 'polished';
 
 import classnames from 'classnames';
 
@@ -11,8 +10,9 @@ import {
   ThemeConfig,
 } from '@seolhun/localize-components-styled-types';
 import {
-  getIsLightenTheme,
   getValidTheme,
+  getThemeHoverStyle,
+  getThemeColorStyle,
 } from '@seolhun/localize-components-styled-utils';
 
 export interface ChipProps {
@@ -68,26 +68,13 @@ export interface ChipProps {
 const StyledChip = styled.button<ChipProps>(({
   mainColor = ThemeConfig.MAIN_THEME,
   subColor = ThemeConfig.SUB_THEME,
+  style = {},
 }) => {
-  const styledColorByMain = () => {
-    if (getIsLightenTheme(mainColor)) {
-      return Themes.dark_gray;
-    }
-    return Themes.white;
-  };
-
-  const styledHoverStyle = (color) => {
-    if (getIsLightenTheme(color)) {
-      return darken(0.1, getValidTheme(color));
-    }
-    return lighten(0.1, getValidTheme(color));
-  }
-
   return {
     borderRadius: '6px',
     border: `1px solid ${getValidTheme(subColor)}`,
     backgroundColor: getValidTheme(mainColor),
-    color: styledColorByMain(),
+    color: getThemeColorStyle(mainColor),
     cursor: 'pointer',
     height: 'auto',
     outline: 'none',
@@ -99,30 +86,23 @@ const StyledChip = styled.button<ChipProps>(({
     },
 
     '&:hover': {
-      backgroundColor: styledHoverStyle(mainColor),
-      borderColor: styledHoverStyle(subColor),
+      backgroundColor: getThemeHoverStyle(mainColor),
+      borderColor: getThemeHoverStyle(subColor),
     },
 
     '&:disabled': {
       backgroundColor: Themes.light_gray,
       color: Themes.white,
       cursor: 'not-allowed',
-    }
+    },
+    ...style,
   }
 })
 
 const Chip: FunctionComponent<ChipProps> = ({
   children,
-  // IsNotRequired
-  className = null,
-  mainColor = ThemeConfig.MAIN_THEME,
-  subColor = ThemeConfig.MAIN_THEME,
-  onBlur = () => null,
-  onClick = () => null,
-  onFocus = () => null,
-  onMouseOut = () => null,
-  onMouseOver = () => null,
-  style = {},
+  className = '',
+  ...props
 }) => {
   return (
     <StyledChip
@@ -130,14 +110,7 @@ const Chip: FunctionComponent<ChipProps> = ({
         '__Localize__',
         className,
       )}
-      mainColor={mainColor}
-      subColor={subColor}
-      onBlur={onBlur}
-      onClick={onClick}
-      onFocus={onFocus}
-      onMouseOut={onMouseOut}
-      onMouseOver={onMouseOver}
-      style={style}
+      { ...props }
     >
       {children}
     </StyledChip>

@@ -118,7 +118,7 @@ class Modal extends Component<ModalProps, ModalState> {
   render() {
     const {
       body = null,
-      className = null,
+      className = '',
       footer = null,
       header = null,
       mainColor = ThemeConfig.MAIN_THEME,

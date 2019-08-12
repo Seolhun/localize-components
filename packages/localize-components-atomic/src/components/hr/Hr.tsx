@@ -33,7 +33,7 @@ const StyledHr = styled.hr<HrProps>(({
 
 // tslint:disable-next-line:variable-name
 const Hr: FC<HrProps> = ({
-  className,
+  className = '',
 }) => (
   <StyledHr
     className={classnames(

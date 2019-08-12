@@ -92,9 +92,8 @@ const StyledButton = styled.button<ButtonProps>(({
   fontSize = 12,
   mainColor = ThemeConfig.MAIN_THEME,
   size = Size.MEDIUM,
+  style = {},
 }) => {
-
-
   const styledSize = () => {
     switch (size) {
       case Size.LARGE:
@@ -135,7 +134,8 @@ const StyledButton = styled.button<ButtonProps>(({
       backgroundColor: Themes.light_gray,
       color: Themes.white,
       cursor: 'not-allowed',
-    }
+    },
+    ...style,
   }
 })
 
@@ -151,7 +151,6 @@ const Button: FunctionComponent<ButtonProps> = ({
       className,
     )}
     type='button'
-    style={style}
     {...props}
   >
     {children}

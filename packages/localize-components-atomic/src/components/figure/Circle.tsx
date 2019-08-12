@@ -93,6 +93,7 @@ const StyledCircle = styled.span<CircleProps>(({
   subColor = ThemeConfig.SUB_THEME,
   size = 50,
   fontSize = 12,
+  style = {},
 }) => {
   return {
     display: 'inline-flex',
@@ -126,7 +127,8 @@ const StyledCircle = styled.span<CircleProps>(({
       backgroundColor: Themes.light_gray,
       color: Themes.white,
       cursor: 'not-allowed',
-    }
+    },
+    ...style,
   }
 });
 
