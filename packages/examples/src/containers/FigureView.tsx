@@ -7,6 +7,7 @@ const FigureView = () => {
   return (
     <div className='container'>
       <div className='row'>
+        <h1>Circle</h1>
         <div className='col-sm-12'>
           <h2>Default</h2>
           <Circle>Click me</Circle>

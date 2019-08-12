@@ -32,6 +32,7 @@
  - @seolhun/localize-components-atomic@0.1.4
  - @seolhun/localize-components-button@0.1.4
  - @seolhun/localize-components-form@0.1.3
+ - @seolhun/localize-components-hooks@0.0.1
  - @seolhun/localize-components-modal@0.1.3
  - @seolhun/localize-components-sidebar@0.1.4
  - @seolhun/localize-components-styled-types@0.1.3

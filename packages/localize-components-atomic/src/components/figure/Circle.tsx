@@ -11,6 +11,7 @@ import {
 import {
   getValidTheme,
   getThemeHoverStyle,
+  getThemeColorStyle,
 } from '@seolhun/localize-components-styled-utils';
 
 export interface CircleProps {
@@ -89,6 +90,7 @@ export interface CircleProps {
 const StyledCircle = styled.span<CircleProps>(({
   isClickable,
   mainColor = ThemeConfig.MAIN_THEME,
+  subColor = ThemeConfig.SUB_THEME,
   size = 50,
   fontSize = 12,
 }) => {
@@ -102,8 +104,9 @@ const StyledCircle = styled.span<CircleProps>(({
 
     borderRadius: '50%',
     border: `1px solid ${getValidTheme(mainColor)}`,
-    backgroundColor: getValidTheme(mainColor),
+    backgroundColor: getValidTheme(subColor),
 
+    color: getThemeColorStyle(subColor),
     fontSize: `${fontSize}px`,
     fontWeight: 500,
     textDecoration: 'none',
@@ -111,11 +114,12 @@ const StyledCircle = styled.span<CircleProps>(({
 
     cursor: isClickable ? 'pointer' : 'auto',
     outline: 'none',
-    transition: 'background-color 0.3s, border-color 0.3s',
+    transition: 'background-color 0.3s, border-color 0.3s, color 0.3s',
     userSelect: 'none',
 
     '&:hover': {
       backgroundColor: getThemeHoverStyle(mainColor),
+      color: getThemeColorStyle(mainColor),
     },
 
     '&:disabled': {

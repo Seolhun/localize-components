@@ -11,9 +11,9 @@ import {
   ThemesType,
 } from '@seolhun/localize-components-styled-types';
 import {
-  getIsLightenTheme,
   getValidTheme,
   getThemeHoverStyle,
+  getThemeColorStyle,
 } from '@seolhun/localize-components-styled-utils';
 
 export interface ButtonProps {
@@ -93,12 +93,7 @@ const StyledButton = styled.button<ButtonProps>(({
   mainColor = ThemeConfig.MAIN_THEME,
   size = Size.MEDIUM,
 }) => {
-  const styledColor = () => {
-    if (getIsLightenTheme(mainColor)) {
-      return Themes.dark_gray;
-    }
-    return Themes.white;
-  };
+
 
   const styledSize = () => {
     switch (size) {
@@ -116,7 +111,6 @@ const StyledButton = styled.button<ButtonProps>(({
     borderRadius: '6px',
     border: '1px solid transparent',
     backgroundColor: getValidTheme(mainColor),
-    color: styledColor(),
     height: 'auto',
     padding: styledSize(),
 
@@ -125,6 +119,7 @@ const StyledButton = styled.button<ButtonProps>(({
     transition: 'background-color 0.3s, border-color 0.3s',
     userSelect: 'none',
 
+    color: getThemeColorStyle(mainColor),
     fontSize: `${fontSize}px`,
     fontWeight: 500,
     textDecoration: 'none',

@@ -9,15 +9,17 @@ const proxyMiddleware = require('http-proxy-middleware');
 const historyApiFallback = require('connect-history-api-fallback');
 
 const IS_PRODUCTION = !!process.env.NODE_ENV === 'production';
-const webpackConfig = IS_PRODUCTION
-  ? require('./webpack.prod.conf')
-  : require('./webpack.dev.conf');
+const webpackConfig = IS_PRODUCTION ?
+  require('./webpack.prod.conf') :
+  require('./webpack.dev.conf');
 
 const config = require('../config');
 
 const port = process.env.PORT || config.dev.port;
 const autoOpenBrowser = !!config.dev.autoOpenBrowser;
-const { proxyTable } = config.dev;
+const {
+  proxyTable
+} = config.dev;
 
 const app = express();
 const compiler = webpack(webpackConfig);
