@@ -11,7 +11,7 @@ export interface NavBarProps {
   style?: object;
 }
 
-const NavBar: React.SFC<NavBarProps> = ({
+const NavBar: React.FunctionComponent<NavBarProps> = ({
   children,
   className,
   style,

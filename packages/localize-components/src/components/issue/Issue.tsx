@@ -10,7 +10,7 @@ export interface IssueProps {
   description?: string;
 }
 
-const Issue: React.SFC<IssueProps> = ({
+const Issue: React.FunctionComponent<IssueProps> = ({
   title,
   // IsNotRequired
   children = null,

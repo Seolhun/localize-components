@@ -1,4 +1,4 @@
-import React, { SFC, ReactNode } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 
 import classnames from 'classnames';
 import styled from '@emotion/styled';
@@ -107,7 +107,7 @@ const StyledSidebar = styled.aside<StyledProps>(() => {
   }
 })
 
-export const Sidebar: SFC<SidebarProps> = ({
+export const Sidebar: FunctionComponent<SidebarProps> = ({
   className,
   style,
   items,

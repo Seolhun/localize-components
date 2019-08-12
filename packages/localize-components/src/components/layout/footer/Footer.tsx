@@ -11,7 +11,7 @@ export interface FooterProps {
   style?: object;
 }
 
-const Footer: React.SFC<FooterProps> = ({
+const Footer: React.FunctionComponent<FooterProps> = ({
   className = '',
   children = '',
   style = {},

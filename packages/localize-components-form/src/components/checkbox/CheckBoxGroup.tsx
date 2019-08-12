@@ -1,4 +1,4 @@
-import React, { SFC, ReactNode } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 
 import styled from '@emotion/styled';
 
@@ -71,7 +71,7 @@ interface CheckBoxGroupContainerProps {
   gap: string;
 }
 
-const CheckBoxGroup: SFC<CheckBoxGroupProps> = ({
+const CheckBoxGroup: FunctionComponent<CheckBoxGroupProps> = ({
   children,
   groupName,
   labelKey = 'label',

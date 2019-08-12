@@ -1,4 +1,4 @@
-import React, { ReactNode, SFC } from 'react';
+import React, { ReactNode, FunctionComponent } from 'react';
 
 import styled from '@emotion/styled';
 
@@ -94,7 +94,7 @@ const StyledJumbotron = styled.div<JumbotronProps>(({
   }
 });
 
-const Jumbotron: SFC<JumbotronProps> = ({
+const Jumbotron: FunctionComponent<JumbotronProps> = ({
   children = null,
   className = '',
   description = null,

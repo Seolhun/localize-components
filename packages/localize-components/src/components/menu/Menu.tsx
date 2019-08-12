@@ -38,7 +38,7 @@ export interface MenuState {
   openKeys: string[];
 }
 
-const Menu: React.SFC<MenuProps> = () => {
+const Menu: React.FunctionComponent<MenuProps> = () => {
   return <a />;
 };
 

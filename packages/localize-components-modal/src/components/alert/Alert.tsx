@@ -75,7 +75,7 @@ export interface AlertProps {
   zIndex?: number;
 }
 
-const Alert: React.SFC<AlertProps> = ({
+const Alert: React.FunctionComponent<AlertProps> = ({
   body,
   onClick,
   // is Not Required

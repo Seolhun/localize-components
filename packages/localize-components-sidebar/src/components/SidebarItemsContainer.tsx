@@ -1,4 +1,4 @@
-import React, { SFC, ReactNode } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 
 import classnames from 'classnames';
 import styled from '@emotion/styled';
@@ -57,7 +57,7 @@ const StyledSidebarItemsContainer = styled.div<SidebarItemsContainerProps>(() =>
   }
 })
 
-export const SidebarItemsContainer: SFC<SidebarItemsContainerProps> = ({
+export const SidebarItemsContainer: FunctionComponent<SidebarItemsContainerProps> = ({
   children,
   className,
   style,

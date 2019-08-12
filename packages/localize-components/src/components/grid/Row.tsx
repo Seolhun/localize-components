@@ -1,4 +1,4 @@
-import React, { SFC, ReactNode } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 
 import styled from '@emotion/styled';
 
@@ -14,7 +14,7 @@ interface RowProps {
   styles: {},
 }
 
-const Row: SFC<RowProps> = ({
+const Row: FunctionComponent<RowProps> = ({
   children = null,
   className = '',
   styles = {},

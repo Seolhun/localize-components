@@ -1,8 +1,8 @@
-import React, { SFC } from 'react';
+import React, { FunctionComponent } from 'react';
 
 import { JumbotronProps } from '@seolhun/localize-components';
 
-const JumbotronPropsTable: SFC<JumbotronProps> = () => {
+const JumbotronPropsTable: FunctionComponent<JumbotronProps> = () => {
   return (
     <div></div>
   );

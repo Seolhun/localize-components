@@ -1,4 +1,4 @@
-import React, { SFC } from 'react';
+import React, { FunctionComponent } from 'react';
 
 import classnames from 'classnames';
 
@@ -31,7 +31,7 @@ export interface SidebarItemLabelProps {
   style?: {};
 }
 
-export const SidebarItemLabel: SFC<SidebarItemLabelProps> = ({
+export const SidebarItemLabel: FunctionComponent<SidebarItemLabelProps> = ({
   item,
   style,
   className,

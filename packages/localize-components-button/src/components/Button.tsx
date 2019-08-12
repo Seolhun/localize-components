@@ -1,4 +1,4 @@
-import React, { ReactNode, SFC } from 'react';
+import React, { ReactNode, FunctionComponent } from 'react';
 
 import styled from '@emotion/styled';
 import classnames from 'classnames';
@@ -148,7 +148,7 @@ const StyledButton = styled.button<ButtonProps>(({
   }
 })
 
-const Button: SFC<ButtonProps> = ({
+const Button: FunctionComponent<ButtonProps> = ({
   children,
   className = '',
   disabled = false,

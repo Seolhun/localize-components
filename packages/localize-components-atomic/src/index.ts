@@ -19,10 +19,8 @@ import {
 } from '@seolhun/localize-components-form';
 
 import Chip, { ChipProps } from './components/chip';
+import Circle, { CircleProps } from './components/figure';
 import Hr, { HrProps } from './components/hr';
-import Spinner, {
-  SpinnerProps,
-} from './components/spinner';
 
 export {
   Button,
@@ -33,6 +31,8 @@ export {
   CheckBoxGroupProps,
   Chip,
   ChipProps,
+  Circle,
+  CircleProps,
   Hr,
   HrProps,
   Input,
@@ -41,8 +41,6 @@ export {
   RadioProps,
   RadioGroup,
   RadioGroupProps,
-  Spinner,
-  SpinnerProps,
   Switch,
   SwitchProps,
 };
@@ -51,10 +49,10 @@ export default {
   Button,
   CheckBox,
   Chip,
+  Circle,
   Hr,
   Input,
   Radio,
   RadioGroup,
-  Spinner,
   Switch,
 };

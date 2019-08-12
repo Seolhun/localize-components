@@ -1,4 +1,4 @@
-import React, { ReactNode, SFC } from 'react';
+import React, { ReactNode, FunctionComponent } from 'react';
 
 import styled from '@emotion/styled';
 import { darken, lighten } from 'polished';
@@ -111,7 +111,7 @@ const StyledChip = styled.button<ChipProps>(({
   }
 })
 
-const Chip: SFC<ChipProps> = ({
+const Chip: FunctionComponent<ChipProps> = ({
   children,
   // IsNotRequired
   className = null,

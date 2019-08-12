@@ -1,8 +1,8 @@
-import React, { SFC } from 'react';
+import React, { FunctionComponent } from 'react';
 
 import { RadioProps } from '@seolhun/localize-components-atomic';
 
-const RadioPropsTable: SFC<RadioProps> = () => {
+const RadioPropsTable: FunctionComponent<RadioProps> = () => {
   return (
     <div></div>
   );

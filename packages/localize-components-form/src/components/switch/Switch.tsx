@@ -1,4 +1,4 @@
-import React, { SFC } from 'react';
+import React, { FunctionComponent } from 'react';
 
 import styled from '@emotion/styled';
 
@@ -87,7 +87,7 @@ export interface SwitchItemProps {
   value: string;
 }
 
-const Switch: SFC<SwitchProps> = ({
+const Switch: FunctionComponent<SwitchProps> = ({
   item,
   // IsNotRequired
   checked = false,
