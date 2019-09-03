@@ -8,8 +8,8 @@ import {
 } from '@seolhun/localize-components-styled-types';
 
 export interface RadioItemProps {
-  [key: string]: any,
-};
+  [key: string]: any;
+}
 
 export type RadioGroupAlign = 'vertical' | 'horizontal' | string;
 
@@ -40,12 +40,12 @@ export interface RadioGroupProps {
   useValueKey?: boolean;
   /**
    * Set this to change Radio Group mainColor
-   * @default ThemeConfig.MAIN_THEME = royal_blue
+   * @default ThemeConfig.primaryColor = royal_blue
    */
   mainColor?: ThemesType;
   /**
    * Set this to change Radio Group subColor
-   * @default ThemeConfig.SUB_THEME = gray
+   * @default ThemeConfig.secondaryColor = gray
    */
   subColor?: ThemesType;
 
@@ -77,16 +77,15 @@ const RadioGroup: FunctionComponent<RadioGroupProps> = ({
   labelKey = 'label',
   valueKey = 'value',
   useValueKey = false,
-  mainColor = ThemeConfig.MAIN_THEME,
-  subColor = ThemeConfig.SUB_THEME,
+  mainColor = ThemeConfig.primaryColor,
+  subColor = ThemeConfig.secondaryColor,
   align = 'vertical',
   gap = '10px',
   onClickItems = () => null,
 }) => {
-
   return (
     <RadioGroupContainer
-      className='__Localize__RadioGroup'
+      className="__Localize__RadioGroup"
       align={align}
       gap={gap}
     >
@@ -102,8 +101,8 @@ const RadioGroup: FunctionComponent<RadioGroupProps> = ({
         onClickItems,
       })}
     </RadioGroupContainer>
-  )
-}
+  );
+};
 
 const RadioGroupContainer = styled.div<RadioGroupContainerProps>`
   & > *:not(:last-child) {
@@ -115,6 +114,5 @@ const RadioGroupContainer = styled.div<RadioGroupContainerProps>`
     }};
   }
 `;
-
 
 export default RadioGroup;

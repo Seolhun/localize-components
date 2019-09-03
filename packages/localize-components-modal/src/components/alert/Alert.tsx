@@ -2,9 +2,7 @@ import React, { ReactNode } from 'react';
 
 import classnames from 'classnames';
 
-import {
-  Button,
-} from '@seolhun/localize-components-button';
+import { Button } from '@seolhun/localize-components-button';
 import {
   Position,
   PositionType,
@@ -50,12 +48,12 @@ export interface AlertProps {
   size?: SizeType;
   /**
    * Set this to change Modal mainColor
-   * @default ThemeConfig.MAIN_THEME = royal_blue
+   * @default ThemeConfig.primaryColor = royal_blue
    */
   mainColor?: ThemesType;
   /**
    * Set this to change Modal subColor
-   * @default ThemeConfig.SUB_THEME = gray
+   * @default ThemeConfig.secondaryColor = gray
    */
   subColor?: ThemesType;
   /**
@@ -82,33 +80,22 @@ const Alert: React.FunctionComponent<AlertProps> = ({
   buttonLabel = 'Confirm',
   className = '',
   isShow = false,
-  mainColor = ThemeConfig.MAIN_THEME,
+  mainColor = ThemeConfig.primaryColor,
   position = Position.CENTER,
   size = Size.MEDIUM,
-  subColor = ThemeConfig.SUB_THEME,
+  subColor = ThemeConfig.secondaryColor,
   header = null,
   zIndex = 1000,
 }) => {
   return (
     <Modal
-      className={classnames(
-        `__Localize__Alert`,
-        className,
-      )}
+      className={classnames(`__Localize__Alert`, className)}
       onClick={onClick}
-      header={
-        <div>{header}</div>
-      }
-      body={
-        <div>{body}</div>
-      }
+      header={<div>{header}</div>}
+      body={<div>{body}</div>}
       footer={
         <div className={`Alert__Buttons`}>
-          <Button
-            onClick={onClick}
-            mainColor={mainColor}
-            subColor={subColor}
-          >
+          <Button onClick={onClick} mainColor={mainColor} subColor={subColor}>
             {buttonLabel}
           </Button>
         </div>

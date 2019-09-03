@@ -16,13 +16,13 @@ export interface HrProps {
   className?: string;
   /**
    * Set this to change Button mainColor
-   * @default ThemeConfig.MAIN_THEME = royal_blue
+   * @default ThemeConfig.primaryColor = royal_blue
    */
   mainColor?: ThemesType;
 }
 
 const StyledHr = styled.hr<HrProps>(({
-  mainColor = ThemeConfig.MAIN_THEME,
+  mainColor = ThemeConfig.primaryColor,
 }) => {
   return {
     border: 0,

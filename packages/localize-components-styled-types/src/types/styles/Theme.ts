@@ -52,15 +52,15 @@ export interface StyledProps {
    * Set this to change Localize Style className
    * @default '''
    */
-  className?: string,
+  className?: string;
   /**
    * Set this to change Localize Style mainColor
-   * @default ThemeConfig.MAIN_THEME = royal_blue
+   * @default ThemeConfig.primaryColor = royal_blue
    */
   mainColor?: ThemesType;
   /**
    * Set this to change Localize Style subColor
-   * @default ThemeConfig.SUB_THEME
+   * @default ThemeConfig.secondaryColor
    */
   subColor?: ThemesType;
   /**
@@ -84,9 +84,3 @@ export interface StyledProps {
    */
   css?: {};
 }
-
-export default {
-  DarkenTheme,
-  LightenTheme,
-  Themes,
-};

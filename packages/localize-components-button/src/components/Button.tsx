@@ -72,12 +72,12 @@ export interface ButtonProps {
   size?: SizeType;
   /**
    * Set this to change Button mainColor
-   * @default ThemeConfig.MAIN_THEME = royal_blue
+   * @default ThemeConfig.primaryColor = royal_blue
    */
   mainColor?: ThemesType;
   /**
    * Set this to change Button subColor
-   * @default ThemeConfig.SUB_THEME = gray
+   * @default ThemeConfig.secondaryColor = gray
    */
   subColor?: ThemesType;
   /**
@@ -87,55 +87,56 @@ export interface ButtonProps {
   css?: {};
 }
 
+const StyledButton = styled.button<ButtonProps>(
+  ({
+    fontSize = 12,
+    mainColor = ThemeConfig.primaryColor,
+    size = Size.MEDIUM,
+  }) => {
+    const styledSize = () => {
+      switch (size) {
+        case Size.LARGE:
+          return '15px 30px';
+        case Size.MEDIUM:
+          return '10px 25px';
+        default:
+          return '5px 20px';
+      }
+    };
 
-const StyledButton = styled.button<ButtonProps>(({
-  fontSize = 12,
-  mainColor = ThemeConfig.MAIN_THEME,
-  size = Size.MEDIUM,
-}) => {
-  const styledSize = () => {
-    switch (size) {
-      case Size.LARGE:
-        return '15px 30px';
-      case Size.MEDIUM:
-        return '10px 25px';
-      default:
-        return '5px 20px';
-    }
+    return {
+      display: 'inline-block',
+      borderRadius: '6px',
+      border: '1px solid transparent',
+      backgroundColor: getValidTheme(mainColor),
+      height: 'auto',
+      padding: styledSize(),
+
+      cursor: 'pointer',
+      outline: 'none',
+      transition: 'background-color 0.3s, border-color 0.3s',
+      userSelect: 'none',
+
+      color: getThemeColorStyle(mainColor),
+      fontSize: `${fontSize}px`,
+      fontWeight: 500,
+      textDecoration: 'none',
+      textAlign: 'center',
+      verticalAlign: 'middle',
+      whiteSpace: 'nowrap',
+
+      '&:hover': {
+        backgroundColor: getThemeHoverStyle(mainColor),
+      },
+
+      '&:disabled': {
+        backgroundColor: Themes.light_gray,
+        color: Themes.white,
+        cursor: 'not-allowed',
+      },
+    };
   }
-
-  return {
-    display: 'inline-block',
-    borderRadius: '6px',
-    border: '1px solid transparent',
-    backgroundColor: getValidTheme(mainColor),
-    height: 'auto',
-    padding: styledSize(),
-
-    cursor: 'pointer',
-    outline: 'none',
-    transition: 'background-color 0.3s, border-color 0.3s',
-    userSelect: 'none',
-
-    color: getThemeColorStyle(mainColor),
-    fontSize: `${fontSize}px`,
-    fontWeight: 500,
-    textDecoration: 'none',
-    textAlign: 'center',
-    verticalAlign: 'middle',
-    whiteSpace: 'nowrap',
-
-    '&:hover': {
-      backgroundColor: getThemeHoverStyle(mainColor),
-    },
-
-    '&:disabled': {
-      backgroundColor: Themes.light_gray,
-      color: Themes.white,
-      cursor: 'not-allowed',
-    },
-  }
-})
+);
 
 const Button: FunctionComponent<ButtonProps> = ({
   children,
@@ -144,12 +145,9 @@ const Button: FunctionComponent<ButtonProps> = ({
   ...props
 }) => (
   <StyledButton
-    className={classnames(
-      '__Localize__Button',
-      className,
-    )}
+    className={classnames('__Localize__Button', className)}
     css={css}
-    type='button'
+    type="button"
     {...props}
   >
     {children}

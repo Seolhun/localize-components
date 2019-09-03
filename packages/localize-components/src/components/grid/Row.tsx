@@ -1,29 +1,20 @@
-import React, { FunctionComponent, ReactNode } from 'react';
-
 import styled from '@emotion/styled';
 
-const RowComponent = styled.div({
-  display: 'flex',
-  flexWrap: 'wrap',
-  width: '100%',
-});
+import { IThemeConfig } from '@seolhun/localize-components-styled-types';
 
-interface RowProps {
-  children: ReactNode,
-  className: string,
-  styles: {},
-}
+import { RowProps } from './GridTypes';
 
-const Row: FunctionComponent<RowProps> = ({
-  children = null,
-  className = '',
-  styles = {},
-}) => {
-  return (
-    <RowComponent className={className} css={styles}>
-      {children}
-    </RowComponent>
-  );
-}
+export const Row = styled.div<RowProps, IThemeConfig>(
+  ({ theme, flexDirection = 'row', isWrap = true }) => {
+    return {
+      display: 'flex',
+      flexDirection,
+      flexWrap: isWrap ? 'wrap' : 'nowrap',
+      width: 'auth',
+      padding: '0 3px',
+      margin: theme.row.gutter,
+    };
+  }
+);
 
 export default Row;

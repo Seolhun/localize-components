@@ -42,12 +42,12 @@ export interface ModalProps {
   size?: SizeType;
   /**
    * Set this to change Modal mainColor
-   * @default ThemeConfig.MAIN_THEME = royal_blue
+   * @default ThemeConfig.primaryColor = royal_blue
    */
   mainColor?: ThemesType;
   /**
    * Set this to change Modal subColor
-   * @default ThemeConfig.SUB_THEME = gray
+   * @default ThemeConfig.secondaryColor = gray
    */
   subColor?: ThemesType;
   /**
@@ -119,10 +119,10 @@ class Modal extends Component<ModalProps, ModalState> {
       className = '',
       footer = null,
       header = null,
-      mainColor = ThemeConfig.MAIN_THEME,
+      mainColor = ThemeConfig.primaryColor,
       position = Position.CENTER,
       size = Size.MEDIUM,
-      subColor = ThemeConfig.SUB_THEME,
+      subColor = ThemeConfig.secondaryColor,
       zIndex = 1000,
     } = this.props;
     const { isShow } = this.state;
@@ -214,7 +214,7 @@ const CloseButton = styled.div<StyledProps>`
   top: 5px;
   z-index: ${({ zIndex = 1000 }) => zIndex - 1};
 
-  color: ${({ subColor = ThemeConfig.SUB_THEME }) => {
+  color: ${({ subColor = ThemeConfig.secondaryColor }) => {
     if (getIsLightenTheme(subColor)) {
       return Themes.dark_gray;
     }
@@ -222,13 +222,13 @@ const CloseButton = styled.div<StyledProps>`
   }};
 
   &:hover {
-    color: ${({ subColor = ThemeConfig.SUB_THEME }) => {
+    color: ${({ subColor = ThemeConfig.secondaryColor }) => {
       if (getIsLightenTheme(subColor)) {
         return Themes.white;
       }
       return Themes.dark_gray;
     }};
-    background-color: ${({ subColor = ThemeConfig.SUB_THEME }) => {
+    background-color: ${({ subColor = ThemeConfig.secondaryColor }) => {
       if (getIsLightenTheme(subColor)) {
         return Themes.light_gray;
       }
@@ -241,7 +241,7 @@ const ModalContainer = styled.div<StyledProps>(
   ({
     position = Position.CENTER,
     size = Size.MEDIUM,
-    subColor = ThemeConfig.SUB_THEME,
+    subColor = ThemeConfig.secondaryColor,
     zIndex = 1000,
   }) => {
     const getMaxHeight = () => {
@@ -283,7 +283,7 @@ const ModalContainer = styled.div<StyledProps>(
 );
 
 const ModalContent = styled.div<StyledProps>`
-  color: ${({ subColor = ThemeConfig.SUB_THEME }) => {
+  color: ${({ subColor = ThemeConfig.secondaryColor }) => {
     if (getIsLightenTheme(subColor)) {
       return Themes.dark_gray;
     }

@@ -67,12 +67,12 @@ export interface CircleProps {
   onMouseOver?: (...args: any[]) => void;
   /**
    * Set this to change Circle mainColor
-   * @default ThemeConfig.MAIN_THEME = royal_blue
+   * @default ThemeConfig.primaryColor = royal_blue
    */
   mainColor?: ThemesType;
   /**
    * Set this to change Circle subColor
-   * @default ThemeConfig.SUB_THEME = gray
+   * @default ThemeConfig.secondaryColor = gray
    */
   subColor?: ThemesType;
   /**
@@ -87,47 +87,49 @@ export interface CircleProps {
   css?: {};
 }
 
-const StyledCircle = styled.span<CircleProps>(({
-  isClickable,
-  mainColor = ThemeConfig.MAIN_THEME,
-  subColor = ThemeConfig.SUB_THEME,
-  size = 50,
-  fontSize = 12,
-}) => {
-  return {
-    display: 'inline-flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: `${size}px`,
-    height: `${size}px`,
+const StyledCircle = styled.span<CircleProps>(
+  ({
+    isClickable,
+    mainColor = ThemeConfig.primaryColor,
+    subColor = ThemeConfig.secondaryColor,
+    size = 50,
+    fontSize = 12,
+  }) => {
+    return {
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: `${size}px`,
+      height: `${size}px`,
 
-    borderRadius: '50%',
-    border: `1px solid ${getValidTheme(mainColor)}`,
-    backgroundColor: getValidTheme(subColor),
+      borderRadius: '50%',
+      border: `1px solid ${getValidTheme(mainColor)}`,
+      backgroundColor: getValidTheme(subColor),
 
-    color: getThemeColorStyle(subColor),
-    fontSize: `${fontSize}px`,
-    fontWeight: 500,
-    textDecoration: 'none',
-    whiteSpace: 'nowrap',
+      color: getThemeColorStyle(subColor),
+      fontSize: `${fontSize}px`,
+      fontWeight: 500,
+      textDecoration: 'none',
+      whiteSpace: 'nowrap',
 
-    cursor: isClickable ? 'pointer' : 'auto',
-    outline: 'none',
-    transition: 'background-color 0.3s, border-color 0.3s, color 0.3s',
-    userSelect: 'none',
+      cursor: isClickable ? 'pointer' : 'auto',
+      outline: 'none',
+      transition: 'background-color 0.3s, border-color 0.3s, color 0.3s',
+      userSelect: 'none',
 
-    '&:hover': {
-      backgroundColor: getThemeHoverStyle(mainColor),
-      color: getThemeColorStyle(mainColor),
-    },
+      '&:hover': {
+        backgroundColor: getThemeHoverStyle(mainColor),
+        color: getThemeColorStyle(mainColor),
+      },
 
-    '&:disabled': {
-      backgroundColor: Themes.light_gray,
-      color: Themes.white,
-      cursor: 'not-allowed',
-    },
+      '&:disabled': {
+        backgroundColor: Themes.light_gray,
+        color: Themes.white,
+        cursor: 'not-allowed',
+      },
+    };
   }
-});
+);
 
 export const Circle: FunctionComponent<CircleProps> = ({
   className,
@@ -136,14 +138,10 @@ export const Circle: FunctionComponent<CircleProps> = ({
   ...props
 }) => {
   return (
-    <StyledCircle
-      className={classnames(className)}
-      css={css}
-      {...props}
-    >
+    <StyledCircle className={classnames(className)} css={css} {...props}>
       {children}
     </StyledCircle>
-  )
-}
+  );
+};
 
 export default Circle;

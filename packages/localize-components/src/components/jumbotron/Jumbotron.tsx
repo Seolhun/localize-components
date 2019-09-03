@@ -33,7 +33,7 @@ export interface JumbotronProps {
   description?: string;
   /**
    * Set this to change Jumbotron mainColor
-   * @default ThemeConfig.MAIN_THEME = royal_blue
+   * @default ThemeConfig.primaryColor = royal_blue
    */
   mainColor?: ThemesType;
   /**
@@ -74,25 +74,25 @@ export interface JumbotronProps {
   css?: {};
 }
 
-const StyledJumbotron = styled.div<JumbotronProps>(({
-  mainColor = ThemeConfig.MAIN_THEME,
-}) => {
-  const styledColor = () => {
-    if (getIsLightenTheme(mainColor)) {
-      return Themes.dark_gray;
-    }
-    return Themes.white;
-  };
+const StyledJumbotron = styled.div<JumbotronProps>(
+  ({ mainColor = ThemeConfig.primaryColor }) => {
+    const styledColor = () => {
+      if (getIsLightenTheme(mainColor)) {
+        return Themes.dark_gray;
+      }
+      return Themes.white;
+    };
 
-  return {
-    backgroundColor: getValidTheme(mainColor),
-    color: styledColor(),
-    height: 'auto',
-    minHeight: '200px',
-    padding: '35px',
-    width: '100%',
+    return {
+      backgroundColor: getValidTheme(mainColor),
+      color: styledColor(),
+      height: 'auto',
+      minHeight: '200px',
+      padding: '35px',
+      width: '100%',
+    };
   }
-});
+);
 
 const Jumbotron: FunctionComponent<JumbotronProps> = ({
   children = null,
@@ -104,24 +104,15 @@ const Jumbotron: FunctionComponent<JumbotronProps> = ({
 }) => {
   return (
     <StyledJumbotron
-      className={classnames(
-        '__Localize__',
-        className,
-      )}
+      className={classnames('__Localize__', className)}
       css={css}
       {...props}
     >
-      {title && (
-        <h1>{title}</h1>
-      )}
-      {description && (
-        <h5>{description}</h5>
-      )}
-      {children && (
-        children
-      )}
+      {title && <h1>{title}</h1>}
+      {description && <h5>{description}</h5>}
+      {children && children}
     </StyledJumbotron>
   );
-}
+};
 
 export default Jumbotron;

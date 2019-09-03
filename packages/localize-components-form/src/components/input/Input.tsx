@@ -16,9 +16,7 @@ import {
   getIsLightenTheme,
   getValidTheme,
 } from '@seolhun/localize-components-styled-utils';
-import {
-  ValidationResponse,
-} from '@seolhun/localize-components-types';
+import { ValidationResponse } from '@seolhun/localize-components-types';
 
 export interface InputProps {
   // isRequired
@@ -106,12 +104,12 @@ export interface InputProps {
   css?: {};
   /**
    * Set this to change Input mainColor
-   * @default ThemeConfig.MAIN_THEME = royal_blue
+   * @default ThemeConfig.primaryColor = royal_blue
    */
   mainColor?: ThemesType;
   /**
    * Set this to change Input subColor
-   * @default ThemeConfig.SUB_THEME = gray
+   * @default ThemeConfig.secondaryColor = gray
    */
   subColor?: ThemesType;
   /**
@@ -155,9 +153,7 @@ export class Input extends PureComponent<InputProps, InputState> {
   }
 
   componentDidMount() {
-    const {
-      autoFocus,
-    } = this.props;
+    const { autoFocus } = this.props;
 
     if (autoFocus) {
       this.initFocusTextInput();
@@ -165,9 +161,7 @@ export class Input extends PureComponent<InputProps, InputState> {
   }
 
   handleOnBlur = (event) => {
-    const {
-      onBlur,
-    } = this.props;
+    const { onBlur } = this.props;
 
     this.setState({
       isFocused: false,
@@ -175,18 +169,16 @@ export class Input extends PureComponent<InputProps, InputState> {
     if (onBlur) {
       onBlur(event);
     }
-  }
+  };
 
   handleOnChange = (event) => {
-    const {
-      onChange,
-    } = this.props;
+    const { onChange } = this.props;
 
     if (onChange) {
       onChange(event);
     }
     this.handleOnValidation(event);
-  }
+  };
 
   handleOnKeyDown = ({ key }) => {
     const { useEnter = true } = this.props;
@@ -194,25 +186,19 @@ export class Input extends PureComponent<InputProps, InputState> {
     if (useEnter && key === 'Enter') {
       this.handleOnSubmit();
     }
-  }
+  };
 
   handleOnSubmit = () => {
-    const {
-      onSubmit,
-    } = this.props;
-    const {
-      hasError,
-    } = this.state;
+    const { onSubmit } = this.props;
+    const { hasError } = this.state;
 
     if (!hasError && onSubmit) {
       onSubmit();
     }
-  }
+  };
 
   handleOnValidation = (event) => {
-    const {
-      onValidation,
-    } = this.props;
+    const { onValidation } = this.props;
 
     if (event.target.value) {
       this.setState({
@@ -227,12 +213,10 @@ export class Input extends PureComponent<InputProps, InputState> {
         message,
       });
     }
-  }
+  };
 
   handleIsFocused = () => {
-    const {
-      onFocus,
-    } = this.props;
+    const { onFocus } = this.props;
 
     this.setState({
       isFocused: true,
@@ -240,12 +224,10 @@ export class Input extends PureComponent<InputProps, InputState> {
     if (onFocus) {
       onFocus();
     }
-  }
+  };
 
   handleRenderValue = (value) => {
-    const {
-      renderValue,
-    } = this.props;
+    const { renderValue } = this.props;
 
     if (renderValue) {
       return {
@@ -255,14 +237,14 @@ export class Input extends PureComponent<InputProps, InputState> {
     return {
       __html: value,
     };
-  }
+  };
 
   initFocusTextInput = () => {
     if (this.inputRef) {
       this.handleIsFocused();
       this.inputRef.current.focus();
     }
-  }
+  };
 
   render() {
     const {
@@ -276,31 +258,19 @@ export class Input extends PureComponent<InputProps, InputState> {
       required = false,
       css = {},
       type = 'text',
-      mainColor = ThemeConfig.MAIN_THEME,
-      subColor = ThemeConfig.SUB_THEME,
+      mainColor = ThemeConfig.primaryColor,
+      subColor = ThemeConfig.secondaryColor,
     }: InputProps = this.props;
-    const {
-      hasError,
-      isFilled,
-      isFocused,
-      message,
-    }: InputState = this.state;
+    const { hasError, isFilled, isFocused, message }: InputState = this.state;
 
     return (
-      <div
-        className={classnames(
-          '__Localize__',
-          className,
-        )}
-      >
+      <div className={classnames('__Localize__', className)}>
         <StyledInputBox
           ref={this.inputBoxRef}
-          className={classnames(
-            {
-              hasError,
-              isFocused,
-            },
-          )}
+          className={classnames({
+            hasError,
+            isFocused,
+          })}
           mainColor={mainColor}
           subColor={subColor}
           css={css}
@@ -315,15 +285,14 @@ export class Input extends PureComponent<InputProps, InputState> {
             fontSize={fontSize}
             required={required}
             type={type}
-            value=''
+            value=""
             mainColor={mainColor}
             subColor={subColor}
             // Customed
             contentEditable
             data-placeholder={placeholder}
             dangerouslySetInnerHTML={this.handleRenderValue(value)}
-          >
-          </StyledDivInput>
+          ></StyledDivInput>
           <StyledInput
             ref={this.inputRef}
             disabled={disabled}
@@ -345,7 +314,7 @@ export class Input extends PureComponent<InputProps, InputState> {
                   hasError,
                   isFilled: isFilled && !hasError,
                 },
-                'InputEnterButton',
+                'InputEnterButton'
               )}
               onClick={this.handleOnSubmit}
             >
@@ -354,16 +323,11 @@ export class Input extends PureComponent<InputProps, InputState> {
           )}
         </StyledInputBox>
         <StyledErrorBox
-          className={classnames(
-            'ErrorBox',
-            {
-              hasError,
-            },
-          )}
+          className={classnames('ErrorBox', {
+            hasError,
+          })}
         >
-          {hasError && (
-            `*${message}`
-          )}
+          {hasError && `*${message}`}
         </StyledErrorBox>
       </div>
     );
@@ -371,9 +335,7 @@ export class Input extends PureComponent<InputProps, InputState> {
 }
 
 const StyledInputBox = styled.div<StyledProps>`
-  background-color: ${({
-    subColor = ThemeConfig.SUB_THEME,
-  }) => {
+  background-color: ${({ subColor = ThemeConfig.secondaryColor }) => {
     return getValidTheme(subColor);
   }};
   border-radius: 6px;
@@ -390,22 +352,20 @@ const StyledInputBox = styled.div<StyledProps>`
   }
 
   &:hover {
-    border: 2px solid ${({
-      mainColor = ThemeConfig.MAIN_THEME,
-    }) => {
-      if (getIsLightenTheme(mainColor)) {
-        return darken(0.1, getValidTheme(mainColor));
-      }
-      return lighten(0.1, getValidTheme(mainColor));
-    }};
+    border: 2px solid
+      ${({ mainColor = ThemeConfig.primaryColor }) => {
+        if (getIsLightenTheme(mainColor)) {
+          return darken(0.1, getValidTheme(mainColor));
+        }
+        return lighten(0.1, getValidTheme(mainColor));
+      }};
   }
 
   &.isFocused {
-    border: 2px solid ${({
-      mainColor = ThemeConfig.MAIN_THEME,
-    }) => {
-      return getValidTheme(mainColor);
-    }};
+    border: 2px solid
+      ${({ mainColor = ThemeConfig.primaryColor }) => {
+        return getValidTheme(mainColor);
+      }};
   }
 `;
 
@@ -414,9 +374,7 @@ const StyledDivInput = styled.div<InputProps>`
   -webkit-appearance: textfield;
   background-color: transparent;
   border: 0;
-  color: ${({
-    subColor = ThemeConfig.SUB_THEME,
-  }) => {
+  color: ${({ subColor = ThemeConfig.secondaryColor }) => {
     if (getIsLightenTheme(subColor)) {
       return Themes.dark_gray;
     }
@@ -424,7 +382,7 @@ const StyledDivInput = styled.div<InputProps>`
   }};
   cursor: text;
   display: block;
-  font-size: ${(({ fontSize = 12 }) => `${fontSize}px`)};
+  font-size: ${({ fontSize = 12 }) => `${fontSize}px`};
   height: auto;
   line-height: 25px;
   margin: auto 10px;
@@ -439,15 +397,13 @@ const StyledDivInput = styled.div<InputProps>`
     font-weight: 300;
     font-style: normal;
     font-stretch: normal;
-    line-height: 1.90;
+    line-height: 1.9;
     letter-spacing: -0.3px;
-    color: ${({
-      subColor = ThemeConfig.SUB_THEME,
-    }) => {
+    color: ${({ subColor = ThemeConfig.secondaryColor }) => {
       if (getIsLightenTheme(subColor)) {
-        return lighten(0.4, Themes.dark_gray)
+        return lighten(0.4, Themes.dark_gray);
       }
-      return lighten(0.1, Themes.light_gray)
+      return lighten(0.1, Themes.light_gray);
     }};
   }
 
@@ -465,9 +421,7 @@ const StyledDivInput = styled.div<InputProps>`
 const StyledInput = styled.input<InputProps>`
   background-color: transparent;
   border: 0;
-  color: ${({
-    subColor = ThemeConfig.SUB_THEME,
-  }) => {
+  color: ${({ subColor = ThemeConfig.secondaryColor }) => {
     if (getIsLightenTheme(subColor)) {
       return Themes.dark_gray;
     }
@@ -488,7 +442,7 @@ const StyledInput = styled.input<InputProps>`
     font-weight: 300;
     font-style: normal;
     font-stretch: normal;
-    line-height: 1.90;
+    line-height: 1.9;
     letter-spacing: -0.3px;
     color: ${lighten(0.1, Themes.light_gray)};
   }
@@ -528,7 +482,8 @@ const StyledEnterButton = styled.button`
     cursor: not-allowed !important;
   }
 
-  &:hover, &:active {
+  &:hover,
+  &:active {
     background-color: ${Themes.gray};
   }
 `;
