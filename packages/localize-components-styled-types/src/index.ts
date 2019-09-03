@@ -3,6 +3,5 @@ export * from './types/styles/FontSizes';
 export * from './types/styles/Position';
 export * from './types/styles/Size';
 export * from './types/styles/Theme';
-export * from './types/styles/GridTypes';
 
 export * from './config';
