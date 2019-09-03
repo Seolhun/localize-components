@@ -1,39 +1,40 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import classnames from 'classnames';
-
-import './Card.scss';
+import styled from '@emotion/styled'
+import { IThemeConfig } from '@seolhun/localize-components-styled-types';
 
 export interface CardProps {
   children: React.ReactNode;
-  // IsNotRequired
   className?: string;
-  style?: {
-    color?: string;
-    backgroundColor?: string;
-    padding?: string;
-    margin?: string;
-  };
+  css?: {},
 }
 
-const Card: React.FunctionComponent<CardProps> = ({
+const StyledCard = styled.div<CardProps, IThemeConfig>(({
+  theme,
+  css = {},
+}) => {
+  return {
+    display: 'block',
+    minHeight: '100px',
+    height: 'auto',
+    width: '100%',
+
+    borderRadius: theme.border.radius || '4px',
+    border: `1px solid ${theme.border.color}`,
+    boxShadow: theme.border.shadow,
+    padding: '10px 5px',
+    ...css,
+  }
+});
+
+export const Card: FC<CardProps> = ({
   className,
   children,
-  style,
 }) => (
-  <div className={classnames('__Localize__Card', className)} style={style}>
+  <StyledCard className={classnames('__Localize__Card', className)}>
     {children}
-  </div>
+  </StyledCard>
 );
-
-Card.defaultProps = {
-  className: '',
-  style: {
-    color: '',
-    backgroundColor: '',
-    padding: '',
-    margin: '',
-  },
-};
 
 export default Card;

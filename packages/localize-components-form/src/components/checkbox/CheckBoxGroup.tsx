@@ -45,7 +45,7 @@ export interface CheckBoxGroupProps {
   mainColor?: ThemesType;
   /**
    * Set this to change CheckBox Group subColor
-   * @default ThemeConfig.secondaryColor = gray
+   * @default ThemeConfig.secondaryColor = grey
    */
   subColor?: ThemesType;
 

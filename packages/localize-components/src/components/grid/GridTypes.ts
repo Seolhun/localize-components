@@ -1,9 +1,9 @@
 import { FlexDirectionProperty } from 'csstype';
 
 export interface RowProps {
-  padded?: boolean | string;
   isWrap?: boolean;
   flexDirection?: FlexDirectionProperty;
+  css?: {};
 }
 
 interface IResponsiveValue {
@@ -14,17 +14,16 @@ interface IResponsiveValue {
 export type IColumnValue = number | IResponsiveValue;
 
 export interface ColProps {
-  xl?: IColumnValue;
-  lg?: IColumnValue;
-  md?: IColumnValue;
-  sm?: IColumnValue;
   xs?: IColumnValue;
+  sm?: IColumnValue;
+  md?: IColumnValue;
+  lg?: IColumnValue;
+  xl?: IColumnValue;
   gutter?: string;
-  styles?: {};
+  css?: {};
 }
 
 export enum EnumMediaQueryList {
-  // 1440
   XL = 1200,
   LG = 960,
   MD = 768,

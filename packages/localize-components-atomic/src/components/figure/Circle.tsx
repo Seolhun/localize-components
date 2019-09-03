@@ -72,7 +72,7 @@ export interface CircleProps {
   mainColor?: ThemesType;
   /**
    * Set this to change Circle subColor
-   * @default ThemeConfig.secondaryColor = gray
+   * @default ThemeConfig.secondaryColor = grey
    */
   subColor?: ThemesType;
   /**
@@ -123,7 +123,7 @@ const StyledCircle = styled.span<CircleProps>(
       },
 
       '&:disabled': {
-        backgroundColor: Themes.light_gray,
+        backgroundColor: Themes.light_grey,
         color: Themes.white,
         cursor: 'not-allowed',
       },

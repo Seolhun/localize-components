@@ -25,7 +25,7 @@ export interface SidebarItemLabelProps {
   mainColor?: ThemesType;
   /**
    * Set this to change SidebarItemLabel subColor
-   * @default ThemeConfig.secondaryColor = gray
+   * @default ThemeConfig.secondaryColor = grey
    */
   subColor?: ThemesType;
   /**

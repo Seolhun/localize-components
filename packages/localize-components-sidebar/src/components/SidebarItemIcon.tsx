@@ -25,7 +25,7 @@ export interface SidebarItemIconProps {
   mainColor?: ThemesType;
   /**
    * Set this to change SidebarItemIcon subColor
-   * @default ThemeConfig.secondaryColor = gray
+   * @default ThemeConfig.secondaryColor = grey
    */
   subColor?: ThemesType;
   /**

@@ -53,7 +53,7 @@ export interface AlertProps {
   mainColor?: ThemesType;
   /**
    * Set this to change Modal subColor
-   * @default ThemeConfig.secondaryColor = gray
+   * @default ThemeConfig.secondaryColor = grey
    */
   subColor?: ThemesType;
   /**

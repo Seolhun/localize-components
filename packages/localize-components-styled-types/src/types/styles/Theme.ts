@@ -5,8 +5,8 @@ export enum DarkenTheme {
   basic = '#d1d5da',
   black = '#2a2a2a',
   danger = '#E32929',
-  dark_gray = '#202021',
-  gray = '#323334',
+  dark_grey = '#202021',
+  grey = '#323334',
   primary = '#0069d9',
   purple = '#5f42ff',
   royal_blue = '#4169FF',
@@ -16,7 +16,7 @@ export enum DarkenTheme {
 
 export enum LightenTheme {
   info = '#369cc7',
-  light_gray = '#cccc',
+  light_grey = '#cccc',
   sky = '#87CEEB',
   white = '#fff',
   yellow = '#FFFF00',
@@ -26,10 +26,10 @@ export type ThemesType =
   | 'basic'
   | 'black'
   | 'danger'
-  | 'dark_gray'
-  | 'gray'
+  | 'dark_grey'
+  | 'grey'
   | 'info'
-  | 'light_gray'
+  | 'light_grey'
   | 'primary'
   | 'purple'
   | 'royal_blue'

@@ -14,7 +14,7 @@ const ButtonView = () => {
           <h2>Give a mainColor</h2>
           <Button mainColor="danger">danger</Button>
           <Button mainColor="primary">primary</Button>
-          <Button mainColor="light_gray">light_gray</Button>
+          <Button mainColor="light_grey">light_grey</Button>
           <Button mainColor="#41FF2B">#41FF2B</Button>
         </div>
         <div className="col-sm-12">

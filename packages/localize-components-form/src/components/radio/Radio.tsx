@@ -73,7 +73,7 @@ export interface RadioProps {
   mainColor?: ThemesType;
   /**
    * Set this to change Radio subColor
-   * @default ThemeConfig.secondaryColor = gray
+   * @default ThemeConfig.secondaryColor = grey
    */
   subColor?: ThemesType;
   /**
@@ -203,7 +203,7 @@ const StyledCheckMark = styled.span<StyledProps>`
     return getValidTheme(subColor);
   }};
   border-radius: 50%;
-  border: 1px solid ${DarkenTheme.dark_gray};
+  border: 1px solid ${DarkenTheme.dark_grey};
   display: inline-flex;
   height: 16px;
   justify-content: flex-start;

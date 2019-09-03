@@ -19,12 +19,16 @@ export const _isBeforeOffset = (columnValue: IColumnValue) => {
   return keys[0] ? keys[0] === 'offset' : false;
 };
 
-export const _buildDefaultGridStyle = (sizeValue: number) => ({
-  flexGrow: 0,
-  width: `${(sizeValue / 20) * 100}%`,
-  display: sizeValue === 0 ? 'none' : 'block',
-  marginLeft: 0,
-  marginRight: 0,
+export const _buildDefaultGridStyle = (sizeValue: number) => (() => {
+  const width = `${(sizeValue / 20) * 100}%`;
+  return {
+    flexGrow: 0,
+    width: `${width}%`,
+    flex: `0 ${width}%`,
+    display: sizeValue === 0 ? 'none' : 'block',
+    marginLeft: 0,
+    marginRight: 0,
+  }
 });
 
 export const buildGridStyle = (columnValue: IColumnValue) => {

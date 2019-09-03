@@ -77,7 +77,7 @@ export interface ButtonProps {
   mainColor?: ThemesType;
   /**
    * Set this to change Button subColor
-   * @default ThemeConfig.secondaryColor = gray
+   * @default ThemeConfig.secondaryColor = grey
    */
   subColor?: ThemesType;
   /**
@@ -130,7 +130,7 @@ const StyledButton = styled.button<ButtonProps>(
       },
 
       '&:disabled': {
-        backgroundColor: Themes.light_gray,
+        backgroundColor: Themes.light_grey,
         color: Themes.white,
         cursor: 'not-allowed',
       },

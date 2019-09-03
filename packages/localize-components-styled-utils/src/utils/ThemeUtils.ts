@@ -36,7 +36,7 @@ export const getThemeHoverStyle = (theme: ThemesType) => {
 
 export const getThemeColorStyle = (theme: ThemesType) => {
   if (getIsLightenTheme(theme)) {
-    return Themes.dark_gray;
+    return Themes.dark_grey;
   }
   return Themes.white;
 };

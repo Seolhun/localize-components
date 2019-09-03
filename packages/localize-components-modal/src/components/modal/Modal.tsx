@@ -47,7 +47,7 @@ export interface ModalProps {
   mainColor?: ThemesType;
   /**
    * Set this to change Modal subColor
-   * @default ThemeConfig.secondaryColor = gray
+   * @default ThemeConfig.secondaryColor = grey
    */
   subColor?: ThemesType;
   /**
@@ -216,7 +216,7 @@ const CloseButton = styled.div<StyledProps>`
 
   color: ${({ subColor = ThemeConfig.secondaryColor }) => {
     if (getIsLightenTheme(subColor)) {
-      return Themes.dark_gray;
+      return Themes.dark_grey;
     }
     return Themes.white;
   }};
@@ -226,11 +226,11 @@ const CloseButton = styled.div<StyledProps>`
       if (getIsLightenTheme(subColor)) {
         return Themes.white;
       }
-      return Themes.dark_gray;
+      return Themes.dark_grey;
     }};
     background-color: ${({ subColor = ThemeConfig.secondaryColor }) => {
       if (getIsLightenTheme(subColor)) {
-        return Themes.light_gray;
+        return Themes.light_grey;
       }
       return Themes.white;
     }};
@@ -285,7 +285,7 @@ const ModalContainer = styled.div<StyledProps>(
 const ModalContent = styled.div<StyledProps>`
   color: ${({ subColor = ThemeConfig.secondaryColor }) => {
     if (getIsLightenTheme(subColor)) {
-      return Themes.dark_gray;
+      return Themes.dark_grey;
     }
     return Themes.white;
   }};
@@ -294,7 +294,7 @@ const ModalContent = styled.div<StyledProps>`
   width: 100%;
 
   &.__Localize__Modal__Header {
-    border-bottom: 0.03rem solid ${Themes.light_gray};
+    border-bottom: 0.03rem solid ${Themes.light_grey};
     border-radius: 6px 6px 0 0;
     font-size: 22px;
     height: 20%;
@@ -308,7 +308,7 @@ const ModalContent = styled.div<StyledProps>`
   }
 
   &.__Localize__Modal__Footer {
-    border-top: 0.03rem solid ${Themes.light_gray};
+    border-top: 0.03rem solid ${Themes.light_grey};
     bottom: 0;
     height: 20%;
     overflow: auto;

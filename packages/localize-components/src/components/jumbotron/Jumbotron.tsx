@@ -75,10 +75,10 @@ export interface JumbotronProps {
 }
 
 const StyledJumbotron = styled.div<JumbotronProps>(
-  ({ mainColor = ThemeConfig.primaryColor }) => {
+  ({ mainColor = ThemeConfig.primaryColor, css = {} }) => {
     const styledColor = () => {
       if (getIsLightenTheme(mainColor)) {
-        return Themes.dark_gray;
+        return Themes.dark_grey;
       }
       return Themes.white;
     };
@@ -87,25 +87,23 @@ const StyledJumbotron = styled.div<JumbotronProps>(
       backgroundColor: getValidTheme(mainColor),
       color: styledColor(),
       height: 'auto',
-      minHeight: '200px',
       padding: '35px',
       width: '100%',
+      ...css,
     };
   }
 );
 
-const Jumbotron: FunctionComponent<JumbotronProps> = ({
+export const Jumbotron: FunctionComponent<JumbotronProps> = ({
   children = null,
   className = '',
   description = null,
   title = null,
-  css = {},
   ...props
 }) => {
   return (
     <StyledJumbotron
       className={classnames('__Localize__', className)}
-      css={css}
       {...props}
     >
       {title && <h1>{title}</h1>}

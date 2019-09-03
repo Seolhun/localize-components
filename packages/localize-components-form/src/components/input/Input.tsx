@@ -109,7 +109,7 @@ export interface InputProps {
   mainColor?: ThemesType;
   /**
    * Set this to change Input subColor
-   * @default ThemeConfig.secondaryColor = gray
+   * @default ThemeConfig.secondaryColor = grey
    */
   subColor?: ThemesType;
   /**
@@ -339,7 +339,7 @@ const StyledInputBox = styled.div<StyledProps>`
     return getValidTheme(subColor);
   }};
   border-radius: 6px;
-  border: 2px solid ${Themes.light_gray};
+  border: 2px solid ${Themes.light_grey};
   display: flex;
   height: 40px;
   padding: 0;
@@ -376,7 +376,7 @@ const StyledDivInput = styled.div<InputProps>`
   border: 0;
   color: ${({ subColor = ThemeConfig.secondaryColor }) => {
     if (getIsLightenTheme(subColor)) {
-      return Themes.dark_gray;
+      return Themes.dark_grey;
     }
     return Themes.white;
   }};
@@ -401,9 +401,9 @@ const StyledDivInput = styled.div<InputProps>`
     letter-spacing: -0.3px;
     color: ${({ subColor = ThemeConfig.secondaryColor }) => {
       if (getIsLightenTheme(subColor)) {
-        return lighten(0.4, Themes.dark_gray);
+        return lighten(0.4, Themes.dark_grey);
       }
-      return lighten(0.1, Themes.light_gray);
+      return lighten(0.1, Themes.light_grey);
     }};
   }
 
@@ -412,8 +412,8 @@ const StyledDivInput = styled.div<InputProps>`
   }
 
   &:disabled {
-    background-color: ${Themes.light_gray};
-    border: 1px solid ${Themes.light_gray};
+    background-color: ${Themes.light_grey};
+    border: 1px solid ${Themes.light_grey};
     cursor: not-allowed !important;
   }
 `;
@@ -423,7 +423,7 @@ const StyledInput = styled.input<InputProps>`
   border: 0;
   color: ${({ subColor = ThemeConfig.secondaryColor }) => {
     if (getIsLightenTheme(subColor)) {
-      return Themes.dark_gray;
+      return Themes.dark_grey;
     }
     return Themes.white;
   }};
@@ -444,7 +444,7 @@ const StyledInput = styled.input<InputProps>`
     font-stretch: normal;
     line-height: 1.9;
     letter-spacing: -0.3px;
-    color: ${lighten(0.1, Themes.light_gray)};
+    color: ${lighten(0.1, Themes.light_grey)};
   }
 
   &:required {
@@ -452,15 +452,15 @@ const StyledInput = styled.input<InputProps>`
   }
 
   &:disabled {
-    background-color: ${Themes.light_gray};
-    border: 1px solid ${Themes.light_gray};
+    background-color: ${Themes.light_grey};
+    border: 1px solid ${Themes.light_grey};
     cursor: not-allowed !important;
   }
 `;
 
 const StyledEnterButton = styled.button`
   align-items: center;
-  background-color: ${Themes.gray};
+  background-color: ${Themes.grey};
   border-radius: 0 6px 6px 0;
   color: ${Themes.white};
   cursor: pointer;
@@ -474,17 +474,17 @@ const StyledEnterButton = styled.button`
   width: 50px;
 
   &.isFilled {
-    background-color: ${Themes.gray};
+    background-color: ${Themes.grey};
   }
 
   &.hasError {
-    background-color: ${Themes.gray};
+    background-color: ${Themes.grey};
     cursor: not-allowed !important;
   }
 
   &:hover,
   &:active {
-    background-color: ${Themes.gray};
+    background-color: ${Themes.grey};
   }
 `;
 

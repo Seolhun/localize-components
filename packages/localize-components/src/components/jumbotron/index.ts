@@ -1,5 +1,5 @@
 import Jumbotron, { JumbotronProps } from './Jumbotron';
 
-export { JumbotronProps };
+export { Jumbotron, JumbotronProps };
 
 export default Jumbotron;

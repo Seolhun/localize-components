@@ -6,22 +6,30 @@ import { IThemeConfig } from '@seolhun/localize-components-styled-types';
 import { getMediaQueryStyles } from './GridHelpers';
 import { ColProps } from './GridTypes';
 
-export const Col = styled.div<ColProps, IThemeConfig>(
-  ({ theme, gutter, xl, lg, md, sm, xs, styles }) => {
+export const Col = styled.div<ColProps, IThemeConfig>(({
+  theme,
+  gutter,
+  xl,
+  lg,
+  md,
+  sm,
+  xs,
+  css = {},
+}) => {
     return {
-      ...(!isNil(xs) ? getMediaQueryStyles('XS', xs) : {}),
-      ...(!isNil(sm) ? getMediaQueryStyles('SM', sm) : {}),
-      ...(!isNil(md) ? getMediaQueryStyles('MD', md) : {}),
-      ...(!isNil(lg) ? getMediaQueryStyles('LG', lg) : {}),
-      ...(!isNil(xl) ? getMediaQueryStyles('XL', xl) : {}),
+      ...(xs && !isNil(xs) ? getMediaQueryStyles('XS', xs) : {}),
+      ...(sm && !isNil(sm) ? getMediaQueryStyles('SM', sm) : {}),
+      ...(md && !isNil(md) ? getMediaQueryStyles('MD', md) : {}),
+      ...(lg && !isNil(lg) ? getMediaQueryStyles('LG', lg) : {}),
+      ...(xl && !isNil(xl) ? getMediaQueryStyles('XL', xl) : {}),
       boxSizing: 'border-box',
       flexBasis: 'auto',
       flexGrow: 1,
       flexShrink: 0,
       paddingRight: gutter || theme.grid.gutter,
       paddingLeft: gutter || theme.grid.gutter,
-      paddingBottom: '0.5rem',
-      ...styles,
+      paddingBottom: gutter || theme.grid.gutter,
+      ...css,
     };
   }
 );

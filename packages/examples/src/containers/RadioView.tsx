@@ -54,7 +54,7 @@ const RadioView = () => {
               label: 'label',
               value: 'value',
             }}
-            mainColor="light_gray"
+            mainColor="light_grey"
             checked
           />
           <Radio
@@ -91,7 +91,7 @@ const RadioView = () => {
               label: 'label',
               value: 'value',
             }}
-            mainColor="light_gray"
+            mainColor="light_grey"
             subColor="purple"
             checked
           />

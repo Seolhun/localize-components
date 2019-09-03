@@ -45,7 +45,7 @@ export interface RadioGroupProps {
   mainColor?: ThemesType;
   /**
    * Set this to change Radio Group subColor
-   * @default ThemeConfig.secondaryColor = gray
+   * @default ThemeConfig.secondaryColor = grey
    */
   subColor?: ThemesType;
 

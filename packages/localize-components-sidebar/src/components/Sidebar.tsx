@@ -91,7 +91,7 @@ export interface SidebarProps {
   mainColor?: ThemesType;
   /**
    * Set this to change Sidebar subColor
-   * @default ThemeConfig.secondaryColor = gray
+   * @default ThemeConfig.secondaryColor = grey
    */
   subColor?: ThemesType;
   /**

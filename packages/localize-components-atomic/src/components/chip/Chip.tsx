@@ -55,7 +55,7 @@ export interface ChipProps {
   mainColor?: ThemesType;
   /**
    * Set this to change Chip subColor
-   * @default ThemeConfig.secondaryColor = gray
+   * @default ThemeConfig.secondaryColor = grey
    */
   subColor?: ThemesType;
   /**
@@ -91,7 +91,7 @@ const StyledChip = styled.button<ChipProps>(
       },
 
       '&:disabled': {
-        backgroundColor: Themes.light_gray,
+        backgroundColor: Themes.light_grey,
         color: Themes.white,
         cursor: 'not-allowed',
       },
