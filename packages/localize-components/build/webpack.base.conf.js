@@ -10,7 +10,9 @@ const config = require('../config');
 
 const IS_PRODUCTION = !!process.env.NODE_ENV === 'production';
 
-const externals = Object.keys(require('../package.json').dependencies).filter(key => !key.startsWith('@'));
+const externals = Object.keys(require('../package.json').dependencies).filter(
+  key => !key.startsWith('@'),
+);
 
 function resolve(dir) {
   return path.join(__dirname, '..', dir);
@@ -69,10 +71,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-        ],
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
         test: /\.scss$/,

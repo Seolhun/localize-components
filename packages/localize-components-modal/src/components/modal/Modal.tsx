@@ -90,18 +90,16 @@ class Modal extends Component<ModalProps, ModalState> {
   }
 
   static getDerivedStateFromProps(props, state) {
-    if (props.onClick && (props.isShow !== state.isShow)) {
+    if (props.onClick && props.isShow !== state.isShow) {
       return {
-        isShow: props.isShow
+        isShow: props.isShow,
       };
     }
     return null;
   }
 
   handleIsShow = () => {
-    const {
-      onClick,
-    } = this.props;
+    const { onClick } = this.props;
 
     if (onClick) {
       onClick();
@@ -113,7 +111,7 @@ class Modal extends Component<ModalProps, ModalState> {
         isShow: !isShow,
       };
     });
-  }
+  };
 
   render() {
     const {
@@ -127,28 +125,17 @@ class Modal extends Component<ModalProps, ModalState> {
       subColor = ThemeConfig.SUB_THEME,
       zIndex = 1000,
     } = this.props;
-    const {
-      isShow,
-    } = this.state;
+    const { isShow } = this.state;
 
     if (!isShow) {
       return null;
     }
 
     return (
-      <ModalWrapper
-        className={classnames(
-          '__Localize__',
-        )}
-        zIndex={zIndex}
-      >
-        <CoverBackground
-          zIndex={zIndex}
-        />
+      <ModalWrapper className={classnames('__Localize__')} zIndex={zIndex}>
+        <CoverBackground zIndex={zIndex} />
         <ModalContainer
-          className={classnames(
-            className,
-          )}
+          className={classnames(className)}
           position={position}
           size={size}
           mainColor={mainColor}
@@ -164,9 +151,7 @@ class Modal extends Component<ModalProps, ModalState> {
           </CloseButton>
           {header && (
             <ModalContent
-              className={classnames(
-                '__Localize__Modal__Header',
-              )}
+              className={classnames('__Localize__Modal__Header')}
               size={size}
               mainColor={mainColor}
               subColor={subColor}
@@ -176,9 +161,7 @@ class Modal extends Component<ModalProps, ModalState> {
           )}
           {body && (
             <ModalContent
-              className={classnames(
-                '__Localize__Modal__Body',
-              )}
+              className={classnames('__Localize__Modal__Body')}
               size={size}
               mainColor={mainColor}
               subColor={subColor}
@@ -188,9 +171,7 @@ class Modal extends Component<ModalProps, ModalState> {
           )}
           {footer && (
             <ModalContent
-              className={classnames(
-                '__Localize__Modal__Footer',
-              )}
+              className={classnames('__Localize__Modal__Footer')}
               size={size}
               mainColor={mainColor}
               subColor={subColor}
@@ -205,7 +186,7 @@ class Modal extends Component<ModalProps, ModalState> {
 }
 
 const ModalWrapper = styled.div<StyledProps>`
-  z-index: ${(({ zIndex = 1000 }) => zIndex)}
+  z-index: ${({ zIndex = 1000 }) => zIndex};
 `;
 
 const CoverBackground = styled.div<StyledProps>`
@@ -217,7 +198,7 @@ const CoverBackground = styled.div<StyledProps>`
   right: 0;
   top: 0;
   width: 100vw;
-  z-index: ${(({ zIndex = 1000 }) => zIndex - 2)}
+  z-index: ${({ zIndex = 1000 }) => zIndex - 2};
 `;
 
 const CloseButton = styled.div<StyledProps>`
@@ -231,11 +212,9 @@ const CloseButton = styled.div<StyledProps>`
   position: absolute;
   right: 5px;
   top: 5px;
-  z-index: ${(({ zIndex = 1000 }) => zIndex - 1)};
+  z-index: ${({ zIndex = 1000 }) => zIndex - 1};
 
-  color: ${({
-    subColor = ThemeConfig.SUB_THEME,
-  }) => {
+  color: ${({ subColor = ThemeConfig.SUB_THEME }) => {
     if (getIsLightenTheme(subColor)) {
       return Themes.dark_gray;
     }
@@ -243,17 +222,13 @@ const CloseButton = styled.div<StyledProps>`
   }};
 
   &:hover {
-    color: ${({
-      subColor = ThemeConfig.SUB_THEME,
-    }) => {
+    color: ${({ subColor = ThemeConfig.SUB_THEME }) => {
       if (getIsLightenTheme(subColor)) {
         return Themes.white;
       }
       return Themes.dark_gray;
     }};
-    background-color: ${({
-      subColor = ThemeConfig.SUB_THEME,
-    }) => {
+    background-color: ${({ subColor = ThemeConfig.SUB_THEME }) => {
       if (getIsLightenTheme(subColor)) {
         return Themes.light_gray;
       }
@@ -262,53 +237,53 @@ const CloseButton = styled.div<StyledProps>`
   }
 `;
 
-const ModalContainer = styled.div<StyledProps>(({
-  position = Position.CENTER,
-  size = Size.MEDIUM,
-  subColor = ThemeConfig.SUB_THEME,
-  zIndex = 1000,
-}) => {
-  const getMaxHeight = () => {
-    switch (size) {
-      case Size.LARGE:
-        return '800px';
-      case Size.MEDIUM:
-        return '650px';
-      default:
-        return '500px';
-    }
-  }
+const ModalContainer = styled.div<StyledProps>(
+  ({
+    position = Position.CENTER,
+    size = Size.MEDIUM,
+    subColor = ThemeConfig.SUB_THEME,
+    zIndex = 1000,
+  }) => {
+    const getMaxHeight = () => {
+      switch (size) {
+        case Size.LARGE:
+          return '800px';
+        case Size.MEDIUM:
+          return '650px';
+        default:
+          return '500px';
+      }
+    };
 
-  const getMaxWidth = () => {
-    switch (size) {
-      case Size.LARGE:
-        return '800px';
-      case Size.MEDIUM:
-        return '650px';
-      default:
-        return '500px';
-    }
-  }
+    const getMaxWidth = () => {
+      switch (size) {
+        case Size.LARGE:
+          return '800px';
+        case Size.MEDIUM:
+          return '650px';
+        default:
+          return '500px';
+      }
+    };
 
-  return {
-    backgroundColor: getValidTheme(subColor),
-    borderRadius: '6px',
-    boxSizing: 'border-box',
-    height: '100%',
-    margin: 'auto',
-    maxHeight: getMaxHeight(),
-    maxWidth: getMaxWidth(),
-    position: 'fixed',
-    width: '100%',
-    zIndex: zIndex - 1,
-    ...getPositionStyle(position),
+    return {
+      backgroundColor: getValidTheme(subColor),
+      borderRadius: '6px',
+      boxSizing: 'border-box',
+      height: '100%',
+      margin: 'auto',
+      maxHeight: getMaxHeight(),
+      maxWidth: getMaxWidth(),
+      position: 'fixed',
+      width: '100%',
+      zIndex: zIndex - 1,
+      ...getPositionStyle(position),
+    };
   }
-});
+);
 
 const ModalContent = styled.div<StyledProps>`
-  color: ${({
-    subColor = ThemeConfig.SUB_THEME,
-  }) => {
+  color: ${({ subColor = ThemeConfig.SUB_THEME }) => {
     if (getIsLightenTheme(subColor)) {
       return Themes.dark_gray;
     }
@@ -342,7 +317,6 @@ const ModalContent = styled.div<StyledProps>`
 
   & > div {
     display: flex;
-    height: 100%;
     padding: 0 20px;
   }
 `;
