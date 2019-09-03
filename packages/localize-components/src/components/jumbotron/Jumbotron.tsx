@@ -14,64 +14,64 @@ import {
 
 import classnames from 'classnames';
 
-interface JumbotronProps {
+export interface JumbotronProps {
   // isNotRequired
   /**
-   * Set this to change Button rendering children node
+   * Set this to change Jumbotron rendering children node
    * @default null
    */
   children?: ReactNode;
   /**
-   * Set this to change Button className
+   * Set this to change Jumbotron className
    * @default ''
    */
   className?: string;
   /**
-   * Set this to change Button description
+   * Set this to change Jumbotron description
    * @default ''
    */
   description?: string;
   /**
-   * Set this to change Button mainColor
+   * Set this to change Jumbotron mainColor
    * @default ThemeConfig.MAIN_THEME = royal_blue
    */
   mainColor?: ThemesType;
   /**
-   * Set this to change Button onBlur
+   * Set this to change Jumbotron onBlur
    * @default 'main'
    */
   onBlur?: (...args: any[]) => void;
   /**
-   * Set this to change Button onClick
+   * Set this to change Jumbotron onClick
    * @default () => null
    */
   onClick?: (...args: any[]) => void;
   /**
-   * Set this to change Button onFocus
+   * Set this to change Jumbotron onFocus
    * @default () => null
    */
   onFocus?: (...args: any[]) => void;
   /**
-   * Set this to change Button onMouseOut
+   * Set this to change Jumbotron onMouseOut
    * @default () => null
    */
   onMouseOut?: (...args: any[]) => void;
   /**
-   * Set this to change Button onMouseOver
+   * Set this to change Jumbotron onMouseOver
    * @default () => null
    */
   onMouseOver?: (...args: any[]) => void;
   /**
-   * Set this to change Button title
+   * Set this to change Jumbotron title
    * @default ''
    */
   title?: string;
 
   /**
-   * Set this to change Button style
+   * Set this to change Jumbotron css
    * @default {}
    */
-  style?: {};
+  css?: {};
 }
 
 const StyledJumbotron = styled.div<JumbotronProps>(({
@@ -98,15 +98,9 @@ const Jumbotron: FunctionComponent<JumbotronProps> = ({
   children = null,
   className = '',
   description = null,
-  mainColor = ThemeConfig.MAIN_THEME,
-  onBlur = () => null,
-  onClick = () => null,
-  onFocus = () => null,
-  onMouseOut = () => null,
-  onMouseOver = () => null,
   title = null,
-
-  style = {},
+  css = {},
+  ...props
 }) => {
   return (
     <StyledJumbotron
@@ -114,13 +108,8 @@ const Jumbotron: FunctionComponent<JumbotronProps> = ({
         '__Localize__',
         className,
       )}
-      mainColor={mainColor}
-      onBlur={onBlur}
-      onClick={onClick}
-      onFocus={onFocus}
-      onMouseOut={onMouseOut}
-      onMouseOver={onMouseOver}
-      css={style}
+      css={css}
+      {...props}
     >
       {title && (
         <h1>{title}</h1>
@@ -134,8 +123,5 @@ const Jumbotron: FunctionComponent<JumbotronProps> = ({
     </StyledJumbotron>
   );
 }
-export {
-  JumbotronProps,
-};
 
 export default Jumbotron;

@@ -95,10 +95,10 @@ export interface SidebarProps {
    */
   subColor?: ThemesType;
   /**
-   * Set this to change Sidebar style
+   * Set this to change Sidebar css
    * @default {}
    */
-  style?: {};
+  css?: {};
 }
 
 const StyledSidebar = styled.aside<StyledProps>(() => {
@@ -109,7 +109,7 @@ const StyledSidebar = styled.aside<StyledProps>(() => {
 
 export const Sidebar: FunctionComponent<SidebarProps> = ({
   className,
-  style,
+  css,
   items,
   iconWidth = 50,
   labelWidth = 150,
@@ -121,14 +121,14 @@ export const Sidebar: FunctionComponent<SidebarProps> = ({
         '__Localize__Sidebar',
         className
       )}
-      css={style}
+      css={css}
       {...props}
     >
       <SidebarItemsContainer>
         {items.map((item) => (
           <SidebarItemIcon
             item={item}
-            style={{
+            css={{
               width: `${iconWidth}px`
             }}
             {...props}
@@ -139,7 +139,7 @@ export const Sidebar: FunctionComponent<SidebarProps> = ({
         {items.map((item) => (
           <SidebarItemLabel
             item={item}
-            style={{
+            css={{
               width: `${iconWidth}px`
             }}
             {...props}

@@ -81,10 +81,10 @@ export interface ButtonProps {
    */
   subColor?: ThemesType;
   /**
-   * Set this to change Button style
+   * Set this to change Button css
    * @default {}
    */
-  style?: {};
+  css?: {};
 }
 
 
@@ -92,7 +92,6 @@ const StyledButton = styled.button<ButtonProps>(({
   fontSize = 12,
   mainColor = ThemeConfig.MAIN_THEME,
   size = Size.MEDIUM,
-  style = {},
 }) => {
   const styledSize = () => {
     switch (size) {
@@ -135,14 +134,13 @@ const StyledButton = styled.button<ButtonProps>(({
       color: Themes.white,
       cursor: 'not-allowed',
     },
-    ...style,
   }
 })
 
 const Button: FunctionComponent<ButtonProps> = ({
   children,
   className = '',
-  style = {},
+  css = {},
   ...props
 }) => (
   <StyledButton
@@ -150,6 +148,7 @@ const Button: FunctionComponent<ButtonProps> = ({
       '__Localize__Button',
       className,
     )}
+    css={css}
     type='button'
     {...props}
   >

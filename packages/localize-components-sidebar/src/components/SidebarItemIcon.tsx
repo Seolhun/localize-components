@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from 'react';
 
 import classnames from 'classnames';
-import { css } from '@emotion/core'
+import styled from '@emotion/styled';
 
-import { ThemesType } from '@seolhun/localize-components-styled-types';
+import { ThemesType, StyledProps } from '@seolhun/localize-components-styled-types';
 
 import { SidebarItemProps } from './Sidebar';
 
@@ -26,29 +26,35 @@ export interface SidebarItemIconProps {
    */
   subColor?: ThemesType;
   /**
-   * Set this to change SidebarItemIcon style
+   * Set this to change SidebarItemIcon css
    * @default {}
    */
-  style?: {};
+  css?: {};
 }
+
+const StyledSpan = styled.span<StyledProps>(() => {
+  return {
+
+  }
+});
 
 export const SidebarItemIcon: FunctionComponent<SidebarItemIconProps> = ({
   item,
-  style,
+  css,
   className,
   ...props
 }) => {
   return (
-    <span
+    <StyledSpan
       className={classnames(
         '__Localize__SidebarItemIcon',
         className
       )}
-      css={css(style)}
+      css={css}
       {...props}
     >
       {item.renderIcon(item)}
-    </span>
+    </StyledSpan>
   )
 }
 

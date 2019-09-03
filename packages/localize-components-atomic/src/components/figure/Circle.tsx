@@ -76,15 +76,15 @@ export interface CircleProps {
    */
   subColor?: ThemesType;
   /**
-   * Set this to change Circle style
+   * Set this to change Circle size
    * @default 50
    */
   size?: number;
   /**
-   * Set this to change Circle style
+   * Set this to change Circle css
    * @default {}
    */
-  style?: {};
+  css?: {};
 }
 
 const StyledCircle = styled.span<CircleProps>(({
@@ -93,7 +93,6 @@ const StyledCircle = styled.span<CircleProps>(({
   subColor = ThemeConfig.SUB_THEME,
   size = 50,
   fontSize = 12,
-  style = {},
 }) => {
   return {
     display: 'inline-flex',
@@ -101,7 +100,6 @@ const StyledCircle = styled.span<CircleProps>(({
     justifyContent: 'center',
     width: `${size}px`,
     height: `${size}px`,
-    padding: '3px',
 
     borderRadius: '50%',
     border: `1px solid ${getValidTheme(mainColor)}`,
@@ -128,18 +126,19 @@ const StyledCircle = styled.span<CircleProps>(({
       color: Themes.white,
       cursor: 'not-allowed',
     },
-    ...style,
   }
 });
 
 export const Circle: FunctionComponent<CircleProps> = ({
   className,
   children,
+  css = {},
   ...props
 }) => {
   return (
     <StyledCircle
       className={classnames(className)}
+      css={css}
       {...props}
     >
       {children}

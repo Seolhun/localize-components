@@ -100,10 +100,10 @@ export interface InputProps {
    */
   required?: boolean;
   /**
-   * Set this to change Input style
+   * Set this to change Input css
    * @default {}
    */
-  style?: {};
+  css?: {};
   /**
    * Set this to change Input mainColor
    * @default ThemeConfig.MAIN_THEME = royal_blue
@@ -274,7 +274,7 @@ export class Input extends PureComponent<InputProps, InputState> {
       enterButton = null,
       placeholder = '',
       required = false,
-      style = {},
+      css = {},
       type = 'text',
       mainColor = ThemeConfig.MAIN_THEME,
       subColor = ThemeConfig.SUB_THEME,
@@ -303,9 +303,7 @@ export class Input extends PureComponent<InputProps, InputState> {
           )}
           mainColor={mainColor}
           subColor={subColor}
-          style={{
-            ...style,
-          }}
+          css={css}
         >
           <StyledDivInput
             ref={this.inputRef}
