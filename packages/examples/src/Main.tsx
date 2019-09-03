@@ -15,5 +15,5 @@ ReactDOM.render(
       <Routes />
     </section>
   </HashRouter>,
-  document.getElementById('app'),
+  document.getElementById('app')
 );

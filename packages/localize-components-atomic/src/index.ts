@@ -1,8 +1,5 @@
 // Components
-import {
-  Button,
-  ButtonProps,
-} from '@seolhun/localize-components-button';
+import { Button, ButtonProps } from '@seolhun/localize-components-button';
 import {
   CheckBox,
   CheckBoxProps,

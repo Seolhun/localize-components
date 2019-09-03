@@ -8,14 +8,14 @@ const ModalView = () => {
   const [isShow, setIsShow] = useToggle(false);
 
   return (
-    <div className='container'>
-      <div className='row'>
-        <div className='col-sm-12'>
+    <div className="container">
+      <div className="row">
+        <div className="col-sm-12">
           <Button onClick={setIsShow}>Open Modal</Button>
           <Modal
-            header='Header'
-            body='Body'
-            footer='Footer'
+            header="Header"
+            body="Body"
+            footer="Footer"
             onClick={setIsShow}
             isShow={isShow}
           />
@@ -23,6 +23,6 @@ const ModalView = () => {
       </div>
     </div>
   );
-}
+};
 
 export default ModalView;

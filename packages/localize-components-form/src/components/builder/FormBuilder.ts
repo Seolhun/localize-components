@@ -71,7 +71,7 @@ class FormBuilder implements FormBuilderProps {
       isOnCreatedValidation = false,
       isOnChangeValidation = false,
       onGroupValidation,
-    },
+    }
   ) => {
     let isValidObject = {
       hasError,
@@ -98,7 +98,7 @@ class FormBuilder implements FormBuilderProps {
       properties,
       options,
     };
-  }
+  };
 
   // tslint:disable-next-line:variable-name
   handleOnValidation = (value = this.properties.value) => {
@@ -114,7 +114,7 @@ class FormBuilder implements FormBuilderProps {
       ...isValidObject,
     });
     return this;
-  }
+  };
 
   setProperties(newProperties) {
     this.properties = {

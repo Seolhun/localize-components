@@ -7,16 +7,20 @@ import {
 } from '@seolhun/localize-components-styled-types';
 
 export const getIsLightenTheme = (theme: ThemesType) => {
-  const isLightenTheme = Object.keys(LightenTheme).map((key) => {
-    return key;
-  }).includes(theme);
+  const isLightenTheme = Object.keys(LightenTheme)
+    .map((key) => {
+      return key;
+    })
+    .includes(theme);
   return isLightenTheme;
 };
 
 export const getValidTheme = (theme: ThemesType) => {
-  const isLightenTheme = Object.keys(Themes).map((key) => {
-    return key;
-  }).includes(theme);
+  const isLightenTheme = Object.keys(Themes)
+    .map((key) => {
+      return key;
+    })
+    .includes(theme);
   if (isLightenTheme) {
     return Themes[theme];
   }
@@ -28,7 +32,7 @@ export const getThemeHoverStyle = (theme: ThemesType) => {
     return darken(0.1, getValidTheme(theme));
   }
   return lighten(0.1, getValidTheme(theme));
-}
+};
 
 export const getThemeColorStyle = (theme: ThemesType) => {
   if (getIsLightenTheme(theme)) {

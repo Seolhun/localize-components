@@ -1,7 +1,5 @@
 // Position
-import {
-  getPositionStyle
-} from './utils/PositionUtils';
+import { getPositionStyle } from './utils/PositionUtils';
 
 // Theme
 import {

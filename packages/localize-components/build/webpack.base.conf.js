@@ -11,7 +11,7 @@ const config = require('../config');
 const IS_PRODUCTION = !!process.env.NODE_ENV === 'production';
 
 const externals = Object.keys(require('../package.json').dependencies).filter(
-  key => !key.startsWith('@'),
+  (key) => !key.startsWith('@')
 );
 
 function resolve(dir) {
@@ -194,10 +194,10 @@ module.exports = {
     maxEntrypointSize: 550000,
     assetFilter(assetFilename) {
       return (
-        assetFilename.endsWith('.css')
-        || assetFilename.endsWith('.scss')
-        || assetFilename.endsWith('.js')
-        || assetFilename.endsWith('.ts')
+        assetFilename.endsWith('.css') ||
+        assetFilename.endsWith('.scss') ||
+        assetFilename.endsWith('.js') ||
+        assetFilename.endsWith('.ts')
       );
     },
   },

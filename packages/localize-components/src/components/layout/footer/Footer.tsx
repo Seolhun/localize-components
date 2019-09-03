@@ -16,7 +16,10 @@ const Footer: React.FunctionComponent<FooterProps> = ({
   children = '',
   style = {},
 }) => (
-  <footer className={classnames(`__Localize__Footer ${className}`)} style={style}>
+  <footer
+    className={classnames(`__Localize__Footer ${className}`)}
+    style={style}
+  >
     {children}
   </footer>
 );

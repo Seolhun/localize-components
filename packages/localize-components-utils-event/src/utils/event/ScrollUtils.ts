@@ -7,7 +7,7 @@ const disabledScrollByKey = (event) => {
     return false;
   }
   return true;
-}
+};
 
 const disableScroll = () => {
   // older FF

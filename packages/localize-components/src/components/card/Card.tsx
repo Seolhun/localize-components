@@ -21,13 +21,7 @@ const Card: React.FunctionComponent<CardProps> = ({
   children,
   style,
 }) => (
-  <div
-    className={classnames(
-      '__Localize__Card',
-      className,
-    )}
-    style={style}
-  >
+  <div className={classnames('__Localize__Card', className)} style={style}>
     {children}
   </div>
 );

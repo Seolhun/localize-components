@@ -1,6 +1,10 @@
 import Sidebar, { SidebarProps, SidebarItemProps } from './components/Sidebar';
-import SidebarItemIcon, { SidebarItemIconProps } from './components/SidebarItemIcon';
-import SidebarItemLabel, { SidebarItemLabelProps } from './components/SidebarItemLabel';
+import SidebarItemIcon, {
+  SidebarItemIconProps,
+} from './components/SidebarItemIcon';
+import SidebarItemLabel, {
+  SidebarItemLabelProps,
+} from './components/SidebarItemLabel';
 
 export {
   Sidebar,

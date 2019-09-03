@@ -4,10 +4,10 @@
   "jsxBracketSameLine": false,
   "parser": "typescript",
   "printWidth": 80,
-  "requirePragma": false,
+  "requirePragma": true,
   "semi": true,
   "singleQuote": true,
   "tabWidth": 2,
-  "trailingComma": "es5",
+  "trailingComma": "all",
   "useTabs": false
 }

@@ -6,13 +6,7 @@ import JumbotronView from '../containers/JumbotronView';
 import ModalView from '../containers/ModalView';
 import FigureView from '../containers/FigureView';
 
-const routerCreator = ({
-  type,
-  path,
-  label,
-  exact = true,
-  component,
-}) => {
+const routerCreator = ({ type, path, label, exact = true, component }) => {
   return {
     type,
     path,

@@ -9,17 +9,15 @@ const proxyMiddleware = require('http-proxy-middleware');
 const historyApiFallback = require('connect-history-api-fallback');
 
 const IS_PRODUCTION = !!process.env.NODE_ENV === 'production';
-const webpackConfig = IS_PRODUCTION ?
-  require('./webpack.prod.conf') :
-  require('./webpack.dev.conf');
+const webpackConfig = IS_PRODUCTION
+  ? require('./webpack.prod.conf')
+  : require('./webpack.dev.conf');
 
 const config = require('../config');
 
 const port = process.env.PORT || config.dev.port;
 const autoOpenBrowser = !!config.dev.autoOpenBrowser;
-const {
-  proxyTable
-} = config.dev;
+const { proxyTable } = config.dev;
 
 const app = express();
 const compiler = webpack(webpackConfig);
@@ -69,7 +67,10 @@ app.use(devMiddleware);
 app.use(hotMiddleware);
 
 // serve pure static assets
-const staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory);
+const staticPath = path.posix.join(
+  config.dev.assetsPublicPath,
+  config.dev.assetsSubDirectory
+);
 app.use(staticPath, express.static('./static'));
 
 const uri = `http://localhost:${port}`;

@@ -4,13 +4,13 @@ function preventDefault(event) {
     currentEvent.preventDefault();
   }
   currentEvent.returnValue = false;
-};
+}
 
 function addEvent<K extends keyof WindowEventMap>(
   element: HTMLElement,
   eventName: K,
   fn: (...args: any[]) => void,
-  useBubble: boolean = false,
+  useBubble: boolean = false
 ) {
   element.addEventListener(eventName, fn, useBubble);
 }
@@ -18,16 +18,12 @@ function addEvent<K extends keyof WindowEventMap>(
 function removeEvent<K extends keyof WindowEventMap>(
   element: HTMLElement,
   eventName: K,
-  fn: (...args: any[]) => void,
+  fn: (...args: any[]) => void
 ) {
   element.removeEventListener(eventName, fn);
 }
 
-export {
-  preventDefault,
-  addEvent,
-  removeEvent,
-}
+export { preventDefault, addEvent, removeEvent };
 
 export default {
   preventDefault,

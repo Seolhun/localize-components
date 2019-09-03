@@ -7,7 +7,9 @@ const config = require('../config');
 const utils = require('./utils');
 
 Object.keys(baseWebpackConfig.entry).forEach((name) => {
-  baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(baseWebpackConfig.entry[name]);
+  baseWebpackConfig.entry[name] = ['./build/dev-client'].concat(
+    baseWebpackConfig.entry[name]
+  );
 });
 
 module.exports = merge(baseWebpackConfig, {
@@ -15,7 +17,7 @@ module.exports = merge(baseWebpackConfig, {
   watch: true,
   watchOptions: {
     aggregateTimeout: 300,
-    poll: 1000
+    poll: 1000,
   },
   module: {
     rules: utils.styleLoaders({

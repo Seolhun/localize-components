@@ -1,14 +1,14 @@
 import CheckBox, {
   CheckBoxProps,
   CheckBoxGroup,
-  CheckBoxGroupProps
+  CheckBoxGroupProps,
 } from './components/checkbox';
 import Input, { InputProps } from './components/input';
 import Switch, { SwitchProps } from './components/switch';
 import Radio, {
   RadioProps,
   RadioGroup,
-  RadioGroupProps
+  RadioGroupProps,
 } from './components/radio';
 
 export {
