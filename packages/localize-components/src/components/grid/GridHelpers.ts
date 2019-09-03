@@ -1,4 +1,9 @@
-import { EnumMediaQueryList, IColumnValue } from './GridTypes';
+import { MediaQueries, IColumnValue } from './GridTypes';
+
+export const calcWidth = (sizeValue: number) => {
+  const gridCounts = 24;
+  return `${sizeValue * (100 / gridCounts)}%`;
+}
 
 export const _hasOffset = (columnValue: IColumnValue) => {
   if (typeof columnValue !== 'object') {
@@ -20,7 +25,7 @@ export const _isBeforeOffset = (columnValue: IColumnValue) => {
 };
 
 export const _buildDefaultGridStyle = (sizeValue: number) => (() => {
-  const width = `${(sizeValue / 20) * 100}%`;
+  const width = calcWidth(sizeValue);
   return {
     flexGrow: 0,
     width: `${width}%`,
@@ -45,39 +50,39 @@ export const buildGridStyle = (columnValue: IColumnValue) => {
   Object.assign(styles, {
     ...(_isBeforeOffset(columnValue)
       ? {
-          marginLeft: `${(offset / 20) * 100}%`,
+          marginLeft: calcWidth(offset),
         }
       : {
-          marginRight: `${(offset / 20) * 100}%`,
+          marginRight: calcWidth(offset),
         }),
   });
   return styles;
 };
 
 export const createMediaQueryCondition = (
-  media: keyof typeof EnumMediaQueryList
+  media: keyof typeof MediaQueries
 ) => {
   switch (media) {
     case 'XL': {
-      return `(min-width: ${EnumMediaQueryList.XL}px)`;
+      return `(min-width: ${MediaQueries.XL}px)`;
     }
     case 'LG': {
-      return `(min-width: ${EnumMediaQueryList.LG}px)`;
+      return `(min-width: ${MediaQueries.LG}px)`;
     }
     case 'MD': {
-      return `(min-width: ${EnumMediaQueryList.MD}px)`;
+      return `(min-width: ${MediaQueries.MD}px)`;
     }
     case 'SM': {
-      return `(min-width: ${EnumMediaQueryList.SM}px)`;
+      return `(min-width: ${MediaQueries.SM}px)`;
     }
     default: {
-      return `(min-width: ${EnumMediaQueryList.XS}px)`;
+      return `(min-width: ${MediaQueries.XS}px)`;
     }
   }
 };
 
 export const getMediaQueryStyles = (
-  media: keyof typeof EnumMediaQueryList,
+  media: keyof typeof MediaQueries,
   columnValue: IColumnValue
 ) => {
   return {

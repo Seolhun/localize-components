@@ -4,11 +4,20 @@ import { isNil } from 'lodash';
 import { IThemeConfig } from '@seolhun/localize-components-styled-types';
 
 import { getMediaQueryStyles } from './GridHelpers';
-import { ColProps } from './GridTypes';
+import { IColumnValue } from './GridTypes';
+
+
+export interface ColProps {
+  xs?: IColumnValue;
+  sm?: IColumnValue;
+  md?: IColumnValue;
+  lg?: IColumnValue;
+  xl?: IColumnValue;
+  css?: {};
+}
 
 export const Col = styled.div<ColProps, IThemeConfig>(({
   theme,
-  gutter,
   xl,
   lg,
   md,
@@ -26,9 +35,9 @@ export const Col = styled.div<ColProps, IThemeConfig>(({
       flexBasis: 'auto',
       flexGrow: 1,
       flexShrink: 0,
-      paddingRight: gutter || theme.grid.gutter,
-      paddingLeft: gutter || theme.grid.gutter,
-      paddingBottom: gutter || theme.grid.gutter,
+      paddingRight: theme.grid.gutter,
+      paddingLeft: theme.grid.gutter,
+      paddingBottom: theme.grid.gutter,
       ...css,
     };
   }

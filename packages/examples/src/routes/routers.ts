@@ -5,6 +5,7 @@ import RadioView from '../containers/RadioView';
 import GridView from '../containers/GridView';
 import JumbotronView from '../containers/JumbotronView';
 import ModalView from '../containers/ModalView';
+import CardView from '../containers/CardView';
 import FigureView from '../containers/FigureView';
 
 const routerCreator = ({ type, path, label, exact = true, component }) => {
@@ -49,7 +50,14 @@ const routers = [
     label: 'Figure',
     component: FigureView,
   }),
+
   // Components
+  routerCreator({
+    type: 1,
+    path: '/card',
+    label: 'Card',
+    component: CardView,
+  }),
   routerCreator({
     type: 1,
     path: '/jumbotron',

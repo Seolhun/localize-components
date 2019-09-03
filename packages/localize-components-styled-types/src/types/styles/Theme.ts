@@ -22,6 +22,11 @@ export enum LightenTheme {
   yellow = '#FFFF00',
 }
 
+export const Themes = {
+  ...DarkenTheme,
+  ...LightenTheme,
+};
+
 export type ThemesType =
   | 'basic'
   | 'black'
@@ -41,11 +46,6 @@ export type ThemesType =
   | DarkenTheme
   | LightenTheme
   | string;
-
-export const Themes = {
-  ...DarkenTheme,
-  ...LightenTheme,
-};
 
 export interface StyledProps {
   /**

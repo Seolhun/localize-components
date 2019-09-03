@@ -21,7 +21,6 @@ const StyledCard = styled.div<CardProps, IThemeConfig>(({
     width: '100%',
 
     borderRadius: theme.border.radius || '4px',
-    border: `1px solid ${theme.border.color}`,
     boxShadow: theme.border.shadow,
     padding: '10px 5px',
     ...css,

@@ -1,8 +1,13 @@
 import styled from '@emotion/styled';
+import { FlexDirectionProperty } from 'csstype';
 
 import { IThemeConfig } from '@seolhun/localize-components-styled-types';
 
-import { RowProps } from './GridTypes';
+export interface RowProps {
+  isWrap?: boolean;
+  flexDirection?: FlexDirectionProperty;
+  css?: {};
+}
 
 export const Row = styled.div<RowProps, IThemeConfig>(
   ({ theme, flexDirection = 'row', isWrap = true, css = {} }) => {
