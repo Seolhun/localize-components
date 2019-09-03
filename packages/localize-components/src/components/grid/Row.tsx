@@ -1,15 +1,20 @@
+import React, { ReactNode } from 'react';
 import styled from '@emotion/styled';
-import { FlexDirectionProperty } from 'csstype';
-
 import { IThemeConfig } from '@seolhun/localize-components-styled-types';
 
+import { FlexDirectionProperty } from 'csstype';
+import classnames from 'classnames';
+
+
 export interface RowProps {
+  children: ReactNode;
+  className?: string;
   isWrap?: boolean;
   flexDirection?: FlexDirectionProperty;
   css?: {};
 }
 
-export const Row = styled.div<RowProps, IThemeConfig>(
+const StyledRow = styled.div<RowProps, IThemeConfig>(
   ({ theme, flexDirection = 'row', isWrap = true, css = {} }) => {
     return {
       display: 'flex',
@@ -17,7 +22,6 @@ export const Row = styled.div<RowProps, IThemeConfig>(
       flexWrap: isWrap ? 'wrap' : 'nowrap',
 
       width: 'auto',
-      padding: '0 3px',
       marginRight: theme.row.gutter,
       marginLeft: theme.row.gutter,
       marginBottom: theme.row.gutter,
@@ -25,5 +29,20 @@ export const Row = styled.div<RowProps, IThemeConfig>(
     };
   }
 );
+
+export const Row = ({
+  children,
+  className,
+  ...props
+}: RowProps) => {
+  return (
+    <StyledRow
+      className={classnames('__Localize__Row', className)}
+      {...props}
+    >
+      {children}
+    </StyledRow>
+  )
+}
 
 export default Row;

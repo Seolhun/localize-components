@@ -10,6 +10,7 @@ import {
 import {
   getValidTheme,
   getIsLightenTheme,
+  createMediaQueryCondition,
 } from '@seolhun/localize-components-styled-utils';
 
 import classnames from 'classnames';
@@ -76,7 +77,7 @@ export interface JumbotronProps {
 
 const StyledJumbotron = styled.div<JumbotronProps>(
   ({ mainColor = ThemeConfig.primaryColor, css = {} }) => {
-    const styledColor = () => {
+    const getStyledColor = () => {
       if (getIsLightenTheme(mainColor)) {
         return Themes.dark_grey;
       }
@@ -85,30 +86,44 @@ const StyledJumbotron = styled.div<JumbotronProps>(
 
     return {
       backgroundColor: getValidTheme(mainColor),
-      color: styledColor(),
+      color: getStyledColor(),
       height: 'auto',
-      padding: '35px',
       width: '100%',
       ...css,
     };
   }
 );
 
+const StyledJumbotronContainer = styled.div<JumbotronProps>({
+  [`@media ${createMediaQueryCondition('XS')}`]: {
+    padding: '3px',
+  },
+  [`@media ${createMediaQueryCondition('SM')}`]: {
+    padding: '5px',
+  },
+  [`@media ${createMediaQueryCondition('MD')}`]: {
+    padding: '10px',
+  },
+  padding: '35px',
+})
+
 export const Jumbotron: FunctionComponent<JumbotronProps> = ({
-  children = null,
-  className = '',
-  description = null,
-  title = null,
+  children,
+  className,
+  description,
+  title,
   ...props
 }) => {
   return (
     <StyledJumbotron
-      className={classnames('__Localize__', className)}
+      className={classnames('__Localize__Jumbotron', className)}
       {...props}
     >
-      {title && <h1>{title}</h1>}
-      {description && <h5>{description}</h5>}
-      {children && children}
+      <StyledJumbotronContainer>
+        {title && <h1>{title}</h1>}
+        {description && <h5>{description}</h5>}
+        {children && children}
+      </StyledJumbotronContainer>
     </StyledJumbotron>
   );
 };

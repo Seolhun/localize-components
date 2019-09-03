@@ -1,16 +1,18 @@
+import React, { ReactNode } from 'react';
 import styled from '@emotion/styled';
+import { IThemeConfig, MediaQueries } from '@seolhun/localize-components-styled-types';
+import { createMediaQueryCondition } from '@seolhun/localize-components-styled-utils';
 
-import { IThemeConfig } from '@seolhun/localize-components-styled-types';
-
-import { MediaQueries } from './GridTypes';
-import { createMediaQueryCondition } from './GridHelpers';
+import classnames from 'classnames';
 
 export interface ContainerProps {
+  children: ReactNode;
+  className?: string;
   isFullWidth?: boolean;
   css?: {};
 }
 
-export const Container = styled.div<ContainerProps, IThemeConfig>(
+const StyledContainer = styled.div<ContainerProps, IThemeConfig>(
   ({ isFullWidth = false, css = {} }) => {
     const responsiveStyles = {
       [`@media ${createMediaQueryCondition('SM')}`]: {
@@ -28,16 +30,28 @@ export const Container = styled.div<ContainerProps, IThemeConfig>(
     }
     return {
       ...(!isFullWidth ? responsiveStyles : {}),
-
       width: '100%',
-      paddingBottom: '80px',
-      paddingRight: '15px',
-      paddingLeft: '15px',
       marginRight: 'auto',
       marginLeft: 'auto',
       ...css,
     };
   }
 );
+
+
+export const Container = ({
+  children,
+  className,
+  ...props
+}: ContainerProps) => {
+  return (
+    <StyledContainer
+      className={classnames('__Localize__Container', className)}
+      {...props}
+    >
+      {children}
+    </StyledContainer>
+  )
+}
 
 export default Container;

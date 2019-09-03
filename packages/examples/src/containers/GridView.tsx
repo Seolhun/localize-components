@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { range } from 'lodash';
+
 import { ThemeProvider } from 'emotion-theming';
 import { ThemeConfig } from '@seolhun/localize-components-styled-types';
 import { Container, Col, Row, Jumbotron } from '@seolhun/localize-components';
@@ -16,76 +18,76 @@ const GridView = () => {
         <Row css={STYLES}>
           <Col xs={24}>
             <Jumbotron>
-              <h1>24</h1>
+              <h3>xs-24</h3>
             </Jumbotron>
           </Col>
         </Row>
         <Row css={STYLES}>
-          <Col xs={12}>
+          <Col sm={12}>
             <Jumbotron mainColor='red'>
-              <h1>12</h1>
+              <h3>sm-12</h3>
             </Jumbotron>
           </Col>
-          <Col xs={12}>
+          <Col sm={12}>
             <Jumbotron mainColor='red'>
-              <h1>12</h1>
+              <h3>sm-12</h3>
             </Jumbotron>
           </Col>
         </Row>
 
         <Row css={STYLES}>
-          <Col xs={8}>
+          <Col md={8}>
             <Jumbotron>
-              <h1>8</h1>
+              <h3>md-8</h3>
             </Jumbotron>
           </Col>
-          <Col xs={8}>
+          <Col md={8}>
             <Jumbotron>
-              <h1>4</h1>
+              <h3>md-8</h3>
             </Jumbotron>
           </Col>
-          <Col xs={8}>
+          <Col md={8}>
             <Jumbotron>
-              <h1>8</h1>
+              <h3>md-8</h3>
             </Jumbotron>
           </Col>
         </Row>
 
         <Row css={STYLES}>
-          {[...new Array(4)].map((key, idx) => (
-            <Col xs={5} key={idx}>
-              <Jumbotron>
-                <h1>5</h1>
+          {range(4).map((key, idx) => (
+            <Col xs={6} md={12} key={idx}>
+              <Jumbotron mainColor='green'>
+                <h3>xs-6 md-12</h3>
               </Jumbotron>
             </Col>
           ))}
         </Row>
 
         <Row css={STYLES}>
-          {[0, 1, 2, 3, 4].map((key, idx) => (
-            <Col xs={4} key={idx}>
+          {range(4).map((key, idx) => (
+            <Col xs={6} key={idx}>
               <Jumbotron>
-                <h1>4</h1>
+                <h3>4</h3>
               </Jumbotron>
             </Col>
           ))}
         </Row>
 
         <Row css={STYLES}>
-          {[...new Array(12)].map((key, idx) => (
+          {range(12).map((key, idx) => (
             <Col xs={2} key={idx}>
               <Jumbotron>
-                <h1>2</h1>
+                <h3>2</h3>
               </Jumbotron>
             </Col>
           ))}
         </Row>
 
         <Row css={STYLES}>
-          {[...new Array(24)].map((key, idx) => (
+          {range(24).map((key, idx) => (
             <Col xs={1} key={idx}>
               <Jumbotron>
-                <h1>1</h1>
+                <h3>1</h3>
               </Jumbotron>
             </Col>
           ))}
@@ -113,8 +115,7 @@ const GridView = () => {
         </Row>
       </Container>
 
-      <Container
-      >
+      <Container>
         <Row css={STYLES}>
           <Col sm={24} lg={8}>
             <Jumbotron >
@@ -134,8 +135,7 @@ const GridView = () => {
         </Row>
       </Container>
 
-      <Container
-      >
+      <Container>
         <Row css={STYLES}>
           <Col
             xs={{
@@ -196,8 +196,7 @@ const GridView = () => {
         </Row>
       </Container>
 
-      <Container
-      >
+      <Container>
         <Row css={STYLES}>
           <Col xs={0} sm={12} md={12} lg={12} xl={0} >
             <Jumbotron >

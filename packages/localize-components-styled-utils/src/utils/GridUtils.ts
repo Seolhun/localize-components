@@ -1,8 +1,8 @@
-import { MediaQueries, IColumnValue } from './GridTypes';
+import { MediaQueries, IColumnValue } from '@seolhun/localize-components-styled-types';
 
 export const calcWidth = (sizeValue: number) => {
   const gridCounts = 24;
-  return `${sizeValue * (100 / gridCounts)}%`;
+  return sizeValue * (100 / gridCounts);
 }
 
 export const _hasOffset = (columnValue: IColumnValue) => {
@@ -24,17 +24,17 @@ export const _isBeforeOffset = (columnValue: IColumnValue) => {
   return keys[0] ? keys[0] === 'offset' : false;
 };
 
-export const _buildDefaultGridStyle = (sizeValue: number) => (() => {
+export const _buildDefaultGridStyle = (sizeValue: number) => {
   const width = calcWidth(sizeValue);
   return {
     flexGrow: 0,
     width: `${width}%`,
     flex: `0 ${width}%`,
-    display: sizeValue === 0 ? 'none' : 'block',
+    display: sizeValue === 0 ? 'none' : 'flex',
     marginLeft: 0,
     marginRight: 0,
   }
-});
+};
 
 export const buildGridStyle = (columnValue: IColumnValue) => {
   if (typeof columnValue !== 'object') {
@@ -50,10 +50,10 @@ export const buildGridStyle = (columnValue: IColumnValue) => {
   Object.assign(styles, {
     ...(_isBeforeOffset(columnValue)
       ? {
-          marginLeft: calcWidth(offset),
+          marginLeft: `${calcWidth(offset)}%`,
         }
       : {
-          marginRight: calcWidth(offset),
+          marginRight: `${calcWidth(offset)}%`,
         }),
   });
   return styles;

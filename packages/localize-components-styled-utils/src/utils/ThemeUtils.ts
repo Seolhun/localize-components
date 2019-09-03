@@ -40,10 +40,3 @@ export const getThemeColorStyle = (theme: ThemesType) => {
   }
   return Themes.white;
 };
-
-export default {
-  getIsLightenTheme,
-  getValidTheme,
-  getThemeHoverStyle,
-  getThemeColorStyle,
-};
