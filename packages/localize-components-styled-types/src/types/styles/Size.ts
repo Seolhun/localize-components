@@ -4,10 +4,6 @@ export enum Size {
   SMALL = 'small',
 }
 
-export type SizeType =
-  | Size
-  | 'large'
-  | 'medium'
-  | 'small';
+export type SizeType = Size | 'large' | 'medium' | 'small';
 
 export default Size;

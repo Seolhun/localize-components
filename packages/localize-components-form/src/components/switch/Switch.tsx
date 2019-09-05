@@ -4,9 +4,7 @@ import styled from '@emotion/styled';
 
 import classnames from 'classnames';
 
-import {
-  getValidTheme,
-} from '@seolhun//localize-components-styled-utils';
+import { getValidTheme } from '@seolhun//localize-components-styled-utils';
 import {
   StyledProps,
   ThemeConfig,
@@ -67,12 +65,12 @@ export interface SwitchProps {
   css?: {};
   /**
    * Set this to change Switch mainColor
-   * @default ThemeConfig.MAIN_THEME = royal_blue
+   * @default ThemeConfig.primaryColor = royal_blue
    */
   mainColor?: ThemesType;
   /**
    * Set this to change Switch subColor
-   * @default ThemeConfig.SUB_THEME = gray
+   * @default ThemeConfig.secondaryColor = grey
    */
   subColor?: ThemesType;
   /**
@@ -94,44 +92,41 @@ const Switch: FunctionComponent<SwitchProps> = ({
   className = '',
   groupName = '',
   labelKey = 'label',
-  mainColor = ThemeConfig.MAIN_THEME,
+  mainColor = ThemeConfig.primaryColor,
   onChange = () => null,
   onMouseOut = () => null,
   onMouseOver = () => null,
   css = {},
-  subColor = ThemeConfig.SUB_THEME,
+  subColor = ThemeConfig.secondaryColor,
   useValueKey = false,
   valueKey = 'value',
 }) => {
-  const usedKey = useValueKey
-    ? valueKey
-    : labelKey;
+  const usedKey = useValueKey ? valueKey : labelKey;
 
   return (
     <StyledSwitchLabel
       key={item[usedKey]}
       htmlFor={item[usedKey]}
-      className={classnames(
-        '__Localize__',
-        className,
-      )}
+      className={classnames('__Localize__', className)}
       onMouseOut={onMouseOut}
       onMouseOver={onMouseOver}
     >
       <StyledSwitchInput
         id={item[usedKey]}
         checked={checked}
-        className='Switch'
-        type='checkbox'
-        onChange={() => onChange({
-          label: item[labelKey],
-          value: item[valueKey],
-        })}
+        className="Switch"
+        type="checkbox"
+        onChange={() =>
+          onChange({
+            label: item[labelKey],
+            value: item[valueKey],
+          })
+        }
         value={item[usedKey]}
         name={groupName}
       />
       <StyledSlider
-        className='Slider'
+        className="Slider"
         mainColor={mainColor}
         subColor={subColor}
         css={css}
@@ -164,9 +159,9 @@ const StyledSwitchInput = styled.input`
 `;
 
 const StyledSlider = styled.span<StyledProps>`
-  -webkit-transition: .4s;
+  -webkit-transition: 0.4s;
   background-color: ${({
-    mainColor = ThemeConfig.MAIN_THEME,
+    mainColor = ThemeConfig.primaryColor,
   }: StyledProps) => {
     return getValidTheme(mainColor);
   }};
@@ -177,22 +172,22 @@ const StyledSlider = styled.span<StyledProps>`
   position: absolute;
   right: -5px;
   top: 0;
-  transition: .4s;
+  transition: 0.4s;
 
   &:before {
-    -webkit-transition: .4s;
+    -webkit-transition: 0.4s;
     background-color: ${({
-      subColor = ThemeConfig.SUB_THEME,
+      subColor = ThemeConfig.secondaryColor,
     }: StyledProps) => {
       return getValidTheme(subColor);
     }};
     border-radius: 50%;
     bottom: 3px;
-    content: "";
+    content: '';
     height: 20px;
     left: 5px;
     position: absolute;
-    transition: .4s;
+    transition: 0.4s;
     width: 20px;
   }
 `;

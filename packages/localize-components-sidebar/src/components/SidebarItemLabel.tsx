@@ -3,7 +3,10 @@ import React, { FunctionComponent } from 'react';
 import classnames from 'classnames';
 import styled from '@emotion/styled';
 
-import { ThemesType, StyledProps } from '@seolhun/localize-components-styled-types';
+import {
+  ThemesType,
+  StyledProps,
+} from '@seolhun/localize-components-styled-types';
 
 import { SidebarItemProps } from './Sidebar';
 
@@ -17,12 +20,12 @@ export interface SidebarItemLabelProps {
   className?: string;
   /**
    * Set this to change SidebarItemLabel mainColor
-   * @default ThemeConfig.MAIN_THEME = royal_blue
+   * @default ThemeConfig.primaryColor = royal_blue
    */
   mainColor?: ThemesType;
   /**
    * Set this to change SidebarItemLabel subColor
-   * @default ThemeConfig.SUB_THEME = gray
+   * @default ThemeConfig.secondaryColor = grey
    */
   subColor?: ThemesType;
   /**
@@ -33,9 +36,7 @@ export interface SidebarItemLabelProps {
 }
 
 const StyledSpan = styled.span<StyledProps>(() => {
-  return {
-
-  }
+  return {};
 });
 
 export const SidebarItemLabel: FunctionComponent<SidebarItemLabelProps> = ({
@@ -46,16 +47,13 @@ export const SidebarItemLabel: FunctionComponent<SidebarItemLabelProps> = ({
 }) => {
   return (
     <StyledSpan
-      className={classnames(
-        '__Localize__SidebarItemLabel',
-        className
-      )}
+      className={classnames('__Localize__SidebarItemLabel', className)}
       css={css}
       {...props}
     >
       {item.renderLabel(item)}
     </StyledSpan>
-  )
-}
+  );
+};
 
 export default SidebarItemLabel;

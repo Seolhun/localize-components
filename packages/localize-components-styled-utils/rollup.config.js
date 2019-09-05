@@ -37,9 +37,7 @@ export default {
     }),
     postcss({
       extract: true,
-      plugins: [
-        autoprefixer,
-      ],
+      plugins: [autoprefixer],
       modules: true,
     }),
   ],

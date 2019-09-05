@@ -102,10 +102,7 @@ class ShadowBox extends Component<ShadowBoxProps> {
       isShow && (
         <ShadowBoxWrapper
           ref={this.wrapperRef}
-          className={classnames(
-            '__Localize__ShadowBox',
-            className
-          )}
+          className={classnames('__Localize__ShadowBox', className)}
           css={style}
         >
           <ShadowBoxContainer>

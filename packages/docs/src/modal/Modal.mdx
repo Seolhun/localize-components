@@ -3,6 +3,7 @@ name: Modal
 menu: Components
 ---
 
+import { useState } from 'react';
 import { Playground, Props } from 'docz';
 import { Modal } from '@seolhun/localize-components';
 
@@ -18,12 +19,20 @@ import ModalPropsTable from './ModalPropsTable';
 ## Default
 
 <Playground>
-  <Modal
-    header={<div>Modal header</div>}
-    body={<div>Modal body</div>}
-    footer={<div>Modal footer</div>}
-    isShow
-  />
+  {() => {
+    const [isShow, setIsShow] = useState(false)
+    return (
+      <>
+        <button onClick={() => setIsShow(!isShow)}>Show Modal</button>
+        <Modal
+          header={<div>Modal header</div>}
+          body={<div>Modal body</div>}
+          footer={<div>Modal footer</div>}
+          isShow={isShow}
+        />
+      </>
+    )
+  }}
 </Playground>
 
 ## Give a Size

@@ -25,10 +25,12 @@ export default {
   htmlContext: {
     favicon: '/public/favicon.ico',
     head: {
-      links: [{
-        rel: 'stylesheet',
-        href: 'https://codemirror.net/theme/dracula.css',
-      }],
+      links: [
+        {
+          rel: 'stylesheet',
+          href: 'https://codemirror.net/theme/dracula.css',
+        },
+      ],
     },
   },
   // Style Conf

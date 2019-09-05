@@ -1,16 +1,6 @@
-import {
-  Alert,
-  AlertProps,
-  Modal,
-  ModalProps,
-} from './components';
+import { Alert, AlertProps, Modal, ModalProps } from './components';
 
-export {
-  Alert,
-  AlertProps,
-  Modal,
-  ModalProps,
-};
+export { Alert, AlertProps, Modal, ModalProps };
 
 export default {
   Alert,

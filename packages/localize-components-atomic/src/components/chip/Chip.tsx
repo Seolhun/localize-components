@@ -50,12 +50,12 @@ export interface ChipProps {
   onMouseOver?: (...args: any[]) => void;
   /**
    * Set this to change Chip mainColor
-   * @default ThemeConfig.MAIN_THEME = royal_blue
+   * @default ThemeConfig.primaryColor = royal_blue
    */
   mainColor?: ThemesType;
   /**
    * Set this to change Chip subColor
-   * @default ThemeConfig.SUB_THEME = gray
+   * @default ThemeConfig.secondaryColor = grey
    */
   subColor?: ThemesType;
   /**
@@ -65,37 +65,39 @@ export interface ChipProps {
   css?: {};
 }
 
-const StyledChip = styled.button<ChipProps>(({
-  mainColor = ThemeConfig.MAIN_THEME,
-  subColor = ThemeConfig.SUB_THEME,
-}) => {
-  return {
-    borderRadius: '6px',
-    border: `1px solid ${getValidTheme(subColor)}`,
-    backgroundColor: getValidTheme(mainColor),
-    color: getThemeColorStyle(mainColor),
-    cursor: 'pointer',
-    height: 'auto',
-    outline: 'none',
-    transition: 'background-color 0.3s, border-color 0.3s',
-    verticalAlign: 'middle',
-
-    '&:not(:disabled):not(.disabled)': {
+const StyledChip = styled.button<ChipProps>(
+  ({
+    mainColor = ThemeConfig.primaryColor,
+    subColor = ThemeConfig.secondaryColor,
+  }) => {
+    return {
+      borderRadius: '6px',
+      border: `1px solid ${getValidTheme(subColor)}`,
+      backgroundColor: getValidTheme(mainColor),
+      color: getThemeColorStyle(mainColor),
       cursor: 'pointer',
-    },
+      height: 'auto',
+      outline: 'none',
+      transition: 'background-color 0.3s, border-color 0.3s',
+      verticalAlign: 'middle',
 
-    '&:hover': {
-      backgroundColor: getThemeHoverStyle(mainColor),
-      borderColor: getThemeHoverStyle(subColor),
-    },
+      '&:not(:disabled):not(.disabled)': {
+        cursor: 'pointer',
+      },
 
-    '&:disabled': {
-      backgroundColor: Themes.light_gray,
-      color: Themes.white,
-      cursor: 'not-allowed',
-    },
+      '&:hover': {
+        backgroundColor: getThemeHoverStyle(mainColor),
+        borderColor: getThemeHoverStyle(subColor),
+      },
+
+      '&:disabled': {
+        backgroundColor: Themes.light_grey,
+        color: Themes.white,
+        cursor: 'not-allowed',
+      },
+    };
   }
-})
+);
 
 const Chip: FunctionComponent<ChipProps> = ({
   children,
@@ -105,12 +107,9 @@ const Chip: FunctionComponent<ChipProps> = ({
 }) => {
   return (
     <StyledChip
-      className={classnames(
-        '__Localize__',
-        className,
-      )}
+      className={classnames('__Localize__', className)}
       css={css}
-      { ...props }
+      {...props}
     >
       {children}
     </StyledChip>

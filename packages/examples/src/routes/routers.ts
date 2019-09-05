@@ -2,17 +2,13 @@ import ButtonView from '../containers/ButtonView';
 import CheckboxView from '../containers/CheckboxView';
 import InputView from '../containers/InputView';
 import RadioView from '../containers/RadioView';
+import GridView from '../containers/GridView';
 import JumbotronView from '../containers/JumbotronView';
 import ModalView from '../containers/ModalView';
+import CardView from '../containers/CardView';
 import FigureView from '../containers/FigureView';
 
-const routerCreator = ({
-  type,
-  path,
-  label,
-  exact = true,
-  component,
-}) => {
+const routerCreator = ({ type, path, label, exact = true, component }) => {
   return {
     type,
     path,
@@ -54,12 +50,25 @@ const routers = [
     label: 'Figure',
     component: FigureView,
   }),
+
   // Components
+  routerCreator({
+    type: 1,
+    path: '/card',
+    label: 'Card',
+    component: CardView,
+  }),
   routerCreator({
     type: 1,
     path: '/jumbotron',
     label: 'Jumbotron',
     component: JumbotronView,
+  }),
+  routerCreator({
+    type: 1,
+    path: '/grid',
+    label: 'Grid',
+    component: GridView,
   }),
   routerCreator({
     type: 1,

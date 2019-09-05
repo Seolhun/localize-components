@@ -1,20 +1,19 @@
-
 import React from 'react';
 
 import { Radio } from '@seolhun/localize-components-atomic';
 
 const RadioView = () => {
   return (
-    <div className='container'>
-      <div className='row'>
-        <div className='col-sm-12'>
+    <div className="container">
+      <div className="row">
+        <div className="col-sm-12">
           <h2>Default</h2>
           <Radio
             item={{
               label: 'label',
               value: 'value',
             }}
-            groupName='localize'
+            groupName="localize"
           />
           <Radio
             item={{
@@ -22,24 +21,24 @@ const RadioView = () => {
               value: 'value',
             }}
             checked
-            groupName='localize'
+            groupName="localize"
           />
-            <Radio
+          <Radio
             item={{
               label: 'label',
               value: 'value',
             }}
-            groupName='localize'
+            groupName="localize"
           />
         </div>
-        <div className='col-sm-12'>
+        <div className="col-sm-12">
           <h2>Give a mainColor</h2>
           <Radio
             item={{
               label: 'label',
               value: 'value',
             }}
-            mainColor='danger'
+            mainColor="danger"
             checked
           />
           <Radio
@@ -47,7 +46,7 @@ const RadioView = () => {
               label: 'label',
               value: 'value',
             }}
-            mainColor='primary'
+            mainColor="primary"
             checked
           />
           <Radio
@@ -55,7 +54,7 @@ const RadioView = () => {
               label: 'label',
               value: 'value',
             }}
-            mainColor='light_gray'
+            mainColor="light_grey"
             checked
           />
           <Radio
@@ -63,18 +62,18 @@ const RadioView = () => {
               label: 'label',
               value: 'value',
             }}
-            mainColor='#41FF2B'
+            mainColor="#41FF2B"
             checked
           />
         </div>
-        <div className='col-sm-12'>
+        <div className="col-sm-12">
           <h2>Give a subColor</h2>
           <Radio
             item={{
               label: 'label',
               value: 'value',
             }}
-            mainColor='danger'
+            mainColor="danger"
             subColor="yellow"
             checked
           />
@@ -83,7 +82,7 @@ const RadioView = () => {
               label: 'label',
               value: 'value',
             }}
-            mainColor='primary'
+            mainColor="primary"
             subColor="danger"
             checked
           />
@@ -92,8 +91,8 @@ const RadioView = () => {
               label: 'label',
               value: 'value',
             }}
-            mainColor='light_gray'
-            subColor='purple'
+            mainColor="light_grey"
+            subColor="purple"
             checked
           />
           <Radio
@@ -101,14 +100,14 @@ const RadioView = () => {
               label: 'label',
               value: 'value',
             }}
-            mainColor='#41FF2B'
-            subColor='#000'
+            mainColor="#41FF2B"
+            subColor="#000"
             checked
           />
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default RadioView;

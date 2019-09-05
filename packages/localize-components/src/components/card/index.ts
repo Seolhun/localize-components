@@ -1,5 +1,5 @@
 import Card, { CardProps } from './Card';
 
-export { CardProps };
+export { Card, CardProps };
 
 export default Card;

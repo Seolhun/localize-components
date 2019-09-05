@@ -3,14 +3,7 @@ module.exports = {
   transform: {
     '^.+\\.ts?(x)$': 'ts-jest',
   },
-  testMatch: [
-    '<rootDir>/src/**/?(*.)+(spec|test).ts?(x)'
-  ],
-  moduleFileExtensions: [
-    'ts', 'tsx', 'js', 'jsx',
-  ],
-  testPathIgnorePatterns: [
-    '/node_modules/',
-    '/src/__test__/_config_/'
-  ],
+  testMatch: ['<rootDir>/src/**/?(*.)+(spec|test).ts?(x)'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
+  testPathIgnorePatterns: ['/node_modules/', '/src/__test__/_config_/'],
 };

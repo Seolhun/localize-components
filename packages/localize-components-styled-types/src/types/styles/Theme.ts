@@ -5,8 +5,8 @@ export enum DarkenTheme {
   basic = '#d1d5da',
   black = '#2a2a2a',
   danger = '#E32929',
-  dark_gray = '#202021',
-  gray = '#323334',
+  dark_grey = '#202021',
+  grey = '#323334',
   primary = '#0069d9',
   purple = '#5f42ff',
   royal_blue = '#4169FF',
@@ -16,20 +16,25 @@ export enum DarkenTheme {
 
 export enum LightenTheme {
   info = '#369cc7',
-  light_gray = '#cccc',
+  light_grey = '#cccc',
   sky = '#87CEEB',
   white = '#fff',
   yellow = '#FFFF00',
 }
 
+export const Themes = {
+  ...DarkenTheme,
+  ...LightenTheme,
+};
+
 export type ThemesType =
   | 'basic'
   | 'black'
   | 'danger'
-  | 'dark_gray'
-  | 'gray'
+  | 'dark_grey'
+  | 'grey'
   | 'info'
-  | 'light_gray'
+  | 'light_grey'
   | 'primary'
   | 'purple'
   | 'royal_blue'
@@ -42,27 +47,30 @@ export type ThemesType =
   | LightenTheme
   | string;
 
-export const Themes = {
-  ...DarkenTheme,
-  ...LightenTheme,
-};
-
-export interface StyledProps {
+export interface BaseStyleProps {
   /**
    * Set this to change Localize Style className
    * @default '''
    */
-  className?: string,
+  className?: string;
   /**
    * Set this to change Localize Style mainColor
-   * @default ThemeConfig.MAIN_THEME = royal_blue
+   * @default ThemeConfig.primaryColor = royal_blue
    */
   mainColor?: ThemesType;
   /**
    * Set this to change Localize Style subColor
-   * @default ThemeConfig.SUB_THEME
+   * @default ThemeConfig.secondaryColor
    */
   subColor?: ThemesType;
+  /**
+   * Set this to change Localize Style css
+   * @default {}
+   */
+  css?: {};
+}
+
+export interface StyledProps extends BaseStyleProps {
   /**
    * Set this to change Localize Style position
    * @default medium
@@ -78,15 +86,4 @@ export interface StyledProps {
    * @default 1000
    */
   zIndex?: number;
-  /**
-   * Set this to change Localize Style css
-   * @default {}
-   */
-  css?: {};
 }
-
-export default {
-  DarkenTheme,
-  LightenTheme,
-  Themes,
-};

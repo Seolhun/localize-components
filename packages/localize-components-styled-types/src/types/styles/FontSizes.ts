@@ -7,14 +7,7 @@ export enum FontSize {
   H6 = '11px',
 }
 
-export type FontSizeType =
-  | FontSize
-  | 'H1'
-  | 'H2'
-  | 'H3'
-  | 'H4'
-  | 'H5'
-  | 'H6';
+export type FontSizeType = FontSize | 'H1' | 'H2' | 'H3' | 'H4' | 'H5' | 'H6';
 
 export const FontSizes = {
   ...FontSize,

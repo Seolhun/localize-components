@@ -1,29 +1,48 @@
-import React, { FunctionComponent, ReactNode } from 'react';
-
+import React, { ReactNode } from 'react';
 import styled from '@emotion/styled';
+import { IThemeConfig } from '@seolhun/localize-components-styled-types';
 
-const RowComponent = styled.div({
-  display: 'flex',
-  flexWrap: 'wrap',
-  width: '100%',
-});
+import { FlexDirectionProperty } from 'csstype';
+import classnames from 'classnames';
 
-interface RowProps {
-  children: ReactNode,
-  className: string,
-  styles: {},
+
+export interface RowProps {
+  children: ReactNode;
+  className?: string;
+  isWrap?: boolean;
+  flexDirection?: FlexDirectionProperty;
+  css?: {};
 }
 
-const Row: FunctionComponent<RowProps> = ({
-  children = null,
-  className = '',
-  styles = {},
-}) => {
+const StyledRow = styled.div<RowProps, IThemeConfig>(
+  ({ theme, flexDirection = 'row', isWrap = true, css = {} }) => {
+    return {
+      display: 'flex',
+      flexDirection,
+      flexWrap: isWrap ? 'wrap' : 'nowrap',
+
+      width: 'auto',
+      marginRight: theme.row.gutter,
+      marginLeft: theme.row.gutter,
+      marginBottom: theme.row.gutter,
+      ...css,
+    };
+  }
+);
+
+export const Row = ({
+  children,
+  className,
+  ...props
+}: RowProps) => {
   return (
-    <RowComponent className={className} css={styles}>
+    <StyledRow
+      className={classnames('__Localize__Row', className)}
+      {...props}
+    >
       {children}
-    </RowComponent>
-  );
+    </StyledRow>
+  )
 }
 
 export default Row;

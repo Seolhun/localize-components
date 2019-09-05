@@ -4,9 +4,7 @@ import styled from '@emotion/styled';
 
 import classnames from 'classnames';
 
-import {
-  getValidTheme,
-} from '@seolhun//localize-components-styled-utils';
+import { getValidTheme } from '@seolhun//localize-components-styled-utils';
 import {
   StyledProps,
   ThemeConfig,
@@ -70,12 +68,12 @@ export interface RadioProps {
   css?: {};
   /**
    * Set this to change Radio mainColor
-   * @default ThemeConfig.MAIN_THEME = royal_blue
+   * @default ThemeConfig.primaryColor = royal_blue
    */
   mainColor?: ThemesType;
   /**
    * Set this to change Radio subColor
-   * @default ThemeConfig.SUB_THEME = gray
+   * @default ThemeConfig.secondaryColor = grey
    */
   subColor?: ThemesType;
   /**
@@ -97,8 +95,8 @@ export interface RadioProps {
 }
 
 export interface RadioItemProps {
-  [key: string]: any,
-};
+  [key: string]: any;
+}
 
 const Radio: FunctionComponent<RadioProps> = ({
   item,
@@ -113,14 +111,12 @@ const Radio: FunctionComponent<RadioProps> = ({
   useValueKey = false,
   css = {},
   valueKey = 'value',
-  mainColor = ThemeConfig.MAIN_THEME,
-  subColor = ThemeConfig.SUB_THEME,
+  mainColor = ThemeConfig.primaryColor,
+  subColor = ThemeConfig.secondaryColor,
   align,
   onClickItems,
 }) => {
-  const usedKey = useValueKey
-    ? valueKey
-    : labelKey;
+  const usedKey = useValueKey ? valueKey : labelKey;
 
   const handleOnChange = () => {
     onChange({
@@ -134,41 +130,34 @@ const Radio: FunctionComponent<RadioProps> = ({
         value: item[valueKey],
       });
     }
-  }
+  };
 
   return (
     <StyledRadioLabel
       key={item[usedKey]}
       htmlFor={item[usedKey]}
-      className={classnames(
-        '__Localize__',
-        className,
-      )}
+      className={classnames('__Localize__', className)}
       onMouseOut={onMouseOut}
       onMouseOver={onMouseOver}
       align={align}
     >
       {item[usedKey]}
       <StyledRadio
-        type='radio'
+        type="radio"
         id={item[usedKey]}
         checked={checked}
-        className='__Localize__Radio'
+        className="__Localize__Radio"
         onChange={handleOnChange}
         value={item[usedKey]}
         name={groupName || item[usedKey]}
       />
-      <StyledCheckMark
-        mainColor={mainColor}
-        subColor={subColor}
-        css={css}
-      />
+      <StyledCheckMark mainColor={mainColor} subColor={subColor} css={css} />
     </StyledRadioLabel>
   );
 };
 
 interface SizeProps {
-    /**
+  /**
    * Set this to change Radio Group align
    * @default undefined
    */
@@ -181,9 +170,7 @@ const StyledRadioLabel = styled.label<SizeProps>`
   -webkit-user-select: none;
   align-items: center;
   cursor: pointer;
-  display: ${({
-    align,
-  }) => {
+  display: ${({ align }) => {
     if (align === 'horizontal') {
       return 'inline-flex';
     }
@@ -193,9 +180,7 @@ const StyledRadioLabel = styled.label<SizeProps>`
   padding-left: 30px;
   position: relative;
   user-select: none;
-  width: ${({
-    align,
-  }) => {
+  width: ${({ align }) => {
     if (align === 'horizontal') {
       return 'auto';
     }
@@ -213,12 +198,12 @@ const StyledRadio = styled.input`
 
 const StyledCheckMark = styled.span<StyledProps>`
   background-color: ${({
-    subColor = ThemeConfig.SUB_THEME,
+    subColor = ThemeConfig.secondaryColor,
   }: StyledProps) => {
     return getValidTheme(subColor);
   }};
   border-radius: 50%;
-  border: 1px solid ${DarkenTheme.dark_gray};
+  border: 1px solid ${DarkenTheme.dark_grey};
   display: inline-flex;
   height: 16px;
   justify-content: flex-start;
@@ -229,46 +214,41 @@ const StyledCheckMark = styled.span<StyledProps>`
 
   .__Localize__Radio:checked ~ & {
     display: block;
-    border: 1px solid ${({
-      mainColor = ThemeConfig.MAIN_THEME,
-    }) => {
-      return getValidTheme(mainColor);
-    }};
+    border: 1px solid
+      ${({ mainColor = ThemeConfig.primaryColor }) => {
+        return getValidTheme(mainColor);
+      }};
   }
 
   .__Localize__Radio:hover ~ & {
-    border: 1px solid ${({
-      mainColor = ThemeConfig.MAIN_THEME,
-    }) => {
-      return getValidTheme(mainColor);
-    }};
+    border: 1px solid
+      ${({ mainColor = ThemeConfig.primaryColor }) => {
+        return getValidTheme(mainColor);
+      }};
   }
 
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     display: none;
   }
 
   .__Localize__Radio:checked ~ &:after {
     display: block;
-    transition: transform .3s ease-out;
-    transform: scale(1.0);
+    transition: transform 0.3s ease-out;
+    transform: scale(1);
   }
 
   &:after {
     -ms-transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
-    background: ${({
-      mainColor = ThemeConfig.MAIN_THEME,
-    }) => {
+    background: ${({ mainColor = ThemeConfig.primaryColor }) => {
       return getValidTheme(mainColor);
     }};
-    border: 1px solid ${({
-      mainColor = ThemeConfig.MAIN_THEME,
-    }) => {
-      return getValidTheme(mainColor);
-    }};
+    border: 1px solid
+      ${({ mainColor = ThemeConfig.primaryColor }) => {
+        return getValidTheme(mainColor);
+      }};
     height: 8px;
     left: 2.5px;
     top: 2.5px;

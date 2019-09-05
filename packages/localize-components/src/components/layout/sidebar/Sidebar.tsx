@@ -16,8 +16,11 @@ const Sidebar: React.FunctionComponent<SidebarProps> = ({
   className,
   style,
 }) => (
-  <aside className={classnames(`__Localize__Sidebar ${className}`)} style={style}>
-    <div className='menu-items'>{children}</div>
+  <aside
+    className={classnames(`__Localize__Sidebar ${className}`)}
+    style={style}
+  >
+    <div className="menu-items">{children}</div>
   </aside>
 );
 

@@ -66,12 +66,12 @@ export interface CheckBoxProps {
   useValueKey?: boolean;
   /**
    * Set this to change CheckBox mainColor
-   * @default ThemeConfig.MAIN_THEME = royal_blue
+   * @default ThemeConfig.primaryColor = royal_blue
    */
   mainColor?: ThemesType;
   /**
    * Set this to change CheckBox subColor
-   * @default ThemeConfig.SUB_THEME = gray
+   * @default ThemeConfig.secondaryColor = grey
    */
   subColor?: ThemesType;
   /**
@@ -97,10 +97,9 @@ export interface CheckBoxProps {
   onClickItems?: (...args: any[]) => any;
 }
 
-
 export interface CheckBoxItemProps {
-  [key: string]: any,
-};
+  [key: string]: any;
+}
 
 const CheckBox: FC<CheckBoxProps> = ({
   item,
@@ -115,14 +114,12 @@ const CheckBox: FC<CheckBoxProps> = ({
   useValueKey = false,
   css = {},
   valueKey = 'value',
-  mainColor = ThemeConfig.MAIN_THEME,
-  subColor = ThemeConfig.SUB_THEME,
+  mainColor = ThemeConfig.primaryColor,
+  subColor = ThemeConfig.secondaryColor,
   align,
   onClickItems,
 }) => {
-  const usedKey = useValueKey
-    ? valueKey
-    : labelKey;
+  const usedKey = useValueKey ? valueKey : labelKey;
 
   const handleOnChange = (item) => {
     onChange({
@@ -136,16 +133,13 @@ const CheckBox: FC<CheckBoxProps> = ({
         value: item[valueKey],
       });
     }
-  }
+  };
 
   return (
     <StyledCheckBoxLabel
       key={item[usedKey]}
       htmlFor={item[usedKey]}
-      className={classnames(
-        '__Localize__',
-        className,
-      )}
+      className={classnames('__Localize__', className)}
       onMouseOut={onMouseOut}
       onMouseOver={onMouseOver}
       align={align}
@@ -154,17 +148,13 @@ const CheckBox: FC<CheckBoxProps> = ({
       <StyledCheckBox
         id={item[usedKey]}
         checked={checked}
-        className='__Localize__CheckBox'
-        type='checkbox'
+        className="__Localize__CheckBox"
+        type="checkbox"
         onChange={handleOnChange}
         value={item[usedKey]}
         name={groupName || item[usedKey]}
       />
-      <StyledCheckMark
-        mainColor={mainColor}
-        subColor={subColor}
-        css={css}
-      />
+      <StyledCheckMark mainColor={mainColor} subColor={subColor} css={css} />
     </StyledCheckBoxLabel>
   );
 };
@@ -177,16 +167,13 @@ interface SizeProps {
   align?: CheckBoxGroupAlign;
 }
 
-
 const StyledCheckBoxLabel = styled.label<SizeProps>`
   -moz-user-select: none;
   -ms-user-select: none;
   -webkit-user-select: none;
   align-items: center;
   cursor: pointer;
-  display: ${({
-    align,
-  }) => {
+  display: ${({ align }) => {
     if (align === 'horizontal') {
       return 'inline-flex';
     }
@@ -196,9 +183,7 @@ const StyledCheckBoxLabel = styled.label<SizeProps>`
   padding-left: 30px;
   position: relative;
   user-select: none;
-  width: ${({
-    align,
-  }) => {
+  width: ${({ align }) => {
     if (align === 'horizontal') {
       return 'auto';
     }
@@ -216,7 +201,7 @@ const StyledCheckBox = styled.input`
 
 const StyledCheckMark = styled.span<StyledProps>`
   background-color: ${({
-    mainColor = ThemeConfig.MAIN_THEME,
+    mainColor = ThemeConfig.primaryColor,
   }: StyledProps) => {
     return getValidTheme(mainColor);
   }};
@@ -231,18 +216,17 @@ const StyledCheckMark = styled.span<StyledProps>`
   width: 16px;
 
   .__Localize__CheckBox:hover ~ & {
-    border: 1px solid ${({
-      mainColor = ThemeConfig.MAIN_THEME,
-    }: StyledProps) => {
-      if (getIsLightenTheme(mainColor)) {
+    border: 1px solid
+      ${({ mainColor = ThemeConfig.primaryColor }: StyledProps) => {
+        if (getIsLightenTheme(mainColor)) {
+          return getValidTheme(mainColor);
+        }
         return getValidTheme(mainColor);
-      }
-      return getValidTheme(mainColor);
-    }};
+      }};
 
     input:checked ~ & {
       background-color: ${({
-        mainColor = ThemeConfig.MAIN_THEME,
+        mainColor = ThemeConfig.primaryColor,
       }: StyledProps) => {
         if (getIsLightenTheme(mainColor)) {
           return darken(0.1, getValidTheme(mainColor));
@@ -253,7 +237,7 @@ const StyledCheckMark = styled.span<StyledProps>`
   }
 
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     display: none;
   }
@@ -265,11 +249,10 @@ const StyledCheckMark = styled.span<StyledProps>`
   &:after {
     -ms-transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
-    border: solid ${({
-      subColor = ThemeConfig.SUB_THEME,
-    }: StyledProps) => {
-      return getValidTheme(subColor);
-    }};
+    border: solid
+      ${({ subColor = ThemeConfig.secondaryColor }: StyledProps) => {
+        return getValidTheme(subColor);
+      }};
     border-width: 0 2px 2px 0;
     height: 8px;
     left: 5px;

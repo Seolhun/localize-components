@@ -5,12 +5,6 @@ export enum Locale {
   EN_US = 'en-US',
 }
 
-export type LocaleType =
-  | string
-  | Locale
-  | 'ko'
-  | 'ko-KR'
-  | 'en'
-  | 'en-US';
+export type LocaleType = string | Locale | 'ko' | 'ko-KR' | 'en' | 'en-US';
 
 export default Locale;

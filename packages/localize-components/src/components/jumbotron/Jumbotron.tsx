@@ -10,6 +10,7 @@ import {
 import {
   getValidTheme,
   getIsLightenTheme,
+  createMediaQueryCondition,
 } from '@seolhun/localize-components-styled-utils';
 
 import classnames from 'classnames';
@@ -33,7 +34,7 @@ export interface JumbotronProps {
   description?: string;
   /**
    * Set this to change Jumbotron mainColor
-   * @default ThemeConfig.MAIN_THEME = royal_blue
+   * @default ThemeConfig.primaryColor = royal_blue
    */
   mainColor?: ThemesType;
   /**
@@ -74,54 +75,57 @@ export interface JumbotronProps {
   css?: {};
 }
 
-const StyledJumbotron = styled.div<JumbotronProps>(({
-  mainColor = ThemeConfig.MAIN_THEME,
-}) => {
-  const styledColor = () => {
-    if (getIsLightenTheme(mainColor)) {
-      return Themes.dark_gray;
-    }
-    return Themes.white;
-  };
+const StyledJumbotron = styled.div<JumbotronProps>(
+  ({ mainColor = ThemeConfig.primaryColor, css = {} }) => {
+    const getStyledColor = () => {
+      if (getIsLightenTheme(mainColor)) {
+        return Themes.dark_grey;
+      }
+      return Themes.white;
+    };
 
-  return {
-    backgroundColor: getValidTheme(mainColor),
-    color: styledColor(),
-    height: 'auto',
-    minHeight: '200px',
-    padding: '35px',
-    width: '100%',
+    return {
+      backgroundColor: getValidTheme(mainColor),
+      color: getStyledColor(),
+      height: 'auto',
+      width: '100%',
+      ...css,
+    };
   }
-});
+);
 
-const Jumbotron: FunctionComponent<JumbotronProps> = ({
-  children = null,
-  className = '',
-  description = null,
-  title = null,
-  css = {},
+const StyledJumbotronContainer = styled.div<JumbotronProps>({
+  [`@media ${createMediaQueryCondition('XS')}`]: {
+    padding: '3px',
+  },
+  [`@media ${createMediaQueryCondition('SM')}`]: {
+    padding: '5px',
+  },
+  [`@media ${createMediaQueryCondition('MD')}`]: {
+    padding: '10px',
+  },
+  padding: '35px',
+})
+
+export const Jumbotron: FunctionComponent<JumbotronProps> = ({
+  children,
+  className,
+  description,
+  title,
   ...props
 }) => {
   return (
     <StyledJumbotron
-      className={classnames(
-        '__Localize__',
-        className,
-      )}
-      css={css}
+      className={classnames('__Localize__Jumbotron', className)}
       {...props}
     >
-      {title && (
-        <h1>{title}</h1>
-      )}
-      {description && (
-        <h5>{description}</h5>
-      )}
-      {children && (
-        children
-      )}
+      <StyledJumbotronContainer>
+        {title && <h1>{title}</h1>}
+        {description && <h5>{description}</h5>}
+        {children && children}
+      </StyledJumbotronContainer>
     </StyledJumbotron>
   );
-}
+};
 
 export default Jumbotron;

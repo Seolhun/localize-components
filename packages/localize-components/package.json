@@ -12,9 +12,9 @@
     "README.md"
   ],
   "scripts": {
+    "just": "rollup -c",
     "build": "rollup -c",
     "prebuild": "rm -rf dist && rm -rf .rpt2_cache",
-    "bundle": "rollup -c",
     "bundle": "node build/build.js",
     "prebundle": "rm -rf dist",
     "test": "jest"
@@ -49,7 +49,6 @@
     "@types/react": "^16.9.1",
     "autoprefixer": "^9.4.3",
     "awesome-typescript-loader": "^5.2.1",
-    "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
     "babel-plugin-emotion": "^10.0.6",
     "chalk": "^2.4.2",
@@ -85,7 +84,6 @@
     "style-loader": "^0.23.1",
     "terser-webpack-plugin": "^1.1.0",
     "ts-node": "^8.0.3",
-    "tslib": "^1.9.3",
     "typescript": "^3.5.3",
     "uglifyjs-webpack-plugin": "^2.1.3",
     "url-loader": "^2.0.0",

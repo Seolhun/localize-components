@@ -8,8 +8,8 @@ import {
 } from '@seolhun/localize-components-styled-types';
 
 export interface RadioItemProps {
-  [key: string]: any,
-};
+  [key: string]: any;
+}
 
 export type CheckBoxGroupAlign = 'vertical' | 'horizontal' | string;
 
@@ -40,12 +40,12 @@ export interface CheckBoxGroupProps {
   useValueKey?: boolean;
   /**
    * Set this to change CheckBox Group mainColor
-   * @default ThemeConfig.MAIN_THEME = royal_blue
+   * @default ThemeConfig.primaryColor = royal_blue
    */
   mainColor?: ThemesType;
   /**
    * Set this to change CheckBox Group subColor
-   * @default ThemeConfig.SUB_THEME = gray
+   * @default ThemeConfig.secondaryColor = grey
    */
   subColor?: ThemesType;
 
@@ -77,16 +77,15 @@ const CheckBoxGroup: FunctionComponent<CheckBoxGroupProps> = ({
   labelKey = 'label',
   valueKey = 'value',
   useValueKey = false,
-  mainColor = ThemeConfig.MAIN_THEME,
-  subColor = ThemeConfig.SUB_THEME,
+  mainColor = ThemeConfig.primaryColor,
+  subColor = ThemeConfig.secondaryColor,
   align = 'vertical',
   gap = '10px',
   onClickItems = () => null,
 }) => {
-
   return (
     <CheckBoxGroupContainer
-      className='__Localize__CheckBoxGroup'
+      className="__Localize__CheckBoxGroup"
       align={align}
       gap={gap}
     >
@@ -102,8 +101,8 @@ const CheckBoxGroup: FunctionComponent<CheckBoxGroupProps> = ({
         onClickItems,
       })}
     </CheckBoxGroupContainer>
-  )
-}
+  );
+};
 
 const CheckBoxGroupContainer = styled.div<CheckBoxGroupContainerProps>`
   & > *:not(:last-child) {
@@ -115,6 +114,5 @@ const CheckBoxGroupContainer = styled.div<CheckBoxGroupContainerProps>`
     }};
   }
 `;
-
 
 export default CheckBoxGroup;

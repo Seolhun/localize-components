@@ -12,7 +12,7 @@ export function getTouchDirection(
   { startX, endX, startY, endY },
   { threshold = touchThreshold } = {
     threshold: touchThreshold,
-  },
+  }
 ) {
   let directionX = 'none';
   if (startX && endX) {
