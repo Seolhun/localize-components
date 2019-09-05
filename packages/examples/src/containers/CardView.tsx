@@ -8,8 +8,24 @@ import { ThemeConfig } from '@seolhun/localize-components-styled-types';
 const CardView = () => {
   return (
     <ThemeProvider theme={ThemeConfig}>
+
       <Container>
         <Row>
+          <Col xs={24}>
+            <Card>
+              Hello
+            </Card>
+          </Col>
+          <Col xs={12}>
+            <Card>
+              Hello
+            </Card>
+          </Col>
+          <Col xs={12}>
+          <Card>
+              Hello
+            </Card>
+          </Col>
           <Col xs={24}>
             <Card>
               Hello

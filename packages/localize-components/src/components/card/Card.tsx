@@ -2,9 +2,9 @@ import React, { FC } from 'react';
 
 import classnames from 'classnames';
 import styled from '@emotion/styled'
-import { IThemeConfig } from '@seolhun/localize-components-styled-types';
+import { IThemeConfig, BaseStyleProps, Themes } from '@seolhun/localize-components-styled-types';
 
-export interface CardProps {
+export interface CardProps extends BaseStyleProps{
   children: React.ReactNode;
   className?: string;
   css?: {},
@@ -12,9 +12,11 @@ export interface CardProps {
 
 const StyledCard = styled.div<CardProps, IThemeConfig>(({
   theme,
+  mainColor,
   css = {},
 }) => {
   return {
+    backgroundColor: mainColor || Themes.white,
     display: 'block',
     minHeight: '100px',
     height: 'auto',

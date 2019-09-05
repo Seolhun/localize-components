@@ -5,10 +5,9 @@ import classnames from 'classnames';
 
 import {
   Size,
-  SizeType,
   ThemeConfig,
   Themes,
-  ThemesType,
+  StyledProps,
 } from '@seolhun/localize-components-styled-types';
 import {
   getValidTheme,
@@ -16,7 +15,7 @@ import {
   getThemeColorStyle,
 } from '@seolhun/localize-components-styled-utils';
 
-export interface ButtonProps {
+export interface ButtonProps extends StyledProps {
   // isRequired
   /**
    * Set this to change Button rendering children node
@@ -25,11 +24,6 @@ export interface ButtonProps {
   children: ReactNode;
 
   // isNotRequired
-  /**
-   * Set this to change Button className
-   * @default ''
-   */
-  className?: string;
   /**
    * Set this to change Button disabled
    * @default false
@@ -65,26 +59,6 @@ export interface ButtonProps {
    * @default () => null
    */
   onMouseOver?: (...args: any[]) => void;
-  /**
-   * Set this to change Button style
-   * @default medium
-   */
-  size?: SizeType;
-  /**
-   * Set this to change Button mainColor
-   * @default ThemeConfig.primaryColor = royal_blue
-   */
-  mainColor?: ThemesType;
-  /**
-   * Set this to change Button subColor
-   * @default ThemeConfig.secondaryColor = grey
-   */
-  subColor?: ThemesType;
-  /**
-   * Set this to change Button css
-   * @default {}
-   */
-  css?: {};
 }
 
 const StyledButton = styled.button<ButtonProps>(
@@ -92,6 +66,7 @@ const StyledButton = styled.button<ButtonProps>(
     fontSize = 12,
     mainColor = ThemeConfig.primaryColor,
     size = Size.MEDIUM,
+    css = {},
   }) => {
     const styledSize = () => {
       switch (size) {
@@ -134,6 +109,7 @@ const StyledButton = styled.button<ButtonProps>(
         color: Themes.white,
         cursor: 'not-allowed',
       },
+      ...css,
     };
   }
 );
@@ -141,12 +117,10 @@ const StyledButton = styled.button<ButtonProps>(
 const Button: FunctionComponent<ButtonProps> = ({
   children,
   className = '',
-  css = {},
   ...props
 }) => (
   <StyledButton
     className={classnames('__Localize__Button', className)}
-    css={css}
     type="button"
     {...props}
   >

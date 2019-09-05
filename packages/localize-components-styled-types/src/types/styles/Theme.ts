@@ -47,7 +47,7 @@ export type ThemesType =
   | LightenTheme
   | string;
 
-export interface StyledProps {
+export interface BaseStyleProps {
   /**
    * Set this to change Localize Style className
    * @default '''
@@ -64,6 +64,14 @@ export interface StyledProps {
    */
   subColor?: ThemesType;
   /**
+   * Set this to change Localize Style css
+   * @default {}
+   */
+  css?: {};
+}
+
+export interface StyledProps extends BaseStyleProps {
+  /**
    * Set this to change Localize Style position
    * @default medium
    */
@@ -78,9 +86,4 @@ export interface StyledProps {
    * @default 1000
    */
   zIndex?: number;
-  /**
-   * Set this to change Localize Style css
-   * @default {}
-   */
-  css?: {};
 }
