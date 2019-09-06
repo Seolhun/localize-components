@@ -4,6 +4,7 @@ import { IThemeConfig, IColumnValue } from '@seolhun/localize-components-styled-
 import { getMediaQueryStyles } from '@seolhun/localize-components-styled-utils';
 
 import classnames from 'classnames';
+import { AlignItemsProperty, JustifyContentProperty } from 'csstype';
 
 
 export interface ColProps {
@@ -14,6 +15,8 @@ export interface ColProps {
   md?: IColumnValue;
   lg?: IColumnValue;
   xl?: IColumnValue;
+  alignItems?: AlignItemsProperty;
+  justifyContent?: JustifyContentProperty;
   css?: {};
 }
 
@@ -24,6 +27,8 @@ const StyledCol = styled.div<ColProps, IThemeConfig>(({
   md,
   sm,
   xs,
+  alignItems = 'center',
+  justifyContent = 'flex-start',
   css = {},
 }) => {
     return {
@@ -35,6 +40,8 @@ const StyledCol = styled.div<ColProps, IThemeConfig>(({
       width: '100%',
       flex: '0 100%',
       flexBasis: 'auto',
+      alignItems,
+      justifyContent,
       flexGrow: 1,
       flexShrink: 0,
       boxSizing: 'border-box',
