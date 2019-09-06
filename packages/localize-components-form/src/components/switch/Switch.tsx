@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React, { FunctionComponent, useCallback, ChangeEvent } from 'react';
 
 import styled from '@emotion/styled';
 
@@ -14,15 +14,13 @@ import {
 export interface SwitchProps {
   /**
    * Set this to change Switch label
-   * @default {}
    */
-  item: SwitchItemProps;
-  // isNotRequired
+  items: ISwitchItem[];
   /**
    * Set this to change Switch checked
    * @default false
    */
-  checked?: boolean;
+  checked: boolean;
   /**
    * Set this to change Switch className
    * @default ''
@@ -42,7 +40,7 @@ export interface SwitchProps {
    * Set this to change Switch onChange
    * @default () => null
    */
-  onChange?: (item: SwitchItemProps) => void;
+  onChange?: (event?: ChangeEvent, checkedItem?: ISwitchCheckedItem) => void;
   /**
    * Set this to change Switch onMouseOver
    * @default () => null
@@ -80,13 +78,18 @@ export interface SwitchProps {
   valueKey?: string;
 }
 
-export interface SwitchItemProps {
+export interface ISwitchItem {
   label: string;
   value: string;
 }
 
+export interface ISwitchCheckedItem {
+  checkedItem?: ISwitchItem;
+  checked?: boolean;
+}
+
 const Switch: FunctionComponent<SwitchProps> = ({
-  item,
+  items,
   // IsNotRequired
   checked = false,
   className = '',
@@ -102,27 +105,30 @@ const Switch: FunctionComponent<SwitchProps> = ({
   valueKey = 'value',
 }) => {
   const usedKey = useValueKey ? valueKey : labelKey;
+  const checkedItem = checked ? items[0] : items[1];
+  const handleChecked = useCallback((event: ChangeEvent) => {
+    onChange(event, {
+      [labelKey]: checkedItem[labelKey],
+      [valueKey]: checkedItem[valueKey],
+      checked,
+    })
+  }, [checked])
 
   return (
     <StyledSwitchLabel
-      key={item[usedKey]}
-      htmlFor={item[usedKey]}
+      key={checkedItem[usedKey]}
+      htmlFor={checkedItem[usedKey]}
       className={classnames('__Localize__', className)}
       onMouseOut={onMouseOut}
       onMouseOver={onMouseOver}
     >
       <StyledSwitchInput
-        id={item[usedKey]}
+        id={checkedItem[usedKey]}
         checked={checked}
         className="Switch"
         type="checkbox"
-        onChange={() =>
-          onChange({
-            label: item[labelKey],
-            value: item[valueKey],
-          })
-        }
-        value={item[usedKey]}
+        onChange={handleChecked}
+        value={checkedItem[usedKey]}
         name={groupName}
       />
       <StyledSlider
