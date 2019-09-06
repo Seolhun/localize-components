@@ -13,9 +13,9 @@ import {
 
 export interface SwitchProps {
   /**
-   * Set this to change Switch label
+   * Set this to change Switch items
    */
-  items: ISwitchItem[];
+  items: [ISwitchItem, ISwitchItem];
   /**
    * Set this to change Switch checked
    * @default false
@@ -90,19 +90,18 @@ export interface ISwitchCheckedItem {
 
 const Switch: FunctionComponent<SwitchProps> = ({
   items,
-  // IsNotRequired
   checked = false,
   className = '',
   groupName = '',
-  labelKey = 'label',
   mainColor = ThemeConfig.primaryColor,
+  subColor = ThemeConfig.secondaryColor,
   onChange = () => null,
   onMouseOut = () => null,
   onMouseOver = () => null,
-  css = {},
-  subColor = ThemeConfig.secondaryColor,
   useValueKey = false,
+  labelKey = 'label',
   valueKey = 'value',
+  css = {},
 }) => {
   const usedKey = useValueKey ? valueKey : labelKey;
   const checkedItem = checked ? items[0] : items[1];
@@ -118,21 +117,21 @@ const Switch: FunctionComponent<SwitchProps> = ({
     <StyledSwitchLabel
       key={checkedItem[usedKey]}
       htmlFor={checkedItem[usedKey]}
-      className={classnames('__Localize__', className)}
+      className={classnames('__Localize__SwitchLabel', className)}
       onMouseOut={onMouseOut}
       onMouseOver={onMouseOver}
     >
       <StyledSwitchInput
         id={checkedItem[usedKey]}
         checked={checked}
-        className="Switch"
+        className={classnames('__Localize__SwitchInput', className)}
         type="checkbox"
         onChange={handleChecked}
         value={checkedItem[usedKey]}
         name={groupName}
       />
       <StyledSlider
-        className="Slider"
+        className={classnames('__Localize__SwitchSlider', className)}
         mainColor={mainColor}
         subColor={subColor}
         css={css}

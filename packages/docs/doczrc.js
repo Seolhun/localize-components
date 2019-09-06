@@ -7,7 +7,7 @@ export default {
   title: 'Localize Components',
   src: './src',
   dest: '/dist',
-  port: 8000,
+  port: 9000,
   description: 'Localized-components without effect',
   repository: 'https://github.com/Seolhun/localize-components',
   indexHtml: 'public/index.html',
