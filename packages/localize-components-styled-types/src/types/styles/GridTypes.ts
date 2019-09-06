@@ -1,6 +1,7 @@
 interface IResponsiveValue {
   span: number
   offset?: number
+  css?: {}
 }
 
 export type IColumnValue = number | IResponsiveValue

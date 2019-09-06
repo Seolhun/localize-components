@@ -46,7 +46,7 @@ export const buildGridStyle = (columnValue: IColumnValue) => {
     return styles;
   }
 
-  const { offset = 0 } = columnValue;
+  const { offset = 0, css } = columnValue;
   Object.assign(styles, {
     ...(_isBeforeOffset(columnValue)
       ? {
@@ -54,7 +54,9 @@ export const buildGridStyle = (columnValue: IColumnValue) => {
         }
       : {
           marginRight: `${calcWidth(offset)}%`,
-        }),
+        }
+    ),
+    ...css
   });
   return styles;
 };
