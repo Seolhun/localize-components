@@ -1,5 +1,5 @@
 import Issue, { IssueProps } from './Issue';
 
-export { IssueProps };
+export { Issue, IssueProps };
 
 export default Issue;
