@@ -51,7 +51,7 @@
 - @seolhun/localize-components-types
 
 
-## Getting start
+## How to getting started
 #### Install Package
 ```bash
 $ yarn add @seolhun/localize-components @seolhun/localize-components-atomic
