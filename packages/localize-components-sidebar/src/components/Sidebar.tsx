@@ -46,7 +46,7 @@ export interface SidebarProps {
 
   /**
    * Set this to change Button className
-   * @default ''
+   * @default undefined
    */
   className?: string;
   /**

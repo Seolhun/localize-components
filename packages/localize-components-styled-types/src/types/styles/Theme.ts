@@ -1,7 +1,7 @@
 import { SizeType } from './Size';
 import { PositionType } from './Position';
 
-export enum DarkenTheme {
+export enum DarkenThemeEnum {
   basic = '#d1d5da',
   black = '#2a2a2a',
   danger = '#E32929',
@@ -14,57 +14,53 @@ export enum DarkenTheme {
   warning = '#ebad1a',
 }
 
-export enum LightenTheme {
+export enum LightenThemeEnum {
   info = '#369cc7',
   light_grey = '#cccc',
   sky = '#87CEEB',
   white = '#fff',
   yellow = '#FFFF00',
+  transparent = 'transparent',
 }
 
 export const LocalizeThemes = {
-  ...DarkenTheme,
-  ...LightenTheme,
+  ...DarkenThemeEnum,
+  ...LightenThemeEnum,
 };
 
 export type LocalizeThemesType =
-  | 'basic'
-  | 'black'
-  | 'danger'
-  | 'dark_grey'
-  | 'grey'
-  | 'info'
-  | 'light_grey'
-  | 'primary'
-  | 'purple'
-  | 'royal_blue'
-  | 'sky'
-  | 'success'
-  | 'warning'
-  | 'white'
-  | 'yellow'
-  | DarkenTheme
-  | LightenTheme
+  | keyof typeof LightenThemeEnum
+  | keyof typeof DarkenThemeEnum
+  | DarkenThemeEnum
+  | LightenThemeEnum
   | string;
 
-export interface LocalizeBaseStyledProps {
+export interface LocalizeThemeStyledProps {
   /**
-   * Set this to change Localize Style className
-   * @default '''
-   */
-  className?: string;
-  /**
-   * Set this to change Localize Style mainColor
+   * Set this to change LocalizeThemeStyledProps mainColor
    * @default LocalizeTheme.primaryColor = royal_blue
    */
   mainColor?: LocalizeThemesType;
   /**
-   * Set this to change Localize Style subColor
+   * Set this to change LocalizeThemeStyledProps subColor
    * @default LocalizeTheme.secondaryColor
    */
   subColor?: LocalizeThemesType;
+}
+
+export interface LocalizeBaseStyledProps extends LocalizeThemeStyledProps {
   /**
-   * Set this to change Localize Style css
+   * Set this to change LocalizeBaseStyledProps className
+   * @default '''
+   */
+  className?: string;
+  /**
+   * Set this to change LocalizeStyledProps subColor
+   * @default undefined
+   */
+  zIndex?: number;
+  /**
+   * Set this to change LocalizeBaseStyledProps css
    * @default {}
    */
   css?: {};
@@ -72,18 +68,13 @@ export interface LocalizeBaseStyledProps {
 
 export interface LocalizeStyledProps extends LocalizeBaseStyledProps {
   /**
-   * Set this to change Localize Style position
-   * @default medium
+   * Set this to change LocalizeStyledProps position
+   * @default 'center'
    */
   position?: PositionType;
   /**
-   * Set this to change Localize Style size
+   * Set this to change LocalizeStyledProps size
    * @default medium
    */
   size?: SizeType;
-  /**
-   * Set this to change Localize Style subColor
-   * @default 1000
-   */
-  zIndex?: number;
 }

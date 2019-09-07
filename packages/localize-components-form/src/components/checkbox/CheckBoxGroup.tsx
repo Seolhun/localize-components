@@ -11,7 +11,7 @@ export interface RadioItemProps {
   [key: string]: any;
 }
 
-export type CheckBoxGroupAlign = 'vertical' | 'horizontal' | string;
+export type CheckBoxGroupAlign = 'vertical' | 'horizontal';
 
 export interface CheckBoxGroupProps {
   /**
@@ -71,6 +71,28 @@ interface CheckBoxGroupContainerProps {
   gap: string;
 }
 
+export const CheckBoxGroupContainer = styled.div<CheckBoxGroupContainerProps>(({
+  align,
+  gap,
+}) => {
+  const getGapStylesByAlign = () => {
+    const isVertical = align === 'vertical';
+    if (isVertical) {
+      return {
+        marginBottom: `${gap}`,
+      }
+    }
+    return {
+      marginRight: `${gap}`,
+    }
+  }
+  return {
+    '& > *:not(:last-child)': {
+      ...getGapStylesByAlign(),
+    },
+  }
+})
+
 const CheckBoxGroup: FunctionComponent<CheckBoxGroupProps> = ({
   children,
   groupName,
@@ -85,34 +107,25 @@ const CheckBoxGroup: FunctionComponent<CheckBoxGroupProps> = ({
 }) => {
   return (
     <CheckBoxGroupContainer
-      className="__Localize__CheckBoxGroup"
+      className='__Localize__CheckBoxGroup'
       align={align}
       gap={gap}
     >
-      {children({
-        children,
-        groupName,
-        labelKey,
-        valueKey,
-        useValueKey,
-        mainColor,
-        subColor,
-        align,
-        onClickItems,
-      })}
+      <>
+        {children({
+          children,
+          groupName,
+          labelKey,
+          valueKey,
+          useValueKey,
+          mainColor,
+          subColor,
+          align,
+          onClickItems,
+        })}
+      </>
     </CheckBoxGroupContainer>
   );
 };
-
-const CheckBoxGroupContainer = styled.div<CheckBoxGroupContainerProps>`
-  & > *:not(:last-child) {
-    margin-right: ${({ align, gap }) => {
-      if (align === 'horizontal') {
-        return `${gap}`;
-      }
-      return '0';
-    }};
-  }
-`;
 
 export default CheckBoxGroup;

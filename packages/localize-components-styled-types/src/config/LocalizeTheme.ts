@@ -1,4 +1,4 @@
-import { LocalizeThemesType, LocalizeThemes } from "../types/styles";
+import { LocalizeThemesType, LocalizeThemes } from '../types/styles';
 
 export interface ILocalizeTheme {
   primaryColor: LocalizeThemesType;
@@ -18,11 +18,9 @@ export interface ILocalizeTheme {
 }
 
 export const LocalizeTheme: ILocalizeTheme = {
-  primaryColor: 'primary',
+  primaryColor: 'royalblue',
   secondaryColor: 'white',
-
   background: 'white',
-
   border: {
     color: `${LocalizeThemes.grey}`,
     radius: '4px',

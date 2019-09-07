@@ -3,19 +3,18 @@ import React, { ReactNode, FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 
 import {
-  LocalizeTheme,
-  LocalizeThemesType,
-  LocalizeThemes,
+  LocalizeThemeStyledProps,
+  ILocalizeTheme,
 } from '@seolhun/localize-components-styled-types';
 import {
-  getValidTheme,
-  getIsLightenTheme,
   createMediaQueryCondition,
+  getThemeObject,
+  getThemeColorStyle,
 } from '@seolhun/localize-components-styled-utils';
 
 import classnames from 'classnames';
 
-export interface JumbotronProps {
+export interface JumbotronProps extends LocalizeThemeStyledProps {
   // isNotRequired
   /**
    * Set this to change Jumbotron rendering children node
@@ -24,7 +23,7 @@ export interface JumbotronProps {
   children?: ReactNode;
   /**
    * Set this to change Jumbotron className
-   * @default ''
+   * @default undefined
    */
   className?: string;
   /**
@@ -32,11 +31,6 @@ export interface JumbotronProps {
    * @default ''
    */
   description?: string;
-  /**
-   * Set this to change Jumbotron mainColor
-   * @default LocalizeTheme.primaryColor = royal_blue
-   */
-  mainColor?: LocalizeThemesType;
   /**
    * Set this to change Jumbotron onBlur
    * @default 'main'
@@ -67,7 +61,6 @@ export interface JumbotronProps {
    * @default ''
    */
   title?: string;
-
   /**
    * Set this to change Jumbotron css
    * @default {}
@@ -75,18 +68,17 @@ export interface JumbotronProps {
   css?: {};
 }
 
-const StyledJumbotron = styled.div<JumbotronProps>(
-  ({ mainColor = LocalizeTheme.primaryColor, css = {} }) => {
-    const getStyledColor = () => {
-      if (getIsLightenTheme(mainColor)) {
-        return LocalizeThemes.dark_grey;
-      }
-      return LocalizeThemes.white;
-    };
+const StyledJumbotron = styled.div<JumbotronProps, ILocalizeTheme>(({
+  theme,
+  mainColor,
+  subColor,
+  css = {},
+}) => {
+    const validTheme = getThemeObject({ mainColor, subColor }, theme);
 
     return {
-      backgroundColor: getValidTheme(mainColor),
-      color: getStyledColor(),
+      backgroundColor: validTheme.mainColor,
+      color: getThemeColorStyle(validTheme.mainColor),
       height: 'auto',
       width: '100%',
       ...css,

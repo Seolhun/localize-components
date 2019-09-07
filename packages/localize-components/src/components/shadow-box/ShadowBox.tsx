@@ -14,7 +14,7 @@ const ShadowBoxWrapper = styled.section({
   top: '0',
   width: '100vw',
   zIndex: layout.Z_INDEX.SHADOW_BOX,
-  animation: `${fadeIn()} 0.5s ease-in-out`,
+  animation: `${fadeIn()} 0.35s ease-in-out`,
 });
 
 const ShadowBoxContainer = styled.div({
@@ -92,7 +92,7 @@ class ShadowBox extends Component<ShadowBoxProps> {
     const {
       children = null,
 
-      className = '',
+      className,
       isShow = false,
       onClose = () => null,
       style = {},

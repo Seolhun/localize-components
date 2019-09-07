@@ -1,60 +1,33 @@
-import React, { Component, ReactNode } from 'react';
+import React, { ReactNode, FC, useCallback } from 'react';
 
 import styled from '@emotion/styled';
 import classnames from 'classnames';
 
 import {
   Position,
-  PositionType,
   Size,
-  SizeType,
   LocalizeStyledProps,
   LocalizeTheme,
   LocalizeThemes,
-  LocalizeThemesType,
+  ILocalizeTheme,
 } from '@seolhun/localize-components-styled-types';
 import {
   getIsLightenTheme,
-  getValidTheme,
   getPositionStyle,
+  getThemeObject,
 } from '@seolhun/localize-components-styled-utils';
 
-export interface ModalProps {
-  /**
-   * Set this to toggle Modal event handler
-   * @default null
-   */
-  onClick?: (...args: any[]) => void;
-  /**
-   * Set this to change Modal className
-   * @default null
-   */
-  className?: string;
+const DEFAULT_CLASSNAME = '__Localize__Modal';
+
+export interface ModalProps extends LocalizeStyledProps {
   /**
    * Set this to change Modal showing or not
-   * @default null
    */
-  isShow?: boolean;
+  isShow: boolean;
   /**
-   * Set this to change Modal size
-   * @default medium
+   * Set this to toggle Modal onClick
    */
-  size?: SizeType;
-  /**
-   * Set this to change Modal mainColor
-   * @default LocalizeTheme.primaryColor = royal_blue
-   */
-  mainColor?: LocalizeThemesType;
-  /**
-   * Set this to change Modal subColor
-   * @default LocalizeTheme.secondaryColor = grey
-   */
-  subColor?: LocalizeThemesType;
-  /**
-   * Set this to change Modal rendering children node
-   * @default 'center'
-   */
-  position?: PositionType;
+  onClick: (...args: any[]) => void;
   /**
    * Set this to change Modal header children node
    * @default null
@@ -70,124 +43,15 @@ export interface ModalProps {
    * @default null
    */
   footer?: ReactNode | string;
-  /**
-   * Set this to change Modal rendering children node
-   * @default null
-   */
-  zIndex?: number;
 }
 
-interface ModalState {
-  isShow: boolean;
-}
-
-class Modal extends Component<ModalProps, ModalState> {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isShow: !!props.isShow,
-    };
+const ModalWrapper = styled.div<LocalizeStyledProps>(({
+  zIndex,
+}) => {
+  return {
+    zIndex,
   }
-
-  static getDerivedStateFromProps(props, state) {
-    if (props.onClick && props.isShow !== state.isShow) {
-      return {
-        isShow: props.isShow,
-      };
-    }
-    return null;
-  }
-
-  handleIsShow = () => {
-    const { onClick } = this.props;
-
-    if (onClick) {
-      onClick();
-      return;
-    }
-
-    this.setState(({ isShow }) => {
-      return {
-        isShow: !isShow,
-      };
-    });
-  };
-
-  render() {
-    const {
-      body = null,
-      className = '',
-      footer = null,
-      header = null,
-      mainColor = LocalizeTheme.primaryColor,
-      position = Position.CENTER,
-      size = Size.MEDIUM,
-      subColor = LocalizeTheme.secondaryColor,
-      zIndex = 1000,
-    } = this.props;
-    const { isShow } = this.state;
-
-    if (!isShow) {
-      return null;
-    }
-
-    return (
-      <ModalWrapper className={classnames('__Localize__')} zIndex={zIndex}>
-        <CoverBackground zIndex={zIndex} />
-        <ModalContainer
-          className={classnames(className)}
-          position={position}
-          size={size}
-          mainColor={mainColor}
-          subColor={subColor}
-          zIndex={zIndex}
-        >
-          <CloseButton
-            onClick={this.handleIsShow}
-            mainColor={mainColor}
-            subColor={subColor}
-          >
-            X
-          </CloseButton>
-          {header && (
-            <ModalContent
-              className={classnames('__Localize__Modal__Header')}
-              size={size}
-              mainColor={mainColor}
-              subColor={subColor}
-            >
-              {header}
-            </ModalContent>
-          )}
-          {body && (
-            <ModalContent
-              className={classnames('__Localize__Modal__Body')}
-              size={size}
-              mainColor={mainColor}
-              subColor={subColor}
-            >
-              {body}
-            </ModalContent>
-          )}
-          {footer && (
-            <ModalContent
-              className={classnames('__Localize__Modal__Footer')}
-              size={size}
-              mainColor={mainColor}
-              subColor={subColor}
-            >
-              {footer}
-            </ModalContent>
-          )}
-        </ModalContainer>
-      </ModalWrapper>
-    );
-  }
-}
-
-const ModalWrapper = styled.div<LocalizeStyledProps>`
-  z-index: ${({ zIndex = 1000 }) => zIndex};
-`;
+})
 
 const CoverBackground = styled.div<LocalizeStyledProps>`
   background-color: rgba(0, 0, 0, 0.7);
@@ -237,13 +101,16 @@ const CloseButton = styled.div<LocalizeStyledProps>`
   }
 `;
 
-const ModalContainer = styled.div<LocalizeStyledProps>(
+const ModalContainer = styled.div<LocalizeStyledProps, ILocalizeTheme>(
   ({
+    theme,
     position = Position.CENTER,
     size = Size.MEDIUM,
-    subColor = LocalizeTheme.secondaryColor,
+    mainColor,
+    subColor,
     zIndex = 1000,
   }) => {
+    const validTheme = getThemeObject({ mainColor, subColor }, theme);
     const getMaxHeight = () => {
       switch (size) {
         case Size.LARGE:
@@ -267,7 +134,7 @@ const ModalContainer = styled.div<LocalizeStyledProps>(
     };
 
     return {
-      backgroundColor: getValidTheme(subColor),
+      backgroundColor: validTheme.subColor,
       borderRadius: '6px',
       boxSizing: 'border-box',
       height: '100%',
@@ -320,5 +187,82 @@ const ModalContent = styled.div<LocalizeStyledProps>`
     padding: 0 20px;
   }
 `;
+
+const Modal: FC<ModalProps> = ({
+  onClick,
+  isShow,
+  // isNotRequired
+  className,
+  body = null,
+  footer = null,
+  header = null,
+  position = Position.CENTER,
+  size = Size.MEDIUM,
+  mainColor,
+  subColor,
+  zIndex = 1000,
+}) =>  {
+  const handleIsShow = useCallback(() => {
+    onClick();
+  }, []);
+
+  if (!isShow) {
+    return null;
+  }
+
+  console.error('@@@', isShow);
+
+  return (
+    <ModalWrapper className={classnames(DEFAULT_CLASSNAME)} zIndex={zIndex}>
+      <CoverBackground zIndex={zIndex} />
+      <ModalContainer
+        className={classnames(className)}
+        position={position}
+        size={size}
+        mainColor={mainColor}
+        subColor={subColor}
+        zIndex={zIndex}
+      >
+        <CloseButton
+          onClick={handleIsShow}
+          mainColor={mainColor}
+          subColor={subColor}
+        >
+          X
+        </CloseButton>
+        {header && (
+          <ModalContent
+            className={classnames(`${DEFAULT_CLASSNAME}__Header`)}
+            size={size}
+            mainColor={mainColor}
+            subColor={subColor}
+          >
+            {header}
+          </ModalContent>
+        )}
+        {body && (
+          <ModalContent
+            className={classnames(`${DEFAULT_CLASSNAME}__Body`)}
+            size={size}
+            mainColor={mainColor}
+            subColor={subColor}
+          >
+            {body}
+          </ModalContent>
+        )}
+        {footer && (
+          <ModalContent
+            className={classnames(`${DEFAULT_CLASSNAME}__Footer`)}
+            size={size}
+            mainColor={mainColor}
+            subColor={subColor}
+          >
+            {footer}
+          </ModalContent>
+        )}
+      </ModalContainer>
+    </ModalWrapper>
+  );
+}
 
 export default Modal;

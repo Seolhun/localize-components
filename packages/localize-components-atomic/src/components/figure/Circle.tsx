@@ -6,12 +6,13 @@ import styled from '@emotion/styled';
 import {
   LocalizeThemesType,
   LocalizeTheme,
+  ILocalizeTheme,
   LocalizeThemes,
 } from '@seolhun/localize-components-styled-types';
 import {
-  getValidTheme,
   getThemeHoverStyle,
   getThemeColorStyle,
+  getThemeObject,
 } from '@seolhun/localize-components-styled-utils';
 
 export interface CircleProps {
@@ -87,14 +88,16 @@ export interface CircleProps {
   css?: {};
 }
 
-const StyledCircle = styled.span<CircleProps>(
-  ({
+const StyledCircle = styled.span<CircleProps, ILocalizeTheme>(({
     isClickable,
-    mainColor = LocalizeTheme.primaryColor,
-    subColor = LocalizeTheme.secondaryColor,
+    mainColor,
+    subColor,
     size = 50,
     fontSize = 12,
+    theme,
   }) => {
+    const validTheme = getThemeObject({ mainColor, subColor }, theme);
+
     return {
       display: 'inline-flex',
       alignItems: 'center',
@@ -103,10 +106,10 @@ const StyledCircle = styled.span<CircleProps>(
       height: `${size}px`,
 
       borderRadius: '50%',
-      border: `1px solid ${getValidTheme(mainColor)}`,
-      backgroundColor: getValidTheme(subColor),
+      border: `1px solid ${validTheme.mainColor}`,
+      backgroundColor: validTheme.subColor,
 
-      color: getThemeColorStyle(subColor),
+      color: getThemeColorStyle(validTheme.subColor),
       fontSize: `${fontSize}px`,
       fontWeight: 500,
       textDecoration: 'none',
@@ -118,13 +121,13 @@ const StyledCircle = styled.span<CircleProps>(
       userSelect: 'none',
 
       '&:hover': {
-        backgroundColor: getThemeHoverStyle(mainColor),
-        color: getThemeColorStyle(mainColor),
+        backgroundColor: getThemeHoverStyle(validTheme.mainColor),
+        color: getThemeColorStyle(validTheme.mainColor),
       },
 
       '&:disabled': {
-        backgroundColor: Themes.light_grey,
-        color: Themes.white,
+        backgroundColor: LocalizeThemes.light_grey,
+        color: LocalizeThemes.white,
         cursor: 'not-allowed',
       },
     };

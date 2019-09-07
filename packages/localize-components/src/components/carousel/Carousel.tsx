@@ -32,7 +32,7 @@ const CarouselContainer = styled.div({
   display: 'block',
   height: 'auto',
   position: 'relative',
-  transition: 'transform 0.5s linear',
+  transition: 'transform 0.35s linear',
   width: '100%',
 });
 

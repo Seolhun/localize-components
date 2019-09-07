@@ -1,19 +1,22 @@
 import React, { FunctionComponent, ReactNode } from 'react';
 
+import classnames from 'classnames';
 import styled from '@emotion/styled';
 
 import {
   LocalizeTheme,
-  LocalizeThemesType,
+  LocalizeBaseStyledProps,
 } from '@seolhun/localize-components-styled-types';
+
+const DEFAULT_CLASSNAME = '__Localize__RadioGroup';
 
 export interface RadioItemProps {
   [key: string]: any;
 }
 
-export type RadioGroupAlign = 'vertical' | 'horizontal' | string;
+export type RadioGroupAlignType = 'vertical' | 'horizontal';
 
-export interface RadioGroupProps {
+export interface RadioGroupProps extends LocalizeBaseStyledProps {
   /**
    * Set this to change Radio Group children
    */
@@ -39,21 +42,10 @@ export interface RadioGroupProps {
    */
   useValueKey?: boolean;
   /**
-   * Set this to change Radio Group mainColor
-   * @default LocalizeTheme.primaryColor = royal_blue
-   */
-  mainColor?: LocalizeThemesType;
-  /**
-   * Set this to change Radio Group subColor
-   * @default LocalizeTheme.secondaryColor = grey
-   */
-  subColor?: LocalizeThemesType;
-
-  /**
    * Set this to change Radio Group align
    * @default 'vertical'
    */
-  align?: RadioGroupAlign;
+  align?: RadioGroupAlignType;
   /**
    * Set this to change Radio Group gap
    * @default '10px'
@@ -63,17 +55,40 @@ export interface RadioGroupProps {
    * Set this to change Radio Group onClick
    * @default () => any;
    */
-  onClickItems?: (...args: any[]) => any;
+  onClick?: (...args: any[]) => any;
 }
 
 interface RadioGroupContainerProps {
-  align: RadioGroupAlign;
+  align: RadioGroupAlignType;
   gap: string;
 }
 
-const RadioGroup: FunctionComponent<RadioGroupProps> = ({
+export const RadioGroupContainer = styled.div<RadioGroupContainerProps>(({
+  align,
+  gap,
+}) => {
+  const getGapStylesByAlign = () => {
+    const isVertical = align === 'vertical';
+    if (isVertical) {
+      return {
+        marginBottom: `${gap}`,
+      }
+    }
+    return {
+      marginRight: `${gap}`,
+    }
+  }
+  return {
+    '& > *:not(:last-child)': {
+      ...getGapStylesByAlign(),
+    },
+  }
+})
+
+export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
   children,
   groupName,
+  className,
   labelKey = 'label',
   valueKey = 'value',
   useValueKey = false,
@@ -81,11 +96,11 @@ const RadioGroup: FunctionComponent<RadioGroupProps> = ({
   subColor = LocalizeTheme.secondaryColor,
   align = 'vertical',
   gap = '10px',
-  onClickItems = () => null,
+  onClick = () => null,
 }) => {
   return (
     <RadioGroupContainer
-      className="__Localize__RadioGroup"
+      className={classnames(DEFAULT_CLASSNAME, className)}
       align={align}
       gap={gap}
     >
@@ -98,21 +113,10 @@ const RadioGroup: FunctionComponent<RadioGroupProps> = ({
         mainColor,
         subColor,
         align,
-        onClickItems,
+        onClick,
       })}
     </RadioGroupContainer>
   );
 };
-
-const RadioGroupContainer = styled.div<RadioGroupContainerProps>`
-  & > *:not(:last-child) {
-    margin-right: ${({ align, gap }) => {
-      if (align === 'horizontal') {
-        return `${gap}`;
-      }
-      return '0';
-    }};
-  }
-`;
 
 export default RadioGroup;

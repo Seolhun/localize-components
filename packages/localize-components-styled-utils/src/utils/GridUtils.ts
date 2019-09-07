@@ -1,11 +1,6 @@
 import { MediaQueries, IColumnValue } from '@seolhun/localize-components-styled-types';
 
-export const calcWidth = (sizeValue: number) => {
-  const gridCounts = 24;
-  return sizeValue * (100 / gridCounts);
-}
-
-export const _hasOffset = (columnValue: IColumnValue) => {
+export const hasOffset = (columnValue: IColumnValue) => {
   if (typeof columnValue !== 'object') {
     return false;
   }
@@ -15,8 +10,8 @@ export const _hasOffset = (columnValue: IColumnValue) => {
   return true;
 };
 
-export const _isBeforeOffset = (columnValue: IColumnValue) => {
-  if (!_hasOffset(columnValue)) {
+export const isBeforeOffset = (columnValue: IColumnValue) => {
+  if (!hasOffset(columnValue)) {
     return false;
   }
 
@@ -24,7 +19,7 @@ export const _isBeforeOffset = (columnValue: IColumnValue) => {
   return keys[0] ? keys[0] === 'offset' : false;
 };
 
-export const _buildDefaultGridStyle = (sizeValue: number) => {
+export const buildDefaultGridStyle = (sizeValue: number) => {
   const width = calcWidth(sizeValue);
   return {
     flexGrow: 0,
@@ -36,19 +31,25 @@ export const _buildDefaultGridStyle = (sizeValue: number) => {
   }
 };
 
+export const calcWidth = (sizeValue: number) => {
+  const gridCounts = 24;
+  return sizeValue * (100 / gridCounts);
+}
+
+
 export const buildGridStyle = (columnValue: IColumnValue) => {
   if (typeof columnValue !== 'object') {
-    return _buildDefaultGridStyle(columnValue);
+    return buildDefaultGridStyle(columnValue);
   }
 
-  const styles = _buildDefaultGridStyle(columnValue.span);
-  if (!_hasOffset(columnValue)) {
+  const styles = buildDefaultGridStyle(columnValue.span);
+  if (!hasOffset(columnValue)) {
     return styles;
   }
 
   const { offset = 0, css } = columnValue;
   Object.assign(styles, {
-    ...(_isBeforeOffset(columnValue)
+    ...(isBeforeOffset(columnValue)
       ? {
           marginLeft: `${calcWidth(offset)}%`,
         }
@@ -56,7 +57,7 @@ export const buildGridStyle = (columnValue: IColumnValue) => {
           marginRight: `${calcWidth(offset)}%`,
         }
     ),
-    ...css
+    ...css,
   });
   return styles;
 };

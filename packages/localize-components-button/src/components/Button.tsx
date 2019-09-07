@@ -1,18 +1,18 @@
-import React, { ReactNode, FunctionComponent } from 'react';
+import React, { FunctionComponent, ReactNode } from 'react';
 
 import styled from '@emotion/styled';
 import classnames from 'classnames';
 
 import {
   Size,
-  LocalizeTheme,
   LocalizeThemes,
   LocalizeStyledProps,
+  ILocalizeTheme,
 } from '@seolhun/localize-components-styled-types';
 import {
-  getValidTheme,
   getThemeHoverStyle,
   getThemeColorStyle,
+  getThemeObject,
 } from '@seolhun/localize-components-styled-utils';
 
 export interface ButtonProps extends LocalizeStyledProps {
@@ -61,14 +61,17 @@ export interface ButtonProps extends LocalizeStyledProps {
   onMouseOver?: (...args: any[]) => void;
 }
 
-const StyledButton = styled.button<ButtonProps>(
+const StyledButton = styled.button<ButtonProps, ILocalizeTheme>(
   ({
+    theme,
+    mainColor,
+    subColor,
     fontSize = 12,
-    mainColor = LocalizeTheme.primaryColor,
     size = Size.MEDIUM,
     css = {},
   }) => {
-    const styledSize = () => {
+    const validTheme = getThemeObject({ mainColor, subColor }, theme);
+    const getStyleBySize = () => {
       switch (size) {
         case Size.LARGE:
           return '15px 30px';
@@ -83,16 +86,16 @@ const StyledButton = styled.button<ButtonProps>(
       display: 'inline-block',
       borderRadius: '6px',
       border: '1px solid transparent',
-      backgroundColor: getValidTheme(mainColor),
+      backgroundColor: validTheme.mainColor,
       height: 'auto',
-      padding: styledSize(),
+      padding: getStyleBySize(),
 
       cursor: 'pointer',
       outline: 'none',
       transition: 'background-color 0.3s, border-color 0.3s',
       userSelect: 'none',
 
-      color: getThemeColorStyle(mainColor),
+      color: getThemeColorStyle(validTheme.mainColor),
       fontSize: `${fontSize}px`,
       fontWeight: 500,
       textDecoration: 'none',
@@ -101,7 +104,7 @@ const StyledButton = styled.button<ButtonProps>(
       whiteSpace: 'nowrap',
 
       '&:hover': {
-        backgroundColor: getThemeHoverStyle(mainColor),
+        backgroundColor: getThemeHoverStyle(validTheme.mainColor),
       },
 
       '&:disabled': {
@@ -116,12 +119,12 @@ const StyledButton = styled.button<ButtonProps>(
 
 const Button: FunctionComponent<ButtonProps> = ({
   children,
-  className = '',
+  className,
   ...props
 }) => (
   <StyledButton
     className={classnames('__Localize__Button', className)}
-    type="button"
+    type='button'
     {...props}
   >
     {children}

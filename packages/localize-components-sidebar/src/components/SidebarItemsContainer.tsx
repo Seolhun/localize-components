@@ -16,7 +16,7 @@ export interface SidebarItemsContainerProps {
   isSizer?: boolean;
   /**
    * Set this to change SidebarItemsContainer className
-   * @default ''
+   * @default undefined
    */
   className?: string;
   /**

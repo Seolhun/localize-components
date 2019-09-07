@@ -1,37 +1,33 @@
-import React, { FC } from 'react';
+import React, { FC, ChangeEvent, useCallback } from 'react';
 
 import styled from '@emotion/styled';
-import { darken, lighten } from 'polished';
-
 import classnames from 'classnames';
-
 import {
-  getIsLightenTheme,
-  getValidTheme,
-} from '@seolhun//localize-components-styled-utils';
+  getThemeObject,
+  getThemeHoverStyle,
+} from '@seolhun/localize-components-styled-utils';
 import {
   LocalizeStyledProps,
-  LocalizeTheme,
-  LocalizeThemesType,
+  ILocalizeTheme,
+  LocalizeBaseStyledProps,
 } from '@seolhun/localize-components-styled-types';
 
 import { CheckBoxGroupAlign } from './CheckBoxGroup';
 
-export interface CheckBoxProps {
+const DEFAULT_CLASSNAME = '__Localize__CheckBox';
+
+export interface CheckBoxProps extends LocalizeBaseStyledProps {
   /**
    * Set this to change CheckBox label
-   * @default '{}'
    */
   item: CheckBoxItemProps;
-
   /**
-   * Set this to change CheckBox checked
-   * @default false
+   * Set this to change Radio checked
    */
-  checked?: boolean;
+  checked: boolean;
   /**
    * Set this to change CheckBox className
-   * @default ''
+   * @default undefined
    */
   className?: string;
   /**
@@ -48,7 +44,12 @@ export interface CheckBoxProps {
    * Set this to change CheckBox onChange
    * @default () => null
    */
-  onChange?: (item: CheckBoxItemProps) => void;
+  onChange?: (item: CheckBoxItemProps, ...args: any[]) => void;
+  /**
+   * Set this to change CheckBox Group onClick
+   * @default undefined
+   */
+  onClick?: (item: CheckBoxItemProps, ...args: any[]) => void;
   /**
    * Set this to change CheckBox onMouseOver
    * @default () => null
@@ -60,20 +61,10 @@ export interface CheckBoxProps {
    */
   onMouseOut?: (...agrs: any[]) => void;
   /**
-   * Set this to change CheckBox useValueKey
+   * Set this to change CheckBox useLabelKey
    * @default false
    */
-  useValueKey?: boolean;
-  /**
-   * Set this to change CheckBox mainColor
-   * @default LocalizeTheme.primaryColor = royal_blue
-   */
-  mainColor?: LocalizeThemesType;
-  /**
-   * Set this to change CheckBox subColor
-   * @default LocalizeTheme.secondaryColor = grey
-   */
-  subColor?: LocalizeThemesType;
+  useLabelKey?: boolean;
   /**
    * Set this to change CheckBox valueKey
    * @default 'value'
@@ -87,77 +78,14 @@ export interface CheckBoxProps {
 
   /**
    * Set this to change Radio Group align
-   * @default undefined
+   * @default 'horizontal'
    */
   align?: CheckBoxGroupAlign;
-  /**
-   * Set this to change CheckBox Group onClick
-   * @default undefined
-   */
-  onClickItems?: (...args: any[]) => any;
 }
 
 export interface CheckBoxItemProps {
   [key: string]: any;
 }
-
-const CheckBox: FC<CheckBoxProps> = ({
-  item,
-  // IsNotRequired
-  checked = false,
-  className = '',
-  groupName = '',
-  labelKey = 'label',
-  onChange = () => null,
-  onMouseOut = () => null,
-  onMouseOver = () => null,
-  useValueKey = false,
-  css = {},
-  valueKey = 'value',
-  mainColor = LocalizeTheme.primaryColor,
-  subColor = LocalizeTheme.secondaryColor,
-  align,
-  onClickItems,
-}) => {
-  const usedKey = useValueKey ? valueKey : labelKey;
-
-  const handleOnChange = (item) => {
-    onChange({
-      label: item[labelKey],
-      value: item[valueKey],
-    });
-
-    if (onClickItems) {
-      onClickItems({
-        label: item[labelKey],
-        value: item[valueKey],
-      });
-    }
-  };
-
-  return (
-    <StyledCheckBoxLabel
-      key={item[usedKey]}
-      htmlFor={item[usedKey]}
-      className={classnames('__Localize__', className)}
-      onMouseOut={onMouseOut}
-      onMouseOver={onMouseOver}
-      align={align}
-    >
-      {item[usedKey]}
-      <StyledCheckBox
-        id={item[usedKey]}
-        checked={checked}
-        className="__Localize__CheckBox"
-        type="checkbox"
-        onChange={handleOnChange}
-        value={item[usedKey]}
-        name={groupName || item[usedKey]}
-      />
-      <StyledCheckMark mainColor={mainColor} subColor={subColor} css={css} />
-    </StyledCheckBoxLabel>
-  );
-};
 
 interface SizeProps {
   /**
@@ -167,99 +95,145 @@ interface SizeProps {
   align?: CheckBoxGroupAlign;
 }
 
-const StyledCheckBoxLabel = styled.label<SizeProps>`
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  align-items: center;
-  cursor: pointer;
-  display: ${({ align }) => {
+const StyledCheckBoxLabel = styled.label<SizeProps>(({
+  align,
+}) => {
+  const getDisplayByAlign = () => {
     if (align === 'horizontal') {
       return 'inline-flex';
     }
     return 'flex';
-  }};
-  height: auto;
-  padding-left: 30px;
-  position: relative;
-  user-select: none;
-  width: ${({ align }) => {
+  }
+  const getWidthByAlign = () => {
     if (align === 'horizontal') {
       return 'auto';
     }
     return '100%';
-  }};
-`;
+  }
 
-const StyledCheckBox = styled.input`
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-  height: 0;
-  width: 0;
-`;
+  return {
+    display: getDisplayByAlign(),
+    alignItems: 'center',
+    position: 'relative',
+    height: 'auto',
+    width: getWidthByAlign(),
+    paddingLeft: '30px',
+    userSelect: 'none',
+    cursor: 'pointer',
+  }
+})
 
-const StyledCheckMark = styled.span<LocalizeStyledProps>`
-  background-color: ${({
-    mainColor = LocalizeTheme.primaryColor,
-  }: LocalizeStyledProps) => {
-    return getValidTheme(mainColor);
-  }};
-  border-radius: 6px;
-  border: 1px solid transparent;
-  display: inline-flex;
-  height: 16px;
-  justify-content: flex-start;
-  left: 0;
-  position: absolute;
-  transition: border-color 0.5s, background-color 0.5s;
-  width: 16px;
+const StyledCheckBox = styled.input({
+  position: 'absolute',
+  cursor: 'pointer',
+  height: 0,
+  width: 0,
+  opacity: 0,
+})
 
-  .__Localize__CheckBox:hover ~ & {
-    border: 1px solid
-      ${({ mainColor = LocalizeTheme.primaryColor }: LocalizeStyledProps) => {
-        if (getIsLightenTheme(mainColor)) {
-          return getValidTheme(mainColor);
-        }
-        return getValidTheme(mainColor);
-      }};
+const StyledCheckMark = styled.span<LocalizeStyledProps, ILocalizeTheme>(({
+  theme,
+  mainColor,
+  subColor,
+}) => {
+  const validTheme = getThemeObject({ mainColor, subColor }, theme);
 
-    input:checked ~ & {
-      background-color: ${({
-        mainColor = LocalizeTheme.primaryColor,
-      }: LocalizeStyledProps) => {
-        if (getIsLightenTheme(mainColor)) {
-          return darken(0.1, getValidTheme(mainColor));
-        }
-        return lighten(0.1, getValidTheme(mainColor));
-      }};
+  return {
+    backgroundColor: validTheme.mainColor,
+    borderRadius: '6px',
+    border: '1px solid transparent',
+    display: 'inline-flex',
+    height: '16px',
+    justifyContent: 'flex-start',
+    left: 0,
+    position: 'absolute',
+    transition: 'border-color 0.35s, background-color 0.35s',
+    width: '16px',
+
+    [`.${DEFAULT_CLASSNAME}:hover ~ &`]: {
+      border: `1px solid ${validTheme.mainColor}`,
+
+      [`input:checked ~ &`]: {
+        backgroundColor: getThemeHoverStyle(validTheme.mainColor),
+      },
+    },
+
+    [`.${DEFAULT_CLASSNAME}:checked ~ &:after`]: {
+      display: 'block',
+    },
+
+    [`&::after`]: {
+      content: '""',
+      position: 'absolute',
+      display: 'none',
+      border: `solid ${validTheme.subColor}`,
+      borderWidth: '0 2px 2px 0',
+      height: '8px',
+      width: '4px',
+      left: '5px',
+      top: '2px',
+      transform: 'rotate(45deg)',
+    },
+  }
+});
+
+
+const CheckBox: FC<CheckBoxProps> = ({
+  item,
+  checked,
+  // IsNotRequired
+  className,
+  groupName = '',
+  labelKey = 'label',
+  valueKey = 'value',
+  onClick,
+  onChange = () => null,
+  onMouseOut = () => null,
+  onMouseOver = () => null,
+  useLabelKey = false,
+  mainColor,
+  subColor,
+  align = 'horizontal',
+  css = {},
+}) => {
+  const usedKey = useLabelKey ? labelKey : valueKey;
+  const handleOnChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
+    event.stopPropagation();
+    onChange({
+      [labelKey]: item[labelKey],
+      [valueKey]: item[valueKey],
+      checked: !checked,
+    });
+    if (onClick) {
+      onClick({
+        [labelKey]: item[labelKey],
+        [valueKey]: item[valueKey],
+        checked,
+      });
     }
-  }
+  }, [checked, usedKey, labelKey, valueKey, item])
 
-  &:after {
-    content: '';
-    position: absolute;
-    display: none;
-  }
-
-  .__Localize__CheckBox:checked ~ &:after {
-    display: block;
-  }
-
-  &:after {
-    -ms-transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
-    border: solid
-      ${({ subColor = LocalizeTheme.secondaryColor }: LocalizeStyledProps) => {
-        return getValidTheme(subColor);
-      }};
-    border-width: 0 2px 2px 0;
-    height: 8px;
-    left: 5px;
-    top: 2px;
-    transform: rotate(45deg);
-    width: 4px;
-  }
-`;
+  return (
+    <StyledCheckBoxLabel
+      htmlFor={item[usedKey]}
+      className={classnames(`${DEFAULT_CLASSNAME}__Label`, className)}
+      onMouseOut={onMouseOut}
+      onMouseOver={onMouseOver}
+      align={align}
+    >
+      {item[labelKey]}
+      <StyledCheckBox
+        type='checkbox'
+        id={item[usedKey]}
+        checked={checked}
+        className={`${DEFAULT_CLASSNAME}`}
+        onChange={handleOnChange}
+        value={item[usedKey]}
+        name={groupName || item[usedKey]}
+      />
+      <StyledCheckMark mainColor={mainColor} subColor={subColor} css={css} />
+    </StyledCheckBoxLabel>
+  );
+};
 
 export default CheckBox;

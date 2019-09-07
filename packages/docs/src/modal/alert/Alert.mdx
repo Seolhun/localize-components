@@ -3,8 +3,9 @@ name: Alert
 menu: Components
 ---
 
+import { useState } from 'react';
 import { Playground, Props } from 'docz';
-import { Alert } from '@seolhun/localize-components';
+import { Alert, } from '@seolhun/localize-components';
 
 import AlertPropsTable from './AlertPropsTable';
 
@@ -18,11 +19,20 @@ import AlertPropsTable from './AlertPropsTable';
 ## Default
 
 <Playground>
-  <Alert
-    header='Alert title'
-    body='Alert message'
-    isShow
-  />
+  {() => {
+    const [isShow, setIsShow] = useState(true)
+
+    return (
+      <>
+        <Alert
+          header='Alert title'
+          body='Alert message'
+          onClick={() => setIsShow(!isShow)}
+          isShow
+        />
+      </>
+    )
+  }}
 </Playground>
 
 ## Give a Position

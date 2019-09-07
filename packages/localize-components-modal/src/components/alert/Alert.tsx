@@ -1,22 +1,21 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, FC, useMemo } from 'react';
 
 import classnames from 'classnames';
-
+import styled from '@emotion/styled';
 import { Button } from '@seolhun/localize-components-button';
+import { getThemeObject } from '@seolhun/localize-components-styled-utils';
 import {
-  Position,
   PositionType,
-  Size,
   SizeType,
-  LocalizeTheme,
-  LocalizeThemesType,
+  LocalizeStyledProps,
+  ILocalizeTheme,
 } from '@seolhun/localize-components-styled-types';
 
 import Modal from '../modal';
 
-import './Alert.scss';
+const DEFAULT_CLASSNAME = '__Localize__Alert';
 
-export interface AlertProps {
+export interface AlertProps extends LocalizeStyledProps {
   /**
    * Set this to change Modal body children node
    */
@@ -47,16 +46,6 @@ export interface AlertProps {
    */
   size?: SizeType;
   /**
-   * Set this to change Modal mainColor
-   * @default LocalizeTheme.primaryColor = royal_blue
-   */
-  mainColor?: LocalizeThemesType;
-  /**
-   * Set this to change Modal subColor
-   * @default LocalizeTheme.secondaryColor = grey
-   */
-  subColor?: LocalizeThemesType;
-  /**
    * Set this to change Modal rendering children node
    * @default null
    */
@@ -73,37 +62,45 @@ export interface AlertProps {
   zIndex?: number;
 }
 
-const Alert: React.FunctionComponent<AlertProps> = ({
+const StyledModal = styled(Modal)<AlertProps, ILocalizeTheme>({
+  maxHeight: '450px',
+  height: '200px',
+
+  [`.${DEFAULT_CLASSNAME}__Buttons`]: {
+    display: 'flex',
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+})
+
+export const Alert: FC<AlertProps> = ({
   body,
   onClick,
   // is Not Required
-  buttonLabel = 'Confirm',
-  className = '',
-  isShow = false,
-  mainColor = LocalizeTheme.primaryColor,
-  position = Position.CENTER,
-  size = Size.MEDIUM,
-  subColor = LocalizeTheme.secondaryColor,
   header = null,
-  zIndex = 1000,
+  buttonLabel = 'Confirm',
+  isShow = false,
+  className,
+  mainColor,
+  subColor,
+  ...props
 }) => {
+
   return (
-    <Modal
-      className={classnames(`__Localize__Alert`, className)}
+    <StyledModal
+      className={classnames(DEFAULT_CLASSNAME, className)}
       onClick={onClick}
       header={<div>{header}</div>}
       body={<div>{body}</div>}
       footer={
-        <div className={`Alert__Buttons`}>
+        <div className={`${DEFAULT_CLASSNAME}__Buttons`}>
           <Button onClick={onClick} mainColor={mainColor} subColor={subColor}>
             {buttonLabel}
           </Button>
         </div>
       }
-      position={position}
-      size={size}
-      zIndex={zIndex}
       isShow={isShow}
+      {...props}
     />
   );
 };

@@ -1,18 +1,18 @@
-import React, { ReactNode, FunctionComponent } from 'react';
+import React, { FC, ReactNode } from 'react';
 
 import styled from '@emotion/styled';
 
 import classnames from 'classnames';
 
 import {
+  ILocalizeTheme,
   LocalizeThemes,
   LocalizeThemesType,
-  LocalizeTheme,
 } from '@seolhun/localize-components-styled-types';
 import {
-  getValidTheme,
-  getThemeHoverStyle,
   getThemeColorStyle,
+  getThemeHoverStyle,
+  getThemeObject,
 } from '@seolhun/localize-components-styled-utils';
 
 export interface ChipProps {
@@ -20,7 +20,7 @@ export interface ChipProps {
   // isNotRequired
   /**
    * Set this to change Chip className
-   * @default ''
+   * @default undefined
    */
   className?: string;
   /**
@@ -65,16 +65,18 @@ export interface ChipProps {
   css?: {};
 }
 
-const StyledChip = styled.button<ChipProps>(
+const StyledChip = styled.button<ChipProps, ILocalizeTheme>(
   ({
-    mainColor = LocalizeTheme.primaryColor,
-    subColor = LocalizeTheme.secondaryColor,
+    mainColor,
+    subColor,
+    theme,
   }) => {
+    const validTheme = getThemeObject({ mainColor, subColor }, theme);
     return {
       borderRadius: '6px',
-      border: `1px solid ${getValidTheme(subColor)}`,
-      backgroundColor: getValidTheme(mainColor),
-      color: getThemeColorStyle(mainColor),
+      border: `1px solid ${validTheme.subColor}`,
+      backgroundColor: validTheme.mainColor,
+      color: getThemeColorStyle(validTheme.mainColor),
       cursor: 'pointer',
       height: 'auto',
       outline: 'none',
@@ -86,8 +88,8 @@ const StyledChip = styled.button<ChipProps>(
       },
 
       '&:hover': {
-        backgroundColor: getThemeHoverStyle(mainColor),
-        borderColor: getThemeHoverStyle(subColor),
+        backgroundColor: getThemeHoverStyle(validTheme.mainColor),
+        borderColor: getThemeHoverStyle(validTheme.subColor),
       },
 
       '&:disabled': {
@@ -99,7 +101,7 @@ const StyledChip = styled.button<ChipProps>(
   }
 );
 
-const Chip: FunctionComponent<ChipProps> = ({
+const Chip: FC<ChipProps> = ({
   children,
   className = '',
   css = {},
