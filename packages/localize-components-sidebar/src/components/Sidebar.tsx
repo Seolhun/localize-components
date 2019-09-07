@@ -4,8 +4,8 @@ import classnames from 'classnames';
 import styled from '@emotion/styled';
 
 import {
-  ThemesType,
-  StyledProps,
+  LocalizeThemesType,
+  LocalizeStyledProps,
 } from '@seolhun/localize-components-styled-types';
 
 import SidebarItemLabel from './SidebarItemLabel';
@@ -86,14 +86,14 @@ export interface SidebarProps {
   onMouseOver?: (...args: any[]) => void;
   /**
    * Set this to change Sidebar mainColor
-   * @default ThemeConfig.primaryColor = royal_blue
+   * @default LocalizeTheme.primaryColor = royal_blue
    */
-  mainColor?: ThemesType;
+  mainColor?: LocalizeThemesType;
   /**
    * Set this to change Sidebar subColor
-   * @default ThemeConfig.secondaryColor = grey
+   * @default LocalizeTheme.secondaryColor = grey
    */
-  subColor?: ThemesType;
+  subColor?: LocalizeThemesType;
   /**
    * Set this to change Sidebar css
    * @default {}
@@ -101,7 +101,7 @@ export interface SidebarProps {
   css?: {};
 }
 
-const StyledSidebar = styled.aside<StyledProps>(() => {
+const StyledSidebar = styled.aside<LocalizeStyledProps>(() => {
   return {};
 });
 

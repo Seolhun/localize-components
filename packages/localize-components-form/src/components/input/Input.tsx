@@ -7,10 +7,10 @@ import classnames from 'classnames';
 
 import {
   FontSizes,
-  StyledProps,
-  ThemeConfig,
+  LocalizeStyledProps,
+  LocalizeTheme,
   Themes,
-  ThemesType,
+  LocalizeThemesType,
 } from '@seolhun/localize-components-styled-types';
 import {
   getIsLightenTheme,
@@ -104,14 +104,14 @@ export interface InputProps {
   css?: {};
   /**
    * Set this to change Input mainColor
-   * @default ThemeConfig.primaryColor = royal_blue
+   * @default LocalizeTheme.primaryColor = royal_blue
    */
-  mainColor?: ThemesType;
+  mainColor?: LocalizeThemesType;
   /**
    * Set this to change Input subColor
-   * @default ThemeConfig.secondaryColor = grey
+   * @default LocalizeTheme.secondaryColor = grey
    */
-  subColor?: ThemesType;
+  subColor?: LocalizeThemesType;
   /**
    * Set this to change Input type
    * @default 'text'
@@ -258,8 +258,8 @@ export class Input extends PureComponent<InputProps, InputState> {
       required = false,
       css = {},
       type = 'text',
-      mainColor = ThemeConfig.primaryColor,
-      subColor = ThemeConfig.secondaryColor,
+      mainColor = LocalizeTheme.primaryColor,
+      subColor = LocalizeTheme.secondaryColor,
     }: InputProps = this.props;
     const { hasError, isFilled, isFocused, message }: InputState = this.state;
 
@@ -334,8 +334,8 @@ export class Input extends PureComponent<InputProps, InputState> {
   }
 }
 
-const StyledInputBox = styled.div<StyledProps>`
-  background-color: ${({ subColor = ThemeConfig.secondaryColor }) => {
+const StyledInputBox = styled.div<LocalizeStyledProps>`
+  background-color: ${({ subColor = LocalizeTheme.secondaryColor }) => {
     return getValidTheme(subColor);
   }};
   border-radius: 6px;
@@ -353,7 +353,7 @@ const StyledInputBox = styled.div<StyledProps>`
 
   &:hover {
     border: 2px solid
-      ${({ mainColor = ThemeConfig.primaryColor }) => {
+      ${({ mainColor = LocalizeTheme.primaryColor }) => {
         if (getIsLightenTheme(mainColor)) {
           return darken(0.1, getValidTheme(mainColor));
         }
@@ -363,7 +363,7 @@ const StyledInputBox = styled.div<StyledProps>`
 
   &.isFocused {
     border: 2px solid
-      ${({ mainColor = ThemeConfig.primaryColor }) => {
+      ${({ mainColor = LocalizeTheme.primaryColor }) => {
         return getValidTheme(mainColor);
       }};
   }
@@ -374,7 +374,7 @@ const StyledDivInput = styled.div<InputProps>`
   -webkit-appearance: textfield;
   background-color: transparent;
   border: 0;
-  color: ${({ subColor = ThemeConfig.secondaryColor }) => {
+  color: ${({ subColor = LocalizeTheme.secondaryColor }) => {
     if (getIsLightenTheme(subColor)) {
       return Themes.dark_grey;
     }
@@ -399,7 +399,7 @@ const StyledDivInput = styled.div<InputProps>`
     font-stretch: normal;
     line-height: 1.9;
     letter-spacing: -0.3px;
-    color: ${({ subColor = ThemeConfig.secondaryColor }) => {
+    color: ${({ subColor = LocalizeTheme.secondaryColor }) => {
       if (getIsLightenTheme(subColor)) {
         return lighten(0.4, Themes.dark_grey);
       }
@@ -421,7 +421,7 @@ const StyledDivInput = styled.div<InputProps>`
 const StyledInput = styled.input<InputProps>`
   background-color: transparent;
   border: 0;
-  color: ${({ subColor = ThemeConfig.secondaryColor }) => {
+  color: ${({ subColor = LocalizeTheme.secondaryColor }) => {
     if (getIsLightenTheme(subColor)) {
       return Themes.dark_grey;
     }

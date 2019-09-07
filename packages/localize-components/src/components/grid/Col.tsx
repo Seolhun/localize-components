@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import styled from '@emotion/styled';
-import { IThemeConfig, IColumnValue } from '@seolhun/localize-components-styled-types';
+import { ILocalizeTheme, IColumnValue } from '@seolhun/localize-components-styled-types';
 import { getMediaQueryStyles } from '@seolhun/localize-components-styled-utils';
 
 import classnames from 'classnames';
@@ -20,7 +20,7 @@ export interface ColProps {
   css?: {};
 }
 
-const StyledCol = styled.div<ColProps, IThemeConfig>(({
+const StyledCol = styled.div<ColProps, ILocalizeTheme>(({
   theme,
   xl,
   lg,

@@ -22,12 +22,12 @@ export enum LightenTheme {
   yellow = '#FFFF00',
 }
 
-export const Themes = {
+export const LocalizeThemes = {
   ...DarkenTheme,
   ...LightenTheme,
 };
 
-export type ThemesType =
+export type LocalizeThemesType =
   | 'basic'
   | 'black'
   | 'danger'
@@ -47,7 +47,7 @@ export type ThemesType =
   | LightenTheme
   | string;
 
-export interface BaseStyleProps {
+export interface LocalizeBaseStyledProps {
   /**
    * Set this to change Localize Style className
    * @default '''
@@ -55,14 +55,14 @@ export interface BaseStyleProps {
   className?: string;
   /**
    * Set this to change Localize Style mainColor
-   * @default ThemeConfig.primaryColor = royal_blue
+   * @default LocalizeTheme.primaryColor = royal_blue
    */
-  mainColor?: ThemesType;
+  mainColor?: LocalizeThemesType;
   /**
    * Set this to change Localize Style subColor
-   * @default ThemeConfig.secondaryColor
+   * @default LocalizeTheme.secondaryColor
    */
-  subColor?: ThemesType;
+  subColor?: LocalizeThemesType;
   /**
    * Set this to change Localize Style css
    * @default {}
@@ -70,7 +70,7 @@ export interface BaseStyleProps {
   css?: {};
 }
 
-export interface StyledProps extends BaseStyleProps {
+export interface LocalizeStyledProps extends LocalizeBaseStyledProps {
   /**
    * Set this to change Localize Style position
    * @default medium

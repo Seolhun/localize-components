@@ -5,9 +5,9 @@ import classnames from 'classnames';
 
 import {
   Size,
-  ThemeConfig,
-  Themes,
-  StyledProps,
+  LocalizeTheme,
+  LocalizeThemes,
+  LocalizeStyledProps,
 } from '@seolhun/localize-components-styled-types';
 import {
   getValidTheme,
@@ -15,7 +15,7 @@ import {
   getThemeColorStyle,
 } from '@seolhun/localize-components-styled-utils';
 
-export interface ButtonProps extends StyledProps {
+export interface ButtonProps extends LocalizeStyledProps {
   // isRequired
   /**
    * Set this to change Button rendering children node
@@ -64,7 +64,7 @@ export interface ButtonProps extends StyledProps {
 const StyledButton = styled.button<ButtonProps>(
   ({
     fontSize = 12,
-    mainColor = ThemeConfig.primaryColor,
+    mainColor = LocalizeTheme.primaryColor,
     size = Size.MEDIUM,
     css = {},
   }) => {
@@ -105,8 +105,8 @@ const StyledButton = styled.button<ButtonProps>(
       },
 
       '&:disabled': {
-        backgroundColor: Themes.light_grey,
-        color: Themes.white,
+        backgroundColor: LocalizeThemes.light_grey,
+        color: LocalizeThemes.white,
         cursor: 'not-allowed',
       },
       ...css,

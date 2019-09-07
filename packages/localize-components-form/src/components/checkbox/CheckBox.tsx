@@ -10,9 +10,9 @@ import {
   getValidTheme,
 } from '@seolhun//localize-components-styled-utils';
 import {
-  StyledProps,
-  ThemeConfig,
-  ThemesType,
+  LocalizeStyledProps,
+  LocalizeTheme,
+  LocalizeThemesType,
 } from '@seolhun/localize-components-styled-types';
 
 import { CheckBoxGroupAlign } from './CheckBoxGroup';
@@ -66,14 +66,14 @@ export interface CheckBoxProps {
   useValueKey?: boolean;
   /**
    * Set this to change CheckBox mainColor
-   * @default ThemeConfig.primaryColor = royal_blue
+   * @default LocalizeTheme.primaryColor = royal_blue
    */
-  mainColor?: ThemesType;
+  mainColor?: LocalizeThemesType;
   /**
    * Set this to change CheckBox subColor
-   * @default ThemeConfig.secondaryColor = grey
+   * @default LocalizeTheme.secondaryColor = grey
    */
-  subColor?: ThemesType;
+  subColor?: LocalizeThemesType;
   /**
    * Set this to change CheckBox valueKey
    * @default 'value'
@@ -114,8 +114,8 @@ const CheckBox: FC<CheckBoxProps> = ({
   useValueKey = false,
   css = {},
   valueKey = 'value',
-  mainColor = ThemeConfig.primaryColor,
-  subColor = ThemeConfig.secondaryColor,
+  mainColor = LocalizeTheme.primaryColor,
+  subColor = LocalizeTheme.secondaryColor,
   align,
   onClickItems,
 }) => {
@@ -199,10 +199,10 @@ const StyledCheckBox = styled.input`
   width: 0;
 `;
 
-const StyledCheckMark = styled.span<StyledProps>`
+const StyledCheckMark = styled.span<LocalizeStyledProps>`
   background-color: ${({
-    mainColor = ThemeConfig.primaryColor,
-  }: StyledProps) => {
+    mainColor = LocalizeTheme.primaryColor,
+  }: LocalizeStyledProps) => {
     return getValidTheme(mainColor);
   }};
   border-radius: 6px;
@@ -217,7 +217,7 @@ const StyledCheckMark = styled.span<StyledProps>`
 
   .__Localize__CheckBox:hover ~ & {
     border: 1px solid
-      ${({ mainColor = ThemeConfig.primaryColor }: StyledProps) => {
+      ${({ mainColor = LocalizeTheme.primaryColor }: LocalizeStyledProps) => {
         if (getIsLightenTheme(mainColor)) {
           return getValidTheme(mainColor);
         }
@@ -226,8 +226,8 @@ const StyledCheckMark = styled.span<StyledProps>`
 
     input:checked ~ & {
       background-color: ${({
-        mainColor = ThemeConfig.primaryColor,
-      }: StyledProps) => {
+        mainColor = LocalizeTheme.primaryColor,
+      }: LocalizeStyledProps) => {
         if (getIsLightenTheme(mainColor)) {
           return darken(0.1, getValidTheme(mainColor));
         }
@@ -250,7 +250,7 @@ const StyledCheckMark = styled.span<StyledProps>`
     -ms-transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
     border: solid
-      ${({ subColor = ThemeConfig.secondaryColor }: StyledProps) => {
+      ${({ subColor = LocalizeTheme.secondaryColor }: LocalizeStyledProps) => {
         return getValidTheme(subColor);
       }};
     border-width: 0 2px 2px 0;

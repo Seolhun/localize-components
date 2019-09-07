@@ -8,8 +8,8 @@ import {
   PositionType,
   Size,
   SizeType,
-  ThemeConfig,
-  ThemesType,
+  LocalizeTheme,
+  LocalizeThemesType,
 } from '@seolhun/localize-components-styled-types';
 
 import Modal from '../modal';
@@ -48,14 +48,14 @@ export interface AlertProps {
   size?: SizeType;
   /**
    * Set this to change Modal mainColor
-   * @default ThemeConfig.primaryColor = royal_blue
+   * @default LocalizeTheme.primaryColor = royal_blue
    */
-  mainColor?: ThemesType;
+  mainColor?: LocalizeThemesType;
   /**
    * Set this to change Modal subColor
-   * @default ThemeConfig.secondaryColor = grey
+   * @default LocalizeTheme.secondaryColor = grey
    */
-  subColor?: ThemesType;
+  subColor?: LocalizeThemesType;
   /**
    * Set this to change Modal rendering children node
    * @default null
@@ -80,10 +80,10 @@ const Alert: React.FunctionComponent<AlertProps> = ({
   buttonLabel = 'Confirm',
   className = '',
   isShow = false,
-  mainColor = ThemeConfig.primaryColor,
+  mainColor = LocalizeTheme.primaryColor,
   position = Position.CENTER,
   size = Size.MEDIUM,
-  subColor = ThemeConfig.secondaryColor,
+  subColor = LocalizeTheme.secondaryColor,
   header = null,
   zIndex = 1000,
 }) => {

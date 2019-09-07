@@ -5,9 +5,9 @@ import styled from '@emotion/styled';
 import classnames from 'classnames';
 
 import {
-  Themes,
-  ThemesType,
-  ThemeConfig,
+  LocalizeThemes,
+  LocalizeThemesType,
+  LocalizeTheme,
 } from '@seolhun/localize-components-styled-types';
 import {
   getValidTheme,
@@ -50,14 +50,14 @@ export interface ChipProps {
   onMouseOver?: (...args: any[]) => void;
   /**
    * Set this to change Chip mainColor
-   * @default ThemeConfig.primaryColor = royal_blue
+   * @default LocalizeTheme.primaryColor = royal_blue
    */
-  mainColor?: ThemesType;
+  mainColor?: LocalizeThemesType;
   /**
    * Set this to change Chip subColor
-   * @default ThemeConfig.secondaryColor = grey
+   * @default LocalizeTheme.secondaryColor = grey
    */
-  subColor?: ThemesType;
+  subColor?: LocalizeThemesType;
   /**
    * Set this to change Chip css
    * @default {}
@@ -67,8 +67,8 @@ export interface ChipProps {
 
 const StyledChip = styled.button<ChipProps>(
   ({
-    mainColor = ThemeConfig.primaryColor,
-    subColor = ThemeConfig.secondaryColor,
+    mainColor = LocalizeTheme.primaryColor,
+    subColor = LocalizeTheme.secondaryColor,
   }) => {
     return {
       borderRadius: '6px',
@@ -91,8 +91,8 @@ const StyledChip = styled.button<ChipProps>(
       },
 
       '&:disabled': {
-        backgroundColor: Themes.light_grey,
-        color: Themes.white,
+        backgroundColor: LocalizeThemes.light_grey,
+        color: LocalizeThemes.white,
         cursor: 'not-allowed',
       },
     };

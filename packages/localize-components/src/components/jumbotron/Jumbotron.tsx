@@ -3,9 +3,9 @@ import React, { ReactNode, FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 
 import {
-  ThemeConfig,
-  ThemesType,
-  Themes,
+  LocalizeTheme,
+  LocalizeThemesType,
+  LocalizeThemes,
 } from '@seolhun/localize-components-styled-types';
 import {
   getValidTheme,
@@ -34,9 +34,9 @@ export interface JumbotronProps {
   description?: string;
   /**
    * Set this to change Jumbotron mainColor
-   * @default ThemeConfig.primaryColor = royal_blue
+   * @default LocalizeTheme.primaryColor = royal_blue
    */
-  mainColor?: ThemesType;
+  mainColor?: LocalizeThemesType;
   /**
    * Set this to change Jumbotron onBlur
    * @default 'main'
@@ -76,12 +76,12 @@ export interface JumbotronProps {
 }
 
 const StyledJumbotron = styled.div<JumbotronProps>(
-  ({ mainColor = ThemeConfig.primaryColor, css = {} }) => {
+  ({ mainColor = LocalizeTheme.primaryColor, css = {} }) => {
     const getStyledColor = () => {
       if (getIsLightenTheme(mainColor)) {
-        return Themes.dark_grey;
+        return LocalizeThemes.dark_grey;
       }
-      return Themes.white;
+      return LocalizeThemes.white;
     };
 
     return {

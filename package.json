@@ -35,7 +35,7 @@
     "release:beta": "lerna publish from-git --canary",
     "bs": "lerna bootstrap",
     "link": "lerna link",
-    "prettier": "prettier \"**/*.+(js|jsx|json|yml|yaml|css|less|scss|ts|tsx|md|mdx)\" --write"
+    "prettier": "prettier \"**/*.+(js|jsx|css|less|scss|ts|tsx|md|mdx)\" --write"
   },
   "devDependencies": {
     "eslint": "^6.3.0",

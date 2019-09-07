@@ -2,21 +2,21 @@ import React, { FC } from 'react';
 
 import classnames from 'classnames';
 import styled from '@emotion/styled'
-import { IThemeConfig, BaseStyleProps, Themes } from '@seolhun/localize-components-styled-types';
+import { ILocalizeTheme, LocalizeBaseStyledProps, LocalizeThemes } from '@seolhun/localize-components-styled-types';
 
-export interface CardProps extends BaseStyleProps{
+export interface CardProps extends LocalizeBaseStyledProps{
   children: React.ReactNode;
   className?: string;
   css?: {},
 }
 
-const StyledCard = styled.div<CardProps, IThemeConfig>(({
+const StyledCard = styled.div<CardProps, ILocalizeTheme>(({
   theme,
   mainColor,
   css = {},
 }) => {
   return {
-    backgroundColor: mainColor || Themes.white,
+    backgroundColor: mainColor || LocalizeThemes.white,
     display: 'block',
     minHeight: '100px',
     height: 'auto',

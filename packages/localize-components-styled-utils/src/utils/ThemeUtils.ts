@@ -2,41 +2,33 @@ import { darken, lighten } from 'polished';
 
 import {
   LightenTheme,
-  Themes,
-  ThemesType,
+  LocalizeThemes,
+  LocalizeThemesType,
 } from '@seolhun/localize-components-styled-types';
 
-export const getIsLightenTheme = (theme: ThemesType) => {
-  const isLightenTheme = Object.keys(LightenTheme)
-    .map((key) => {
-      return key;
-    })
-    .includes(theme);
+export const getIsLightenTheme = (theme: LocalizeThemesType) => {
+  const isLightenTheme = Object.keys(LightenTheme).includes(theme);
   return isLightenTheme;
 };
 
-export const getValidTheme = (theme: ThemesType) => {
-  const isLightenTheme = Object.keys(Themes)
-    .map((key) => {
-      return key;
-    })
-    .includes(theme);
-  if (isLightenTheme) {
+export const getValidTheme = (theme: LocalizeThemesType) => {
+  const isValidTheme = Object.keys(Themes).includes(theme);
+  if (isValidTheme) {
     return Themes[theme];
   }
   return theme;
 };
 
-export const getThemeHoverStyle = (theme: ThemesType) => {
+export const getThemeHoverStyle = (theme: LocalizeThemesType) => {
   if (getIsLightenTheme(theme)) {
     return darken(0.1, getValidTheme(theme));
   }
   return lighten(0.1, getValidTheme(theme));
 };
 
-export const getThemeColorStyle = (theme: ThemesType) => {
+export const getThemeColorStyle = (theme: LocalizeThemesType) => {
   if (getIsLightenTheme(theme)) {
-    return Themes.dark_grey;
+    return LocalizeThemes.dark_grey;
   }
-  return Themes.white;
+  return LocalizeThemes.white;
 };

@@ -4,8 +4,8 @@ import classnames from 'classnames';
 import styled from '@emotion/styled';
 
 import {
-  ThemesType,
-  StyledProps,
+  LocalizeThemesType,
+  LocalizeStyledProps,
 } from '@seolhun/localize-components-styled-types';
 
 import { SidebarItemProps } from './Sidebar';
@@ -20,14 +20,14 @@ export interface SidebarItemIconProps {
   className?: string;
   /**
    * Set this to change SidebarItemIcon mainColor
-   * @default ThemeConfig.primaryColor = royal_blue
+   * @default LocalizeTheme.primaryColor = royal_blue
    */
-  mainColor?: ThemesType;
+  mainColor?: LocalizeThemesType;
   /**
    * Set this to change SidebarItemIcon subColor
-   * @default ThemeConfig.secondaryColor = grey
+   * @default LocalizeTheme.secondaryColor = grey
    */
-  subColor?: ThemesType;
+  subColor?: LocalizeThemesType;
   /**
    * Set this to change SidebarItemIcon css
    * @default {}
@@ -35,7 +35,7 @@ export interface SidebarItemIconProps {
   css?: {};
 }
 
-const StyledSpan = styled.span<StyledProps>(() => {
+const StyledSpan = styled.span<LocalizeStyledProps>(() => {
   return {};
 });
 

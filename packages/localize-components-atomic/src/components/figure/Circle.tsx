@@ -4,9 +4,9 @@ import classnames from 'classnames';
 import styled from '@emotion/styled';
 
 import {
-  ThemesType,
-  ThemeConfig,
-  Themes,
+  LocalizeThemesType,
+  LocalizeTheme,
+  LocalizeThemes,
 } from '@seolhun/localize-components-styled-types';
 import {
   getValidTheme,
@@ -67,14 +67,14 @@ export interface CircleProps {
   onMouseOver?: (...args: any[]) => void;
   /**
    * Set this to change Circle mainColor
-   * @default ThemeConfig.primaryColor = royal_blue
+   * @default LocalizeTheme.primaryColor = royal_blue
    */
-  mainColor?: ThemesType;
+  mainColor?: LocalizeThemesType;
   /**
    * Set this to change Circle subColor
-   * @default ThemeConfig.secondaryColor = grey
+   * @default LocalizeTheme.secondaryColor = grey
    */
-  subColor?: ThemesType;
+  subColor?: LocalizeThemesType;
   /**
    * Set this to change Circle size
    * @default 50
@@ -90,8 +90,8 @@ export interface CircleProps {
 const StyledCircle = styled.span<CircleProps>(
   ({
     isClickable,
-    mainColor = ThemeConfig.primaryColor,
-    subColor = ThemeConfig.secondaryColor,
+    mainColor = LocalizeTheme.primaryColor,
+    subColor = LocalizeTheme.secondaryColor,
     size = 50,
     fontSize = 12,
   }) => {

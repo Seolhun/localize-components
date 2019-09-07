@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import styled from '@emotion/styled';
-import { IThemeConfig, MediaQueries } from '@seolhun/localize-components-styled-types';
+import { ILocalizeTheme, MediaQueries } from '@seolhun/localize-components-styled-types';
 import { createMediaQueryCondition } from '@seolhun/localize-components-styled-utils';
 
 import classnames from 'classnames';
@@ -12,7 +12,7 @@ export interface ContainerProps {
   css?: {};
 }
 
-const StyledContainer = styled.div<ContainerProps, IThemeConfig>(
+const StyledContainer = styled.div<ContainerProps, ILocalizeTheme>(
   ({ isFullWidth = false, css = {} }) => {
     const responsiveStyles = {
       [`@media ${createMediaQueryCondition('SM')}`]: {

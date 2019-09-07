@@ -3,8 +3,8 @@ import React, { FunctionComponent, ReactNode } from 'react';
 import styled from '@emotion/styled';
 
 import {
-  ThemeConfig,
-  ThemesType,
+  LocalizeTheme,
+  LocalizeThemesType,
 } from '@seolhun/localize-components-styled-types';
 
 export interface RadioItemProps {
@@ -40,14 +40,14 @@ export interface RadioGroupProps {
   useValueKey?: boolean;
   /**
    * Set this to change Radio Group mainColor
-   * @default ThemeConfig.primaryColor = royal_blue
+   * @default LocalizeTheme.primaryColor = royal_blue
    */
-  mainColor?: ThemesType;
+  mainColor?: LocalizeThemesType;
   /**
    * Set this to change Radio Group subColor
-   * @default ThemeConfig.secondaryColor = grey
+   * @default LocalizeTheme.secondaryColor = grey
    */
-  subColor?: ThemesType;
+  subColor?: LocalizeThemesType;
 
   /**
    * Set this to change Radio Group align
@@ -77,8 +77,8 @@ const RadioGroup: FunctionComponent<RadioGroupProps> = ({
   labelKey = 'label',
   valueKey = 'value',
   useValueKey = false,
-  mainColor = ThemeConfig.primaryColor,
-  subColor = ThemeConfig.secondaryColor,
+  mainColor = LocalizeTheme.primaryColor,
+  subColor = LocalizeTheme.secondaryColor,
   align = 'vertical',
   gap = '10px',
   onClickItems = () => null,

@@ -6,9 +6,9 @@ import classnames from 'classnames';
 
 import { getValidTheme } from '@seolhun//localize-components-styled-utils';
 import {
-  StyledProps,
-  ThemeConfig,
-  ThemesType,
+  LocalizeStyledProps,
+  LocalizeTheme,
+  LocalizeThemesType,
   DarkenTheme,
 } from '@seolhun/localize-components-styled-types';
 
@@ -68,14 +68,14 @@ export interface RadioProps {
   css?: {};
   /**
    * Set this to change Radio mainColor
-   * @default ThemeConfig.primaryColor = royal_blue
+   * @default LocalizeTheme.primaryColor = royal_blue
    */
-  mainColor?: ThemesType;
+  mainColor?: LocalizeThemesType;
   /**
    * Set this to change Radio subColor
-   * @default ThemeConfig.secondaryColor = grey
+   * @default LocalizeTheme.secondaryColor = grey
    */
-  subColor?: ThemesType;
+  subColor?: LocalizeThemesType;
   /**
    * Set this to change Radio valueKey
    * @default 'value'
@@ -111,8 +111,8 @@ const Radio: FunctionComponent<RadioProps> = ({
   useValueKey = false,
   css = {},
   valueKey = 'value',
-  mainColor = ThemeConfig.primaryColor,
-  subColor = ThemeConfig.secondaryColor,
+  mainColor = LocalizeTheme.primaryColor,
+  subColor = LocalizeTheme.secondaryColor,
   align,
   onClickItems,
 }) => {
@@ -196,10 +196,10 @@ const StyledRadio = styled.input`
   width: 0;
 `;
 
-const StyledCheckMark = styled.span<StyledProps>`
+const StyledCheckMark = styled.span<LocalizeStyledProps>`
   background-color: ${({
-    subColor = ThemeConfig.secondaryColor,
-  }: StyledProps) => {
+    subColor = LocalizeTheme.secondaryColor,
+  }: LocalizeStyledProps) => {
     return getValidTheme(subColor);
   }};
   border-radius: 50%;
@@ -215,14 +215,14 @@ const StyledCheckMark = styled.span<StyledProps>`
   .__Localize__Radio:checked ~ & {
     display: block;
     border: 1px solid
-      ${({ mainColor = ThemeConfig.primaryColor }) => {
+      ${({ mainColor = LocalizeTheme.primaryColor }) => {
         return getValidTheme(mainColor);
       }};
   }
 
   .__Localize__Radio:hover ~ & {
     border: 1px solid
-      ${({ mainColor = ThemeConfig.primaryColor }) => {
+      ${({ mainColor = LocalizeTheme.primaryColor }) => {
         return getValidTheme(mainColor);
       }};
   }
@@ -242,11 +242,11 @@ const StyledCheckMark = styled.span<StyledProps>`
   &:after {
     -ms-transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
-    background: ${({ mainColor = ThemeConfig.primaryColor }) => {
+    background: ${({ mainColor = LocalizeTheme.primaryColor }) => {
       return getValidTheme(mainColor);
     }};
     border: 1px solid
-      ${({ mainColor = ThemeConfig.primaryColor }) => {
+      ${({ mainColor = LocalizeTheme.primaryColor }) => {
         return getValidTheme(mainColor);
       }};
     height: 8px;

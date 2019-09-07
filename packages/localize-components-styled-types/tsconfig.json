@@ -7,13 +7,13 @@
     "types": ["node"],
     "typeRoots": [
       "node_modules/@types",
-      "src/types",
-    ],
+      "src/types"
+    ]
   },
   "exclude": [
     "node_modules/**",
     "./src/__test__/**",
-    "./src/**/*.test.ts",
+    "./src/**/*.test.ts"
   ],
   "typeAcquisition": {
     "enable": true

@@ -1,1 +1,1 @@
-export * from './ThemeConfig';
+export * from './LocalizeTheme';

@@ -3,11 +3,11 @@ import React from 'react';
 import { ThemeProvider } from 'emotion-theming';
 import { Card } from '@seolhun/localize-components';
 import { Container, Row, Col } from '@seolhun/localize-components';
-import { ThemeConfig } from '@seolhun/localize-components-styled-types';
+import { LocalizeTheme } from '@seolhun/localize-components-styled-types';
 
 const CardView = () => {
   return (
-    <ThemeProvider theme={ThemeConfig}>
+    <ThemeProvider theme={LocalizeTheme}>
 
       <Container>
         <Row>

@@ -4,8 +4,8 @@ import classnames from 'classnames';
 import styled from '@emotion/styled';
 
 import {
-  ThemesType,
-  ThemeConfig,
+  LocalizeThemesType,
+  LocalizeTheme,
 } from '@seolhun/localize-components-styled-types';
 
 export interface HrProps {
@@ -16,13 +16,13 @@ export interface HrProps {
   className?: string;
   /**
    * Set this to change Button mainColor
-   * @default ThemeConfig.primaryColor = royal_blue
+   * @default LocalizeTheme.primaryColor = royal_blue
    */
-  mainColor?: ThemesType;
+  mainColor?: LocalizeThemesType;
 }
 
 const StyledHr = styled.hr<HrProps>(
-  ({ mainColor = ThemeConfig.primaryColor }) => {
+  ({ mainColor = LocalizeTheme.primaryColor }) => {
     return {
       border: 0,
       opacity: 0.1,

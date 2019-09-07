@@ -6,21 +6,23 @@ import classnames from 'classnames';
 
 import { getValidTheme } from '@seolhun//localize-components-styled-utils';
 import {
-  StyledProps,
-  ThemeConfig,
-  ThemesType,
+  LocalizeStyledProps,
+  LocalizeTheme,
+  LocalizeThemesType,
+  ILocalizeTheme,
 } from '@seolhun/localize-components-styled-types';
 
 export interface SwitchProps {
   /**
-   * Set this to change Switch items
-   */
-  items: [ISwitchItem, ISwitchItem];
-  /**
    * Set this to change Switch checked
-   * @default false
    */
   checked: boolean;
+  /**
+   * Set this to change Switch items
+   * @default undefined
+   */
+  items?: [ISwitchItem, ISwitchItem];
+
   /**
    * Set this to change Switch className
    * @default ''
@@ -63,14 +65,14 @@ export interface SwitchProps {
   css?: {};
   /**
    * Set this to change Switch mainColor
-   * @default ThemeConfig.primaryColor = royal_blue
+   * @default LocalizeTheme.primaryColor = royal_blue
    */
-  mainColor?: ThemesType;
+  mainColor?: LocalizeThemesType;
   /**
    * Set this to change Switch subColor
-   * @default ThemeConfig.secondaryColor = grey
+   * @default LocalizeTheme.secondaryColor = grey
    */
-  subColor?: ThemesType;
+  subColor?: LocalizeThemesType;
   /**
    * Set this to change Switch valueKey
    * @default 'value'
@@ -89,12 +91,13 @@ export interface ISwitchCheckedItem {
 }
 
 const Switch: FunctionComponent<SwitchProps> = ({
+  checked,
+  //
   items,
-  checked = false,
   className = '',
   groupName = '',
-  mainColor = ThemeConfig.primaryColor,
-  subColor = ThemeConfig.secondaryColor,
+  mainColor = LocalizeTheme.primaryColor,
+  subColor = LocalizeTheme.secondaryColor,
   onChange = () => null,
   onMouseOut = () => null,
   onMouseOver = () => null,
@@ -104,7 +107,8 @@ const Switch: FunctionComponent<SwitchProps> = ({
   css = {},
 }) => {
   const usedKey = useValueKey ? valueKey : labelKey;
-  const checkedItem = checked ? items[0] : items[1];
+  const checkedItem = checked && items.length ? items[0] : items[1];
+
   const handleChecked = useCallback((event: ChangeEvent) => {
     onChange(event, {
       [labelKey]: checkedItem[labelKey],
@@ -163,38 +167,34 @@ const StyledSwitchInput = styled.input`
   height: 0;
 `;
 
-const StyledSlider = styled.span<StyledProps>`
-  -webkit-transition: 0.4s;
-  background-color: ${({
-    mainColor = ThemeConfig.primaryColor,
-  }: StyledProps) => {
-    return getValidTheme(mainColor);
-  }};
-  border-radius: 34px;
-  bottom: 0;
-  cursor: pointer;
-  left: 0;
-  position: absolute;
-  right: -5px;
-  top: 0;
-  transition: 0.4s;
+const StyledSlider = styled.span<LocalizeStyledProps, ILocalizeTheme>(({
+  mainColor = LocalizeTheme.primaryColor,
+  subColor = LocalizeTheme.secondaryColor,
+  theme,
+}) => {
+  return {
+    backgroundColor: getValidTheme(mainColor),
+    borderRadius: '34px',
+    cursor: 'pointer',
+    position: 'absolute',
+    top: 0,
+    right: '-5px',
+    bottom: 0,
+    left: 0,
+    transition: '0.4s',
 
-  &:before {
-    -webkit-transition: 0.4s;
-    background-color: ${({
-      subColor = ThemeConfig.secondaryColor,
-    }: StyledProps) => {
-      return getValidTheme(subColor);
-    }};
-    border-radius: 50%;
-    bottom: 3px;
-    content: '';
-    height: 20px;
-    left: 5px;
-    position: absolute;
-    transition: 0.4s;
-    width: 20px;
+    ['&:before']: {
+      content: '',
+      backgroundColor: getValidTheme(subColor),
+      borderRadius: '50%',
+      position: 'absolute',
+      left: '1px',
+      top: '2px',
+      height: '22px',
+      width: '22px',
+      transition: '0.4s',
+    }
   }
-`;
+})
 
 export default Switch;

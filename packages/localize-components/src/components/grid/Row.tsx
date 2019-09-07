@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import styled from '@emotion/styled';
-import { IThemeConfig } from '@seolhun/localize-components-styled-types';
+import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
 
 import { FlexDirectionProperty, AlignItemsProperty, JustifyContentProperty } from 'csstype';
 import classnames from 'classnames';
@@ -16,7 +16,7 @@ export interface RowProps {
   css?: {};
 }
 
-const StyledRow = styled.div<RowProps, IThemeConfig>(({
+const StyledRow = styled.div<RowProps, ILocalizeTheme>(({
   theme,
   flexDirection = 'row',
   isWrap = true,

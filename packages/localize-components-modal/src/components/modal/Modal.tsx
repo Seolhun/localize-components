@@ -8,10 +8,10 @@ import {
   PositionType,
   Size,
   SizeType,
-  StyledProps,
-  ThemeConfig,
-  Themes,
-  ThemesType,
+  LocalizeStyledProps,
+  LocalizeTheme,
+  LocalizeThemes,
+  LocalizeThemesType,
 } from '@seolhun/localize-components-styled-types';
 import {
   getIsLightenTheme,
@@ -42,14 +42,14 @@ export interface ModalProps {
   size?: SizeType;
   /**
    * Set this to change Modal mainColor
-   * @default ThemeConfig.primaryColor = royal_blue
+   * @default LocalizeTheme.primaryColor = royal_blue
    */
-  mainColor?: ThemesType;
+  mainColor?: LocalizeThemesType;
   /**
    * Set this to change Modal subColor
-   * @default ThemeConfig.secondaryColor = grey
+   * @default LocalizeTheme.secondaryColor = grey
    */
-  subColor?: ThemesType;
+  subColor?: LocalizeThemesType;
   /**
    * Set this to change Modal rendering children node
    * @default 'center'
@@ -119,10 +119,10 @@ class Modal extends Component<ModalProps, ModalState> {
       className = '',
       footer = null,
       header = null,
-      mainColor = ThemeConfig.primaryColor,
+      mainColor = LocalizeTheme.primaryColor,
       position = Position.CENTER,
       size = Size.MEDIUM,
-      subColor = ThemeConfig.secondaryColor,
+      subColor = LocalizeTheme.secondaryColor,
       zIndex = 1000,
     } = this.props;
     const { isShow } = this.state;
@@ -185,11 +185,11 @@ class Modal extends Component<ModalProps, ModalState> {
   }
 }
 
-const ModalWrapper = styled.div<StyledProps>`
+const ModalWrapper = styled.div<LocalizeStyledProps>`
   z-index: ${({ zIndex = 1000 }) => zIndex};
 `;
 
-const CoverBackground = styled.div<StyledProps>`
+const CoverBackground = styled.div<LocalizeStyledProps>`
   background-color: rgba(0, 0, 0, 0.7);
   bottom: 0;
   height: 100vh;
@@ -201,7 +201,7 @@ const CoverBackground = styled.div<StyledProps>`
   z-index: ${({ zIndex = 1000 }) => zIndex - 2};
 `;
 
-const CloseButton = styled.div<StyledProps>`
+const CloseButton = styled.div<LocalizeStyledProps>`
   align-items: center;
   border-radius: 6px;
   cursor: pointer;
@@ -214,34 +214,34 @@ const CloseButton = styled.div<StyledProps>`
   top: 5px;
   z-index: ${({ zIndex = 1000 }) => zIndex - 1};
 
-  color: ${({ subColor = ThemeConfig.secondaryColor }) => {
+  color: ${({ subColor = LocalizeTheme.secondaryColor }) => {
     if (getIsLightenTheme(subColor)) {
-      return Themes.dark_grey;
+      return LocalizeThemes.dark_grey;
     }
-    return Themes.white;
+    return LocalizeThemes.white;
   }};
 
   &:hover {
-    color: ${({ subColor = ThemeConfig.secondaryColor }) => {
+    color: ${({ subColor = LocalizeTheme.secondaryColor }) => {
       if (getIsLightenTheme(subColor)) {
-        return Themes.white;
+        return LocalizeThemes.white;
       }
-      return Themes.dark_grey;
+      return LocalizeThemes.dark_grey;
     }};
-    background-color: ${({ subColor = ThemeConfig.secondaryColor }) => {
+    background-color: ${({ subColor = LocalizeTheme.secondaryColor }) => {
       if (getIsLightenTheme(subColor)) {
-        return Themes.light_grey;
+        return LocalizeThemes.light_grey;
       }
-      return Themes.white;
+      return LocalizeThemes.white;
     }};
   }
 `;
 
-const ModalContainer = styled.div<StyledProps>(
+const ModalContainer = styled.div<LocalizeStyledProps>(
   ({
     position = Position.CENTER,
     size = Size.MEDIUM,
-    subColor = ThemeConfig.secondaryColor,
+    subColor = LocalizeTheme.secondaryColor,
     zIndex = 1000,
   }) => {
     const getMaxHeight = () => {
@@ -282,19 +282,19 @@ const ModalContainer = styled.div<StyledProps>(
   }
 );
 
-const ModalContent = styled.div<StyledProps>`
-  color: ${({ subColor = ThemeConfig.secondaryColor }) => {
+const ModalContent = styled.div<LocalizeStyledProps>`
+  color: ${({ subColor = LocalizeTheme.secondaryColor }) => {
     if (getIsLightenTheme(subColor)) {
-      return Themes.dark_grey;
+      return LocalizeThemes.dark_grey;
     }
-    return Themes.white;
+    return LocalizeThemes.white;
   }};
   font-size: 16px;
   letter-spacing: 0.2px;
   width: 100%;
 
   &.__Localize__Modal__Header {
-    border-bottom: 0.03rem solid ${Themes.light_grey};
+    border-bottom: 0.03rem solid ${LocalizeThemes.light_grey};
     border-radius: 6px 6px 0 0;
     font-size: 22px;
     height: 20%;
@@ -308,7 +308,7 @@ const ModalContent = styled.div<StyledProps>`
   }
 
   &.__Localize__Modal__Footer {
-    border-top: 0.03rem solid ${Themes.light_grey};
+    border-top: 0.03rem solid ${LocalizeThemes.light_grey};
     bottom: 0;
     height: 20%;
     overflow: auto;
