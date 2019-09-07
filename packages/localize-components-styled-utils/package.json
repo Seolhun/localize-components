@@ -1,5 +1,10 @@
 {
   "license": "MIT",
+  "author": {
+    "name": "Seolhun",
+    "email": "shun10116@gmail.com",
+    "url": "https://github.com/Seolhun"
+  },
   "name": "@seolhun/localize-components-styled-utils",
   "description": "Localizing React components is rendered by stand-alone not affect other styles.",
   "version": "0.1.6",
