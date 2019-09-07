@@ -5,7 +5,6 @@ import styled from '@emotion/styled';
 
 import {
   LocalizeThemesType,
-  LocalizeTheme,
   ILocalizeTheme,
   LocalizeThemes,
 } from '@seolhun/localize-components-styled-types';

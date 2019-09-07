@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 
 import { Radio } from '@seolhun/localize-components-atomic';
 
 const RadioView = () => {
+  const [checkedItem, setItem] = useState({
+    label: 'label1',
+    value: 'value1',
+  })
+  const handleOnChange = useCallback((item) => {
+    setItem(item)
+  }, [checkedItem])
+
+
   return (
     <div className='container'>
       <div className='row'>
@@ -10,24 +19,20 @@ const RadioView = () => {
           <h2>Default</h2>
           <Radio
             item={{
-              label: 'label',
-              value: 'value',
+              label: 'label1',
+              value: 'value1',
             }}
+            checkedItem={checkedItem}
+            onChange={handleOnChange}
             groupName='localize'
           />
           <Radio
             item={{
-              label: 'label',
-              value: 'value',
+              label: 'label2',
+              value: 'value2',
             }}
-            checked
-            groupName='localize'
-          />
-          <Radio
-            item={{
-              label: 'label',
-              value: 'value',
-            }}
+            checkedItem={checkedItem}
+            onChange={handleOnChange}
             groupName='localize'
           />
         </div>
@@ -35,74 +40,42 @@ const RadioView = () => {
           <h2>Give a mainColor</h2>
           <Radio
             item={{
-              label: 'label',
-              value: 'value',
+              label: 'label5',
+              value: 'value5',
             }}
             mainColor='danger'
-            checked
+            checkedItem={checkedItem}
           />
           <Radio
             item={{
-              label: 'label',
-              value: 'value',
+              label: 'label6',
+              value: 'value6',
             }}
             mainColor='primary'
-            checked
-          />
-          <Radio
-            item={{
-              label: 'label',
-              value: 'value',
-            }}
-            mainColor='light_grey'
-            checked
-          />
-          <Radio
-            item={{
-              label: 'label',
-              value: 'value',
-            }}
-            mainColor='#41FF2B'
-            checked
+            checkedItem={checkedItem}
           />
         </div>
         <div className='col-sm-12'>
           <h2>Give a subColor</h2>
           <Radio
             item={{
-              label: 'label',
-              value: 'value',
+              label: 'label7',
+              value: 'value7',
             }}
+            checkedItem={checkedItem}
+            onChange={handleOnChange}
             mainColor='danger'
             subColor='yellow'
-            checked
           />
           <Radio
             item={{
-              label: 'label',
-              value: 'value',
+              label: 'label8',
+              value: 'value8',
             }}
+            checkedItem={checkedItem}
+            onChange={handleOnChange}
             mainColor='primary'
             subColor='danger'
-            checked
-          />
-          <Radio
-            item={{
-              label: 'label',
-              value: 'value',
-            }}
-            mainColor='light_grey'
-            subColor='purple'
-            checked
-          />
-          <Radio
-            item={{
-              label: 'label',
-              value: 'value',
-            }}
-            mainColor='#41FF2B'
-            subColor='#000'
-            checked
           />
         </div>
       </div>

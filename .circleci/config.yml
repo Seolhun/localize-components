@@ -44,7 +44,7 @@ jobs:
             - node_modules
 
       - run:
-          name: "Lerna packages bundling"
+          name: "Lerna packages build"
           command: yarn build
 
       - run:
