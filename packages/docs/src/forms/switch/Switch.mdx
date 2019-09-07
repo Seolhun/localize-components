@@ -3,141 +3,113 @@ name: Switch
 menu: Forms
 ---
 
+import { useState } from 'react';
 import { Playground, Props } from 'docz';
-import { Switch } from '@seolhun/localize-components-atomic';
-
-import SwitchPropsTable from './SwitchPropsTable';
+import { Switch, SwitchProps } from '@seolhun/localize-components-atomic';
 
 # Switch
 
 ## Default
 
 <Playground>
-  <Switch
-    items={[{
-      label: 'label2',
-      value: 'value',
-    }, {
-      label: 'label2',
-      value: 'value2',
-    }]}
-    checked
-  />
-  <Switch
-    items={[{
-      label: 'label',
-      value: 'value',
-    }, {
-      label: 'label2',
-      value: 'value2',
-    }]}
-    subColor='#000'
-    checked
-  />
+  {() => {
+    const [isChecked, setIsChecked] = useState(false)
+    return (
+      <>
+        <Switch
+          htmlFor='test'
+          checked={isChecked}
+          onChange={(checked) => setIsChecked(!checked)}
+        />
+        <Switch
+          htmlFor='example'
+          subColor='#000'
+          checked={isChecked}
+          onChange={() => setIsChecked(!isChecked)}
+        />
+      </>
+    )
+  }}
+
 </Playground>
 
 ## Give a mainColor
 
 <Playground>
-  <Switch
-    items={[{
-      label: 'label',
-      value: 'value',
-    }, {
-      label: 'label2',
-      value: 'value2',
-    }]}
-    mainColor='danger'
-    checked
-  />
-  <Switch
-    items={[{
-      label: 'label',
-      value: 'value',
-    }, {
-      label: 'label2',
-      value: 'value2',
-    }]}
-    mainColor='primary'
-    checked
-  />
-  <Switch
-    items={[{
-      label: 'label',
-      value: 'value',
-    }, {
-      label: 'label2',
-      value: 'value2',
-    }]}
-    mainColor='light_grey'
-    checked
-  />
-  <Switch
-    items={[{
-      label: 'label',
-      value: 'value',
-    }, {
-      label: 'label2',
-      value: 'value2',
-    }]}
-    mainColor='#41FF2B'
-    checked
-  />
+  {() => {
+    const [isChecked, setIsChecked] = useState(false)
+    return (
+      <>
+        <Switch
+          htmlFor='danger'
+          mainColor='danger'
+          checked={isChecked}
+          onChange={() => setIsChecked(!isChecked)}
+        />
+        <Switch
+          htmlFor='primary'
+          mainColor='primary'
+          checked={isChecked}
+          onChange={() => setIsChecked(!isChecked)}
+        />
+        <Switch
+          htmlFor='light_grey'
+          mainColor='light_grey'
+          checked={isChecked}
+          onChange={() => setIsChecked(!isChecked)}
+        />
+        <Switch
+          htmlFor='41FF2B'
+          mainColor='#41FF2B'
+          checked={isChecked}
+          onChange={() => setIsChecked(!isChecked)}
+        />
+      </>
+    )
+  }}
+
 </Playground>
 
 ## Give a subColor
 
 <Playground>
-  <Switch
-    items={[{
-      label: 'label',
-      value: 'value',
-    }, {
-      label: 'label2',
-      value: 'value2',
-    }]}
-    mainColor='danger'
-    subColor='dark_grey'
-    checked
-  />
-  <Switch
-    items={[{
-      label: 'label',
-      value: 'value',
-    }, {
-      label: 'label2',
-      value: 'value2',
-    }]}
-    mainColor='primary'
-    subColor='grey'
-    checked
-  />
-  <Switch
-    items={[{
-      label: 'label',
-      value: 'value',
-    }, {
-      label: 'label2',
-      value: 'value2',
-    }]}
-    mainColor='light_grey'
-    subColor='purple'
-    checked
-  />
-  <Switch
-    items={[{
-      label: 'label',
-      value: 'value',
-    }, {
-      label: 'label2',
-      value: 'value2',
-    }]}
-    mainColor='#41FF2B'
-    subColor='#000'
-    checked
-  />
+  {() => {
+    const [isChecked, setIsChecked] = useState(false)
+    return (
+      <>
+        <Switch
+          htmlFor='danger1'
+          mainColor='danger'
+          subColor='dark_grey'
+          checked={isChecked}
+          onChange={() => setIsChecked(!isChecked)}
+        />
+        <Switch
+          htmlFor='primary1'
+          mainColor='primary'
+          subColor='grey'
+          checked={isChecked}
+          onChange={() => setIsChecked(!isChecked)}
+        />
+        <Switch
+          htmlFor='light_grey1'
+          mainColor='light_grey'
+          subColor='purple'
+          checked={isChecked}
+          onChange={() => setIsChecked(!isChecked)}
+        />
+        <Switch
+          htmlFor='41FF2B1'
+          mainColor='#41FF2B'
+          subColor='#000'
+          checked={isChecked}
+          onChange={() => setIsChecked(!isChecked)}
+        />
+      </>
+    )
+  }}
 </Playground>
 
 ## PropsTable
 
-<Props of={SwitchPropsTable} />
+<Props of={Switch} />

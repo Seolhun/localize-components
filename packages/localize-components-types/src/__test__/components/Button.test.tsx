@@ -13,7 +13,7 @@ import setEnzymeConfiguration from '../_config_';
 setEnzymeConfiguration(Enzyme);
 describe('Button Test', () => {
   const navbar = Enzyme.shallow(
-    <button className="btn-success" onClick={() => null}>
+    <button className='btn-success' onClick={() => null}>
       btn-success
     </button>
   );

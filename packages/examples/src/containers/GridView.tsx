@@ -7,7 +7,7 @@ import { LocalizeTheme } from '@seolhun/localize-components-styled-types';
 import { Container, Col, Row, Jumbotron } from '@seolhun/localize-components';
 
 const STYLES = {
-  margin: '5px'
+  margin: '5px',
 }
 
 const GridView = () => {

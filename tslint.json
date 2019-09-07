@@ -2,11 +2,7 @@
   "defaultSeverity": "error",
   "jsRules": {},
   "rules": {
-    "interface-name": {
-      "options": [
-        "never-prefix"
-      ]
-    },
+    "interface-name": false,
     "max-classes-per-file": {
       "options": [
         10

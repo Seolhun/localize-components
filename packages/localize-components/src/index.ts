@@ -2,7 +2,6 @@
 export * from '@seolhun/localize-components-modal';
 
 export * from './components/card';
-export * from './components/issue';
 export * from './components/jumbotron';
 export * from './components/carousel';
 export * from './components/grid';

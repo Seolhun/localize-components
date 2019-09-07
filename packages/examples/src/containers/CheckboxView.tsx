@@ -4,9 +4,9 @@ import { CheckBox } from '@seolhun/localize-components-atomic';
 
 const CheckBoxView = () => {
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-sm-12">
+    <div className='container'>
+      <div className='row'>
+        <div className='col-sm-12'>
           <h2>Default</h2>
           <CheckBox
             item={{
@@ -16,14 +16,14 @@ const CheckBoxView = () => {
             checked
           />
         </div>
-        <div className="col-sm-12">
+        <div className='col-sm-12'>
           <h2>Give a mainColor</h2>
           <CheckBox
             item={{
               label: 'label',
               value: 'value',
             }}
-            mainColor="danger"
+            mainColor='danger'
             checked
           />
           <CheckBox
@@ -31,7 +31,7 @@ const CheckBoxView = () => {
               label: 'label',
               value: 'value',
             }}
-            mainColor="primary"
+            mainColor='primary'
             checked
           />
           <CheckBox
@@ -39,7 +39,7 @@ const CheckBoxView = () => {
               label: 'label',
               value: 'value',
             }}
-            mainColor="light_grey"
+            mainColor='light_grey'
             checked
           />
           <CheckBox
@@ -47,19 +47,19 @@ const CheckBoxView = () => {
               label: 'label',
               value: 'value',
             }}
-            mainColor="#41FF2B"
+            mainColor='#41FF2B'
             checked
           />
         </div>
-        <div className="col-sm-12">
+        <div className='col-sm-12'>
           <h2>Give a subColor</h2>
           <CheckBox
             item={{
               label: 'label',
               value: 'value',
             }}
-            mainColor="danger"
-            subColor="yellow"
+            mainColor='danger'
+            subColor='yellow'
             checked
           />
           <CheckBox
@@ -67,8 +67,8 @@ const CheckBoxView = () => {
               label: 'label',
               value: 'value',
             }}
-            mainColor="primary"
-            subColor="danger"
+            mainColor='primary'
+            subColor='danger'
             checked
           />
           <CheckBox
@@ -76,8 +76,8 @@ const CheckBoxView = () => {
               label: 'label',
               value: 'value',
             }}
-            mainColor="light_grey"
-            subColor="purple"
+            mainColor='light_grey'
+            subColor='purple'
             checked
           />
           <CheckBox
@@ -85,8 +85,8 @@ const CheckBoxView = () => {
               label: 'label',
               value: 'value',
             }}
-            mainColor="#41FF2B"
-            subColor="#000"
+            mainColor='#41FF2B'
+            subColor='#000'
             checked
           />
         </div>

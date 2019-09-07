@@ -3,38 +3,52 @@ name: Radio
 menu: Forms
 ---
 
+import { useState } from 'react';
 import { Playground, Props } from 'docz';
 import { Radio } from '@seolhun/localize-components-atomic';
-
-import RadioPropsTable from './RadioPropsTable';
 
 # Radio
 
 ## Default
 
 <Playground>
-  <Radio
-    item={{
-      label: 'label',
-      value: 'value',
-    }}
-    groupName='localize'
-  />
-  <Radio
-    item={{
-      label: 'label',
-      value: 'value',
-    }}
-    checked
-    groupName='localize'
-  />
-    <Radio
-    item={{
-      label: 'label',
-      value: 'value',
-    }}
-    groupName='localize'
-  />
+  {() => {
+    const [checkedItem, setItem] = useState({
+      label: 'label1',
+      value: 'value1',
+    })
+    return (
+      <>
+        <Radio
+          item={{
+            label: 'label1',
+            value: 'value1',
+          }}
+          checkedItem={checkedItem}
+          onChange={setItem}
+          groupName='localize'
+        />
+        <Radio
+          item={{
+            label: 'label2',
+            value: 'value2',
+          }}
+          checkedItem={checkedItem}
+          onChange={setItem}
+          groupName='localize'
+        />
+          <Radio
+          item={{
+            label: 'label3',
+            value: 'value3',
+          }}
+          checkedItem={checkedItem}
+          onChange={setItem}
+          groupName='localize'
+        />
+      </>
+    )
+  }}
 </Playground>
 
 ## Give a mainColor
@@ -117,4 +131,4 @@ import RadioPropsTable from './RadioPropsTable';
 
 ## PropsTable
 
-<Props of={RadioPropsTable} />
+<Props of={Radio} />
