@@ -1,5 +1,5 @@
 // components
-export { Modal, ModalProps } from '@seolhun/localize-components-modal';
+export * from '@seolhun/localize-components-modal';
 
 export * from './components/card';
 export * from './components/issue';
