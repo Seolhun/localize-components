@@ -131,7 +131,6 @@ const StyledCheckBox = styled.span<RadioCheckBoxProps, ILocalizeTheme>(({
   mainColor,
   subColor,
   isChecked,
-  css = {},
 }) => {
   const validTheme = getThemeObject({ mainColor, subColor }, theme);
 
@@ -155,7 +154,6 @@ const StyledCheckBox = styled.span<RadioCheckBoxProps, ILocalizeTheme>(({
       border: `1px solid ${validTheme.mainColor}`,
     },
     ...(isChecked && checkedStyle),
-    ...css,
   };
 });
 

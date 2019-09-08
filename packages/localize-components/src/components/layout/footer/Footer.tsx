@@ -19,7 +19,6 @@ const StyledNav = styled.nav<FooterProps, ILocalizeTheme>(({
   mainColor,
   subColor,
   zIndex = 100,
-  css,
 }) => {
   const validTheme = getThemeObject({ mainColor, subColor }, theme);
 
@@ -28,18 +27,19 @@ const StyledNav = styled.nav<FooterProps, ILocalizeTheme>(({
     backgroundColor: validTheme.mainColor,
     borderBottom: `1px solid ${validTheme.mainColor}`,
     zIndex,
-    ...css,
   }
 })
 
 const Footer: FC<FooterProps> = ({
   children,
   className,
+  css = {},
   ...props
 }) => (
   <StyledNav
-    className={classnames(DEFAULT_CLASSNAME, className)}
     {...props}
+    className={classnames(DEFAULT_CLASSNAME, className)}
+    css={css}
   >
     {children}
   </StyledNav>

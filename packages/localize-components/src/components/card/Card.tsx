@@ -13,7 +13,6 @@ export interface CardProps extends LocalizeBaseStyledProps{
 const StyledCard = styled.div<CardProps, ILocalizeTheme>(({
   theme,
   mainColor,
-  css = {},
 }) => {
   return {
     backgroundColor: mainColor || LocalizeThemes.white,
@@ -25,15 +24,15 @@ const StyledCard = styled.div<CardProps, ILocalizeTheme>(({
     borderRadius: theme.border.radius || '4px',
     boxShadow: theme.border.shadow,
     padding: '10px 5px',
-    ...css,
   }
 });
 
 export const Card: FC<CardProps> = ({
   className,
   children,
+  css = {},
 }) => (
-  <StyledCard className={classnames('__Localize__Card', className)}>
+  <StyledCard className={classnames('__Localize__Card', className)} css={css}>
     {children}
   </StyledCard>
 );

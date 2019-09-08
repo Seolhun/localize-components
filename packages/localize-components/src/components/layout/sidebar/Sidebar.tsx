@@ -30,7 +30,6 @@ const StyledSidebar = styled.aside<SidebarProps, ILocalizeTheme>(({
   width = 250,
   top = 50,
   zIndex = 100,
-  css = {},
 }) => {
   const validTheme = getThemeObject({ mainColor, subColor }, theme);
 
@@ -51,18 +50,19 @@ const StyledSidebar = styled.aside<SidebarProps, ILocalizeTheme>(({
     overflowY: 'auto',
     overflowX: 'hidden',
     zIndex,
-    ...css,
   }
 })
 
 const Sidebar: React.FunctionComponent<SidebarProps> = ({
   children,
   className,
+  css = {},
   ...props
 }) => (
   <StyledSidebar
-    className={classnames(DEFAULT_CLASSNAME, className)}
     {...props}
+    className={classnames(DEFAULT_CLASSNAME, className)}
+    css={css}
   >
     {children}
   </StyledSidebar>

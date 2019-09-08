@@ -82,16 +82,24 @@ export interface SwitchProps {
   valueKey?: string;
 }
 
-const StyledSwitchLabel = styled.label({
-  userSelect: 'none',
-  position: 'relative',
-  display: 'inline-block',
-  width: `${SWITCH_CONTAINER_WIDTH}px`,
-  height: `${SWITCH_CONTAINER_HEIGHT}px`,
+const StyledSwitchLabel = styled.label<LocalizeStyledProps, ILocalizeTheme>(({
+  mainColor,
+  subColor,
+  theme,
+}) => {
+  const validTheme = getThemeObject({ mainColor, subColor }, theme);
+  return {
+    userSelect: 'none',
+    position: 'relative',
+    display: 'inline-block',
+    width: `${SWITCH_CONTAINER_WIDTH}px`,
+    height: `${SWITCH_CONTAINER_HEIGHT}px`,
 
-  [`input:checked + .${DEFAULT_CLASSNAME}__Slider:before`]: {
-    transform: `translateX(${SWITCH_CIRCLE}px)`,
-  },
+    [`input:checked + .${DEFAULT_CLASSNAME}__Slider:before`]: {
+      transform: `translateX(${SWITCH_CIRCLE}px)`,
+      boxShadow: `0 0 2px 3px ${validTheme.mainColor}`,
+    },
+  }
 })
 
 const StyledSwitchInput = styled.input({
@@ -113,7 +121,7 @@ const StyledSlider = styled.span<LocalizeStyledProps, ILocalizeTheme>(({
     cursor: 'pointer',
     position: 'absolute',
     top: 0,
-    right: '-1px',
+    right: 0,
     bottom: 0,
     left: 0,
     transition: '0.4s',

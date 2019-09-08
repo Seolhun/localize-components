@@ -68,7 +68,6 @@ const StyledButton = styled.button<ButtonProps, ILocalizeTheme>(
     subColor,
     fontSize = 12,
     size = Size.MEDIUM,
-    css = {},
   }) => {
     const validTheme = getThemeObject({ mainColor, subColor }, theme);
     const getStyleBySize = () => {
@@ -112,7 +111,6 @@ const StyledButton = styled.button<ButtonProps, ILocalizeTheme>(
         color: LocalizeThemes.white,
         cursor: 'not-allowed',
       },
-      ...css,
     };
   }
 );
@@ -120,12 +118,14 @@ const StyledButton = styled.button<ButtonProps, ILocalizeTheme>(
 const Button: FunctionComponent<ButtonProps> = ({
   children,
   className,
+  css = {},
   ...props
 }) => (
   <StyledButton
+    {...props}
     className={classnames('__Localize__Button', className)}
     type='button'
-    {...props}
+    css={css}
   >
     {children}
   </StyledButton>

@@ -22,7 +22,6 @@ const StyledRow = styled.div<RowProps, ILocalizeTheme>(({
   isWrap = true,
   alignItems = 'center',
   justifyContent = 'flex-start',
-  css = {},
 }) => {
     return {
       display: 'flex',
@@ -34,7 +33,6 @@ const StyledRow = styled.div<RowProps, ILocalizeTheme>(({
       marginBottom: theme.row.gutter,
       alignItems,
       justifyContent,
-      ...css,
     };
   }
 );
@@ -42,12 +40,14 @@ const StyledRow = styled.div<RowProps, ILocalizeTheme>(({
 export const Row = ({
   children,
   className,
+  css = {},
   ...props
 }: RowProps) => {
   return (
     <StyledRow
-      className={classnames('__Localize__Row', className)}
       {...props}
+      className={classnames('__Localize__Row', className)}
+      css={css}
     >
       {children}
     </StyledRow>

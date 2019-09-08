@@ -72,7 +72,6 @@ const StyledJumbotron = styled.div<JumbotronProps, ILocalizeTheme>(({
   theme,
   mainColor,
   subColor,
-  css = {},
 }) => {
     const validTheme = getThemeObject({ mainColor, subColor }, theme);
 
@@ -81,7 +80,6 @@ const StyledJumbotron = styled.div<JumbotronProps, ILocalizeTheme>(({
       color: getThemeColorStyle(validTheme.mainColor),
       height: 'auto',
       width: '100%',
-      ...css,
     };
   }
 );
@@ -104,12 +102,14 @@ export const Jumbotron: FunctionComponent<JumbotronProps> = ({
   className,
   description,
   title,
+  css = {},
   ...props
 }) => {
   return (
     <StyledJumbotron
-      className={classnames('__Localize__Jumbotron', className)}
       {...props}
+      className={classnames('__Localize__Jumbotron', className)}
+      css={css}
     >
       <StyledJumbotronContainer>
         {title && <h1>{title}</h1>}

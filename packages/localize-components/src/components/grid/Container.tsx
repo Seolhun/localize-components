@@ -13,7 +13,7 @@ export interface ContainerProps {
 }
 
 const StyledContainer = styled.div<ContainerProps, ILocalizeTheme>(
-  ({ isFullWidth = false, css = {} }) => {
+  ({ isFullWidth = false }) => {
     const responsiveStyles = {
       [`@media ${createMediaQueryCondition('SM')}`]: {
         maxWidth: `${MediaQueries.XL - 36}px`,
@@ -33,7 +33,6 @@ const StyledContainer = styled.div<ContainerProps, ILocalizeTheme>(
       width: '100%',
       marginRight: 'auto',
       marginLeft: 'auto',
-      ...css,
     };
   }
 );
@@ -42,12 +41,14 @@ const StyledContainer = styled.div<ContainerProps, ILocalizeTheme>(
 export const Container = ({
   children,
   className,
+  css = {},
   ...props
 }: ContainerProps) => {
   return (
     <StyledContainer
-      className={classnames('__Localize__Container', className)}
       {...props}
+      className={classnames('__Localize__Container', className)}
+      css={css}
     >
       {children}
     </StyledContainer>

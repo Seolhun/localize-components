@@ -22,7 +22,6 @@ const StyledNav = styled.nav<NavBarProps, ILocalizeTheme>(({
   subColor,
   height = 50,
   zIndex = 100,
-  css,
 }) => {
   const validTheme = getThemeObject({ mainColor, subColor }, theme);
 
@@ -34,18 +33,18 @@ const StyledNav = styled.nav<NavBarProps, ILocalizeTheme>(({
     backgroundColor: validTheme.mainColor,
     borderBottom: `1px solid ${validTheme.mainColor}`,
     zIndex,
-    ...css,
-  }
 })
 
 const NavBar: FC<NavBarProps> = ({
   children,
   className,
+  css = {},
   ...props
 }) => (
   <StyledNav
-    className={classnames(DEFAULT_CLASSNAME, className)}
     {...props}
+    className={classnames(DEFAULT_CLASSNAME, className)}
+    css={css}
   >
     {children}
   </StyledNav>

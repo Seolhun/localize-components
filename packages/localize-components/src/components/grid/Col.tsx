@@ -29,7 +29,6 @@ const StyledCol = styled.div<ColProps, ILocalizeTheme>(({
   xs,
   alignItems = 'center',
   justifyContent = 'flex-start',
-  css = {},
 }) => {
     return {
       ...((!!xs || xs === 0) && getMediaQueryStyles('XS', xs)),
@@ -48,7 +47,6 @@ const StyledCol = styled.div<ColProps, ILocalizeTheme>(({
       paddingRight: theme.grid.gutter,
       paddingLeft: theme.grid.gutter,
       paddingBottom: theme.grid.gutter,
-      ...css,
     };
   }
 );
@@ -56,12 +54,14 @@ const StyledCol = styled.div<ColProps, ILocalizeTheme>(({
 export const Col = ({
   children,
   className,
+  css = {},
   ...props
 }: ColProps) => {
   return (
     <StyledCol
-      className={classnames('__Localize__Col', className)}
       {...props}
+      className={classnames('__Localize__Col', className)}
+      css={css}
     >
       {children}
     </StyledCol>
