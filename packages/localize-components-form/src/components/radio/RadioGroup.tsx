@@ -25,7 +25,6 @@ export interface RadioGroupProps extends LocalizeBaseStyledProps {
    * Set this to change Radio Group name
    */
   groupName?: string;
-
   /**
    * Set this to change Radio Group labelKey
    * @default 'label'
@@ -89,11 +88,11 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
   children,
   groupName,
   className,
+  mainColor,
+  subColor,
   labelKey = 'label',
   valueKey = 'value',
   useValueKey = false,
-  mainColor = LocalizeTheme.primaryColor,
-  subColor = LocalizeTheme.secondaryColor,
   align = 'vertical',
   gap = '10px',
   onClick = () => null,

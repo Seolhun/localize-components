@@ -7,8 +7,8 @@ import { getThemeObject } from '@seolhun/localize-components-styled-utils';
 import {
   LocalizeStyledProps,
   LocalizeTheme,
-  LocalizeThemesType,
   ILocalizeTheme,
+  LocalizeBaseStyledProps,
 } from '@seolhun/localize-components-styled-types';
 
 const DEFAULT_CLASSNAME = '__Localize__Switch';
@@ -16,7 +16,7 @@ const SWITCH_CIRCLE = 25;
 const SWITCH_CONTAINER_WIDTH = (SWITCH_CIRCLE * 2) + 2;
 const SWITCH_CONTAINER_HEIGHT = SWITCH_CIRCLE + 2;
 
-export interface SwitchProps {
+export interface SwitchProps extends LocalizeBaseStyledProps {
   /**
    * Set this to change Switch checked
    */
@@ -26,15 +26,20 @@ export interface SwitchProps {
    */
   htmlFor: string;
   /**
-   * Set this to change Switch className
-   * @default undefined
-   */
-  className?: string;
-  /**
    * Set this to change Switch groupName
    * @default ''
    */
   groupName?: string;
+  /**
+   * Set this to change Switch useValueKey
+   * @default false
+   */
+  useValueKey?: boolean;
+  /**
+   * Set this to change Switch valueKey
+   * @default 'value'
+   */
+  valueKey?: string;
   /**
    * Set this to change Switch labelKey
    * @default 'label'
@@ -55,31 +60,6 @@ export interface SwitchProps {
    * @default () => null
    */
   onMouseOut?: (...agrs: any[]) => void;
-  /**
-   * Set this to change Switch useValueKey
-   * @default false
-   */
-  useValueKey?: boolean;
-  /**
-   * Set this to change Switch css
-   * @default {}
-   */
-  css?: {};
-  /**
-   * Set this to change Switch mainColor
-   * @default LocalizeTheme.primaryColor = royal_blue
-   */
-  mainColor?: LocalizeThemesType;
-  /**
-   * Set this to change Switch subColor
-   * @default LocalizeTheme.secondaryColor = grey
-   */
-  subColor?: LocalizeThemesType;
-  /**
-   * Set this to change Switch valueKey
-   * @default 'value'
-   */
-  valueKey?: string;
 }
 
 const StyledSwitchLabel = styled.label<LocalizeStyledProps, ILocalizeTheme>(({
@@ -146,8 +126,8 @@ export const Switch: FC<SwitchProps> = ({
   //
   className,
   groupName = '',
-  mainColor = LocalizeTheme.primaryColor,
-  subColor = LocalizeTheme.secondaryColor,
+  mainColor,
+  subColor,
   onChange = () => null,
   onMouseOut = () => null,
   onMouseOver = () => null,
@@ -165,6 +145,8 @@ export const Switch: FC<SwitchProps> = ({
       className={classnames(`${DEFAULT_CLASSNAME}__Label`, className)}
       onMouseOut={onMouseOut}
       onMouseOver={onMouseOver}
+      mainColor={mainColor}
+      subColor={subColor}
     >
       <StyledSwitchInput
         id={htmlFor}
