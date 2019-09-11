@@ -33,7 +33,8 @@ const StyledNav = styled.nav<NavBarProps, ILocalizeTheme>(({
     backgroundColor: validTheme.mainColor,
     borderBottom: `1px solid ${validTheme.mainColor}`,
     zIndex,
-})
+  }
+});
 
 const NavBar: FC<NavBarProps> = ({
   children,

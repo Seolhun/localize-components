@@ -3,8 +3,7 @@ import React, { FunctionComponent, ReactNode } from 'react';
 import styled from '@emotion/styled';
 
 import {
-  LocalizeTheme,
-  LocalizeThemesType,
+  LocalizeThemeStyledProps,
 } from '@seolhun/localize-components-styled-types';
 
 export interface RadioItemProps {
@@ -13,7 +12,7 @@ export interface RadioItemProps {
 
 export type CheckBoxGroupAlign = 'vertical' | 'horizontal';
 
-export interface CheckBoxGroupProps {
+export interface CheckBoxGroupProps extends LocalizeThemeStyledProps {
   /**
    * Set this to change CheckBox Group children
    */
@@ -38,17 +37,6 @@ export interface CheckBoxGroupProps {
    * @default false
    */
   useValueKey?: boolean;
-  /**
-   * Set this to change CheckBox Group mainColor
-   * @default LocalizeTheme.primaryColor = royal_blue
-   */
-  mainColor?: LocalizeThemesType;
-  /**
-   * Set this to change CheckBox Group subColor
-   * @default LocalizeTheme.secondaryColor = grey
-   */
-  subColor?: LocalizeThemesType;
-
   /**
    * Set this to change CheckBox Group align
    * @default 'vertical'
@@ -96,11 +84,11 @@ export const CheckBoxGroupContainer = styled.div<CheckBoxGroupContainerProps>(({
 const CheckBoxGroup: FunctionComponent<CheckBoxGroupProps> = ({
   children,
   groupName,
+  mainColor,
+  subColor,
   labelKey = 'label',
   valueKey = 'value',
   useValueKey = false,
-  mainColor = LocalizeTheme.primaryColor,
-  subColor = LocalizeTheme.secondaryColor,
   align = 'vertical',
   gap = '10px',
   onClickItems = () => null,
