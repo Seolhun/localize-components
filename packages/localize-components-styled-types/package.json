@@ -7,7 +7,7 @@
   },
   "name": "@seolhun/localize-components-styled-types",
   "description": "Localizing React components is rendered by stand-alone not affect other styles.",
-  "version": "0.1.7-alpha.0",
+  "version": "0.1.7",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "files": [
