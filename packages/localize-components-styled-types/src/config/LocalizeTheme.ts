@@ -18,7 +18,7 @@ export interface ILocalizeTheme {
   };
   fonts: {
     COLOR: {
-      highlight: LocalizeThemesType;
+      highlightColor: LocalizeThemesType;
       primaryColor: LocalizeThemesType;
       secondaryColor: LocalizeThemesType;
     },
@@ -55,7 +55,7 @@ export const LocalizeTheme: ILocalizeTheme = {
   },
   fonts: {
     COLOR: {
-      highlight: 'royalblue',
+      highlightColor: 'royalblue',
       primaryColor: '#282c35',
       secondaryColor: '#282c35',
     },

@@ -11,7 +11,7 @@ import {
 import {
   getThemeHoverStyle,
   getThemeColorStyle,
-  getThemeObject,
+  getValidThemeObject,
 } from '@seolhun/localize-components-styled-utils';
 
 export interface CircleProps {
@@ -94,7 +94,7 @@ const StyledCircle = styled.span<CircleProps, ILocalizeTheme>(({
     theme,
     ...props
   }) => {
-    const validTheme = getThemeObject(props, theme);
+    const validTheme = getValidThemeObject(props, theme);
 
     return {
       display: 'inline-flex',

@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import classnames from 'classnames';
 
 import { LocalizeBaseStyledProps, ILocalizeTheme } from '@seolhun/localize-components-styled-types';
-import { getThemeObject } from '@seolhun/localize-components-styled-utils';
+import { getValidThemeObject } from '@seolhun/localize-components-styled-utils';
 
 const DEFAULT_CLASSNAME = '__Localize__Sidevar';
 
@@ -29,7 +29,7 @@ const StyledSidebar = styled.aside<SidebarProps, ILocalizeTheme>(({
   theme,
   ...props
 }) => {
-  const validTheme = getThemeObject(props, theme);
+  const validTheme = getValidThemeObject(props, theme);
 
   return {
     position: 'fixed',

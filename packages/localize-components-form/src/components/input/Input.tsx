@@ -11,7 +11,7 @@ import {
   ILocalizeTheme,
 } from '@seolhun/localize-components-styled-types';
 import {
-  getThemeObject,
+  getValidThemeObject,
   getThemeColorStyle,
   getThemeHoverStyle,
 } from '@seolhun/localize-components-styled-utils';
@@ -141,7 +141,7 @@ const StyledInputBox = styled.div<LocalizeStyledProps, ILocalizeTheme>(({
   theme,
   ...props
 }) => {
-  const validTheme = getThemeObject(props, theme);
+  const validTheme = getValidThemeObject(props, theme);
 
   return {
     display: 'flex',
@@ -173,7 +173,7 @@ const StyledDivInput = styled.div<InputProps, ILocalizeTheme>(({
   theme,
   ...props
 }) => {
-  const validTheme = getThemeObject(props, theme);
+  const validTheme = getValidThemeObject(props, theme);
   return {
     appearance: 'textfield',
     display: 'block',
@@ -216,7 +216,7 @@ const StyledInput = styled.input<InputProps, ILocalizeTheme>(({
   theme,
   ...props
 }) => {
-  const validTheme = getThemeObject(props, theme);
+  const validTheme = getValidThemeObject(props, theme);
 
   return {
     display: 'none',

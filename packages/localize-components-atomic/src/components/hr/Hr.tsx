@@ -7,7 +7,7 @@ import {
   LocalizeThemeStyledProps,
   ILocalizeTheme,
 } from '@seolhun/localize-components-styled-types';
-import { getThemeObject } from '@seolhun/localize-components-styled-utils';
+import { getValidThemeObject } from '@seolhun/localize-components-styled-utils';
 
 const DEFAULT_CLASSNAME = '__Localize__Hr';
 
@@ -23,7 +23,7 @@ const StyledHr = styled.hr<HrProps, ILocalizeTheme>(({
   theme,
   ...props
 }) => {
-  const validTheme = getThemeObject(props, theme);
+  const validTheme = getValidThemeObject(props, theme);
 
     return {
       border: 0,

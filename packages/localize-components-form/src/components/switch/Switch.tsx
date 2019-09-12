@@ -2,7 +2,7 @@ import React, { FC, useCallback, ChangeEvent } from 'react';
 
 import styled from '@emotion/styled';
 import classnames from 'classnames';
-import { getThemeObject } from '@seolhun/localize-components-styled-utils';
+import { getValidThemeObject } from '@seolhun/localize-components-styled-utils';
 
 import {
   LocalizeStyledProps,
@@ -65,7 +65,7 @@ const StyledSwitchLabel = styled.label<LocalizeStyledProps, ILocalizeTheme>(({
   theme,
   ...props
 }) => {
-  const validTheme = getThemeObject(props, theme);
+  const validTheme = getValidThemeObject(props, theme);
 
   return {
     userSelect: 'none',
@@ -91,7 +91,7 @@ const StyledSlider = styled.span<LocalizeStyledProps, ILocalizeTheme>(({
   theme,
   ...props
 }) => {
-  const validTheme = getThemeObject(props, theme);
+  const validTheme = getValidThemeObject(props, theme);
 
   return {
     backgroundColor: validTheme.mainColor,

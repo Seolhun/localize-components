@@ -12,7 +12,7 @@ import {
 import {
   getThemeColorStyle,
   getThemeHoverStyle,
-  getThemeObject,
+  getValidThemeObject,
 } from '@seolhun/localize-components-styled-utils';
 
 export interface ChipProps {
@@ -71,7 +71,7 @@ const StyledChip = styled.button<ChipProps, ILocalizeTheme>(
     subColor,
     theme,
   }) => {
-    const validTheme = getThemeObject({ mainColor, subColor }, theme);
+    const validTheme = getValidThemeObject({ mainColor, subColor }, theme);
     return {
       borderRadius: '6px',
       border: `1px solid ${validTheme.subColor}`,

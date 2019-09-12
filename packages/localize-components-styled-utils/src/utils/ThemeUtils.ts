@@ -9,19 +9,33 @@ import {
   LocalizeTheme,
 } from '@seolhun/localize-components-styled-types';
 
-export const getThemeObject = ({
+interface ValidThemeResponse {
+  mainColor: string;
+  subColor: string;
+  clickableColor: string;
+  highlightedFontColor: string;
+  primaryFontColor: string;
+  secondaryFontColor: string;
+}
+
+export const getValidThemeObject = ({
   mainColor,
   subColor,
-  clickableColor,
-}: LocalizeThemeStyledProps, theme?: ILocalizeTheme) => {
+}: LocalizeThemeStyledProps, theme?: ILocalizeTheme): ValidThemeResponse => {
   const primary = mainColor || !!theme && theme.primaryColor || LocalizeTheme.primaryColor;
   const second = subColor || !!theme && theme.secondaryColor || LocalizeTheme.secondaryColor;
-  const clickable = clickableColor || !!theme && theme.clickableColor || LocalizeTheme.clickableColor;
+  const clickable = mainColor || !!theme && theme.clickableColor || LocalizeTheme.clickableColor;
+  const highlightedFont = mainColor || !!theme && theme.fonts.COLOR.highlightColor || LocalizeTheme.fonts.COLOR.highlightColor;
+  const primaryFont = mainColor || !!theme && theme.fonts.COLOR.primaryColor || LocalizeTheme.fonts.COLOR.primaryColor;
+  const secondaryFont = subColor || !!theme && theme.fonts.COLOR.secondaryColor || LocalizeTheme.fonts.COLOR.secondaryColor;
 
   return {
     mainColor: getValidTheme(primary),
     subColor: getValidTheme(second),
     clickableColor: getValidTheme(clickable),
+    highlightedFontColor: getValidTheme(highlightedFont),
+    primaryFontColor: getValidTheme(primaryFont),
+    secondaryFontColor: getValidTheme(secondaryFont),
   };
 };
 

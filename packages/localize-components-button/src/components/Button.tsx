@@ -12,7 +12,7 @@ import {
 import {
   getThemeHoverStyle,
   getThemeColorStyle,
-  getThemeObject,
+  getValidThemeObject,
 } from '@seolhun/localize-components-styled-utils';
 
 export interface ButtonProps extends LocalizeStyledProps {
@@ -68,7 +68,7 @@ const StyledButton = styled.button<ButtonProps, ILocalizeTheme>(
     theme,
     ...props
   }) => {
-    const validTheme = getThemeObject(props, theme);
+    const validTheme = getValidThemeObject(props, theme);
     const getStyleBySize = () => {
       switch (size) {
         case Size.LARGE:

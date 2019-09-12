@@ -14,7 +14,7 @@ import {
 import {
   getIsLightenTheme,
   getPositionStyle,
-  getThemeObject,
+  getValidThemeObject,
 } from '@seolhun/localize-components-styled-utils';
 
 const DEFAULT_CLASSNAME = '__Localize__Modal';
@@ -109,7 +109,7 @@ const ModalContainer = styled.div<LocalizeStyledProps, ILocalizeTheme>(
     theme,
     ...props
   }) => {
-    const validTheme = getThemeObject(props, theme);
+    const validTheme = getValidThemeObject(props, theme);
 
     const getMaxHeight = () => {
       switch (size) {

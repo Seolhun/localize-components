@@ -46,12 +46,6 @@ export interface LocalizeThemeStyledProps {
    * @default LocalizeTheme.secondaryColor
    */
   subColor?: LocalizeThemesType;
-
-  /**
-   * Set this to change LocalizeThemeStyledProps clickableColor
-   * @default LocalizeTheme.clickableColor
-   */
-  clickableColor?: LocalizeThemesType;
 }
 
 export interface LocalizeBaseStyledProps extends LocalizeThemeStyledProps {

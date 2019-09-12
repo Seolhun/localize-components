@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 
 import classnames from 'classnames';
 import styled from '@emotion/styled';
-import { getThemeObject } from '@seolhun/localize-components-styled-utils';
+import { getValidThemeObject } from '@seolhun/localize-components-styled-utils';
 import { ILocalizeTheme, LocalizeBaseStyledProps } from '@seolhun/localize-components-styled-types';
 
 const DEFAULT_CLASSNAME = '__Localize__Navbar';
@@ -22,7 +22,7 @@ const StyledNav = styled.nav<NavBarProps, ILocalizeTheme>(({
   theme,
   ...props
 }) => {
-  const validTheme = getThemeObject(props, theme);
+  const validTheme = getValidThemeObject(props, theme);
 
   return {
     position: 'fixed',

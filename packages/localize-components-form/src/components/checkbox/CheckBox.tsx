@@ -3,7 +3,7 @@ import React, { FC, ChangeEvent, useCallback } from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
 import {
-  getThemeObject,
+  getValidThemeObject,
   getThemeHoverStyle,
 } from '@seolhun/localize-components-styled-utils';
 import {
@@ -135,7 +135,7 @@ const StyledCheckMark = styled.span<LocalizeStyledProps, ILocalizeTheme>(({
   theme,
   ...props
 }) => {
-  const validTheme = getThemeObject(props, theme);
+  const validTheme = getValidThemeObject(props, theme);
 
   return {
     backgroundColor: validTheme.mainColor,

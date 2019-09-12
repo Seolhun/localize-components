@@ -8,7 +8,7 @@ import {
 } from '@seolhun/localize-components-styled-types';
 import {
   createMediaQueryCondition,
-  getThemeObject,
+  getValidThemeObject,
   getThemeColorStyle,
 } from '@seolhun/localize-components-styled-utils';
 
@@ -72,7 +72,7 @@ const StyledJumbotron = styled.div<JumbotronProps, ILocalizeTheme>(({
   theme,
   ...props
 }) => {
-  const validTheme = getThemeObject(props, theme);
+  const validTheme = getValidThemeObject(props, theme);
 
     return {
       backgroundColor: validTheme.mainColor,

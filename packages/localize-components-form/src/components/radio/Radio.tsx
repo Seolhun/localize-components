@@ -9,7 +9,7 @@ import {
   LocalizeBaseStyledProps,
   LocalizeStyledProps,
 } from '@seolhun/localize-components-styled-types';
-import { getThemeObject } from '@seolhun/localize-components-styled-utils';
+import { getValidThemeObject } from '@seolhun/localize-components-styled-utils';
 
 import { RadioGroupAlignType } from './RadioGroup';
 
@@ -131,7 +131,7 @@ const StyledCheckBox = styled.span<RadioCheckBoxProps, ILocalizeTheme>(({
   theme,
   ...props
 }) => {
-  const validTheme = getThemeObject(props, theme);
+  const validTheme = getValidThemeObject(props, theme);
 
   const checkedStyle = {
     alignItems: 'center',
@@ -161,7 +161,7 @@ const StyledCheckMark = styled.span<RadioCheckBoxProps, ILocalizeTheme>(({
   theme,
   ...props
 }) => {
-  const validTheme = getThemeObject(props, theme);
+  const validTheme = getValidThemeObject(props, theme);
 
   return {
     position: 'absolute',
