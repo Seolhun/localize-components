@@ -139,10 +139,10 @@ export interface InputState {
 
 const StyledInputBox = styled.div<LocalizeStyledProps, ILocalizeTheme>(({
   theme,
-  mainColor,
-  subColor,
+  ...props
 }) => {
-  const validTheme = getThemeObject({ mainColor, subColor }, theme);
+  const validTheme = getThemeObject(props, theme);
+
   return {
     display: 'flex',
     verticalAlign: 'middle',
@@ -169,12 +169,11 @@ const StyledInputBox = styled.div<LocalizeStyledProps, ILocalizeTheme>(({
 })
 
 const StyledDivInput = styled.div<InputProps, ILocalizeTheme>(({
-  theme,
-  mainColor,
-  subColor,
   fontSize = 12,
+  theme,
+  ...props
 }) => {
-  const validTheme = getThemeObject({ mainColor, subColor }, theme);
+  const validTheme = getThemeObject(props, theme);
   return {
     appearance: 'textfield',
     display: 'block',
@@ -215,10 +214,10 @@ const StyledDivInput = styled.div<InputProps, ILocalizeTheme>(({
 
 const StyledInput = styled.input<InputProps, ILocalizeTheme>(({
   theme,
-  mainColor,
-  subColor,
+  ...props
 }) => {
-  const validTheme = getThemeObject({ mainColor, subColor }, theme);
+  const validTheme = getThemeObject(props, theme);
+
   return {
     display: 'none',
     height: 'auto',

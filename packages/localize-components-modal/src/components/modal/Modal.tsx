@@ -103,14 +103,14 @@ const CloseButton = styled.div<LocalizeStyledProps>`
 
 const ModalContainer = styled.div<LocalizeStyledProps, ILocalizeTheme>(
   ({
-    theme,
     position = Position.CENTER,
     size = Size.MEDIUM,
-    mainColor,
-    subColor,
     zIndex = 1000,
+    theme,
+    ...props
   }) => {
-    const validTheme = getThemeObject({ mainColor, subColor }, theme);
+    const validTheme = getThemeObject(props, theme);
+
     const getMaxHeight = () => {
       switch (size) {
         case Size.LARGE:
@@ -188,7 +188,7 @@ const ModalContent = styled.div<LocalizeStyledProps>`
   }
 `;
 
-const Modal: FC<ModalProps> = ({
+export const Modal: FC<ModalProps> = ({
   onClick,
   isShow,
   // isNotRequired

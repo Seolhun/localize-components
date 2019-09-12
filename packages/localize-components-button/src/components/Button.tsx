@@ -63,13 +63,12 @@ export interface ButtonProps extends LocalizeStyledProps {
 
 const StyledButton = styled.button<ButtonProps, ILocalizeTheme>(
   ({
-    theme,
-    mainColor,
-    subColor,
     fontSize = 12,
     size = Size.MEDIUM,
+    theme,
+    ...props
   }) => {
-    const validTheme = getThemeObject({ mainColor, subColor }, theme);
+    const validTheme = getThemeObject(props, theme);
     const getStyleBySize = () => {
       switch (size) {
         case Size.LARGE:
@@ -115,7 +114,7 @@ const StyledButton = styled.button<ButtonProps, ILocalizeTheme>(
   }
 );
 
-const Button: FunctionComponent<ButtonProps> = ({
+export const Button: FunctionComponent<ButtonProps> = ({
   children,
   className,
   css = {},

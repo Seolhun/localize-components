@@ -133,10 +133,9 @@ const StyledCheckBox = styled.input({
 
 const StyledCheckMark = styled.span<LocalizeStyledProps, ILocalizeTheme>(({
   theme,
-  mainColor,
-  subColor,
+  ...props
 }) => {
-  const validTheme = getThemeObject({ mainColor, subColor }, theme);
+  const validTheme = getThemeObject(props, theme);
 
   return {
     backgroundColor: validTheme.mainColor,

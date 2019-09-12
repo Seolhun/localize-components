@@ -3,6 +3,9 @@ import React, { FC } from 'react';
 import classnames from 'classnames';
 import styled from '@emotion/styled'
 import { ILocalizeTheme, LocalizeBaseStyledProps, LocalizeThemes } from '@seolhun/localize-components-styled-types';
+import { getThemeObject } from '@seolhun/localize-components-styled-utils';
+
+const DEFAULT_CLASSNAME = '__Localize__Card'
 
 export interface CardProps extends LocalizeBaseStyledProps{
   children: React.ReactNode;
@@ -12,19 +15,23 @@ export interface CardProps extends LocalizeBaseStyledProps{
 
 const StyledCard = styled.div<CardProps, ILocalizeTheme>(({
   theme,
-  mainColor,
+  ...props
 }) => {
+  const { subColor } = getThemeObject(props, theme);
+
   return {
-    backgroundColor: mainColor || LocalizeThemes.white,
+    backgroundColor: subColor,
     display: 'block',
-    minHeight: '100px',
+    minHeight: '80px',
     height: 'auto',
     width: '100%',
-
     borderRadius: theme.border.radius || '4px',
     boxShadow: theme.border.shadow,
-    padding: '10px 5px',
   }
+});
+
+const StyledCardContainer = styled.div<CardProps, ILocalizeTheme>({
+  padding: '10px 5px',
 });
 
 export const Card: FC<CardProps> = ({
@@ -32,8 +39,10 @@ export const Card: FC<CardProps> = ({
   children,
   css = {},
 }) => (
-  <StyledCard className={classnames('__Localize__Card', className)} css={css}>
-    {children}
+  <StyledCard className={classnames(DEFAULT_CLASSNAME, className)} css={css}>
+    <StyledCardContainer>
+      {children}
+    </StyledCardContainer>
   </StyledCard>
 );
 

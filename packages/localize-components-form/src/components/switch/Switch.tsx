@@ -62,11 +62,11 @@ export interface SwitchProps extends LocalizeBaseStyledProps {
 }
 
 const StyledSwitchLabel = styled.label<LocalizeStyledProps, ILocalizeTheme>(({
-  mainColor,
-  subColor,
   theme,
+  ...props
 }) => {
-  const validTheme = getThemeObject({ mainColor, subColor }, theme);
+  const validTheme = getThemeObject(props, theme);
+
   return {
     userSelect: 'none',
     position: 'relative',
@@ -88,11 +88,10 @@ const StyledSwitchInput = styled.input({
 })
 
 const StyledSlider = styled.span<LocalizeStyledProps, ILocalizeTheme>(({
-  mainColor,
-  subColor,
   theme,
+  ...props
 }) => {
-  const validTheme = getThemeObject({ mainColor, subColor }, theme);
+  const validTheme = getThemeObject(props, theme);
 
   return {
     backgroundColor: validTheme.mainColor,
