@@ -29,7 +29,7 @@ const getStyleTypo = (type: TypoType) => {
   }
 
   if (type === 'big' || type === 'medium' || type === 'small') {
-    return styled.span<TypoProps, ILocalizeTheme>(({ theme, weight, isHighlight, ...props }) => {
+    return styled.span<TypoProps, ILocalizeTheme>(({ theme, weight, ...props }) => {
       const { secondaryFontColor } = getValidThemeObject(props, theme);
       theme.fonts.SIZE
       return {
