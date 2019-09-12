@@ -60,8 +60,8 @@ export const LocalizeTheme: ILocalizeTheme = {
       secondaryColor: '#282c35',
     },
     SIZE: {
-      h1: '2.9rem',
-      h2: '2.5rem',
+      h1: '2.4rem',
+      h2: '2.2rem',
       h3: '2.0rem',
       h4: '1.8rem',
       h5: '1.6rem',

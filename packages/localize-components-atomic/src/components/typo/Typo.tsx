@@ -18,6 +18,8 @@ type TypoType = 'h1'
 interface TypoProps extends LocalizeBaseStyledProps {
   type: TypoType;
   children: ReactNode;
+  weight?: number;
+  isHighlight?: boolean;
 }
 
 const getStyleTypo = (type: TypoType) => {
@@ -27,34 +29,25 @@ const getStyleTypo = (type: TypoType) => {
   }
 
   if (type === 'big' || type === 'medium' || type === 'small') {
-    return styled.span<TypoProps, ILocalizeTheme>(({ theme, ...props }) => {
+    return styled.span<TypoProps, ILocalizeTheme>(({ theme, weight, isHighlight, ...props }) => {
       const { secondaryFontColor } = getValidThemeObject(props, theme);
       theme.fonts.SIZE
       return {
         ...defaultTypoStyle,
+        fontWeight: weight,
         fontSize: theme.fonts.SIZE[type],
         color: secondaryFontColor,
       }
     });
   }
 
-  if (type === 'h1' || type === 'h2' || type === 'h3') {
-    return styled.span<TypoProps, ILocalizeTheme>(({ theme, ...props }) => {
-      const { highlightedFontColor } = getValidThemeObject(props, theme);
-      return {
-        ...defaultTypoStyle,
-        fontSize: theme.fonts.SIZE[type],
-        color: highlightedFontColor,
-      }
-    });
-  }
-
-  return styled[type]<TypoProps, ILocalizeTheme>(({ theme, ...props }) => {
-    const { primaryFontColor } = getValidThemeObject(props, theme);
+  return styled[type]<TypoProps, ILocalizeTheme>(({ theme, weight, isHighlight, ...props }) => {
+    const { highlightedFontColor, primaryFontColor } = getValidThemeObject(props, theme);
     return {
       ...defaultTypoStyle,
+      fontWeight: weight,
       fontSize: theme.fonts.SIZE[type],
-      color: primaryFontColor,
+      color: isHighlight ? highlightedFontColor : primaryFontColor,
     }
   });
 }
@@ -62,13 +55,14 @@ const getStyleTypo = (type: TypoType) => {
 const Typo: FC<TypoProps> = ({
   type,
   children,
+  weight = 400,
   css = {},
   ...props
 }) => {
 
   const StyledType = getStyleTypo(type);
   return (
-    <StyledType type={type} css={css} {...props}>
+    <StyledType type={type} weight={weight} css={css} {...props}>
       {children}
     </StyledType>
   )
