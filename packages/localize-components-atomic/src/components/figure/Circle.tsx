@@ -89,13 +89,12 @@ export interface CircleProps {
 
 const StyledCircle = styled.span<CircleProps, ILocalizeTheme>(({
     isClickable,
-    mainColor,
-    subColor,
     size = 50,
     fontSize = 12,
     theme,
+    ...props
   }) => {
-    const validTheme = getThemeObject({ mainColor, subColor }, theme);
+    const validTheme = getThemeObject(props, theme);
 
     return {
       display: 'inline-flex',

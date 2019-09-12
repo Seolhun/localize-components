@@ -15,12 +15,11 @@ export interface FooterProps extends LocalizeBaseStyledProps {
 }
 
 const StyledNav = styled.nav<FooterProps, ILocalizeTheme>(({
-  theme,
-  mainColor,
-  subColor,
   zIndex = 100,
+  theme,
+  ...props
 }) => {
-  const validTheme = getThemeObject({ mainColor, subColor }, theme);
+  const validTheme = getThemeObject(props, theme);
 
   return {
     width: '100%',

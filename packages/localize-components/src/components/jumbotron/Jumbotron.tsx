@@ -70,10 +70,9 @@ export interface JumbotronProps extends LocalizeThemeStyledProps {
 
 const StyledJumbotron = styled.div<JumbotronProps, ILocalizeTheme>(({
   theme,
-  mainColor,
-  subColor,
+  ...props
 }) => {
-    const validTheme = getThemeObject({ mainColor, subColor }, theme);
+  const validTheme = getThemeObject(props, theme);
 
     return {
       backgroundColor: validTheme.mainColor,

@@ -127,12 +127,11 @@ const StyledRadioInput = styled.input({
 });
 
 const StyledCheckBox = styled.span<RadioCheckBoxProps, ILocalizeTheme>(({
-  theme,
-  mainColor,
-  subColor,
   isChecked,
+  theme,
+  ...props
 }) => {
-  const validTheme = getThemeObject({ mainColor, subColor }, theme);
+  const validTheme = getThemeObject(props, theme);
 
   const checkedStyle = {
     alignItems: 'center',
@@ -160,10 +159,9 @@ const StyledCheckBox = styled.span<RadioCheckBoxProps, ILocalizeTheme>(({
 const StyledCheckMark = styled.span<RadioCheckBoxProps, ILocalizeTheme>(({
   isChecked,
   theme,
-  mainColor,
-  subColor,
+  ...props
 }) => {
-  const validTheme = getThemeObject({ mainColor, subColor }, theme);
+  const validTheme = getThemeObject(props, theme);
 
   return {
     position: 'absolute',

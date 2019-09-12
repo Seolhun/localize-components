@@ -32,7 +32,7 @@
     "deploy:docs:dev": "surge packages/docs/dist/ http://dev.localize-components-docs.surge.sh",
     "release": "lerna publish",
     "prerelease": "lerna publish from-git",
-    "release:beta": "lerna publish from-git --canary",
+    "release:patch": "lerna publish patch -y",
     "bs": "lerna bootstrap",
     "link": "lerna link",
     "lint": "tslint --project -p tsconfig.json 'packages/**/src/**/*.{ts,tsx}'",

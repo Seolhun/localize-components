@@ -33,7 +33,7 @@ export interface IconProps extends LocalizeBaseStyledProps {
   borderRadius?: string
 }
 
-export const Icon = styled.div<IconProps>(({
+export const Icon = styled.span<IconProps>(({
   src,
   width,
   height,

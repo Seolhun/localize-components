@@ -1,4 +1,2 @@
-import Hr, { HrProps } from './Hr';
-
-export { HrProps };
-export default Hr;
+export * from './Hr';
+export { default } from './Hr';

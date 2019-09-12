@@ -20,11 +20,10 @@ export interface HrProps extends LocalizeThemeStyledProps {
 }
 
 const StyledHr = styled.hr<HrProps, ILocalizeTheme>(({
-  mainColor,
-  subColor,
   theme,
+  ...props
 }) => {
-    const validTheme = getThemeObject({ mainColor, subColor }, theme);
+  const validTheme = getThemeObject(props, theme);
 
     return {
       border: 0,

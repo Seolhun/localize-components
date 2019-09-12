@@ -17,13 +17,12 @@ export interface NavBarProps extends LocalizeBaseStyledProps {
 }
 
 const StyledNav = styled.nav<NavBarProps, ILocalizeTheme>(({
-  theme,
-  mainColor,
-  subColor,
   height = 50,
   zIndex = 100,
+  theme,
+  ...props
 }) => {
-  const validTheme = getThemeObject({ mainColor, subColor }, theme);
+  const validTheme = getThemeObject(props, theme);
 
   return {
     position: 'fixed',
