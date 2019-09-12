@@ -47,12 +47,12 @@ jobs:
           name: "Lerna packages build"
           command: yarn build
 
-      - run:
-          name: "Publish packages into npm"
-          command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              yarn release:patch
-            fi
+      # - run:
+      #     name: "Publish packages into npm"
+      #     command: |
+      #       if [ "${CIRCLE_BRANCH}" == "master" ]; then
+      #         yarn release:patch
+      #       fi
 
       - run:
           name: "Deploy docs into surge"
