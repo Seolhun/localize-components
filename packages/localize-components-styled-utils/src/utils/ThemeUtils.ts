@@ -12,13 +12,16 @@ import {
 export const getThemeObject = ({
   mainColor,
   subColor,
+  clickableColor,
 }: LocalizeThemeStyledProps, theme?: ILocalizeTheme) => {
   const primary = mainColor || !!theme && theme.primaryColor || LocalizeTheme.primaryColor;
   const second = subColor || !!theme && theme.secondaryColor || LocalizeTheme.secondaryColor;
+  const clickable = clickableColor || !!theme && theme.clickableColor || LocalizeTheme.clickableColor;
 
   return {
     mainColor: getValidTheme(primary),
     subColor: getValidTheme(second),
+    clickableColor: getValidTheme(clickable),
   };
 };
 

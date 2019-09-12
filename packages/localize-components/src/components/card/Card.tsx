@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 
 import classnames from 'classnames';
 import styled from '@emotion/styled'
-import { ILocalizeTheme, LocalizeBaseStyledProps, LocalizeThemes } from '@seolhun/localize-components-styled-types';
+import { ILocalizeTheme, LocalizeBaseStyledProps } from '@seolhun/localize-components-styled-types';
 import { getThemeObject } from '@seolhun/localize-components-styled-utils';
 
 const DEFAULT_CLASSNAME = '__Localize__Card'
@@ -20,7 +20,7 @@ const StyledCard = styled.div<CardProps, ILocalizeTheme>({
   width: '100%',
 });
 
-const StyledCardContainer = styled.div<CardProps, ILocalizeTheme>((
+const StyledCardContainer = styled.div<CardProps, ILocalizeTheme>(({
   theme,
   ...props
 }) => {
