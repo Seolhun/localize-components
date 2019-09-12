@@ -7,7 +7,7 @@
   },
   "name": "@seolhun/localize-components-examples",
   "description": "All about Localizing React components examples",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "files": [
@@ -24,8 +24,8 @@
   "dependencies": {
     "@emotion/core": "^10.0.6",
     "@emotion/styled": "^10.0.6",
-    "@seolhun/localize-components": "^0.1.9",
-    "@seolhun/localize-components-atomic": "^0.1.9",
+    "@seolhun/localize-components": "^0.1.10",
+    "@seolhun/localize-components-atomic": "^0.1.10",
     "@seolhun/localize-components-hooks": "^0.0.6",
     "@seolhun/localize-components-styled-types": "^0.1.8",
     "@seolhun/localize-components-styled-utils": "^0.1.8",
