@@ -13,34 +13,35 @@ export interface CardProps extends LocalizeBaseStyledProps{
   css?: {},
 }
 
-const StyledCard = styled.div<CardProps, ILocalizeTheme>(({
+const StyledCard = styled.div<CardProps, ILocalizeTheme>({
+  display: 'block',
+  minHeight: '80px',
+  height: 'auto',
+  width: '100%',
+});
+
+const StyledCardContainer = styled.div<CardProps, ILocalizeTheme>((
   theme,
   ...props
 }) => {
   const { subColor } = getThemeObject(props, theme);
 
   return {
-    backgroundColor: subColor,
-    display: 'block',
-    minHeight: '80px',
-    height: 'auto',
-    width: '100%',
+    padding: '10px 5px',
     borderRadius: theme.border.radius || '4px',
     boxShadow: theme.border.shadow,
+    backgroundColor: subColor,
   }
-});
-
-const StyledCardContainer = styled.div<CardProps, ILocalizeTheme>({
-  padding: '10px 5px',
 });
 
 export const Card: FC<CardProps> = ({
   className,
   children,
   css = {},
+  ...props
 }) => (
-  <StyledCard className={classnames(DEFAULT_CLASSNAME, className)} css={css}>
-    <StyledCardContainer>
+  <StyledCard className={classnames(DEFAULT_CLASSNAME, className)}>
+    <StyledCardContainer {...props} css={css}>
       {children}
     </StyledCardContainer>
   </StyledCard>
