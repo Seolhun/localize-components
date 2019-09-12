@@ -101,7 +101,7 @@ const StyledChip = styled.button<ChipProps, ILocalizeTheme>(
   }
 );
 
-const Chip: FC<ChipProps> = ({
+export const Chip: FC<ChipProps> = ({
   children,
   className = '',
   css = {},

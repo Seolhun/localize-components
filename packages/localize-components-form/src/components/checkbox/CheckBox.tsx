@@ -177,7 +177,7 @@ const StyledCheckMark = styled.span<LocalizeStyledProps, ILocalizeTheme>(({
 });
 
 
-const CheckBox: FC<CheckBoxProps> = ({
+export const CheckBox: FC<CheckBoxProps> = ({
   item,
   checked,
   // IsNotRequired

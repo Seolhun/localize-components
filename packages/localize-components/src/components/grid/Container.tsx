@@ -5,7 +5,7 @@ import { createMediaQueryCondition } from '@seolhun/localize-components-styled-u
 
 import classnames from 'classnames';
 
-export interface ContainerProps {
+interface ContainerProps {
   children: ReactNode;
   className?: string;
   isFullWidth?: boolean;
@@ -38,7 +38,7 @@ const StyledContainer = styled.div<ContainerProps, ILocalizeTheme>(
 );
 
 
-export const Container = ({
+const Container = ({
   children,
   className,
   css = {},
@@ -55,4 +55,8 @@ export const Container = ({
   )
 }
 
+export {
+  ContainerProps,
+  Container,
+}
 export default Container;

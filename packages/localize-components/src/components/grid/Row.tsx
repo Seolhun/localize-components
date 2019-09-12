@@ -6,7 +6,7 @@ import { FlexDirectionProperty, AlignItemsProperty, JustifyContentProperty } fro
 import classnames from 'classnames';
 
 
-export interface RowProps {
+interface RowProps {
   children: ReactNode;
   className?: string;
   isWrap?: boolean;
@@ -37,7 +37,7 @@ const StyledRow = styled.div<RowProps, ILocalizeTheme>(({
   }
 );
 
-export const Row = ({
+const Row = ({
   children,
   className,
   css = {},
@@ -52,6 +52,11 @@ export const Row = ({
       {children}
     </StyledRow>
   )
+}
+
+export {
+  RowProps,
+  Row,
 }
 
 export default Row;

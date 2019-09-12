@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 
 import { LocalizeBaseStyledProps } from '@seolhun/localize-components-styled-types';
 
-export interface IconProps extends LocalizeBaseStyledProps {
+interface IconProps extends LocalizeBaseStyledProps {
   /**
    * Set this to change Icon image Url
    */
@@ -33,7 +33,7 @@ export interface IconProps extends LocalizeBaseStyledProps {
   borderRadius?: string
 }
 
-export const Icon = styled.span<IconProps>(({
+const Icon = styled.span<IconProps>(({
   src,
   width,
   height,
@@ -52,5 +52,10 @@ export const Icon = styled.span<IconProps>(({
     borderRadius: borderRadius || '5px',
   }
 })
+
+export {
+  IconProps,
+  Icon,
+}
 
 export default Icon;

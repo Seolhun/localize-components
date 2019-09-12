@@ -7,7 +7,7 @@ import { ILocalizeTheme, LocalizeBaseStyledProps } from '@seolhun/localize-compo
 
 const DEFAULT_CLASSNAME = '__Localize__Navbar';
 
-export interface NavBarProps extends LocalizeBaseStyledProps {
+interface NavBarProps extends LocalizeBaseStyledProps {
   children: React.ReactNode;
   /**
    * Set this to change NavBar height
@@ -49,5 +49,10 @@ const NavBar: FC<NavBarProps> = ({
     {children}
   </StyledNav>
 );
+
+export {
+  NavBarProps,
+  NavBar,
+}
 
 export default NavBar;

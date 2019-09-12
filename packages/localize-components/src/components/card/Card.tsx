@@ -13,7 +13,7 @@ export interface CardProps extends LocalizeBaseStyledProps{
   css?: {},
 }
 
-const StyledCard = styled.div<CardProps, ILocalizeTheme>({
+const StyledCardWrapper = styled.div<CardProps, ILocalizeTheme>({
   display: 'block',
   minHeight: '80px',
   height: 'auto',
@@ -40,11 +40,15 @@ export const Card: FC<CardProps> = ({
   css = {},
   ...props
 }) => (
-  <StyledCard className={classnames(DEFAULT_CLASSNAME, className)}>
-    <StyledCardContainer {...props} css={css}>
+  <StyledCardWrapper className={classnames(DEFAULT_CLASSNAME, className)}>
+    <StyledCardContainer
+      className={`${DEFAULT_CLASSNAME}__Container`}
+      css={css}
+      {...props}
+    >
       {children}
     </StyledCardContainer>
-  </StyledCard>
+  </StyledCardWrapper>
 );
 
 export default Card;

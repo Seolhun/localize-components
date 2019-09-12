@@ -8,9 +8,8 @@ import { getThemeObject } from '@seolhun/localize-components-styled-utils';
 
 const DEFAULT_CLASSNAME = '__Localize__Sidevar';
 
-export interface SidebarProps extends LocalizeBaseStyledProps {
+interface SidebarProps extends LocalizeBaseStyledProps {
   children: React.ReactNode;
-
   /**
    * Set this to change Sidebar width
    * @default 250
@@ -66,5 +65,11 @@ const Sidebar: React.FunctionComponent<SidebarProps> = ({
     {children}
   </StyledSidebar>
 );
+
+export {
+  SidebarProps,
+  Sidebar,
+}
+
 
 export default Sidebar;

@@ -7,7 +7,7 @@ import classnames from 'classnames';
 import { AlignItemsProperty, JustifyContentProperty } from 'csstype';
 
 
-export interface ColProps {
+interface ColProps {
   children: ReactNode;
   className?: string;
   xs?: IColumnValue;
@@ -51,7 +51,7 @@ const StyledCol = styled.div<ColProps, ILocalizeTheme>(({
   }
 );
 
-export const Col = ({
+const Col = ({
   children,
   className,
   css = {},
@@ -67,5 +67,10 @@ export const Col = ({
     </StyledCol>
   )
 }
+
+export {
+  ColProps,
+  Col,
+};
 
 export default Col;

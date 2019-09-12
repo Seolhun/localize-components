@@ -1,13 +1,13 @@
 import React from 'react';
 
-export type MenuMode =
+type MenuMode =
   | 'vertical'
   | 'vertical-left'
   | 'vertical-right'
   | 'horizontal'
   | 'inline';
 
-export interface MenuProps {
+interface MenuProps {
   className?: string;
   defaultOpenKeys?: string[];
   defaultSelectedKeys?: string[];
@@ -34,12 +34,19 @@ export interface MenuProps {
   subMenuOpenDelay?: number;
 }
 
-export interface MenuState {
+interface MenuState {
   openKeys: string[];
 }
 
 const Menu: React.FunctionComponent<MenuProps> = () => {
   return <a />;
 };
+
+export {
+  MenuMode,
+  MenuProps,
+  MenuState,
+  Menu,
+}
 
 export default Menu;

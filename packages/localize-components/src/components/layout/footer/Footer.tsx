@@ -7,7 +7,7 @@ import { ILocalizeTheme, LocalizeBaseStyledProps } from '@seolhun/localize-compo
 
 const DEFAULT_CLASSNAME = '__Localize__Footer';
 
-export interface FooterProps extends LocalizeBaseStyledProps {
+interface FooterProps extends LocalizeBaseStyledProps {
   /**
    * Set this to change Footer height
    */
@@ -43,5 +43,10 @@ const Footer: FC<FooterProps> = ({
     {children}
   </StyledNav>
 );
+
+export {
+  FooterProps,
+  Footer,
+}
 
 export default Footer;

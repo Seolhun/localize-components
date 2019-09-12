@@ -6,6 +6,15 @@ import styled from '@emotion/styled';
 import layout from '../../assets/layout';
 import { fadeIn } from '../../assets/animation';
 
+interface ShadowBoxProps {
+  children: ReactNode;
+
+  className: string;
+  isShow: boolean;
+  onClose: (...args: any[]) => any;
+  style: {};
+}
+
 const ShadowBoxWrapper = styled.section({
   backgroundColor: 'rgba(0, 0, 0, 0.85)',
   height: '100vh',
@@ -57,15 +66,6 @@ const ShadowBoxContent = styled.div({
   maxWidth: `${layout.CONTENT.MAX_WIDTH}px`,
 });
 
-export interface ShadowBoxProps {
-  children: ReactNode;
-
-  className: string;
-  isShow: boolean;
-  onClose: (...args: any[]) => any;
-  style: {};
-}
-
 class ShadowBox extends Component<ShadowBoxProps> {
   private wrapperRef: any;
 
@@ -116,6 +116,11 @@ class ShadowBox extends Component<ShadowBoxProps> {
       )
     );
   }
+}
+
+export {
+  ShadowBoxProps,
+  ShadowBox,
 }
 
 export default ShadowBox;

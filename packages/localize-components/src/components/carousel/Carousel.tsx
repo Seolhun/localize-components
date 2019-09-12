@@ -36,7 +36,7 @@ const CarouselContainer = styled.div({
   width: '100%',
 });
 
-export interface CarouselProps {
+interface CarouselProps {
   items: any[];
   children: (item: any, index: number) => any;
 
@@ -46,7 +46,7 @@ export interface CarouselProps {
   zIndex?: number;
 }
 
-export interface CarouselState {
+interface CarouselState {
   clientWidth: number;
   pageIndex: number;
 }
@@ -154,6 +154,12 @@ class Carousel extends Component<CarouselProps, CarouselState> {
       </CarouselWrapper>
     );
   }
+}
+
+export {
+  CarouselProps,
+  CarouselState,
+  Carousel
 }
 
 export default Carousel;
