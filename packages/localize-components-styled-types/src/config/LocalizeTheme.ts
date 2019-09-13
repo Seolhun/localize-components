@@ -11,10 +11,8 @@ export interface ILocalizeTheme {
     shadow: string;
   },
   grid: {
-    gutter: string;
-  };
-  row: {
-    gutter: string;
+    columnGutter: string;
+    rowGutter: string;
   };
   fonts: {
     COLOR: {
@@ -48,10 +46,8 @@ export const LocalizeTheme: ILocalizeTheme = {
     shadow: `0px 2px 1px -1px ${LocalizeThemes.light_grey}, 0px 1px 1px 0px ${LocalizeThemes.light_grey}, 0px 1px 3px 0px ${LocalizeThemes.light_grey}`,
   },
   grid: {
-    gutter: '0.5rem',
-  },
-  row: {
-    gutter: '0.525rem',
+    columnGutter: '0.5rem',
+    rowGutter: '0.525rem',
   },
   fonts: {
     COLOR: {

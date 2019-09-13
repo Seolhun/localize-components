@@ -28,9 +28,9 @@ const StyledRow = styled.div<RowProps, ILocalizeTheme>(({
       flexDirection,
       flexWrap: isWrap ? 'wrap' : 'nowrap',
       width: 'auto',
-      marginRight: theme.row.gutter || LocalizeTheme.row.gutter,
-      marginLeft: theme.row.gutter || LocalizeTheme.row.gutter,
-      marginBottom: theme.row.gutter || LocalizeTheme.row.gutter,
+      marginRight: theme.grid.rowGutter || LocalizeTheme.grid.rowGutter,
+      marginLeft: theme.grid.rowGutter || LocalizeTheme.grid.rowGutter,
+      marginBottom: theme.grid.rowGutter || LocalizeTheme.grid.rowGutter,
       alignItems,
       justifyContent,
     };

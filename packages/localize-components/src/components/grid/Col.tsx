@@ -44,9 +44,9 @@ const StyledCol = styled.div<ColProps, ILocalizeTheme>(({
       flexGrow: 1,
       flexShrink: 0,
       boxSizing: 'border-box',
-      paddingRight: theme.grid.gutter || LocalizeTheme.grid.gutter,
-      paddingLeft: theme.grid.gutter || LocalizeTheme.grid.gutter,
-      paddingBottom: theme.grid.gutter || LocalizeTheme.grid.gutter,
+      paddingRight: theme.grid.columnGutter || LocalizeTheme.grid.columnGutter,
+      paddingLeft: theme.grid.columnGutter || LocalizeTheme.grid.columnGutter,
+      paddingBottom: theme.grid.columnGutter || LocalizeTheme.grid.columnGutter,
     };
   }
 );
