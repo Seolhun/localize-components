@@ -22,10 +22,9 @@ export const isBeforeOffset = (columnValue: IColumnValue) => {
 export const buildDefaultGridStyle = (sizeValue: number) => {
   const width = calcWidth(sizeValue);
   return {
-    flexGrow: 0,
-    width: `${width}%`,
-    flex: `0 ${width}%`,
     display: sizeValue === 0 ? 'none' : 'flex',
+    maxWidth: `${width}%`,
+    flex: `0 0 ${width}%`,
     marginLeft: 0,
     marginRight: 0,
   }

@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import styled from '@emotion/styled';
-import { ILocalizeTheme, MediaQueries } from '@seolhun/localize-components-styled-types';
+import { ILocalizeTheme, MediaQueries, LocalizeTheme } from '@seolhun/localize-components-styled-types';
 import { createMediaQueryCondition } from '@seolhun/localize-components-styled-utils';
 
 import classnames from 'classnames';
@@ -13,7 +13,7 @@ interface ContainerProps {
 }
 
 const StyledContainer = styled.div<ContainerProps, ILocalizeTheme>(
-  ({ isFullWidth = false }) => {
+  ({ theme, isFullWidth = false }) => {
     const responsiveStyles = {
       [`@media ${createMediaQueryCondition('SM')}`]: {
         maxWidth: `${MediaQueries.XL - 36}px`,
@@ -31,6 +31,8 @@ const StyledContainer = styled.div<ContainerProps, ILocalizeTheme>(
     return {
       ...(!isFullWidth ? responsiveStyles : {}),
       width: '100%',
+      paddingRight: theme.grid.containerGutter.right || LocalizeTheme.grid.containerGutter.right,
+      paddingLeft: theme.grid.containerGutter.left || LocalizeTheme.grid.containerGutter.left,
       marginRight: 'auto',
       marginLeft: 'auto',
     };
