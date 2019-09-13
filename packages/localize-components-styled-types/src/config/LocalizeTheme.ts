@@ -1,5 +1,12 @@
 import { LocalizeThemesType, LocalizeThemes } from '../types/styles';
 
+export interface ILocalizeThemeGridGutter {
+  top?: string;
+  right: string;
+  left: string;
+  bottom?: string;
+}
+
 export interface ILocalizeTheme {
   primaryColor: LocalizeThemesType;
   secondaryColor: LocalizeThemesType;
