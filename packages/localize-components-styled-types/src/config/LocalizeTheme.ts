@@ -51,7 +51,7 @@ export const LocalizeTheme: ILocalizeTheme = {
     gutter: '0.5rem',
   },
   row: {
-    gutter: '-0.525rem',
+    gutter: '0.525rem',
   },
   fonts: {
     COLOR: {

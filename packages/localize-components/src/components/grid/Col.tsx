@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import styled from '@emotion/styled';
-import { ILocalizeTheme, IColumnValue } from '@seolhun/localize-components-styled-types';
+import { ILocalizeTheme, IColumnValue, LocalizeTheme } from '@seolhun/localize-components-styled-types';
 import { getMediaQueryStyles } from '@seolhun/localize-components-styled-utils';
 
 import classnames from 'classnames';
@@ -44,9 +44,9 @@ const StyledCol = styled.div<ColProps, ILocalizeTheme>(({
       flexGrow: 1,
       flexShrink: 0,
       boxSizing: 'border-box',
-      paddingRight: theme.grid.gutter,
-      paddingLeft: theme.grid.gutter,
-      paddingBottom: theme.grid.gutter,
+      paddingRight: theme.grid.gutter || LocalizeTheme.grid.gutter,
+      paddingLeft: theme.grid.gutter || LocalizeTheme.grid.gutter,
+      paddingBottom: theme.grid.gutter || LocalizeTheme.grid.gutter,
     };
   }
 );
