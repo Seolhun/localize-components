@@ -7,7 +7,7 @@
   },
   "name": "@seolhun/localize-components-hooks",
   "description": "Localizing React components hooks",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "files": [
@@ -23,7 +23,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@seolhun/localize-components-styled-types": "^0.1.10",
+    "@seolhun/localize-components-styled-types": "^0.1.11",
     "classnames": "^2.2.6",
     "lodash": "^4.17.11",
     "react": "^16.8.6"
