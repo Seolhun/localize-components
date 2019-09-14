@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import styled from '@emotion/styled';
-import { ILocalizeTheme, IColumnValue } from '@seolhun/localize-components-styled-types';
+import { ILocalizeTheme, IColumnValue, LocalizeTheme } from '@seolhun/localize-components-styled-types';
 import { getMediaQueryStyles } from '@seolhun/localize-components-styled-utils';
 
 import classnames from 'classnames';
@@ -36,17 +36,16 @@ const StyledCol = styled.div<ColProps, ILocalizeTheme>(({
       ...((!!md || md === 0) && getMediaQueryStyles('MD', md)),
       ...((!!lg || lg === 0) && getMediaQueryStyles('LG', lg)),
       ...((!!xl || xl === 0) && getMediaQueryStyles('XL', xl)),
+      position: 'relative',
       width: '100%',
-      flex: '0 100%',
-      flexBasis: 'auto',
+      flex: '0 0 100%',
       alignItems,
       justifyContent,
-      flexGrow: 1,
-      flexShrink: 0,
       boxSizing: 'border-box',
-      paddingRight: theme.grid.gutter,
-      paddingLeft: theme.grid.gutter,
-      paddingBottom: theme.grid.gutter,
+      paddingTop: theme.grid.columnGutter.top || LocalizeTheme.grid.columnGutter.top,
+      paddingRight: theme.grid.columnGutter.right || LocalizeTheme.grid.columnGutter.right,
+      paddingLeft: theme.grid.columnGutter.left || LocalizeTheme.grid.columnGutter.left,
+      paddingBottom: theme.grid.columnGutter.bottom || LocalizeTheme.grid.columnGutter.bottom,
     };
   }
 );

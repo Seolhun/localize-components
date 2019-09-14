@@ -1,10 +1,11 @@
 import React, { ReactNode } from 'react';
-import styled from '@emotion/styled';
-import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
-
 import { FlexDirectionProperty, AlignItemsProperty, JustifyContentProperty } from 'csstype';
+
+import styled from '@emotion/styled';
+import { ILocalizeTheme, LocalizeTheme } from '@seolhun/localize-components-styled-types';
 import classnames from 'classnames';
 
+const DEFAULT_CLASSNAME = '__Localize__Row';
 
 interface RowProps {
   children: ReactNode;
@@ -25,14 +26,17 @@ const StyledRow = styled.div<RowProps, ILocalizeTheme>(({
 }) => {
     return {
       display: 'flex',
-      flexDirection,
       flexWrap: isWrap ? 'wrap' : 'nowrap',
-      width: 'auto',
-      marginRight: theme.row.gutter,
-      marginLeft: theme.row.gutter,
-      marginBottom: theme.row.gutter,
+      flexDirection,
       alignItems,
       justifyContent,
+      boxSizing: 'border-box',
+      marginRight: theme.grid.rowGutter.right || LocalizeTheme.grid.rowGutter.right,
+      marginLeft: theme.grid.rowGutter.left || LocalizeTheme.grid.rowGutter.left,
+
+      [`.${DEFAULT_CLASSNAME} + .${DEFAULT_CLASSNAME}`]: {
+        marginTop: theme.grid.rowGutter.top || LocalizeTheme.grid.rowGutter.top,
+      },
     };
   }
 );
@@ -46,7 +50,7 @@ const Row = ({
   return (
     <StyledRow
       {...props}
-      className={classnames('__Localize__Row', className)}
+      className={classnames(DEFAULT_CLASSNAME, className)}
       css={css}
     >
       {children}

@@ -1,5 +1,12 @@
 import { LocalizeThemesType, LocalizeThemes } from '../types/styles';
 
+export interface ILocalizeThemeGridGutter {
+  top?: string;
+  right: string;
+  left: string;
+  bottom?: string;
+}
+
 export interface ILocalizeTheme {
   primaryColor: LocalizeThemesType;
   secondaryColor: LocalizeThemesType;
@@ -11,10 +18,21 @@ export interface ILocalizeTheme {
     shadow: string;
   },
   grid: {
-    gutter: string;
-  };
-  row: {
-    gutter: string;
+    containerGutter: {
+      right: string;
+      left: string;
+    };
+    rowGutter: {
+      top: string;
+      right: string;
+      left: string;
+    };
+    columnGutter: {
+      top: string;
+      right: string;
+      left: string;
+      bottom: string;
+    };
   };
   fonts: {
     COLOR: {
@@ -48,10 +66,21 @@ export const LocalizeTheme: ILocalizeTheme = {
     shadow: `0px 2px 1px -1px ${LocalizeThemes.light_grey}, 0px 1px 1px 0px ${LocalizeThemes.light_grey}, 0px 1px 3px 0px ${LocalizeThemes.light_grey}`,
   },
   grid: {
-    gutter: '0.5rem',
-  },
-  row: {
-    gutter: '-0.525rem',
+    containerGutter: {
+      right: '15px',
+      left: '15px',
+    },
+    rowGutter: {
+      top: '1rem',
+      right: '-15px',
+      left: '-15px',
+    },
+    columnGutter: {
+      top: '0.75rem',
+      right: '0.75rem',
+      left: '0.75rem',
+      bottom: '0.75rem',
+    },
   },
   fonts: {
     COLOR: {

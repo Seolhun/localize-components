@@ -7,7 +7,7 @@
   },
   "name": "@seolhun/localize-components-sidebar",
   "description": "Localizing React components is rendered by stand-alone not affect other styles.",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "files": [
@@ -25,8 +25,8 @@
   "dependencies": {
     "@emotion/core": "^10.0.6",
     "@emotion/styled": "^10.0.6",
-    "@seolhun/localize-components-styled-types": "^0.1.10",
-    "@seolhun/localize-components-styled-utils": "^0.1.10",
+    "@seolhun/localize-components-styled-types": "^0.1.11",
+    "@seolhun/localize-components-styled-utils": "^0.1.11",
     "classnames": "^2.2.6",
     "lodash": "^4.17.11",
     "polished": "^3.1.0",
