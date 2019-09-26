@@ -3,17 +3,16 @@ import React, { FunctionComponent, ReactNode } from 'react';
 import styled from '@emotion/styled';
 
 import {
-  ThemeConfig,
-  ThemesType,
+  LocalizeThemeStyledProps,
 } from '@seolhun/localize-components-styled-types';
 
 export interface RadioItemProps {
-  [key: string]: any,
-};
+  [key: string]: any;
+}
 
-export type CheckBoxGroupAlign = 'vertical' | 'horizontal' | string;
+export type CheckBoxGroupAlign = 'vertical' | 'horizontal';
 
-export interface CheckBoxGroupProps {
+export interface CheckBoxGroupProps extends LocalizeThemeStyledProps {
   /**
    * Set this to change CheckBox Group children
    */
@@ -39,17 +38,6 @@ export interface CheckBoxGroupProps {
    */
   useValueKey?: boolean;
   /**
-   * Set this to change CheckBox Group mainColor
-   * @default ThemeConfig.MAIN_THEME = royal_blue
-   */
-  mainColor?: ThemesType;
-  /**
-   * Set this to change CheckBox Group subColor
-   * @default ThemeConfig.SUB_THEME = gray
-   */
-  subColor?: ThemesType;
-
-  /**
    * Set this to change CheckBox Group align
    * @default 'vertical'
    */
@@ -71,50 +59,61 @@ interface CheckBoxGroupContainerProps {
   gap: string;
 }
 
+export const CheckBoxGroupContainer = styled.div<CheckBoxGroupContainerProps>(({
+  align,
+  gap,
+}) => {
+  const getGapStylesByAlign = () => {
+    const isVertical = align === 'vertical';
+    if (isVertical) {
+      return {
+        marginBottom: `${gap}`,
+      }
+    }
+    return {
+      marginRight: `${gap}`,
+    }
+  }
+  return {
+    '& > *:not(:last-child)': {
+      ...getGapStylesByAlign(),
+    },
+  }
+})
+
 const CheckBoxGroup: FunctionComponent<CheckBoxGroupProps> = ({
   children,
   groupName,
+  mainColor,
+  subColor,
   labelKey = 'label',
   valueKey = 'value',
   useValueKey = false,
-  mainColor = ThemeConfig.MAIN_THEME,
-  subColor = ThemeConfig.SUB_THEME,
   align = 'vertical',
   gap = '10px',
   onClickItems = () => null,
 }) => {
-
   return (
     <CheckBoxGroupContainer
       className='__Localize__CheckBoxGroup'
       align={align}
       gap={gap}
     >
-      {children({
-        children,
-        groupName,
-        labelKey,
-        valueKey,
-        useValueKey,
-        mainColor,
-        subColor,
-        align,
-        onClickItems,
-      })}
+      <>
+        {children({
+          children,
+          groupName,
+          labelKey,
+          valueKey,
+          useValueKey,
+          mainColor,
+          subColor,
+          align,
+          onClickItems,
+        })}
+      </>
     </CheckBoxGroupContainer>
-  )
-}
-
-const CheckBoxGroupContainer = styled.div<CheckBoxGroupContainerProps>`
-  & > *:not(:last-child) {
-    margin-right: ${({ align, gap }) => {
-      if (align === 'horizontal') {
-        return `${gap}`;
-      }
-      return '0';
-    }};
-  }
-`;
-
+  );
+};
 
 export default CheckBoxGroup;

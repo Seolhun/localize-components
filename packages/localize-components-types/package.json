@@ -1,8 +1,13 @@
 {
   "license": "MIT",
+  "author": {
+    "name": "Seolhun",
+    "email": "shun10116@gmail.com",
+    "url": "https://github.com/Seolhun"
+  },
   "name": "@seolhun/localize-components-types",
   "description": "Localizing React components is rendered by stand-alone not affect other styles.",
-  "version": "0.1.4",
+  "version": "0.1.6",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "files": [
@@ -43,7 +48,6 @@
     "@gfx/zopfli": "^1.0.9",
     "@types/react": "^16.9.1",
     "awesome-typescript-loader": "^5.2.1",
-    "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
     "enzyme": "^3.4.4",
     "enzyme-adapter-react-16": "^1.2.0",
@@ -54,7 +58,6 @@
     "rollup-plugin-node-resolve": "^5.0.0",
     "rollup-plugin-typescript2": "^0.21.0",
     "ts-node": "^8.0.3",
-    "tslib": "^1.9.3",
     "typescript": "^3.5.3"
   },
   "peerDependencies": {

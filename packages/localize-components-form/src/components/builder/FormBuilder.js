@@ -129,63 +129,69 @@ class FormBuilder {
     }
   }
 
-  _buildFormProperties = ({
-    htmlFor,
-    key,
-    value = '',
-    // isNotRequired
-    hasError = false,
-    isFocus = false,
-    isRequired = false,
-    message = '',
-    requiredMessage = '',
-    type = 'text',
-    onValidation = () => ({
+  _buildFormProperties = (
+    {
+      htmlFor,
+      key,
+      value = '',
+      // isNotRequired
+      hasError = false,
+      isFocus = false,
+      isRequired = false,
+      message = '',
+      requiredMessage = '',
+      type = 'text',
+      onValidation = () => ({
+        hasError: false,
+        message: '',
+      }),
+    } = {
+      htmlFor,
+      key,
+      value: '',
+      // isNotRequired
       hasError: false,
+      isFocus: false,
+      isRequired: false,
       message: '',
-    }),
-  } = {
-    htmlFor,
-    key,
-    value: '',
-    // isNotRequired
-    hasError: false,
-    isFocus: false,
-    isRequired: false,
-    message: '',
-    requiredMessage: '',
-    type: 'text',
-    onValidation: () => ({
-      hasError: false,
-      message: '',
-    }),
-  },
-  // Group Options
-  {
-    onGroupValidationBy = () => ({
-      hasError: false,
-      message: '',
-    }),
-    isOnCreatedValidation = false,
-    isOnChangeValidation = true,
-  } = {
-    onGroupValidationBy: () => ({
-      hasError: false,
-      message: '',
-    }),
-    isOnCreatedValidation: false,
-    isOnChangeValidation: true,
-  }) => {
+      requiredMessage: '',
+      type: 'text',
+      onValidation: () => ({
+        hasError: false,
+        message: '',
+      }),
+    },
+    // Group Options
+    {
+      onGroupValidationBy = () => ({
+        hasError: false,
+        message: '',
+      }),
+      isOnCreatedValidation = false,
+      isOnChangeValidation = true,
+    } = {
+      onGroupValidationBy: () => ({
+        hasError: false,
+        message: '',
+      }),
+      isOnCreatedValidation: false,
+      isOnChangeValidation: true,
+    }
+  ) => {
     const validationResult = onValidation(value);
     if (
       typeof validationResult.hasError !== 'boolean' ||
       typeof validationResult.message !== 'string'
     ) {
-      throw new Error('onValidation properties must return { hasError: boolean, message: string }');
+      throw new Error(
+        'onValidation properties must return { hasError: boolean, message: string }'
+      );
     }
 
     if (!key && !htmlFor) {
-      throw new Error('One of key and htmlFor property is required, Set unique name to use Form key');
+      throw new Error(
+        'One of key and htmlFor property is required, Set unique name to use Form key'
+      );
     }
 
     return {
@@ -205,7 +211,7 @@ class FormBuilder {
       isOnCreatedValidation,
       isOnChangeValidation,
     };
-  }
+  };
 
   _checkFormPropertiesValidation = (props, options) => {
     const allProps = {
@@ -213,17 +219,17 @@ class FormBuilder {
       ...options,
     };
 
-    const isValidProperty = Object
-      .keys(REQUIRED_CHECKING_TYPES)
-      .every((key) => {
+    const isValidProperty = Object.keys(REQUIRED_CHECKING_TYPES).every(
+      (key) => {
         if (typeof allProps[key] !== 'undefined') {
           const propertyType = typeof allProps[key];
           return REQUIRED_CHECKING_TYPES[key] === propertyType;
         }
         return true;
-      });
+      }
+    );
     return isValidProperty;
-  }
+  };
 
   _handleOnValidation = (value = this.value) => {
     if (this.isRequired && !value) {
@@ -241,19 +247,19 @@ class FormBuilder {
     }
 
     return this;
-  }
+  };
 
   handleOnGroupValidation = (currentKey) => {
     this.onGroupValidationBy(currentKey);
     return this;
-  }
+  };
 
   setRef = (ref = this.ref, isOverride = false) => {
     if (isOverride || (ref && !this.ref)) {
       this.ref = ref;
     }
     return this;
-  }
+  };
 
   setProperties({
     // Props
@@ -311,10 +317,13 @@ class FormBuilder {
   }
 
   getValues() {
-    return Object.keys(FORM_VALUE_PROPERTIES).reduce((obj, key) => ({
-      ...obj,
-      [key]: this[key],
-    }), {});
+    return Object.keys(FORM_VALUE_PROPERTIES).reduce(
+      (obj, key) => ({
+        ...obj,
+        [key]: this[key],
+      }),
+      {}
+    );
   }
 
   runValidation(value = this.value) {
@@ -331,7 +340,7 @@ class FormBuilder {
       this.ref.focus();
     }
     return this;
-  }
+  };
 }
 
 export default FormBuilder;

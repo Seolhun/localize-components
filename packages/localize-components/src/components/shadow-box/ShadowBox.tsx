@@ -6,6 +6,15 @@ import styled from '@emotion/styled';
 import layout from '../../assets/layout';
 import { fadeIn } from '../../assets/animation';
 
+interface ShadowBoxProps {
+  children: ReactNode;
+
+  className: string;
+  isShow: boolean;
+  onClose: (...args: any[]) => any;
+  style: {};
+}
+
 const ShadowBoxWrapper = styled.section({
   backgroundColor: 'rgba(0, 0, 0, 0.85)',
   height: '100vh',
@@ -14,7 +23,7 @@ const ShadowBoxWrapper = styled.section({
   top: '0',
   width: '100vw',
   zIndex: layout.Z_INDEX.SHADOW_BOX,
-  animation: `${fadeIn()} 0.5s ease-in-out`,
+  animation: `${fadeIn()} 0.35s ease-in-out`,
 });
 
 const ShadowBoxContainer = styled.div({
@@ -57,15 +66,6 @@ const ShadowBoxContent = styled.div({
   maxWidth: `${layout.CONTENT.MAX_WIDTH}px`,
 });
 
-export interface ShadowBoxProps {
-  children: ReactNode;
-
-  className: string;
-  isShow: boolean;
-  onClose: (...args: any[]) => any;
-  style: {};
-}
-
 class ShadowBox extends Component<ShadowBoxProps> {
   private wrapperRef: any;
 
@@ -92,7 +92,7 @@ class ShadowBox extends Component<ShadowBoxProps> {
     const {
       children = null,
 
-      className = '',
+      className,
       isShow = false,
       onClose = () => null,
       style = {},
@@ -102,10 +102,7 @@ class ShadowBox extends Component<ShadowBoxProps> {
       isShow && (
         <ShadowBoxWrapper
           ref={this.wrapperRef}
-          className={classnames(
-            '__Localize__ShadowBox',
-            className
-          )}
+          className={classnames('__Localize__ShadowBox', className)}
           css={style}
         >
           <ShadowBoxContainer>
@@ -119,6 +116,11 @@ class ShadowBox extends Component<ShadowBoxProps> {
       )
     );
   }
+}
+
+export {
+  ShadowBoxProps,
+  ShadowBox,
 }
 
 export default ShadowBox;

@@ -1,24 +1,52 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import classnames from 'classnames';
+import styled from '@emotion/styled';
+import { getValidThemeObject } from '@seolhun/localize-components-styled-utils';
+import { ILocalizeTheme, LocalizeBaseStyledProps } from '@seolhun/localize-components-styled-types';
 
-import './Footer.scss';
+const DEFAULT_CLASSNAME = '__Localize__Footer';
 
-export interface FooterProps {
+interface FooterProps extends LocalizeBaseStyledProps {
+  /**
+   * Set this to change Footer height
+   */
   children: React.ReactNode;
-  // isNotRequired
-  className?: string;
-  style?: object;
 }
 
-const Footer: React.FunctionComponent<FooterProps> = ({
-  className = '',
-  children = '',
-  style = {},
+const StyledNav = styled.nav<FooterProps, ILocalizeTheme>(({
+  zIndex = 100,
+  theme,
+  ...props
+}) => {
+  const validTheme = getValidThemeObject(props, theme);
+
+  return {
+    width: '100%',
+    backgroundColor: validTheme.mainColor,
+    borderBottom: `1px solid ${validTheme.mainColor}`,
+    zIndex,
+  }
+})
+
+const Footer: FC<FooterProps> = ({
+  children,
+  className,
+  css = {},
+  ...props
 }) => (
-  <footer className={classnames(`__Localize__Footer ${className}`)} style={style}>
+  <StyledNav
+    {...props}
+    className={classnames(DEFAULT_CLASSNAME, className)}
+    css={css}
+  >
     {children}
-  </footer>
+  </StyledNav>
 );
+
+export {
+  FooterProps,
+  Footer,
+}
 
 export default Footer;

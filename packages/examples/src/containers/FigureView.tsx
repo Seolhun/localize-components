@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 import { Circle } from '@seolhun/localize-components-atomic';
@@ -16,7 +15,7 @@ const FigureView = () => {
           <h2>Give a mainColor</h2>
           <Circle mainColor='danger'>danger</Circle>
           <Circle mainColor='primary'>primary</Circle>
-          <Circle mainColor='light_gray'>light_gray</Circle>
+          <Circle mainColor='light_grey'>light_grey</Circle>
           <Circle mainColor='#41FF2B'>#41FF2B</Circle>
         </div>
         <div className='col-sm-12'>
@@ -28,6 +27,6 @@ const FigureView = () => {
       </div>
     </div>
   );
-}
+};
 
 export default FigureView;

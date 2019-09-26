@@ -8,21 +8,21 @@
 - Author : [HunSeol](https://github.com/Seolhun/)
 
 ## Why
-- I just want to build react components withpout side-effect.
-  - All components have global stylesheet affecting origin product style.
+- I just want to build react components without third party css side-effect.
+  - All components have global stylesheet affecting origin product css.
 
 ## Goal
-- localized-style without side-effect.
+- localized-style
 - All components are standalone without dipendencies.
-- All components be changed by React Context.
+- All components be changed for Theme by React Context.
 
 ## Used stacks
 - TypeScript
 - React
-- Webpack 4
-- Babel 7
+- RollupJS <- Webpack 4
 - Lerna
-- emotion
+- Babel 7
+- emotionJS
 - polished
 - Docz
 
@@ -51,7 +51,7 @@
 - @seolhun/localize-components-types
 
 
-## Getting start
+## How to getting started
 #### Install Package
 ```bash
 $ yarn add @seolhun/localize-components @seolhun/localize-components-atomic

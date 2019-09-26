@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Modal } from '@seolhun/localize-components';
-import Button from '@seolhun/localize-components-button';
+import { Button } from '@seolhun/localize-components-atomic';
 import { useToggle } from '@seolhun/localize-components-hooks';
 
 const ModalView = () => {
@@ -23,6 +23,6 @@ const ModalView = () => {
       </div>
     </div>
   );
-}
+};
 
 export default ModalView;

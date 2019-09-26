@@ -16,7 +16,7 @@ export interface SidebarItemsContainerProps {
   isSizer?: boolean;
   /**
    * Set this to change SidebarItemsContainer className
-   * @default ''
+   * @default undefined
    */
   className?: string;
   /**
@@ -51,32 +51,25 @@ export interface SidebarItemsContainerProps {
   css?: {};
 }
 
-const StyledSidebarItemsContainer = styled.div<SidebarItemsContainerProps>(() => {
-  return {
-
+const StyledSidebarItemsContainer = styled.div<SidebarItemsContainerProps>(
+  () => {
+    return {};
   }
-})
+);
 
-export const SidebarItemsContainer: FunctionComponent<SidebarItemsContainerProps> = ({
-  children,
-  className,
-  css = {},
-  isSizer = false,
-  ...props
-}) => {
+export const SidebarItemsContainer: FunctionComponent<
+  SidebarItemsContainerProps
+> = ({ children, className, css = {}, isSizer = false, ...props }) => {
   return (
     <StyledSidebarItemsContainer
-      className={classnames(
-        '__Localize__SidebarItemsContainer',
-        className
-      )}
+      className={classnames('__Localize__SidebarItemsContainer', className)}
       isSizer={isSizer}
       css={css}
       {...props}
     >
       {children}
     </StyledSidebarItemsContainer>
-  )
-}
+  );
+};
 
 export default SidebarItemsContainer;

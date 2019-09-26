@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -16,40 +15,32 @@ const MenuView = () => {
     >
       <div>
         <h2>Atomic Components</h2>
-        {routers.filter((router) => router.type === 0).map((router) => {
-          return (
-            <Link
-              key={router.label}
-              to={router.path}
-            >
-              <Button
-                size='medium'
-                mainColor='white'
-              >
-                {router.label}
-              </Button>
-            </Link>
-          );
-        })}
+        {routers
+          .filter((router) => router.type === 0)
+          .map((router) => {
+            return (
+              <Link key={router.label} to={router.path}>
+                <Button size='medium' mainColor='white'>
+                  {router.label}
+                </Button>
+              </Link>
+            );
+          })}
         <h2>Components</h2>
-        {routers.filter((router) => router.type === 1).map((router) => {
-          return (
-            <Link
-              key={router.label}
-              to={router.path}
-            >
-              <Button
-                size='medium'
-                mainColor='danger'
-              >
-                {router.label}
-              </Button>
-            </Link>
-          );
-        })}
+        {routers
+          .filter((router) => router.type === 1)
+          .map((router) => {
+            return (
+              <Link key={router.label} to={router.path}>
+                <Button size='medium' mainColor='danger'>
+                  {router.label}
+                </Button>
+              </Link>
+            );
+          })}
       </div>
     </Jumbotron>
   );
-}
+};
 
 export default MenuView;

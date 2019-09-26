@@ -1,18 +1,18 @@
-import React, { ReactNode, FunctionComponent } from 'react';
+import React, { FC, ReactNode } from 'react';
 
 import styled from '@emotion/styled';
 
 import classnames from 'classnames';
 
 import {
-  Themes,
-  ThemesType,
-  ThemeConfig,
+  ILocalizeTheme,
+  LocalizeThemes,
+  LocalizeThemesType,
 } from '@seolhun/localize-components-styled-types';
 import {
-  getValidTheme,
-  getThemeHoverStyle,
   getThemeColorStyle,
+  getThemeHoverStyle,
+  getValidThemeObject,
 } from '@seolhun/localize-components-styled-utils';
 
 export interface ChipProps {
@@ -20,7 +20,7 @@ export interface ChipProps {
   // isNotRequired
   /**
    * Set this to change Chip className
-   * @default ''
+   * @default undefined
    */
   className?: string;
   /**
@@ -50,14 +50,14 @@ export interface ChipProps {
   onMouseOver?: (...args: any[]) => void;
   /**
    * Set this to change Chip mainColor
-   * @default ThemeConfig.MAIN_THEME = royal_blue
+   * @default LocalizeTheme.primaryColor = royal_blue
    */
-  mainColor?: ThemesType;
+  mainColor?: LocalizeThemesType;
   /**
    * Set this to change Chip subColor
-   * @default ThemeConfig.SUB_THEME = gray
+   * @default LocalizeTheme.secondaryColor = grey
    */
-  subColor?: ThemesType;
+  subColor?: LocalizeThemesType;
   /**
    * Set this to change Chip css
    * @default {}
@@ -65,39 +65,43 @@ export interface ChipProps {
   css?: {};
 }
 
-const StyledChip = styled.button<ChipProps>(({
-  mainColor = ThemeConfig.MAIN_THEME,
-  subColor = ThemeConfig.SUB_THEME,
-}) => {
-  return {
-    borderRadius: '6px',
-    border: `1px solid ${getValidTheme(subColor)}`,
-    backgroundColor: getValidTheme(mainColor),
-    color: getThemeColorStyle(mainColor),
-    cursor: 'pointer',
-    height: 'auto',
-    outline: 'none',
-    transition: 'background-color 0.3s, border-color 0.3s',
-    verticalAlign: 'middle',
-
-    '&:not(:disabled):not(.disabled)': {
+const StyledChip = styled.button<ChipProps, ILocalizeTheme>(
+  ({
+    mainColor,
+    subColor,
+    theme,
+  }) => {
+    const validTheme = getValidThemeObject({ mainColor, subColor }, theme);
+    return {
+      borderRadius: '6px',
+      border: `1px solid ${validTheme.subColor}`,
+      backgroundColor: validTheme.mainColor,
+      color: getThemeColorStyle(validTheme.mainColor),
       cursor: 'pointer',
-    },
+      height: 'auto',
+      outline: 'none',
+      transition: 'background-color 0.3s, border-color 0.3s',
+      verticalAlign: 'middle',
 
-    '&:hover': {
-      backgroundColor: getThemeHoverStyle(mainColor),
-      borderColor: getThemeHoverStyle(subColor),
-    },
+      '&:not(:disabled):not(.disabled)': {
+        cursor: 'pointer',
+      },
 
-    '&:disabled': {
-      backgroundColor: Themes.light_gray,
-      color: Themes.white,
-      cursor: 'not-allowed',
-    },
+      '&:hover': {
+        backgroundColor: getThemeHoverStyle(validTheme.mainColor),
+        borderColor: getThemeHoverStyle(validTheme.subColor),
+      },
+
+      '&:disabled': {
+        backgroundColor: LocalizeThemes.light_grey,
+        color: LocalizeThemes.white,
+        cursor: 'not-allowed',
+      },
+    };
   }
-})
+);
 
-const Chip: FunctionComponent<ChipProps> = ({
+export const Chip: FC<ChipProps> = ({
   children,
   className = '',
   css = {},
@@ -105,12 +109,9 @@ const Chip: FunctionComponent<ChipProps> = ({
 }) => {
   return (
     <StyledChip
-      className={classnames(
-        '__Localize__',
-        className,
-      )}
+      className={classnames('__Localize__', className)}
       css={css}
-      { ...props }
+      {...props}
     >
       {children}
     </StyledChip>

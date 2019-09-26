@@ -3,9 +3,7 @@ import React, { Component, createRef, RefObject } from 'react';
 import { debounce } from 'lodash';
 import styled from '@emotion/styled';
 
-import {
-  getClientWindowSize
-} from '@seolhun/localize-components-utils-event';
+import { getClientWindowSize } from '@seolhun/localize-components-utils-event';
 
 const PAGINATION = {
   PREV: 'prev',
@@ -34,23 +32,23 @@ const CarouselContainer = styled.div({
   display: 'block',
   height: 'auto',
   position: 'relative',
-  transition: 'transform 0.5s linear',
+  transition: 'transform 0.35s linear',
   width: '100%',
 });
 
-export interface CarouselProps {
-  items: any[],
-  children: (item: any, index: number) => any,
+interface CarouselProps {
+  items: any[];
+  children: (item: any, index: number) => any;
 
-  displayedImageCount?: number,
-  imageGap?: number,
-  styles?: {},
-  zIndex?: number,
+  displayedImageCount?: number;
+  imageGap?: number;
+  styles?: {};
+  zIndex?: number;
 }
 
-export interface CarouselState {
-  clientWidth: number,
-  pageIndex: number,
+interface CarouselState {
+  clientWidth: number;
+  pageIndex: number;
 }
 
 class Carousel extends Component<CarouselProps, CarouselState> {
@@ -64,9 +62,13 @@ class Carousel extends Component<CarouselProps, CarouselState> {
       pageIndex: 0,
     };
     this.wrapperRef = createRef();
-    this.debouncedHandleImageWidth = debounce(() => {
-      this.handleImageWidth();
-    }, 250, { leading: true, trailing: true });
+    this.debouncedHandleImageWidth = debounce(
+      () => {
+        this.handleImageWidth();
+      },
+      250,
+      { leading: true, trailing: true }
+    );
   }
 
   componentDidMount() {
@@ -105,7 +107,10 @@ class Carousel extends Component<CarouselProps, CarouselState> {
     const { items } = this.props;
     const { clientWidth } = this.state;
 
-    const sliceLength = items.length > displayedImageCount ? displayedImageCount + DEFAULT_RATIO : items.length;
+    const sliceLength =
+      items.length > displayedImageCount
+        ? displayedImageCount + DEFAULT_RATIO
+        : items.length;
     const imageWidth = clientWidth / sliceLength;
     return imageWidth;
   };
@@ -121,9 +126,7 @@ class Carousel extends Component<CarouselProps, CarouselState> {
       zIndex = 100,
     } = this.props;
 
-    const {
-      pageIndex,
-    } = this.state;
+    const { pageIndex } = this.state;
 
     const imageWidth = this.getImageMaxWidthByClient(displayedImageCount);
 
@@ -133,10 +136,7 @@ class Carousel extends Component<CarouselProps, CarouselState> {
           zIndex,
         }}
       >
-        <CarouselImageContainer
-          ref={this.wrapperRef}
-          css={styles}
-        >
+        <CarouselImageContainer ref={this.wrapperRef} css={styles}>
           {items.map((item, idx) => (
             <CarouselContainer
               key={`carousel-image-${idx}`}
@@ -154,6 +154,12 @@ class Carousel extends Component<CarouselProps, CarouselState> {
       </CarouselWrapper>
     );
   }
+}
+
+export {
+  CarouselProps,
+  CarouselState,
+  Carousel
 }
 
 export default Carousel;

@@ -4,43 +4,38 @@ import classnames from 'classnames';
 import styled from '@emotion/styled';
 
 import {
-  ThemesType,
-  ThemeConfig,
+  LocalizeThemeStyledProps,
+  ILocalizeTheme,
 } from '@seolhun/localize-components-styled-types';
+import { getValidThemeObject } from '@seolhun/localize-components-styled-utils';
 
-export interface HrProps {
+const DEFAULT_CLASSNAME = '__Localize__Hr';
+
+export interface HrProps extends LocalizeThemeStyledProps {
   // isNotRequired
   /**
    * Set this to change Button className
    */
   className?: string;
-  /**
-   * Set this to change Button mainColor
-   * @default ThemeConfig.MAIN_THEME = royal_blue
-   */
-  mainColor?: ThemesType;
 }
 
-const StyledHr = styled.hr<HrProps>(({
-  mainColor = ThemeConfig.MAIN_THEME,
+const StyledHr = styled.hr<HrProps, ILocalizeTheme>(({
+  theme,
+  ...props
 }) => {
-  return {
-    border: 0,
-    opacity: 0.1,
-    borderTop: `1px solid ${mainColor}`,
-  };
-})
+  const validTheme = getValidThemeObject(props, theme);
+
+    return {
+      border: 0,
+      opacity: 0.1,
+      borderTop: `1px solid ${validTheme.mainColor}`,
+    };
+  }
+);
 
 // tslint:disable-next-line:variable-name
-const Hr: FC<HrProps> = ({
-  className = '',
-}) => (
-  <StyledHr
-    className={classnames(
-      '__Localize__Button',
-      className,
-    )}
-  />
+export const Hr: FC<HrProps> = ({ className = '' }) => (
+  <StyledHr className={classnames(DEFAULT_CLASSNAME, className)} />
 );
 
 export default Hr;

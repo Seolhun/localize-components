@@ -1,8 +1,13 @@
 {
   "license": "MIT",
+  "author": {
+    "name": "Seolhun",
+    "email": "shun10116@gmail.com",
+    "url": "https://github.com/Seolhun"
+  },
   "name": "@seolhun/localize-components",
   "description": "Localizing React components is rendered by stand-alone not affect other styles.",
-  "version": "0.1.5",
+  "version": "0.1.13",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "files": [
@@ -12,9 +17,9 @@
     "README.md"
   ],
   "scripts": {
+    "just": "rollup -c",
     "build": "rollup -c",
     "prebuild": "rm -rf dist && rm -rf .rpt2_cache",
-    "bundle": "rollup -c",
     "bundle": "node build/build.js",
     "prebundle": "rm -rf dist",
     "test": "jest"
@@ -22,10 +27,10 @@
   "dependencies": {
     "@emotion/core": "^10.0.6",
     "@emotion/styled": "^10.0.6",
-    "@seolhun/localize-components-modal": "^0.1.4",
-    "@seolhun/localize-components-styled-types": "^0.1.4",
-    "@seolhun/localize-components-styled-utils": "^0.1.4",
-    "@seolhun/localize-components-types": "^0.1.4",
+    "@seolhun/localize-components-modal": "^0.1.11",
+    "@seolhun/localize-components-styled-types": "^0.1.11",
+    "@seolhun/localize-components-styled-utils": "^0.1.11",
+    "@seolhun/localize-components-types": "^0.1.6",
     "classnames": "^2.2.6",
     "lodash": "^4.17.11",
     "polished": "^3.1.0",
@@ -49,7 +54,6 @@
     "@types/react": "^16.9.1",
     "autoprefixer": "^9.4.3",
     "awesome-typescript-loader": "^5.2.1",
-    "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
     "babel-plugin-emotion": "^10.0.6",
     "chalk": "^2.4.2",
@@ -85,7 +89,6 @@
     "style-loader": "^0.23.1",
     "terser-webpack-plugin": "^1.1.0",
     "ts-node": "^8.0.3",
-    "tslib": "^1.9.3",
     "typescript": "^3.5.3",
     "uglifyjs-webpack-plugin": "^2.1.3",
     "url-loader": "^2.0.0",

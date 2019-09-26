@@ -3,8 +3,10 @@ name: Modal
 menu: Components
 ---
 
+import { useState } from 'react';
 import { Playground, Props } from 'docz';
 import { Modal } from '@seolhun/localize-components';
+import { Button } from '@seolhun/localize-components-atomic';
 
 import ModalPropsTable from './ModalPropsTable';
 
@@ -18,63 +20,76 @@ import ModalPropsTable from './ModalPropsTable';
 ## Default
 
 <Playground>
-  <Modal
-    header={<div>Modal header</div>}
-    body={<div>Modal body</div>}
-    footer={<div>Modal footer</div>}
-    isShow
-  />
+  {() => {
+    const [isShow, setIsShow] = useState(true)
+    return (
+      <>
+        <Button onClick={() => setIsShow(!isShow)}>
+          {isShow ? 'Show Modal' : 'Close Modal'}
+        </Button>
+        <Modal
+          header={<div>Modal header</div>}
+          body={<div>Modal body</div>}
+          footer={<div>Modal footer</div>}
+          isShow={isShow}
+        />
+      </>
+    )
+  }}
 </Playground>
 
 ## Give a Size
 
 <Playground>
-  <Modal
-    header={<div>Modal small</div>}
-    body={<div>Modal body</div>}
-    footer={<div>Modal footer</div>}
-    size='small'
-  />
-  <Modal
-    header={<div>Modal Medium</div>}
-    body={<div>Modal body</div>}
-    footer={<div>Modal footer</div>}
-    size='medium'
-  />
-  <Modal
-    header={<div>Modal Large</div>}
-    body={<div>Modal body</div>}
-    footer={<div>Modal footer</div>}
-    size='large'
-  />
+  {() => {
+    const [isShow, setIsShow] = useState(true)
+    return (
+      <>
+        <Button onClick={() => setIsShow(!isShow)}>
+          {isShow ? 'Show Modal' : 'Close Modal'}
+        </Button>
+        <Modal
+          header={<h1>Large Modal</h1>}
+          size='large'
+          isShow={isShow}
+        />
+      </>
+    )
+  }}
 </Playground>
 
 ## Give a Position
 
 <Playground>
-  <Modal
-    header={<div>Modal top-left</div>}
-    body={<div>Modal body</div>}
-    footer={<div>Modal footer</div>}
-    position='top-left'
-  />
-  <Modal
-    header={<div>Modal right</div>}
-    body={<div>Modal body</div>}
-    footer={<div>Modal footer</div>}
-    position='right'
-  />
-  <Modal
-    header={<div>Modal center</div>}
-    body={<div>Modal body</div>}
-    footer={<div>Modal footer</div>}
-  />
-  <Modal
-    header={<div>Modal left</div>}
-    body={<div>Modal body</div>}
-    footer={<div>Modal footer</div>}
-    position='left'
-  />
+  {() => {
+    const [isShow, setIsShow] = useState(true)
+    return (
+      <>
+        <Button onClick={() => setIsShow(!isShow)}>
+          {isShow ? 'Show Modal' : 'Close Modal'}
+        </Button>
+        <Modal
+          header={<h2>Modal bottom-right</h2>}
+          position='bottom-right'
+          isShow={isShow}
+        />
+        <Modal
+          header={<h2>Modal right</h2>}
+          position='right'
+          isShow={isShow}
+        />
+        <Modal
+          header={<h2>Modal bottom</h2>}
+          position='bottom'
+          isShow={isShow}
+        />
+      </>
+    )
+  }}
+</Playground>
+
+<Playground>
+
 </Playground>
 
 ## PropsTable

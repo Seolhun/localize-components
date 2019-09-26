@@ -4,14 +4,14 @@ import classnames from 'classnames';
 import styled from '@emotion/styled';
 
 import {
-  ThemesType,
-  ThemeConfig,
-  Themes,
+  LocalizeThemesType,
+  ILocalizeTheme,
+  LocalizeThemes,
 } from '@seolhun/localize-components-styled-types';
 import {
-  getValidTheme,
   getThemeHoverStyle,
   getThemeColorStyle,
+  getValidThemeObject,
 } from '@seolhun/localize-components-styled-utils';
 
 export interface CircleProps {
@@ -67,14 +67,14 @@ export interface CircleProps {
   onMouseOver?: (...args: any[]) => void;
   /**
    * Set this to change Circle mainColor
-   * @default ThemeConfig.MAIN_THEME = royal_blue
+   * @default LocalizeTheme.primaryColor = royal_blue
    */
-  mainColor?: ThemesType;
+  mainColor?: LocalizeThemesType;
   /**
    * Set this to change Circle subColor
-   * @default ThemeConfig.SUB_THEME = gray
+   * @default LocalizeTheme.secondaryColor = grey
    */
-  subColor?: ThemesType;
+  subColor?: LocalizeThemesType;
   /**
    * Set this to change Circle size
    * @default 50
@@ -87,47 +87,50 @@ export interface CircleProps {
   css?: {};
 }
 
-const StyledCircle = styled.span<CircleProps>(({
-  isClickable,
-  mainColor = ThemeConfig.MAIN_THEME,
-  subColor = ThemeConfig.SUB_THEME,
-  size = 50,
-  fontSize = 12,
-}) => {
-  return {
-    display: 'inline-flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    width: `${size}px`,
-    height: `${size}px`,
+const StyledCircle = styled.span<CircleProps, ILocalizeTheme>(({
+    isClickable,
+    size = 50,
+    fontSize = 12,
+    theme,
+    ...props
+  }) => {
+    const validTheme = getValidThemeObject(props, theme);
 
-    borderRadius: '50%',
-    border: `1px solid ${getValidTheme(mainColor)}`,
-    backgroundColor: getValidTheme(subColor),
+    return {
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: `${size}px`,
+      height: `${size}px`,
 
-    color: getThemeColorStyle(subColor),
-    fontSize: `${fontSize}px`,
-    fontWeight: 500,
-    textDecoration: 'none',
-    whiteSpace: 'nowrap',
+      borderRadius: '50%',
+      border: `1px solid ${validTheme.mainColor}`,
+      backgroundColor: validTheme.subColor,
 
-    cursor: isClickable ? 'pointer' : 'auto',
-    outline: 'none',
-    transition: 'background-color 0.3s, border-color 0.3s, color 0.3s',
-    userSelect: 'none',
+      color: getThemeColorStyle(validTheme.subColor),
+      fontSize: `${fontSize}px`,
+      fontWeight: 500,
+      textDecoration: 'none',
+      whiteSpace: 'nowrap',
 
-    '&:hover': {
-      backgroundColor: getThemeHoverStyle(mainColor),
-      color: getThemeColorStyle(mainColor),
-    },
+      cursor: isClickable ? 'pointer' : 'auto',
+      outline: 'none',
+      transition: 'background-color 0.3s, border-color 0.3s, color 0.3s',
+      userSelect: 'none',
 
-    '&:disabled': {
-      backgroundColor: Themes.light_gray,
-      color: Themes.white,
-      cursor: 'not-allowed',
-    },
+      '&:hover': {
+        backgroundColor: getThemeHoverStyle(validTheme.mainColor),
+        color: getThemeColorStyle(validTheme.mainColor),
+      },
+
+      '&:disabled': {
+        backgroundColor: LocalizeThemes.light_grey,
+        color: LocalizeThemes.white,
+        cursor: 'not-allowed',
+      },
+    };
   }
-});
+);
 
 export const Circle: FunctionComponent<CircleProps> = ({
   className,
@@ -136,14 +139,10 @@ export const Circle: FunctionComponent<CircleProps> = ({
   ...props
 }) => {
   return (
-    <StyledCircle
-      className={classnames(className)}
-      css={css}
-      {...props}
-    >
+    <StyledCircle className={classnames(className)} css={css} {...props}>
       {children}
     </StyledCircle>
-  )
-}
+  );
+};
 
 export default Circle;

@@ -22,6 +22,6 @@ const JumbotronView = () => {
       />
     </section>
   );
-}
+};
 
 export default JumbotronView;

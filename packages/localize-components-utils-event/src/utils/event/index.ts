@@ -11,7 +11,7 @@ export {
   getTouchData,
   // Scroll
   preventWindowScroll,
-}
+};
 
 export default {
   preventDefault,

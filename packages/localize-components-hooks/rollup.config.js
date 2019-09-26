@@ -34,13 +34,14 @@ export default {
       exclude: /node_modules/,
     }),
   ],
-  output: [{
+  output: [
+    {
       format: 'cjs',
       file: pkg.main,
     },
     {
       format: 'es',
       file: pkg.module,
-    }
+    },
   ],
 };

@@ -1,8 +1,2 @@
-import Circle, { CircleProps } from './Circle';
-
-export {
-  Circle,
-  CircleProps,
-}
-
-export default Circle;
+export * from './Circle';
+export { default } from './Circle';

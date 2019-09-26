@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 import { CheckBox } from '@seolhun/localize-components-atomic';
@@ -40,7 +39,7 @@ const CheckBoxView = () => {
               label: 'label',
               value: 'value',
             }}
-            mainColor='light_gray'
+            mainColor='light_grey'
             checked
           />
           <CheckBox
@@ -77,7 +76,7 @@ const CheckBoxView = () => {
               label: 'label',
               value: 'value',
             }}
-            mainColor='light_gray'
+            mainColor='light_grey'
             subColor='purple'
             checked
           />
@@ -94,6 +93,6 @@ const CheckBoxView = () => {
       </div>
     </div>
   );
-}
+};
 
 export default CheckBoxView;

@@ -26,8 +26,9 @@ module.exports = {
     path: config.build.assetsRoot,
     filename: utils.assetsPath('[name].js'),
     chunkFilename: utils.assetsPath('[id].js'),
-    publicPath: IS_PRODUCTION ?
-      config.build.assetsPublicPath : config.dev.assetsPublicPath,
+    publicPath: IS_PRODUCTION
+      ? config.build.assetsPublicPath
+      : config.dev.assetsPublicPath,
   },
   resolve: {
     extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
@@ -55,7 +56,8 @@ module.exports = {
     }),
   ],
   module: {
-    rules: [{
+    rules: [
+      {
         test: /\.(js|jsx)$/,
         loader: 'babel-loader',
       },
@@ -65,32 +67,37 @@ module.exports = {
       },
       {
         test: /\.s?css$/,
-        use: [{
-          loader: MiniCssExtractPlugin.loader,
-        }, {
-          loader: 'css-loader',
-          options: {
-            importLoaders: 2,
-            sourceMap: IS_PRODUCTION,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
           },
-        }, {
-          loader: 'postcss-loader',
-          options: {
-            ident: 'postcss',
-            plugins: () => [
-              postCssFlexBugsFixed,
-              autoprefixer({
-                flexbox: 'no-2009',
-              }),
-            ],
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 2,
+              sourceMap: IS_PRODUCTION,
+            },
           },
-        }, {
-          loader: 'sass-loader',
-          options: {
-            minimize: true,
-            sourceMap: true,
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              plugins: () => [
+                postCssFlexBugsFixed,
+                autoprefixer({
+                  flexbox: 'no-2009',
+                }),
+              ],
+            },
           },
-        }],
+          {
+            loader: 'sass-loader',
+            options: {
+              minimize: true,
+              sourceMap: true,
+            },
+          },
+        ],
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

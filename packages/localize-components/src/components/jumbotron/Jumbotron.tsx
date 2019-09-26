@@ -3,18 +3,18 @@ import React, { ReactNode, FunctionComponent } from 'react';
 import styled from '@emotion/styled';
 
 import {
-  ThemeConfig,
-  ThemesType,
-  Themes,
+  LocalizeThemeStyledProps,
+  ILocalizeTheme,
 } from '@seolhun/localize-components-styled-types';
 import {
-  getValidTheme,
-  getIsLightenTheme,
+  createMediaQueryCondition,
+  getValidThemeObject,
+  getThemeColorStyle,
 } from '@seolhun/localize-components-styled-utils';
 
 import classnames from 'classnames';
 
-export interface JumbotronProps {
+export interface JumbotronProps extends LocalizeThemeStyledProps {
   // isNotRequired
   /**
    * Set this to change Jumbotron rendering children node
@@ -23,7 +23,7 @@ export interface JumbotronProps {
   children?: ReactNode;
   /**
    * Set this to change Jumbotron className
-   * @default ''
+   * @default undefined
    */
   className?: string;
   /**
@@ -31,11 +31,6 @@ export interface JumbotronProps {
    * @default ''
    */
   description?: string;
-  /**
-   * Set this to change Jumbotron mainColor
-   * @default ThemeConfig.MAIN_THEME = royal_blue
-   */
-  mainColor?: ThemesType;
   /**
    * Set this to change Jumbotron onBlur
    * @default 'main'
@@ -66,7 +61,6 @@ export interface JumbotronProps {
    * @default ''
    */
   title?: string;
-
   /**
    * Set this to change Jumbotron css
    * @default {}
@@ -74,54 +68,55 @@ export interface JumbotronProps {
   css?: {};
 }
 
-const StyledJumbotron = styled.div<JumbotronProps>(({
-  mainColor = ThemeConfig.MAIN_THEME,
+const StyledJumbotron = styled.div<JumbotronProps, ILocalizeTheme>(({
+  theme,
+  ...props
 }) => {
-  const styledColor = () => {
-    if (getIsLightenTheme(mainColor)) {
-      return Themes.dark_gray;
-    }
-    return Themes.white;
-  };
+  const validTheme = getValidThemeObject(props, theme);
 
-  return {
-    backgroundColor: getValidTheme(mainColor),
-    color: styledColor(),
-    height: 'auto',
-    minHeight: '200px',
-    padding: '35px',
-    width: '100%',
+    return {
+      backgroundColor: validTheme.mainColor,
+      color: getThemeColorStyle(validTheme.mainColor),
+      height: 'auto',
+      width: '100%',
+    };
   }
-});
+);
 
-const Jumbotron: FunctionComponent<JumbotronProps> = ({
-  children = null,
-  className = '',
-  description = null,
-  title = null,
+const StyledJumbotronContainer = styled.div<JumbotronProps>({
+  [`@media ${createMediaQueryCondition('XS')}`]: {
+    padding: '3px',
+  },
+  [`@media ${createMediaQueryCondition('SM')}`]: {
+    padding: '5px',
+  },
+  [`@media ${createMediaQueryCondition('MD')}`]: {
+    padding: '10px',
+  },
+  padding: '35px',
+})
+
+export const Jumbotron: FunctionComponent<JumbotronProps> = ({
+  children,
+  className,
+  description,
+  title,
   css = {},
   ...props
 }) => {
   return (
     <StyledJumbotron
-      className={classnames(
-        '__Localize__',
-        className,
-      )}
-      css={css}
       {...props}
+      className={classnames('__Localize__Jumbotron', className)}
+      css={css}
     >
-      {title && (
-        <h1>{title}</h1>
-      )}
-      {description && (
-        <h5>{description}</h5>
-      )}
-      {children && (
-        children
-      )}
+      <StyledJumbotronContainer>
+        {title && <h1>{title}</h1>}
+        {description && <h5>{description}</h5>}
+        {children && children}
+      </StyledJumbotronContainer>
     </StyledJumbotron>
   );
-}
+};
 
 export default Jumbotron;

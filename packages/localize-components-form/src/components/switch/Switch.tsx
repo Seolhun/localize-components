@@ -1,40 +1,44 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC, useCallback, ChangeEvent } from 'react';
 
 import styled from '@emotion/styled';
-
 import classnames from 'classnames';
+import { getValidThemeObject } from '@seolhun/localize-components-styled-utils';
 
 import {
-  getValidTheme,
-} from '@seolhun//localize-components-styled-utils';
-import {
-  StyledProps,
-  ThemeConfig,
-  ThemesType,
+  LocalizeStyledProps,
+  ILocalizeTheme,
+  LocalizeBaseStyledProps,
 } from '@seolhun/localize-components-styled-types';
 
-export interface SwitchProps {
-  /**
-   * Set this to change Switch label
-   * @default {}
-   */
-  item: SwitchItemProps;
-  // isNotRequired
+const DEFAULT_CLASSNAME = '__Localize__Switch';
+const SWITCH_CIRCLE = 25;
+const SWITCH_CONTAINER_WIDTH = (SWITCH_CIRCLE * 2) + 2;
+const SWITCH_CONTAINER_HEIGHT = SWITCH_CIRCLE + 2;
+
+export interface SwitchProps extends LocalizeBaseStyledProps {
   /**
    * Set this to change Switch checked
-   * @default false
    */
-  checked?: boolean;
+  checked: boolean;
   /**
-   * Set this to change Switch className
-   * @default ''
+   * Set this to change Switch htmlFor
    */
-  className?: string;
+  htmlFor: string;
   /**
    * Set this to change Switch groupName
    * @default ''
    */
   groupName?: string;
+  /**
+   * Set this to change Switch useValueKey
+   * @default false
+   */
+  useValueKey?: boolean;
+  /**
+   * Set this to change Switch valueKey
+   * @default 'value'
+   */
+  valueKey?: string;
   /**
    * Set this to change Switch labelKey
    * @default 'label'
@@ -44,7 +48,7 @@ export interface SwitchProps {
    * Set this to change Switch onChange
    * @default () => null
    */
-  onChange?: (item: SwitchItemProps) => void;
+  onChange?: (checked: boolean) => void;
   /**
    * Set this to change Switch onMouseOver
    * @default () => null
@@ -55,83 +59,104 @@ export interface SwitchProps {
    * @default () => null
    */
   onMouseOut?: (...agrs: any[]) => void;
-  /**
-   * Set this to change Switch useValueKey
-   * @default false
-   */
-  useValueKey?: boolean;
-  /**
-   * Set this to change Switch css
-   * @default {}
-   */
-  css?: {};
-  /**
-   * Set this to change Switch mainColor
-   * @default ThemeConfig.MAIN_THEME = royal_blue
-   */
-  mainColor?: ThemesType;
-  /**
-   * Set this to change Switch subColor
-   * @default ThemeConfig.SUB_THEME = gray
-   */
-  subColor?: ThemesType;
-  /**
-   * Set this to change Switch valueKey
-   * @default 'value'
-   */
-  valueKey?: string;
 }
 
-export interface SwitchItemProps {
-  label: string;
-  value: string;
-}
+const StyledSwitchLabel = styled.label<LocalizeStyledProps, ILocalizeTheme>(({
+  theme,
+  ...props
+}) => {
+  const validTheme = getValidThemeObject(props, theme);
 
-const Switch: FunctionComponent<SwitchProps> = ({
-  item,
-  // IsNotRequired
-  checked = false,
-  className = '',
+  return {
+    userSelect: 'none',
+    position: 'relative',
+    display: 'inline-block',
+    width: `${SWITCH_CONTAINER_WIDTH}px`,
+    height: `${SWITCH_CONTAINER_HEIGHT}px`,
+
+    [`input:checked + .${DEFAULT_CLASSNAME}__Slider:before`]: {
+      transform: `translateX(${SWITCH_CIRCLE}px)`,
+      boxShadow: `0 0 2px 3px ${validTheme.mainColor}`,
+    },
+  }
+})
+
+const StyledSwitchInput = styled.input({
+  opacity: 0,
+  width: 0,
+  height: 0,
+})
+
+const StyledSlider = styled.span<LocalizeStyledProps, ILocalizeTheme>(({
+  theme,
+  ...props
+}) => {
+  const validTheme = getValidThemeObject(props, theme);
+
+  return {
+    backgroundColor: validTheme.mainColor,
+    borderRadius: '35px',
+    cursor: 'pointer',
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    transition: '0.4s',
+
+    ['&:before']: {
+      content: '""',
+      backgroundColor: validTheme.subColor,
+      borderRadius: '50%',
+      position: 'absolute',
+      left: '1px',
+      top: '1px',
+      height: `${SWITCH_CIRCLE}px`,
+      width: `${SWITCH_CIRCLE}px`,
+      transition: '0.4s',
+    },
+  }
+})
+
+export const Switch: FC<SwitchProps> = ({
+  checked,
+  htmlFor,
+  //
+  className,
   groupName = '',
-  labelKey = 'label',
-  mainColor = ThemeConfig.MAIN_THEME,
+  mainColor,
+  subColor,
   onChange = () => null,
   onMouseOut = () => null,
   onMouseOver = () => null,
   css = {},
-  subColor = ThemeConfig.SUB_THEME,
-  useValueKey = false,
-  valueKey = 'value',
 }) => {
-  const usedKey = useValueKey
-    ? valueKey
-    : labelKey;
+  const handleChecked = useCallback((event: ChangeEvent) => {
+    onChange(checked)
+    event.stopPropagation();
+  }, [checked])
 
   return (
     <StyledSwitchLabel
-      key={item[usedKey]}
-      htmlFor={item[usedKey]}
-      className={classnames(
-        '__Localize__',
-        className,
-      )}
+      key={htmlFor}
+      htmlFor={htmlFor}
+      className={classnames(`${DEFAULT_CLASSNAME}__Label`, className)}
       onMouseOut={onMouseOut}
       onMouseOver={onMouseOver}
+      mainColor={mainColor}
+      subColor={subColor}
     >
       <StyledSwitchInput
-        id={item[usedKey]}
+        id={htmlFor}
         checked={checked}
-        className='Switch'
+        className={classnames(`${DEFAULT_CLASSNAME}__Input`, className)}
         type='checkbox'
-        onChange={() => onChange({
-          label: item[labelKey],
-          value: item[valueKey],
-        })}
-        value={item[usedKey]}
+        onChange={handleChecked}
+        value={htmlFor}
         name={groupName}
       />
       <StyledSlider
-        className='Slider'
+        className={classnames(`${DEFAULT_CLASSNAME}__Slider`, className)}
         mainColor={mainColor}
         subColor={subColor}
         css={css}
@@ -139,62 +164,5 @@ const Switch: FunctionComponent<SwitchProps> = ({
     </StyledSwitchLabel>
   );
 };
-
-const StyledSwitchLabel = styled.label`
-  -moz-user-select: none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
-  position: relative;
-  display: inline-block;
-  width: 50px;
-  height: 26px;
-  margin: 0 5px;
-
-  input:checked + .Slider:before {
-    -ms-transform: translateX(26px);
-    -webkit-transform: translateX(26px);
-    transform: translateX(26px);
-  }
-`;
-
-const StyledSwitchInput = styled.input`
-  opacity: 0;
-  width: 0;
-  height: 0;
-`;
-
-const StyledSlider = styled.span<StyledProps>`
-  -webkit-transition: .4s;
-  background-color: ${({
-    mainColor = ThemeConfig.MAIN_THEME,
-  }: StyledProps) => {
-    return getValidTheme(mainColor);
-  }};
-  border-radius: 34px;
-  bottom: 0;
-  cursor: pointer;
-  left: 0;
-  position: absolute;
-  right: -5px;
-  top: 0;
-  transition: .4s;
-
-  &:before {
-    -webkit-transition: .4s;
-    background-color: ${({
-      subColor = ThemeConfig.SUB_THEME,
-    }: StyledProps) => {
-      return getValidTheme(subColor);
-    }};
-    border-radius: 50%;
-    bottom: 3px;
-    content: "";
-    height: 20px;
-    left: 5px;
-    position: absolute;
-    transition: .4s;
-    width: 20px;
-  }
-`;
 
 export default Switch;
