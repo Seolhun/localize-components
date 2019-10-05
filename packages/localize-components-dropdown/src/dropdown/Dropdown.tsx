@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { DropdownItemOption } from './DropdownItem';
+import { DropdownItemOption } from './core/DropdownItem';
 
 export interface DropdownProps {
   option: DropdownItemOption[],
