@@ -12,15 +12,16 @@
   - All components have global stylesheet affecting origin product css.
 
 ## Goal
-- localized-style
-- All components are standalone without dipendencies.
+- Localized-style
 - All components be changed for Theme by React Context.
+  - All core variables is controlled by context
+- Processing all most colors
 
 ## Used stacks
 - TypeScript
-- React
-- RollupJS <- Webpack 4
 - Lerna
+- RollupJS, Webpack 4
+- React
 - Babel 7
 - emotionJS
 - polished
@@ -38,6 +39,7 @@
 #### Mono Components
 - @seolhun/localize-components-button
 - @seolhun/localize-components-form
+- @seolhun/localize-components-grid
 - @seolhun/localize-components-modal
 - @seolhun/localize-components-sidebar
 
