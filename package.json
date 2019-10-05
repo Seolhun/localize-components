@@ -33,6 +33,7 @@
     "release": "lerna publish",
     "prerelease": "lerna publish from-git",
     "release:patch": "lerna publish patch -y",
+    "prepare": "yarn build",
     "bs": "lerna bootstrap",
     "link": "lerna link",
     "lint": "tslint --project -p tsconfig.json 'packages/**/src/**/*.{ts,tsx}'",
