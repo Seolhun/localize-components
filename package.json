@@ -33,6 +33,7 @@
     "release": "lerna publish",
     "prerelease": "lerna publish from-git",
     "release:patch": "lerna publish patch -y",
+    "prepare": "yarn build",
     "bs": "lerna bootstrap",
     "link": "lerna link",
     "lint": "tslint --project -p tsconfig.json 'packages/**/src/**/*.{ts,tsx}'",
@@ -42,6 +43,7 @@
   },
   "devDependencies": {
     "eslint": "^6.3.0",
+    "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
