@@ -62,7 +62,6 @@
     "object-literal-sort-keys": false
   },
   "rulesDirectory": [],
-  // Exclude options
   "linterOptions": {
     "exclude": [
         "build/*",
