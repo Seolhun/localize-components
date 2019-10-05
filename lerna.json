@@ -11,9 +11,13 @@
         "master",
         "develop"
       ],
+      "bootstrap": {
+        "ignore": "packages/templates"
+      },
       "ignoreChanges": [
         "packages/docs",
         "packages/examples",
+        "packages/templates",
         "**/__test__",
         "**/*.md"
       ]
