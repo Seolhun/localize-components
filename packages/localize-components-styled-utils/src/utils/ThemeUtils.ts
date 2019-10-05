@@ -16,6 +16,7 @@ interface ValidThemeResponse {
   highlightedFontColor: string;
   primaryFontColor: string;
   secondaryFontColor: string;
+  backgroundColor: string;
 }
 
 export const getValidThemeObject = ({
@@ -28,6 +29,7 @@ export const getValidThemeObject = ({
   const highlightedFont = mainColor || !!theme && theme.fonts.COLOR.highlightColor || LocalizeTheme.fonts.COLOR.highlightColor;
   const primaryFont = mainColor || !!theme && theme.fonts.COLOR.primaryColor || LocalizeTheme.fonts.COLOR.primaryColor;
   const secondaryFont = subColor || !!theme && theme.fonts.COLOR.secondaryColor || LocalizeTheme.fonts.COLOR.secondaryColor;
+  const background = !!theme && theme.background || LocalizeTheme.background;
 
   return {
     mainColor: getValidTheme(primary),
@@ -36,6 +38,7 @@ export const getValidThemeObject = ({
     highlightedFontColor: getValidTheme(highlightedFont),
     primaryFontColor: getValidTheme(primaryFont),
     secondaryFontColor: getValidTheme(secondaryFont),
+    backgroundColor: getValidTheme(background),
   };
 };
 
