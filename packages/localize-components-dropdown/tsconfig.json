@@ -1,0 +1,24 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "outDir": "dist",
+    "rootDir": "src",
+    "types": [
+      "node"
+    ],
+    "typeRoots": [
+      "node_modules/@types",
+      "src/types"
+    ]
+  },
+  "exclude": [
+    "../../node_modules/**",
+    "node_modules/**",
+    "src/__test__/**",
+    "src/**/*.test.ts"
+  ],
+  "typeAcquisition": {
+    "enable": true
+  }
+}
