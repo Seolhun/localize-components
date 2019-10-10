@@ -6,7 +6,7 @@ import { ThemeProvider } from 'emotion-theming';
 import { LocalizeTheme } from '@seolhun/localize-components-styled-types';
 import { Container } from '@seolhun/localize-components';
 
-import MenuView from './containers/MenuView';
+import MenuView from './views/MenuView';
 import Routes from './routes';
 
 import './vendor';
