@@ -2,8 +2,6 @@ import React from 'react';
 
 import { range } from 'lodash';
 
-import { ThemeProvider } from 'emotion-theming';
-import { LocalizeTheme } from '@seolhun/localize-components-styled-types';
 import { Container, Col, Row, Jumbotron } from '@seolhun/localize-components';
 
 const STYLES = {
@@ -12,7 +10,7 @@ const STYLES = {
 
 const GridView = () => {
   return (
-    <ThemeProvider theme={LocalizeTheme}>
+    <>
       <Container>
         <h2>Default</h2>
         <Row css={STYLES}>
@@ -216,7 +214,7 @@ const GridView = () => {
           </Col>
         </Row>
       </Container>
-    </ThemeProvider>
+    </>
   )
 }
 
