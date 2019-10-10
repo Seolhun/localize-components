@@ -1,12 +1,12 @@
-import ButtonView from '../containers/ButtonView';
-import CheckboxView from '../containers/CheckboxView';
-import InputView from '../containers/InputView';
-import RadioView from '../containers/RadioView';
-import GridView from '../containers/GridView';
-import JumbotronView from '../containers/JumbotronView';
-import ModalView from '../containers/ModalView';
-import CardView from '../containers/CardView';
-import FigureView from '../containers/FigureView';
+import ButtonView from '../views/ButtonView';
+import CheckboxView from '../views/CheckboxView';
+import InputView from '../views/InputView';
+import RadioView from '../views/RadioView';
+import GridView from '../views/GridView';
+import JumbotronView from '../views/JumbotronView';
+import ModalView from '../views/ModalView';
+import CardView from '../views/CardView';
+import FigureView from '../views/FigureView';
 
 const routerCreator = ({ type, path, label, exact = true, component }) => {
   return {
