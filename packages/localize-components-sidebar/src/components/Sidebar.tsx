@@ -4,8 +4,8 @@ import classnames from 'classnames';
 import styled from '@emotion/styled';
 
 import {
-  ThemesType,
-  StyledProps
+  LocalizeThemesType,
+  LocalizeStyledProps,
 } from '@seolhun/localize-components-styled-types';
 
 import SidebarItemLabel from './SidebarItemLabel';
@@ -13,7 +13,7 @@ import SidebarItemIcon from './SidebarItemIcon';
 import SidebarItemsContainer from './SidebarItemsContainer';
 
 export interface SidebarItemProps {
-    /**
+  /**
    * Set this to change SidebarItem label
    */
   label: string;
@@ -21,7 +21,7 @@ export interface SidebarItemProps {
    * Set this to change SidebarItem route path
    */
   to: string;
-    /**
+  /**
    * Set this to render SidebarItem rendering icon
    * @default undefined
    */
@@ -46,7 +46,7 @@ export interface SidebarProps {
 
   /**
    * Set this to change Button className
-   * @default ''
+   * @default undefined
    */
   className?: string;
   /**
@@ -54,7 +54,7 @@ export interface SidebarProps {
    * @default 50
    */
   iconWidth?: number;
-    /**
+  /**
    * Set this to change Button labelWidth
    * @default 150
    */
@@ -86,14 +86,14 @@ export interface SidebarProps {
   onMouseOver?: (...args: any[]) => void;
   /**
    * Set this to change Sidebar mainColor
-   * @default ThemeConfig.MAIN_THEME = royal_blue
+   * @default LocalizeTheme.primaryColor = royal_blue
    */
-  mainColor?: ThemesType;
+  mainColor?: LocalizeThemesType;
   /**
    * Set this to change Sidebar subColor
-   * @default ThemeConfig.SUB_THEME = gray
+   * @default LocalizeTheme.secondaryColor = grey
    */
-  subColor?: ThemesType;
+  subColor?: LocalizeThemesType;
   /**
    * Set this to change Sidebar css
    * @default {}
@@ -101,11 +101,9 @@ export interface SidebarProps {
   css?: {};
 }
 
-const StyledSidebar = styled.aside<StyledProps>(() => {
-  return {
-
-  }
-})
+const StyledSidebar = styled.aside<LocalizeStyledProps>(() => {
+  return {};
+});
 
 export const Sidebar: FunctionComponent<SidebarProps> = ({
   className,
@@ -117,10 +115,7 @@ export const Sidebar: FunctionComponent<SidebarProps> = ({
 }) => {
   return (
     <StyledSidebar
-      className={classnames(
-        '__Localize__Sidebar',
-        className
-      )}
+      className={classnames('__Localize__Sidebar', className)}
       css={css}
       {...props}
     >
@@ -129,7 +124,7 @@ export const Sidebar: FunctionComponent<SidebarProps> = ({
           <SidebarItemIcon
             item={item}
             css={{
-              width: `${iconWidth}px`
+              width: `${iconWidth}px`,
             }}
             {...props}
           />
@@ -140,14 +135,14 @@ export const Sidebar: FunctionComponent<SidebarProps> = ({
           <SidebarItemLabel
             item={item}
             css={{
-              width: `${iconWidth}px`
+              width: `${iconWidth}px`,
             }}
             {...props}
           />
         ))}
       </SidebarItemsContainer>
     </StyledSidebar>
-  )
-}
+  );
+};
 
 export default Sidebar;

@@ -6,12 +6,8 @@ module.exports = {
     '^.+\\.tsx?$': 'ts-jest',
     '^.+\\.ts?$': 'ts-jest',
   },
-  testMatch: [
-    '<rootDir>/src/**/*.(test|spec).ts?(x)',
-  ],
-  moduleFileExtensions: [
-    'ts', 'tsx', 'js', 'jsx', 'json',
-  ],
+  testMatch: ['<rootDir>/src/**/*.(test|spec).ts?(x)'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
   moduleNameMapper: {
     '^@/(.*)': '<rootDir>/src/$1',
   },

@@ -4,17 +4,19 @@
     "declaration": true,
     "outDir": "dist",
     "rootDir": "src",
-    "types": ["node"],
+    "types": [
+      "node"
+    ],
     "typeRoots": [
       "node_modules/@types",
-      "src/types",
-    ],
+      "src/types"
+    ]
   },
   "exclude": [
-    ".vscode",
+    "../../node_modules/**",
     "node_modules/**",
-    "./src/__test__/**",
-    "./src/**/*.test.ts",
+    "src/__test__/**",
+    "src/**/*.test.ts"
   ],
   "typeAcquisition": {
     "enable": true

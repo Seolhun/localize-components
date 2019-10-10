@@ -1,11 +1,3 @@
----
-name: Pull request
-about: Pull request for this project
-title: ''
-labels: 'CodeReview'
-assignees: 'Seolhun'
-
----
 ## Purpose
 
 - Write the purpose this task. if task has a issue, write the issue number.
@@ -38,6 +30,7 @@ assignees: 'Seolhun'
 #### Mono Components
 - [ ] @seolhun/localize-components-button
 - [ ] @seolhun/localize-components-form
+- [ ] @seolhun/localize-components-grid
 - [ ] @seolhun/localize-components-modal
 - [ ] @seolhun/localize-components-sidebar
 

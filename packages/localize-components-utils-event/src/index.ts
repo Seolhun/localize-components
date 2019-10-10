@@ -9,10 +9,7 @@ import {
   preventWindowScroll,
 } from './utils/event';
 
-import {
-  getClientWindowSize,
-  getScrollSize
-} from './utils/window';
+import { getClientWindowSize, getScrollSize } from './utils/window';
 
 export {
   // Common
@@ -26,7 +23,7 @@ export {
   preventWindowScroll,
   // window
   getClientWindowSize,
-  getScrollSize
+  getScrollSize,
 };
 
 export default {
@@ -41,5 +38,5 @@ export default {
   preventWindowScroll,
   // window
   getClientWindowSize,
-  getScrollSize
+  getScrollSize,
 };

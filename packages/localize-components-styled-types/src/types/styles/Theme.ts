@@ -1,12 +1,12 @@
 import { SizeType } from './Size';
 import { PositionType } from './Position';
 
-export enum DarkenTheme {
+export enum DarkenThemeEnum {
   basic = '#d1d5da',
   black = '#2a2a2a',
   danger = '#E32929',
-  dark_gray = '#202021',
-  gray = '#323334',
+  dark_grey = '#202021',
+  grey = '#323334',
   primary = '#0069d9',
   purple = '#5f42ff',
   royal_blue = '#4169FF',
@@ -14,79 +14,67 @@ export enum DarkenTheme {
   warning = '#ebad1a',
 }
 
-export enum LightenTheme {
+export enum LightenThemeEnum {
   info = '#369cc7',
-  light_gray = '#cccc',
+  light_grey = '#cccc',
   sky = '#87CEEB',
   white = '#fff',
   yellow = '#FFFF00',
+  transparent = 'transparent',
 }
 
-export type ThemesType =
-  | 'basic'
-  | 'black'
-  | 'danger'
-  | 'dark_gray'
-  | 'gray'
-  | 'info'
-  | 'light_gray'
-  | 'primary'
-  | 'purple'
-  | 'royal_blue'
-  | 'sky'
-  | 'success'
-  | 'warning'
-  | 'white'
-  | 'yellow'
-  | DarkenTheme
-  | LightenTheme
-  | string;
-
-export const Themes = {
-  ...DarkenTheme,
-  ...LightenTheme,
+export const LocalizeThemes = {
+  ...DarkenThemeEnum,
+  ...LightenThemeEnum,
 };
 
-export interface StyledProps {
+export type LocalizeThemesType =
+  | keyof typeof LightenThemeEnum
+  | keyof typeof DarkenThemeEnum
+  | DarkenThemeEnum
+  | LightenThemeEnum
+  | string;
+
+export interface LocalizeThemeStyledProps {
   /**
-   * Set this to change Localize Style className
+   * Set this to change LocalizeThemeStyledProps mainColor
+   * @default LocalizeTheme.primaryColor = royal_blue
+   */
+  mainColor?: LocalizeThemesType;
+  /**
+   * Set this to change LocalizeThemeStyledProps subColor
+   * @default LocalizeTheme.secondaryColor
+   */
+  subColor?: LocalizeThemesType;
+}
+
+export interface LocalizeBaseStyledProps extends LocalizeThemeStyledProps {
+  /**
+   * Set this to change LocalizeBaseStyledProps className
    * @default '''
    */
-  className?: string,
+  className?: string;
   /**
-   * Set this to change Localize Style mainColor
-   * @default ThemeConfig.MAIN_THEME = royal_blue
-   */
-  mainColor?: ThemesType;
-  /**
-   * Set this to change Localize Style subColor
-   * @default ThemeConfig.SUB_THEME
-   */
-  subColor?: ThemesType;
-  /**
-   * Set this to change Localize Style position
-   * @default medium
-   */
-  position?: PositionType;
-  /**
-   * Set this to change Localize Style size
-   * @default medium
-   */
-  size?: SizeType;
-  /**
-   * Set this to change Localize Style subColor
-   * @default 1000
+   * Set this to change LocalizeStyledProps subColor
+   * @default undefined
    */
   zIndex?: number;
   /**
-   * Set this to change Localize Style css
+   * Set this to change LocalizeBaseStyledProps css
    * @default {}
    */
   css?: {};
 }
 
-export default {
-  DarkenTheme,
-  LightenTheme,
-  Themes,
-};
+export interface LocalizeStyledProps extends LocalizeBaseStyledProps {
+  /**
+   * Set this to change LocalizeStyledProps position
+   * @default 'center'
+   */
+  position?: PositionType;
+  /**
+   * Set this to change LocalizeStyledProps size
+   * @default medium
+   */
+  size?: SizeType;
+}

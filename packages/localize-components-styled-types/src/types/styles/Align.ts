@@ -4,10 +4,4 @@ export enum Align {
   RIGHT = 'right',
 }
 
-export type AlignType =
-  | Align
-  | 'center'
-  | 'left'
-  | 'right';
-
-export default Align;
+export type AlignType = Align | 'center' | 'left' | 'right';

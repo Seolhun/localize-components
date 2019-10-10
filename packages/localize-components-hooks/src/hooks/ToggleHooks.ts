@@ -1,6 +1,8 @@
 import { useState, useCallback } from 'react';
 
-export const useToggle = (initState: boolean = false): [boolean, (isOn: boolean) => void] => {
+export const useToggle = (
+  initState: boolean = false
+): [boolean, (isOn: boolean) => void] => {
   const [isOn, setIsOn] = useState(initState);
 
   const handleToggleIsOn = useCallback(() => {
@@ -8,8 +10,8 @@ export const useToggle = (initState: boolean = false): [boolean, (isOn: boolean)
   }, [isOn]);
 
   return [isOn, handleToggleIsOn];
-}
+};
 
 export default {
   useToggle,
-}
+};

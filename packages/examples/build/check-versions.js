@@ -5,14 +5,19 @@ const childProcess = require('child_process');
 const packageConfig = require('../package.json');
 
 function exec(cmd) {
-  return childProcess.execSync(cmd).toString().trim();
+  return childProcess
+    .execSync(cmd)
+    .toString()
+    .trim();
 }
 
-const versionRequirements = [{
-  name: 'node',
-  currentVersion: semver.clean(process.version),
-  versionRequirement: packageConfig.engines.node,
-}];
+const versionRequirements = [
+  {
+    name: 'node',
+    currentVersion: semver.clean(process.version),
+    versionRequirement: packageConfig.engines.node,
+  },
+];
 
 if (shell.which('npm')) {
   versionRequirements.push({
@@ -22,20 +27,26 @@ if (shell.which('npm')) {
   });
 }
 
-module.exports = function () {
+module.exports = function() {
   const warnings = [];
   for (let i = 0; i < versionRequirements.length; i++) {
     const mod = versionRequirements[i];
     if (!semver.satisfies(mod.currentVersion, mod.versionRequirement)) {
-      warnings.push(`${mod.name}: ${
-        chalk.red(mod.currentVersion)} should be ${
-        chalk.green(mod.versionRequirement)}`);
+      warnings.push(
+        `${mod.name}: ${chalk.red(mod.currentVersion)} should be ${chalk.green(
+          mod.versionRequirement
+        )}`
+      );
     }
   }
 
   if (warnings.length) {
     console.log('');
-    console.log(chalk.yellow('To use this template, you must update following to modules:'));
+    console.log(
+      chalk.yellow(
+        'To use this template, you must update following to modules:'
+      )
+    );
     console.log();
     for (let i = 0; i < warnings.length; i++) {
       const warning = warnings[i];

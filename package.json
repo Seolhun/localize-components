@@ -32,13 +32,17 @@
     "deploy:docs:dev": "surge packages/docs/dist/ http://dev.localize-components-docs.surge.sh",
     "release": "lerna publish",
     "prerelease": "lerna publish from-git",
-    "release:beta": "lerna publish from-git --canary",
+    "release:patch": "lerna publish patch -y",
+    "prepare": "yarn build",
     "bs": "lerna bootstrap",
-    "link": "lerna link"
+    "link": "lerna link",
+    "lint": "tslint --project -p tsconfig.json 'packages/**/src/**/*.{ts,tsx}'",
+    "lint:fix": "tslint --fix --project 'packages/**/src/**/*.{ts,tsx}'",
+    "prettier": "prettier --write 'packages/**/src/**/*.{ts,tsx,scss,md}'",
+    "fix": "yarn prettier && yarn lint:fix -p tsconfig.json"
   },
   "devDependencies": {
-    "eslint": "^6.0.0",
-    "eslint-config-airbnb": "^17.1.0",
+    "eslint": "^6.3.0",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
@@ -47,7 +51,6 @@
     "prettier": "^1.14.2",
     "surge": "^0.21.0",
     "tslint": "^5.11.0",
-    "tslint-config-airbnb": "^5.11.1",
     "tslint-config-prettier": "^1.15.0",
     "typescript": "^3.5.3"
   },

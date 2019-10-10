@@ -3,109 +3,153 @@ name: CheckBox
 menu: Forms
 ---
 
+import { useState, useCallback } from 'react';
 import { Playground, Props } from 'docz';
 import { CheckBox } from '@seolhun/localize-components-atomic';
-import { Themes } from '@seolhun/localize-components-styled-types';
-
-import CheckBoxPropsTable from './CheckBoxPropsTable';
 
 # CheckBox
 
 ## Default
 
 <Playground>
-  <CheckBox
-    item={{
-      label: 'label',
-      value: 'value',
-    }}
-    checked
-  />
-  <CheckBox
-    item={{
-      label: 'label',
-      value: 'value',
-    }}
-    checked
-  />
+  {() => {
+    const [items, setItems] = useState([
+      {
+        label: 'Apple',
+        value: 'Apple',
+        checked: true,
+      },
+      {
+        label: 'Peach',
+        value: 'Peach',
+        checked: false,
+      },
+    ])
+
+    const handleOnChange = useCallback((selectedItem) => {
+      const newItems = items.map((item) => {
+        if (selectedItem.value === item.value) {
+          return {
+            ...selectedItem,
+          };
+        }
+        return item;
+      })
+      setItems(newItems)
+    }, [items])
+
+    return (
+      <>
+        {items.map((item) => (
+          <CheckBox
+            key={item.label}
+            item={item}
+            onChange={handleOnChange}
+            checked={item.checked}
+          />
+        ))}
+      </>
+    )
+  }}
 </Playground>
 
 ## Give a mainColor
 
 <Playground>
-  <CheckBox
-    item={{
-      label: 'label',
-      value: 'value',
-    }}
-    mainColor='danger'
-    checked
-  />
-  <CheckBox
-    item={{
-      label: 'label',
-      value: 'value',
-    }}
-    mainColor='primary'
-    checked
-  />
-  <CheckBox
-    item={{
-      label: 'label',
-      value: 'value',
-    }}
-    mainColor='light_gray'
-    checked
-  />
-  <CheckBox
-    item={{
-      label: 'label',
-      value: 'value',
-    }}
-    mainColor='#41FF2B'
-    checked
-  />
+  {() => {
+    const [items, setItems] = useState([
+      {
+        label: 'Apple1',
+        value: 'Apple1',
+        checked: true,
+        mainColor: 'primary'
+      },
+      {
+        label: 'Peach1',
+        value: 'Peach1',
+        checked: false,
+        mainColor: '#41FF2B'
+      },
+    ])
+
+    const handleOnChange = useCallback((selectedItem) => {
+      const newItems = items.map((item) => {
+        if (selectedItem.value === item.value) {
+          return {
+            ...item,
+            ...selectedItem,
+          };
+        }
+        return item;
+      })
+      setItems(newItems)
+    }, [items])
+
+    return (
+      <>
+        {items.map((item) => (
+          <CheckBox
+            key={item.label}
+            item={item}
+            onChange={handleOnChange}
+            checked={item.checked}
+            mainColor={item.mainColor}
+          />
+        ))}
+      </>
+    )
+  }}
 </Playground>
 
 ## Give a subColor
 
 <Playground>
-  <CheckBox
-    item={{
-      label: 'label',
-      value: 'value',
-    }}
-    mainColor='danger'
-    subColor='yellow'
-    checked
-  />
-  <CheckBox
-    item={{
-      label: 'label',
-      value: 'value',
-    }}
-    mainColor='primary'
-    subColor='danger'
-    checked
-  />
-  <CheckBox
-    item={{
-      label: 'label',
-      value: 'value',
-    }}
-    mainColor='light_gray'
-    subColor='purple'
-    checked
-  />
-  <CheckBox
-    item={{
-      label: 'label',
-      value: 'value',
-    }}
-    mainColor='#41FF2B'
-    subColor='#000'
-    checked
-  />
+  {() => {
+    const [items, setItems] = useState([
+      {
+        label: 'Apple2',
+        value: 'Apple2',
+        checked: true,
+        mainColor: 'yellow',
+        subColor: 'red'
+      },
+      {
+        label: 'Peach2',
+        value: 'Peach2',
+        checked: false,
+        mainColor: 'red',
+        subColor: 'yellow'
+      },
+    ])
+
+    const handleOnChange = useCallback((selectedItem) => {
+      const newItems = items.map((item) => {
+        if (selectedItem.value === item.value) {
+          return {
+            ...item,
+            ...selectedItem,
+          };
+        }
+        return item;
+      })
+      setItems(newItems)
+    }, [items])
+
+    return (
+      <>
+        {items.map((item) => (
+          <CheckBox
+            key={item.label}
+            item={item}
+            onChange={handleOnChange}
+            checked={item.checked}
+            mainColor={item.mainColor}
+            subColor={item.subColor}
+          />
+        ))}
+      </>
+    )
+  }}
 </Playground>
 
 ## PropsTable

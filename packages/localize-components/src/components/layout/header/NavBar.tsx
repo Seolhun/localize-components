@@ -1,24 +1,58 @@
-import React from 'react';
+import React, { FC } from 'react';
 
 import classnames from 'classnames';
+import styled from '@emotion/styled';
+import { getValidThemeObject } from '@seolhun/localize-components-styled-utils';
+import { ILocalizeTheme, LocalizeBaseStyledProps } from '@seolhun/localize-components-styled-types';
 
-import './NavBar.scss';
+const DEFAULT_CLASSNAME = '__Localize__Navbar';
 
-export interface NavBarProps {
+interface NavBarProps extends LocalizeBaseStyledProps {
   children: React.ReactNode;
-  // isNotRequired
-  className?: string;
-  style?: object;
+  /**
+   * Set this to change NavBar height
+   * @default 50
+   */
+  height?: number;
 }
 
-const NavBar: React.FunctionComponent<NavBarProps> = ({
+const StyledNav = styled.nav<NavBarProps, ILocalizeTheme>(({
+  height = 50,
+  zIndex = 100,
+  theme,
+  ...props
+}) => {
+  const validTheme = getValidThemeObject(props, theme);
+
+  return {
+    position: 'fixed',
+    top: 0,
+    width: '100%',
+    height,
+    backgroundColor: validTheme.mainColor,
+    borderBottom: `1px solid ${validTheme.mainColor}`,
+    zIndex,
+  }
+});
+
+const NavBar: FC<NavBarProps> = ({
   children,
   className,
-  style,
+  css = {},
+  ...props
 }) => (
-  <nav className={classnames(`__Localize__Navbar ${className}`)} style={style}>
+  <StyledNav
+    {...props}
+    className={classnames(DEFAULT_CLASSNAME, className)}
+    css={css}
+  >
     {children}
-  </nav>
+  </StyledNav>
 );
+
+export {
+  NavBarProps,
+  NavBar,
+}
 
 export default NavBar;

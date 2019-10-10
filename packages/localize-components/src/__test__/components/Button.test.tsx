@@ -15,7 +15,7 @@ describe('Button Test', () => {
   const navbar = Enzyme.shallow(
     <button className='btn-success' onClick={() => null}>
       btn-success
-    </button>,
+    </button>
   );
 
   test('Button contains text', () => {

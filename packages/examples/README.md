@@ -14,7 +14,7 @@
 - Storybook
 - Docz
 
-## Getting start
+## How to getting started
 #### Install Package
 ```bash
 $ yarn add @seolhun/localize-components

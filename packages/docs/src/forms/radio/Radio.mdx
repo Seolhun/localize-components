@@ -3,119 +3,160 @@ name: Radio
 menu: Forms
 ---
 
+import { useState, useCallback } from 'react';
 import { Playground, Props } from 'docz';
 import { Radio } from '@seolhun/localize-components-atomic';
-import { Themes } from '@seolhun/localize-components-styled-types';
-
-import RadioPropsTable from './RadioPropsTable';
 
 # Radio
 
-## Default
+## Used the checkedItem
 
 <Playground>
-  <Radio
-    item={{
-      label: 'label',
-      value: 'value',
-    }}
-    groupName='localize'
-  />
-  <Radio
-    item={{
-      label: 'label',
-      value: 'value',
-    }}
-    checked
-    groupName='localize'
-  />
-    <Radio
-    item={{
-      label: 'label',
-      value: 'value',
-    }}
-    groupName='localize'
-  />
+  {() => {
+    const [checkedItem, setItem] = useState({
+      label: 'label1',
+      value: 'value1',
+    })
+    const handleOnChange = useCallback((item) => {
+      setItem(item)
+    }, [checkedItem])
+
+    return (
+      <>
+        <Radio
+          item={{
+            label: 'label1',
+            value: 'value1',
+          }}
+          checkedItem={checkedItem}
+          onChange={handleOnChange}
+          groupName='localize'
+        />
+        <Radio
+          item={{
+            label: 'label2',
+            value: 'value2',
+          }}
+          checkedItem={checkedItem}
+          onChange={handleOnChange}
+          groupName='localize'
+        />
+      </>
+    )
+  }}
 </Playground>
 
 ## Give a mainColor
 
 <Playground>
-  <Radio
-    item={{
-      label: 'label',
-      value: 'value',
-    }}
-    mainColor='danger'
-    checked
-  />
-  <Radio
-    item={{
-      label: 'label',
-      value: 'value',
-    }}
-    mainColor='primary'
-    checked
-  />
-  <Radio
-    item={{
-      label: 'label',
-      value: 'value',
-    }}
-    mainColor='light_gray'
-    checked
-  />
-  <Radio
-    item={{
-      label: 'label',
-      value: 'value',
-    }}
-    mainColor='#41FF2B'
-    checked
-  />
+  {() => {
+    const [checkedItem, setItem] = useState({
+      label: 'label5',
+      value: 'value5',
+    })
+    return (
+      <>
+        <Radio
+          item={{
+            label: 'label5',
+            value: 'value5',
+          }}
+          mainColor='danger'
+          checkedItem={checkedItem}
+        />
+        <Radio
+          item={{
+            label: 'label6',
+            value: 'value6',
+          }}
+          mainColor='primary'
+          checkedItem={checkedItem}
+        />
+      </>
+    )
+  }}
 </Playground>
 
 ## Give a subColor
 
 <Playground>
-  <Radio
-    item={{
-      label: 'label',
-      value: 'value',
-    }}
-    mainColor='danger'
-    subColor="yellow"
-    checked
-  />
-  <Radio
-    item={{
-      label: 'label',
-      value: 'value',
+  {() => {
+    const [checkedItem, setItem] = useState({
+      label: 'label7',
+      value: 'value7',
+    })
+    const handleOnChange = useCallback((item) => {
+      setItem(item)
+    }, [checkedItem])
+    return (
+      <>
+        <Radio
+          item={{
+            label: 'label7',
+            value: 'value7',
+          }}
+          checkedItem={checkedItem}
+          onChange={handleOnChange}
+          mainColor='danger'
+          subColor="yellow"
+        />
+        <Radio
+          item={{
+            label: 'label8',
+            value: 'value8',
+          }}
+          checkedItem={checkedItem}
+          onChange={handleOnChange}
+          mainColor='primary'
+          subColor="danger"
+        />
+      </>
+    )
   }}
-    mainColor='primary'
-    subColor="danger"
-    checked
-  />
-  <Radio
-    item={{
-      label: 'label',
-      value: 'value',
-    }}
-    mainColor='light_gray'
-    subColor='purple'
-    checked
-  />
-  <Radio
-    item={{
-      label: 'label',
-      value: 'value',
-    }}
-    mainColor='#41FF2B'
-    subColor='#000'
-    checked
-  />
+</Playground>
+
+## Used the item keys
+
+<Playground>
+  {() => {
+    const [checkedItem, setItem] = useState({
+      name: 'Shirts',
+      price: 10000,
+    })
+    const handleOnChange = useCallback((item) => {
+      setItem(item)
+    }, [checkedItem])
+    return (
+      <>
+        <Radio
+          item={{
+            name: 'Shirts',
+            price: 1000,
+          }}
+          labelKey='name'
+          valueKey='price'
+          checkedItem={checkedItem}
+          onChange={handleOnChange}
+          mainColor='danger'
+          subColor="yellow"
+        />
+        <Radio
+          item={{
+            name: 'Pants',
+            price: 500,
+          }}
+          labelKey='name'
+          valueKey='price'
+          checkedItem={checkedItem}
+          onChange={handleOnChange}
+          mainColor='primary'
+          subColor="danger"
+        />
+      </>
+    )
+  }}
 </Playground>
 
 ## PropsTable
 
-<Props of={RadioPropsTable} />
+<Props of={Radio} />

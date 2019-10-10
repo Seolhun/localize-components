@@ -31,23 +31,23 @@ if (config.build.productionGzip) {
       filename: '[path].gz[query]',
       algorithm: 'gzip',
       test: new RegExp(
-        `\\.(${
-          config.build.productionGzipExtensions.join('|')
-        })$`,
+        `\\.(${config.build.productionGzipExtensions.join('|')})$`
       ),
       cache: true,
       threshold: 8192,
       minRatio: 0.8,
-    }),
+    })
   );
 }
 
 if (config.build.bundleAnalyzerReport) {
   const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-  webpackConfig.plugins.push(new BundleAnalyzerPlugin({
-    openAnalyzer: false,
-    analyzerMode: 'static',
-  }));
+  webpackConfig.plugins.push(
+    new BundleAnalyzerPlugin({
+      openAnalyzer: false,
+      analyzerMode: 'static',
+    })
+  );
 }
 
 module.exports = webpackConfig;

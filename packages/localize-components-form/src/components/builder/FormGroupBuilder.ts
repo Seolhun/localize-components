@@ -1,16 +1,15 @@
 /* eslint-disable no-underscore-dangle */
-import FormBuilder, {
-  FORM_PROPERTIES,
-  FormBuilderProps,
-} from './FormBuilder';
+import FormBuilder, { FORM_PROPERTIES, FormBuilderProps } from './FormBuilder';
 
 class FormGroupBuilder {
   group: {
-    [key: string]: FormBuilderProps,
+    [key: string]: FormBuilderProps;
   };
   isDisabled: boolean;
 
-  constructor(forms, {
+  constructor(
+    forms,
+    {
       isDisabled = false,
       isOnCreatedValidation = false,
       isOnChangeValidation = false,
@@ -18,7 +17,7 @@ class FormGroupBuilder {
         hasError: false,
         message: '',
       }),
-    },
+    }
   ) {
     this.isDisabled = isDisabled;
     this.group = Object.keys(forms).reduce(
@@ -32,10 +31,10 @@ class FormGroupBuilder {
             isOnChangeValidation,
             isOnCreatedValidation,
             onGroupValidation,
-          },
+          }
         ),
       }),
-      {},
+      {}
     );
     if (isOnCreatedValidation) {
       this._executeAllFormValidation();
@@ -47,10 +46,10 @@ class FormGroupBuilder {
     this.isDisabled = Object.keys(this.group).some((key) =>
       this.group[key]
         .handleOnValidation()
-        .getPropertyValueBy(FORM_PROPERTIES.hasError),
+        .getPropertyValueBy(FORM_PROPERTIES.hasError)
     );
     return this;
-  }
+  };
 
   /**
    * Finished Methods
