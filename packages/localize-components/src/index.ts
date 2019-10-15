@@ -7,6 +7,7 @@ export {
   LocalizeStyledProps,
   LocalizeThemeStyledProps,
 } from '@seolhun/localize-components-styled-types';
+export * from '@seolhun/localize-components-hooks';
 
 export * from './components/card';
 export * from './components/jumbotron';

@@ -1,33 +1,17 @@
-import React, { ReactNode, FC } from 'react';
+import React, { FC } from 'react';
 
 import classnames from 'classnames';
 import styled from '@emotion/styled';
 import { Button } from '@seolhun/localize-components-button';
 import {
-  LocalizeStyledProps,
   ILocalizeTheme,
 } from '@seolhun/localize-components-styled-types';
 
-import { LocalizeModal } from '../modal';
+import { LocalizeModal, LocalizeModalProps } from '../modal';
 
 const DEFAULT_CLASSNAME = '__Localize__Alert';
 
-export interface AlertProps extends LocalizeStyledProps {
-  /**
-   * Set this to change Modal body children node
-   */
-  children: ReactNode;
-
-  /**
-   * Set this to toggle Alert Modal event handler
-   */
-  onClick: (...args: any[]) => void;
-
-  /**
-   * Set this to change Modal showing or not
-   */
-  isShow?: boolean;
-
+export interface AlertProps extends LocalizeModalProps {
   /**
    * Set this to change Modal button label
    * @default null
@@ -47,21 +31,20 @@ const StyledModal = styled(LocalizeModal)<AlertProps, ILocalizeTheme>({
 })
 
 export const Alert: FC<AlertProps> = ({
-  onClick,
+  onClose,
   className,
   buttonLabel = 'Confirm',
-  isShow = false,
   ...props
 }) => {
 
   return (
     <StyledModal
       className={classnames(DEFAULT_CLASSNAME, className)}
-      onClick={onClick}
+      onClose={onClose}
       {...props}
     >
       <div className={`${DEFAULT_CLASSNAME}__Buttons`}>
-        <Button onClick={onClick} {...props}>
+        <Button onClick={onClose} {...props}>
           {buttonLabel}
         </Button>
       </div>

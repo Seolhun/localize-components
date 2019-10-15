@@ -33,7 +33,7 @@ import ModalPropsTable from './ModalPropsTable';
         <Button onClick={onToggle}>
           {isOpen ? 'Show Modal' : 'Close Modal'}
         </Button>
-        <LocalizeModal isShow={isOpen}>
+        <LocalizeModal isShow={isOpen} onClose={onToggle}>
           <div>LocalizeModal header</div>
           <div>LocalizeModal footer</div>
           <div>LocalizeModal body</div>

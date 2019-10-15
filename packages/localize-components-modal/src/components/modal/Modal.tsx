@@ -5,6 +5,7 @@ import React, {
   useRef,
   useCallback,
   KeyboardEvent,
+  useEffect,
 } from 'react'
 import ReactDOM from 'react-dom'
 
@@ -19,29 +20,34 @@ import {
 import {
   getValidThemeObject,
 } from '@seolhun/localize-components-styled-utils';
-import {
-  useDisclosure,
-} from '@seolhun/localize-components-hooks';
 
 const DEFAULT_CLASSNAME = '__Localize__Modal';
 
-export interface ModalProps extends LocalizeStyledProps {
+export interface LocalizeModalProps extends LocalizeStyledProps {
   /**
    * Set this toggle Modal content (children)
    */
   children: ReactNode
 
   /**
-   * Set this change Modal visibility
+   * Set this to change Modal visibility
    */
-  isShow?: boolean;
+  isShow: boolean;
+
+  /**
+   * Set this to change Modal visibility
+   */
+  onClose: () => void;
+
+  /**
+   * Set render targetElement for Modal
+   */
+  targetElement?: Element;
 }
 
-const LocalizeModalWrapper = styled.div<LocalizeBaseStyledProps, ILocalizeTheme>(({
-  theme,
-  ...props
+const LocalizeModalWrapper = styled.div<LocalizeBaseStyledProps>(({
+  zIndex = 100,
 }) => {
-  const validTheme = getValidThemeObject(props, theme);
 
   return {
     position: 'fixed',
@@ -53,8 +59,9 @@ const LocalizeModalWrapper = styled.div<LocalizeBaseStyledProps, ILocalizeTheme>
     width: '100%',
     height: '100%',
 
-    backgroundColor: validTheme.backgroundColor,
-    zIndex: 10,
+    backgroundColor: 'transparent',
+
+    zIndex,
 
     // [`@media screen and (max-width: ${EnumMediaQueryList.SM}px)`]: {
     //   display: 'flex',
@@ -117,31 +124,39 @@ const CloseButton = styled.span({
   cursor: 'pointer',
 })
 
-export const LocalizeModal: FC<ModalProps> = ({
+export const LocalizeModal: FC<LocalizeModalProps> = ({
   isShow,
   children,
+  onClose,
+  targetElement,
   ...props
 }) => {
-  const { isOpen, onToggle } = useDisclosure(isShow)
-  const modalWrapperRef = useRef(null)
+  const modalWrapperRef = useRef<HTMLDivElement>(null)
 
-  const handleKeyDown = useCallback(
-    (event: KeyboardEvent<HTMLDivElement>) => {
-      if (event.key === 'Escape') {
-        onToggle()
-      }
-    },
-    [isOpen]
-  )
+  useEffect(() => {
+    if (isShow && modalWrapperRef && modalWrapperRef.current) {
+      modalWrapperRef.current.focus();
+    }
+  }, [isShow])
 
-  const handleClickAway = (e: MouseEvent) => {
+  const handleKeyDown = useCallback((event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'Escape') {
+      onClose()
+    }
+  }, [isShow])
+
+  const handleClickOutside = useCallback((e: MouseEvent) => {
     if (
       modalWrapperRef &&
       modalWrapperRef.current &&
       modalWrapperRef.current === e.target
     ) {
-      onToggle()
+      onClose()
     }
+  }, [isShow])
+
+  if (!isShow) {
+    return null
   }
 
   return ReactDOM.createPortal(
@@ -153,7 +168,7 @@ export const LocalizeModal: FC<ModalProps> = ({
       tabIndex={0}
       role='dialog'
       onKeyDown={handleKeyDown}
-      onClick={handleClickAway}
+      onClick={handleClickOutside}
       data-testid='bd-modal-background'
       {...props}
     >
@@ -162,7 +177,7 @@ export const LocalizeModal: FC<ModalProps> = ({
         {children}
       </LocalizeModalContainer>
     </LocalizeModalWrapper>,
-    document.body
+    targetElement || document.body
   )
 }
 
