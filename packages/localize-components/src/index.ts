@@ -1,6 +1,12 @@
 // components
 export * from '@seolhun/localize-components-modal';
 export * from '@seolhun/localize-components-grid';
+export {
+  LocalizeTheme,
+  LocalizeBaseStyledProps,
+  LocalizeStyledProps,
+  LocalizeThemeStyledProps,
+} from '@seolhun/localize-components-styled-types';
 
 export * from './components/card';
 export * from './components/jumbotron';
