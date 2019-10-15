@@ -8,7 +8,7 @@ import {
   ILocalizeTheme,
 } from '@seolhun/localize-components-styled-types';
 
-import Modal from '../modal';
+import { LocalizeModal } from '../modal';
 
 const DEFAULT_CLASSNAME = '__Localize__Alert';
 
@@ -16,36 +16,26 @@ export interface AlertProps extends LocalizeStyledProps {
   /**
    * Set this to change Modal body children node
    */
-  body: ReactNode | string;
-  /**
-   * Set this to change Modal showing or not
-   * @default null
-   */
-  isShow: boolean;
+  children: ReactNode;
+
   /**
    * Set this to toggle Alert Modal event handler
    */
   onClick: (...args: any[]) => void;
-  // isNotRequired
+
+  /**
+   * Set this to change Modal showing or not
+   */
+  isShow?: boolean;
+
   /**
    * Set this to change Modal button label
    * @default null
    */
   buttonLabel?: string;
-  /**
-   * Set this to change Modal className
-   * @default null
-   */
-  className?: string;
-
-  /**
-   * Set this to change Modal header children node
-   * @default null
-   */
-  header?: ReactNode | string;
 }
 
-const StyledModal = styled(Modal)<AlertProps, ILocalizeTheme>({
+const StyledModal = styled(LocalizeModal)<AlertProps, ILocalizeTheme>({
   maxHeight: '450px',
   height: '200px',
 
@@ -57,15 +47,10 @@ const StyledModal = styled(Modal)<AlertProps, ILocalizeTheme>({
 })
 
 export const Alert: FC<AlertProps> = ({
-  body,
   onClick,
-  // is Not Required
-  header = null,
+  className,
   buttonLabel = 'Confirm',
   isShow = false,
-  className,
-  mainColor,
-  subColor,
   ...props
 }) => {
 
@@ -73,18 +58,14 @@ export const Alert: FC<AlertProps> = ({
     <StyledModal
       className={classnames(DEFAULT_CLASSNAME, className)}
       onClick={onClick}
-      header={<div>{header}</div>}
-      body={<div>{body}</div>}
-      footer={
-        <div className={`${DEFAULT_CLASSNAME}__Buttons`}>
-          <Button onClick={onClick} mainColor={mainColor} subColor={subColor}>
-            {buttonLabel}
-          </Button>
-        </div>
-      }
-      isShow={isShow}
       {...props}
-    />
+    >
+      <div className={`${DEFAULT_CLASSNAME}__Buttons`}>
+        <Button onClick={onClick} {...props}>
+          {buttonLabel}
+        </Button>
+      </div>
+    </StyledModal>
   );
 };
 

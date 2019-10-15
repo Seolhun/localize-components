@@ -25,10 +25,9 @@ import AlertPropsTable from './AlertPropsTable';
     return (
       <>
         <Alert
-          header='Alert title'
-          body='Alert message'
           onClick={() => setIsShow(!isShow)}
-          isShow
+          sShow
+          </Alert>
         />
       </>
     )
@@ -38,31 +37,31 @@ import AlertPropsTable from './AlertPropsTable';
 ## Give a Position
 
 <Playground>
-  <Alert
-    header='Alert title'
-    body='Alert top-center'
-    position='top-center'
-  />
-  <Alert
-    header='Alert title'
-    body='Alert top-right'
-    position='top-right'
-  />
-  <Alert
-    header='Alert title'
-    body='Alert right'
-    position='right'
-  />
-  <Alert
-    header='Alert title'
-    body='Alert bottom-right'
-    position='bottom-right'
-  />
-  <Alert
-    header='Alert title'
-    body='Alert bottom-center'
-    position='bottom-center'
-  />
+  <Alert position='top-center'>
+    <div>Modal header</div>
+    <div>Modal footer</div>
+    <div>Modal body</div>
+  </Alert>
+  <Alert position='top-right'>
+    <div>Modal header</div>
+    <div>Modal footer</div>
+    <div>Modal body</div>
+  </Alert>
+  <Alert position='right'>
+    <div>Modal header</div>
+    <div>Modal footer</div>
+    <div>Modal body</div>
+  </Alert>
+  <Alert position='bottom-right'>
+    <div>Modal header</div>
+    <div>Modal footer</div>
+    <div>Modal body</div>
+  </Alert>
+  <Alert position='bottom-center'>
+    <div>Modal header</div>
+    <div>Modal footer</div>
+    <div>Modal body</div>
+  </Alert>
 </Playground>
 
 ## PropsTable

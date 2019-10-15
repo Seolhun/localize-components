@@ -117,7 +117,7 @@ const CloseButton = styled.span({
   cursor: 'pointer',
 })
 
-export const Modal: FC<ModalProps> = ({
+export const LocalizeModal: FC<ModalProps> = ({
   isShow,
   children,
   ...props
@@ -165,3 +165,5 @@ export const Modal: FC<ModalProps> = ({
     document.body
   )
 }
+
+export default LocalizeModal
