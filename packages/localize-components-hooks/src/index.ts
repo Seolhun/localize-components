@@ -1,7 +1,2 @@
-import { useToggle } from './hooks/ToggleHooks';
+export * from './hooks/useDisclosure';
 
-export { useToggle };
-
-export default {
-  useToggle,
-};
