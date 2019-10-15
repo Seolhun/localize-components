@@ -35,12 +35,12 @@ export interface ILocalizeTheme {
     };
   };
   fonts: {
-    COLOR: {
+    color: {
       highlightColor: LocalizeThemesType;
       primaryColor: LocalizeThemesType;
       secondaryColor: LocalizeThemesType;
     },
-    SIZE: {
+    size: {
       h1: string;
       h2: string;
       h3: string;
@@ -83,12 +83,12 @@ export const LocalizeTheme: ILocalizeTheme = {
     },
   },
   fonts: {
-    COLOR: {
+    color: {
       highlightColor: 'royalblue',
       primaryColor: '#282c35',
       secondaryColor: '#282c35',
     },
-    SIZE: {
+    size: {
       h1: '2.4rem',
       h2: '2.2rem',
       h3: '2.0rem',
