@@ -6,6 +6,8 @@ menu: Forms
 import { useState, useCallback } from 'react';
 import { Playground, Props } from 'docz';
 import { Radio } from '@seolhun/localize-components-atomic';
+import { ThemeProvider } from 'emotion-theming';
+import { LocalizeTheme } from '@seolhun/localize-components';
 
 # Radio
 
@@ -22,7 +24,7 @@ import { Radio } from '@seolhun/localize-components-atomic';
     }, [checkedItem])
 
     return (
-      <>
+      <ThemeProvider theme={LocalizeTheme}>
         <Radio
           item={{
             label: 'label1',
@@ -41,7 +43,7 @@ import { Radio } from '@seolhun/localize-components-atomic';
           onChange={handleOnChange}
           groupName='localize'
         />
-      </>
+      </ThemeProvider>
     )
   }}
 </Playground>
@@ -55,7 +57,7 @@ import { Radio } from '@seolhun/localize-components-atomic';
       value: 'value5',
     })
     return (
-      <>
+      <ThemeProvider theme={LocalizeTheme}>
         <Radio
           item={{
             label: 'label5',
@@ -72,7 +74,7 @@ import { Radio } from '@seolhun/localize-components-atomic';
           mainColor='primary'
           checkedItem={checkedItem}
         />
-      </>
+      </ThemeProvider>
     )
   }}
 </Playground>
@@ -89,7 +91,7 @@ import { Radio } from '@seolhun/localize-components-atomic';
       setItem(item)
     }, [checkedItem])
     return (
-      <>
+      <ThemeProvider theme={LocalizeTheme}>
         <Radio
           item={{
             label: 'label7',
@@ -110,7 +112,7 @@ import { Radio } from '@seolhun/localize-components-atomic';
           mainColor='primary'
           subColor="danger"
         />
-      </>
+      </ThemeProvider>
     )
   }}
 </Playground>
@@ -127,7 +129,7 @@ import { Radio } from '@seolhun/localize-components-atomic';
       setItem(item)
     }, [checkedItem])
     return (
-      <>
+      <ThemeProvider theme={LocalizeTheme}>
         <Radio
           item={{
             name: 'Shirts',
@@ -152,7 +154,7 @@ import { Radio } from '@seolhun/localize-components-atomic';
           mainColor='primary'
           subColor="danger"
         />
-      </>
+      </ThemeProvider>
     )
   }}
 </Playground>

@@ -1,268 +1,184 @@
-import React, { ReactNode, FC, useCallback } from 'react';
+import React, {
+  ReactNode,
+  MouseEvent,
+  FC,
+  useRef,
+  useCallback,
+  KeyboardEvent,
+  useEffect,
+} from 'react'
+import ReactDOM from 'react-dom'
 
 import styled from '@emotion/styled';
 import classnames from 'classnames';
 
 import {
-  Position,
-  Size,
   LocalizeStyledProps,
-  LocalizeTheme,
-  LocalizeThemes,
   ILocalizeTheme,
+  LocalizeBaseStyledProps,
 } from '@seolhun/localize-components-styled-types';
 import {
-  getIsLightenTheme,
-  getPositionStyle,
   getValidThemeObject,
 } from '@seolhun/localize-components-styled-utils';
 
 const DEFAULT_CLASSNAME = '__Localize__Modal';
 
-export interface ModalProps extends LocalizeStyledProps {
+export interface LocalizeModalProps extends LocalizeStyledProps {
   /**
-   * Set this to change Modal showing or not
+   * Set this toggle Modal content (children)
+   */
+  children: ReactNode
+
+  /**
+   * Set this to change Modal visibility
    */
   isShow: boolean;
+
   /**
-   * Set this to toggle Modal onClick
+   * Set this to change Modal visibility
    */
-  onClick: (...args: any[]) => void;
+  onClose: () => void;
+
   /**
-   * Set this to change Modal header children node
-   * @default null
+   * Set render targetElement for Modal
    */
-  header?: ReactNode | string;
-  /**
-   * Set this to change Modal body children node
-   * @default null
-   */
-  body?: ReactNode | string;
-  /**
-   * Set this to change Modal footer children node
-   * @default null
-   */
-  footer?: ReactNode | string;
+  targetElement?: Element;
 }
 
-const ModalWrapper = styled.div<LocalizeStyledProps>(({
-  zIndex,
+const LocalizeModalWrapper = styled.div<LocalizeBaseStyledProps>(({
+  zIndex = 100,
 }) => {
+
   return {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+
+    width: '100%',
+    height: '100%',
+
+    backgroundColor: 'transparent',
+
     zIndex,
+
+    // [`@media screen and (max-width: ${EnumMediaQueryList.SM}px)`]: {
+    //   display: 'flex',
+    //   flexDirection: 'column',
+    //   top: 0,
+    //   right: 0,
+    //   bottom: 0,
+    //   left: 0,
+    //   transform: 'none',
+    //   maxWidth: '100%',
+    //   borderRadius: 0,
+    //   backgroundColor: theme.color.navyDarken1,
+    // },
   }
 })
 
-const CoverBackground = styled.div<LocalizeStyledProps>`
-  background-color: rgba(0, 0, 0, 0.7);
-  bottom: 0;
-  height: 100vh;
-  left: 0;
-  position: fixed;
-  right: 0;
-  top: 0;
-  width: 100vw;
-  z-index: ${({ zIndex = 1000 }) => zIndex - 2};
-`;
+const LocalizeModalContainer = styled.div<LocalizeStyledProps, ILocalizeTheme>(({
+  theme,
+  ...props
+}) => {
+  const validTheme = getValidThemeObject(props, theme);
 
-const CloseButton = styled.div<LocalizeStyledProps>`
-  align-items: center;
-  border-radius: 6px;
-  cursor: pointer;
-  display: flex;
-  font-weight: 700;
-  line-height: 1;
-  padding: 10px;
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  z-index: ${({ zIndex = 1000 }) => zIndex - 1};
+  return {
+    position: 'fixed',
+    left: '50vw',
+    top: '50vh',
+    transform: 'translate(-50%, -50%)',
 
-  color: ${({ subColor = LocalizeTheme.secondaryColor }) => {
-    if (getIsLightenTheme(subColor)) {
-      return LocalizeThemes.dark_grey;
-    }
-    return LocalizeThemes.white;
-  }};
+    width: '100%',
+    maxWidth: '30rem',
+    minHeight: '10rem',
+    height: 'auto',
+    maxHeight: '100%',
+    backgroundColor: validTheme.backgroundColor,
+    borderRadius: '5px',
 
-  &:hover {
-    color: ${({ subColor = LocalizeTheme.secondaryColor }) => {
-      if (getIsLightenTheme(subColor)) {
-        return LocalizeThemes.white;
-      }
-      return LocalizeThemes.dark_grey;
-    }};
-    background-color: ${({ subColor = LocalizeTheme.secondaryColor }) => {
-      if (getIsLightenTheme(subColor)) {
-        return LocalizeThemes.light_grey;
-      }
-      return LocalizeThemes.white;
-    }};
+    // [`@media screen and (max-width: ${EnumMediaQueryList.SM}px)`]: {
+    //   display: 'flex',
+    //   flexDirection: 'column',
+    //   top: 0,
+    //   right: 0,
+    //   bottom: 0,
+    //   left: 0,
+    //   transform: 'none',
+    //   maxWidth: '100%',
+    //   borderRadius: 0,
+    // },
   }
-`;
+})
 
-const ModalContainer = styled.div<LocalizeStyledProps, ILocalizeTheme>(
-  ({
-    position = Position.CENTER,
-    size = Size.MEDIUM,
-    zIndex = 1000,
-    theme,
-    ...props
-  }) => {
-    const validTheme = getValidThemeObject(props, theme);
+const CloseButton = styled.span({
+  position: 'absolute',
+  display: 'inline-block',
+  top: 0,
+  right: 0,
 
-    const getMaxHeight = () => {
-      switch (size) {
-        case Size.LARGE:
-          return '800px';
-        case Size.MEDIUM:
-          return '650px';
-        default:
-          return '500px';
-      }
-    };
+  width: '2rem',
+  height: '2rem',
+  transform: 'translate(-6px, -30px)',
+  cursor: 'pointer',
+})
 
-    const getMaxWidth = () => {
-      switch (size) {
-        case Size.LARGE:
-          return '800px';
-        case Size.MEDIUM:
-          return '650px';
-        default:
-          return '500px';
-      }
-    };
-
-    return {
-      backgroundColor: validTheme.subColor,
-      borderRadius: '6px',
-      boxSizing: 'border-box',
-      height: '100%',
-      margin: 'auto',
-      maxHeight: getMaxHeight(),
-      maxWidth: getMaxWidth(),
-      position: 'fixed',
-      width: '100%',
-      zIndex: zIndex - 1,
-      ...getPositionStyle(position),
-    };
-  }
-);
-
-const ModalContent = styled.div<LocalizeStyledProps>`
-  color: ${({ subColor = LocalizeTheme.secondaryColor }) => {
-    if (getIsLightenTheme(subColor)) {
-      return LocalizeThemes.dark_grey;
-    }
-    return LocalizeThemes.white;
-  }};
-  font-size: 16px;
-  letter-spacing: 0.2px;
-  width: 100%;
-
-  &.__Localize__Modal__Header {
-    border-bottom: 0.03rem solid ${LocalizeThemes.light_grey};
-    border-radius: 6px 6px 0 0;
-    font-size: 22px;
-    height: 20%;
-    overflow: auto;
-    width: 92%;
-  }
-
-  &.__Localize__Modal__Body {
-    height: 60%;
-    overflow: auto;
-  }
-
-  &.__Localize__Modal__Footer {
-    border-top: 0.03rem solid ${LocalizeThemes.light_grey};
-    bottom: 0;
-    height: 20%;
-    overflow: auto;
-    position: absolute;
-  }
-
-  & > div {
-    display: flex;
-    padding: 0 20px;
-  }
-`;
-
-export const Modal: FC<ModalProps> = ({
-  onClick,
+export const LocalizeModal: FC<LocalizeModalProps> = ({
   isShow,
-  // isNotRequired
-  className,
-  body = null,
-  footer = null,
-  header = null,
-  position = Position.CENTER,
-  size = Size.MEDIUM,
-  mainColor,
-  subColor,
-  zIndex = 1000,
-}) =>  {
-  const handleIsShow = useCallback(() => {
-    onClick();
-  }, []);
+  children,
+  onClose,
+  targetElement,
+  ...props
+}) => {
+  const modalWrapperRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (isShow && modalWrapperRef && modalWrapperRef.current) {
+      modalWrapperRef.current.focus();
+    }
+  }, [isShow])
+
+  const handleKeyDown = useCallback((event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'Escape') {
+      onClose()
+    }
+  }, [isShow])
+
+  const handleClickOutside = useCallback((e: MouseEvent) => {
+    if (
+      modalWrapperRef &&
+      modalWrapperRef.current &&
+      modalWrapperRef.current === e.target
+    ) {
+      onClose()
+    }
+  }, [isShow])
 
   if (!isShow) {
-    return null;
+    return null
   }
 
-  console.error('@@@', isShow);
-
-  return (
-    <ModalWrapper className={classnames(DEFAULT_CLASSNAME)} zIndex={zIndex}>
-      <CoverBackground zIndex={zIndex} />
-      <ModalContainer
-        className={classnames(className)}
-        position={position}
-        size={size}
-        mainColor={mainColor}
-        subColor={subColor}
-        zIndex={zIndex}
-      >
-        <CloseButton
-          onClick={handleIsShow}
-          mainColor={mainColor}
-          subColor={subColor}
-        >
-          X
-        </CloseButton>
-        {header && (
-          <ModalContent
-            className={classnames(`${DEFAULT_CLASSNAME}__Header`)}
-            size={size}
-            mainColor={mainColor}
-            subColor={subColor}
-          >
-            {header}
-          </ModalContent>
-        )}
-        {body && (
-          <ModalContent
-            className={classnames(`${DEFAULT_CLASSNAME}__Body`)}
-            size={size}
-            mainColor={mainColor}
-            subColor={subColor}
-          >
-            {body}
-          </ModalContent>
-        )}
-        {footer && (
-          <ModalContent
-            className={classnames(`${DEFAULT_CLASSNAME}__Footer`)}
-            size={size}
-            mainColor={mainColor}
-            subColor={subColor}
-          >
-            {footer}
-          </ModalContent>
-        )}
-      </ModalContainer>
-    </ModalWrapper>
-  );
+  return ReactDOM.createPortal(
+    <LocalizeModalWrapper
+      ref={modalWrapperRef}
+      className={classnames(DEFAULT_CLASSNAME)}
+      aria-label='modal'
+      aria-modal='true'
+      tabIndex={0}
+      role='dialog'
+      onKeyDown={handleKeyDown}
+      onClick={handleClickOutside}
+      data-testid='bd-modal-background'
+      {...props}
+    >
+      <LocalizeModalContainer {...props}>
+        <CloseButton />
+        {children}
+      </LocalizeModalContainer>
+    </LocalizeModalWrapper>,
+    targetElement || document.body
+  )
 }
 
-export default Modal;
+export default LocalizeModal
