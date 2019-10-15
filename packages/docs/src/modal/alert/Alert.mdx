@@ -5,7 +5,13 @@ menu: Components
 
 import { useState } from 'react';
 import { Playground, Props } from 'docz';
-import { Alert, } from '@seolhun/localize-components';
+import { ThemeProvider } from 'emotion-theming';
+import {
+  Alert,
+  LocalizeTheme,
+  useDisclosure,
+} from '@seolhun/localize-components';
+import { Button } from '@seolhun/localize-components-atomic';
 
 import AlertPropsTable from './AlertPropsTable';
 
@@ -20,16 +26,18 @@ import AlertPropsTable from './AlertPropsTable';
 
 <Playground>
   {() => {
-    const [isShow, setIsShow] = useState(true)
-
+    const { isOpen, onToggle } = useDisclosure();
     return (
-      <>
-        <Alert
-          onClick={() => setIsShow(!isShow)}
-          sShow
-          </Alert>
-        />
-      </>
+      <ThemeProvider theme={LocalizeTheme}>
+        <Button onClick={onToggle}>
+          {isOpen ? 'Show Alert' : 'Close Alert'}
+        </Button>
+        <Alert position='top-center' onClick={onToggle} isShow={isOpen}>
+          <div>Modal header</div>
+          <div>Modal footer</div>
+          <div>Modal body</div>
+        </Alert>
+      </ThemeProvider>
     )
   }}
 </Playground>
@@ -37,31 +45,41 @@ import AlertPropsTable from './AlertPropsTable';
 ## Give a Position
 
 <Playground>
-  <Alert position='top-center'>
-    <div>Modal header</div>
-    <div>Modal footer</div>
-    <div>Modal body</div>
-  </Alert>
-  <Alert position='top-right'>
-    <div>Modal header</div>
-    <div>Modal footer</div>
-    <div>Modal body</div>
-  </Alert>
-  <Alert position='right'>
-    <div>Modal header</div>
-    <div>Modal footer</div>
-    <div>Modal body</div>
-  </Alert>
-  <Alert position='bottom-right'>
-    <div>Modal header</div>
-    <div>Modal footer</div>
-    <div>Modal body</div>
-  </Alert>
-  <Alert position='bottom-center'>
-    <div>Modal header</div>
-    <div>Modal footer</div>
-    <div>Modal body</div>
-  </Alert>
+  {() => {
+    const { isOpen, onToggle } = useDisclosure();
+    return (
+      <ThemeProvider theme={LocalizeTheme}>
+        <Button onClick={onToggle}>
+          {isOpen ? 'Show Alert' : 'Close Alert'}
+        </Button>
+        <Alert position='top-center' onClick={onToggle} isShow={isOpen}>
+          <div>Modal header</div>
+          <div>Modal footer</div>
+          <div>Modal body</div>
+        </Alert>
+        <Alert position='top-right' onClick={onToggle} isShow={isOpen}>
+          <div>Modal header</div>
+          <div>Modal footer</div>
+          <div>Modal body</div>
+        </Alert>
+        <Alert position='right' onClick={onToggle} isShow={isOpen}>
+          <div>Modal header</div>
+          <div>Modal footer</div>
+          <div>Modal body</div>
+        </Alert>
+        <Alert position='bottom-right' onClick={onToggle} isShow={isOpen}>
+          <div>Modal header</div>
+          <div>Modal footer</div>
+          <div>Modal body</div>
+        </Alert>
+        <Alert position='bottom-center' onClick={onToggle} isShow={isOpen}>
+          <div>Modal header</div>
+          <div>Modal footer</div>
+          <div>Modal body</div>
+        </Alert>
+      </ThemeProvider>
+    )
+  }}
 </Playground>
 
 ## PropsTable

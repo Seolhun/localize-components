@@ -5,7 +5,12 @@ menu: Components
 
 import { useState } from 'react';
 import { Playground, Props } from 'docz';
-import { Modal } from '@seolhun/localize-components';
+import { ThemeProvider } from 'emotion-theming';
+import {
+  LocalizeModal,
+  LocalizeTheme,
+  useDisclosure,
+} from '@seolhun/localize-components';
 import { Button } from '@seolhun/localize-components-atomic';
 
 import ModalPropsTable from './ModalPropsTable';
@@ -20,16 +25,22 @@ import ModalPropsTable from './ModalPropsTable';
 ## Default
 
 <Playground>
-  <>
-    <Button onClick={() => setIsShow(!isShow)}>
-      {isShow ? 'Show Modal' : 'Close Modal'}
-    </Button>
-    <Modal>
-      <div>Modal header</div>
-      <div>Modal footer</div>
-      <div>Modal body</div>
-    </Modal>
-  </>
+  {() => {
+    const { isOpen, onToggle } = useDisclosure();
+
+    return (
+      <ThemeProvider theme={LocalizeTheme}>
+        <Button onClick={onToggle}>
+          {isOpen ? 'Show Modal' : 'Close Modal'}
+        </Button>
+        <LocalizeModal isShow={isOpen}>
+          <div>LocalizeModal header</div>
+          <div>LocalizeModal footer</div>
+          <div>LocalizeModal body</div>
+        </LocalizeModal>
+      </ThemeProvider>
+    )
+  }}
 </Playground>
 
 ## PropsTable
