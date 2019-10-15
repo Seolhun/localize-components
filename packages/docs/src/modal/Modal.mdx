@@ -20,76 +20,16 @@ import ModalPropsTable from './ModalPropsTable';
 ## Default
 
 <Playground>
-  {() => {
-    const [isShow, setIsShow] = useState(true)
-    return (
-      <>
-        <Button onClick={() => setIsShow(!isShow)}>
-          {isShow ? 'Show Modal' : 'Close Modal'}
-        </Button>
-        <Modal
-          header={<div>Modal header</div>}
-          body={<div>Modal body</div>}
-          footer={<div>Modal footer</div>}
-          isShow={isShow}
-        />
-      </>
-    )
-  }}
-</Playground>
-
-## Give a Size
-
-<Playground>
-  {() => {
-    const [isShow, setIsShow] = useState(true)
-    return (
-      <>
-        <Button onClick={() => setIsShow(!isShow)}>
-          {isShow ? 'Show Modal' : 'Close Modal'}
-        </Button>
-        <Modal
-          header={<h1>Large Modal</h1>}
-          size='large'
-          isShow={isShow}
-        />
-      </>
-    )
-  }}
-</Playground>
-
-## Give a Position
-
-<Playground>
-  {() => {
-    const [isShow, setIsShow] = useState(true)
-    return (
-      <>
-        <Button onClick={() => setIsShow(!isShow)}>
-          {isShow ? 'Show Modal' : 'Close Modal'}
-        </Button>
-        <Modal
-          header={<h2>Modal bottom-right</h2>}
-          position='bottom-right'
-          isShow={isShow}
-        />
-        <Modal
-          header={<h2>Modal right</h2>}
-          position='right'
-          isShow={isShow}
-        />
-        <Modal
-          header={<h2>Modal bottom</h2>}
-          position='bottom'
-          isShow={isShow}
-        />
-      </>
-    )
-  }}
-</Playground>
-
-<Playground>
-
+  <>
+    <Button onClick={() => setIsShow(!isShow)}>
+      {isShow ? 'Show Modal' : 'Close Modal'}
+    </Button>
+    <Modal>
+      <div>Modal header</div>
+      <div>Modal footer</div>
+      <div>Modal body</div>
+    </Modal>
+  </>
 </Playground>
 
 ## PropsTable
