@@ -20,14 +20,14 @@ export interface AlertProps extends LocalizeModalProps {
 }
 
 const StyledModal = styled(LocalizeModal)<AlertProps, ILocalizeTheme>({
-  maxHeight: '450px',
-  height: '200px',
+  minHeight: '200px',
+  paddingBottom: '3rem',
+})
 
-  [`.${DEFAULT_CLASSNAME}__Buttons`]: {
-    display: 'flex',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-  },
+const StyledAlertButtonContainer = styled.div({
+  position: 'absolute',
+  bottom: '0.5rem',
+  right: '0.5rem',
 })
 
 export const Alert: FC<AlertProps> = ({
@@ -43,11 +43,11 @@ export const Alert: FC<AlertProps> = ({
       onClose={onClose}
       {...props}
     >
-      <div className={`${DEFAULT_CLASSNAME}__Buttons`}>
+      <StyledAlertButtonContainer className={`${DEFAULT_CLASSNAME}__Buttons`}>
         <Button onClick={onClose} {...props}>
           {buttonLabel}
         </Button>
-      </div>
+      </StyledAlertButtonContainer>
     </StyledModal>
   );
 };
