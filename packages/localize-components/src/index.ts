@@ -16,3 +16,4 @@ export * from './components/icon';
 export * from './components/layout';
 export * from './components/menu';
 export * from './components/shadow-box';
+export * from './components/theme';

@@ -5,52 +5,51 @@ menu: Forms
 
 import { Playground, Props } from 'docz';
 import { Input } from '@seolhun/localize-components-atomic';
-import { ThemeProvider } from 'emotion-theming';
-import { LocalizeTheme } from '@seolhun/localize-components';
+import { LocalizeThemeProvider } from '@seolhun/localize-components';
 
 # Input
 
 ## Default
 
 <Playground>
-  <ThemeProvider theme={LocalizeTheme}>
+  <LocalizeThemeProvider>
     <Input value='' placeholder='Localize Component' />
     <Input value='' subColor='#000' placeholder='Localize Component' />
-  </ThemeProvider>
+  </LocalizeThemeProvider>
 </Playground>
 
 ## Give a mainColor
 
 <Playground>
-  <ThemeProvider theme={LocalizeTheme}>
+  <LocalizeThemeProvider>
     <Input mainColor='danger' value='danger' />
     <Input mainColor='primary' value='primary' />
     <Input mainColor='light_grey' value='light_grey' />
     <Input mainColor='#41FF2B' value='#41FF2B' />
-  </ThemeProvider>
+  </LocalizeThemeProvider>
 
 </Playground>
 
 ## Give a subColor
 
 <Playground>
-  <ThemeProvider theme={LocalizeTheme}>
+  <LocalizeThemeProvider>
     <Input mainColor='danger' subColor='yellow' value='dark_grey' />
     <Input mainColor='primary' subColor='danger' value='grey' />
     <Input mainColor='light_grey' subColor='purple' value='light_grey' />
     <Input mainColor='#41FF2B' subColor='#000' value='#000' />
-  </ThemeProvider>
+  </LocalizeThemeProvider>
 </Playground>
 
 ## Give a renderValue
 
 <Playground>
-  <ThemeProvider theme={LocalizeTheme}>
+  <LocalizeThemeProvider>
     <Input value='Value' renderValue={(value) => `Custom_${value}`} />
     <Input value='Value' renderValue={(value) => (
       `<button>${value}</button>`
     )} />
-  </ThemeProvider>
+  </LocalizeThemeProvider>
 </Playground>
 
 ## PropsTable

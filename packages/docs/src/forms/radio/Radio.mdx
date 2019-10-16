@@ -6,8 +6,7 @@ menu: Forms
 import { useState, useCallback } from 'react';
 import { Playground, Props } from 'docz';
 import { Radio } from '@seolhun/localize-components-atomic';
-import { ThemeProvider } from 'emotion-theming';
-import { LocalizeTheme } from '@seolhun/localize-components';
+import { LocalizeThemeProvider } from '@seolhun/localize-components';
 
 # Radio
 
@@ -24,7 +23,7 @@ import { LocalizeTheme } from '@seolhun/localize-components';
     }, [checkedItem])
 
     return (
-      <ThemeProvider theme={LocalizeTheme}>
+      <LocalizeThemeProvider>
         <Radio
           item={{
             label: 'label1',
@@ -43,7 +42,7 @@ import { LocalizeTheme } from '@seolhun/localize-components';
           onChange={handleOnChange}
           groupName='localize'
         />
-      </ThemeProvider>
+      </LocalizeThemeProvider>
     )
   }}
 </Playground>
@@ -57,7 +56,7 @@ import { LocalizeTheme } from '@seolhun/localize-components';
       value: 'value5',
     })
     return (
-      <ThemeProvider theme={LocalizeTheme}>
+      <LocalizeThemeProvider>
         <Radio
           item={{
             label: 'label5',
@@ -74,7 +73,7 @@ import { LocalizeTheme } from '@seolhun/localize-components';
           mainColor='primary'
           checkedItem={checkedItem}
         />
-      </ThemeProvider>
+      </LocalizeThemeProvider>
     )
   }}
 </Playground>
@@ -91,7 +90,7 @@ import { LocalizeTheme } from '@seolhun/localize-components';
       setItem(item)
     }, [checkedItem])
     return (
-      <ThemeProvider theme={LocalizeTheme}>
+      <LocalizeThemeProvider>
         <Radio
           item={{
             label: 'label7',
@@ -112,7 +111,7 @@ import { LocalizeTheme } from '@seolhun/localize-components';
           mainColor='primary'
           subColor="danger"
         />
-      </ThemeProvider>
+      </LocalizeThemeProvider>
     )
   }}
 </Playground>
@@ -129,7 +128,7 @@ import { LocalizeTheme } from '@seolhun/localize-components';
       setItem(item)
     }, [checkedItem])
     return (
-      <ThemeProvider theme={LocalizeTheme}>
+      <LocalizeThemeProvider>
         <Radio
           item={{
             name: 'Shirts',
@@ -154,7 +153,7 @@ import { LocalizeTheme } from '@seolhun/localize-components';
           mainColor='primary'
           subColor="danger"
         />
-      </ThemeProvider>
+      </LocalizeThemeProvider>
     )
   }}
 </Playground>

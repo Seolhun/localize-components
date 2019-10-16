@@ -5,10 +5,9 @@ menu: Components
 
 import { useState } from 'react';
 import { Playground, Props } from 'docz';
-import { ThemeProvider } from 'emotion-theming';
 import {
   Alert,
-  LocalizeTheme,
+  LocalizeThemeProvider,
   useDisclosure,
 } from '@seolhun/localize-components';
 import { Button } from '@seolhun/localize-components-atomic';
@@ -28,7 +27,7 @@ import AlertPropsTable from './AlertPropsTable';
   {() => {
     const { isOpen, onToggle } = useDisclosure();
     return (
-      <ThemeProvider theme={LocalizeTheme}>
+      <LocalizeThemeProvider>
         <Button onClick={onToggle}>
           {isOpen ? 'Show Alert' : 'Close Alert'}
         </Button>
@@ -37,7 +36,7 @@ import AlertPropsTable from './AlertPropsTable';
           <div>Modal footer</div>
           <div>Modal body</div>
         </Alert>
-      </ThemeProvider>
+      </LocalizeThemeProvider>
     )
   }}
 </Playground>
@@ -48,7 +47,7 @@ import AlertPropsTable from './AlertPropsTable';
   {() => {
     const { isOpen, onToggle } = useDisclosure();
     return (
-      <ThemeProvider theme={LocalizeTheme}>
+      <LocalizeThemeProvider>
         <Button onClick={onToggle}>
           {isOpen ? 'Show Alert' : 'Close Alert'}
         </Button>
@@ -77,7 +76,7 @@ import AlertPropsTable from './AlertPropsTable';
           <div>Modal footer</div>
           <div>Modal body</div>
         </Alert>
-      </ThemeProvider>
+      </LocalizeThemeProvider>
     )
   }}
 </Playground>
