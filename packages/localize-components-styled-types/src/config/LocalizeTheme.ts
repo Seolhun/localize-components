@@ -67,13 +67,13 @@ export const LocalizeTheme: ILocalizeTheme = {
   },
   grid: {
     containerGutter: {
-      right: '15px',
-      left: '15px',
+      right: '0',
+      left: '0',
     },
     rowGutter: {
       top: '1rem',
-      right: '-15px',
-      left: '-15px',
+      right: '0',
+      left: '0',
     },
     columnGutter: {
       top: '0.75rem',
