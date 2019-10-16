@@ -5,15 +5,15 @@ menu: Forms
 
 import { Playground, Props } from 'docz';
 import { CheckBoxGroup, CheckBox } from '@seolhun/localize-components-atomic';
-import { ThemeProvider } from 'emotion-theming';
-import { LocalizeTheme } from '@seolhun/localize-components';
+import { LocalizeThemeProvider } from '@seolhun/localize-components';
+
 
 # CheckBoxGroup
 
 ## Default
 
 <Playground>
-  <ThemeProvider theme={LocalizeTheme}>
+  <LocalizeThemeProvider>
     <CheckBoxGroup groupName='localize'>
       {props => (
         <>
@@ -36,13 +36,13 @@ import { LocalizeTheme } from '@seolhun/localize-components';
         </>
       )}
     </CheckBoxGroup>
-  </ThemeProvider>
+  </LocalizeThemeProvider>
 </Playground>
 
 ## Give a mainColor
 
 <Playground>
-  <ThemeProvider theme={LocalizeTheme}>
+  <LocalizeThemeProvider>
     <CheckBoxGroup
       groupName='localize2'
       mainColor='danger'
@@ -68,13 +68,13 @@ import { LocalizeTheme } from '@seolhun/localize-components';
         </>
       )}
     </CheckBoxGroup>
-  </ThemeProvider>
+  </LocalizeThemeProvider>
 </Playground>
 
 ## Give a subColor
 
 <Playground>
-  <ThemeProvider theme={LocalizeTheme}>
+  <LocalizeThemeProvider>
     <CheckBoxGroup
       groupName='localize3'
       mainColor='danger'
@@ -101,13 +101,13 @@ import { LocalizeTheme } from '@seolhun/localize-components';
         </>
       )}
     </CheckBoxGroup>
-  </ThemeProvider>
+  </LocalizeThemeProvider>
 </Playground>
 
 ## Give a align
 
 <Playground>
-  <ThemeProvider theme={LocalizeTheme}>
+  <LocalizeThemeProvider>
     <CheckBoxGroup
       groupName='localize4'
       mainColor='danger'
@@ -160,13 +160,13 @@ import { LocalizeTheme } from '@seolhun/localize-components';
         </>
       )}
     </CheckBoxGroup>
-  </ThemeProvider>
+  </LocalizeThemeProvider>
 </Playground>
 
 ## Give a align & gap
 
 <Playground>
-  <ThemeProvider theme={LocalizeTheme}>
+  <LocalizeThemeProvider>
     <CheckBoxGroup
       groupName='localize7'
       mainColor='black'
@@ -229,7 +229,7 @@ import { LocalizeTheme } from '@seolhun/localize-components';
         </>
       )}
     </CheckBoxGroup>
-  </ThemeProvider>
+  </LocalizeThemeProvider>
 </Playground>
 
 ## PropsTable

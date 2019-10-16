@@ -5,10 +5,9 @@ menu: Components
 
 import { useState } from 'react';
 import { Playground, Props } from 'docz';
-import { ThemeProvider } from 'emotion-theming';
 import {
   LocalizeModal,
-  LocalizeTheme,
+  LocalizeThemeProvider,
   useDisclosure,
 } from '@seolhun/localize-components';
 import { Button } from '@seolhun/localize-components-atomic';
@@ -29,7 +28,7 @@ import ModalPropsTable from './ModalPropsTable';
     const { isOpen, onToggle } = useDisclosure();
 
     return (
-      <ThemeProvider theme={LocalizeTheme}>
+      <LocalizeThemeProvider>
         <Button onClick={onToggle}>
           {isOpen ? 'Show Modal' : 'Close Modal'}
         </Button>
@@ -38,7 +37,7 @@ import ModalPropsTable from './ModalPropsTable';
           <div>LocalizeModal footer</div>
           <div>LocalizeModal body</div>
         </LocalizeModal>
-      </ThemeProvider>
+      </LocalizeThemeProvider>
     )
   }}
 </Playground>
