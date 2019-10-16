@@ -38,13 +38,13 @@ export interface LocalizeIconContainerProps extends LocalizeBaseStyledProps {
 
   /**
    * Set this to change Icon Height
-   * @default 2rem
+   * @default 1.5rem
    */
   width?: string;
 
   /**
    * Set this to change Icon Height
-   * @default 2rem
+   * @default 1.5rem
    */
   height?: string;
 }
@@ -53,8 +53,8 @@ const StyledIconContainer = styled.div<
   LocalizeIconContainerProps,
   ILocalizeTheme
 >(({
-  width = '2rem',
-  height = '2rem',
+  width = '1.5rem',
+  height = '1.5rem',
   borderRadius = '3rem',
 }) => {
   return {
@@ -62,35 +62,47 @@ const StyledIconContainer = styled.div<
     width,
     height,
     borderRadius,
+    cursor: 'pointer',
   }
 });
 
 const StyledIcon = styled.div<LocalizeIconProps, ILocalizeTheme>(({
   iconFile,
+  iconType,
   mainColor,
   width,
   height,
 }) => {
   const iconColor = mainColor || DarkenThemeEnum.black;
+  const getStyleByType = () => {
+    if (iconType === 'png') {
+      return {
+        backgroundImage: `url(${iconFile})`,
+      }
+    }
+    return {
+      maskImage: `url(${iconFile})`,
+      backgroundColor: iconColor,
+
+      '&:hover': {
+        backgroundColor: getThemeHoverStyle(iconColor),
+      },
+    }
+  }
   return {
-    WebkitMaskImage: `url(${iconFile})`,
-    maskImage: `url(${iconFile})`,
-    backgroundColor: iconColor,
+    ...getStyleByType(),
     backgroundRepeat: 'no-repeat',
     backgroundSize: !!width && !!height ? `${width} ${height}` : 'contain',
     width: '100%',
     height: '100%',
 
-    '&:hover': {
-      backgroundColor: getThemeHoverStyle(iconColor),
-    },
   }
 });
 
 export const LocalizeIcon: FC<LocalizeIconProps> = ({
   icon,
-  width = '2rem',
-  height = '2rem',
+  width = '1.5rem',
+  height = '1.5rem',
   iconType = 'svg',
   ...props
 }) => {
@@ -103,8 +115,9 @@ export const LocalizeIcon: FC<LocalizeIconProps> = ({
     <StyledIconContainer {...props} width={width} height={height}>
       <StyledIcon
         {...props}
-        icon={icon}
         iconFile={memoizedIconFile}
+        icon={icon}
+        iconType={iconType}
         width={width}
         height={height}
       />
