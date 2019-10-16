@@ -6,6 +6,9 @@ import {
   ILocalizeTheme,
   DarkenThemeEnum,
 } from '@seolhun/localize-components-styled-types';
+import {
+  getThemeHoverStyle
+} from '@seolhun/localize-components-styled-utils';
 
 import { LocalizeIconEnum, LocalizeIconType } from './LocalizeIconType';
 
@@ -65,30 +68,46 @@ const StyledIconContainer = styled.div<
 const StyledIcon = styled.div<LocalizeIconProps, ILocalizeTheme>(({
   iconFile,
   mainColor,
+  width,
+  height,
 }) => {
+  const iconColor = mainColor || DarkenThemeEnum.black;
   return {
-    backgroundImage: `url(${iconFile})`,
+    WebkitMaskImage: `url(${iconFile})`,
+    maskImage: `url(${iconFile})`,
+    backgroundColor: iconColor,
     backgroundRepeat: 'no-repeat',
-    backgroundSize: 'contain',
-    fill: mainColor || DarkenThemeEnum.black,
+    backgroundSize: !!width && !!height ? `${width} ${height}` : 'contain',
     width: '100%',
     height: '100%',
+
+    '&:hover': {
+      backgroundColor: getThemeHoverStyle(iconColor),
+    },
   }
 });
 
 export const LocalizeIcon: FC<LocalizeIconProps> = ({
   icon,
+  width = '2rem',
+  height = '2rem',
   iconType = 'svg',
   ...props
 }) => {
-  const iconFile = useMemo(() => {
+  const memoizedIconFile = useMemo(() => {
     const iconFile = require(`./icons/${icon}.${iconType}`)
     return iconFile;
   }, [icon, iconType])
 
   return (
-    <StyledIconContainer {...props}>
-      <StyledIcon {...props} icon={icon} iconFile={iconFile}/>
+    <StyledIconContainer {...props} width={width} height={height}>
+      <StyledIcon
+        {...props}
+        icon={icon}
+        iconFile={memoizedIconFile}
+        width={width}
+        height={height}
+      />
     </StyledIconContainer>
   )
 }
