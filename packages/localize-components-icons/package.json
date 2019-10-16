@@ -5,8 +5,8 @@
     "email": "shun10116@gmail.com",
     "url": "https://github.com/Seolhun"
   },
-  "name": "@seolhun/templates",
-  "description": "Localizing React components templates to create easily",
+  "name": "@seolhun/localize-components-icons",
+  "description": "Localizing React components Icons",
   "version": "0.0.1",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -57,7 +57,9 @@
     "rollup": "^1.19.4",
     "rollup-plugin-babel": "^4.3.2",
     "rollup-plugin-commonjs": "^10.0.0",
+    "rollup-plugin-image": "^1.0.2",
     "rollup-plugin-node-resolve": "^5.0.0",
+    "rollup-plugin-svg": "^2.0.0",
     "rollup-plugin-typescript2": "^0.21.0",
     "ts-node": "^8.0.3",
     "typescript": "^3.5.3"
