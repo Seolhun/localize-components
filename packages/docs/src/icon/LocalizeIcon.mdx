@@ -9,6 +9,7 @@ import { Playground, Props } from 'docz';
 import {
   LocalizeThemeProvider,
   useDisclosure,
+  Card,
 } from '@seolhun/localize-components';
 import { LocalizeIcon } from '@seolhun/localize-components-atomic';
 
@@ -20,15 +21,51 @@ import LocalizeIconPropsTable from './LocalizeIconPropsTable';
 
 <Playground>
   <LocalizeThemeProvider>
-    <LocalizeIcon icon='agenda' />
+    <Card>
+      <LocalizeIcon icon='user' />
+    </Card>
   </LocalizeThemeProvider>
 </Playground>
 
-## IconType
+## IconType(svg, png)
+Default `svg` type
 
 <Playground>
   <LocalizeThemeProvider>
-    <LocalizeIcon icon='agenda' iconType='png' />
+    <Card>
+      <LocalizeIcon icon='user' iconType='png' />
+      <LocalizeIcon icon='badge' iconType='png' />
+      <LocalizeIcon icon='info' iconType='png' />
+      <LocalizeIcon icon='check' iconType='png' />
+    </Card>
+  </LocalizeThemeProvider>
+</Playground>
+
+## Color
+Default `svg` type
+
+<Playground>
+  <LocalizeThemeProvider>
+    <Card>
+      <LocalizeIcon icon='user' iconType='svg' mainColor='red' />
+      <LocalizeIcon icon='badge' iconType='svg' mainColor='red' />
+      <LocalizeIcon icon='info' iconType='png' />
+      <LocalizeIcon icon='check' iconType='png' />
+    </Card>
+  </LocalizeThemeProvider>
+</Playground>
+
+## Size
+Default `svg` type
+
+<Playground>
+  <LocalizeThemeProvider>
+    <Card>
+      <LocalizeIcon icon='user' iconType='png' />
+      <LocalizeIcon icon='badge' iconType='png' />
+      <LocalizeIcon icon='info' iconType='png' />
+      <LocalizeIcon icon='check' iconType='png' />
+    </Card>
   </LocalizeThemeProvider>
 </Playground>
 

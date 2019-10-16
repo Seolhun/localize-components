@@ -28,6 +28,11 @@ export default {
     }),
     typescript({
       tsconfig: 'tsconfig.json',
+      /**
+       * (rpt2 plugin) Error: Unknown object type "asyncfunction"
+       * @description For resolving this error
+       */
+      objectHashIgnoreUnknownHack: true,
     }),
     commonjs({
       include: /node_modules/,
@@ -44,9 +49,9 @@ export default {
       targets: [
         {
           src: ['assets/icons/svg/*', 'assets/icons/png/*'],
-          dest: 'dist/public/images',
+          dest: 'dist/icons',
         }
-      ]
+      ],
     })
   ],
   output: [

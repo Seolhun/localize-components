@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 
 import styled from '@emotion/styled';
 import {
@@ -18,27 +18,21 @@ export interface LocalizeIconProps extends LocalizeBaseStyledProps, LocalizeIcon
   /**
    * Set this to change IconFile
    */
-  iconFile?: Promise<any>;
+  iconFile?: string;
 
   /**
    * Set this to change Icon
    */
   iconType?: LocalizeIconType
-
-  /**
-   * Set this to change Icon Height
-   * @default 2rem
-   */
-  width?: string;
-
-  /**
-   * Set this to change Icon Height
-   * @default 2rem
-   */
-  height?: string;
 }
 
 export interface LocalizeIconContainerProps extends LocalizeBaseStyledProps {
+  /**
+   * Set this to change Icon BorderRadius
+   * @default '3rem'
+   */
+  borderRadius?: string;
+
   /**
    * Set this to change Icon Height
    * @default 2rem
@@ -58,11 +52,13 @@ const StyledIconContainer = styled.div<
 >(({
   width = '2rem',
   height = '2rem',
+  borderRadius = '3rem',
 }) => {
   return {
     display: 'inline-block',
     width,
     height,
+    borderRadius,
   }
 });
 
@@ -73,7 +69,7 @@ const StyledIcon = styled.div<LocalizeIconProps, ILocalizeTheme>(({
   return {
     backgroundImage: `url(${iconFile})`,
     backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
+    backgroundSize: 'contain',
     fill: mainColor || DarkenThemeEnum.black,
     width: '100%',
     height: '100%',
@@ -85,9 +81,14 @@ export const LocalizeIcon: FC<LocalizeIconProps> = ({
   iconType = 'svg',
   ...props
 }) => {
+  const iconFile = useMemo(() => {
+    const iconFile = require(`./icons/${icon}.${iconType}`)
+    return iconFile;
+  }, [icon, iconType])
+
   return (
     <StyledIconContainer {...props}>
-      <StyledIcon {...props} icon={icon} iconFile={LocalizeIconEnum[icon]}/>
+      <StyledIcon {...props} icon={icon} iconFile={iconFile}/>
     </StyledIconContainer>
   )
 }
