@@ -1,5 +1,5 @@
-# Localize React Components Templates
+# Localize React Components Icons
 
-To create easily packages, That is all.
+To create icon, That is all.
 
 

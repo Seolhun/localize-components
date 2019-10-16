@@ -1,0 +1,37 @@
+
+---
+name: LocalizeIcon
+menu: Atomic
+---
+
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import {
+  LocalizeThemeProvider,
+  useDisclosure,
+} from '@seolhun/localize-components';
+import { LocalizeIcon } from '@seolhun/localize-components-atomic';
+
+import LocalizeIconPropsTable from './LocalizeIconPropsTable';
+
+# LocalizeIcon
+
+## Default
+
+<Playground>
+  <LocalizeThemeProvider>
+    <LocalizeIcon icon='agenda' />
+  </LocalizeThemeProvider>
+</Playground>
+
+## IconType
+
+<Playground>
+  <LocalizeThemeProvider>
+    <LocalizeIcon icon='agenda' iconType='png' />
+  </LocalizeThemeProvider>
+</Playground>
+
+## PropsTable
+
+<Props of={LocalizeIconPropsTable} />

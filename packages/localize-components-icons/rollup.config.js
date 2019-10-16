@@ -4,8 +4,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import postcss from 'rollup-plugin-postcss';
 import resolve from 'rollup-plugin-node-resolve';
 import typescript from 'rollup-plugin-typescript2';
-import image from 'rollup-plugin-image'
-import svg from 'rollup-plugin-svg'
+import image from 'rollup-plugin-image';
 
 import pkg from './package.json';
 
@@ -13,7 +12,6 @@ const externals = Object.keys(pkg.dependencies);
 
 export default {
   input: 'src/index.ts',
-
   external: [
     ...externals,
     'path',
@@ -42,7 +40,6 @@ export default {
       plugins: [autoprefixer],
       modules: true,
     }),
-    svg(),
     image()
   ],
   output: [
