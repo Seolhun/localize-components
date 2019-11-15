@@ -24,12 +24,12 @@ jobs:
             yarn --version
 
       - run:
-          name: "clean packages"
-          command: yarn clean
-
-      - run:
           name: "install packages"
           command: yarn install
+
+      - run:
+          name: "clean packages"
+          command: yarn clean
 
       - run:
           name: "Lerna bootstrap packages"
