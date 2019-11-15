@@ -3,7 +3,7 @@ import React, { MouseEvent } from 'react'
 import styled from '@emotion/styled'
 
 import { LocalizeThemeStyledProps, ILocalizeTheme } from '@seolhun/localize-components-styled-types'
-import { getValidThemeObject } from '@seolhun/localize-components-styled-utils';
+import { getValidThemeObject, getThemeHoverStyle } from '@seolhun/localize-components-styled-utils';
 
 export interface LocalizeSearchResultItemRendererProps extends LocalizeThemeStyledProps {
   /**
@@ -32,18 +32,19 @@ export interface LocalizeSearchResultItemRendererProps extends LocalizeThemeStyl
 const StyledLocalizeSearchResultItem = styled.div<LocalizeThemeStyledProps, ILocalizeTheme>(({ theme, ...props }) => {
   const validTheme = getValidThemeObject(props, theme);
   return {
-    padding: ' 0.8rem 4.5rem',
+    padding: '0.5rem 1rem',
     cursor: 'pointer',
 
     '&:hover': {
-      backgroundColor: validTheme.subColor,
+      color: getThemeHoverStyle(validTheme.subColor),
+      backgroundColor: getThemeHoverStyle(validTheme.mainColor),
     },
   }
 })
 
 export const LocalizeSearchResultItemRenderer: React.FC<
   LocalizeSearchResultItemRendererProps
-> = ({ items, renderItem, onClickItem, uniqukeKey = '_id' }) => {
+> = ({ items, renderItem, onClickItem, uniqukeKey = '_id', ...props }) => {
   const handleClickItem = React.useCallback(
     (item?: any) => (event: MouseEvent<HTMLDivElement>) => {
       event.stopPropagation()
@@ -59,6 +60,7 @@ export const LocalizeSearchResultItemRenderer: React.FC<
         <StyledLocalizeSearchResultItem
           key={`${item[uniqukeKey]}-${idx}`}
           onClick={handleClickItem(item)}
+          {...props}
         >
           {renderItem(item)}
         </StyledLocalizeSearchResultItem>

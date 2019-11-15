@@ -1,6 +1,7 @@
 // components
 export * from '@seolhun/localize-components-modal';
 export * from '@seolhun/localize-components-grid';
+export * from '@seolhun/localize-components-dropdown';
 export {
   LocalizeTheme,
   LocalizeBaseStyledProps,

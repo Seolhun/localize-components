@@ -9,7 +9,7 @@ import { getValidThemeObject } from '@seolhun/localize-components-styled-utils';
 
 const DEFAULT_CLASSNAME = '__Localize__DropdownSearch';
 
-export interface LocalizeDropdownSearchProps extends BDSearchResultContainerProps {
+export interface LocalizeDropdownSearchProps extends SearchResultContainerProps {
   /**
    * Set this to change Dropdown items list rendering
    */
@@ -47,14 +47,15 @@ export interface LocalizeDropdownSearchProps extends BDSearchResultContainerProp
   name?: string
 
   /**
-   * @default 10
-   */
-  zIndex?: number
-
-  /**
    * Render after focusing
    */
   initFocus?: boolean
+
+
+  /**
+   * @default 10
+   */
+  zIndex?: number
 }
 
 export interface LocalizeDropdownSearchChildrenProps {
@@ -62,7 +63,7 @@ export interface LocalizeDropdownSearchChildrenProps {
   onSetQuery: (value: string) => void
 }
 
-interface BDSearchResultContainerProps extends LocalizeBaseStyledProps {
+interface SearchResultContainerProps extends LocalizeBaseStyledProps {
   /**
    * Search result container height
    * @default 500
@@ -90,22 +91,20 @@ const StyledSearchResulWrapper = styled.div<{ zIndex: number }>(
   }
 )
 
-const StyledSearchResulContainer = styled.div<BDSearchResultContainerProps, ILocalizeTheme>(
+const StyledSearchResulContainer = styled.div<SearchResultContainerProps, ILocalizeTheme>(
   ({ resultMaxHeight, theme, ...props }) => {
     const validTheme = getValidThemeObject(props, theme);
 
     return {
       position: 'absolute',
-
       width: '100%',
       maxHeight: `${resultMaxHeight}px`,
-
-      backGroundColor: validTheme.subColor,
-      margin: ' 0 1rem',
       borderRadius: '5px',
       padding: 0,
-
       overflowY: 'auto',
+
+      backgroundColor: validTheme.mainColor,
+      color: validTheme.subColor,
     }
   }
 )

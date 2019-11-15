@@ -39,7 +39,7 @@ const StyledLocalizeSearchResultItemTitleContainer = styled.div({
   display: 'flex',
   alignItems: 'center',
 
-  padding: ' 1rem 2rem',
+  padding: '0.5rem 1rem',
   margin: 0,
 })
 
