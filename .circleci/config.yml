@@ -23,17 +23,10 @@ jobs:
             npm --version
             yarn --version
 
+      # NPM process oorder : install > prepare > build
       - run:
           name: "install packages"
           command: yarn install
-
-      # - run:
-      #     name: "clean packages"
-      #     command: yarn clean
-
-      - run:
-          name: "Lerna bootstrap packages"
-          command: yarn bs
 
       - save_cache:
           key: node-dependencies-{{ checksum "package.json" }}
@@ -42,10 +35,6 @@ jobs:
             - node-dependencies-
           paths:
             - node_modules
-
-      - run:
-          name: "Lerna packages build"
-          command: yarn build
 
       # - run:
       #     name: "Publish packages into npm"
