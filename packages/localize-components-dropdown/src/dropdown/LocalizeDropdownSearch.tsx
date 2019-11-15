@@ -3,7 +3,8 @@ import React, { ChangeEvent, KeyboardEvent } from 'react'
 import styled from '@emotion/styled'
 import classnames from 'classnames';
 
-import { LocalizeInput, LocalizeFlex } from '@seolhun/localize-components-atomic';
+import { LocalizeFlex } from '@seolhun/localize-components-atomic';
+import { LocalizeInput } from '@seolhun/localize-components-form';
 import { LocalizeBaseStyledProps, ILocalizeTheme } from '@seolhun/localize-components-styled-types'
 import { getValidThemeObject } from '@seolhun/localize-components-styled-utils';
 
