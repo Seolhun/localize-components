@@ -6,8 +6,7 @@ menu: Forms
 import { useState } from 'react';
 import { Playground, Props } from 'docz';
 import { Switch } from '@seolhun/localize-components-atomic';
-import { ThemeProvider } from 'emotion-theming';
-import { LocalizeTheme } from '@seolhun/localize-components';
+import { LocalizeThemeProvider } from '@seolhun/localize-components';
 
 # Switch
 
@@ -17,7 +16,7 @@ import { LocalizeTheme } from '@seolhun/localize-components';
   {() => {
     const [isChecked, setIsChecked] = useState(false)
     return (
-      <ThemeProvider theme={LocalizeTheme}>
+      <LocalizeThemeProvider>
         <Switch
           htmlFor='test'
           checked={isChecked}
@@ -29,7 +28,7 @@ import { LocalizeTheme } from '@seolhun/localize-components';
           checked={isChecked}
           onChange={() => setIsChecked(!isChecked)}
         />
-      </ThemeProvider>
+      </LocalizeThemeProvider>
     )
   }}
 
@@ -41,7 +40,7 @@ import { LocalizeTheme } from '@seolhun/localize-components';
   {() => {
     const [isChecked, setIsChecked] = useState(false)
     return (
-      <ThemeProvider theme={LocalizeTheme}>
+      <LocalizeThemeProvider>
         <Switch
           htmlFor='danger'
           mainColor='danger'
@@ -66,7 +65,7 @@ import { LocalizeTheme } from '@seolhun/localize-components';
           checked={isChecked}
           onChange={() => setIsChecked(!isChecked)}
         />
-      </ThemeProvider>
+      </LocalizeThemeProvider>
     )
   }}
 
@@ -78,7 +77,7 @@ import { LocalizeTheme } from '@seolhun/localize-components';
   {() => {
     const [isChecked, setIsChecked] = useState(false)
     return (
-      <ThemeProvider theme={LocalizeTheme}>
+      <LocalizeThemeProvider>
         <Switch
           htmlFor='danger1'
           mainColor='danger'
@@ -107,7 +106,7 @@ import { LocalizeTheme } from '@seolhun/localize-components';
           checked={isChecked}
           onChange={() => setIsChecked(!isChecked)}
         />
-      </ThemeProvider>
+      </LocalizeThemeProvider>
     )
   }}
 </Playground>

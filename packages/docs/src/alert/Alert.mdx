@@ -1,0 +1,86 @@
+---
+name: Alert
+menu: Components
+---
+
+import { useState } from 'react';
+import { Playground, Props } from 'docz';
+import {
+  Alert,
+  LocalizeThemeProvider,
+  useDisclosure,
+} from '@seolhun/localize-components';
+import { Button } from '@seolhun/localize-components-atomic';
+
+import AlertPropsTable from './AlertPropsTable';
+
+# Alert
+
+## Caution
+- [Docz - RoadMap](http://feedback.docz.site/roadmap?sort=trending)
+
+> Docz is not supported knobs(Under Review) not yet. If you want to see this, add isShow Props.
+
+## Default
+
+<Playground>
+  {() => {
+    const { isOpen, onToggle } = useDisclosure();
+    return (
+      <LocalizeThemeProvider>
+        <Button onClick={onToggle}>
+          {isOpen ? 'Show Alert' : 'Close Alert'}
+        </Button>
+        <Alert position='top-center' onClick={onToggle} isShow={isOpen}>
+          <div>Modal header</div>
+          <div>Modal footer</div>
+          <div>Modal body</div>
+        </Alert>
+      </LocalizeThemeProvider>
+    )
+  }}
+</Playground>
+
+## Give a Position
+
+<Playground>
+  {() => {
+    const { isOpen, onToggle } = useDisclosure();
+    return (
+      <LocalizeThemeProvider>
+        <Button onClick={onToggle}>
+          {isOpen ? 'Show Alert' : 'Close Alert'}
+        </Button>
+        <Alert position='top-center' onClick={onToggle} isShow={isOpen}>
+          <div>Modal header</div>
+          <div>Modal footer</div>
+          <div>Modal body</div>
+        </Alert>
+        <Alert position='top-right' onClick={onToggle} isShow={isOpen}>
+          <div>Modal header</div>
+          <div>Modal footer</div>
+          <div>Modal body</div>
+        </Alert>
+        <Alert position='right' onClick={onToggle} isShow={isOpen}>
+          <div>Modal header</div>
+          <div>Modal footer</div>
+          <div>Modal body</div>
+        </Alert>
+        <Alert position='bottom-right' onClick={onToggle} isShow={isOpen}>
+          <div>Modal header</div>
+          <div>Modal footer</div>
+          <div>Modal body</div>
+        </Alert>
+        <Alert position='bottom-center' onClick={onToggle} isShow={isOpen}>
+          <div>Modal header</div>
+          <div>Modal footer</div>
+          <div>Modal body</div>
+        </Alert>
+      </LocalizeThemeProvider>
+    )
+  }}
+</Playground>
+
+## PropsTable
+
+<Props of={AlertPropsTable} />

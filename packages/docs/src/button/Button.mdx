@@ -5,8 +5,7 @@ menu: Atomic
 
 import { Playground, Props } from 'docz';
 import { Button } from '@seolhun/localize-components-atomic';
-import { ThemeProvider } from 'emotion-theming';
-import { LocalizeTheme } from '@seolhun/localize-components';
+import { LocalizeThemeProvider } from '@seolhun/localize-components';
 
 import ButtonPropsTable from './ButtonPropsTable';
 
@@ -15,30 +14,30 @@ import ButtonPropsTable from './ButtonPropsTable';
 ## Default
 
 <Playground>
-  <ThemeProvider theme={LocalizeTheme}>
+  <LocalizeThemeProvider>
     <Button>Click me</Button>
-  </ThemeProvider>
+  </LocalizeThemeProvider>
 </Playground>
 
 ## Give a mainColor
 
 <Playground>
-  <ThemeProvider theme={LocalizeTheme}>
+  <LocalizeThemeProvider>
     <Button mainColor='primary'>primary</Button>
     <Button mainColor='danger'>danger</Button>
     <Button mainColor='light_grey'>light_grey</Button>
     <Button mainColor='#41FF2B'>#41FF2B</Button>
-  </ThemeProvider>
+  </LocalizeThemeProvider>
 </Playground>
 
 ## Give a size
 
 <Playground>
-  <ThemeProvider theme={LocalizeTheme}>
+  <LocalizeThemeProvider>
     <Button size='small'>Click me</Button>
     <Button size='medium'>Click me</Button>
     <Button size='large'>Click me</Button>
-  </ThemeProvider>
+  </LocalizeThemeProvider>
 </Playground>
 
 ## PropsTable

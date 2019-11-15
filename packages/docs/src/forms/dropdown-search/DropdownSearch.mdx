@@ -5,15 +5,15 @@ menu: Forms
 
 import { Playground, Props } from 'docz';
 import { LocalizeDropdownSearch, LocalizeSearchResult } from '@seolhun/localize-components';
-import { ThemeProvider } from 'emotion-theming';
-import { LocalizeTheme } from '@seolhun/localize-components';
+import { LocalizeThemeProvider } from '@seolhun/localize-components';
+
 
 # DropdownSearch
 
 ## Default
 
 <Playground>
-  <ThemeProvider theme={LocalizeTheme}>
+  <LocalizeThemeProvider>
       <LocalizeDropdownSearch>
         {({ onSetIsShowResult }) => (
           <LocalizeSearchResult
@@ -30,7 +30,7 @@ import { LocalizeTheme } from '@seolhun/localize-components';
           />
         )}
       </LocalizeDropdownSearch>
-  </ThemeProvider>
+  </LocalizeThemeProvider>
 </Playground>
 
 ## PropsTable
