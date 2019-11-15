@@ -1,2 +1,2 @@
-export* from './Dropdown'
-export* from './DropdownSearch'
+export * from './LocalizeDropdownSearch'
+export * from './results'

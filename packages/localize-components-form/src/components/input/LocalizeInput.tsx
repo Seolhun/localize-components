@@ -5,10 +5,9 @@ import classnames from 'classnames';
 
 import {
   FontSizes,
-  LocalizeStyledProps,
   LocalizeThemes,
-  LocalizeThemesType,
   ILocalizeTheme,
+  LocalizeBaseStyledProps,
 } from '@seolhun/localize-components-styled-types';
 import {
   getValidThemeObject,
@@ -19,7 +18,7 @@ import { ValidationResponse } from '@seolhun/localize-components-types';
 
 const DEFAULT_CLASSNAME = '__Localize__Input'
 
-export interface InputProps {
+export interface LocalizeInputProps extends React.InputHTMLAttributes<HTMLInputElement>, LocalizeBaseStyledProps {
   // isRequired
   /**
    * Set this to change Input rendering children node
@@ -39,45 +38,20 @@ export interface InputProps {
    */
   className?: string;
   /**
-   * Set this to change Input main disabled
-   * @default false
+   * Set this to change Input onSubmit
+   * @default undefined
    */
-  disabled?: boolean;
+  onSubmit?: (...args: any[]) => void;
   /**
    * Set this to change Input font-size
    * @default 12
    */
   fontSize?: number;
   /**
-   * Set this to change Input htmlFor
-   * @default ''
-   */
-  htmlFor?: string;
-  /**
    * Set this to change Input message
    * @default ''
    */
   message?: string;
-  /**
-   * Set this to change Input onBlur
-   * @default 'main'
-   */
-  onBlur?: (...args: any[]) => void;
-  /**
-   * Set this to change Input onChange
-   * @default undefined
-   */
-  onChange?: (...args: any[]) => void;
-  /**
-   * Set this to change Input onFocus
-   * @default undefined
-   */
-  onFocus?: (...args: any[]) => void;
-  /**
-   * Set this to change Input onSubmit
-   * @default undefined
-   */
-  onSubmit?: (...args: any[]) => void;
   /**
    * Set this to change Input onChange
    * @default undefined
@@ -88,36 +62,6 @@ export interface InputProps {
    * @default null
    */
   enterButton?: ReactNode;
-  /**
-   * Set this to change Input placeholder
-   * @default ''
-   */
-  placeholder?: string;
-  /**
-   * Set this to change Input required
-   * @default false
-   */
-  required?: boolean;
-  /**
-   * Set this to change Input css
-   * @default {}
-   */
-  css?: {};
-  /**
-   * Set this to change Input mainColor
-   * @default LocalizeTheme.primaryColor = royal_blue
-   */
-  mainColor?: LocalizeThemesType;
-  /**
-   * Set this to change Input subColor
-   * @default LocalizeTheme.secondaryColor = grey
-   */
-  subColor?: LocalizeThemesType;
-  /**
-   * Set this to change Input type
-   * @default 'text'
-   */
-  type?: string;
   /**
    * Set this to change Input useEnter
    * @default true
@@ -137,7 +81,7 @@ export interface InputState {
   message: string;
 }
 
-const StyledInputBox = styled.div<LocalizeStyledProps, ILocalizeTheme>(({
+const StyledInputBox = styled.div<LocalizeBaseStyledProps, ILocalizeTheme>(({
   theme,
   ...props
 }) => {
@@ -168,7 +112,7 @@ const StyledInputBox = styled.div<LocalizeStyledProps, ILocalizeTheme>(({
   }
 })
 
-const StyledDivInput = styled.div<InputProps, ILocalizeTheme>(({
+const StyledDivInput = styled.div<LocalizeInputProps, ILocalizeTheme>(({
   fontSize = 12,
   theme,
   ...props
@@ -212,7 +156,7 @@ const StyledDivInput = styled.div<InputProps, ILocalizeTheme>(({
   }
 })
 
-const StyledInput = styled.input<InputProps, ILocalizeTheme>(({
+const StyledInput = styled.input<LocalizeInputProps, ILocalizeTheme>(({
   theme,
   ...props
 }) => {
@@ -303,7 +247,7 @@ const StyledErrorBox = styled.div({
   },
 })
 
-export class Input extends PureComponent<InputProps, InputState> {
+export class LocalizeInput extends PureComponent<LocalizeInputProps, InputState> {
   private inputBoxRef: any;
   private inputRef: any;
 
@@ -382,14 +326,14 @@ export class Input extends PureComponent<InputProps, InputState> {
     }
   };
 
-  handleIsFocused = () => {
+  handleIsFocused = (event: React.FocusEvent<HTMLInputElement>) => {
     const { onFocus } = this.props;
 
     this.setState({
       isFocused: true,
     });
     if (onFocus) {
-      onFocus();
+      onFocus(event);
     }
   };
 
@@ -408,7 +352,9 @@ export class Input extends PureComponent<InputProps, InputState> {
 
   initFocusTextInput = () => {
     if (this.inputRef) {
-      this.handleIsFocused();
+      this.setState({
+        isFocused: true,
+      });
       this.inputRef.current.focus();
     }
   };
@@ -416,6 +362,7 @@ export class Input extends PureComponent<InputProps, InputState> {
   render() {
     const {
       value,
+      name,
       className,
       disabled = false,
       fontSize = 12,
@@ -425,22 +372,24 @@ export class Input extends PureComponent<InputProps, InputState> {
       type = 'text',
       css = {},
       ...props
-    }: InputProps = this.props;
+    }: LocalizeInputProps = this.props;
     const { hasError, isFilled, isFocused, message }: InputState = this.state;
 
     return (
       <div className={classnames(DEFAULT_CLASSNAME, className)}>
         <StyledInputBox
+          {...props}
           ref={this.inputBoxRef}
           className={classnames({
             hasError,
             isFocused,
           })}
-          {...props}
           css={css}
         >
           <StyledDivInput
+            {...props}
             ref={this.inputRef}
+            name={name}
             disabled={disabled}
             onBlur={this.handleOnBlur}
             onChange={this.handleOnChange}
@@ -450,12 +399,12 @@ export class Input extends PureComponent<InputProps, InputState> {
             required={required}
             type={type}
             value=''
-            {...props}
             data-placeholder={placeholder}
             dangerouslySetInnerHTML={this.handleRenderValue(value)}
             contentEditable
           />
           <StyledInput
+            {...props}
             ref={this.inputRef}
             disabled={disabled}
             onBlur={this.handleOnBlur}
@@ -466,7 +415,6 @@ export class Input extends PureComponent<InputProps, InputState> {
             required={required}
             type={type}
             value={value}
-            {...props}
           />
           {enterButton && (
             <StyledEnterButton
@@ -494,4 +442,4 @@ export class Input extends PureComponent<InputProps, InputState> {
   }
 }
 
-export default Input;
+export default LocalizeInput;
