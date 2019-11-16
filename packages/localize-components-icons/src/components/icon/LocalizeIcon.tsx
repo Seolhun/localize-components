@@ -7,7 +7,7 @@ import {
   DarkenThemeEnum,
 } from '@seolhun/localize-components-styled-types';
 import {
-  getThemeHoverStyle
+  getThemeHoverStyle,
 } from '@seolhun/localize-components-styled-utils';
 
 import { LocalizeIconEnum, LocalizeIconType } from './LocalizeIconType';

@@ -41,7 +41,6 @@ class FormGroupBuilder {
     }
   }
 
-  // tslint:disable-next-line:variable-name
   _executeAllFormValidation = () => {
     this.isDisabled = Object.keys(this.group).some((key) =>
       this.group[key]

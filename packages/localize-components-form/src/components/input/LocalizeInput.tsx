@@ -94,19 +94,19 @@ const StyledInputBox = styled.div<LocalizeBaseStyledProps, ILocalizeTheme>(({
     height: '40px',
     backgroundColor: validTheme.subColor,
     borderRadius: '6px',
-    border: `2px solid ${LocalizeThemes.light_grey}`,
+    border: `2px solid ${LocalizeThemes.lightgrey}`,
     padding: 0,
     transition: 'border-color 0.3s, background-color 0.3s',
 
-    [`&:disabled`]: {
+    ['&:disabled']: {
       cursor: 'not-allowed',
     },
 
-    [`&:hover`]: {
+    ['&:hover']: {
       border: `2px solid ${getThemeHoverStyle(validTheme.mainColor)}`,
     },
 
-    [`&.isFocused`]: {
+    ['&.isFocused']: {
       border: `2px solid ${validTheme.mainColor}`,
     },
   }
@@ -134,8 +134,8 @@ const StyledDivInput = styled.div<LocalizeInputProps, ILocalizeTheme>(({
     outline: 'none',
     whiteSpace: 'nowrap',
 
-    [`&:empty:before`]: {
-      content: `attr(data-placeholder)`,
+    ['&:empty:before']: {
+      content: 'attr(data-placeholder)',
       fontSize: `${FontSizes.H5}`,
       fontWeight: 300,
       fontStyle: 'normal',
@@ -144,14 +144,14 @@ const StyledDivInput = styled.div<LocalizeInputProps, ILocalizeTheme>(({
       letterSpacing: '-0.3px',
       color: getThemeColorStyle(validTheme.subColor),
     },
-    [`&:required`]: {
+    ['&:required']: {
       color: `${LocalizeThemes.warning}`,
     },
 
-    [`&:disabled`]: {
-      backgroundColor: `${LocalizeThemes.light_grey}`,
-      border: `1px solid ${LocalizeThemes.light_grey}`,
-      cursor: `not-allowed !important`,
+    ['&:disabled']: {
+      backgroundColor: `${LocalizeThemes.lightgrey}`,
+      border: `1px solid ${LocalizeThemes.lightgrey}`,
+      cursor: 'not-allowed !important',
     },
   }
 })
@@ -178,24 +178,24 @@ const StyledInput = styled.input<LocalizeInputProps, ILocalizeTheme>(({
     outline: 'none',
     whiteSpace: 'nowrap',
 
-    [`&::placeholder`]: {
+    ['&::placeholder']: {
       fontSize: `${FontSizes.H5}`,
       fontWeight: 300,
       fontStyle: 'normal',
       fontStretch: 'normal',
       lineHeight: 1.9,
       letterSpacing: '-0.3px',
-      color: LocalizeThemes.light_grey,
+      color: LocalizeThemes.lightgrey,
     },
 
-    [`&:required`]: {
+    ['&:required']: {
       color: `${LocalizeThemes.warning}`,
     },
 
-    [`&:disabled`]: {
-      backgroundColor: `${LocalizeThemes.light_grey}`,
-      border: `1px solid ${LocalizeThemes.light_grey}`,
-      cursor: `not-allowed !important`,
+    ['&:disabled']: {
+      backgroundColor: `${LocalizeThemes.lightgrey}`,
+      border: `1px solid ${LocalizeThemes.lightgrey}`,
+      cursor: 'not-allowed !important',
     },
   }
 })
@@ -224,7 +224,7 @@ const StyledEnterButton = styled.button({
     backgroundColor: `${LocalizeThemes.grey}`,
     cursor: 'not-allowed !important',
   },
-  [`&:hover, &:active`]: {
+  ['&:hover, &:active']: {
     backgroundColor: `${LocalizeThemes.grey}`,
   },
 })

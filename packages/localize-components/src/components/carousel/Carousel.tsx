@@ -159,7 +159,7 @@ class Carousel extends Component<CarouselProps, CarouselState> {
 export {
   CarouselProps,
   CarouselState,
-  Carousel
+  Carousel,
 }
 
 export default Carousel;

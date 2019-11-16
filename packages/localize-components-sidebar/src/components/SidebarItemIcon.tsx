@@ -20,7 +20,7 @@ export interface SidebarItemIconProps {
   className?: string;
   /**
    * Set this to change SidebarItemIcon mainColor
-   * @default LocalizeTheme.primaryColor = royal_blue
+   * @default LocalizeTheme.primaryColor = royalblue
    */
   mainColor?: LocalizeThemesType;
   /**
