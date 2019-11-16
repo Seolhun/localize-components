@@ -1,1 +1,10 @@
+# Default
+dist
+node_modules
+
+# Typescript
 *.d.ts
+
+# Webpack Configuration
+webpack.*.js
+

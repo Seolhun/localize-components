@@ -19,7 +19,8 @@
   "scripts": {
     "just": "rollup -c",
     "build": "rollup -c",
-    "prebuild": "rm -rf dist && rm -rf .rpt2_cache",
+    "prebuild": "rm -rf dist",
+    "clear": "rm -rf dist && rm -rf .rpt2_cache",
     "bundle": "node build/build.js",
     "prebundle": "rm -rf dist",
     "test": "jest"
