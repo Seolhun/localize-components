@@ -10,7 +10,7 @@ function addEvent<K extends keyof WindowEventMap>(
   element: HTMLElement,
   eventName: K,
   fn: (...args: any[]) => void,
-  useBubble: boolean = false
+  useBubble = false
 ) {
   element.addEventListener(eventName, fn, useBubble);
 }
