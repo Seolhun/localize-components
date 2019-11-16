@@ -6,6 +6,7 @@ menu: Forms
 import { useState } from 'react';
 import { Playground, Props } from 'docz';
 import { Switch } from '@seolhun/localize-components-atomic';
+import { LocalizeThemeProvider } from '@seolhun/localize-components';
 
 # Switch
 
@@ -15,7 +16,7 @@ import { Switch } from '@seolhun/localize-components-atomic';
   {() => {
     const [isChecked, setIsChecked] = useState(false)
     return (
-      <>
+      <LocalizeThemeProvider>
         <Switch
           htmlFor='test'
           checked={isChecked}
@@ -27,7 +28,7 @@ import { Switch } from '@seolhun/localize-components-atomic';
           checked={isChecked}
           onChange={() => setIsChecked(!isChecked)}
         />
-      </>
+      </LocalizeThemeProvider>
     )
   }}
 
@@ -39,7 +40,7 @@ import { Switch } from '@seolhun/localize-components-atomic';
   {() => {
     const [isChecked, setIsChecked] = useState(false)
     return (
-      <>
+      <LocalizeThemeProvider>
         <Switch
           htmlFor='danger'
           mainColor='danger'
@@ -64,7 +65,7 @@ import { Switch } from '@seolhun/localize-components-atomic';
           checked={isChecked}
           onChange={() => setIsChecked(!isChecked)}
         />
-      </>
+      </LocalizeThemeProvider>
     )
   }}
 
@@ -76,7 +77,7 @@ import { Switch } from '@seolhun/localize-components-atomic';
   {() => {
     const [isChecked, setIsChecked] = useState(false)
     return (
-      <>
+      <LocalizeThemeProvider>
         <Switch
           htmlFor='danger1'
           mainColor='danger'
@@ -105,7 +106,7 @@ import { Switch } from '@seolhun/localize-components-atomic';
           checked={isChecked}
           onChange={() => setIsChecked(!isChecked)}
         />
-      </>
+      </LocalizeThemeProvider>
     )
   }}
 </Playground>

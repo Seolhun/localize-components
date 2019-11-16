@@ -6,6 +6,7 @@ menu: Forms
 import { useState, useCallback } from 'react';
 import { Playground, Props } from 'docz';
 import { CheckBox } from '@seolhun/localize-components-atomic';
+import { LocalizeThemeProvider } from '@seolhun/localize-components';
 
 # CheckBox
 
@@ -39,7 +40,7 @@ import { CheckBox } from '@seolhun/localize-components-atomic';
     }, [items])
 
     return (
-      <>
+      <LocalizeThemeProvider>
         {items.map((item) => (
           <CheckBox
             key={item.label}
@@ -48,7 +49,7 @@ import { CheckBox } from '@seolhun/localize-components-atomic';
             checked={item.checked}
           />
         ))}
-      </>
+      </LocalizeThemeProvider>
     )
   }}
 </Playground>
@@ -86,7 +87,7 @@ import { CheckBox } from '@seolhun/localize-components-atomic';
     }, [items])
 
     return (
-      <>
+      <LocalizeThemeProvider>
         {items.map((item) => (
           <CheckBox
             key={item.label}
@@ -96,7 +97,7 @@ import { CheckBox } from '@seolhun/localize-components-atomic';
             mainColor={item.mainColor}
           />
         ))}
-      </>
+      </LocalizeThemeProvider>
     )
   }}
 </Playground>
@@ -136,7 +137,7 @@ import { CheckBox } from '@seolhun/localize-components-atomic';
     }, [items])
 
     return (
-      <>
+      <LocalizeThemeProvider>
         {items.map((item) => (
           <CheckBox
             key={item.label}
@@ -147,7 +148,7 @@ import { CheckBox } from '@seolhun/localize-components-atomic';
             subColor={item.subColor}
           />
         ))}
-      </>
+      </LocalizeThemeProvider>
     )
   }}
 </Playground>

@@ -31,11 +31,11 @@ const getStyleTypo = (type: TypoType) => {
   if (type === 'big' || type === 'medium' || type === 'small') {
     return styled.span<TypoProps, ILocalizeTheme>(({ theme, weight, ...props }) => {
       const { secondaryFontColor } = getValidThemeObject(props, theme);
-      theme.fonts.SIZE
+      theme.fonts.size
       return {
         ...defaultTypoStyle,
         fontWeight: weight,
-        fontSize: theme.fonts.SIZE[type],
+        fontSize: theme.fonts.size[type],
         color: secondaryFontColor,
       }
     });
@@ -46,7 +46,7 @@ const getStyleTypo = (type: TypoType) => {
     return {
       ...defaultTypoStyle,
       fontWeight: weight,
-      fontSize: theme.fonts.SIZE[type],
+      fontSize: theme.fonts.size[type],
       color: isHighlight ? highlightedFontColor : primaryFontColor,
     }
   });

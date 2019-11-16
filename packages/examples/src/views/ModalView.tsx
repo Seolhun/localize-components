@@ -1,24 +1,21 @@
 import React from 'react';
 
-import { Modal } from '@seolhun/localize-components';
+import { LocalizeModal, useDisclosure } from '@seolhun/localize-components';
 import { Button } from '@seolhun/localize-components-atomic';
-import { useToggle } from '@seolhun/localize-components-hooks';
 
 const ModalView = () => {
-  const [isShow, setIsShow] = useToggle(false);
+  const { isOpen, onToggle } = useDisclosure()
 
   return (
     <div className='container'>
       <div className='row'>
         <div className='col-sm-12'>
-          <Button onClick={setIsShow}>Open Modal</Button>
-          <Modal
-            header='Header'
-            body='Body'
-            footer='Footer'
-            onClick={setIsShow}
-            isShow={isShow}
-          />
+          <Button onClick={onToggle}>Open Modal</Button>
+          <LocalizeModal isShow={isOpen} onClose={onToggle}>
+            <div>Modal header</div>
+            <div>Modal footer</div>
+            <div>Modal body</div>
+          </LocalizeModal>
         </div>
       </div>
     </div>

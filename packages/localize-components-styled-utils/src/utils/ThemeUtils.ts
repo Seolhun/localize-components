@@ -26,9 +26,9 @@ export const getValidThemeObject = ({
   const primary = mainColor || !!theme && theme.primaryColor || LocalizeTheme.primaryColor;
   const second = subColor || !!theme && theme.secondaryColor || LocalizeTheme.secondaryColor;
   const clickable = mainColor || !!theme && theme.clickableColor || LocalizeTheme.clickableColor;
-  const highlightedFont = mainColor || !!theme && theme.fonts.COLOR.highlightColor || LocalizeTheme.fonts.COLOR.highlightColor;
-  const primaryFont = mainColor || !!theme && theme.fonts.COLOR.primaryColor || LocalizeTheme.fonts.COLOR.primaryColor;
-  const secondaryFont = subColor || !!theme && theme.fonts.COLOR.secondaryColor || LocalizeTheme.fonts.COLOR.secondaryColor;
+  const highlightedFont = mainColor || !!theme && theme.fonts.color.highlightColor || LocalizeTheme.fonts.color.highlightColor;
+  const primaryFont = mainColor || !!theme && theme.fonts.color.primaryColor || LocalizeTheme.fonts.color.primaryColor;
+  const secondaryFont = subColor || !!theme && theme.fonts.color.secondaryColor || LocalizeTheme.fonts.color.secondaryColor;
   const background = !!theme && theme.background || LocalizeTheme.background;
 
   return {

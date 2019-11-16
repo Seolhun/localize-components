@@ -6,6 +6,7 @@ menu: Components
 import { Playground, Props } from 'docz';
 import { Jumbotron } from '@seolhun/localize-components';
 import { Button } from '@seolhun/localize-components-atomic';
+import { LocalizeThemeProvider } from '@seolhun/localize-components';
 
 import JumbotronPropsTable from './JumbotronPropsTable';
 
@@ -14,36 +15,45 @@ import JumbotronPropsTable from './JumbotronPropsTable';
 ## Default
 
 <Playground>
-  <Jumbotron>Click me</Jumbotron>
+  <LocalizeThemeProvider>
+    <Jumbotron>Click me</Jumbotron>
+  </LocalizeThemeProvider>
 </Playground>
 
 ## Give a mainColor
 
 <Playground>
-  <Jumbotron mainColor='primary'>primary</Jumbotron>
-  <Jumbotron mainColor='danger'>danger</Jumbotron>
-  <Jumbotron mainColor='light_grey'>light_grey</Jumbotron>
-  <Jumbotron mainColor='#41FF2B'>#41FF2B</Jumbotron>
+  <LocalizeThemeProvider>
+    <Jumbotron mainColor='primary'>primary</Jumbotron>
+    <Jumbotron mainColor='danger'>danger</Jumbotron>
+    <Jumbotron mainColor='light_grey'>light_grey</Jumbotron>
+    <Jumbotron mainColor='#41FF2B'>#41FF2B</Jumbotron>
+  </LocalizeThemeProvider>
+
 </Playground>
 
 ## Give a Title
 
 <Playground>
-  <Jumbotron title='Hello jumbotron'>
-    <Button mainColor='white'>
-      Click!!
-    </Button>
-  </Jumbotron>
+  <LocalizeThemeProvider>
+    <Jumbotron title='Hello jumbotron'>
+      <Button mainColor='white'>
+        Click!!
+      </Button>
+    </Jumbotron>
+  </LocalizeThemeProvider>
 </Playground>
 
 ## Give a Description
 
 <Playground>
-  <Jumbotron description='Hello, jumbotron'>
-    <Button mainColor='white'>
-      Click!!
-    </Button>
-  </Jumbotron>
+  <LocalizeThemeProvider>
+    <Jumbotron description='Hello, jumbotron'>
+      <Button mainColor='white'>
+        Click!!
+      </Button>
+    </Jumbotron>
+  </LocalizeThemeProvider>
 </Playground>
 
 ## PropsTable

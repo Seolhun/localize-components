@@ -6,6 +6,7 @@ menu: Forms
 import { useState, useCallback } from 'react';
 import { Playground, Props } from 'docz';
 import { RadioGroup, Radio } from '@seolhun/localize-components-atomic';
+import { LocalizeThemeProvider } from '@seolhun/localize-components';
 
 # RadioGroup
 
@@ -22,32 +23,34 @@ import { RadioGroup, Radio } from '@seolhun/localize-components-atomic';
     }, [checkedItem])
 
     return (
-      <RadioGroup groupName='localize'>
-        {props => (
-          <>
-            <Radio
-              {...props}
-              item={{
-                label: 'label1',
-                value: 'value1',
-              }}
-              checkedItem={checkedItem}
-              onChange={handleOnChange}
-              groupName='localize'
-            />
-            <Radio
-              {...props}
-              item={{
-                label: 'label2',
-                value: 'value2',
-              }}
-              checkedItem={checkedItem}
-              onChange={handleOnChange}
-              groupName='localize'
-            />
-          </>
-        )}
-      </RadioGroup>
+      <LocalizeThemeProvider>
+        <RadioGroup groupName='localize'>
+          {props => (
+            <>
+              <Radio
+                {...props}
+                item={{
+                  label: 'label1',
+                  value: 'value1',
+                }}
+                checkedItem={checkedItem}
+                onChange={handleOnChange}
+                groupName='localize'
+              />
+              <Radio
+                {...props}
+                item={{
+                  label: 'label2',
+                  value: 'value2',
+                }}
+                checkedItem={checkedItem}
+                onChange={handleOnChange}
+                groupName='localize'
+              />
+            </>
+          )}
+        </RadioGroup>
+      </LocalizeThemeProvider>
     )
   }}
 </Playground>
@@ -65,33 +68,35 @@ import { RadioGroup, Radio } from '@seolhun/localize-components-atomic';
     }, [checkedItem])
 
     return (
-      <RadioGroup
-        groupName='localize2'
-        mainColor='danger'
-      >
-        {props => (
-          <>
-            <Radio
-              {...props}
-              item={{
-                label: 'label3',
-                value: 'value3',
-              }}
-              checkedItem={checkedItem}
-              onChange={handleOnChange}
-            />
-            <Radio
-              {...props}
-              item={{
-                label: 'label4',
-                value: 'value4',
-              }}
-              checkedItem={checkedItem}
-              onChange={handleOnChange}
-            />
-          </>
-        )}
-      </RadioGroup>
+      <LocalizeThemeProvider>
+        <RadioGroup
+          groupName='localize2'
+          mainColor='danger'
+        >
+          {props => (
+            <>
+              <Radio
+                {...props}
+                item={{
+                  label: 'label3',
+                  value: 'value3',
+                }}
+                checkedItem={checkedItem}
+                onChange={handleOnChange}
+              />
+              <Radio
+                {...props}
+                item={{
+                  label: 'label4',
+                  value: 'value4',
+                }}
+                checkedItem={checkedItem}
+                onChange={handleOnChange}
+              />
+            </>
+          )}
+        </RadioGroup>
+      </LocalizeThemeProvider>
     )
   }}
 </Playground>
@@ -109,34 +114,36 @@ import { RadioGroup, Radio } from '@seolhun/localize-components-atomic';
     }, [checkedItem])
 
     return (
-      <RadioGroup
-        groupName='localize3'
-        mainColor='danger'
-        subColor='yellow'
-      >
-        {props => (
-          <>
-            <Radio
-              {...props}
-              item={{
-                label: 'label5',
-                value: 'value5',
-              }}
-              checkedItem={checkedItem}
-              onChange={handleOnChange}
-            />
-            <Radio
-              {...props}
-              item={{
-                label: 'label6',
-                value: 'value6',
-              }}
-              checkedItem={checkedItem}
-              onChange={handleOnChange}
-            />
-          </>
-        )}
-      </RadioGroup>
+      <LocalizeThemeProvider>
+        <RadioGroup
+          groupName='localize3'
+          mainColor='danger'
+          subColor='yellow'
+        >
+          {props => (
+            <>
+              <Radio
+                {...props}
+                item={{
+                  label: 'label5',
+                  value: 'value5',
+                }}
+                checkedItem={checkedItem}
+                onChange={handleOnChange}
+              />
+              <Radio
+                {...props}
+                item={{
+                  label: 'label6',
+                  value: 'value6',
+                }}
+                checkedItem={checkedItem}
+                onChange={handleOnChange}
+              />
+            </>
+          )}
+        </RadioGroup>
+      </LocalizeThemeProvider>
     )
   }}
 </Playground>
@@ -156,34 +163,36 @@ import { RadioGroup, Radio } from '@seolhun/localize-components-atomic';
     }, [checkedItem])
 
     return (
-      <RadioGroup
-        groupName='localize4'
-        mainColor='danger'
-        align='vertical'
-      >
-        {props => (
-          <>
-            <Radio
-              {...props}
-              item={{
-                label: 'label7',
-                value: 'value7',
-              }}
-              checkedItem={checkedItem}
-              onChange={handleOnChange}
-            />
-            <Radio
-              {...props}
-              item={{
-                label: 'label8',
-                value: 'value8',
-              }}
-              checkedItem={checkedItem}
-              onChange={handleOnChange}
-            />
-          </>
-        )}
-      </RadioGroup>
+      <LocalizeThemeProvider>
+        <RadioGroup
+          groupName='localize4'
+          mainColor='danger'
+          align='vertical'
+        >
+          {props => (
+            <>
+              <Radio
+                {...props}
+                item={{
+                  label: 'label7',
+                  value: 'value7',
+                }}
+                checkedItem={checkedItem}
+                onChange={handleOnChange}
+              />
+              <Radio
+                {...props}
+                item={{
+                  label: 'label8',
+                  value: 'value8',
+                }}
+                checkedItem={checkedItem}
+                onChange={handleOnChange}
+              />
+            </>
+          )}
+        </RadioGroup>
+      </LocalizeThemeProvider>
     )
   }}
 </Playground>
@@ -201,34 +210,36 @@ import { RadioGroup, Radio } from '@seolhun/localize-components-atomic';
     }, [checkedItem])
 
     return (
-      <RadioGroup
-        groupName='localize9'
-        mainColor='green'
-        align='horizontal'
-      >
-        {props => (
-          <>
-            <Radio
-              {...props}
-              item={{
-                label: 'label9',
-                value: 'value9',
-              }}
-              checkedItem={checkedItem}
-              onChange={handleOnChange}
-            />
-            <Radio
-              {...props}
-              item={{
-                label: 'label10',
-                value: 'value10',
-              }}
-              checkedItem={checkedItem}
-              onChange={handleOnChange}
-            />
-          </>
-        )}
-      </RadioGroup>
+      <LocalizeThemeProvider>
+        <RadioGroup
+          groupName='localize9'
+          mainColor='green'
+          align='horizontal'
+        >
+          {props => (
+            <>
+              <Radio
+                {...props}
+                item={{
+                  label: 'label9',
+                  value: 'value9',
+                }}
+                checkedItem={checkedItem}
+                onChange={handleOnChange}
+              />
+              <Radio
+                {...props}
+                item={{
+                  label: 'label10',
+                  value: 'value10',
+                }}
+                checkedItem={checkedItem}
+                onChange={handleOnChange}
+              />
+            </>
+          )}
+        </RadioGroup>
+      </LocalizeThemeProvider>
     )
   }}
 </Playground>
@@ -248,35 +259,37 @@ import { RadioGroup, Radio } from '@seolhun/localize-components-atomic';
     }, [checkedItem])
 
     return (
-      <RadioGroup
-        groupName='localize4'
-        mainColor='danger'
-        align='vertical'
-        gap='20px'
-      >
-        {props => (
-          <>
-            <Radio
-              {...props}
-              item={{
-                label: 'label11',
-                value: 'value11',
-              }}
-              checkedItem={checkedItem}
-              onChange={handleOnChange}
-            />
-            <Radio
-              {...props}
-              item={{
-                label: 'label12',
-                value: 'value12',
-              }}
-              checkedItem={checkedItem}
-              onChange={handleOnChange}
-            />
-          </>
-        )}
-      </RadioGroup>
+      <LocalizeThemeProvider>
+        <RadioGroup
+          groupName='localize4'
+          mainColor='danger'
+          align='vertical'
+          gap='20px'
+        >
+          {props => (
+            <>
+              <Radio
+                {...props}
+                item={{
+                  label: 'label11',
+                  value: 'value11',
+                }}
+                checkedItem={checkedItem}
+                onChange={handleOnChange}
+              />
+              <Radio
+                {...props}
+                item={{
+                  label: 'label12',
+                  value: 'value12',
+                }}
+                checkedItem={checkedItem}
+                onChange={handleOnChange}
+              />
+            </>
+          )}
+        </RadioGroup>
+      </LocalizeThemeProvider>
     )
   }}
 </Playground>
@@ -294,35 +307,37 @@ import { RadioGroup, Radio } from '@seolhun/localize-components-atomic';
     }, [checkedItem])
 
     return (
-      <RadioGroup
-        groupName='localize13'
-        mainColor='green'
-        align='horizontal'
-        gap='10em'
-      >
-        {props => (
-          <>
-            <Radio
-              {...props}
-              item={{
-                label: 'label13',
-                value: 'value13',
-              }}
-              checkedItem={checkedItem}
-              onChange={handleOnChange}
-            />
-            <Radio
-              {...props}
-              item={{
-                label: 'label14',
-                value: 'value14',
-              }}
-              checkedItem={checkedItem}
-              onChange={handleOnChange}
-            />
-          </>
-        )}
-      </RadioGroup>
+      <LocalizeThemeProvider>
+        <RadioGroup
+          groupName='localize13'
+          mainColor='green'
+          align='horizontal'
+          gap='10em'
+        >
+          {props => (
+            <>
+              <Radio
+                {...props}
+                item={{
+                  label: 'label13',
+                  value: 'value13',
+                }}
+                checkedItem={checkedItem}
+                onChange={handleOnChange}
+              />
+              <Radio
+                {...props}
+                item={{
+                  label: 'label14',
+                  value: 'value14',
+                }}
+                checkedItem={checkedItem}
+                onChange={handleOnChange}
+              />
+            </>
+          )}
+        </RadioGroup>
+      </LocalizeThemeProvider>
     )
   }}
 </Playground>
