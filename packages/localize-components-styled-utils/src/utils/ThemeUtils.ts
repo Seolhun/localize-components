@@ -67,7 +67,7 @@ export const getThemeHoverStyle = (theme: string) => {
 
 export const getThemeColorStyle = (theme: string) => {
   if (getIsLightenTheme(theme)) {
-    return LocalizeThemes.dark_grey;
+    return LocalizeThemes.darkgrey;
   }
   return LocalizeThemes.white;
 };

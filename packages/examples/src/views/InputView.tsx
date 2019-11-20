@@ -15,14 +15,14 @@ const InputView = () => {
           <h2>Give a mainColor</h2>
           <LocalizeInput mainColor='danger' value='danger' />
           <LocalizeInput mainColor='primary' value='primary' />
-          <LocalizeInput mainColor='light_grey' value='light_grey' />
+          <LocalizeInput mainColor='lightgrey' value='lightgrey' />
           <LocalizeInput mainColor='#41FF2B' value='#41FF2B' />
         </div>
         <div className='col-sm-12'>
           <h2>Give a subColor</h2>
-          <LocalizeInput mainColor='danger' subColor='yellow' value='dark_grey' />
+          <LocalizeInput mainColor='danger' subColor='yellow' value='darkgrey' />
           <LocalizeInput mainColor='primary' subColor='danger' value='grey' />
-          <LocalizeInput mainColor='light_grey' subColor='purple' value='light_grey' />
+          <LocalizeInput mainColor='lightgrey' subColor='purple' value='lightgrey' />
           <LocalizeInput mainColor='#41FF2B' subColor='#000' value='#000' />
         </div>
         <div className='col-sm-12'>

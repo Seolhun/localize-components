@@ -109,7 +109,7 @@ const StyledCircle = styled.span<CircleProps, ILocalizeTheme>(({
       },
 
       '&:disabled': {
-        backgroundColor: LocalizeThemes.light_grey,
+        backgroundColor: LocalizeThemes.lightgrey,
         color: LocalizeThemes.white,
         cursor: 'not-allowed',
       },

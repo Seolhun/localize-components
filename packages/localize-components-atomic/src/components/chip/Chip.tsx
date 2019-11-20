@@ -50,7 +50,7 @@ export interface ChipProps {
   onMouseOver?: (...args: any[]) => void;
   /**
    * Set this to change Chip mainColor
-   * @default LocalizeTheme.primaryColor = royal_blue
+   * @default LocalizeTheme.primaryColor = royalblue
    */
   mainColor?: LocalizeThemesType;
   /**
@@ -93,7 +93,7 @@ const StyledChip = styled.button<ChipProps, ILocalizeTheme>(
       },
 
       '&:disabled': {
-        backgroundColor: LocalizeThemes.light_grey,
+        backgroundColor: LocalizeThemes.lightgrey,
         color: LocalizeThemes.white,
         cursor: 'not-allowed',
       },

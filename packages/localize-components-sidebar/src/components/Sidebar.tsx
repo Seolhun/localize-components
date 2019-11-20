@@ -86,7 +86,7 @@ export interface SidebarProps {
   onMouseOver?: (...args: any[]) => void;
   /**
    * Set this to change Sidebar mainColor
-   * @default LocalizeTheme.primaryColor = royal_blue
+   * @default LocalizeTheme.primaryColor = royalblue
    */
   mainColor?: LocalizeThemesType;
   /**

@@ -1,1 +1,1 @@
-export * from './LocalizeIcon'
+export * from './LocalizeIcon';

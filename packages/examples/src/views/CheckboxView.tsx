@@ -39,7 +39,7 @@ const CheckBoxView = () => {
               label: 'label',
               value: 'value',
             }}
-            mainColor='light_grey'
+            mainColor='lightgrey'
             checked
           />
           <CheckBox
@@ -76,7 +76,7 @@ const CheckBoxView = () => {
               label: 'label',
               value: 'value',
             }}
-            mainColor='light_grey'
+            mainColor='lightgrey'
             subColor='purple'
             checked
           />

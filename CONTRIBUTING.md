@@ -41,8 +41,7 @@ cd localize-components
 Then run yarn install and bootstrap all packages:
 
 ```bash
-$ yarn install
-$ yarn bs
+$ yarn install 
 ```
 
 After that, just run `packages` script to format, build and lint all packages:

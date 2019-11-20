@@ -147,7 +147,7 @@ const StyledCheckBox = styled.span<RadioCheckBoxProps, ILocalizeTheme>(({
     backgroundColor: validTheme.subColor,
     borderRadius: '50%',
     border: `1px solid ${validTheme.subColor}`,
-    transition: `border-color 0.35s, background-color 0.35s`,
+    transition: 'border-color 0.35s, background-color 0.35s',
 
     [`.${DEFAULT_CLASSNAME}:hover ~ &`]: {
       border: `1px solid ${validTheme.mainColor}`,

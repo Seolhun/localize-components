@@ -52,7 +52,6 @@ class FormBuilder implements FormBuilderProps {
     this.options = formProperties.options;
   }
 
-  // tslint:disable-next-line:variable-name
   private _initForm = (
     {
       // Values
@@ -100,7 +99,6 @@ class FormBuilder implements FormBuilderProps {
     };
   };
 
-  // tslint:disable-next-line:variable-name
   handleOnValidation = (value = this.properties.value) => {
     if (this.properties.isRequired && !value) {
       this.setProperties({

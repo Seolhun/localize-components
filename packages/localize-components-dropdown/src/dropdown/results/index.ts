@@ -1,1 +1,1 @@
-export * from './LocalizeSearchResult'
+export * from './LocalizeSearchResult';

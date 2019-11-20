@@ -63,7 +63,7 @@ export const LocalizeTheme: ILocalizeTheme = {
   border: {
     color: `${LocalizeThemes.grey}`,
     radius: '4px',
-    shadow: `0px 2px 1px -1px ${LocalizeThemes.light_grey}, 0px 1px 1px 0px ${LocalizeThemes.light_grey}, 0px 1px 3px 0px ${LocalizeThemes.light_grey}`,
+    shadow: `0px 2px 1px -1px ${LocalizeThemes.lightgrey}, 0px 1px 1px 0px ${LocalizeThemes.lightgrey}, 0px 1px 3px 0px ${LocalizeThemes.lightgrey}`,
   },
   grid: {
     containerGutter: {

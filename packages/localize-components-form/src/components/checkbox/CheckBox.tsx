@@ -152,7 +152,7 @@ const StyledCheckMark = styled.span<LocalizeStyledProps, ILocalizeTheme>(({
     [`.${DEFAULT_CLASSNAME}:hover ~ &`]: {
       border: `1px solid ${validTheme.mainColor}`,
 
-      [`input:checked ~ &`]: {
+      ['input:checked ~ &']: {
         backgroundColor: getThemeHoverStyle(validTheme.mainColor),
       },
     },
@@ -161,7 +161,7 @@ const StyledCheckMark = styled.span<LocalizeStyledProps, ILocalizeTheme>(({
       display: 'block',
     },
 
-    [`&::after`]: {
+    ['&::after']: {
       content: '""',
       position: 'absolute',
       display: 'none',

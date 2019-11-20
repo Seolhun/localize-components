@@ -33,7 +33,6 @@ const StyledHr = styled.hr<HrProps, ILocalizeTheme>(({
   }
 );
 
-// tslint:disable-next-line:variable-name
 export const Hr: FC<HrProps> = ({ className = '' }) => (
   <StyledHr className={classnames(DEFAULT_CLASSNAME, className)} />
 );

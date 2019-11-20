@@ -5,18 +5,18 @@ export enum DarkenThemeEnum {
   basic = '#d1d5da',
   black = '#2a2a2a',
   danger = '#E32929',
-  dark_grey = '#202021',
+  darkgrey = '#202021',
   grey = '#323334',
   primary = '#0069d9',
   purple = '#5f42ff',
-  royal_blue = '#4169FF',
+  royalblue = '#4169FF',
   success = '#28a745',
   warning = '#ebad1a',
 }
 
 export enum LightenThemeEnum {
   info = '#369cc7',
-  light_grey = '#cccc',
+  lightgrey = '#cccc',
   sky = '#87CEEB',
   white = '#fff',
   yellow = '#FFFF00',
@@ -38,7 +38,7 @@ export type LocalizeThemesType =
 export interface LocalizeThemeStyledProps {
   /**
    * Set this to change LocalizeThemeStyledProps mainColor
-   * @default LocalizeTheme.primaryColor = royal_blue
+   * @default LocalizeTheme.primaryColor = royalblue
    */
   mainColor?: LocalizeThemesType;
   /**

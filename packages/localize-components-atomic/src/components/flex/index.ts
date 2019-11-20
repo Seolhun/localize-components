@@ -1,1 +1,1 @@
-export * from './LocalizeFlex'
+export * from './LocalizeFlex';

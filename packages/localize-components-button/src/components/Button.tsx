@@ -106,7 +106,7 @@ const StyledButton = styled.button<ButtonProps, ILocalizeTheme>(
       },
 
       '&:disabled': {
-        backgroundColor: LocalizeThemes.light_grey,
+        backgroundColor: LocalizeThemes.lightgrey,
         color: LocalizeThemes.white,
         cursor: 'not-allowed',
       },
