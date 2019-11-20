@@ -14,9 +14,6 @@ export interface CardProps extends LocalizeBaseStyledProps{
 }
 
 const StyledCardWrapper = styled.div<CardProps, ILocalizeTheme>({
-  display: 'block',
-  minHeight: '80px',
-  height: 'auto',
   width: '100%',
 });
 
