@@ -68,7 +68,7 @@ export interface JumbotronProps extends LocalizeThemeStyledProps {
   css?: {};
 }
 
-const StyledJumbotron = styled.div<JumbotronProps, ILocalizeTheme>(({
+const StyledJumbotronWrapper = styled.div<JumbotronProps, ILocalizeTheme>(({
   theme,
   ...props
 }) => {
@@ -84,6 +84,9 @@ const StyledJumbotron = styled.div<JumbotronProps, ILocalizeTheme>(({
 );
 
 const StyledJumbotronContainer = styled.div<JumbotronProps>({
+  height: '100%',
+  padding: '35px',
+
   [`@media ${createMediaQueryCondition('XS')}`]: {
     padding: '3px',
   },
@@ -93,7 +96,6 @@ const StyledJumbotronContainer = styled.div<JumbotronProps>({
   [`@media ${createMediaQueryCondition('MD')}`]: {
     padding: '10px',
   },
-  padding: '35px',
 })
 
 export const Jumbotron: FunctionComponent<JumbotronProps> = ({
@@ -105,7 +107,7 @@ export const Jumbotron: FunctionComponent<JumbotronProps> = ({
   ...props
 }) => {
   return (
-    <StyledJumbotron
+    <StyledJumbotronWrapper
       {...props}
       className={classnames('__Localize__Jumbotron', className)}
       css={css}
@@ -115,7 +117,7 @@ export const Jumbotron: FunctionComponent<JumbotronProps> = ({
         {description && <h5>{description}</h5>}
         {children && children}
       </StyledJumbotronContainer>
-    </StyledJumbotron>
+    </StyledJumbotronWrapper>
   );
 };
 

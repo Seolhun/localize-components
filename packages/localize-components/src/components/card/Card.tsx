@@ -9,6 +9,7 @@ const DEFAULT_CLASSNAME = '__Localize__Card'
 
 export interface CardProps extends LocalizeBaseStyledProps{
   children: React.ReactNode;
+  borderRadius?: string;
   className?: string;
   css?: {},
 }
@@ -19,13 +20,14 @@ const StyledCardWrapper = styled.div<CardProps, ILocalizeTheme>({
 
 const StyledCardContainer = styled.div<CardProps, ILocalizeTheme>(({
   theme,
+  borderRadius
   ...props
 }) => {
   const { subColor } = getValidThemeObject(props, theme);
 
   return {
     padding: '15px 20px',
-    borderRadius: theme.border.radius || '4px',
+    borderRadius: borderRadius || theme.border.radius || '4px',
     boxShadow: theme.border.shadow,
     backgroundColor: subColor,
   }
