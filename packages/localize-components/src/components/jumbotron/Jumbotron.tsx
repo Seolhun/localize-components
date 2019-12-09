@@ -7,12 +7,13 @@ import {
   ILocalizeTheme,
 } from '@seolhun/localize-components-styled-types';
 import {
-  createMediaQueryCondition,
   getValidThemeObject,
   getThemeColorStyle,
 } from '@seolhun/localize-components-styled-utils';
 
 import classnames from 'classnames';
+
+const DEFAULT_CLASSNAME = '__Localize__Jumbotron'
 
 export interface JumbotronProps extends LocalizeThemeStyledProps {
   // isNotRequired
@@ -72,8 +73,7 @@ const StyledJumbotronWrapper = styled.div<JumbotronProps, ILocalizeTheme>(({
   theme,
   ...props
 }) => {
-  const validTheme = getValidThemeObject(props, theme);
-
+    const validTheme = getValidThemeObject(props, theme);
     return {
       backgroundColor: validTheme.mainColor,
       color: getThemeColorStyle(validTheme.mainColor),
@@ -85,17 +85,6 @@ const StyledJumbotronWrapper = styled.div<JumbotronProps, ILocalizeTheme>(({
 
 const StyledJumbotronContainer = styled.div<JumbotronProps>({
   height: '100%',
-  padding: '35px',
-
-  [`@media ${createMediaQueryCondition('XS')}`]: {
-    padding: '3px',
-  },
-  [`@media ${createMediaQueryCondition('SM')}`]: {
-    padding: '5px',
-  },
-  [`@media ${createMediaQueryCondition('MD')}`]: {
-    padding: '10px',
-  },
 })
 
 export const Jumbotron: FunctionComponent<JumbotronProps> = ({
@@ -109,10 +98,12 @@ export const Jumbotron: FunctionComponent<JumbotronProps> = ({
   return (
     <StyledJumbotronWrapper
       {...props}
-      className={classnames('__Localize__Jumbotron', className)}
+      className={classnames(DEFAULT_CLASSNAME, className)}
       css={css}
     >
-      <StyledJumbotronContainer>
+      <StyledJumbotronContainer
+        className={`${DEFAULT_CLASSNAME}__Container`}
+      >
         {title && <h1>{title}</h1>}
         {description && <h5>{description}</h5>}
         {children && children}
