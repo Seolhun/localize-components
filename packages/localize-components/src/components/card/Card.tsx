@@ -20,7 +20,7 @@ const StyledCardWrapper = styled.div<CardProps, ILocalizeTheme>({
 
 const StyledCardContainer = styled.div<CardProps, ILocalizeTheme>(({
   theme,
-  borderRadius
+  borderRadius,
   ...props
 }) => {
   const { subColor } = getValidThemeObject(props, theme);
