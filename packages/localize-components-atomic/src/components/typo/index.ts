@@ -1,1 +1,1 @@
-export * from './Typo';
+export * from './LocalizeTypo';
