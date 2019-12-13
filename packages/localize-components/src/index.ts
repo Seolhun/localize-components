@@ -10,6 +10,7 @@ export {
 } from '@seolhun/localize-components-styled-types';
 export * from '@seolhun/localize-components-hooks';
 
+export * from './components/box';
 export * from './components/card';
 export * from './components/carousel';
 export * from './components/jumbotron';
