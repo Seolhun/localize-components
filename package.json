@@ -28,7 +28,6 @@
     "clean": "lerna clean --yes",
     "bootstrap": "lerna bootstrap",
     "build": "yarn clean && yarn bootstrap && lerna exec yarn build",
-    "prepare": "yarn build",
     "release": "lerna publish",
     "prerelease": "lerna publish from-git",
     "release:patch": "lerna publish patch -y",
