@@ -1,3 +1,5 @@
+import 'core-js'
+
 // components
 export * from '@seolhun/localize-components-modal';
 export * from '@seolhun/localize-components-grid';
