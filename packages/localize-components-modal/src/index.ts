@@ -1,2 +1,3 @@
-export * from './components';
+import 'core-js'
 
+export * from './components';

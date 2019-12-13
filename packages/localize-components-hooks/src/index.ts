@@ -1,2 +1,3 @@
-export * from './hooks/useDisclosure';
+import 'core-js'
 
+export * from './hooks/useDisclosure';

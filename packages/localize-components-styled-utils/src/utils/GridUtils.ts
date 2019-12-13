@@ -93,3 +93,13 @@ export const getMediaQueryStyles = (
     },
   };
 };
+
+export const getLocalizeMediaQueryKey = () => {
+  return {
+    XL: `@media ${createMediaQueryCondition('XL')}`,
+    LG: `@media ${createMediaQueryCondition('LG')}`,
+    MD: `@media ${createMediaQueryCondition('MD')}`,
+    SM: `@media ${createMediaQueryCondition('SM')}`,
+    XS: `@media ${createMediaQueryCondition('XS')}`,
+  }
+}

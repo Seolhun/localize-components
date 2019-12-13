@@ -9,7 +9,7 @@ import { Playground, Props } from 'docz';
 import {
   LocalizeThemeProvider,
   useDisclosure,
-  Card,
+  LocalizeCard,
 } from '@seolhun/localize-components';
 import { LocalizeIcon } from '@seolhun/localize-components-atomic';
 
@@ -21,9 +21,9 @@ import LocalizeIconPropsTable from './LocalizeIconPropsTable';
 
 <Playground>
   <LocalizeThemeProvider>
-    <Card>
+    <LocalizeCard>
       <LocalizeIcon icon='user' />
-    </Card>
+    </LocalizeCard>
   </LocalizeThemeProvider>
 </Playground>
 
@@ -33,12 +33,12 @@ Default `svg` type
 
 <Playground>
   <LocalizeThemeProvider>
-    <Card>
+    <LocalizeCard>
       <LocalizeIcon icon='user' iconType='png' />
       <LocalizeIcon icon='badge' iconType='png' />
       <LocalizeIcon icon='info' iconType='png' />
       <LocalizeIcon icon='check' iconType='png' />
-    </Card>
+    </LocalizeCard>
   </LocalizeThemeProvider>
 </Playground>
 
@@ -48,12 +48,12 @@ Only available on svg
 
 <Playground>
   <LocalizeThemeProvider>
-    <Card>
+    <LocalizeCard>
       <LocalizeIcon icon='user' iconType='svg' mainColor='red' />
       <LocalizeIcon icon='badge' iconType='svg' mainColor='royalBlue' />
       <LocalizeIcon icon='info' iconType='png' />
       <LocalizeIcon icon='check' iconType='png' />
-    </Card>
+    </LocalizeCard>
   </LocalizeThemeProvider>
 </Playground>
 
@@ -61,7 +61,7 @@ Only available on svg
 
 <Playground>
   <LocalizeThemeProvider>
-    <Card>
+    <LocalizeCard>
       <LocalizeIcon
         icon='user'
         width={'1rem'}
@@ -82,7 +82,7 @@ Only available on svg
         width={'7rem'}
         height={'7rem'}
       />
-    </Card>
+    </LocalizeCard>
   </LocalizeThemeProvider>
 </Playground>
 

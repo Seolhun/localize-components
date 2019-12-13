@@ -1,35 +1,35 @@
 import React from 'react';
 
-import { Card } from '@seolhun/localize-components';
+import { LocalizeCard } from '@seolhun/localize-components';
 import { Container, Row, Col } from '@seolhun/localize-components';
 
-const CardView = () => {
+const LocalizeCardView = () => {
   return (
     <Container>
       <Row>
         <Col xs={24}>
-          <Card>
+          <LocalizeCard>
             Hello
-          </Card>
+          </LocalizeCard>
         </Col>
         <Col xs={12}>
-          <Card>
+          <LocalizeCard>
             Hello
-          </Card>
+          </LocalizeCard>
         </Col>
         <Col xs={12}>
-        <Card>
+        <LocalizeCard>
             Hello
-          </Card>
+          </LocalizeCard>
         </Col>
         <Col xs={24}>
-          <Card>
+          <LocalizeCard>
             Hello
-          </Card>
+          </LocalizeCard>
         </Col>
       </Row>
     </Container>
   );
 };
 
-export default CardView;
+export default LocalizeCardView;

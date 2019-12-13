@@ -5,7 +5,7 @@ import RadioView from '../views/RadioView';
 import GridView from '../views/GridView';
 import JumbotronView from '../views/JumbotronView';
 import ModalView from '../views/ModalView';
-import CardView from '../views/CardView';
+import LocalizeCardView from '../views/LocalizeCardView';
 import FigureView from '../views/FigureView';
 
 const routerCreator = ({ type, path, label, exact = true, component }) => {
@@ -55,8 +55,8 @@ const routers = [
   routerCreator({
     type: 1,
     path: '/card',
-    label: 'Card',
-    component: CardView,
+    label: 'LocalizeCardView',
+    component: LocalizeCardView,
   }),
   routerCreator({
     type: 1,

@@ -5,6 +5,7 @@ import { HashRouter } from 'react-router-dom';
 import { ThemeProvider } from 'emotion-theming';
 import { LocalizeTheme } from '@seolhun/localize-components-styled-types';
 import { Container } from '@seolhun/localize-components';
+import 'core-js'
 
 import MenuView from './views/MenuView';
 import Routes from './routes';
