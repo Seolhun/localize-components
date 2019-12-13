@@ -31,7 +31,7 @@
     "release": "lerna publish",
     "prerelease": "lerna publish from-git",
     "release:patch": "lerna publish patch -y",
-    "lint": "eslint '**/*.{ts,tsx}'",
+    "lint": "eslint '**/*.{ts,tsx,js,jsx}'",
     "lint:fix": "eslint --fix '**/*.{ts,tsx,js,jsx}'",
     "prettier": "prettier --write '**/*.{ts,tsx,js,jsx}'",
     "fix": "yarn prettier && yarn lint:fix",
