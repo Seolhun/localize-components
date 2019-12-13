@@ -2159,6 +2159,16 @@
     react-lifecycles-compat "^3.0.4"
     warning "^3.0.0"
 
+"@seolhun/localize-components-hooks@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/@seolhun/localize-components-hooks/-/localize-components-hooks-0.0.9.tgz#4caee52b5ab6d6660d12b9c47f81b3b1fb2e2e9a"
+  integrity sha512-hIYnJdQW0zswdLpknGkMIi727yDPWPEyrNacQ5uef78h6ibiNAgA8DdCbN+MRKBOUsGbdQmCzHjcpUMznvuHTQ==
+  dependencies:
+    "@seolhun/localize-components-styled-types" "^0.1.11"
+    classnames "^2.2.6"
+    lodash "^4.17.11"
+    react "^16.8.6"
+
 "@sindresorhus/slugify@^0.9.1":
   version "0.9.1"
   resolved "https://registry.yarnpkg.com/@sindresorhus/slugify/-/slugify-0.9.1.tgz#892ad24d70b442c0a14fe519cb4019d59bc5069f"
