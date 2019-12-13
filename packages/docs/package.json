@@ -22,8 +22,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.6",
-    "@emotion/styled": "^10.0.6",
+    "@emotion/core": "^10.0.22",
+    "@emotion/styled": "^10.0.23",
     "@seolhun/localize-components": "^0.1.13",
     "@seolhun/localize-components-atomic": "^0.1.14",
     "@seolhun/localize-components-styled-types": "^0.1.11",
