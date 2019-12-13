@@ -45,6 +45,7 @@ const StyledBoxWrapper = styled.div<LocalizeBoxProps, ILocalizeTheme>(({
       color: getThemeColorStyle(validTheme.mainColor),
       height: 'auto',
       width: '100%',
+      borderRadius: theme.border.radius,
     };
   }
 );

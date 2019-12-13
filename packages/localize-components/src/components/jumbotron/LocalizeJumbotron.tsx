@@ -57,6 +57,7 @@ const StyledJumbotronWrapper = styled.div<LocalizeJumbotronProps, ILocalizeTheme
       color: getThemeColorStyle(validTheme.mainColor),
       height: 'auto',
       width: '100%',
+      borderRadius: theme.border.radius,
     };
   }
 );
