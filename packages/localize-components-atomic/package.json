@@ -28,7 +28,7 @@
     "@emotion/styled": "^10.0.23",
     "@seolhun/localize-components-button": "^0.1.12",
     "@seolhun/localize-components-form": "^0.1.12",
-    "@seolhun/localize-components-icons": "^0.0.1",
+    "@seolhun/localize-components-icons": "^0.0.2",
     "@seolhun/localize-components-styled-types": "^0.1.11",
     "@seolhun/localize-components-styled-utils": "^0.1.11",
     "@seolhun/localize-components-types": "^0.1.6",
