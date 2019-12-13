@@ -7,7 +7,7 @@
   },
   "name": "@seolhun/localize-components-atomic",
   "description": "Localizing React components is rendered by stand-alone not affect other styles.",
-  "version": "0.1.15",
+  "version": "0.1.16-alpha.0",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "files": [
@@ -26,9 +26,9 @@
   "dependencies": {
     "@emotion/core": "^10.0.22",
     "@emotion/styled": "^10.0.23",
-    "@seolhun/localize-components-button": "^0.1.13",
-    "@seolhun/localize-components-form": "^0.1.13",
-    "@seolhun/localize-components-icons": "^0.0.2",
+    "@seolhun/localize-components-button": "^0.1.14-alpha.0",
+    "@seolhun/localize-components-form": "^0.1.14-alpha.0",
+    "@seolhun/localize-components-icons": "^0.0.3-alpha.0",
     "@seolhun/localize-components-styled-types": "^0.1.12",
     "@seolhun/localize-components-styled-utils": "^0.1.12",
     "@seolhun/localize-components-types": "^0.1.7",
