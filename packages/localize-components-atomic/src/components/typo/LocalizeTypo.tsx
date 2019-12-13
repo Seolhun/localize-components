@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import { LocalizeBaseStyledProps, ILocalizeTheme } from '@seolhun/localize-components-styled-types';
 import { getValidThemeObject } from '@seolhun/localize-components-styled-utils';
 
-type TypoType = 'h1'
+type LocalizeTypoType = 'h1'
   | 'h2'
   | 'h3'
   | 'h4'
@@ -15,25 +15,25 @@ type TypoType = 'h1'
   | 'medium'
   | 'small';
 
-interface TypoProps extends LocalizeBaseStyledProps {
-  type: TypoType;
+interface LocalizeTypoProps extends LocalizeBaseStyledProps {
+  type: LocalizeTypoType;
   children: ReactNode;
   weight?: number;
   isHighlight?: boolean;
 }
 
-const getStyleTypo = (type: TypoType) => {
-  const defaultTypoStyle = {
+const getStyleLocalizeTypo = (type: LocalizeTypoType) => {
+  const defaultLocalizeTypoStyle = {
     margin: 0,
     padding: 0,
   }
 
   if (type === 'big' || type === 'medium' || type === 'small') {
-    return styled.span<TypoProps, ILocalizeTheme>(({ theme, weight, ...props }) => {
+    return styled.span<LocalizeTypoProps, ILocalizeTheme>(({ theme, weight, ...props }) => {
       const { secondaryFontColor } = getValidThemeObject(props, theme);
       theme.fonts.size
       return {
-        ...defaultTypoStyle,
+        ...defaultLocalizeTypoStyle,
         fontWeight: weight,
         fontSize: theme.fonts.size[type],
         color: secondaryFontColor,
@@ -41,10 +41,10 @@ const getStyleTypo = (type: TypoType) => {
     });
   }
 
-  return styled[type]<TypoProps, ILocalizeTheme>(({ theme, weight, isHighlight, ...props }) => {
+  return styled[type]<LocalizeTypoProps, ILocalizeTheme>(({ theme, weight, isHighlight, ...props }) => {
     const { highlightedFontColor, primaryFontColor } = getValidThemeObject(props, theme);
     return {
-      ...defaultTypoStyle,
+      ...defaultLocalizeTypoStyle,
       fontWeight: weight,
       fontSize: theme.fonts.size[type],
       color: isHighlight ? highlightedFontColor : primaryFontColor,
@@ -52,7 +52,7 @@ const getStyleTypo = (type: TypoType) => {
   });
 }
 
-const Typo: FC<TypoProps> = ({
+const LocalizeTypo: FC<LocalizeTypoProps> = ({
   type,
   children,
   weight = 400,
@@ -60,7 +60,7 @@ const Typo: FC<TypoProps> = ({
   ...props
 }) => {
 
-  const StyledType = getStyleTypo(type);
+  const StyledType = getStyleLocalizeTypo(type);
   return (
     <StyledType type={type} weight={weight} css={css} {...props}>
       {children}
@@ -69,8 +69,8 @@ const Typo: FC<TypoProps> = ({
 }
 
 export {
-  TypoProps,
-  Typo,
+  LocalizeTypoProps,
+  LocalizeTypo,
 }
 
-export default Typo;
+export default LocalizeTypo;

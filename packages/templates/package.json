@@ -7,7 +7,7 @@
   },
   "name": "@seolhun/templates",
   "description": "Localizing React components templates to create easily",
-  "version": "0.0.2-alpha.0",
+  "version": "0.0.3-alpha.0",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "files": [
@@ -24,16 +24,17 @@
     "test": "jest"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.6",
-    "@emotion/styled": "^10.0.6",
-    "@seolhun/localize-components-styled-types": "^0.1.12-alpha.0",
-    "@seolhun/localize-components-styled-utils": "^0.1.12-alpha.0",
-    "@seolhun/localize-components-types": "^0.1.7-alpha.0",
+    "@emotion/core": "^10.0.22",
+    "@emotion/styled": "^10.0.23",
+    "@seolhun/localize-components-styled-types": "^0.1.12",
+    "@seolhun/localize-components-styled-utils": "^0.1.12",
+    "@seolhun/localize-components-types": "^0.1.7",
     "classnames": "^2.2.6",
-    "lodash": "^4.17.11",
-    "polished": "^3.1.0",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "core-js": "^3.5.0",
+    "lodash": "^4.17.15",
+    "polished": "^3.4.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
@@ -46,7 +47,6 @@
     "@babel/plugin-transform-literals": "^7.2.0",
     "@babel/plugin-transform-react-constant-elements": "^7.2.0",
     "@babel/plugin-transform-spread": "^7.2.2",
-    "@babel/polyfill": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
     "@gfx/zopfli": "^1.0.9",
     "@types/react": "^16.9.1",

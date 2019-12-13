@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom';
 
 import { routers } from '../routes';
 
-import { Jumbotron } from '@seolhun/localize-components';
+import { LocalizeJumbotron } from '@seolhun/localize-components';
 import { Button } from '@seolhun/localize-components-atomic';
 
 const MenuView = () => {
   return (
-    <Jumbotron
+    <LocalizeJumbotron
       title='Hello, Localize-Components'
       description='Localize-Components is made for localized style without side-effect'
       mainColor='primary'
@@ -39,7 +39,7 @@ const MenuView = () => {
             );
           })}
       </div>
-    </Jumbotron>
+    </LocalizeJumbotron>
   );
 };
 

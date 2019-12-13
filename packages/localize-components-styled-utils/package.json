@@ -7,7 +7,7 @@
   },
   "name": "@seolhun/localize-components-styled-utils",
   "description": "Localizing React components is rendered by stand-alone not affect other styles.",
-  "version": "0.1.12-alpha.0",
+  "version": "0.1.12",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "files": [
@@ -24,11 +24,12 @@
     "test": "jest"
   },
   "dependencies": {
-    "@seolhun/localize-components-styled-types": "^0.1.12-alpha.0",
+    "@seolhun/localize-components-styled-types": "^0.1.12",
     "classnames": "^2.2.6",
-    "lodash": "^4.17.11",
-    "polished": "^3.4.1",
-    "react": "^16.8.6"
+    "core-js": "^3.5.0",
+    "lodash": "^4.17.15",
+    "polished": "^3.4.2",
+    "react": "^16.12.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
@@ -41,7 +42,6 @@
     "@babel/plugin-transform-literals": "^7.2.0",
     "@babel/plugin-transform-react-constant-elements": "^7.2.0",
     "@babel/plugin-transform-spread": "^7.2.2",
-    "@babel/polyfill": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
     "@gfx/zopfli": "^1.0.9",
     "@types/react": "^16.9.1",

@@ -30,11 +30,12 @@ jobs:
 
       - save_cache:
           key: node-dependencies-{{ checksum "package.json" }}
-          keys:
-            - node-dependencies-{{ checksum "package.json" }}
-            - node-dependencies-
           paths:
             - node_modules
+
+      - run:
+          name: "Buuild packages"
+          command: yarn build
 
       # - run:
       #     name: "Publish packages into npm"

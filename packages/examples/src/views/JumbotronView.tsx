@@ -1,21 +1,21 @@
 import React from 'react';
 
-import { Jumbotron } from '@seolhun/localize-components';
+import { LocalizeJumbotron } from '@seolhun/localize-components';
 
 const JumbotronView = () => {
   return (
     <section>
-      <Jumbotron
+      <LocalizeJumbotron
         title='Hello, Jumbotron'
         description='Localize-Components is made for localized style without side-effect'
         mainColor='success'
       />
-      <Jumbotron
+      <LocalizeJumbotron
         title='Hello, Localize-Components'
         description='Localize-Components is made for localized style without side-effect'
         mainColor='royalblue'
       />
-      <Jumbotron
+      <LocalizeJumbotron
         title='Hello, Styled Components'
         description='Localize-Components is made for localized style without side-effect'
         mainColor='warning'

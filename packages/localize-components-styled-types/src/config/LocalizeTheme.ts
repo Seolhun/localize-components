@@ -62,7 +62,7 @@ export const LocalizeTheme: ILocalizeTheme = {
   background: 'white',
   border: {
     color: `${LocalizeThemes.grey}`,
-    radius: '4px',
+    radius: '6px',
     shadow: `0px 2px 1px -1px ${LocalizeThemes.lightgrey}, 0px 1px 1px 0px ${LocalizeThemes.lightgrey}, 0px 1px 3px 0px ${LocalizeThemes.lightgrey}`,
   },
   grid: {
