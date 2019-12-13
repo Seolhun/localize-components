@@ -7,7 +7,7 @@
   },
   "name": "@seolhun/localize-components-docs",
   "description": "All about Localizing React components docs",
-  "version": "0.1.16-alpha.0",
+  "version": "0.1.16",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "files": [

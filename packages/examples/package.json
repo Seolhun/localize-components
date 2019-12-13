@@ -7,7 +7,7 @@
   },
   "name": "@seolhun/localize-components-examples",
   "description": "All about Localizing React components examples",
-  "version": "0.1.15-alpha.0",
+  "version": "0.1.15",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "files": [
