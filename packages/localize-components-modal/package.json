@@ -7,7 +7,7 @@
   },
   "name": "@seolhun/localize-components-modal",
   "description": "Localizing React components is rendered by stand-alone not affect other styles.",
-  "version": "0.1.11",
+  "version": "0.1.12-alpha.0",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "files": [

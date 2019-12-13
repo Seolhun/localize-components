@@ -7,7 +7,7 @@
   },
   "name": "@seolhun/localize-components-atomic",
   "description": "Localizing React components is rendered by stand-alone not affect other styles.",
-  "version": "0.1.14",
+  "version": "0.1.15-alpha.0",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "files": [

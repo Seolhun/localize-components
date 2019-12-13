@@ -7,7 +7,7 @@
   },
   "name": "@seolhun/localize-components-dropdown",
   "description": "Localizing React dropdown components",
-  "version": "0.1.11",
+  "version": "0.1.12-alpha.0",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "files": [
