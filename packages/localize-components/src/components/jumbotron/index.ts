@@ -1,1 +1,1 @@
-export * from './Jumbotron';
+export * from './LocalizeJumbotron';

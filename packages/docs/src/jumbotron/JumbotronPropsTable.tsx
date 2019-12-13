@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
 
-import { JumbotronProps } from '@seolhun/localize-components';
+import { LocalizeJumbotronProps } from '@seolhun/localize-components';
 
-const JumbotronPropsTable: FunctionComponent<JumbotronProps> = () => {
+const JumbotronPropsTable: FunctionComponent<LocalizeJumbotronProps> = () => {
   return <div />;
 };
 

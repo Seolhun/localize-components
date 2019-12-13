@@ -1,4 +1,4 @@
-import React, { ReactNode, FunctionComponent } from 'react';
+import React from 'react';
 
 import styled from '@emotion/styled';
 
@@ -15,53 +15,31 @@ import classnames from 'classnames';
 
 const DEFAULT_CLASSNAME = '__Localize__Jumbotron'
 
-export interface JumbotronProps extends LocalizeThemeStyledProps {
-  // isNotRequired
+export interface LocalizeJumbotronProps extends LocalizeThemeStyledProps, React.HTMLAttributes<HTMLDivElement> {
   /**
    * Set this to change Jumbotron rendering children node
    * @default null
    */
-  children?: ReactNode;
+  children?: React.ReactNode;
+
   /**
    * Set this to change Jumbotron className
    * @default undefined
    */
   className?: string;
+
   /**
    * Set this to change Jumbotron description
    * @default ''
    */
   description?: string;
-  /**
-   * Set this to change Jumbotron onBlur
-   * @default 'main'
-   */
-  onBlur?: (...args: any[]) => void;
-  /**
-   * Set this to change Jumbotron onClick
-   * @default () => null
-   */
-  onClick?: (...args: any[]) => void;
-  /**
-   * Set this to change Jumbotron onFocus
-   * @default () => null
-   */
-  onFocus?: (...args: any[]) => void;
-  /**
-   * Set this to change Jumbotron onMouseOut
-   * @default () => null
-   */
-  onMouseOut?: (...args: any[]) => void;
-  /**
-   * Set this to change Jumbotron onMouseOver
-   * @default () => null
-   */
-  onMouseOver?: (...args: any[]) => void;
+
   /**
    * Set this to change Jumbotron title
    * @default ''
    */
   title?: string;
+
   /**
    * Set this to change Jumbotron css
    * @default {}
@@ -69,7 +47,7 @@ export interface JumbotronProps extends LocalizeThemeStyledProps {
   css?: {};
 }
 
-const StyledJumbotronWrapper = styled.div<JumbotronProps, ILocalizeTheme>(({
+const StyledJumbotronWrapper = styled.div<LocalizeJumbotronProps, ILocalizeTheme>(({
   theme,
   ...props
 }) => {
@@ -83,11 +61,12 @@ const StyledJumbotronWrapper = styled.div<JumbotronProps, ILocalizeTheme>(({
   }
 );
 
-const StyledJumbotronContainer = styled.div<JumbotronProps>({
+const StyledJumbotronContainer = styled.div<LocalizeJumbotronProps>({
   height: '100%',
+  width: '100%',
 })
 
-export const Jumbotron: FunctionComponent<JumbotronProps> = ({
+export const LocalizeJumbotron: React.FC<LocalizeJumbotronProps> = ({
   children,
   className,
   description,
@@ -101,9 +80,7 @@ export const Jumbotron: FunctionComponent<JumbotronProps> = ({
       className={classnames(DEFAULT_CLASSNAME, className)}
       css={css}
     >
-      <StyledJumbotronContainer
-        className={`${DEFAULT_CLASSNAME}__Container`}
-      >
+      <StyledJumbotronContainer className={`${DEFAULT_CLASSNAME}__Container`}>
         {title && <h1>{title}</h1>}
         {description && <h5>{description}</h5>}
         {children && children}
@@ -112,4 +89,4 @@ export const Jumbotron: FunctionComponent<JumbotronProps> = ({
   );
 };
 
-export default Jumbotron;
+export default LocalizeJumbotron;
