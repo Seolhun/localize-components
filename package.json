@@ -26,6 +26,7 @@
   "scripts": {
     "link": "lerna link",
     "clean": "lerna clean --yes",
+    "clear": "lerna clean --yes && lerna exec yarn clear",
     "bootstrap": "lerna bootstrap",
     "build": "yarn clean && yarn bootstrap && lerna exec yarn build",
     "release": "lerna publish",

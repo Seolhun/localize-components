@@ -18,17 +18,18 @@
   "scripts": {
     "dev": "docz dev",
     "build": "docz build",
+    "clear": "echo Has no clear scripts",
     "prebuild": "rm -rf dist",
     "test": "jest"
   },
   "dependencies": {
     "@emotion/core": "^10.0.22",
     "@emotion/styled": "^10.0.23",
-    "@seolhun/localize-components": "^0.1.13",
-    "@seolhun/localize-components-atomic": "^0.1.14",
-    "@seolhun/localize-components-styled-types": "^0.1.11",
-    "@seolhun/localize-components-styled-utils": "^0.1.11",
-    "@seolhun/localize-components-types": "^0.1.6",
+    "@seolhun/localize-components": "^0.1.14",
+    "@seolhun/localize-components-atomic": "^0.1.15",
+    "@seolhun/localize-components-styled-types": "^0.1.12",
+    "@seolhun/localize-components-styled-utils": "^0.1.12",
+    "@seolhun/localize-components-types": "^0.1.7",
     "classnames": "^2.2.6",
     "core-js": "^3.5.0",
     "polished": "^3.4.2",
