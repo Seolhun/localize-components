@@ -1,15 +1,14 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "ESNext",
+    "module": "es6",
     "moduleResolution": "node",
     "lib": [
       "dom",
       "es5",
       "es6",
       "es7",
-      "es2018",
-      "ESNext"
+      "es2018"
     ],
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
@@ -46,6 +45,7 @@
     /* Stylize errors and messages using color and context. */
     "pretty": true,
 
+    // Mine
     "declaration": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,

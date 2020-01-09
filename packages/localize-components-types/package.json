@@ -21,18 +21,13 @@
     "prebuild": "rm -rf dist",
     "clear": "rm -rf dist && rm -rf .rpt2_cache",
     "bundle": "rollup -c",
-    "bundle:local": "tsc && yarn style && yarn style:local",
-    "style": "sass --update src:dist --style compressed",
-    "style:watch": "sass --watch src:dist --style compressed",
-    "style:local": "sass --update src:src --style compressed",
-    "style:clean": "find ./src -name *.css* -type f -delete",
     "test": "jest"
   },
   "dependencies": {
     "classnames": "^2.2.6",
     "core-js": "^3.5.0",
     "lodash": "^4.17.15",
-    "react": "^16.12.0"
+    "react": "^16.8.6"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",

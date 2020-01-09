@@ -17,12 +17,10 @@
     "README.md"
   ],
   "scripts": {
-    "just": "rollup -c",
     "build": "rollup -c",
     "prebuild": "rm -rf dist",
     "clear": "rm -rf dist && rm -rf .rpt2_cache",
-    "bundle": "node build/build.js",
-    "prebundle": "rm -rf dist",
+    "bundle": "rollup -c",
     "test": "jest"
   },
   "dependencies": {
@@ -41,8 +39,8 @@
     "emotion-theming": "^10.0.27",
     "lodash": "^4.17.15",
     "polished": "^3.4.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",

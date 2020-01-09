@@ -5,23 +5,22 @@ language: node_js
 node_js:
   - "10"
 
-services:
-  - docker
-
 before_install:
   - npm run bootstrap
 
+cache:
+  npm: true
+  directories:
+    - "node_modules"
+
 jobs:
   include:
-    #############################
-    # Test
-    #############################
     - stage: Tests
-      script: yarn test
+      script: npm run test
 
+    - stage: Builds
+      script: npm run build
 
-    # #############################
-    # # Kubernetes Applying with EKS
-    # #############################
-    # - stage: EKS Applying
+    - stage: Deploys
+      script: ./bin/surge-deploy.sh
 

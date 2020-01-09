@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React from 'react';
 
 import styled from '@emotion/styled';
 import classnames from 'classnames';
@@ -21,7 +21,7 @@ export interface ButtonProps extends LocalizeStyledProps {
    * Set this to change Button rendering children node
    * @default null
    */
-  children: ReactNode;
+  children: React.ReactNode;
 
   // isNotRequired
   /**
@@ -114,17 +114,15 @@ const StyledButton = styled.button<ButtonProps, ILocalizeTheme>(
   }
 );
 
-export const Button: FunctionComponent<ButtonProps> = ({
+export const Button: React.FC<ButtonProps> = ({
   children,
   className,
-  css = {},
   ...props
 }) => (
   <StyledButton
     {...props}
     className={classnames('__Localize__Button', className)}
     type='button'
-    css={css}
   >
     {children}
   </StyledButton>
