@@ -1,2 +1,1 @@
-export * from './components/icon';
-export * from './components/image';
+export * from './components';
