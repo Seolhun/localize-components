@@ -1,0 +1,27 @@
+sudo: required
+
+language: node_js
+
+node_js:
+  - "10"
+
+services:
+  - docker
+
+before_install:
+  - npm run bootstrap
+
+jobs:
+  include:
+    #############################
+    # Test
+    #############################
+    - stage: Tests
+      script: yarn test
+
+
+    # #############################
+    # # Kubernetes Applying with EKS
+    # #############################
+    # - stage: EKS Applying
+
