@@ -1,24 +1,15 @@
-/**
- * @author [Seolhun](https://github.com/Seolhun)
- * @email [shun10114@gamil.com]
- */
+import React from "react";
 
-import React from 'react';
+import { render } from "@testing-library/react";
 
-import * as Enzyme from 'enzyme';
-import setEnzymeConfiguration from '../_config_';
+function Button() {
+  return <button className="btn-success">btn-success</button>;
+}
 
-// import Button from '../../components/button';
+describe("Button Test", () => {
+  const button = render(<Button />);
 
-setEnzymeConfiguration(Enzyme);
-describe('Button Test', () => {
-  const navbar = Enzyme.shallow(
-    <button className='btn-success' onClick={() => null}>
-      btn-success
-    </button>
-  );
-
-  test('Button contains text', () => {
-    expect(navbar.contains('btn-success')).toEqual(true);
+  test("Button contains text", () => {
+    expect(button.getByText("btn-success"));
   });
 });
