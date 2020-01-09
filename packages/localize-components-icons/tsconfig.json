@@ -4,10 +4,7 @@
     "module": "esnext",
     "declaration": true,
     "outDir": "dist",
-    "rootDir": "src",
-    "types": [
-      "node"
-    ],
+    "rootDir": "src"
     "typeRoots": [
       "node_modules/@types",
       "src/types"
@@ -18,8 +15,5 @@
     "node_modules/**",
     "src/__test__/**",
     "src/**/*.test.ts"
-  ],
-  "typeAcquisition": {
-    "enable": true
-  }
+  ]
 }

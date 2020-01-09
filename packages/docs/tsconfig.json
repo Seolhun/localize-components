@@ -3,7 +3,7 @@
   "compilerOptions": {
     "declaration": false,
     "outDir": "dist",
-    "rootDir": "src",
+    "rootDir": "src"
     "types": ["node"],
   },
   "exclude": [
@@ -11,8 +11,5 @@
     "node_modules/**",
     "./src/__test__/**",
     "./src/**/*.test.ts"
-  ],
-  "typeAcquisition": {
-    "enable": true
-  }
+  ]
 }
