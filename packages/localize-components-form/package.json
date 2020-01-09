@@ -7,7 +7,7 @@
   },
   "name": "@seolhun/localize-components-form",
   "description": "Localizing React components is rendered by stand-alone not affect other styles.",
-  "version": "0.1.14-alpha.0",
+  "version": "0.5.1",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "files": [
@@ -26,9 +26,9 @@
   "dependencies": {
     "@emotion/core": "^10.0.22",
     "@emotion/styled": "^10.0.23",
-    "@seolhun/localize-components-styled-types": "^0.1.12",
-    "@seolhun/localize-components-styled-utils": "^0.1.12",
-    "@seolhun/localize-components-types": "^0.1.7",
+    "@seolhun/localize-components-styled-types": "^0.5.1",
+    "@seolhun/localize-components-styled-utils": "^0.5.1",
+    "@seolhun/localize-components-types": "^0.5.1",
     "classnames": "^2.2.6",
     "core-js": "^3.5.0",
     "lodash": "^4.17.15",
