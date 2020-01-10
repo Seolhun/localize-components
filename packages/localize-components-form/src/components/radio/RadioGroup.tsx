@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React from 'react';
 
 import classnames from 'classnames';
 import styled from '@emotion/styled';
@@ -9,46 +9,49 @@ import {
 
 const DEFAULT_CLASSNAME = '__Localize__RadioGroup';
 
-export interface RadioItemProps {
-  [key: string]: any;
-}
-
 export type RadioGroupAlignType = 'vertical' | 'horizontal';
 
 export interface RadioGroupProps extends LocalizeBaseStyledProps {
   /**
    * Set this to change Radio Group children
    */
-  children: (props: RadioGroupProps) => ReactNode;
+  children: (props: RadioGroupProps) => React.ReactNode;
+
   /**
    * Set this to change Radio Group name
    */
   groupName?: string;
+
   /**
    * Set this to change Radio Group labelKey
    * @default 'label'
    */
   labelKey?: string;
+
   /**
    * Set this to change Radio Group valueKey
    * @default 'value'
    */
   valueKey?: string;
+
   /**
    * Set this to change Radio Group useValueKey
    * @default false
    */
   useValueKey?: boolean;
+
   /**
    * Set this to change Radio Group align
    * @default 'vertical'
    */
   align?: RadioGroupAlignType;
+
   /**
    * Set this to change Radio Group gap
    * @default '10px'
    */
   gap?: string;
+
   /**
    * Set this to change Radio Group onClick
    * @default () => any;
@@ -56,7 +59,7 @@ export interface RadioGroupProps extends LocalizeBaseStyledProps {
   onClick?: (...args: any[]) => any;
 }
 
-interface RadioGroupContainerProps {
+export interface RadioGroupContainerProps {
   align: RadioGroupAlignType;
   gap: string;
 }
@@ -83,7 +86,7 @@ export const RadioGroupContainer = styled.div<RadioGroupContainerProps>(({
   }
 })
 
-export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
+export const RadioGroup: React.FC<RadioGroupProps> = ({
   children,
   groupName,
   className,
@@ -116,5 +119,3 @@ export const RadioGroup: FunctionComponent<RadioGroupProps> = ({
     </RadioGroupContainer>
   );
 };
-
-export default RadioGroup;

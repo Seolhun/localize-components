@@ -1,4 +1,4 @@
-import React, { FC, useMemo } from 'react';
+import React from 'react';
 
 import styled from '@emotion/styled';
 import {
@@ -99,14 +99,14 @@ const StyledIcon = styled.div<LocalizeIconProps, ILocalizeTheme>(({
   }
 });
 
-export const LocalizeIcon: FC<LocalizeIconProps> = ({
+export const LocalizeIcon: React.FC<LocalizeIconProps> = ({
   icon,
   width = '1.5rem',
   height = '1.5rem',
   iconType = 'svg',
   ...props
 }) => {
-  const memoizedIconFile = useMemo(() => {
+  const memoizedIconFile = React.useMemo(() => {
     const iconFile = require(`./icons/${icon}.${iconType}`)
     return iconFile;
   }, [icon, iconType])

@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 import styled from '@emotion/styled';
 
@@ -94,7 +94,7 @@ const StyledImage = styled.img<LocalizeImageProps>(({
   }
 });
 
-export const LocalizeImage: FC<LocalizeImageProps> = ({
+export const LocalizeImage: React.FC<LocalizeImageProps> = ({
   width = '2rem',
   height = '2rem',
   ...props
