@@ -12,11 +12,6 @@ export default {
 
   external: [
     ...externals,
-    'path',
-    'fs',
-    'resolve',
-    'rollup-pluginutils',
-    'typescript',
   ],
   plugins: [
     resolve({
