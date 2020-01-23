@@ -6,8 +6,8 @@ node_js:
   - "10"
 
 before_install:
-  - npm install
-  - npm run bootstrap
+  - yarn install
+  - yarn bootstrap
 
 cache:
   npm: true
@@ -17,10 +17,10 @@ cache:
 jobs:
   include:
     - stage: Tests
-      script: npm run test
+      script: yarn test
 
     - stage: Builds
-      script: npm run build
+      script: yarn build
 
     - stage: Deploys
       script: ./bin/surge-deploy.sh
