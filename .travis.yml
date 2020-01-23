@@ -21,6 +21,5 @@ jobs:
 
     - stage: Builds
       script: yarn build
-
-    - stage: Deploys
-      script: ./bin/surge-deploy.sh
+      after_success:
+        - ./bin/surge-deploy.sh
