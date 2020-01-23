@@ -28,7 +28,6 @@
 - [ ] @seolhun/localize-components-atomic
 
 #### Mono Components
-- [ ] @seolhun/localize-components-button
 - [ ] @seolhun/localize-components-form
 - [ ] @seolhun/localize-components-grid
 - [ ] @seolhun/localize-components-icons

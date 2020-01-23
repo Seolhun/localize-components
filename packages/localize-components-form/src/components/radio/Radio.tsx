@@ -253,5 +253,3 @@ export const Radio: FC<RadioProps> = ({
     </StyledRadioLabel>
   );
 };
-
-export default Radio;

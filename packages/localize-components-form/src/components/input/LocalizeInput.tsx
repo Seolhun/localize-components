@@ -1,4 +1,4 @@
-import React, { PureComponent, ReactNode } from 'react';
+import React from 'react';
 
 import styled from '@emotion/styled';
 import classnames from 'classnames';
@@ -61,7 +61,7 @@ export interface LocalizeInputProps extends React.InputHTMLAttributes<HTMLInputE
    * Set this to change Input rendering enterButton node
    * @default null
    */
-  enterButton?: ReactNode;
+  enterButton?: React.ReactNode;
   /**
    * Set this to change Input useEnter
    * @default true
@@ -247,7 +247,7 @@ const StyledErrorBox = styled.div({
   },
 })
 
-export class LocalizeInput extends PureComponent<LocalizeInputProps, InputState> {
+export class LocalizeInput extends React.PureComponent<LocalizeInputProps, InputState> {
   private inputBoxRef: any;
   private inputRef: any;
 

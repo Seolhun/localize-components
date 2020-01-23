@@ -1,0 +1,26 @@
+sudo: required
+
+language: node_js
+
+node_js:
+  - "10"
+
+before_install:
+  - npm install
+  - npm run bootstrap
+
+cache:
+  npm: true
+  directories:
+    - "node_modules"
+
+jobs:
+  include:
+    - stage: Tests
+      script: npm run test
+
+    - stage: Builds
+      script: npm run build
+
+    - stage: Deploys
+      script: ./bin/surge-deploy.sh

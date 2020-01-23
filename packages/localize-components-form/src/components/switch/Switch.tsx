@@ -1,4 +1,4 @@
-import React, { FC, useCallback, ChangeEvent } from 'react';
+import React from 'react';
 
 import styled from '@emotion/styled';
 import classnames from 'classnames';
@@ -118,7 +118,7 @@ const StyledSlider = styled.span<LocalizeStyledProps, ILocalizeTheme>(({
   }
 })
 
-export const Switch: FC<SwitchProps> = ({
+export const Switch: React.FC<SwitchProps> = ({
   checked,
   htmlFor,
   //
@@ -131,7 +131,7 @@ export const Switch: FC<SwitchProps> = ({
   onMouseOver = () => null,
   css = {},
 }) => {
-  const handleChecked = useCallback((event: ChangeEvent) => {
+  const handleChecked = React.useCallback((event: React.ChangeEvent) => {
     onChange(checked)
     event.stopPropagation();
   }, [checked])

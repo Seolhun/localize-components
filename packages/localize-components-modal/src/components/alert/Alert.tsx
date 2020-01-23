@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 
 import classnames from 'classnames';
 import styled from '@emotion/styled';
-import { Button } from '@seolhun/localize-components-button';
+import { Button } from '@seolhun/localize-components-atomic';
 import {
   ILocalizeTheme,
 } from '@seolhun/localize-components-styled-types';

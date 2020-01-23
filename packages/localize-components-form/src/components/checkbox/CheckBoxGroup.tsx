@@ -6,10 +6,6 @@ import {
   LocalizeThemeStyledProps,
 } from '@seolhun/localize-components-styled-types';
 
-export interface RadioItemProps {
-  [key: string]: any;
-}
-
 export type CheckBoxGroupAlign = 'vertical' | 'horizontal';
 
 export interface CheckBoxGroupProps extends LocalizeThemeStyledProps {

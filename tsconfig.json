@@ -1,16 +1,18 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "module": "es6",
+    "module": "ESNext",
     "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true,
     "lib": [
       "dom",
       "es5",
       "es6",
       "es7",
-      "es2018"
+      "ES2018",
+      "ESNext"
     ],
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "jsx": "react",
     /* Enable all strict type-checking options. */
     // https://stackoverflow.com/questions/36795819/when-should-i-use-curly-braces-for-es6-import/36796281#36796281

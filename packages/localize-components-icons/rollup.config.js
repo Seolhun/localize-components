@@ -14,11 +14,6 @@ export default {
   input: 'src/index.ts',
   external: [
     ...externals,
-    'path',
-    'fs',
-    'resolve',
-    'rollup-pluginutils',
-    'typescript',
   ],
   plugins: [
     resolve({
