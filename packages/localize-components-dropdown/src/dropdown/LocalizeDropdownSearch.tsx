@@ -1,233 +1,465 @@
-import React, { ChangeEvent, KeyboardEvent } from 'react'
+import React from 'react';
 
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
 import classnames from 'classnames';
 
-import { LocalizeFlex } from '@seolhun/localize-components-atomic';
-import { LocalizeInput } from '@seolhun/localize-components-form';
-import { LocalizeBaseStyledProps, ILocalizeTheme } from '@seolhun/localize-components-styled-types'
-import { getValidThemeObject } from '@seolhun/localize-components-styled-utils';
+import { SquareInput } from '@seolhun/localize-components-form';
+import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
+
+import { DropdownSearchResultItem } from './DropdownSearchResultItem';
 
 const DEFAULT_CLASSNAME = '__Localize__DropdownSearch';
+const NO_DATA_MESSAGE = 'Not found data';
 
-export interface LocalizeDropdownSearchProps extends SearchResultContainerProps {
+export interface LocalizeDropdownSearchProps {
   /**
-   * Set this to change Dropdown items list rendering
+   * Items를 이용하여 랜더링 옵션 Props
    */
-  children: (props: LocalizeDropdownSearchChildrenProps) => React.ReactNode
+  items: any[];
 
   /**
-   * Search Query
+   * Items 랜더링 함수
+   */
+  renderItem: (item: any) => React.ReactNode;
+
+  /**
+   * selected Item 옵션
+   */
+  item?: any;
+
+  /**
+   * Items 랜더링 이후 아이템을 클릭할 경우의 옵션
+   */
+  onClickItem?: (item: any) => void;
+
+  /**
+   * List rednering에 사용되는 고유 값 키
+   * */
+  uniqukeKey?: string;
+
+  /**
+   * Scroll Pagination의 fetching 여부
+   */
+  isAsyncFetching?: boolean;
+
+  /**
+   * Option Data 값이 isFetching인 경우
+   * @default false
+   * */
+  isFetching?: boolean;
+
+  /**
+   * isFetching인 경우에 사용 할 Custom Node 값
    * @default ''
-   */
-  value?: string
+   * */
+  isFetchingNode?: React.ReactNode;
 
   /**
-   * Query handler
+   * 검색어를 변경하는 핸들러
    */
-  onChange?: (value: string) => void
+  onChangeQuery?: (query: string) => void;
 
   /**
-   * Query keydown handler
+   * 검색어를 Focus 핸들러
    */
-  onKeyDown?: (event: KeyboardEvent<HTMLInputElement>) => void
+  onFocus?: (event: React.FocusEvent<HTMLInputElement>) => void;
+
+  /**
+   * 검색어를 Blur 핸들러
+   */
+  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
+
+  /**
+   * 검색어를 변경하는 핸들러
+   */
+  onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+
+  /**
+   * 검색어를 변경하는 핸들러
+   */
+  onScrollPagination?: () => void;
 
   /**
    * @default 'search'
    */
-  type?: string
-
-  /**
-   * @default 'Search'
-   */
-  placeholder?: string
+  type?: string;
 
   /**
    * @default 'search-dropdown-input'
    */
-  name?: string
+  name?: string;
 
   /**
-   * Render after focusing
+   * @default 'Search'
    */
-  initFocus?: boolean
-
+  placeholder?: string;
 
   /**
-   * @default 10
+   * Search Input label
    */
-  zIndex?: number
-}
+  label?: string;
 
-export interface LocalizeDropdownSearchChildrenProps {
-  onSetIsShowResult: (isShow: boolean) => void
-  onSetQuery: (value: string) => void
-}
-
-interface SearchResultContainerProps extends LocalizeBaseStyledProps {
   /**
-   * Search result container height
+   * SearchInput error message
+   */
+  error?: string;
+
+  /**
+   * Items에 값이 없을 경우 보여줄 Node 값
+   * @default "Not found data"
+   * */
+  noResultNode?: React.ReactNode;
+
+  /**
+   * 검색된 결과의 창을 보여주기 위한 최대 높이
    * @default 500
    */
-  resultMaxHeight?: number
+  resultMaxHeight?: number;
+
+  /**
+   * @default 1000
+   */
+  zIndex?: number;
+
+  /**
+   * onClick executed after result dom is closed
+   * @default true
+   */
+  isCloseAfterClick?: boolean;
+
+  /**
+   * className for Style
+   */
+  className: string;
+
+  /**
+   * Debug mode for developer
+   */
+  isDebug?: boolean;
 }
 
-const StyledSearchDropdownWrapper = styled(LocalizeFlex)<{ zIndex: number }>(
-  ({ zIndex }) => {
-    return {
-      flexDirection: 'column',
-      zIndex,
-    }
-  }
-)
+interface SearchResultContainerProps {
+  resultMaxHeight?: LocalizeDropdownSearchProps['resultMaxHeight'];
+  zIndex?: LocalizeDropdownSearchProps['zIndex'];
+}
 
-const StyledSearchInputContainer = styled.div({})
+const SearchDropdownWrapper = styled.div<{ zIndex: number }>(({ zIndex }) => ({
+  display: 'flex',
+  flex: 1,
+  width: '100%',
+  height: '100%',
+  flexDirection: 'column',
+  zIndex,
+}));
 
-const StyledSearchResulWrapper = styled.div<{ zIndex: number }>(
-  ({ zIndex }) => {
-    return {
-      position: 'relative',
-      zIndex,
-    }
-  }
-)
+const SearchDropdownInputContainer = styled.div({
+  width: '100%',
 
-const StyledSearchResulContainer = styled.div<SearchResultContainerProps, ILocalizeTheme>(
-  ({ resultMaxHeight, theme, ...props }) => {
-    const validTheme = getValidThemeObject(props, theme);
+  'input[type="search"]': {
+    WebkitAppearance: 'textfield',
+  },
+});
 
-    return {
-      position: 'absolute',
-      width: '100%',
-      maxHeight: `${resultMaxHeight}px`,
-      borderRadius: '5px',
-      padding: 0,
-      overflowY: 'auto',
+const SearchResulWrapper = styled.div<{
+  isShowResult: boolean;
+  zIndex: number;
+}>(({ isShowResult, zIndex }) => ({
+  position: 'relative',
+  display: `${isShowResult ? 'block' : 'none'}`,
+  zIndex,
+}));
 
-      backgroundColor: validTheme.mainColor,
-      color: validTheme.subColor,
-    }
-  }
-)
+const SearchResulContainer = styled.div<
+  SearchResultContainerProps,
+  ILocalizeTheme
+>(({ theme, resultMaxHeight }) => ({
+  position: 'absolute',
+  width: '100%',
+  maxHeight: `${resultMaxHeight}px`,
+  borderRadius: '5px',
+  border: `1px solid ${theme.primaryColor}`,
+  backgroundColor: theme.secondaryColor,
+  margin: '-14px 0 0',
+  padding: '0',
+  overflowY: 'auto',
+}));
 
-export const LocalizeDropdownSearch: React.FC<LocalizeDropdownSearchProps> = ({
-  children,
-  value = '',
-  onChange,
-  onKeyDown,
-  className,
-  type = 'search',
-  name = 'search-dropdown-input',
-  placeholder = 'Search',
-  zIndex = 10,
-  resultMaxHeight = 500,
-  initFocus,
-  ...props
-}) => {
-  const inputRef = React.useRef<HTMLInputElement>(null)
-  const [query, setQuery] = React.useState(value)
-  const [isFocusedInput, setIsFocusedInput] = React.useState(false)
-  const [isResultMouseOver, setSsResultMouseOver] = React.useState(false)
-  const [isShowResult, setIsShowResult] = React.useState(false)
+const SearchResultWrapper = styled.div({
+  padding: 0,
+  margin: 0,
+});
 
-  React.useEffect(() => {
-    if (inputRef.current && initFocus) {
-      inputRef.current.focus()
-    }
-  }, [initFocus])
-
-  React.useEffect(() => {
-    setIsShowResult(isFocusedInput || isResultMouseOver)
-  }, [isFocusedInput, isResultMouseOver])
-
-  const handleChangeQuery = React.useCallback(
-    (event: ChangeEvent<HTMLInputElement>) => {
-      const { value } = event.target
-
-      if (onChange) {
-        onChange(value)
-      }
-      setIsShowResult(value.length > 0)
-      setQuery(value)
+// export const LocalizeDropdownSearch: React.FC<LocalizeDropdownSearchProps> = ({
+export const LocalizeDropdownSearch = React.forwardRef<
+  HTMLInputElement,
+  LocalizeDropdownSearchProps
+>(
+  (
+    {
+      items,
+      item,
+      renderItem,
+      onClickItem,
+      uniqukeKey,
+      isAsyncFetching,
+      isFetching,
+      isFetchingNode,
+      onChangeQuery,
+      onFocus,
+      onBlur,
+      onKeyDown,
+      onScrollPagination,
+      type = 'search',
+      name = 'search-dropdown-input',
+      placeholder = 'Search',
+      zIndex = 1000,
+      className,
+      resultMaxHeight = 500,
+      noResultNode = NO_DATA_MESSAGE,
+      isCloseAfterClick = true,
+      isDebug,
+      ...props
     },
-    [onChange]
-  )
+    inputRef,
+  ) => {
+    const dropdownWarpperRef = React.useRef<HTMLDivElement>(null);
+    const scrollResultRef = React.useRef<HTMLDivElement>(null);
+    const [query, setQuery] = React.useState('');
+    const [selectedItemIndex, setSelectedItemIndex] = React.useState(-1);
+    const [selectedItem, setSelectedItem] = React.useState(item);
+    const [isFocusedInput, setIsFocusedInput] = React.useState(false);
+    const [isResultMouseOver, setIsResultMouseOver] = React.useState(false);
+    const [isShowResult, setIsShowResult] = React.useState(false);
 
-  const handleSetQuery = React.useCallback(
-    (value: string) => {
-      if (onChange) {
-        onChange(value)
+    React.useEffect(() => {
+      if (isDebug) {
+        setIsShowResult(true);
       }
-      setIsShowResult(value.length > 0)
-      setQuery(value)
-    },
-    [onChange]
-  )
+    }, [isDebug]);
 
-  const handleQueryKeyboard = React.useCallback(
-    (event: KeyboardEvent<HTMLInputElement>) => {
-      if (event.key === 'Escape' || event.key === 'Enter') {
-        setIsShowResult(false)
+    React.useEffect(() => {
+      if (uniqukeKey && !isShowResult && selectedItem) {
+        const isDiffQuery = query !== selectedItem[uniqukeKey];
+        if (isDiffQuery) {
+          setIsShowResult(isDiffQuery);
+        }
       }
+    }, [query, uniqukeKey, selectedItem]);
+
+    React.useEffect(() => {
+      if (!isShowResult) {
+        setIsShowResult(isFocusedInput);
+      }
+    }, [isFocusedInput]);
+
+    React.useEffect(() => {
+      if (!isShowResult) {
+        setIsShowResult(isResultMouseOver);
+      }
+    }, [isResultMouseOver]);
+
+    const handleClickOutDropdown = (event: any) => {
+      if (dropdownWarpperRef.current && event.target) {
+        if (!dropdownWarpperRef.current.contains(event.target)) {
+          setIsShowResult(false);
+        }
+      }
+    };
+
+    const handleScrollWithPagination = () => {
+      if (!scrollResultRef.current) {
+        return;
+      }
+
+      const { clientHeight, scrollHeight, scrollTop } = scrollResultRef.current;
+      const triggeringSize = scrollHeight - scrollTop;
+      if (clientHeight >= triggeringSize && isAsyncFetching === false) {
+        if (onScrollPagination) {
+          onScrollPagination();
+        }
+      }
+    };
+
+    React.useEffect(() => {
+      document.addEventListener('click', handleClickOutDropdown);
+
+      if (scrollResultRef.current) {
+        scrollResultRef.current.addEventListener(
+          'scroll',
+          handleScrollWithPagination,
+        );
+        scrollResultRef.current.addEventListener(
+          'resize',
+          handleScrollWithPagination,
+        );
+      }
+
+      return () => {
+        document.removeEventListener('click', handleClickOutDropdown);
+
+        if (scrollResultRef.current) {
+          scrollResultRef.current.removeEventListener(
+            'scroll',
+            handleScrollWithPagination,
+          );
+          scrollResultRef.current.removeEventListener(
+            'resize',
+            handleScrollWithPagination,
+          );
+        }
+      };
+    }, [scrollResultRef.current, onScrollPagination, isAsyncFetching]);
+
+    const handleSelectItemIndex = (index: number) => {
+      if (items.length <= index) {
+        setSelectedItemIndex(-1);
+        return;
+      }
+      if (index <= -1) {
+        setSelectedItemIndex(items.length);
+        return;
+      }
+      setSelectedItemIndex(index);
+    };
+
+    const handleSelectItem = (newItem: any, index: number) => {
+      if (!newItem) {
+        return;
+      }
+
+      if (uniqukeKey && newItem[uniqukeKey]) {
+        setQuery(newItem[uniqukeKey]);
+      }
+
+      if (onClickItem) {
+        onClickItem(newItem);
+      }
+      setSelectedItem(newItem);
+      handleSelectItemIndex(index);
+
+      if (isCloseAfterClick) {
+        setIsShowResult(false);
+      }
+    };
+
+    const handleQuery = (event: React.ChangeEvent<HTMLInputElement>) => {
+      event.stopPropagation();
+
+      const newQuery = event.target.value;
+      if (onChangeQuery) {
+        onChangeQuery(newQuery);
+      }
+      setQuery(newQuery);
+    };
+
+    const handleKeydown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+      event.stopPropagation();
 
       if (onKeyDown) {
-        onKeyDown(event)
+        onKeyDown(event);
       }
-    },
-    [onKeyDown]
-  )
 
-  const handleIsFocused = React.useCallback(() => {
-    setIsFocusedInput(!isFocusedInput)
-  }, [isFocusedInput])
+      if (isShowResult) {
+        if (event.key === 'ArrowDown') {
+          handleSelectItemIndex(selectedItemIndex + 1);
+        }
+        if (event.key === 'ArrowUp') {
+          handleSelectItemIndex(selectedItemIndex - 1);
+        }
+        if (event.key === 'Escape') {
+          setIsShowResult(false);
+        }
+        if (event.key === 'Enter') {
+          handleSelectItem(items[selectedItemIndex], selectedItemIndex);
+          setIsShowResult(false);
 
-  const handleIsResultMouseOver = React.useCallback(() => {
-    setSsResultMouseOver(true)
-  }, [isResultMouseOver])
+          // Warning: Don't Remove To Prevent Submit in Form
+          event.preventDefault();
+        }
+      }
+    };
 
-  const handleIsResultMouseOut = React.useCallback(() => {
-    setSsResultMouseOver(false)
-  }, [isResultMouseOver])
+    const handleFocus = (event: React.FocusEvent<HTMLInputElement>) => {
+      if (onFocus) {
+        onFocus(event);
+      }
 
-  return (
-    <StyledSearchDropdownWrapper
-      className={classnames(DEFAULT_CLASSNAME, className)}
-      zIndex={zIndex}
-    >
-      <StyledSearchInputContainer className={`${DEFAULT_CLASSNAME}__Input__Container`}>
-        <LocalizeInput
-          type={type}
-          name={name}
-          className={`${DEFAULT_CLASSNAME}__Input`}
-          onBlur={handleIsFocused}
-          onChange={handleChangeQuery}
-          onFocus={handleIsFocused}
-          onKeyDown={handleQueryKeyboard}
-          placeholder={placeholder}
-          value={query}
-        />
-      </StyledSearchInputContainer>
-      {isShowResult && (
-        <StyledSearchResulWrapper
+      setIsFocusedInput(true);
+    };
+
+    const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+      if (onBlur) {
+        onBlur(event);
+      }
+
+      setIsFocusedInput(false);
+    };
+
+    const handleIsResultMouseOver = () => {
+      setIsResultMouseOver(true);
+    };
+
+    const handleIsResultMouseOut = () => {
+      setIsResultMouseOver(false);
+    };
+
+    return (
+      <SearchDropdownWrapper
+        className={classnames(DEFAULT_CLASSNAME, className)}
+        ref={dropdownWarpperRef}
+        zIndex={zIndex}
+      >
+        <SearchDropdownInputContainer
+          className={`${DEFAULT_CLASSNAME}__Input__Container`}
+        >
+          <SquareInput
+            {...props}
+            ref={inputRef}
+            className={`${DEFAULT_CLASSNAME}__Input`}
+            type={type}
+            value={query}
+            name={name}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            onChange={handleQuery}
+            onKeyDown={handleKeydown}
+            placeholder={placeholder}
+            autoComplete="off"
+          />
+        </SearchDropdownInputContainer>
+        {/* TODO: React.window */}
+        <SearchResulWrapper
           className={`${DEFAULT_CLASSNAME}__ResultWrapper`}
+          isShowResult={isShowResult}
           zIndex={zIndex}
         >
-          <StyledSearchResulContainer
+          <SearchResulContainer
             className={`${DEFAULT_CLASSNAME}__ResultContainer`}
-            onMouseOver={handleIsResultMouseOver}
-            onMouseOut={handleIsResultMouseOut}
+            ref={scrollResultRef}
             resultMaxHeight={resultMaxHeight}
-            {...props}
+            zIndex={zIndex}
           >
-            {children({
-              onSetIsShowResult: setIsShowResult,
-              onSetQuery: handleSetQuery,
-            })}
-          </StyledSearchResulContainer>
-        </StyledSearchResulWrapper>
-      )}
-    </StyledSearchDropdownWrapper>
-  )
-}
+            <SearchResultWrapper
+              onMouseOver={handleIsResultMouseOver}
+              onMouseOut={handleIsResultMouseOut}
+            >
+              <DropdownSearchResultItem
+                items={items}
+                selectedItem={selectedItem}
+                selectedItemIndex={selectedItemIndex}
+                renderItem={renderItem}
+                onClickItem={handleSelectItem}
+                uniqukeKey={uniqukeKey}
+                isFetching={isFetching}
+                isFetchingNode={isFetchingNode}
+                noResultNode={noResultNode}
+              />
+            </SearchResultWrapper>
+          </SearchResulContainer>
+        </SearchResulWrapper>
+      </SearchDropdownWrapper>
+    );
+  },
+);
 
-export default LocalizeDropdownSearch
+export default LocalizeDropdownSearch;

@@ -1,2 +1,1 @@
-export * from './LocalizeDropdownSearch'
-export * from './results'
+export * from './LocalizeDropdownSearch';

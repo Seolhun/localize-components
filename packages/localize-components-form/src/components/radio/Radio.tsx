@@ -1,4 +1,4 @@
-import React, { FC, useCallback, ChangeEvent, useMemo } from 'react';
+import React from 'react';
 
 import styled from '@emotion/styled';
 
@@ -90,33 +90,33 @@ interface RadioCheckBoxProps extends LocalizeStyledProps {
   isChecked: boolean;
 }
 
-const StyledRadioLabel = styled.label<SizeProps, ILocalizeTheme>(({
-  align,
-}) => {
-  const getDisplayByalign = () => {
-    if (align === 'horizontal') {
-      return 'inline-flex';
-    }
-    return 'flex';
-  };
+const StyledRadioLabel = styled.label<SizeProps, ILocalizeTheme>(
+  ({ align }) => {
+    const getDisplayByalign = () => {
+      if (align === 'horizontal') {
+        return 'inline-flex';
+      }
+      return 'flex';
+    };
 
-  const getWidthByAlign = () => {
-    if (align === 'horizontal') {
-      return 'auto';
-    }
-    return '100%';
-  };
+    const getWidthByAlign = () => {
+      if (align === 'horizontal') {
+        return 'auto';
+      }
+      return '100%';
+    };
 
-  return {
-    position: 'relative',
-    display: getDisplayByalign(),
-    alignItems: 'center',
-    height: 'auto',
-    width: getWidthByAlign(),
-    cursor: 'pointer',
-    userSelect: 'none',
-  };
-});
+    return {
+      position: 'relative',
+      display: getDisplayByalign(),
+      alignItems: 'center',
+      height: 'auto',
+      width: getWidthByAlign(),
+      cursor: 'pointer',
+      userSelect: 'none',
+    };
+  },
+);
 
 const StyledRadioInput = styled.input({
   position: 'absolute',
@@ -126,60 +126,56 @@ const StyledRadioInput = styled.input({
   cursor: 'pointer',
 });
 
-const StyledCheckBox = styled.span<RadioCheckBoxProps, ILocalizeTheme>(({
-  isChecked,
-  theme,
-  ...props
-}) => {
-  const validTheme = getValidThemeObject(props, theme);
+const StyledCheckBox = styled.span<RadioCheckBoxProps, ILocalizeTheme>(
+  ({ isChecked, theme, ...props }) => {
+    const validTheme = getValidThemeObject(props, theme);
 
-  const checkedStyle = {
-    alignItems: 'center',
-    justifyContent: 'center',
-    border: `1px solid ${validTheme.mainColor}`,
-  }
-
-  return {
-    display: 'inline-flex',
-    height: `${RADIO_CHECKMARK_WIDTH}px`,
-    width: `${RADIO_CHECKMARK_WIDTH}px`,
-
-    backgroundColor: validTheme.subColor,
-    borderRadius: '50%',
-    border: `1px solid ${validTheme.subColor}`,
-    transition: 'border-color 0.35s, background-color 0.35s',
-
-    [`.${DEFAULT_CLASSNAME}:hover ~ &`]: {
+    const checkedStyle = {
+      alignItems: 'center',
+      justifyContent: 'center',
       border: `1px solid ${validTheme.mainColor}`,
-    },
-    ...(isChecked && checkedStyle),
-  };
-});
+    };
 
-const StyledCheckMark = styled.span<RadioCheckBoxProps, ILocalizeTheme>(({
-  isChecked,
-  theme,
-  ...props
-}) => {
-  const validTheme = getValidThemeObject(props, theme);
+    return {
+      display: 'inline-flex',
+      height: `${RADIO_CHECKMARK_WIDTH}px`,
+      width: `${RADIO_CHECKMARK_WIDTH}px`,
 
-  return {
-    position: 'absolute',
-    content: '""',
-    display: isChecked ? 'block' : 'none',
-    background: validTheme.mainColor,
-    border: `1px solid ${validTheme.mainColor}`,
-    height: `${RADIO_CHECKED_CIRCLE}px`,
-    width: `${RADIO_CHECKED_CIRCLE}px`,
-    borderRadius: '50%',
-  }
-})
+      backgroundColor: validTheme.subColor,
+      borderRadius: '50%',
+      border: `1px solid ${validTheme.subColor}`,
+      transition: 'border-color 0.35s, background-color 0.35s',
+
+      [`.${DEFAULT_CLASSNAME}:hover ~ &`]: {
+        border: `1px solid ${validTheme.mainColor}`,
+      },
+      ...(isChecked && checkedStyle),
+    };
+  },
+);
+
+const StyledCheckMark = styled.span<RadioCheckBoxProps, ILocalizeTheme>(
+  ({ isChecked, theme, ...props }) => {
+    const validTheme = getValidThemeObject(props, theme);
+
+    return {
+      position: 'absolute',
+      content: '""',
+      display: isChecked ? 'block' : 'none',
+      background: validTheme.mainColor,
+      border: `1px solid ${validTheme.mainColor}`,
+      height: `${RADIO_CHECKED_CIRCLE}px`,
+      width: `${RADIO_CHECKED_CIRCLE}px`,
+      borderRadius: '50%',
+    };
+  },
+);
 
 const StyledRadioText = styled.span({
   paddingLeft: '7px',
 });
 
-export const Radio: FC<RadioProps> = ({
+export const Radio: React.FC<RadioProps> = ({
   item,
   // IsNotRequired
   checkedItem = {},
@@ -198,23 +194,26 @@ export const Radio: FC<RadioProps> = ({
   css = {},
 }) => {
   const usedKey = useLabelKey ? labelKey : valueKey;
-  const isChecked = useMemo(() => {
+  const isChecked = React.useMemo(() => {
     return checkedItem[usedKey] === item[usedKey];
   }, [usedKey, checkedItem, item]);
 
-  const handleOnChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
-    event.stopPropagation();
-    onChange({
-      [labelKey]: item[labelKey],
-      [valueKey]: item[valueKey],
-    });
-    if (onClick) {
-      onClick({
+  const handleOnChange = React.useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      event.stopPropagation();
+      onChange({
         [labelKey]: item[labelKey],
         [valueKey]: item[valueKey],
       });
-    }
-  }, [labelKey, valueKey, usedKey, item])
+      if (onClick) {
+        onClick({
+          [labelKey]: item[labelKey],
+          [valueKey]: item[valueKey],
+        });
+      }
+    },
+    [labelKey, valueKey, usedKey, item],
+  );
 
   return (
     <StyledRadioLabel
@@ -225,7 +224,7 @@ export const Radio: FC<RadioProps> = ({
       align={align}
     >
       <StyledRadioInput
-        type='radio'
+        type="radio"
         id={item[usedKey]}
         checked={isChecked}
         className={DEFAULT_CLASSNAME}
@@ -253,3 +252,5 @@ export const Radio: FC<RadioProps> = ({
     </StyledRadioLabel>
   );
 };
+
+export default Radio;

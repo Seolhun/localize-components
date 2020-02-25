@@ -3,9 +3,7 @@ import React from 'react';
 import classnames from 'classnames';
 import styled from '@emotion/styled';
 
-import {
-  LocalizeBaseStyledProps,
-} from '@seolhun/localize-components-styled-types';
+import { LocalizeBaseStyledProps } from '@seolhun/localize-components-styled-types';
 
 const DEFAULT_CLASSNAME = '__Localize__RadioGroup';
 
@@ -59,32 +57,31 @@ export interface RadioGroupProps extends LocalizeBaseStyledProps {
   onClick?: (...args: any[]) => any;
 }
 
-export interface RadioGroupContainerProps {
+interface RadioGroupContainerProps {
   align: RadioGroupAlignType;
   gap: string;
 }
 
-export const RadioGroupContainer = styled.div<RadioGroupContainerProps>(({
-  align,
-  gap,
-}) => {
-  const getGapStylesByAlign = () => {
-    const isVertical = align === 'vertical';
-    if (isVertical) {
-      return {
-        marginBottom: `${gap}`,
+const RadioGroupContainer = styled.div<RadioGroupContainerProps>(
+  ({ align, gap }) => {
+    const getGapStylesByAlign = () => {
+      const isVertical = align === 'vertical';
+      if (isVertical) {
+        return {
+          marginBottom: `${gap}`,
+        };
       }
-    }
+      return {
+        marginRight: `${gap}`,
+      };
+    };
     return {
-      marginRight: `${gap}`,
-    }
-  }
-  return {
-    '& > *:not(:last-child)': {
-      ...getGapStylesByAlign(),
-    },
-  }
-})
+      '& > *:not(:last-child)': {
+        ...getGapStylesByAlign(),
+      },
+    };
+  },
+);
 
 export const RadioGroup: React.FC<RadioGroupProps> = ({
   children,
@@ -119,3 +116,5 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({
     </RadioGroupContainer>
   );
 };
+
+export default RadioGroup;
