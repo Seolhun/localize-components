@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
 
 import { LocalizeBaseStyledProps } from '@seolhun/localize-components-styled-types';
 import { FC } from 'react';
@@ -16,36 +16,31 @@ interface ImageProps extends LocalizeBaseStyledProps {
   /**
    * Set this to change Image width
    */
-  width?: string
+  width?: string;
   /**
    * Set this to change Image Height
    */
-  height?: string
+  height?: string;
   /**
    * Set this to change Image height
    */
-  borderRadius?: string
+  borderRadius?: string;
 }
 
-const StyledImage = styled.img<ImageProps>(({
-  width,
-  height,
-  borderRadius,
-}) => {
-  return {
-    width: width || '100%',
-    height: height || '100%',
-    borderRadius: borderRadius || '5px',
-  }
-})
+const StyledImage = styled.img<ImageProps>(
+  ({ width, height, borderRadius }) => {
+    return {
+      width: width || '100%',
+      height: height || '100%',
+      borderRadius: borderRadius || '5px',
+    };
+  },
+);
 
 const Image: FC<ImageProps> = (props) => {
-  return <StyledImage {...props} />
-}
+  return <StyledImage {...props} />;
+};
 
-export {
-  ImageProps,
-  Image,
-}
+export { ImageProps, Image };
 
 export default Image;

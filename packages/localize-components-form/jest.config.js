@@ -1,27 +1,26 @@
+const { defaults } = require('jest-config');
+
 module.exports = {
-  // roots: ['<rootDir>/packages/localize-components/src'],
-  rootDir: '.',
-  setupTestFrameworkScriptFile: '<rootDir>/src/__test__/_config_/index.ts',
-  transform: {
-    '^.+\\.tsx?$': 'ts-jest',
-    '^.+\\.ts?$': 'ts-jest',
-  },
-  testMatch: ['<rootDir>/src/**/*.(test|spec).ts?(x)'],
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
-  moduleNameMapper: {
-    '^@/(.*)': '<rootDir>/src/$1',
-  },
-  testPathIgnorePatterns: [
-    '<rootDir>/node_modules/',
-    '<rootDir>/src/__tests__/_config_/',
-  ],
   preset: 'ts-jest',
   globals: {
     'ts-jest': {
+      tsConfig: 'tsconfig.test.json',
       diagnostics: {
         pathRegex: /\.(spec|test)\.ts?(x)$/,
         warnOnly: true,
       },
     },
+  },
+  transformIgnorePatterns: ['/node_modules'],
+  testMatch: ['<rootDir>/src/**/*.(test|spec).ts?(x)'],
+  moduleFileExtensions: [
+    ...defaults.moduleFileExtensions,
+    'ts',
+    'tsx',
+    'js',
+    'jsx',
+  ],
+  moduleNameMapper: {
+    '^@/(.*)': '<rootDir>/src/$1',
   },
 };
