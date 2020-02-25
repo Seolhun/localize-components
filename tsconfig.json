@@ -35,7 +35,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "noEmitOnError": true,
-    "inlineSources": true,
+    "inlineSources": false,
     "rootDir": ".",
     "outDir": "dist",
     "baseUrl": ".",
@@ -44,5 +44,5 @@
     }
   },
   "include": ["./src/**/*"],
-  "exclude": ["node_modules/**", "packages/**", "./src/__test__/**"],
+  "exclude": ["node_modules/**", "packages/**", "./src/__test__/**"]
 }
