@@ -20,12 +20,12 @@
 
 ## Used stacks
 - TypeScript
-- Lerna
 - RollupJS, Webpack 4
 - React
-- Babel 7
 - emotionJS
 - polished
+- Lerna
+- Babel 7
 - Docz
 
 ## Mono Repos
