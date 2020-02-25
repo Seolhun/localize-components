@@ -4,12 +4,12 @@ import { LocalizeModal, useDisclosure } from '@seolhun/localize-components';
 import { Button } from '@seolhun/localize-components-atomic';
 
 const ModalView = () => {
-  const { isOpen, onToggle } = useDisclosure()
+  const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <div className='container'>
-      <div className='row'>
-        <div className='col-sm-12'>
+    <div className="container">
+      <div className="row">
+        <div className="col-sm-12">
           <Button onClick={onToggle}>Open Modal</Button>
           <LocalizeModal isShow={isOpen} onClose={onToggle}>
             <div>Modal header</div>

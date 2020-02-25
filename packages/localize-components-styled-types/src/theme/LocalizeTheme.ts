@@ -1,4 +1,5 @@
-import { LocalizeThemesType, LocalizeThemes } from '../types/styles';
+import { LocalizeThemesType, LocalizeThemes } from '../types';
+import { LocalizeThemeProps, lightTheme } from './theme';
 
 export interface ILocalizeThemeGridGutter {
   top?: string;
@@ -8,6 +9,7 @@ export interface ILocalizeThemeGridGutter {
 }
 
 export interface ILocalizeTheme {
+  localized: LocalizeThemeProps;
   primaryColor: LocalizeThemesType;
   secondaryColor: LocalizeThemesType;
   clickableColor: LocalizeThemesType;
@@ -16,7 +18,7 @@ export interface ILocalizeTheme {
     color: LocalizeThemesType;
     radius: string;
     shadow: string;
-  },
+  };
   grid: {
     containerGutter: {
       right: string;
@@ -39,7 +41,7 @@ export interface ILocalizeTheme {
       highlightColor: LocalizeThemesType;
       primaryColor: LocalizeThemesType;
       secondaryColor: LocalizeThemesType;
-    },
+    };
     size: {
       h1: string;
       h2: string;
@@ -51,11 +53,12 @@ export interface ILocalizeTheme {
       big: string;
       medium: string;
       small: string;
-    },
+    };
   };
 }
 
 export const LocalizeTheme: ILocalizeTheme = {
+  localized: lightTheme,
   primaryColor: 'royalblue',
   secondaryColor: 'white',
   clickableColor: 'info',

@@ -8,24 +8,16 @@ const LocalizeCardView = () => {
     <Container>
       <Row>
         <Col xs={24}>
-          <LocalizeCard>
-            Hello
-          </LocalizeCard>
+          <LocalizeCard>Hello</LocalizeCard>
         </Col>
         <Col xs={12}>
-          <LocalizeCard>
-            Hello
-          </LocalizeCard>
+          <LocalizeCard>Hello</LocalizeCard>
         </Col>
         <Col xs={12}>
-        <LocalizeCard>
-            Hello
-          </LocalizeCard>
+          <LocalizeCard>Hello</LocalizeCard>
         </Col>
         <Col xs={24}>
-          <LocalizeCard>
-            Hello
-          </LocalizeCard>
+          <LocalizeCard>Hello</LocalizeCard>
         </Col>
       </Row>
     </Container>
