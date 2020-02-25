@@ -1,4 +1,5 @@
 import autoprefixer from 'autoprefixer';
+import postcssFlexboxfixer from 'postcss-flexboxfixer';
 import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
 import postcss from 'rollup-plugin-postcss';
@@ -12,9 +13,7 @@ const externals = Object.keys(pkg.dependencies);
 export default {
   input: 'src/index.ts',
 
-  external: [
-    ...externals,
-  ],
+  external: [...externals],
   plugins: [
     resolve({
       dedupe: ['react', 'react-dom'],
@@ -23,6 +22,7 @@ export default {
     }),
     typescript({
       tsconfig: 'tsconfig.json',
+      objectHashIgnoreUnknownHack: true,
     }),
     commonjs({
       include: /node_modules/,
@@ -30,9 +30,12 @@ export default {
     babel({
       exclude: /node_modules/,
     }),
+    /**
+     * @see https://github.com/postcss/postcss/blob/master/docs/plugins.md
+     */
     postcss({
       extract: true,
-      plugins: [autoprefixer],
+      plugins: [autoprefixer, postcssFlexboxfixer],
       modules: true,
     }),
   ],
