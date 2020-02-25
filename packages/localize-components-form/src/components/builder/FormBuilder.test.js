@@ -39,7 +39,7 @@ const buildForm = (props, options) =>
       isOnCreatedValidation: false,
       isOnChangeValidation: true,
       ...options,
-    }
+    },
   );
 
 describe('FormBuilder Test', () => {
@@ -48,7 +48,7 @@ describe('FormBuilder Test', () => {
       const form = new FormBuilder();
     } catch (error) {
       expect(error.message).toBe(
-        'htmlFor property is required, Set unique name to use Form key'
+        'htmlFor property is required, Set unique name to use Form key',
       );
     }
   });
@@ -78,7 +78,7 @@ describe('FormBuilder Test', () => {
       const form = new FormBuilder({ onValidation: () => true });
     } catch (error) {
       expect(error.message).toBe(
-        'onValidation properties must return { hasError: boolean, message: string }'
+        'onValidation properties must return { hasError: boolean, message: string }',
       );
     }
   });
@@ -116,7 +116,7 @@ describe('FormBuilder Test', () => {
       {
         isOnCreatedValidation: true,
         isOnChangeValidation: false,
-      }
+      },
     );
 
     // props
@@ -127,7 +127,7 @@ describe('FormBuilder Test', () => {
     expect(form).toHaveProperty('hasError', true);
     expect(form).toHaveProperty(
       'requiredMessage',
-      INITIAL_PROPS.requiredMessage
+      INITIAL_PROPS.requiredMessage,
     );
     expect(form).toHaveProperty('type', INITIAL_PROPS.type);
     expect(form.onValidation()).toEqual({
@@ -185,7 +185,7 @@ describe('FormBuilder Test', () => {
         type={form.getValueBy('type')}
         value={form.getValueBy('value')}
         readOnly
-      />
+      />,
     );
     const formRef = wrapper.ref('email');
 
@@ -236,7 +236,7 @@ describe('FormBuilder Test', () => {
     expect(form.getValueBy('isRequired')).toBe(true);
     expect(form.getValueBy('isFocus')).toBe(true);
     expect(form.getValueBy('requiredMessage')).toBe(
-      INITIAL_PROPS.requiredMessage
+      INITIAL_PROPS.requiredMessage,
     );
     expect(form.getValueBy('type')).toBe(INITIAL_PROPS.type);
   });
@@ -249,7 +249,7 @@ describe('FormBuilder Test', () => {
     expect(values).toHaveProperty('isFocus', true);
     expect(values).toHaveProperty(
       'requiredMessage',
-      INITIAL_PROPS.requiredMessage
+      INITIAL_PROPS.requiredMessage,
     );
     expect(values).toHaveProperty('type', INITIAL_PROPS.type);
   });
@@ -309,14 +309,14 @@ describe('FormBuilder Test', () => {
         type={form.getValueBy('type')}
         value={form.getValueBy('value')}
         readOnly
-      />
+      />,
     );
     const formRef = wrapper.ref('email');
     form.setRef(formRef);
     expect(form.ref).toEqual(formRef);
 
     const newWrapper = mount(
-      <FormInput type="search" value={form.getValueBy('value')} readOnly />
+      <FormInput type="search" value={form.getValueBy('value')} readOnly />,
     );
     const newFormRef = newWrapper.ref('email');
     form.setRef(newFormRef, true);
@@ -331,7 +331,7 @@ describe('FormBuilder Test', () => {
         type={form.getValueBy('type')}
         value={form.getValueBy('value')}
         readOnly
-      />
+      />,
     );
     const formRef = wrapper.ref('email');
     form.setRef(formRef).focusFormRef();

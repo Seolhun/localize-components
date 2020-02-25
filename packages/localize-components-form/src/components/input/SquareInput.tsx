@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
 
 import { ErrorLabel } from './ErrorLabel';
-import { Input } from './Input';
+import { LocalizedBaseInput } from './LocalizedBaseInput';
 
 const DEFAULT_CLASSNAME = '__Localize__SquareInput';
 
@@ -48,7 +48,7 @@ export const SquareInput = React.forwardRef<HTMLInputElement, SquareInputProps>(
     <SquareInputWrapper>
       {label && <SquareInputLabel margin>{label}</SquareInputLabel>}
       <RelativeWrapper>
-        <Input
+        <LocalizedBaseInput
           {...props}
           className={classnames(DEFAULT_CLASSNAME, className)}
           ref={ref}

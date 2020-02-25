@@ -18,7 +18,7 @@ export default {
     resolve({
       dedupe: ['react', 'react-dom'],
       mainFields: ['module', 'main'],
-      extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
+      extensions: ['.ts', '.tsx', '.js', '.jsx'],
     }),
     typescript({
       tsconfig: 'tsconfig.json',

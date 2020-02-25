@@ -2,7 +2,6 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 import classnames from 'classnames';
-
 import {
   FontSizes,
   LocalizeThemes,

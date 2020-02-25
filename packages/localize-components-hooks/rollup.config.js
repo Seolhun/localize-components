@@ -10,14 +10,12 @@ const externals = Object.keys(pkg.dependencies);
 export default {
   input: 'src/index.ts',
 
-  external: [
-    ...externals,
-  ],
+  external: [...externals],
   plugins: [
     resolve({
       dedupe: ['react', 'react-dom'],
       mainFields: ['module', 'main'],
-      extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
+      extensions: ['.ts', '.tsx', '.js', '.jsx'],
     }),
     typescript({
       tsconfig: 'tsconfig.json',

@@ -70,7 +70,7 @@ class FormBuilder implements FormBuilderProps {
       isOnCreatedValidation = false,
       isOnChangeValidation = false,
       onGroupValidation,
-    }
+    },
   ) => {
     let isValidObject = {
       hasError,
