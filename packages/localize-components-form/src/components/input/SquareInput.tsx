@@ -20,11 +20,11 @@ export interface SquareInputProps
   label?: React.ReactNode;
 }
 
-const SquareInputWrapper = styled.div`
-  display: flex;
-  margin-bottom: 24px;
-  flex-direction: column;
-`;
+const SquareInputWrapper = styled.div({
+  display: 'flex',
+  marginBottom: '24px',
+  flexDirection: 'column',
+});
 
 export const SquareInputLabel = styled.label<
   { margin?: boolean },

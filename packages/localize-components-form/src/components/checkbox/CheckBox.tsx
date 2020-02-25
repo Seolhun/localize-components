@@ -1,4 +1,4 @@
-import React, { FC, ChangeEvent, useCallback } from 'react';
+import React from 'react';
 
 import styled from '@emotion/styled';
 import classnames from 'classnames';
@@ -95,21 +95,19 @@ interface SizeProps {
   align?: CheckBoxGroupAlign;
 }
 
-const StyledCheckBoxLabel = styled.label<SizeProps>(({
-  align,
-}) => {
+const StyledCheckBoxLabel = styled.label<SizeProps>(({ align }) => {
   const getDisplayByAlign = () => {
     if (align === 'horizontal') {
       return 'inline-flex';
     }
     return 'flex';
-  }
+  };
   const getWidthByAlign = () => {
     if (align === 'horizontal') {
       return 'auto';
     }
     return '100%';
-  }
+  };
 
   return {
     display: getDisplayByAlign(),
@@ -120,8 +118,8 @@ const StyledCheckBoxLabel = styled.label<SizeProps>(({
     paddingLeft: '30px',
     userSelect: 'none',
     cursor: 'pointer',
-  }
-})
+  };
+});
 
 const StyledCheckBox = styled.input({
   position: 'absolute',
@@ -129,55 +127,53 @@ const StyledCheckBox = styled.input({
   height: 0,
   width: 0,
   opacity: 0,
-})
-
-const StyledCheckMark = styled.span<LocalizeStyledProps, ILocalizeTheme>(({
-  theme,
-  ...props
-}) => {
-  const validTheme = getValidThemeObject(props, theme);
-
-  return {
-    backgroundColor: validTheme.mainColor,
-    borderRadius: '6px',
-    border: '1px solid transparent',
-    display: 'inline-flex',
-    height: '16px',
-    justifyContent: 'flex-start',
-    left: 0,
-    position: 'absolute',
-    transition: 'border-color 0.35s, background-color 0.35s',
-    width: '16px',
-
-    [`.${DEFAULT_CLASSNAME}:hover ~ &`]: {
-      border: `1px solid ${validTheme.mainColor}`,
-
-      ['input:checked ~ &']: {
-        backgroundColor: getThemeHoverStyle(validTheme.mainColor),
-      },
-    },
-
-    [`.${DEFAULT_CLASSNAME}:checked ~ &:after`]: {
-      display: 'block',
-    },
-
-    ['&::after']: {
-      content: '""',
-      position: 'absolute',
-      display: 'none',
-      border: `solid ${validTheme.subColor}`,
-      borderWidth: '0 2px 2px 0',
-      height: '8px',
-      width: '4px',
-      left: '5px',
-      top: '2px',
-      transform: 'rotate(45deg)',
-    },
-  }
 });
 
+const StyledCheckMark = styled.span<LocalizeStyledProps, ILocalizeTheme>(
+  ({ theme, ...props }) => {
+    const validTheme = getValidThemeObject(props, theme);
 
-export const CheckBox: FC<CheckBoxProps> = ({
+    return {
+      backgroundColor: validTheme.mainColor,
+      borderRadius: '6px',
+      border: '1px solid transparent',
+      display: 'inline-flex',
+      height: '16px',
+      justifyContent: 'flex-start',
+      left: 0,
+      position: 'absolute',
+      transition: 'border-color 0.35s, background-color 0.35s',
+      width: '16px',
+
+      [`.${DEFAULT_CLASSNAME}:hover ~ &`]: {
+        border: `1px solid ${validTheme.mainColor}`,
+
+        ['input:checked ~ &']: {
+          backgroundColor: getThemeHoverStyle(validTheme.mainColor),
+        },
+      },
+
+      [`.${DEFAULT_CLASSNAME}:checked ~ &:after`]: {
+        display: 'block',
+      },
+
+      ['&::after']: {
+        content: '""',
+        position: 'absolute',
+        display: 'none',
+        border: `solid ${validTheme.subColor}`,
+        borderWidth: '0 2px 2px 0',
+        height: '8px',
+        width: '4px',
+        left: '5px',
+        top: '2px',
+        transform: 'rotate(45deg)',
+      },
+    };
+  },
+);
+
+export const CheckBox: React.FC<CheckBoxProps> = ({
   item,
   checked,
   // IsNotRequired
@@ -196,21 +192,24 @@ export const CheckBox: FC<CheckBoxProps> = ({
   css = {},
 }) => {
   const usedKey = useLabelKey ? labelKey : valueKey;
-  const handleOnChange = useCallback((event: ChangeEvent<HTMLInputElement>) => {
-    event.stopPropagation();
-    onChange({
-      [labelKey]: item[labelKey],
-      [valueKey]: item[valueKey],
-      checked: !checked,
-    });
-    if (onClick) {
-      onClick({
+  const handleOnChange = React.useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      event.stopPropagation();
+      onChange({
         [labelKey]: item[labelKey],
         [valueKey]: item[valueKey],
-        checked,
+        checked: !checked,
       });
-    }
-  }, [checked, usedKey, labelKey, valueKey, item])
+      if (onClick) {
+        onClick({
+          [labelKey]: item[labelKey],
+          [valueKey]: item[valueKey],
+          checked,
+        });
+      }
+    },
+    [checked, usedKey, labelKey, valueKey, item],
+  );
 
   return (
     <StyledCheckBoxLabel
@@ -222,7 +221,7 @@ export const CheckBox: FC<CheckBoxProps> = ({
     >
       {item[labelKey]}
       <StyledCheckBox
-        type='checkbox'
+        type="checkbox"
         id={item[usedKey]}
         checked={checked}
         className={`${DEFAULT_CLASSNAME}`}
