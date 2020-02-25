@@ -1,5 +1,3 @@
-sudo: required
-
 language: node_js
 
 node_js:
@@ -8,11 +6,6 @@ node_js:
 before_install:
   - npm install
   - npm run bs
-
-cache:
-  npm: true
-  directories:
-    - "node_modules"
 
 jobs:
   include:
