@@ -2,7 +2,6 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import { LocalizeBaseStyledProps } from '@seolhun/localize-components-styled-types';
-import { FC } from 'react';
 
 interface ImageProps extends LocalizeBaseStyledProps {
   /**
@@ -37,7 +36,7 @@ const StyledImage = styled.img<ImageProps>(
   },
 );
 
-const Image: FC<ImageProps> = (props) => {
+const Image: React.FC<ImageProps> = (props) => {
   return <StyledImage {...props} />;
 };
 
