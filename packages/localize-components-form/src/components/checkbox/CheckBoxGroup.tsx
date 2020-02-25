@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React from 'react';
 
 import styled from '@emotion/styled';
 
@@ -10,7 +10,7 @@ export interface CheckBoxGroupProps extends LocalizeThemeStyledProps {
   /**
    * Set this to change CheckBox Group children
    */
-  children: (props: CheckBoxGroupProps) => ReactNode;
+  children: (props: CheckBoxGroupProps) => React.ReactNode;
   /**
    * Set this to change CheckBox Group name
    */
@@ -53,7 +53,7 @@ interface CheckBoxGroupContainerProps {
   gap: string;
 }
 
-export const CheckBoxGroupContainer = styled.div<CheckBoxGroupContainerProps>(
+const CheckBoxGroupContainer = styled.div<CheckBoxGroupContainerProps>(
   ({ align, gap }) => {
     const getGapStylesByAlign = () => {
       const isVertical = align === 'vertical';
@@ -74,7 +74,7 @@ export const CheckBoxGroupContainer = styled.div<CheckBoxGroupContainerProps>(
   },
 );
 
-const CheckBoxGroup: FunctionComponent<CheckBoxGroupProps> = ({
+export const CheckBoxGroup: React.FC<CheckBoxGroupProps> = ({
   children,
   groupName,
   mainColor,
@@ -92,19 +92,17 @@ const CheckBoxGroup: FunctionComponent<CheckBoxGroupProps> = ({
       align={align}
       gap={gap}
     >
-      <>
-        {children({
-          children,
-          groupName,
-          labelKey,
-          valueKey,
-          useValueKey,
-          mainColor,
-          subColor,
-          align,
-          onClickItems,
-        })}
-      </>
+      {children({
+        children,
+        groupName,
+        labelKey,
+        valueKey,
+        useValueKey,
+        mainColor,
+        subColor,
+        align,
+        onClickItems,
+      })}
     </CheckBoxGroupContainer>
   );
 };

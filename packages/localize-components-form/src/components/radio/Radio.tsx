@@ -252,3 +252,5 @@ export const Radio: React.FC<RadioProps> = ({
     </StyledRadioLabel>
   );
 };
+
+export default Radio;

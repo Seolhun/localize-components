@@ -57,12 +57,12 @@ export interface RadioGroupProps extends LocalizeBaseStyledProps {
   onClick?: (...args: any[]) => any;
 }
 
-export interface RadioGroupContainerProps {
+interface RadioGroupContainerProps {
   align: RadioGroupAlignType;
   gap: string;
 }
 
-export const RadioGroupContainer = styled.div<RadioGroupContainerProps>(
+const RadioGroupContainer = styled.div<RadioGroupContainerProps>(
   ({ align, gap }) => {
     const getGapStylesByAlign = () => {
       const isVertical = align === 'vertical';
@@ -116,3 +116,5 @@ export const RadioGroup: React.FC<RadioGroupProps> = ({
     </RadioGroupContainer>
   );
 };
+
+export default RadioGroup;
