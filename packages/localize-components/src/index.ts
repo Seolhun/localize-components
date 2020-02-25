@@ -1,4 +1,3 @@
-export * from '@seolhun/localize-components-modal';
 export * from '@seolhun/localize-components-grid';
 export * from '@seolhun/localize-components-dropdown';
 export * from '@seolhun/localize-components-hooks';
