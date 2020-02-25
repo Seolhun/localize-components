@@ -24,6 +24,10 @@
 		"test": "jest"
 	},
 	"dependencies": {
+    "@seolhun/localize-components-styled-types": "^0.5.2",
+    "@seolhun/localize-components-styled-utils": "^0.5.2",
+    "@seolhun/localize-components-types": "^0.5.2",
+    "@seolhun/localize-components-utils-event": "^0.5.2",
 		"@emotion/core": "^10.0.22",
 		"@emotion/styled": "^10.0.23",
 		"classnames": "^2.2.6",
