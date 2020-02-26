@@ -16,8 +16,8 @@
     "README.md"
   ],
   "scripts": {
-    "build": "node build/build.js",
     "prebuild": "rm -rf dist",
+    "build": "node build/build.js",
     "clear": "echo Has no clear scripts",
     "dev": "node build/dev-server.js",
     "test": "jest"

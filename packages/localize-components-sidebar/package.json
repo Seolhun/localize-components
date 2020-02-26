@@ -15,8 +15,17 @@
 		"package.json",
 		"CHANGELOG.md",
 		"README.md"
-	],
+  ],
+  "scripts": {
+    "prebuild": "rm -rf dist",
+    "build": "rollup -c",
+    "clear": "rm -rf dist && rm -rf .rpt2_cache",
+    "bundle": "rollup -c",
+    "test": "jest"
+  },
 	"dependencies": {
+    "@seolhun/localize-components-styled-types": "^0.5.2",
+    "@seolhun/localize-components-styled-utils": "^0.5.2",
 		"@emotion/core": "^10.0.22",
 		"@emotion/styled": "^10.0.23",
 		"classnames": "^2.2.6",
