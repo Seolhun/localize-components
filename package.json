@@ -29,7 +29,7 @@
     "clear": "lerna run clear",
     "build": "lerna run build",
     "test": "lerna run test",
-    "bs": "lerna bootstrap --no-ci",
+    "bs": "lerna exec npm install --concurrency 3",
     "prerelease": "lerna publish from-git",
     "release": "lerna publish patch -y",
     "release:a": "lerna publish prepatch --dist-tag alpha",
