@@ -17,7 +17,6 @@
   ],
   "scripts": {
     "dev": "docz dev",
-    "prebuild": "rm -rf dist",
     "build": "docz build",
     "docz:serve": "docz build && docz serve",
     "clear": "echo Has no clear scripts",

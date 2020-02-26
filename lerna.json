@@ -10,15 +10,20 @@
         "develop"
       ],
       "ignoreChanges": [
-        "packages/docs",
-        "packages/examples",
         "packages/templates",
         "**/__test__",
         "**/*.md"
+      ],
+      "ignore": [
+        "packages/docs",
+        "packages/examples",
+        "packages/templates"
       ]
     },
     "bootstrap": {
       "ignore": [
+        "packages/docs",
+        "packages/examples",
         "packages/templates"
       ]
     }

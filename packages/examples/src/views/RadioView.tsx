@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Radio } from '@seolhun/localize-components-form';
+import { Radio } from '@seolhun/localize-components-atomic';
 
 const RadioView = () => {
   const [checkedItem, setItem] = React.useState({
