@@ -1,7 +1,5 @@
 {
   "version": "0.5.2",
-  "npmClient": "yarn",
-  "useWorkspaces": true,
   "packages": [
     "packages/*"
   ],
@@ -12,15 +10,15 @@
         "develop"
       ],
       "ignoreChanges": [
-        "packages/docs",
-        "packages/examples",
         "packages/templates",
         "**/__test__",
         "**/*.md"
+      ],
+      "ignore": [
+        "packages/docs",
+        "packages/examples",
+        "packages/templates"
       ]
-    },
-    "bootstrap": {
-      "ignore": "packages/templates"
     }
   }
 }

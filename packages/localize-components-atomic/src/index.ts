@@ -1,4 +1,9 @@
-export * from '@seolhun/localize-components-form';
-export * from '@seolhun/localize-components-icons';
+export * from './button';
+export * from './chip';
+export * from './figure';
+export * from './flex';
+export * from './hr';
+export * from './image';
+export * from './typo';
 
-export * from './components'
+export * from '@seolhun/localize-components-form';

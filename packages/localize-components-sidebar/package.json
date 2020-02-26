@@ -16,7 +16,15 @@
 		"CHANGELOG.md",
 		"README.md"
 	],
+	"scripts": {
+		"build": "rollup -c",
+		"clear": "rm -rf dist && rm -rf .rpt2_cache",
+		"bundle": "rollup -c",
+		"test": "jest"
+	},
 	"dependencies": {
+		"@seolhun/localize-components-styled-types": "^0.5.2",
+		"@seolhun/localize-components-styled-utils": "^0.5.2",
 		"@emotion/core": "^10.0.22",
 		"@emotion/styled": "^10.0.23",
 		"classnames": "^2.2.6",
@@ -68,9 +76,6 @@
 		"ts-node": "^8.0.3",
 		"typescript": "^3.7.2",
 		"url-loader": "^2.0.0"
-	},
-	"peerDependencies": {
-		"react": "^16.8.6"
 	},
 	"engines": {
 		"node": ">= 6.0.0",

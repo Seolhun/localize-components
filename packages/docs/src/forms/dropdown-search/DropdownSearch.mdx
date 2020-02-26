@@ -4,9 +4,7 @@ menu: Forms
 ---
 
 import { Playground, Props } from 'docz';
-import { LocalizeDropdownSearch, LocalizeSearchResult } from '@seolhun/localize-components';
-import { LocalizeThemeProvider } from '@seolhun/localize-components';
-
+import { LocalizeThemeProvider, LocalizeDropdownSearch } from '@seolhun/localize-components';
 
 # DropdownSearch
 
@@ -14,22 +12,15 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
 
 <Playground>
   <LocalizeThemeProvider>
-      <LocalizeDropdownSearch>
-        {({ onSetIsShowResult }) => (
-          <LocalizeSearchResult
-            results={[{
-              title: '인사말',
-              items: ['Hi', 'Halo', '안녕하세요.'],
-              onClickItem: (item) => {
-                console.error(item)
-              },
-              renderItem: (item) => (
-                <div>{item}</div>
-              )
-            }]}
-          />
+      <LocalizeDropdownSearch
+        items={['Hi', 'Halo', '안녕하세요.']}
+        onClickItem={(item) => {
+          console.error(item)
+        }}
+        renderItem={(item) => (
+          <div>{item}</div>
         )}
-      </LocalizeDropdownSearch>
+      />
   </LocalizeThemeProvider>
 </Playground>
 

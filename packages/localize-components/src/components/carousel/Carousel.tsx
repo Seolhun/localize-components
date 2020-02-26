@@ -67,7 +67,7 @@ class Carousel extends Component<CarouselProps, CarouselState> {
         this.handleImageWidth();
       },
       250,
-      { leading: true, trailing: true }
+      { leading: true, trailing: true },
     );
   }
 
@@ -156,10 +156,6 @@ class Carousel extends Component<CarouselProps, CarouselState> {
   }
 }
 
-export {
-  CarouselProps,
-  CarouselState,
-  Carousel,
-}
+export { CarouselProps, CarouselState, Carousel };
 
 export default Carousel;

@@ -29,7 +29,7 @@
     "clear": "lerna run clear",
     "build": "lerna run build",
     "test": "lerna run test",
-    "bootstrap": "lerna bootstrap",
+    "bs": "lerna bootstrap --hoist",
     "prerelease": "lerna publish from-git",
     "release": "lerna publish patch -y",
     "release:a": "lerna publish prepatch --dist-tag alpha",
@@ -59,7 +59,8 @@
     "packages/*"
   ],
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "directory": "dist"
   },
   "files": [
     "dist"

@@ -4,7 +4,6 @@
   "jsxBracketSameLine": false,
   "parser": "typescript",
   "printWidth": 80,
-  "requirePragma": true,
   "semi": true,
   "singleQuote": true,
   "tabWidth": 2,

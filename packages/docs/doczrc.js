@@ -1,6 +1,6 @@
 /**
- * @see https://www.docz.site/documentation/project-configuration
- * @see https://github.com/pedronauck/docz/tree/master/packages/docz-theme-default
+ * Ref DOCZ
+ * @see https://github.com/pedronauck/docz-website/blob/master/doczrc.js
  */
 export default {
   // Docz Conf
@@ -59,10 +59,7 @@ export default {
       test: /\.css$/,
       use: ['style-loader', 'css-loader'],
     });
+
     return config;
   },
 };
-/**
- * Ref DOCZ
- * @see https://github.com/pedronauck/docz-website/blob/master/doczrc.js
- */

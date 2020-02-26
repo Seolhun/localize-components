@@ -1,21 +1,23 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 
 import { Radio } from '@seolhun/localize-components-atomic';
 
 const RadioView = () => {
-  const [checkedItem, setItem] = useState({
+  const [checkedItem, setItem] = React.useState({
     label: 'label1',
     value: 'value1',
-  })
-  const handleOnChange = useCallback((item) => {
-    setItem(item)
-  }, [checkedItem])
-
+  });
+  const handleOnChange = React.useCallback(
+    (item) => {
+      setItem(item);
+    },
+    [checkedItem],
+  );
 
   return (
-    <div className='container'>
-      <div className='row'>
-        <div className='col-sm-12'>
+    <div className="container">
+      <div className="row">
+        <div className="col-sm-12">
           <h2>Default</h2>
           <Radio
             item={{
@@ -24,7 +26,7 @@ const RadioView = () => {
             }}
             checkedItem={checkedItem}
             onChange={handleOnChange}
-            groupName='localize'
+            groupName="localize"
           />
           <Radio
             item={{
@@ -33,17 +35,17 @@ const RadioView = () => {
             }}
             checkedItem={checkedItem}
             onChange={handleOnChange}
-            groupName='localize'
+            groupName="localize"
           />
         </div>
-        <div className='col-sm-12'>
+        <div className="col-sm-12">
           <h2>Give a mainColor</h2>
           <Radio
             item={{
               label: 'label5',
               value: 'value5',
             }}
-            mainColor='danger'
+            mainColor="danger"
             checkedItem={checkedItem}
           />
           <Radio
@@ -51,11 +53,11 @@ const RadioView = () => {
               label: 'label6',
               value: 'value6',
             }}
-            mainColor='primary'
+            mainColor="primary"
             checkedItem={checkedItem}
           />
         </div>
-        <div className='col-sm-12'>
+        <div className="col-sm-12">
           <h2>Give a subColor</h2>
           <Radio
             item={{
@@ -64,8 +66,8 @@ const RadioView = () => {
             }}
             checkedItem={checkedItem}
             onChange={handleOnChange}
-            mainColor='danger'
-            subColor='yellow'
+            mainColor="danger"
+            subColor="yellow"
           />
           <Radio
             item={{
@@ -74,8 +76,8 @@ const RadioView = () => {
             }}
             checkedItem={checkedItem}
             onChange={handleOnChange}
-            mainColor='primary'
-            subColor='danger'
+            mainColor="primary"
+            subColor="danger"
           />
         </div>
       </div>

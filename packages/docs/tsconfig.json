@@ -1,16 +1,17 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "declaration": false,
+    "declaration": true,
+    "inlineSourceMap": false,
     "outDir": "dist",
     "rootDir": "src",
     "types": [
       "node"
     ],
   },
+  "include": ["./src/**/*"],
   "exclude": [
-    "../../node_modules/**",
-    "node_modules/**",
+    "node_modules",
     "src/__test__/**",
     "src/**/*.test.ts"
   ],

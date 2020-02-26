@@ -9,9 +9,9 @@ import { Button } from '@seolhun/localize-components-atomic';
 const MenuView = () => {
   return (
     <LocalizeJumbotron
-      title='Hello, Localize-Components'
-      description='Localize-Components is made for localized style without side-effect'
-      mainColor='primary'
+      title="Hello, Localize-Components"
+      description="Localize-Components is made for localized style without side-effect"
+      mainColor="primary"
     >
       <div>
         <h2>Atomic Components</h2>
@@ -20,7 +20,7 @@ const MenuView = () => {
           .map((router) => {
             return (
               <Link key={router.label} to={router.path}>
-                <Button size='medium' mainColor='white'>
+                <Button size="medium" mainColor="white">
                   {router.label}
                 </Button>
               </Link>
@@ -32,7 +32,7 @@ const MenuView = () => {
           .map((router) => {
             return (
               <Link key={router.label} to={router.path}>
-                <Button size='medium' mainColor='danger'>
+                <Button size="medium" mainColor="danger">
                   {router.label}
                 </Button>
               </Link>
