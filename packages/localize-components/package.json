@@ -28,7 +28,6 @@
     "@emotion/styled": "^10.0.23",
     "@seolhun/localize-components-atomic": "^0.5.2",
     "@seolhun/localize-components-dropdown": "^0.5.2",
-    "@seolhun/localize-components-form": "^0.5.2",
     "@seolhun/localize-components-grid": "^0.5.2",
     "@seolhun/localize-components-hooks": "^0.5.2",
     "@seolhun/localize-components-styled-types": "^0.5.2",
