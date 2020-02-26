@@ -85,10 +85,6 @@
     "typescript": "^3.7.2",
     "url-loader": "^2.0.0"
   },
-  "peerDependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
-  },
   "engines": {
     "node": ">= 6.0.0",
     "npm": ">= 3.0.0"

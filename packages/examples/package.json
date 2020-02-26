@@ -101,11 +101,6 @@
     "webpack-hot-middleware": "^2.24.3",
     "webpack-merge": "^4.1.4"
   },
-  "peerDependencies": {
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-router-dom": "^5.0.0 "
-  },
   "engines": {
     "node": ">= 6.0.0",
     "npm": ">= 3.0.0"
