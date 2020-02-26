@@ -19,13 +19,6 @@
         "packages/examples",
         "packages/templates"
       ]
-    },
-    "bootstrap": {
-      "ignore": [
-        "packages/docs",
-        "packages/examples",
-        "packages/templates"
-      ]
     }
   }
 }

@@ -5,7 +5,7 @@ import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
 
 import { Icons, IconsInterface } from './resources';
 
-export interface IconProps {
+export interface LocalizeIconProps {
   /**
    * icon to render
    */
@@ -22,7 +22,7 @@ export interface IconProps {
   cursor?: boolean;
 }
 
-export const Icon: React.FC<IconProps> = ({
+export const LocalizeIcon: React.FC<LocalizeIconProps> = ({
   icon,
   color = 'uiColor08',
   cursor,

@@ -25,6 +25,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.22",
     "@emotion/styled": "^10.0.23",
+    "@seolhun/localize-components-atomic": "^0.5.2",
     "@seolhun/localize-components-dropdown": "^0.5.2",
     "@seolhun/localize-components-grid": "^0.5.2",
     "@seolhun/localize-components-hooks": "^0.5.2",

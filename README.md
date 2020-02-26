@@ -40,11 +40,11 @@
 #### Components
 - @seolhun/localize-components
 - @seolhun/localize-components-atomic
+- @seolhun/localize-components-icons
 
 #### Mono Components
 - @seolhun/localize-components-form
 - @seolhun/localize-components-grid
-- @seolhun/localize-components-icons
 - @seolhun/localize-components-sidebar
 
 #### Utils
