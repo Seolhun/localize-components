@@ -3,14 +3,14 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
 
-export interface LocalizedBaseInputProps
+export interface LocalizeBaseInputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
   error?: boolean;
   width?: string | number;
 }
 
-export const LocalizedBaseInput = styled.input<
-  LocalizedBaseInputProps,
+export const LocalizeBaseInput = styled.input<
+  LocalizeBaseInputProps,
   ILocalizeTheme
 >(({ theme, width, error }) => {
   const fonts = theme.localized.fonts.body500;

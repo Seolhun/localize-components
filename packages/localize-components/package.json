@@ -17,7 +17,6 @@
     "README.md"
   ],
   "scripts": {
-    "prebuild": "rm -rf dist",
     "build": "rollup -c",
     "clear": "rm -rf dist && rm -rf .rpt2_cache",
     "bundle": "rollup -c",
@@ -26,11 +25,11 @@
   "dependencies": {
     "@emotion/core": "^10.0.22",
     "@emotion/styled": "^10.0.23",
-    "@seolhun/localize-components-atomic": "^0.5.2",
     "@seolhun/localize-components-dropdown": "^0.5.2",
-    "@seolhun/localize-components-form": "^0.5.2",
     "@seolhun/localize-components-grid": "^0.5.2",
     "@seolhun/localize-components-hooks": "^0.5.2",
+    "@seolhun/localize-components-form": "^0.5.2",
+    "@seolhun/localize-components-sidebar": "^0.5.2",
     "@seolhun/localize-components-styled-types": "^0.5.2",
     "@seolhun/localize-components-styled-utils": "^0.5.2",
     "@seolhun/localize-components-types": "^0.5.2",

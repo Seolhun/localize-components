@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 
 import classnames from 'classnames';
 import styled from '@emotion/styled';
@@ -10,26 +10,26 @@ import {
 
 import { SidebarItemProps } from './Sidebar';
 
-export interface SidebarItemLabelProps {
+export interface SidebarItemIconProps {
   item: SidebarItemProps;
 
   /**
-   * Set this to change SidebarItemLabel className
+   * Set this to change SidebarItemIcon className
    * @default undefined
    */
   className?: string;
   /**
-   * Set this to change SidebarItemLabel mainColor
+   * Set this to change SidebarItemIcon mainColor
    * @default LocalizeTheme.primaryColor = royalblue
    */
   mainColor?: LocalizeThemesType;
   /**
-   * Set this to change SidebarItemLabel subColor
+   * Set this to change SidebarItemIcon subColor
    * @default LocalizeTheme.secondaryColor = grey
    */
   subColor?: LocalizeThemesType;
   /**
-   * Set this to change SidebarItemLabel css
+   * Set this to change SidebarItemIcon css
    * @default {}
    */
   css?: {};
@@ -39,7 +39,7 @@ const StyledSpan = styled.span<LocalizeStyledProps>(() => {
   return {};
 });
 
-export const SidebarItemLabel: FunctionComponent<SidebarItemLabelProps> = ({
+export const SidebarItemIcon: React.FC<SidebarItemIconProps> = ({
   item,
   css,
   className,
@@ -47,13 +47,13 @@ export const SidebarItemLabel: FunctionComponent<SidebarItemLabelProps> = ({
 }) => {
   return (
     <StyledSpan
-      className={classnames('__Localize__SidebarItemLabel', className)}
+      className={classnames('__Localize__SidebarItemIcon', className)}
       css={css}
       {...props}
     >
-      {item.renderLabel(item)}
+      {item.renderIcon(item)}
     </StyledSpan>
   );
 };
 
-export default SidebarItemLabel;
+export default SidebarItemIcon;

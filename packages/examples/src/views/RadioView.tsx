@@ -1,13 +1,13 @@
-import React, { useState, useCallback } from 'react';
+import React from 'react';
 
 import { Radio } from '@seolhun/localize-components-atomic';
 
 const RadioView = () => {
-  const [checkedItem, setItem] = useState({
+  const [checkedItem, setItem] = React.useState({
     label: 'label1',
     value: 'value1',
   });
-  const handleOnChange = useCallback(
+  const handleOnChange = React.useCallback(
     (item) => {
       setItem(item);
     },

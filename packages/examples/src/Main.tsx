@@ -4,7 +4,7 @@ import { HashRouter } from 'react-router-dom';
 
 import { ThemeProvider } from 'emotion-theming';
 import { LocalizeTheme } from '@seolhun/localize-components-styled-types';
-import { Container } from '@seolhun/localize-components';
+import { Container } from '@seolhun/localize-components-grid';
 
 import MenuView from './views/MenuView';
 import Routes from './routes';
@@ -21,5 +21,5 @@ ReactDOM.render(
       </Container>
     </ThemeProvider>
   </HashRouter>,
-  document.getElementById('app')
+  document.getElementById('app'),
 );

@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { LocalizeModal, useDisclosure } from '@seolhun/localize-components';
+import { LocalizeModal } from '@seolhun/localize-components';
+import { useDisclosure } from '@seolhun/localize-components-hooks';
 import { Button } from '@seolhun/localize-components-atomic';
 
 const ModalView = () => {

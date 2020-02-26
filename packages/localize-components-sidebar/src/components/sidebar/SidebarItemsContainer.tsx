@@ -1,14 +1,9 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React from 'react';
 
 import classnames from 'classnames';
 import styled from '@emotion/styled';
 
 export interface SidebarItemsContainerProps {
-  /**
-   * Set this to change SidebarItemsContainer children
-   */
-  children: ReactNode;
-
   /**
    * Set this to change SidebarItemsContainer className
    * @default false
@@ -54,12 +49,16 @@ export interface SidebarItemsContainerProps {
 const StyledSidebarItemsContainer = styled.div<SidebarItemsContainerProps>(
   () => {
     return {};
-  }
+  },
 );
 
-export const SidebarItemsContainer: FunctionComponent<
-  SidebarItemsContainerProps
-> = ({ children, className, css = {}, isSizer = false, ...props }) => {
+export const SidebarItemsContainer: React.FC<SidebarItemsContainerProps> = ({
+  children,
+  className,
+  css = {},
+  isSizer = false,
+  ...props
+}) => {
   return (
     <StyledSidebarItemsContainer
       className={classnames('__Localize__SidebarItemsContainer', className)}

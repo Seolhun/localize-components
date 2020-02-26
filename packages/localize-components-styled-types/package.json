@@ -17,7 +17,6 @@
     "README.md"
   ],
   "scripts": {
-    "prebuild": "rm -rf dist",
     "build": "rollup -c",
     "clear": "rm -rf dist && rm -rf .rpt2_cache",
     "bundle": "rollup -c",

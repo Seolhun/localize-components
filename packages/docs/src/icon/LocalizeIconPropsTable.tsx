@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { LocalizeIconProps } from '@seolhun/localize-components-atomic';
+import { LocalizeIconProps } from '@seolhun/localize-components';
 
 const LocalizeIconPropsTable: FC<LocalizeIconProps> = () => {
   return <div />;
