@@ -15,16 +15,16 @@
 		"package.json",
 		"CHANGELOG.md",
 		"README.md"
-  ],
-  "scripts": {
-    "prebuild": "rm -rf dist",
-    "build": "rollup -c",
-    "clear": "rm -rf dist && rm -rf .rpt2_cache",
-    "bundle": "rollup -c",
-    "test": "jest"
-  },
+	],
+	"scripts": {
+		"prebuild": "rm -rf dist",
+		"build": "rollup -c",
+		"clear": "rm -rf dist && rm -rf .rpt2_cache",
+		"bundle": "rollup -c",
+		"test": "jest"
+	},
 	"dependencies": {
-    "@seolhun/localize-components-styled-types": "^0.5.2",
+		"@seolhun/localize-components-styled-types": "^0.5.2",
 		"classnames": "^2.2.6",
 		"core-js": "^3.5.0",
 		"lodash": "^4.17.15",

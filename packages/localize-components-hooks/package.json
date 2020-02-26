@@ -15,14 +15,14 @@
 		"package.json",
 		"CHANGELOG.md",
 		"README.md"
-  ],
-  "scripts": {
-    "prebuild": "rm -rf dist",
-    "build": "rollup -c",
-    "clear": "rm -rf dist && rm -rf .rpt2_cache",
-    "bundle": "rollup -c",
-    "test": "jest"
-  },
+	],
+	"scripts": {
+		"prebuild": "rm -rf dist",
+		"build": "rollup -c",
+		"clear": "rm -rf dist && rm -rf .rpt2_cache",
+		"bundle": "rollup -c",
+		"test": "jest"
+	},
 	"dependencies": {
 		"classnames": "^2.2.6",
 		"core-js": "^3.5.0",

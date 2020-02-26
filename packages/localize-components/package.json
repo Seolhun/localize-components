@@ -72,7 +72,7 @@
     "file-loader": "^4.0.0",
     "jest": "^24.1.0",
     "mini-css-extract-plugin": "^0.7.0",
-    "node-sass": "^4.9.4",
+    "node-sass": "^4.13.1",
     "postcss-flexboxfixer": "0.0.5",
     "postcss-loader": "^3.0.0",
     "rollup": "^1.29.0",
