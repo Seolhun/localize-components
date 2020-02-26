@@ -3,17 +3,13 @@ language: node_js
 node_js:
   - "10"
 
-before_install:
-  - npm install
-  - npm run bs
-
 jobs:
   include:
-    ## TODO: Fix test error
-    # - stage: Tests
-    #   script: npm run test
     - stage: Builds
-      script: npm run build
+      script:
+        - npm install
+        - npm run bs
+        - npm run build
       after_success:
         - ./bin/surge-deploy.sh
 
