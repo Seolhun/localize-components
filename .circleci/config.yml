@@ -26,7 +26,7 @@ jobs:
       # NPM process oorder : install > prepare > build
       - run:
           name: "install packages"
-          command: npm install
+          command: npm install && npm run bs
 
       - save_cache:
           key: node-dependencies-{{ checksum "package.json" }}
