@@ -40,6 +40,7 @@
 #### Mono Components
 - @seolhun/localize-components-form
 - @seolhun/localize-components-grid
+- @seolhun/localize-components-icons
 - @seolhun/localize-components-sidebar
 
 #### Utils

@@ -5,6 +5,8 @@ import commonjs from 'rollup-plugin-commonjs';
 import postcss from 'rollup-plugin-postcss';
 import resolve from 'rollup-plugin-node-resolve';
 import typescript from 'rollup-plugin-typescript2';
+import copy from 'rollup-plugin-copy';
+import reactSvg from 'rollup-plugin-react-svg';
 
 import pkg from './package.json';
 
@@ -37,6 +39,24 @@ export default {
       extract: true,
       plugins: [autoprefixer, postcssFlexboxfixer],
       modules: true,
+    }),
+    copy({
+      targets: [
+        {
+          src: ['./src/components/icons/resources/*'],
+          dest: 'dist/icons',
+        },
+      ],
+    }),
+    reactSvg({
+      // svgo options
+      svgo: {
+        plugins: [], // passed to svgo
+        multipass: true,
+      },
+      jsx: false,
+      include: null,
+      exclude: null,
     }),
   ],
   output: [
