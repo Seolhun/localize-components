@@ -19,8 +19,6 @@
     },
     "bootstrap": {
       "ignore": [
-        "packages/docs",
-        "packages/examples",
         "packages/templates"
       ]
     }
