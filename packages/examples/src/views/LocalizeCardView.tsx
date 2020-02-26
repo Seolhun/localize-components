@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { LocalizeCard } from '@seolhun/localize-components';
-import { Container, Row, Col } from '@seolhun/localize-components';
+import { Container, Row, Col } from '@seolhun/localize-components-grid';
 
 const LocalizeCardView = () => {
   return (

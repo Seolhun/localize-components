@@ -1,4 +1,4 @@
-import React, { FunctionComponent, ReactNode } from 'react';
+import React from 'react';
 
 import classnames from 'classnames';
 import styled from '@emotion/styled';
@@ -25,12 +25,12 @@ export interface SidebarItemProps {
    * Set this to render SidebarItem rendering icon
    * @default undefined
    */
-  renderIcon: (item: SidebarItemProps) => ReactNode | ReactNode;
+  renderIcon: (item: SidebarItemProps) => React.ReactNode;
   /**
    * Set this to render SidebarItem rendering node
    * @default undefined
    */
-  renderLabel: (item: SidebarItemProps) => ReactNode | ReactNode;
+  renderLabel: (item: SidebarItemProps) => React.ReactNode;
   /**
    * Set this to render Sub SidebarItem
    * @default undefined
@@ -105,7 +105,7 @@ const StyledSidebar = styled.aside<LocalizeStyledProps>(() => {
   return {};
 });
 
-export const Sidebar: FunctionComponent<SidebarProps> = ({
+export const Sidebar: React.FC<SidebarProps> = ({
   className,
   css,
   items,

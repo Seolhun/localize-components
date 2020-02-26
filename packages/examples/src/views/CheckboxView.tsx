@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { CheckBox } from '@seolhun/localize-components-atomic';
+import { CheckBox } from '@seolhun/localize-components-form';
 
 const CheckBoxView = () => {
   return (

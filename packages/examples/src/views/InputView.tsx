@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { LocalizeInput } from '@seolhun/localize-components-atomic';
+import { LocalizeInput } from '@seolhun/localize-components-form';
 
 const InputView = () => {
   return (

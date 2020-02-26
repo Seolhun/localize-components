@@ -1,13 +1,8 @@
 import React from 'react';
 
 import { range } from 'lodash';
-
-import {
-  Container,
-  Col,
-  Row,
-  LocalizeJumbotron,
-} from '@seolhun/localize-components';
+import { LocalizeJumbotron } from '@seolhun/localize-components';
+import { Container, Col, Row } from '@seolhun/localize-components-grid';
 
 const STYLES = {
   margin: '5px',
