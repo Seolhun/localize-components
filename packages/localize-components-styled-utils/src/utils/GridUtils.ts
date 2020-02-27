@@ -1,6 +1,9 @@
-import { MediaQueries, IColumnValue } from '@seolhun/localize-components-styled-types';
+import {
+  MediaQueries,
+  ColumnValueProps,
+} from '@seolhun/localize-components-styled-types';
 
-export const hasOffset = (columnValue: IColumnValue) => {
+export const hasOffset = (columnValue: ColumnValueProps) => {
   if (typeof columnValue !== 'object') {
     return false;
   }
@@ -10,7 +13,7 @@ export const hasOffset = (columnValue: IColumnValue) => {
   return true;
 };
 
-export const isBeforeOffset = (columnValue: IColumnValue) => {
+export const isBeforeOffset = (columnValue: ColumnValueProps) => {
   if (!hasOffset(columnValue)) {
     return false;
   }
@@ -27,16 +30,15 @@ export const buildDefaultGridStyle = (sizeValue: number) => {
     flex: `0 0 ${width}%`,
     marginLeft: 0,
     marginRight: 0,
-  }
+  };
 };
 
 export const calcWidth = (sizeValue: number) => {
   const gridCounts = 24;
   return sizeValue * (100 / gridCounts);
-}
+};
 
-
-export const buildGridStyle = (columnValue: IColumnValue) => {
+export const buildGridStyle = (columnValue: ColumnValueProps) => {
   if (typeof columnValue !== 'object') {
     return buildDefaultGridStyle(columnValue);
   }
@@ -54,38 +56,38 @@ export const buildGridStyle = (columnValue: IColumnValue) => {
         }
       : {
           marginRight: `${calcWidth(offset)}%`,
-        }
-    ),
+        }),
     ...css,
   });
   return styles;
 };
 
-export const createMediaQueryCondition = (
-  media: keyof typeof MediaQueries
-) => {
+export const createMediaQueryCondition = (media: keyof typeof MediaQueries) => {
   switch (media) {
+    case 'XXL': {
+      return `(max-width: ${MediaQueries.XL}px)`;
+    }
     case 'XL': {
-      return `(min-width: ${MediaQueries.XL}px)`;
+      return `(max-width: ${MediaQueries.XL}px)`;
     }
     case 'LG': {
-      return `(min-width: ${MediaQueries.LG}px)`;
+      return `(max-width: ${MediaQueries.LG}px)`;
     }
     case 'MD': {
-      return `(min-width: ${MediaQueries.MD}px)`;
+      return `(max-width: ${MediaQueries.MD}px)`;
     }
     case 'SM': {
-      return `(min-width: ${MediaQueries.SM}px)`;
+      return `(max-width: ${MediaQueries.SM}px)`;
     }
     default: {
-      return `(min-width: ${MediaQueries.XS}px)`;
+      return `(max-width: ${MediaQueries.XS}px)`;
     }
   }
 };
 
 export const getMediaQueryStyles = (
   media: keyof typeof MediaQueries,
-  columnValue: IColumnValue
+  columnValue: ColumnValueProps,
 ) => {
   return {
     [`@media ${createMediaQueryCondition(media)}`]: {
@@ -96,10 +98,11 @@ export const getMediaQueryStyles = (
 
 export const getLocalizeMediaQueryKey = () => {
   return {
+    XXL: `@media ${createMediaQueryCondition('XXL')}`,
     XL: `@media ${createMediaQueryCondition('XL')}`,
     LG: `@media ${createMediaQueryCondition('LG')}`,
     MD: `@media ${createMediaQueryCondition('MD')}`,
     SM: `@media ${createMediaQueryCondition('SM')}`,
     XS: `@media ${createMediaQueryCondition('XS')}`,
-  }
-}
+  };
+};

@@ -1,73 +1,110 @@
-import { LocalizeThemesType, LocalizeThemes } from '../types';
-import { LocalizeThemeProps, lightTheme } from './theme';
+import { Size, Position } from '../styles';
+import {
+  fonts,
+  lightFontsColors,
+  darkFontsColors,
+  ThemeFontsProps,
+  ThemeFontColorProps,
+} from './LocalizeFonts';
+import { LocalizeThemeGridProps } from './LocalizeGrid';
 
-export interface ILocalizeThemeGridGutter {
-  top?: string;
-  right: string;
-  left: string;
-  bottom?: string;
+export interface LocalizeBaseStyledProps {
+  /**
+   * Set this to change LocalizeBaseStyledProps className
+   * @default '''
+   */
+  className?: string;
+
+  /**
+   * Set this to change LocalizeStyledProps subColor
+   * @default undefined
+   */
+  zIndex?: number;
 }
 
-export interface ILocalizeTheme {
-  localized: LocalizeThemeProps;
-  primaryColor: LocalizeThemesType;
-  secondaryColor: LocalizeThemesType;
-  clickableColor: LocalizeThemesType;
-  background: LocalizeThemesType;
-  border: {
-    color: LocalizeThemesType;
-    radius: string;
-    shadow: string;
-  };
-  grid: {
-    containerGutter: {
-      right: string;
-      left: string;
-    };
-    rowGutter: {
-      top: string;
-      right: string;
-      left: string;
-    };
-    columnGutter: {
-      top: string;
-      right: string;
-      left: string;
-      bottom: string;
-    };
-  };
-  fonts: {
-    color: {
-      highlightColor: LocalizeThemesType;
-      primaryColor: LocalizeThemesType;
-      secondaryColor: LocalizeThemesType;
-    };
-    size: {
-      h1: string;
-      h2: string;
-      h3: string;
-      h4: string;
-      h5: string;
-      h6: string;
-      p: string;
-      big: string;
-      medium: string;
-      small: string;
-    };
-  };
+export interface LocalizeStyledProps extends LocalizeBaseStyledProps {
+  /**
+   * Set this to change LocalizeStyledProps position
+   * @default 'center'
+   */
+  position?: Position;
+  /**
+   * Set this to change LocalizeStyledProps size
+   * @default medium
+   */
+  size?: Size;
 }
 
-export const LocalizeTheme: ILocalizeTheme = {
-  localized: lightTheme,
-  primaryColor: 'royalblue',
-  secondaryColor: 'white',
-  clickableColor: 'info',
-  background: 'white',
-  border: {
-    color: `${LocalizeThemes.grey}`,
-    radius: '6px',
-    shadow: `0px 2px 1px -1px ${LocalizeThemes.lightgrey}, 0px 1px 1px 0px ${LocalizeThemes.lightgrey}, 0px 1px 3px 0px ${LocalizeThemes.lightgrey}`,
+export interface LocalizeThemeProps {
+  type: 'light' | 'dark';
+  colors: {
+    primary01: string;
+    primary02: string;
+    primaryBackground01: string;
+    primaryBackground02: string;
+    primaryBackground03: string;
+    uiColor01: string; // === Background Color
+    uiColor02: string;
+    uiColor03: string;
+    uiColor04: string;
+    uiColor05: string;
+    uiColor06: string;
+    uiColor07: string;
+    uiColor08: string; // === Text Color
+    error: string;
+  };
+  layout: {
+    backgroundColor: string;
+    fontColor: string;
+  };
+  fonts: ThemeFontsProps;
+  fontColors: ThemeFontColorProps;
+  grid: LocalizeThemeGridProps;
+}
+
+export const lightColorScheme: LocalizeThemeProps['colors'] = {
+  primary01: '#3A6FFE',
+  primary02: '#74A3FC',
+  primaryBackground01: '#F3F6FF',
+  primaryBackground02: '#F0F6F7',
+  primaryBackground03: '#CCD9FF',
+  uiColor01: '#FFFFFF',
+  uiColor02: '#F9F9F9',
+  uiColor03: '#F0F0F0',
+  uiColor04: '#EEEEEE',
+  uiColor05: '#DDDDDD',
+  uiColor06: '#999999',
+  uiColor07: '#5A5A5A',
+  uiColor08: '#000000',
+  error: '#FF1C1C',
+};
+
+export const darkColorScheme: LocalizeThemeProps['colors'] = {
+  primary01: '#386BF8',
+  primary02: '#5B87FF',
+  primaryBackground01: '#1B2030',
+  primaryBackground02: '#1C262C',
+  primaryBackground03: '#2D3C6B',
+  uiColor01: '#101114',
+  uiColor02: '#24262A',
+  uiColor03: '#34363A',
+  uiColor04: '#43454B',
+  uiColor05: '#5A5D63',
+  uiColor06: '#B2B9C7',
+  uiColor07: '#D3D6DB',
+  uiColor08: '#FFFFFF',
+  error: '#FF4444',
+};
+
+export const lightTheme: LocalizeThemeProps = {
+  type: 'light',
+  colors: lightColorScheme,
+  layout: {
+    backgroundColor: lightColorScheme.uiColor01,
+    fontColor: lightColorScheme.uiColor08,
   },
+  fonts,
+  fontColors: lightFontsColors,
   grid: {
     containerGutter: {
       right: '0',
@@ -85,23 +122,32 @@ export const LocalizeTheme: ILocalizeTheme = {
       bottom: '0.75rem',
     },
   },
-  fonts: {
-    color: {
-      highlightColor: 'royalblue',
-      primaryColor: '#282c35',
-      secondaryColor: '#282c35',
+};
+
+export const darkTheme: LocalizeThemeProps = {
+  type: 'dark',
+  colors: darkColorScheme,
+  layout: {
+    backgroundColor: darkColorScheme.uiColor01,
+    fontColor: darkColorScheme.uiColor08,
+  },
+  fonts,
+  fontColors: darkFontsColors,
+  grid: {
+    containerGutter: {
+      right: '0',
+      left: '0',
     },
-    size: {
-      h1: '2.4rem',
-      h2: '2.2rem',
-      h3: '2.0rem',
-      h4: '1.8rem',
-      h5: '1.6rem',
-      h6: '1.4rem',
-      p: '1.2rem',
-      big: '2.7rem',
-      medium: '1.5rem',
-      small: '1.0rem',
+    rowGutter: {
+      top: '1rem',
+      right: '0',
+      left: '0',
+    },
+    columnGutter: {
+      top: '0.75rem',
+      right: '0.75rem',
+      left: '0.75rem',
+      bottom: '0.75rem',
     },
   },
 };

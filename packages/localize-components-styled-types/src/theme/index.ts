@@ -1,3 +1,3 @@
-export * from './theme';
-export * from './fonts';
+export * from './LocalizeFonts';
+export * from './LocalizeGrid';
 export * from './LocalizeTheme';
