@@ -3,43 +3,37 @@ import styled from '@emotion/styled';
 
 import { LocalizeBaseStyledProps } from '@seolhun/localize-components-styled-types';
 
-interface ImageProps extends LocalizeBaseStyledProps {
-  /**
-   * Set this to change Image image Url
-   */
-  src: string;
-  /**
-   * Set this to change Image image Alt
-   */
-  alt?: string;
+export interface LocalizeImageProps
+  extends React.HTMLAttributes<HTMLImageElement>,
+    LocalizeBaseStyledProps {
   /**
    * Set this to change Image width
    */
   width?: string;
+
   /**
    * Set this to change Image Height
    */
   height?: string;
+
   /**
    * Set this to change Image height
    */
-  borderRadius?: string;
+  isRounded?: boolean;
 }
 
-const StyledImage = styled.img<ImageProps>(
-  ({ width, height, borderRadius }) => {
+const StyledImage = styled.img<LocalizeImageProps>(
+  ({ width, height, isRounded }) => {
     return {
       width: width || '100%',
       height: height || '100%',
-      borderRadius: borderRadius || '5px',
+      isRounded: isRounded ? '5px' : undefined,
     };
   },
 );
 
-const Image: React.FC<ImageProps> = (props) => {
+export const LocalizeImage: React.FC<LocalizeImageProps> = (props) => {
   return <StyledImage {...props} />;
 };
 
-export { ImageProps, Image };
-
-export default Image;
+export default LocalizeImage;

@@ -12,7 +12,7 @@ import SidebarItemLabel from './SidebarItemLabel';
 import SidebarItemIcon from './SidebarItemIcon';
 import SidebarItemsContainer from './SidebarItemsContainer';
 
-export interface SidebarItemProps {
+export interface LocalizeSidebarItemProps {
   /**
    * Set this to change SidebarItem label
    */
@@ -27,28 +27,28 @@ export interface SidebarItemProps {
    * Set this to render SidebarItem rendering icon
    * @default undefined
    */
-  renderIcon: (item: SidebarItemProps) => React.ReactNode;
+  renderIcon: (item: LocalizeSidebarItemProps) => React.ReactNode;
 
   /**
    * Set this to render SidebarItem rendering node
    * @default undefined
    */
-  renderLabel: (item: SidebarItemProps) => React.ReactNode;
+  renderLabel: (item: LocalizeSidebarItemProps) => React.ReactNode;
 
   /**
    * Set this to render Sub SidebarItem
    * @default undefined
    */
-  subItems?: SidebarItemProps[];
+  subItems?: LocalizeSidebarItemProps[];
 }
 
-export interface SidebarProps
+export interface LocalizeSidebarProps
   extends React.HTMLAttributes<HTMLSpanElement>,
     LocalizeBaseStyledProps {
   /**
    * Set this to change Button rendering children node
    */
-  items: SidebarItemProps[];
+  items: LocalizeSidebarItemProps[];
 
   /**
    * Set this to change SidebarItemsContainer className
@@ -73,7 +73,7 @@ const StyledSidebar = styled.aside<LocalizeStyledProps>(() => {
   return {};
 });
 
-export const Sidebar: React.FC<SidebarProps> = ({
+export const LocalizeSidebar: React.FC<LocalizeSidebarProps> = ({
   className,
   items,
   isSizer = false,
@@ -100,4 +100,4 @@ export const Sidebar: React.FC<SidebarProps> = ({
   );
 };
 
-export default Sidebar;
+export default LocalizeSidebar;

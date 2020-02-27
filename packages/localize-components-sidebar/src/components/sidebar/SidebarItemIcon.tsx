@@ -8,12 +8,12 @@ import {
   LocalizeBaseStyledProps,
 } from '@seolhun/localize-components-styled-types';
 
-import { SidebarItemProps } from './Sidebar';
+import { LocalizeSidebarItemProps } from './LocalizeSidebar';
 
 export interface SidebarItemIconProps
   extends React.HTMLAttributes<HTMLSpanElement>,
     LocalizeBaseStyledProps {
-  item: SidebarItemProps;
+  item: LocalizeSidebarItemProps;
 
   iconWidth: string;
 }

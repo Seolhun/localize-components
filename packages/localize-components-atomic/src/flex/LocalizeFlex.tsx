@@ -7,21 +7,27 @@ import {
 } from 'csstype';
 import { LocalizeBaseStyledProps } from '@seolhun/localize-components-styled-types';
 
-export interface LocalizeFlexProps extends LocalizeBaseStyledProps {
+export interface LocalizeFlexProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    LocalizeBaseStyledProps {
   justifyContent?: JustifyContentProperty;
+
   alignItems?: AlignItemsProperty;
+
   flexDirection?: FlexDirectionProperty;
 }
 
-export const LocalizeFlex = styled.div<LocalizeFlexProps>(
+const LocalizeFlex = styled.div<LocalizeFlexProps>(
   ({ flexDirection, alignItems, justifyContent }) => {
     return {
-      width: '100%',
-      flex: '1',
       display: 'flex',
+      flex: '1',
       flexDirection,
       alignItems,
       justifyContent,
+      width: '100%',
     };
   },
 );
+
+export default LocalizeFlex;
