@@ -2,11 +2,9 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 import classnames from 'classnames';
-import { getValidThemeObject } from '@seolhun/localize-components-styled-utils';
 
 import {
-  LocalizeStyledProps,
-  ILocalizeTheme,
+  LocalizeThemeProps,
   LocalizeBaseStyledProps,
 } from '@seolhun/localize-components-styled-types';
 
@@ -15,40 +13,47 @@ const SWITCH_CIRCLE = 25;
 const SWITCH_CONTAINER_WIDTH = SWITCH_CIRCLE * 2 + 2;
 const SWITCH_CONTAINER_HEIGHT = SWITCH_CIRCLE + 2;
 
-export interface SwitchProps extends LocalizeBaseStyledProps {
+export interface LocalizeSwitchProps extends LocalizeBaseStyledProps {
   /**
    * Set this to change Switch checked
    */
   checked: boolean;
+
   /**
    * Set this to change Switch htmlFor
    */
   htmlFor: string;
+
   /**
    * Set this to change Switch groupName
    * @default ''
    */
   groupName?: string;
+
   /**
    * Set this to change Switch useValueKey
    * @default false
    */
   useValueKey?: boolean;
+
   /**
    * Set this to change Switch valueKey
    * @default 'value'
    */
   valueKey?: string;
+
   /**
    * Set this to change Switch labelKey
    * @default 'label'
    */
   labelKey?: string;
+
   /**
    * Set this to change Switch onChange
    * @default () => null
    */
   onChange?: (checked: boolean) => void;
+
   /**
    * Set this to change Switch onMouseOver
    * @default () => null
@@ -61,24 +66,23 @@ export interface SwitchProps extends LocalizeBaseStyledProps {
   onMouseOut?: (...agrs: any[]) => void;
 }
 
-const StyledSwitchLabel = styled.label<LocalizeStyledProps, ILocalizeTheme>(
-  ({ theme, ...props }) => {
-    const validTheme = getValidThemeObject(props, theme);
+const StyledSwitchLabel = styled.label<
+  LocalizeBaseStyledProps,
+  LocalizeThemeProps
+>(({ theme }) => {
+  return {
+    userSelect: 'none',
+    position: 'relative',
+    display: 'inline-block',
+    width: `${SWITCH_CONTAINER_WIDTH}px`,
+    height: `${SWITCH_CONTAINER_HEIGHT}px`,
 
-    return {
-      userSelect: 'none',
-      position: 'relative',
-      display: 'inline-block',
-      width: `${SWITCH_CONTAINER_WIDTH}px`,
-      height: `${SWITCH_CONTAINER_HEIGHT}px`,
-
-      [`input:checked + .${DEFAULT_CLASSNAME}__Slider:before`]: {
-        transform: `translateX(${SWITCH_CIRCLE}px)`,
-        boxShadow: `0 0 2px 3px ${validTheme.mainColor}`,
-      },
-    };
-  },
-);
+    [`input:checked + .${DEFAULT_CLASSNAME}__Slider:before`]: {
+      transform: `translateX(${SWITCH_CIRCLE}px)`,
+      boxShadow: `0 0 2px 3px ${theme.colors.uiColor07}`,
+    },
+  };
+});
 
 const StyledSwitchInput = styled.input({
   opacity: 0,
@@ -86,12 +90,10 @@ const StyledSwitchInput = styled.input({
   height: 0,
 });
 
-const StyledSlider = styled.span<LocalizeStyledProps, ILocalizeTheme>(
-  ({ theme, ...props }) => {
-    const validTheme = getValidThemeObject(props, theme);
-
+const StyledSlider = styled.span<LocalizeBaseStyledProps, LocalizeThemeProps>(
+  ({ theme }) => {
     return {
-      backgroundColor: validTheme.mainColor,
+      backgroundColor: theme.colors.primary01,
       borderRadius: '35px',
       cursor: 'pointer',
       position: 'absolute',
@@ -103,7 +105,7 @@ const StyledSlider = styled.span<LocalizeStyledProps, ILocalizeTheme>(
 
       ['&:before']: {
         content: '""',
-        backgroundColor: validTheme.subColor,
+        backgroundColor: theme.colors.primary01,
         borderRadius: '50%',
         position: 'absolute',
         left: '1px',
@@ -116,26 +118,20 @@ const StyledSlider = styled.span<LocalizeStyledProps, ILocalizeTheme>(
   },
 );
 
-export const Switch: React.FC<SwitchProps> = ({
+export const LocalizeSwitch: React.FC<LocalizeSwitchProps> = ({
   checked,
   htmlFor,
-  //
   className,
   groupName = '',
-  mainColor,
-  subColor,
   onChange = () => null,
   onMouseOut = () => null,
   onMouseOver = () => null,
-  css = {},
 }) => {
-  const handleChecked = React.useCallback(
-    (event: React.ChangeEvent) => {
-      onChange(checked);
-      event.stopPropagation();
-    },
-    [checked],
-  );
+  const handleChecked = (event: React.ChangeEvent<HTMLInputElement>) => {
+    event.stopPropagation();
+
+    onChange(checked);
+  };
 
   return (
     <StyledSwitchLabel
@@ -144,8 +140,6 @@ export const Switch: React.FC<SwitchProps> = ({
       className={classnames(`${DEFAULT_CLASSNAME}__Label`, className)}
       onMouseOut={onMouseOut}
       onMouseOver={onMouseOver}
-      mainColor={mainColor}
-      subColor={subColor}
     >
       <StyledSwitchInput
         id={htmlFor}
@@ -158,12 +152,9 @@ export const Switch: React.FC<SwitchProps> = ({
       />
       <StyledSlider
         className={classnames(`${DEFAULT_CLASSNAME}__Slider`, className)}
-        mainColor={mainColor}
-        subColor={subColor}
-        css={css}
       />
     </StyledSwitchLabel>
   );
 };
 
-export default Switch;
+export default LocalizeSwitch;

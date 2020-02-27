@@ -65,7 +65,7 @@ export interface LocalizeThemeProps {
 export const lightThemeColors: LocalizeThemeProps['colors'] = {
   primary01: '#3A6FFE',
   primary02: '#74A3FC',
-  primaryBackground01: '#F3F6FF',
+  primaryBackground01: '#E0EAFF',
   primaryBackground02: '#F0F6F7',
   primaryBackground03: '#CCD9FF',
   uiColor01: '#FFFFFF',
@@ -74,7 +74,7 @@ export const lightThemeColors: LocalizeThemeProps['colors'] = {
   uiColor04: '#EEEEEE',
   uiColor05: '#DDDDDD',
   uiColor06: '#999999',
-  uiColor07: '#5A5A5A',
+  uiColor07: '#5A5A5A', // borderColor
   uiColor08: '#000000',
   error: '#FF1C1C',
 };
@@ -91,7 +91,7 @@ export const darkThemeColors: LocalizeThemeProps['colors'] = {
   uiColor04: '#43454B',
   uiColor05: '#5A5D63',
   uiColor06: '#B2B9C7',
-  uiColor07: '#D3D6DB',
+  uiColor07: '#D3D6DB', // borderColor
   uiColor08: '#FFFFFF',
   error: '#FF4444',
 };

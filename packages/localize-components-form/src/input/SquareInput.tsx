@@ -2,7 +2,7 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 import classnames from 'classnames';
-import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
+import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
 import { ErrorLabel } from './ErrorLabel';
 import { LocalizeBaseInput } from './LocalizeBaseInput';
@@ -28,14 +28,14 @@ const SquareInputWrapper = styled.div({
 
 export const SquareInputLabel = styled.label<
   { margin?: boolean },
-  ILocalizeTheme
+  LocalizeThemeProps
 >(({ theme, margin }) => {
-  const fonts = theme.localized.fonts.body500;
+  const fonts = theme.fonts.h5;
   return {
     ...fonts,
     marginBottom: '3px',
     marginLeft: margin ? '3px' : '0',
-    color: theme.localized.colors.uiColor06,
+    color: theme.colors.uiColor06,
   };
 });
 

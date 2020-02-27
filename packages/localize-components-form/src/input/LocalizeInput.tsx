@@ -3,16 +3,9 @@ import React from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
 import {
-  FontSizes,
-  LocalizeThemes,
-  ILocalizeTheme,
+  LocalizeThemeProps,
   LocalizeBaseStyledProps,
 } from '@seolhun/localize-components-styled-types';
-import {
-  getValidThemeObject,
-  getThemeColorStyle,
-  getThemeHoverStyle,
-} from '@seolhun/localize-components-styled-utils';
 import { ValidationResponse } from '@seolhun/localize-components-types';
 
 const DEFAULT_CLASSNAME = '__Localize__Input';
@@ -20,54 +13,60 @@ const DEFAULT_CLASSNAME = '__Localize__Input';
 export interface LocalizeInputProps
   extends React.InputHTMLAttributes<HTMLInputElement>,
     LocalizeBaseStyledProps {
-  // isRequired
   /**
    * Set this to change Input rendering children node
    * @default ''
    */
   value: string;
 
-  // isNotRequired
   /**
    * Set this to change Input autoFocus
    * @default false
    */
   autoFocus?: boolean;
+
   /**
    * Set this to change Input className
    * @default undefined
    */
   className?: string;
+
   /**
    * Set this to change Input onSubmit
    * @default undefined
    */
   onSubmit?: (...args: any[]) => void;
+
   /**
    * Set this to change Input font-size
    * @default 12
    */
   fontSize?: number;
+
   /**
    * Set this to change Input message
    * @default ''
    */
   message?: string;
+
   /**
    * Set this to change Input onChange
    * @default undefined
    */
   onValidation?: (...args: any[]) => ValidationResponse;
+
   /**
    * Set this to change Input rendering enterButton node
    * @default null
    */
   enterButton?: React.ReactNode;
+
   /**
    * Set this to change Input useEnter
    * @default true
    */
   useEnter?: boolean;
+
   /**
    * Set this to change Input useEnter
    * @default (value) => value,
@@ -82,18 +81,16 @@ export interface InputState {
   message: string;
 }
 
-const StyledInputBox = styled.div<LocalizeBaseStyledProps, ILocalizeTheme>(
-  ({ theme, ...props }) => {
-    const validTheme = getValidThemeObject(props, theme);
-
+const StyledInputBox = styled.div<LocalizeBaseStyledProps, LocalizeThemeProps>(
+  ({ theme }) => {
     return {
       display: 'flex',
       verticalAlign: 'middle',
       width: '100%',
       height: '40px',
-      backgroundColor: validTheme.subColor,
+      backgroundColor: theme.colors.primaryBackground01,
       borderRadius: '6px',
-      border: `2px solid ${LocalizeThemes.lightgrey}`,
+      border: `2px solid ${theme.colors.uiColor07}`,
       padding: 0,
       transition: 'border-color 0.3s, background-color 0.3s',
 
@@ -101,70 +98,59 @@ const StyledInputBox = styled.div<LocalizeBaseStyledProps, ILocalizeTheme>(
         cursor: 'not-allowed',
       },
 
-      ['&:hover']: {
-        border: `2px solid ${getThemeHoverStyle(validTheme.mainColor)}`,
-      },
-
-      ['&.isFocused']: {
-        border: `2px solid ${validTheme.mainColor}`,
+      ['&:hover, &.isFocused']: {
+        border: `2px solid ${theme.colors.primary01}`,
       },
     };
   },
 );
 
-const StyledDivInput = styled.div<LocalizeInputProps, ILocalizeTheme>(
-  ({ fontSize = 12, theme, ...props }) => {
-    const validTheme = getValidThemeObject(props, theme);
+const StyledDivInput = styled.div<LocalizeInputProps, LocalizeThemeProps>(
+  ({ fontSize = 12, theme }) => {
     return {
       appearance: 'textfield',
       display: 'block',
       height: 'auto',
       width: '100%',
       margin: 'auto 10px',
-      backgroundColor: LocalizeThemes.transparent,
+      backgroundColor: 'transparent',
       border: 0,
       padding: 0,
       fontSize: `${fontSize}px`,
-      color: getThemeColorStyle(validTheme.subColor),
+      color: theme.colors.uiColor06,
       cursor: 'text',
       lineHeight: '25px',
       outline: 'none',
       whiteSpace: 'nowrap',
 
       ['&:empty:before']: {
+        ...theme.fonts.p.fontSize,
         content: 'attr(data-placeholder)',
-        fontSize: `${FontSizes.H5}`,
-        fontWeight: 300,
-        fontStyle: 'normal',
-        fontStretch: 'normal',
-        lineHeight: 1.9,
-        letterSpacing: '-0.3px',
-        color: getThemeColorStyle(validTheme.subColor),
+        color: theme.colors.primary02,
       },
+
       ['&:required']: {
-        color: `${LocalizeThemes.warning}`,
+        color: `${theme.colors.error}`,
       },
 
       ['&:disabled']: {
-        backgroundColor: `${LocalizeThemes.lightgrey}`,
-        border: `1px solid ${LocalizeThemes.lightgrey}`,
+        backgroundColor: `${theme.colors.uiColor07}`,
+        border: `1px solid ${theme.colors.uiColor07}`,
         cursor: 'not-allowed !important',
       },
     };
   },
 );
 
-const StyledInput = styled.input<LocalizeInputProps, ILocalizeTheme>(
-  ({ theme, ...props }) => {
-    const validTheme = getValidThemeObject(props, theme);
-
+const StyledInput = styled.input<LocalizeInputProps, LocalizeThemeProps>(
+  ({ theme }) => {
     return {
       display: 'none',
       height: 'auto',
       width: '100%',
       backgroundColor: 'transparent',
       border: 0,
-      color: getThemeColorStyle(validTheme.subColor),
+      color: theme.colors.primary02,
       lineHeight: '25px',
       margin: 'auto 10px',
       padding: 0,
@@ -174,73 +160,68 @@ const StyledInput = styled.input<LocalizeInputProps, ILocalizeTheme>(
       whiteSpace: 'nowrap',
 
       ['&::placeholder']: {
-        fontSize: `${FontSizes.H5}`,
-        fontWeight: 300,
-        fontStyle: 'normal',
-        fontStretch: 'normal',
-        lineHeight: 1.9,
-        letterSpacing: '-0.3px',
-        color: LocalizeThemes.lightgrey,
+        ...theme.fonts.p.fontSize,
+        color: theme.colors.uiColor07,
       },
 
       ['&:required']: {
-        color: `${LocalizeThemes.warning}`,
+        color: `${theme.colors.error}`,
       },
 
       ['&:disabled']: {
-        backgroundColor: `${LocalizeThemes.lightgrey}`,
-        border: `1px solid ${LocalizeThemes.lightgrey}`,
+        backgroundColor: `${theme.colors.uiColor07}`,
+        border: `1px solid ${theme.colors.uiColor07}`,
         cursor: 'not-allowed !important',
       },
     };
   },
 );
 
-const StyledEnterButton = styled.button({
-  alignItems: 'center',
-  backgroundColor: `${LocalizeThemes.grey}`,
-  borderRadius: '0 6px 6px 0',
-  color: `${LocalizeThemes.white}`,
+const StyledEnterButton = styled.button<{}, LocalizeThemeProps>(({ theme }) => {
+  return {
+    alignItems: 'center',
+    backgroundColor: `${theme.colors.uiColor07}`,
+    borderRadius: '0 6px 6px 0',
+    color: `${theme.colors.uiColor08}`,
 
-  display: 'inline-flex',
-  flexBasis: '50px',
-  width: '50px',
-  flexShrink: 0,
-  height: '100%',
-  justifyContent: 'center',
-  verticalAlign: 'middle',
+    display: 'inline-flex',
+    flexBasis: '50px',
+    width: '50px',
+    flexShrink: 0,
+    height: '100%',
+    justifyContent: 'center',
+    verticalAlign: 'middle',
 
-  float: 'right',
-  cursor: 'pointer',
+    float: 'right',
+    cursor: 'pointer',
 
-  [`&.${DEFAULT_CLASSNAME}__EnterButton__IsFilled`]: {
-    backgroundColor: `${LocalizeThemes.grey}`,
-  },
-  [`&.${DEFAULT_CLASSNAME}__EnterButton__HasError`]: {
-    backgroundColor: `${LocalizeThemes.grey}`,
-    cursor: 'not-allowed !important',
-  },
-  ['&:hover, &:active']: {
-    backgroundColor: `${LocalizeThemes.grey}`,
-  },
+    [`&.${DEFAULT_CLASSNAME}__EnterButton__IsFilled`]: {
+      backgroundColor: `${theme.colors.uiColor07}`,
+    },
+    [`&.${DEFAULT_CLASSNAME}__EnterButton__HasError`]: {
+      backgroundColor: `${theme.colors.uiColor07}`,
+      cursor: 'not-allowed !important',
+    },
+    ['&:hover, &:active']: {
+      backgroundColor: `${theme.colors.uiColor07}`,
+    },
+  };
 });
 
-const StyledErrorBox = styled.div({
-  display: 'flex',
-  verticalAlign: 'middle',
-  minHeight: '10px',
-  height: 'auto',
-  width: '100%',
-  marginTop: '10px',
+const StyledErrorBox = styled.div<{}, LocalizeThemeProps>(({ theme }) => {
+  return {
+    ...theme.fonts.p.fontSize,
+    display: 'flex',
+    verticalAlign: 'middle',
+    minHeight: '10px',
+    height: 'auto',
+    width: '100%',
+    marginTop: '10px',
 
-  fontSize: `${FontSizes.H1}`,
-  fontWeight: 300,
-  letterSpacing: '-0.2px',
-  lineHeight: 0.9,
-
-  [`&.${DEFAULT_CLASSNAME}__ErrorBox__HasError`]: {
-    color: `${LocalizeThemes.danger}`,
-  },
+    [`&.${DEFAULT_CLASSNAME}__ErrorBox__HasError`]: {
+      color: `${theme.colors.error}`,
+    },
+  };
 });
 
 export class LocalizeInput extends React.PureComponent<
@@ -369,7 +350,6 @@ export class LocalizeInput extends React.PureComponent<
       placeholder = '',
       required = false,
       type = 'text',
-      css = {},
       ...props
     }: LocalizeInputProps = this.props;
     const { hasError, isFilled, isFocused, message }: InputState = this.state;
@@ -383,7 +363,6 @@ export class LocalizeInput extends React.PureComponent<
             hasError,
             isFocused,
           })}
-          css={css}
         >
           <StyledDivInput
             {...props}

@@ -1,2 +1,2 @@
-export * from './Radio';
-export * from './RadioGroup';
+export * from './LocalizeRadio';
+export * from './LocalizeRadioGroup';

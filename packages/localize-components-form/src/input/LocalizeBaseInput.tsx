@@ -1,34 +1,32 @@
 import React from 'react';
 
 import styled from '@emotion/styled';
-import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
+import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
 export interface LocalizeBaseInputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
   error?: boolean;
+
   width?: string | number;
 }
 
 export const LocalizeBaseInput = styled.input<
   LocalizeBaseInputProps,
-  ILocalizeTheme
+  LocalizeThemeProps
 >(({ theme, width, error }) => {
-  const fonts = theme.localized.fonts.body500;
+  const fonts = theme.fonts.h5;
   return {
     ...fonts,
     width,
     boxSizing: 'border-box',
     borderRadius: '5px',
-    // backgroundColor: theme.localized.color,
-    border: `1px solid ${
-      error ? theme.localized.colors.error : theme.localized.colors.uiColor03
-    }`,
+    border: `1px solid ${error ? theme.colors.error : theme.colors.uiColor03}`,
     padding: '10px 12px',
     outline: 0,
-    color: theme.localized.colors.uiColor08,
+    color: theme.colors.uiColor08,
     ['&:focus, &:active']: {
       border: `1px solid ${
-        error ? theme.localized.colors.error : theme.localized.colors.primary01
+        error ? theme.colors.error : theme.colors.primary01
       }`,
     },
   };

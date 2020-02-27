@@ -1,17 +1,17 @@
 import React from 'react';
 
 import styled from '@emotion/styled';
-import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
+import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
 export interface ErrorLabelProps {}
 
-const StyledErrorSpan = styled.span<{}, ILocalizeTheme>(({ theme }) => {
-  const fonts = theme.localized.fonts.body400;
+const StyledErrorSpan = styled.span<{}, LocalizeThemeProps>(({ theme }) => {
+  const fonts = theme.fonts.h5;
   return {
     ...fonts,
     display: 'flex',
     alignItems: 'center',
-    color: theme.localized.colors.error,
+    color: theme.colors.error,
     marginTop: '12px',
   };
 });

@@ -2,85 +2,82 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 import classnames from 'classnames';
+import {} from '@seolhun/localize-components-styled-utils';
 import {
-  getValidThemeObject,
-  getThemeHoverStyle,
-} from '@seolhun/localize-components-styled-utils';
-import {
-  LocalizeStyledProps,
-  ILocalizeTheme,
+  LocalizeThemeProps,
   LocalizeBaseStyledProps,
 } from '@seolhun/localize-components-styled-types';
 
-import { CheckBoxGroupAlign } from './CheckBoxGroup';
+import { LocalizeCheckBoxAlignType } from './LocalizeCheckBoxGroup';
 
 const DEFAULT_CLASSNAME = '__Localize__CheckBox';
 
-export interface CheckBoxProps extends LocalizeBaseStyledProps {
+export interface LocalizeCheckBoxProps
+  extends React.HTMLAttributes<HTMLInputElement>,
+    LocalizeBaseStyledProps {
   /**
    * Set this to change CheckBox label
    */
   item: CheckBoxItemProps;
+
   /**
    * Set this to change Radio checked
    */
   checked: boolean;
-  /**
-   * Set this to change CheckBox className
-   * @default undefined
-   */
-  className?: string;
+
   /**
    * Set this to change CheckBox groupName
    * @default ''
    */
   groupName?: string;
+
   /**
    * Set this to change CheckBox labelKey
    * @default 'label'
    */
   labelKey?: string;
+
   /**
    * Set this to change CheckBox onChange
    * @default () => null
    */
   onChange?: (item: CheckBoxItemProps, ...args: any[]) => void;
+
   /**
    * Set this to change CheckBox Group onClick
    * @default undefined
    */
   onClick?: (item: CheckBoxItemProps, ...args: any[]) => void;
+
   /**
    * Set this to change CheckBox onMouseOver
    * @default () => null
    */
   onMouseOver?: (...agrs: any[]) => void;
+
   /**
    * Set this to change CheckBox onMouseOut
    * @default () => null
    */
   onMouseOut?: (...agrs: any[]) => void;
+
   /**
    * Set this to change CheckBox useLabelKey
    * @default false
    */
   useLabelKey?: boolean;
+
   /**
    * Set this to change CheckBox valueKey
    * @default 'value'
    */
   valueKey?: string;
-  /**
-   * Set this to change CheckBox css
-   * @default {}
-   */
-  css?: {};
 
   /**
    * Set this to change Radio Group align
    * @default 'horizontal'
    */
-  align?: CheckBoxGroupAlign;
+  align?: LocalizeCheckBoxAlignType;
 }
 
 export interface CheckBoxItemProps {
@@ -92,7 +89,7 @@ interface SizeProps {
    * Set this to change Radio Group align
    * @default undefined
    */
-  align?: CheckBoxGroupAlign;
+  align?: LocalizeCheckBoxAlignType;
 }
 
 const StyledCheckBoxLabel = styled.label<SizeProps>(({ align }) => {
@@ -129,51 +126,50 @@ const StyledCheckBox = styled.input({
   opacity: 0,
 });
 
-const StyledCheckMark = styled.span<LocalizeStyledProps, ILocalizeTheme>(
-  ({ theme, ...props }) => {
-    const validTheme = getValidThemeObject(props, theme);
+const StyledCheckMark = styled.span<
+  LocalizeBaseStyledProps,
+  LocalizeThemeProps
+>(({ theme }) => {
+  return {
+    backgroundColor: theme.colors.primary01,
+    borderRadius: '6px',
+    border: '1px solid transparent',
+    display: 'inline-flex',
+    height: '16px',
+    justifyContent: 'flex-start',
+    left: 0,
+    position: 'absolute',
+    transition: 'border-color 0.35s, background-color 0.35s',
+    width: '16px',
 
-    return {
-      backgroundColor: validTheme.mainColor,
-      borderRadius: '6px',
-      border: '1px solid transparent',
-      display: 'inline-flex',
-      height: '16px',
-      justifyContent: 'flex-start',
-      left: 0,
+    [`.${DEFAULT_CLASSNAME}:hover ~ &`]: {
+      border: `1px solid ${theme.colors.uiColor07}`,
+
+      ['input:checked ~ &']: {
+        backgroundColor: theme.colors.primary02,
+      },
+    },
+
+    [`.${DEFAULT_CLASSNAME}:checked ~ &:after`]: {
+      display: 'block',
+    },
+
+    ['&::after']: {
+      content: '""',
       position: 'absolute',
-      transition: 'border-color 0.35s, background-color 0.35s',
-      width: '16px',
+      display: 'none',
+      border: `solid ${theme.colors.primary02}`,
+      borderWidth: '0 2px 2px 0',
+      height: '8px',
+      width: '4px',
+      left: '5px',
+      top: '2px',
+      transform: 'rotate(45deg)',
+    },
+  };
+});
 
-      [`.${DEFAULT_CLASSNAME}:hover ~ &`]: {
-        border: `1px solid ${validTheme.mainColor}`,
-
-        ['input:checked ~ &']: {
-          backgroundColor: getThemeHoverStyle(validTheme.mainColor),
-        },
-      },
-
-      [`.${DEFAULT_CLASSNAME}:checked ~ &:after`]: {
-        display: 'block',
-      },
-
-      ['&::after']: {
-        content: '""',
-        position: 'absolute',
-        display: 'none',
-        border: `solid ${validTheme.subColor}`,
-        borderWidth: '0 2px 2px 0',
-        height: '8px',
-        width: '4px',
-        left: '5px',
-        top: '2px',
-        transform: 'rotate(45deg)',
-      },
-    };
-  },
-);
-
-export const CheckBox: React.FC<CheckBoxProps> = ({
+export const LocalizeCheckBox: React.FC<LocalizeCheckBoxProps> = ({
   item,
   checked,
   // IsNotRequired
@@ -186,10 +182,7 @@ export const CheckBox: React.FC<CheckBoxProps> = ({
   onMouseOut = () => null,
   onMouseOver = () => null,
   useLabelKey = false,
-  mainColor,
-  subColor,
   align = 'horizontal',
-  css = {},
 }) => {
   const usedKey = useLabelKey ? labelKey : valueKey;
   const handleOnChange = React.useCallback(
@@ -229,9 +222,9 @@ export const CheckBox: React.FC<CheckBoxProps> = ({
         value={item[usedKey]}
         name={groupName || item[usedKey]}
       />
-      <StyledCheckMark mainColor={mainColor} subColor={subColor} css={css} />
+      <StyledCheckMark />
     </StyledCheckBoxLabel>
   );
 };
 
-export default CheckBox;
+export default LocalizeCheckBox;

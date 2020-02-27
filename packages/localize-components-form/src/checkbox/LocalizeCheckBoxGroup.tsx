@@ -1,16 +1,20 @@
 import React from 'react';
 
 import styled from '@emotion/styled';
+import classnames from 'classnames';
 
-import { LocalizeThemeStyledProps } from '@seolhun/localize-components-styled-types';
+import { LocalizeBaseStyledProps } from '@seolhun/localize-components-styled-types';
 
-export type CheckBoxGroupAlign = 'vertical' | 'horizontal';
+const DEFAULT_CLASSNAME = '__Localize__CheckBoxGroup';
 
-export interface CheckBoxGroupProps extends LocalizeThemeStyledProps {
+export type LocalizeCheckBoxAlignType = 'vertical' | 'horizontal';
+
+export interface LocalizeCheckBoxProps extends LocalizeBaseStyledProps {
   /**
    * Set this to change CheckBox Group children
    */
-  children: (props: CheckBoxGroupProps) => React.ReactNode;
+  children: (props: LocalizeCheckBoxProps) => React.ReactNode;
+
   /**
    * Set this to change CheckBox Group name
    */
@@ -21,26 +25,31 @@ export interface CheckBoxGroupProps extends LocalizeThemeStyledProps {
    * @default 'label'
    */
   labelKey?: string;
+
   /**
    * Set this to change CheckBox Group valueKey
    * @default 'value'
    */
   valueKey?: string;
+
   /**
    * Set this to change CheckBox Group useValueKey
    * @default false
    */
   useValueKey?: boolean;
+
   /**
    * Set this to change CheckBox Group align
    * @default 'vertical'
    */
-  align?: CheckBoxGroupAlign;
+  align?: LocalizeCheckBoxAlignType;
+
   /**
    * Set this to change CheckBox Group gap
    * @default '10px'
    */
   gap?: string;
+
   /**
    * Set this to change CheckBox Group onClick
    * @default () => any;
@@ -48,12 +57,12 @@ export interface CheckBoxGroupProps extends LocalizeThemeStyledProps {
   onClickItems?: (...args: any[]) => any;
 }
 
-interface CheckBoxGroupContainerProps {
-  align: CheckBoxGroupAlign;
+interface LocalizeCheckBoxContainerProps {
+  align: LocalizeCheckBoxAlignType;
   gap: string;
 }
 
-const CheckBoxGroupContainer = styled.div<CheckBoxGroupContainerProps>(
+const LocalizeCheckBoxContainer = styled.div<LocalizeCheckBoxContainerProps>(
   ({ align, gap }) => {
     const getGapStylesByAlign = () => {
       const isVertical = align === 'vertical';
@@ -74,11 +83,10 @@ const CheckBoxGroupContainer = styled.div<CheckBoxGroupContainerProps>(
   },
 );
 
-export const CheckBoxGroup: React.FC<CheckBoxGroupProps> = ({
+export const LocalizeCheckBox: React.FC<LocalizeCheckBoxProps> = ({
   children,
   groupName,
-  mainColor,
-  subColor,
+  className,
   labelKey = 'label',
   valueKey = 'value',
   useValueKey = false,
@@ -87,8 +95,8 @@ export const CheckBoxGroup: React.FC<CheckBoxGroupProps> = ({
   onClickItems = () => null,
 }) => {
   return (
-    <CheckBoxGroupContainer
-      className="__Localize__CheckBoxGroup"
+    <LocalizeCheckBoxContainer
+      className={classnames(DEFAULT_CLASSNAME, className)}
       align={align}
       gap={gap}
     >
@@ -98,13 +106,11 @@ export const CheckBoxGroup: React.FC<CheckBoxGroupProps> = ({
         labelKey,
         valueKey,
         useValueKey,
-        mainColor,
-        subColor,
         align,
         onClickItems,
       })}
-    </CheckBoxGroupContainer>
+    </LocalizeCheckBoxContainer>
   );
 };
 
-export default CheckBoxGroup;
+export default LocalizeCheckBox;

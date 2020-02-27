@@ -1,3 +1,2 @@
-export * from './CheckBox';
-export * from './CheckBoxGroup';
-
+export * from './LocalizeCheckBox';
+export * from './LocalizeCheckBoxGroup';
