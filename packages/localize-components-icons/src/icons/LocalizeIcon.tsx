@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
+import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
 import { Icons, IconsInterface } from './resources';
 
@@ -14,7 +14,7 @@ export interface LocalizeIconProps {
   /**
    * icon color
    */
-  color?: keyof ILocalizeTheme['localized']['colors'];
+  color?: keyof LocalizeThemeProps['colors'];
 
   /**
    * icon cursor type
@@ -27,12 +27,14 @@ export const LocalizeIcon: React.FC<LocalizeIconProps> = ({
   color = 'uiColor08',
   cursor,
 }) => {
-  const RenderIcon = styled(Icons[icon])<{}, ILocalizeTheme>(({ theme }) => {
-    return {
-      fill: theme.localized.colors[color],
-      transition: 'fill 0.3s',
-      cursor: `${cursor ? 'pointer' : 'unset'}`,
-    };
-  });
+  const RenderIcon = styled(Icons[icon])<{}, LocalizeThemeProps>(
+    ({ theme }) => {
+      return {
+        fill: theme.colors[color],
+        transition: 'fill 0.3s',
+        cursor: `${cursor ? 'pointer' : 'unset'}`,
+      };
+    },
+  );
   return <RenderIcon className="bd-icon" />;
 };

@@ -19,7 +19,6 @@ interface ColProps {
   xl?: ColumnValueProps;
   alignItems?: AlignItemsProperty;
   justifyContent?: JustifyContentProperty;
-  css?: {};
 }
 
 const StyledCol = styled.div<ColProps, LocalizeThemeProps>(
@@ -53,13 +52,9 @@ const StyledCol = styled.div<ColProps, LocalizeThemeProps>(
   },
 );
 
-const Col = ({ children, className, css = {}, ...props }: ColProps) => {
+const Col = ({ children, className, ...props }: ColProps) => {
   return (
-    <StyledCol
-      {...props}
-      className={classnames('__Localize__Col', className)}
-      css={css}
-    >
+    <StyledCol {...props} className={classnames('__Localize__Col', className)}>
       {children}
     </StyledCol>
   );

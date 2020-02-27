@@ -4,8 +4,8 @@ import classnames from 'classnames';
 import styled from '@emotion/styled';
 
 import {
-  LocalizeThemesType,
   LocalizeStyledProps,
+  LocalizeBaseStyledProps,
 } from '@seolhun/localize-components-styled-types';
 
 import SidebarItemLabel from './SidebarItemLabel';
@@ -17,20 +17,24 @@ export interface SidebarItemProps {
    * Set this to change SidebarItem label
    */
   label: string;
+
   /**
    * Set this to change SidebarItem route path
    */
   to: string;
+
   /**
    * Set this to render SidebarItem rendering icon
    * @default undefined
    */
   renderIcon: (item: SidebarItemProps) => React.ReactNode;
+
   /**
    * Set this to render SidebarItem rendering node
    * @default undefined
    */
   renderLabel: (item: SidebarItemProps) => React.ReactNode;
+
   /**
    * Set this to render Sub SidebarItem
    * @default undefined
@@ -38,67 +42,31 @@ export interface SidebarItemProps {
   subItems?: SidebarItemProps[];
 }
 
-export interface SidebarProps {
+export interface SidebarProps
+  extends React.HTMLAttributes<HTMLSpanElement>,
+    LocalizeBaseStyledProps {
   /**
    * Set this to change Button rendering children node
    */
   items: SidebarItemProps[];
 
   /**
-   * Set this to change Button className
-   * @default undefined
+   * Set this to change SidebarItemsContainer className
+   * @default false
    */
-  className?: string;
+  isSizer?: boolean;
+
   /**
    * Set this to change Button className
-   * @default 50
+   * @default 50px
    */
-  iconWidth?: number;
+  iconWidth?: string;
+
   /**
    * Set this to change Button labelWidth
-   * @default 150
+   * @default 150px
    */
-  labelWidth?: number;
-  /**
-   * Set this to change Sidebar onBlur
-   * @default 'main'
-   */
-  onBlur?: (...args: any[]) => void;
-  /**
-   * Set this to change Sidebar onClick
-   * @default () => null
-   */
-  onClick?: (...args: any[]) => void;
-  /**
-   * Set this to change Sidebar onFocus
-   * @default () => null
-   */
-  onFocus?: (...args: any[]) => void;
-  /**
-   * Set this to change Sidebar onMouseOut
-   * @default () => null
-   */
-  onMouseOut?: (...args: any[]) => void;
-  /**
-   * Set this to change Sidebar onMouseOver
-   * @default () => null
-   */
-  onMouseOver?: (...args: any[]) => void;
-  /**
-   * Set this to change Sidebar mainColor
-   * @default LocalizeTheme.primaryColor = royalblue
-   */
-  mainColor?: LocalizeThemesType;
-  /**
-   * Set this to change Sidebar subColor
-   * @default LocalizeTheme.secondaryColor = grey
-   */
-  subColor?: LocalizeThemesType;
-  /**
-   * Set this to change Sidebar css
-   * @default {}
-   */
-  css?: {};
+  labelWidth?: string;
 }
 
 const StyledSidebar = styled.aside<LocalizeStyledProps>(() => {
@@ -107,38 +75,25 @@ const StyledSidebar = styled.aside<LocalizeStyledProps>(() => {
 
 export const Sidebar: React.FC<SidebarProps> = ({
   className,
-  css,
   items,
-  iconWidth = 50,
-  labelWidth = 150,
+  isSizer = false,
+  iconWidth = '50px',
+  labelWidth = '150px',
   ...props
 }) => {
   return (
     <StyledSidebar
-      className={classnames('__Localize__Sidebar', className)}
-      css={css}
       {...props}
+      className={classnames('__Localize__Sidebar', className)}
     >
       <SidebarItemsContainer>
         {items.map((item) => (
-          <SidebarItemIcon
-            item={item}
-            css={{
-              width: `${iconWidth}px`,
-            }}
-            {...props}
-          />
+          <SidebarItemIcon {...props} item={item} iconWidth={iconWidth} />
         ))}
       </SidebarItemsContainer>
-      <SidebarItemsContainer isSizer>
+      <SidebarItemsContainer isSizer={isSizer}>
         {items.map((item) => (
-          <SidebarItemLabel
-            item={item}
-            css={{
-              width: `${iconWidth}px`,
-            }}
-            {...props}
-          />
+          <SidebarItemLabel {...props} item={item} iconWidth={iconWidth} />
         ))}
       </SidebarItemsContainer>
     </StyledSidebar>

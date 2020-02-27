@@ -1,18 +1,20 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
+
 import styled from '@emotion/styled';
+import classnames from 'classnames';
+
 import {
   LocalizeThemeProps,
   MediaQueriesEnum,
 } from '@seolhun/localize-components-styled-types';
 import { MEDIA_QUERIES } from '@seolhun/localize-components-styled-utils';
 
-import classnames from 'classnames';
-
 interface ContainerProps {
-  children: ReactNode;
+  children: React.ReactNode;
+
   className?: string;
+
   isFullWidth?: boolean;
-  css?: {};
 }
 
 const StyledContainer = styled.div<ContainerProps, LocalizeThemeProps>(
@@ -49,17 +51,11 @@ const StyledContainer = styled.div<ContainerProps, LocalizeThemeProps>(
   },
 );
 
-const Container = ({
-  children,
-  className,
-  css = {},
-  ...props
-}: ContainerProps) => {
+const Container = ({ children, className, ...props }: ContainerProps) => {
   return (
     <StyledContainer
       {...props}
       className={classnames('__Localize__Container', className)}
-      css={css}
     >
       {children}
     </StyledContainer>
