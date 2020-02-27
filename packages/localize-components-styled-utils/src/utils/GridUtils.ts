@@ -1,5 +1,5 @@
 import {
-  MediaQueries,
+  MediaQueriesEnum,
   ColumnValueProps,
 } from '@seolhun/localize-components-styled-types';
 
@@ -62,31 +62,33 @@ export const buildGridStyle = (columnValue: ColumnValueProps) => {
   return styles;
 };
 
-export const createMediaQueryCondition = (media: keyof typeof MediaQueries) => {
+export const createMediaQueryCondition = (
+  media: keyof typeof MediaQueriesEnum,
+) => {
   switch (media) {
     case 'XXL': {
-      return `(max-width: ${MediaQueries.XL}px)`;
+      return `(max-width: ${MediaQueriesEnum.XL}px)`;
     }
     case 'XL': {
-      return `(max-width: ${MediaQueries.XL}px)`;
+      return `(max-width: ${MediaQueriesEnum.XL}px)`;
     }
     case 'LG': {
-      return `(max-width: ${MediaQueries.LG}px)`;
+      return `(max-width: ${MediaQueriesEnum.LG}px)`;
     }
     case 'MD': {
-      return `(max-width: ${MediaQueries.MD}px)`;
+      return `(max-width: ${MediaQueriesEnum.MD}px)`;
     }
     case 'SM': {
-      return `(max-width: ${MediaQueries.SM}px)`;
+      return `(max-width: ${MediaQueriesEnum.SM}px)`;
     }
     default: {
-      return `(max-width: ${MediaQueries.XS}px)`;
+      return `(max-width: ${MediaQueriesEnum.XS}px)`;
     }
   }
 };
 
 export const getMediaQueryStyles = (
-  media: keyof typeof MediaQueries,
+  media: keyof typeof MediaQueriesEnum,
   columnValue: ColumnValueProps,
 ) => {
   return {
@@ -96,13 +98,15 @@ export const getMediaQueryStyles = (
   };
 };
 
-export const getLocalizeMediaQueryKey = () => {
-  return {
-    XXL: `@media ${createMediaQueryCondition('XXL')}`,
-    XL: `@media ${createMediaQueryCondition('XL')}`,
-    LG: `@media ${createMediaQueryCondition('LG')}`,
-    MD: `@media ${createMediaQueryCondition('MD')}`,
-    SM: `@media ${createMediaQueryCondition('SM')}`,
-    XS: `@media ${createMediaQueryCondition('XS')}`,
-  };
+type MediaQueryProps = {
+  [key in keyof typeof MediaQueriesEnum]: string;
+};
+
+export const MEDIA_QUERIES: MediaQueryProps = {
+  XXL: `@media ${createMediaQueryCondition('XXL')}`,
+  XL: `@media ${createMediaQueryCondition('XL')}`,
+  LG: `@media ${createMediaQueryCondition('LG')}`,
+  MD: `@media ${createMediaQueryCondition('MD')}`,
+  SM: `@media ${createMediaQueryCondition('SM')}`,
+  XS: `@media ${createMediaQueryCondition('XS')}`,
 };

@@ -1,12 +1,4 @@
-interface ResponsiveValueProps {
-  span: number;
-  offset?: number;
-  css?: {};
-}
-
-export type ColumnValueProps = number | ResponsiveValueProps;
-
-export enum MediaQueries {
+export enum MediaQueriesEnum {
   XXL = 1800,
   XL = 1440,
   LG = 1200,
@@ -14,6 +6,14 @@ export enum MediaQueries {
   SM = 768,
   XS = 480,
 }
+
+interface ResponsiveValueProps {
+  span: number;
+  offset?: number;
+  css?: {};
+}
+
+export type ColumnValueProps = number | ResponsiveValueProps;
 
 export interface LocalizeThemeGridProps {
   containerGutter: {

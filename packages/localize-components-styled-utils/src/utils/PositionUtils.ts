@@ -1,13 +1,10 @@
-import {
-  Position,
-  PositionType,
-} from '@seolhun/localize-components-styled-types';
+import { Position } from '@seolhun/localize-components-styled-types';
 
-export const getPositionStyle = (position: PositionType) => {
+export const getPositionStyle = (position: Position) => {
   const DEFAULT_MARGIN = 10;
 
   switch (position) {
-    case Position.TC: {
+    case 'top-center': {
       return {
         top: `${DEFAULT_MARGIN}px`,
         left: 0,
@@ -15,7 +12,7 @@ export const getPositionStyle = (position: PositionType) => {
         margin: '0 auto',
       };
     }
-    case Position.TL: {
+    case 'top-left': {
       return {
         top: `${DEFAULT_MARGIN}px`,
         left: `${DEFAULT_MARGIN}px`,
@@ -23,7 +20,7 @@ export const getPositionStyle = (position: PositionType) => {
         right: 'auto',
       };
     }
-    case Position.TR: {
+    case 'top-right': {
       return {
         top: `${DEFAULT_MARGIN}px`,
         right: `${DEFAULT_MARGIN}px`,
@@ -31,7 +28,7 @@ export const getPositionStyle = (position: PositionType) => {
         left: 'auto',
       };
     }
-    case Position.LEFT: {
+    case 'left': {
       return {
         top: 0,
         bottom: 0,
@@ -39,7 +36,7 @@ export const getPositionStyle = (position: PositionType) => {
         marginLeft: 0,
       };
     }
-    case Position.RIGHT: {
+    case 'right': {
       return {
         top: 0,
         bottom: 0,
@@ -48,7 +45,7 @@ export const getPositionStyle = (position: PositionType) => {
         marginRight: 0,
       };
     }
-    case Position.BC: {
+    case 'bottom-center': {
       return {
         bottom: `${DEFAULT_MARGIN}px`,
         left: 0,
@@ -56,7 +53,7 @@ export const getPositionStyle = (position: PositionType) => {
         margin: '0 auto',
       };
     }
-    case Position.BL: {
+    case 'bottom-left': {
       return {
         top: 'auto',
         bottom: `${DEFAULT_MARGIN}px`,
@@ -64,7 +61,7 @@ export const getPositionStyle = (position: PositionType) => {
         right: 'auto',
       };
     }
-    case Position.BR: {
+    case 'bottom-right': {
       return {
         top: 'auto',
         bottom: `${DEFAULT_MARGIN}px`,
@@ -72,6 +69,7 @@ export const getPositionStyle = (position: PositionType) => {
         right: `${DEFAULT_MARGIN}px`,
       };
     }
+
     default: {
       return {
         top: 0,
