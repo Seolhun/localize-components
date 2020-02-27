@@ -1,6 +1,6 @@
 import { preventDefault } from './CommonEventUtils';
 
-const disabledScrollByKey = (event) => {
+export const disabledScrollByKey = (event) => {
   const SCROLL_KEYS = ['ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight'];
   if (SCROLL_KEYS.includes(event.key)) {
     preventDefault(event);
@@ -9,7 +9,7 @@ const disabledScrollByKey = (event) => {
   return true;
 };
 
-const disableScroll = () => {
+export const disableScroll = () => {
   // older FF
   if (window.addEventListener) {
     window.addEventListener('DOMMouseScroll', preventDefault, false);
@@ -21,7 +21,7 @@ const disableScroll = () => {
   document.documentElement.classList.add('modal-open');
 };
 
-const enableScroll = () => {
+export const enableScroll = () => {
   if (window.removeEventListener) {
     window.removeEventListener('DOMMouseScroll', preventDefault, false);
     window.removeEventListener('scroll', preventDefault, false);

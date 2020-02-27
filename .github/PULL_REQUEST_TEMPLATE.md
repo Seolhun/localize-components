@@ -36,7 +36,7 @@
 #### Utils
 - [ ] @seolhun/localize-components-hooks
 - [ ] @seolhun/localize-components-styled-utils
-- [ ] @seolhun/localize-components-utils-event
+- [ ] @seolhun/localize-components-event-utils
 
 #### Types
 - [ ] @seolhun/localize-components-styled-types
