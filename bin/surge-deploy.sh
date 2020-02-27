@@ -1,3 +1,4 @@
+#!/bin/bash
 if [ "$TRAVIS_BRANCH" == "master" ] || [ "$TRAVIS_BRANCH" == "develop" ]; then
   if [ "$TRAVIS_BRANCH" == "master" ]; then
     npm run deploy:docs
@@ -9,5 +10,3 @@ if [ "$TRAVIS_BRANCH" == "master" ] || [ "$TRAVIS_BRANCH" == "develop" ]; then
 else
   echo "This is Not master or develop Branch"
 fi
-
-
