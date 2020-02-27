@@ -62,7 +62,7 @@ export interface LocalizeThemeProps {
   grid: LocalizeThemeGridProps;
 }
 
-export const lightColorScheme: LocalizeThemeProps['colors'] = {
+export const lightThemeColors: LocalizeThemeProps['colors'] = {
   primary01: '#3A6FFE',
   primary02: '#74A3FC',
   primaryBackground01: '#F3F6FF',
@@ -79,7 +79,7 @@ export const lightColorScheme: LocalizeThemeProps['colors'] = {
   error: '#FF1C1C',
 };
 
-export const darkColorScheme: LocalizeThemeProps['colors'] = {
+export const darkThemeColors: LocalizeThemeProps['colors'] = {
   primary01: '#386BF8',
   primary02: '#5B87FF',
   primaryBackground01: '#1B2030',
@@ -98,10 +98,10 @@ export const darkColorScheme: LocalizeThemeProps['colors'] = {
 
 export const lightTheme: LocalizeThemeProps = {
   type: 'light',
-  colors: lightColorScheme,
+  colors: lightThemeColors,
   layout: {
-    backgroundColor: lightColorScheme.uiColor01,
-    fontColor: lightColorScheme.uiColor08,
+    backgroundColor: lightThemeColors.uiColor01,
+    fontColor: lightThemeColors.uiColor08,
   },
   fonts,
   fontColors: lightFontsColors,
@@ -126,10 +126,10 @@ export const lightTheme: LocalizeThemeProps = {
 
 export const darkTheme: LocalizeThemeProps = {
   type: 'dark',
-  colors: darkColorScheme,
+  colors: darkThemeColors,
   layout: {
-    backgroundColor: darkColorScheme.uiColor01,
-    fontColor: darkColorScheme.uiColor08,
+    backgroundColor: darkThemeColors.uiColor01,
+    fontColor: darkThemeColors.uiColor08,
   },
   fonts,
   fontColors: darkFontsColors,

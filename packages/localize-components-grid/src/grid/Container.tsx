@@ -1,7 +1,10 @@
 import React, { ReactNode } from 'react';
 import styled from '@emotion/styled';
-import { ILocalizeTheme, MediaQueries, LocalizeTheme } from '@seolhun/localize-components-styled-types';
-import { createMediaQueryCondition } from '@seolhun/localize-components-styled-utils';
+import {
+  LocalizeThemeProps,
+  MediaQueriesEnum,
+} from '@seolhun/localize-components-styled-types';
+import { MEDIA_QUERIES } from '@seolhun/localize-components-styled-utils';
 
 import classnames from 'classnames';
 
@@ -12,33 +15,39 @@ interface ContainerProps {
   css?: {};
 }
 
-const StyledContainer = styled.div<ContainerProps, ILocalizeTheme>(
+const StyledContainer = styled.div<ContainerProps, LocalizeThemeProps>(
   ({ theme, isFullWidth = false }) => {
     const responsiveStyles = {
-      [`@media ${createMediaQueryCondition('SM')}`]: {
-        maxWidth: `${MediaQueries.XL - 36}px`,
+      [MEDIA_QUERIES.XXL]: {
+        maxWidth: `${MediaQueriesEnum.LG - 72}px`,
       },
-      [`@media ${createMediaQueryCondition('MD')}`]: {
-        maxWidth: `${MediaQueries.XL - 38}px`,
+      [MEDIA_QUERIES.XL]: {
+        maxWidth: `${MediaQueriesEnum.LG - 60}px`,
       },
-      [`@media ${createMediaQueryCondition('LG')}`]: {
-        maxWidth: `${MediaQueries.XL - 32}px`,
+      [MEDIA_QUERIES.LG]: {
+        maxWidth: `${MediaQueriesEnum.LG - 48}px`,
       },
-      [`@media ${createMediaQueryCondition('XL')}`]: {
-        maxWidth: `${MediaQueries.XL - 60}px`,
+      [MEDIA_QUERIES.MD]: {
+        maxWidth: `${MediaQueriesEnum.LG - 36}px`,
       },
-    }
+      [MEDIA_QUERIES.SM]: {
+        maxWidth: `${MediaQueriesEnum.LG - 24}px`,
+      },
+      [MEDIA_QUERIES.XS]: {
+        maxWidth: `${MediaQueriesEnum.LG - 24}px`,
+      },
+    };
+
     return {
       ...(!isFullWidth ? responsiveStyles : {}),
       width: '100%',
-      paddingRight: theme.grid.containerGutter.right || LocalizeTheme.grid.containerGutter.right,
-      paddingLeft: theme.grid.containerGutter.left || LocalizeTheme.grid.containerGutter.left,
+      paddingRight: theme.grid.containerGutter.right,
+      paddingLeft: theme.grid.containerGutter.left,
       marginRight: 'auto',
       marginLeft: 'auto',
     };
-  }
+  },
 );
-
 
 const Container = ({
   children,
@@ -54,11 +63,8 @@ const Container = ({
     >
       {children}
     </StyledContainer>
-  )
-}
+  );
+};
 
-export {
-  ContainerProps,
-  Container,
-}
+export { ContainerProps, Container };
 export default Container;
