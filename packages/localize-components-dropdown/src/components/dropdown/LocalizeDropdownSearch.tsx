@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import classnames from 'classnames';
 
 import { SquareInput } from '@seolhun/localize-components-form';
-import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
+import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
 import { DropdownSearchResultItem } from './DropdownSearchResultItem';
 
@@ -171,14 +171,14 @@ const SearchResulWrapper = styled.div<{
 
 const SearchResulContainer = styled.div<
   SearchResultContainerProps,
-  ILocalizeTheme
+  LocalizeThemeProps
 >(({ theme, resultMaxHeight }) => ({
   position: 'absolute',
   width: '100%',
   maxHeight: `${resultMaxHeight}px`,
   borderRadius: '5px',
-  border: `1px solid ${theme.primaryColor}`,
-  backgroundColor: theme.secondaryColor,
+  border: `1px solid ${theme.colors.primary01}`,
+  backgroundColor: theme.colors.primaryBackground01,
   margin: '-14px 0 0',
   padding: '0',
   overflowY: 'auto',

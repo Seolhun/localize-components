@@ -1,7 +1,7 @@
 import React from 'react';
 
 import styled from '@emotion/styled';
-import { ILocalizeTheme } from '@seolhun/localize-components-styled-types';
+import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
 export interface DropdownSearchResultItemRendererProps {
   /**
@@ -50,27 +50,23 @@ export interface DropdownSearchResultItemRendererProps {
 
 const StyledSearchResultItem = styled.div<
   { isMatchIndex: boolean },
-  ILocalizeTheme
+  LocalizeThemeProps
 >(({ isMatchIndex, theme }) => ({
   padding: '6px 18px',
   cursor: 'pointer',
-  color: theme.localized.colors.uiColor08,
-  backgroundColor: theme.localized.colors.uiColor02,
+  color: theme.colors.uiColor08,
+  backgroundColor: theme.colors.uiColor02,
 
   ...(isMatchIndex && {
     color:
-      theme.localized.type === 'light'
-        ? theme.localized.colors.uiColor01
-        : theme.localized.colors.uiColor08,
-    backgroundColor: theme.localized.colors.primary01,
+      theme.type === 'light' ? theme.colors.uiColor01 : theme.colors.uiColor08,
+    backgroundColor: theme.colors.primary01,
   }),
 
   '&:hover': {
     color:
-      theme.localized.type === 'light'
-        ? theme.localized.colors.uiColor01
-        : theme.localized.colors.uiColor08,
-    backgroundColor: theme.localized.colors.primary01,
+      theme.type === 'light' ? theme.colors.uiColor01 : theme.colors.uiColor08,
+    backgroundColor: theme.colors.primary01,
   },
 }));
 
