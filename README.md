@@ -4,10 +4,12 @@
 [![codebeat badge](https://codebeat.co/badges/2ab413e3-946a-4719-bb75-07e76851cbba)](https://codebeat.co/projects/github-com-seolhun-localize-components-master)
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lernajs.io/) [![Greenkeeper badge](https://badges.greenkeeper.io/Seolhun/localize-components.svg)](https://greenkeeper.io/)
 
-## Master
+## Build Status
+
+#### Master
 [![Build Status](https://travis-ci.com/Seolhun/localize-components.svg?branch=master)](https://travis-ci.com/Seolhun/localize-components)
 
-## Dev
+#### Develop
 [![Build Status](https://travis-ci.com/Seolhun/localize-components.svg?branch=develop)](https://travis-ci.com/Seolhun/localize-components)
 
 - Author : [HunSeol](https://github.com/Seolhun/)
