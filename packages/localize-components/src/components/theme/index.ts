@@ -1,1 +1,2 @@
-export * from './LocalizeThemeProvider'
+export * from './LocalizeThemeProvider';
+export { default } from './LocalizeThemeProvider';

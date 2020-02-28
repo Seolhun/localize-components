@@ -50,7 +50,7 @@ export const LocalizeChip: React.FC<LocalizeChipProps> = ({
   return (
     <StyledLocalizeChip
       {...props}
-      className={classnames('__Localize__', className)}
+      className={classnames('__Localize__Chip', className)}
     >
       {children}
     </StyledLocalizeChip>

@@ -4,14 +4,13 @@ import { Link } from 'react-router-dom';
 import { routers } from '../routes';
 
 import { LocalizeJumbotron } from '@seolhun/localize-components';
-import { Button } from '@seolhun/localize-components-atomic';
+import { LocalizeButton } from '@seolhun/localize-components-atomic';
 
 const MenuView = () => {
   return (
     <LocalizeJumbotron
       title="Hello, Localize-Components"
       description="Localize-Components is made for localized style without side-effect"
-      mainColor="primary"
     >
       <div>
         <h2>Atomic Components</h2>
@@ -20,9 +19,7 @@ const MenuView = () => {
           .map((router) => {
             return (
               <Link key={router.label} to={router.path}>
-                <Button size="medium" mainColor="white">
-                  {router.label}
-                </Button>
+                <LocalizeButton size="medium">{router.label}</LocalizeButton>
               </Link>
             );
           })}
@@ -32,9 +29,7 @@ const MenuView = () => {
           .map((router) => {
             return (
               <Link key={router.label} to={router.path}>
-                <Button size="medium" mainColor="danger">
-                  {router.label}
-                </Button>
+                <LocalizeButton size="medium">{router.label}</LocalizeButton>
               </Link>
             );
           })}

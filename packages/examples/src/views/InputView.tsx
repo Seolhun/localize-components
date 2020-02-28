@@ -9,33 +9,21 @@ const InputView = () => {
         <div className="col-sm-12">
           <h2>Default</h2>
           <LocalizeInput value="" placeholder="Localize Component" />
-          <LocalizeInput
-            value=""
-            subColor="#000"
-            placeholder="Localize Component"
-          />
+          <LocalizeInput value="" placeholder="Localize Component" />
         </div>
         <div className="col-sm-12">
           <h2>Give a mainColor</h2>
-          <LocalizeInput mainColor="danger" value="danger" />
-          <LocalizeInput mainColor="primary" value="primary" />
-          <LocalizeInput mainColor="lightgrey" value="lightgrey" />
-          <LocalizeInput mainColor="#41FF2B" value="#41FF2B" />
+          <LocalizeInput value="danger" />
+          <LocalizeInput value="primary" />
+          <LocalizeInput value="lightgrey" />
+          <LocalizeInput value="#41FF2B" />
         </div>
         <div className="col-sm-12">
           <h2>Give a subColor</h2>
-          <LocalizeInput
-            mainColor="danger"
-            subColor="yellow"
-            value="darkgrey"
-          />
-          <LocalizeInput mainColor="primary" subColor="danger" value="grey" />
-          <LocalizeInput
-            mainColor="lightgrey"
-            subColor="purple"
-            value="lightgrey"
-          />
-          <LocalizeInput mainColor="#41FF2B" subColor="#000" value="#000" />
+          <LocalizeInput value="darkgrey" />
+          <LocalizeInput value="grey" />
+          <LocalizeInput value="lightgrey" />
+          <LocalizeInput value="#000" />
         </div>
         <div className="col-sm-12">
           <h2>Give a renderValue</h2>

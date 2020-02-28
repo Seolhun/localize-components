@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Circle } from '@seolhun/localize-components-atomic';
+import { LocalizeCircle } from '@seolhun/localize-components-atomic';
 
 const FigureView = () => {
   return (
@@ -9,20 +9,13 @@ const FigureView = () => {
         <h1>Circle</h1>
         <div className="col-sm-12">
           <h2>Default</h2>
-          <Circle>Click me</Circle>
-        </div>
-        <div className="col-sm-12">
-          <h2>Give a mainColor</h2>
-          <Circle mainColor="danger">danger</Circle>
-          <Circle mainColor="primary">primary</Circle>
-          <Circle mainColor="lightgrey">lightgrey</Circle>
-          <Circle mainColor="#41FF2B">#41FF2B</Circle>
+          <LocalizeCircle>Click me</LocalizeCircle>
         </div>
         <div className="col-sm-12">
           <h2>Give a size</h2>
-          <Circle size={15}>15</Circle>
-          <Circle size={20}>20</Circle>
-          <Circle size={30}>30</Circle>
+          <LocalizeCircle size={15}>15</LocalizeCircle>
+          <LocalizeCircle size={20}>20</LocalizeCircle>
+          <LocalizeCircle size={30}>30</LocalizeCircle>
         </div>
       </div>
     </div>

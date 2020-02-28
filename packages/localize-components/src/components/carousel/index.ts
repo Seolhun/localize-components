@@ -1,1 +1,2 @@
-export * from './Carousel';
+export * from './LocalizeCarousel';
+export { default } from './LocalizeCarousel';

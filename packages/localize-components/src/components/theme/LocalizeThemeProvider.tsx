@@ -1,33 +1,26 @@
-import React, { FC, ReactNode } from 'react';
+import React from 'react';
 
 import { ThemeProvider } from 'emotion-theming';
 import {
-  LocalizeTheme,
-  ILocalizeTheme,
+  lightTheme,
+  LocalizeThemeProps,
 } from '@seolhun/localize-components-styled-types';
 
-export interface LocalizeThemeProviderProps {
-  /**
-   * Set this to change LocalizeThemeProvider children
-   */
-  children: ReactNode,
+interface LocalizeThemeProviderProps {
   /**
    * Set this to change LocalizeThemeProvider theme
-   * @default LocalizeTheme
-   * @see LocalizeTheme
+   * @default lightTheme
    */
-  theme?: ILocalizeTheme,
+  theme?: LocalizeThemeProps;
 }
 
-export const LocalizeThemeProvider: FC<LocalizeThemeProviderProps> = ({
+const LocalizeThemeProvider: React.FC<LocalizeThemeProviderProps> = ({
   children,
-  theme = LocalizeTheme,
+  theme = lightTheme,
 }) => {
-  return (
-    <ThemeProvider theme={theme}>
-      {children}
-    </ThemeProvider>
-  )
-}
+  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+};
+
+export { LocalizeThemeProviderProps, LocalizeThemeProvider };
 
 export default LocalizeThemeProvider;

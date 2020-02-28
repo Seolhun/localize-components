@@ -1,40 +1,47 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
+import classnames from 'classnames';
+import {
+  LocalizeThemeProps,
+  LocalizeBaseStyledProps,
+} from '@seolhun/localize-components-styled-types';
 
 import { Icons, IconsInterface } from './resources';
 
-export interface LocalizeIconProps {
+const DEFAULT_CLASSNAME = '__Localize__Icon';
+
+export interface LocalizeIconProps extends LocalizeBaseStyledProps {
   /**
-   * icon to render
+   * icon name to render
    */
   icon: keyof IconsInterface;
 
   /**
-   * icon color
+   * icon color from theme key
    */
   color?: keyof LocalizeThemeProps['colors'];
 
   /**
    * icon cursor type
    */
-  cursor?: boolean;
+  cursor?: string;
 }
 
 export const LocalizeIcon: React.FC<LocalizeIconProps> = ({
   icon,
   color = 'uiColor08',
   cursor,
+  className,
 }) => {
   const RenderIcon = styled(Icons[icon])<{}, LocalizeThemeProps>(
     ({ theme }) => {
       return {
         fill: theme.colors[color],
         transition: 'fill 0.3s',
-        cursor: `${cursor ? 'pointer' : 'unset'}`,
+        cursor: `${cursor || 'pointer'}`,
       };
     },
   );
-  return <RenderIcon className="bd-icon" />;
+  return <RenderIcon className={classnames(DEFAULT_CLASSNAME, className)} />;
 };

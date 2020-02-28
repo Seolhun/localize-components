@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { CheckBox } from '@seolhun/localize-components-atomic';
+import { LocalizeCheckBox } from '@seolhun/localize-components-atomic';
 
 const CheckBoxView = () => {
   return (
@@ -8,7 +8,7 @@ const CheckBoxView = () => {
       <div className="row">
         <div className="col-sm-12">
           <h2>Default</h2>
-          <CheckBox
+          <LocalizeCheckBox
             item={{
               label: 'label',
               value: 'value',
@@ -18,7 +18,7 @@ const CheckBoxView = () => {
         </div>
         <div className="col-sm-12">
           <h2>Give a mainColor</h2>
-          <CheckBox
+          <LocalizeCheckBox
             item={{
               label: 'label',
               value: 'value',
@@ -26,7 +26,7 @@ const CheckBoxView = () => {
             mainColor="danger"
             checked
           />
-          <CheckBox
+          <LocalizeCheckBox
             item={{
               label: 'label',
               value: 'value',
@@ -34,7 +34,7 @@ const CheckBoxView = () => {
             mainColor="primary"
             checked
           />
-          <CheckBox
+          <LocalizeCheckBox
             item={{
               label: 'label',
               value: 'value',
@@ -42,7 +42,7 @@ const CheckBoxView = () => {
             mainColor="lightgrey"
             checked
           />
-          <CheckBox
+          <LocalizeCheckBox
             item={{
               label: 'label',
               value: 'value',
@@ -53,7 +53,7 @@ const CheckBoxView = () => {
         </div>
         <div className="col-sm-12">
           <h2>Give a subColor</h2>
-          <CheckBox
+          <LocalizeCheckBox
             item={{
               label: 'label',
               value: 'value',
@@ -62,7 +62,7 @@ const CheckBoxView = () => {
             subColor="yellow"
             checked
           />
-          <CheckBox
+          <LocalizeCheckBox
             item={{
               label: 'label',
               value: 'value',
@@ -71,7 +71,7 @@ const CheckBoxView = () => {
             subColor="danger"
             checked
           />
-          <CheckBox
+          <LocalizeCheckBox
             item={{
               label: 'label',
               value: 'value',
@@ -80,7 +80,7 @@ const CheckBoxView = () => {
             subColor="purple"
             checked
           />
-          <CheckBox
+          <LocalizeCheckBox
             item={{
               label: 'label',
               value: 'value',

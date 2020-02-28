@@ -12,7 +12,7 @@ import { LocalizeCheckBoxAlignType } from './LocalizeCheckBoxGroup';
 
 const DEFAULT_CLASSNAME = '__Localize__CheckBox';
 
-export interface LocalizeCheckBoxProps
+interface LocalizeCheckBoxProps
   extends React.HTMLAttributes<HTMLInputElement>,
     LocalizeBaseStyledProps {
   /**
@@ -80,7 +80,7 @@ export interface LocalizeCheckBoxProps
   align?: LocalizeCheckBoxAlignType;
 }
 
-export interface CheckBoxItemProps {
+interface CheckBoxItemProps {
   [key: string]: any;
 }
 
@@ -169,7 +169,7 @@ const StyledCheckMark = styled.span<
   };
 });
 
-export const LocalizeCheckBox: React.FC<LocalizeCheckBoxProps> = ({
+const LocalizeCheckBox: React.FC<LocalizeCheckBoxProps> = ({
   item,
   checked,
   // IsNotRequired
@@ -226,5 +226,7 @@ export const LocalizeCheckBox: React.FC<LocalizeCheckBoxProps> = ({
     </StyledCheckBoxLabel>
   );
 };
+
+export { LocalizeCheckBox, LocalizeCheckBoxProps };
 
 export default LocalizeCheckBox;

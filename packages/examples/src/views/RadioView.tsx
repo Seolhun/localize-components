@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Radio } from '@seolhun/localize-components-atomic';
+import { LocalizeRadio } from '@seolhun/localize-components-atomic';
 
 const RadioView = () => {
   const [checkedItem, setItem] = React.useState({
@@ -19,7 +19,7 @@ const RadioView = () => {
       <div className="row">
         <div className="col-sm-12">
           <h2>Default</h2>
-          <Radio
+          <LocalizeRadio
             item={{
               label: 'label1',
               value: 'value1',
@@ -28,7 +28,7 @@ const RadioView = () => {
             onChange={handleOnChange}
             groupName="localize"
           />
-          <Radio
+          <LocalizeRadio
             item={{
               label: 'label2',
               value: 'value2',
@@ -40,7 +40,7 @@ const RadioView = () => {
         </div>
         <div className="col-sm-12">
           <h2>Give a mainColor</h2>
-          <Radio
+          <LocalizeRadio
             item={{
               label: 'label5',
               value: 'value5',
@@ -48,7 +48,7 @@ const RadioView = () => {
             mainColor="danger"
             checkedItem={checkedItem}
           />
-          <Radio
+          <LocalizeRadio
             item={{
               label: 'label6',
               value: 'value6',
@@ -59,7 +59,7 @@ const RadioView = () => {
         </div>
         <div className="col-sm-12">
           <h2>Give a subColor</h2>
-          <Radio
+          <LocalizeRadio
             item={{
               label: 'label7',
               value: 'value7',
@@ -69,7 +69,7 @@ const RadioView = () => {
             mainColor="danger"
             subColor="yellow"
           />
-          <Radio
+          <LocalizeRadio
             item={{
               label: 'label8',
               value: 'value8',

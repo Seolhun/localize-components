@@ -1,4 +1,4 @@
-export default {
+export const LAYOUT = {
   NAV_HEIGHT: 70,
   SIDEBAR_WIDTH: 160,
 
@@ -11,3 +11,5 @@ export default {
     SHADOW_BOX: 3000,
   },
 };
+
+export default LAYOUT;

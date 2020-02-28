@@ -22,12 +22,12 @@ const GridView = () => {
         </Row>
         <Row css={STYLES}>
           <Col sm={12}>
-            <LocalizeJumbotron mainColor="red">
+            <LocalizeJumbotron>
               <h3>sm-12</h3>
             </LocalizeJumbotron>
           </Col>
           <Col sm={12}>
-            <LocalizeJumbotron mainColor="red">
+            <LocalizeJumbotron>
               <h3>sm-12</h3>
             </LocalizeJumbotron>
           </Col>
@@ -54,7 +54,7 @@ const GridView = () => {
         <Row css={STYLES}>
           {range(4).map((key, idx) => (
             <Col xs={6} md={12} key={idx}>
-              <LocalizeJumbotron mainColor="green">
+              <LocalizeJumbotron>
                 <h3>xs-6 md-12</h3>
               </LocalizeJumbotron>
             </Col>
@@ -64,7 +64,7 @@ const GridView = () => {
         <Row css={STYLES}>
           {range(4).map((key, idx) => (
             <Col xs={6} key={idx}>
-              <LocalizeJumbotron mainColor="yellow">
+              <LocalizeJumbotron>
                 <h3>4</h3>
               </LocalizeJumbotron>
             </Col>
@@ -74,7 +74,7 @@ const GridView = () => {
         <Row css={STYLES}>
           {range(12).map((key, idx) => (
             <Col xs={2} key={idx}>
-              <LocalizeJumbotron mainColor="royalblue">
+              <LocalizeJumbotron>
                 <h3>2</h3>
               </LocalizeJumbotron>
             </Col>
@@ -84,7 +84,7 @@ const GridView = () => {
         <Row css={STYLES}>
           {range(24).map((key, idx) => (
             <Col xs={1} key={idx}>
-              <LocalizeJumbotron mainColor="pink">
+              <LocalizeJumbotron>
                 <h3>1</h3>
               </LocalizeJumbotron>
             </Col>
@@ -95,17 +95,17 @@ const GridView = () => {
       <Container>
         <Row css={STYLES}>
           <Col sm={12} lg={8}>
-            <LocalizeJumbotron mainColor="orange">
+            <LocalizeJumbotron>
               <h2>SM-12 LG-8</h2>
             </LocalizeJumbotron>
           </Col>
           <Col sm={12} lg={8}>
-            <LocalizeJumbotron mainColor="orange">
+            <LocalizeJumbotron>
               <h2>SM-12 LG-8</h2>
             </LocalizeJumbotron>
           </Col>
           <Col sm={24} lg={8}>
-            <LocalizeJumbotron mainColor="orange">
+            <LocalizeJumbotron>
               <h2>SM-24 LG-8</h2>
             </LocalizeJumbotron>
           </Col>
@@ -133,7 +133,7 @@ const GridView = () => {
               offset: 4,
             }}
           >
-            <LocalizeJumbotron mainColor="black">
+            <LocalizeJumbotron>
               <h2>span-4, offset-4</h2>
             </LocalizeJumbotron>
           </Col>
@@ -143,7 +143,7 @@ const GridView = () => {
               offset: 4,
             }}
           >
-            <LocalizeJumbotron mainColor="black">
+            <LocalizeJumbotron>
               <h2>span-4, offset-4</h2>
             </LocalizeJumbotron>
           </Col>
@@ -165,7 +165,7 @@ const GridView = () => {
               span: 4,
             }}
           >
-            <LocalizeJumbotron mainColor="black">
+            <LocalizeJumbotron>
               <h2>offset-4, span-4</h2>
             </LocalizeJumbotron>
           </Col>
@@ -202,21 +202,21 @@ const GridView = () => {
         <h2>isFullWidth</h2>
         <Row css={STYLES}>
           <Col xs={6} sm={3} md={6} lg={6} xl={8}>
-            <LocalizeJumbotron mainColor="info">
+            <LocalizeJumbotron>
               <h2>
                 xs={6} sm={3} md={6} lg={6} xl={8}
               </h2>
             </LocalizeJumbotron>
           </Col>
           <Col xs={12} sm={18} md={12} lg={12} xl={8}>
-            <LocalizeJumbotron mainColor="info">
+            <LocalizeJumbotron>
               <h2>
                 xs={12} sm={18} md={12} lg={12} xl={8}
               </h2>
             </LocalizeJumbotron>
           </Col>
           <Col xs={6} sm={3} md={6} lg={6} xl={8}>
-            <LocalizeJumbotron mainColor="info">
+            <LocalizeJumbotron>
               <h2>
                 xs={6} sm={3} md={6} lg={6} xl={8}
               </h2>
