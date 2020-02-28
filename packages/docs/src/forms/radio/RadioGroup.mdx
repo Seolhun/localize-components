@@ -5,10 +5,10 @@ menu: Forms
 
 import { useState, useCallback } from 'react';
 import { Playground, Props } from 'docz';
-import { RadioGroup, Radio } from '@seolhun/localize-components-atomic';
+import { LocalizeRadioGroup, LocalizeRadio } from '@seolhun/localize-components-atomic';
 import { LocalizeThemeProvider } from '@seolhun/localize-components';
 
-# RadioGroup
+# LocalizeRadioGroup
 
 ## Default
 
@@ -24,10 +24,10 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
 
     return (
       <LocalizeThemeProvider>
-        <RadioGroup groupName='localize'>
+        <LocalizeRadioGroup groupName='localize'>
           {props => (
             <>
-              <Radio
+              <LocalizeRadio
                 {...props}
                 item={{
                   label: 'label1',
@@ -37,7 +37,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
                 onChange={handleOnChange}
                 groupName='localize'
               />
-              <Radio
+              <LocalizeRadio
                 {...props}
                 item={{
                   label: 'label2',
@@ -49,7 +49,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
               />
             </>
           )}
-        </RadioGroup>
+        </LocalizeRadioGroup>
       </LocalizeThemeProvider>
     )
   }}
@@ -71,13 +71,13 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
 
     return (
       <LocalizeThemeProvider>
-        <RadioGroup
+        <LocalizeRadioGroup
           groupName='localize4'
           align='vertical'
         >
           {props => (
             <>
-              <Radio
+              <LocalizeRadio
                 {...props}
                 item={{
                   label: 'label7',
@@ -86,7 +86,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
                 checkedItem={checkedItem}
                 onChange={handleOnChange}
               />
-              <Radio
+              <LocalizeRadio
                 {...props}
                 item={{
                   label: 'label8',
@@ -97,7 +97,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
               />
             </>
           )}
-        </RadioGroup>
+        </LocalizeRadioGroup>
       </LocalizeThemeProvider>
     )
   }}
@@ -117,13 +117,13 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
 
     return (
       <LocalizeThemeProvider>
-        <RadioGroup
+        <LocalizeRadioGroup
           groupName='localize9'
           align='horizontal'
         >
           {props => (
             <>
-              <Radio
+              <LocalizeRadio
                 {...props}
                 item={{
                   label: 'label9',
@@ -132,7 +132,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
                 checkedItem={checkedItem}
                 onChange={handleOnChange}
               />
-              <Radio
+              <LocalizeRadio
                 {...props}
                 item={{
                   label: 'label10',
@@ -143,7 +143,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
               />
             </>
           )}
-        </RadioGroup>
+        </LocalizeRadioGroup>
       </LocalizeThemeProvider>
     )
   }}
@@ -165,14 +165,14 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
 
     return (
       <LocalizeThemeProvider>
-        <RadioGroup
+        <LocalizeRadioGroup
           groupName='localize4'
           align='vertical'
           gap='20px'
         >
           {props => (
             <>
-              <Radio
+              <LocalizeRadio
                 {...props}
                 item={{
                   label: 'label11',
@@ -181,7 +181,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
                 checkedItem={checkedItem}
                 onChange={handleOnChange}
               />
-              <Radio
+              <LocalizeRadio
                 {...props}
                 item={{
                   label: 'label12',
@@ -192,7 +192,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
               />
             </>
           )}
-        </RadioGroup>
+        </LocalizeRadioGroup>
       </LocalizeThemeProvider>
     )
   }}
@@ -212,14 +212,14 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
 
     return (
       <LocalizeThemeProvider>
-        <RadioGroup
+        <LocalizeRadioGroup
           groupName='localize13'
           align='horizontal'
           gap='10em'
         >
           {props => (
             <>
-              <Radio
+              <LocalizeRadio
                 {...props}
                 item={{
                   label: 'label13',
@@ -228,7 +228,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
                 checkedItem={checkedItem}
                 onChange={handleOnChange}
               />
-              <Radio
+              <LocalizeRadio
                 {...props}
                 item={{
                   label: 'label14',
@@ -239,7 +239,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
               />
             </>
           )}
-        </RadioGroup>
+        </LocalizeRadioGroup>
       </LocalizeThemeProvider>
     )
   }}
@@ -247,4 +247,4 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
 
 ## PropsTable
 
-<Props of={RadioGroup} />
+<Props of={LocalizeRadioGroup} />

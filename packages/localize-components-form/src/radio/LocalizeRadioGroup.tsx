@@ -9,7 +9,7 @@ const DEFAULT_CLASSNAME = '__Localize__RadioGroup';
 
 export type LocalizeRadioGroupAlignType = 'vertical' | 'horizontal';
 
-export interface LocalizeRadioGroupProps extends LocalizeBaseStyledProps {
+interface LocalizeRadioGroupProps extends LocalizeBaseStyledProps {
   /**
    * Set this to change Radio Group children
    */
@@ -83,7 +83,7 @@ const LocalizeRadioGroupContainer = styled.div<
   };
 });
 
-export const LocalizeRadioGroup: React.FC<LocalizeRadioGroupProps> = ({
+const LocalizeRadioGroup: React.FC<LocalizeRadioGroupProps> = ({
   children,
   groupName,
   className,
@@ -112,5 +112,7 @@ export const LocalizeRadioGroup: React.FC<LocalizeRadioGroupProps> = ({
     </LocalizeRadioGroupContainer>
   );
 };
+
+export { LocalizeRadioGroup, LocalizeRadioGroupProps };
 
 export default LocalizeRadioGroup;

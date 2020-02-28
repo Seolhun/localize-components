@@ -10,9 +10,7 @@ import {
   LocalizeThemeProvider,
   useDisclosure,
 } from '@seolhun/localize-components';
-import { Button } from '@seolhun/localize-components-atomic';
-
-import AlertPropsTable from './AlertPropsTable';
+import { LocalizeButton } from '@seolhun/localize-components-atomic';
 
 # Alert
 
@@ -28,14 +26,14 @@ import AlertPropsTable from './AlertPropsTable';
     const { isOpen, onToggle } = useDisclosure();
     return (
       <LocalizeThemeProvider>
-        <Button onClick={onToggle}>
+        <LocalizeButton onClick={onToggle}>
           {isOpen ? 'Show Alert' : 'Close Alert'}
-        </Button>
-        <Alert position='top-center' onClick={onToggle} isShow={isOpen}>
+        </LocalizeButton>
+        <LocalizeAlert position='top-center' onClick={onToggle} isShow={isOpen}>
           <div>Modal header</div>
           <div>Modal footer</div>
           <div>Modal body</div>
-        </Alert>
+        </LocalizeAlert>
       </LocalizeThemeProvider>
     )
   }}
@@ -48,9 +46,9 @@ import AlertPropsTable from './AlertPropsTable';
     const { isOpen, onToggle } = useDisclosure();
     return (
       <LocalizeThemeProvider>
-        <Button onClick={onToggle}>
+        <LocalizeButton onClick={onToggle}>
           {isOpen ? 'Show Alert' : 'Close Alert'}
-        </Button>
+        </LocalizeButton>
         <LocalizeAlert position='top-center' onClick={onToggle} isShow={isOpen}>
           <div>Modal header</div>
           <div>Modal footer</div>
@@ -83,4 +81,4 @@ import AlertPropsTable from './AlertPropsTable';
 
 ## PropsTable
 
-<Props of={AlertPropsTable} />
+<Props of={LocalizeAlert} />

@@ -17,7 +17,7 @@ import compassTwo from './svg/compass-2.svg';
 import compass from './svg/compass.svg';
 import computer from './svg/computer.svg';
 
-export interface IconsInterface {
+interface IconTypes {
   agenda: any;
   agendaOne: any;
   badge: any;
@@ -38,7 +38,7 @@ export interface IconsInterface {
   computer: any;
 }
 
-export const Icons: IconsInterface = {
+const Icons: IconTypes = {
   agenda,
   agendaOne,
   badge,
@@ -58,3 +58,7 @@ export const Icons: IconsInterface = {
   compass,
   computer,
 };
+
+export { IconTypes, Icons };
+
+export default Icons;

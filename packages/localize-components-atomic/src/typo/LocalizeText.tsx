@@ -30,8 +30,8 @@ const getStyleLocalizeText = (type: LocalizeTextType) => {
         ...defaultLocalizeTextStyle,
         ...fonts,
         color: isHighlight
-          ? theme.fontColors.highlightColor
-          : theme.fontColors.primaryColor,
+          ? theme.fontColors.highlight
+          : theme.fontColors.primary,
       };
     },
   );

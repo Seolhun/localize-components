@@ -122,6 +122,10 @@ const StyledRadioLabel = styled.label<SizeProps, LocalizeThemeProps>(
       width: getWidthByAlign(),
       cursor: 'pointer',
       userSelect: 'none',
+
+      '& + &': {
+        marginLeft: '1rem',
+      },
     };
   },
 );

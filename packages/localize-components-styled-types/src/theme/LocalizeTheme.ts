@@ -16,6 +16,16 @@ export interface LocalizeBaseStyledProps {
   className?: string;
 
   /**
+   * Set this to change LocalizeStyledProps backgroundColor
+   */
+  bgColor?: keyof LocalizeThemeProps['colors'];
+
+  /**
+   * Set this to change LocalizeStyledProps color
+   */
+  fontColor?: keyof ThemeFontColorProps;
+
+  /**
    * Set this to change LocalizeStyledProps subColor
    * @default undefined
    */
@@ -43,15 +53,16 @@ export interface LocalizeThemeProps {
     primaryBackground01: string;
     primaryBackground02: string;
     primaryBackground03: string;
-    uiColor01: string; // === Background Color
+    uiColor01: string;
     uiColor02: string;
     uiColor03: string;
     uiColor04: string;
     uiColor05: string;
     uiColor06: string;
     uiColor07: string;
-    uiColor08: string; // === Text Color
+    uiColor08: string;
     error: string;
+    disabled: string;
   };
   layout: {
     backgroundColor: string;
@@ -63,25 +74,26 @@ export interface LocalizeThemeProps {
 }
 
 export const lightThemeColors: LocalizeThemeProps['colors'] = {
-  primary01: '#3A6FFE',
-  primary02: '#74A3FC',
-  primaryBackground01: '#E0EAFF',
+  primary01: '#1247D7',
+  primary02: '#0A32A0',
+  primaryBackground01: '#FEFFFF',
   primaryBackground02: '#F0F6F7',
-  primaryBackground03: '#CCD9FF',
+  primaryBackground03: '#68A0E8',
   uiColor01: '#FFFFFF',
   uiColor02: '#F9F9F9',
   uiColor03: '#F0F0F0',
   uiColor04: '#EEEEEE',
   uiColor05: '#DDDDDD',
   uiColor06: '#999999',
-  uiColor07: '#5A5A5A', // borderColor
-  uiColor08: '#000000',
+  uiColor07: '#E3E3E3', // borderColor
+  uiColor08: '#160B0B',
   error: '#FF1C1C',
+  disabled: '#DDDDDD',
 };
 
 export const darkThemeColors: LocalizeThemeProps['colors'] = {
-  primary01: '#386BF8',
-  primary02: '#5B87FF',
+  primary01: '#3160DE',
+  primary02: '#0A32A0',
   primaryBackground01: '#1B2030',
   primaryBackground02: '#1C262C',
   primaryBackground03: '#2D3C6B',
@@ -91,9 +103,10 @@ export const darkThemeColors: LocalizeThemeProps['colors'] = {
   uiColor04: '#43454B',
   uiColor05: '#5A5D63',
   uiColor06: '#B2B9C7',
-  uiColor07: '#D3D6DB', // borderColor
+  uiColor07: '#E6E6E6', // borderColor
   uiColor08: '#FFFFFF',
   error: '#FF4444',
+  disabled: '#DDDDDD',
 };
 
 export const lightTheme: LocalizeThemeProps = {

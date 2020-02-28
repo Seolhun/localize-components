@@ -9,9 +9,9 @@ import {
 
 const DEFAULT_CLASSNAME = '__Localize__Jumbotron';
 
-export interface LocalizeJumbotronProps
-  extends LocalizeBaseStyledProps,
-    React.HTMLAttributes<HTMLDivElement> {
+interface LocalizeJumbotronProps
+  extends React.HTMLAttributes<HTMLDivElement>,
+    LocalizeBaseStyledProps {
   /**
    * Set this to change Jumbotron description
    * @default ''
@@ -26,14 +26,15 @@ export interface LocalizeJumbotronProps
 }
 
 const StyledJumbotronWrapper = styled.div<
-  LocalizeJumbotronProps,
+  LocalizeBaseStyledProps,
   LocalizeThemeProps
->(({ theme }) => {
+>(({ theme, bgColor, fontColor }) => {
   return {
-    backgroundColor: theme.colors.primary01,
-    color: theme.colors.uiColor08,
+    backgroundColor: bgColor ? theme.colors[bgColor] : theme.colors.primary01,
+    color: fontColor ? theme.fontColors[fontColor] : theme.colors.uiColor08,
     height: 'auto',
     width: '100%',
+    padding: '1rem 2rem',
     borderRadius: '5px',
   };
 });
@@ -43,7 +44,7 @@ const StyledJumbotronContainer = styled.div<LocalizeJumbotronProps>({
   width: '100%',
 });
 
-export const LocalizeJumbotron: React.FC<LocalizeJumbotronProps> = ({
+const LocalizeJumbotron: React.FC<LocalizeJumbotronProps> = ({
   children,
   className,
   description,
@@ -63,5 +64,7 @@ export const LocalizeJumbotron: React.FC<LocalizeJumbotronProps> = ({
     </StyledJumbotronWrapper>
   );
 };
+
+export { LocalizeJumbotron, LocalizeJumbotronProps };
 
 export default LocalizeJumbotron;

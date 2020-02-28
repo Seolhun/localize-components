@@ -6,6 +6,7 @@ menu: Forms
 import { useState, useCallback } from 'react';
 import { Playground, Props } from 'docz';
 import { LocalizeCheckBox } from '@seolhun/localize-components-atomic';
+import { darkTheme } from '@seolhun/localize-components';
 import { LocalizeThemeProvider } from '@seolhun/localize-components';
 
 # CheckBox
@@ -50,6 +51,65 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
           />
         ))}
       </LocalizeThemeProvider>
+    )
+  }}
+</Playground>
+
+## Theme
+
+<Playground>
+  {() => {
+    const [items, setItems] = useState([
+      {
+        label: 'Apple2',
+        value: 'Apple2',
+        checked: true,
+      },
+      {
+        label: 'Peach2',
+        value: 'Peach2',
+        checked: false,
+      },
+    ])
+
+    const handleOnChange = useCallback((selectedItem) => {
+      const newItems = items.map((item) => {
+        if (selectedItem.value === item.value) {
+          return {
+            ...selectedItem,
+          };
+        }
+        return item;
+      })
+      setItems(newItems)
+    }, [items])
+
+    return (
+      <>
+        <h2>Light</h2>
+        <LocalizeThemeProvider>
+          {items.map((item) => (
+            <LocalizeCheckBox
+              key={item.label}
+              item={item}
+              onChange={handleOnChange}
+              checked={item.checked}
+            />
+          ))}
+        </LocalizeThemeProvider>
+
+        <h2>Dark</h2>
+        <LocalizeThemeProvider theme={darkTheme}>
+          {items.map((item) => (
+            <LocalizeCheckBox
+              key={item.label}
+              item={item}
+              onChange={handleOnChange}
+              checked={item.checked}
+            />
+          ))}
+        </LocalizeThemeProvider>
+      </>
     )
   }}
 </Playground>

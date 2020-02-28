@@ -7,8 +7,6 @@ import { Playground, Props } from 'docz';
 import { LocalizeBox } from '@seolhun/localize-components';
 import { LocalizeThemeProvider } from '@seolhun/localize-components';
 
-import BoxPropsTable from './BoxPropsTable';
-
 # Box
 
 ## Default
@@ -19,17 +17,6 @@ import BoxPropsTable from './BoxPropsTable';
   </LocalizeThemeProvider>
 </Playground>
 
-## Give a mainColor
-
-<Playground>
-  <LocalizeThemeProvider>
-    <LocalizeBox mainColor='primary' css={{ padding: '1rem' }}>primary</LocalizeBox>
-    <LocalizeBox mainColor='danger'>danger</LocalizeBox>
-    <LocalizeBox mainColor='lightgrey'>lightgrey</LocalizeBox>
-    <LocalizeBox mainColor='#41FF2B'>#41FF2B</LocalizeBox>
-  </LocalizeThemeProvider>
-</Playground>
-
 ## PropsTable
 
-<Props of={BoxPropsTable} />
+<Props of={LocalizeBox} />

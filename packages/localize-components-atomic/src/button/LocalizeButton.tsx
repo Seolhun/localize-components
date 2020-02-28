@@ -43,10 +43,10 @@ const StyledLocalizeButton = styled.button<
 
     cursor: 'pointer',
     outline: 'none',
-    transition: 'background-color 0.3s, border-color 0.3s',
+    transition: 'background-color 0.3s, border-color 0.3s, color 0.3s',
     userSelect: 'none',
 
-    color: theme.colors.uiColor08,
+    color: theme.fontColors.inner,
     fontSize: `${fontSize}px`,
     fontWeight: 500,
     textDecoration: 'none',
@@ -55,12 +55,13 @@ const StyledLocalizeButton = styled.button<
     whiteSpace: 'nowrap',
 
     '&:hover': {
-      backgroundColor: theme.colors.primary02,
+      backgroundColor: theme.colors.primaryBackground01,
+      color: theme.fontColors.primary,
     },
 
     '&:disabled': {
-      backgroundColor: theme.colors.uiColor07,
-      color: theme.colors.uiColor08,
+      backgroundColor: theme.colors.disabled,
+      color: theme.fontColors.disabled,
       cursor: 'not-allowed',
     },
   };

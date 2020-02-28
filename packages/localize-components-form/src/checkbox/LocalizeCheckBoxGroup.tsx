@@ -7,13 +7,13 @@ import { LocalizeBaseStyledProps } from '@seolhun/localize-components-styled-typ
 
 const DEFAULT_CLASSNAME = '__Localize__CheckBoxGroup';
 
-export type LocalizeCheckBoxAlignType = 'vertical' | 'horizontal';
+export type LocalizeCheckBoxGroupAlignType = 'vertical' | 'horizontal';
 
-export interface LocalizeCheckBoxProps extends LocalizeBaseStyledProps {
+interface LocalizeCheckBoxGroupProps extends LocalizeBaseStyledProps {
   /**
    * Set this to change CheckBox Group children
    */
-  children: (props: LocalizeCheckBoxProps) => React.ReactNode;
+  children: (props: LocalizeCheckBoxGroupProps) => React.ReactNode;
 
   /**
    * Set this to change CheckBox Group name
@@ -42,7 +42,7 @@ export interface LocalizeCheckBoxProps extends LocalizeBaseStyledProps {
    * Set this to change CheckBox Group align
    * @default 'vertical'
    */
-  align?: LocalizeCheckBoxAlignType;
+  align?: LocalizeCheckBoxGroupAlignType;
 
   /**
    * Set this to change CheckBox Group gap
@@ -58,7 +58,7 @@ export interface LocalizeCheckBoxProps extends LocalizeBaseStyledProps {
 }
 
 interface LocalizeCheckBoxContainerProps {
-  align: LocalizeCheckBoxAlignType;
+  align: LocalizeCheckBoxGroupAlignType;
   gap: string;
 }
 
@@ -83,7 +83,7 @@ const LocalizeCheckBoxContainer = styled.div<LocalizeCheckBoxContainerProps>(
   },
 );
 
-export const LocalizeCheckBox: React.FC<LocalizeCheckBoxProps> = ({
+const LocalizeCheckBoxGroup: React.FC<LocalizeCheckBoxGroupProps> = ({
   children,
   groupName,
   className,
@@ -91,7 +91,7 @@ export const LocalizeCheckBox: React.FC<LocalizeCheckBoxProps> = ({
   valueKey = 'value',
   useValueKey = false,
   align = 'vertical',
-  gap = '10px',
+  gap = '1rem',
   onClickItems = () => null,
 }) => {
   return (
@@ -113,4 +113,6 @@ export const LocalizeCheckBox: React.FC<LocalizeCheckBoxProps> = ({
   );
 };
 
-export default LocalizeCheckBox;
+export { LocalizeCheckBoxGroup, LocalizeCheckBoxGroupProps };
+
+export default LocalizeCheckBoxGroup;

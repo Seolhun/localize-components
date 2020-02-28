@@ -22,6 +22,7 @@ const StyledBoxWrapper = styled.div<LocalizeBoxProps, LocalizeThemeProps>(
       color: theme.colors.uiColor08,
       height: 'auto',
       width: '100%',
+      padding: '1rem, 2rem',
       borderRadius: '5px',
     };
   },

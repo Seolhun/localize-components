@@ -43,8 +43,12 @@ export default {
     copy({
       targets: [
         {
-          src: ['./src/components/icons/resources/*'],
-          dest: 'dist/icons',
+          src: ['./src/icons/resources/sns/*'],
+          dest: 'dist/icons/sns',
+        },
+        {
+          src: ['./src/icons/resources/svg/*'],
+          dest: 'dist/icons/svg',
         },
       ],
     }),

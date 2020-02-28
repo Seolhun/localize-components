@@ -4,23 +4,19 @@ import { range } from 'lodash';
 import { LocalizeJumbotron } from '@seolhun/localize-components';
 import { Container, Col, Row } from '@seolhun/localize-components-grid';
 
-const STYLES = {
-  margin: '5px',
-};
-
 const GridView = () => {
   return (
     <>
       <Container>
         <h2>Default</h2>
-        <Row css={STYLES}>
+        <Row>
           <Col xs={24}>
             <LocalizeJumbotron>
               <h3>xs-24</h3>
             </LocalizeJumbotron>
           </Col>
         </Row>
-        <Row css={STYLES}>
+        <Row>
           <Col sm={12}>
             <LocalizeJumbotron>
               <h3>sm-12</h3>
@@ -33,7 +29,7 @@ const GridView = () => {
           </Col>
         </Row>
 
-        <Row css={STYLES}>
+        <Row>
           <Col md={8}>
             <LocalizeJumbotron>
               <h3>md-8</h3>
@@ -51,7 +47,7 @@ const GridView = () => {
           </Col>
         </Row>
 
-        <Row css={STYLES}>
+        <Row>
           {range(4).map((key, idx) => (
             <Col xs={6} md={12} key={idx}>
               <LocalizeJumbotron>
@@ -61,7 +57,7 @@ const GridView = () => {
           ))}
         </Row>
 
-        <Row css={STYLES}>
+        <Row>
           {range(4).map((key, idx) => (
             <Col xs={6} key={idx}>
               <LocalizeJumbotron>
@@ -71,7 +67,7 @@ const GridView = () => {
           ))}
         </Row>
 
-        <Row css={STYLES}>
+        <Row>
           {range(12).map((key, idx) => (
             <Col xs={2} key={idx}>
               <LocalizeJumbotron>
@@ -81,7 +77,7 @@ const GridView = () => {
           ))}
         </Row>
 
-        <Row css={STYLES}>
+        <Row>
           {range(24).map((key, idx) => (
             <Col xs={1} key={idx}>
               <LocalizeJumbotron>
@@ -93,7 +89,7 @@ const GridView = () => {
       </Container>
 
       <Container>
-        <Row css={STYLES}>
+        <Row>
           <Col sm={12} lg={8}>
             <LocalizeJumbotron>
               <h2>SM-12 LG-8</h2>
@@ -114,7 +110,7 @@ const GridView = () => {
 
       <Container>
         <h2>Offset</h2>
-        <Row css={STYLES}>
+        <Row>
           <Col
             xs={{
               span: 4,
@@ -173,7 +169,7 @@ const GridView = () => {
       </Container>
 
       <Container>
-        <Row css={STYLES}>
+        <Row>
           <Col xs={0} sm={12} md={12} lg={12} xl={0}>
             <LocalizeJumbotron>
               <h2>
@@ -200,7 +196,7 @@ const GridView = () => {
 
       <Container isFullWidth>
         <h2>isFullWidth</h2>
-        <Row css={STYLES}>
+        <Row>
           <Col xs={6} sm={3} md={6} lg={6} xl={8}>
             <LocalizeJumbotron>
               <h2>

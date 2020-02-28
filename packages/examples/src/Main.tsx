@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { HashRouter } from 'react-router-dom';
 
 import { ThemeProvider } from 'emotion-theming';
-import { LocalizeTheme } from '@seolhun/localize-components-styled-types';
+import { lightTheme } from '@seolhun/localize-components';
 import { Container } from '@seolhun/localize-components-grid';
 
 import MenuView from './views/MenuView';
@@ -14,7 +14,7 @@ import './Main.scss';
 
 ReactDOM.render(
   <HashRouter>
-    <ThemeProvider theme={LocalizeTheme}>
+    <ThemeProvider theme={lightTheme}>
       <Container isFullWidth>
         <MenuView />
         <Routes />

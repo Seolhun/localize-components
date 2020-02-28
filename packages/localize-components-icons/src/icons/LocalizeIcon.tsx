@@ -7,32 +7,57 @@ import {
   LocalizeBaseStyledProps,
 } from '@seolhun/localize-components-styled-types';
 
-import { Icons, IconsInterface } from './resources';
+import { Icons, IconTypes } from './resources';
 
 const DEFAULT_CLASSNAME = '__Localize__Icon';
 
-export interface LocalizeIconProps extends LocalizeBaseStyledProps {
+interface LocalizeIconProps extends LocalizeBaseStyledProps {
   /**
-   * icon name to render
+   * Set this to change Icon type
    */
-  icon: keyof IconsInterface;
+  icon: keyof IconTypes;
 
   /**
-   * icon color from theme key
+   * Set this to change Icon color
    */
   color?: keyof LocalizeThemeProps['colors'];
 
   /**
-   * icon cursor type
+   * Set this to change Icon cursor type
    */
   cursor?: string;
+
+  /**
+   * Set this to change Icon width
+   * @default 3rem
+   */
+  width?: string;
+
+  /**
+   * Set this to change Icon height
+   * @default 3rem
+   */
+  height?: string;
 }
 
-export const LocalizeIcon: React.FC<LocalizeIconProps> = ({
+const IconWrapper = styled.span<{
+  width: string;
+  height: string;
+}>(({ width, height }) => {
+  return {
+    background: 'transparent',
+    width,
+    height,
+  };
+});
+
+const LocalizeIcon: React.FC<LocalizeIconProps> = ({
+  className,
   icon,
   color = 'uiColor08',
   cursor,
-  className,
+  width = '3rem',
+  height = '3rem',
 }) => {
   const RenderIcon = styled(Icons[icon])<{}, LocalizeThemeProps>(
     ({ theme }) => {
@@ -43,5 +68,18 @@ export const LocalizeIcon: React.FC<LocalizeIconProps> = ({
       };
     },
   );
-  return <RenderIcon className={classnames(DEFAULT_CLASSNAME, className)} />;
+
+  return (
+    <IconWrapper
+      className={classnames(`${DEFAULT_CLASSNAME}__Wrapper`, className)}
+      width={width}
+      height={height}
+    >
+      <RenderIcon className={classnames(DEFAULT_CLASSNAME, className)} />
+    </IconWrapper>
+  );
 };
+
+export { LocalizeIcon, LocalizeIconProps };
+
+export default LocalizeIcon;

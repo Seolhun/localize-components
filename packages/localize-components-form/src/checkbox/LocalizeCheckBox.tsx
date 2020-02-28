@@ -8,7 +8,7 @@ import {
   LocalizeBaseStyledProps,
 } from '@seolhun/localize-components-styled-types';
 
-import { LocalizeCheckBoxAlignType } from './LocalizeCheckBoxGroup';
+import { LocalizeCheckBoxGroupAlignType } from './LocalizeCheckBoxGroup';
 
 const DEFAULT_CLASSNAME = '__Localize__CheckBox';
 
@@ -77,7 +77,7 @@ interface LocalizeCheckBoxProps
    * Set this to change Radio Group align
    * @default 'horizontal'
    */
-  align?: LocalizeCheckBoxAlignType;
+  align?: LocalizeCheckBoxGroupAlignType;
 }
 
 interface CheckBoxItemProps {
@@ -89,7 +89,7 @@ interface SizeProps {
    * Set this to change Radio Group align
    * @default undefined
    */
-  align?: LocalizeCheckBoxAlignType;
+  align?: LocalizeCheckBoxGroupAlignType;
 }
 
 const StyledCheckBoxLabel = styled.label<SizeProps>(({ align }) => {
@@ -115,6 +115,10 @@ const StyledCheckBoxLabel = styled.label<SizeProps>(({ align }) => {
     paddingLeft: '30px',
     userSelect: 'none',
     cursor: 'pointer',
+
+    '& + &': {
+      marginLeft: '1rem',
+    },
   };
 });
 
@@ -158,7 +162,7 @@ const StyledCheckMark = styled.span<
       content: '""',
       position: 'absolute',
       display: 'none',
-      border: `solid ${theme.colors.primary02}`,
+      border: `solid ${theme.colors.uiColor08}`,
       borderWidth: '0 2px 2px 0',
       height: '8px',
       width: '4px',

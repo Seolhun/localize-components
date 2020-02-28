@@ -15,21 +15,30 @@ export interface ThemeFontsProps {
 }
 
 export interface ThemeFontColorProps {
-  highlightColor: string;
-  primaryColor: string;
-  secondaryColor: string;
+  highlight: string;
+  primary: string;
+  secondary: string;
+  color: string;
+  inner: string;
+  disabled: string;
 }
 
 export const lightFontsColors: ThemeFontColorProps = {
-  highlightColor: '#3A6FFE',
-  primaryColor: '#282c35',
-  secondaryColor: '#282c35',
+  highlight: '#3A6FFE',
+  primary: '#282c35',
+  secondary: '#282c35',
+  color: '#160B0B',
+  inner: '#FFFFFF',
+  disabled: '#999999',
 };
 
 export const darkFontsColors: ThemeFontColorProps = {
-  highlightColor: '#386BF8',
-  primaryColor: '#282c35',
-  secondaryColor: '#282c35',
+  highlight: '#386BF8',
+  primary: '#282c35',
+  secondary: '#282c35',
+  color: '#160B0B',
+  inner: '#FFFFFF',
+  disabled: '#999999',
 };
 
 export const fonts: ThemeFontsProps = {

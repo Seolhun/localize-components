@@ -5,7 +5,7 @@ menu: Atomic
 
 import { Playground, Props } from 'docz';
 import { LocalizeButton } from '@seolhun/localize-components-atomic';
-import { LocalizeThemeProvider } from '@seolhun/localize-components';
+import { LocalizeThemeProvider, darkTheme } from '@seolhun/localize-components';
 
 import ButtonPropsTable from './ButtonPropsTable';
 
@@ -16,6 +16,14 @@ import ButtonPropsTable from './ButtonPropsTable';
 <Playground>
   <LocalizeThemeProvider>
     <LocalizeButton>Click me</LocalizeButton>
+  </LocalizeThemeProvider>
+</Playground>
+
+## Disabled
+
+<Playground>
+  <LocalizeThemeProvider>
+    <LocalizeButton disabled>Disabled Click</LocalizeButton>
   </LocalizeThemeProvider>
 </Playground>
 
