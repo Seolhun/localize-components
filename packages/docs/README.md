@@ -1,7 +1,5 @@
 # Localize React Components
 
-- Author : [HunSeol](https://github.com/Seolhun/)
-
 ## Goal
 - localized-style for custom.
 - stylesheet variable(using props) on localize-components.

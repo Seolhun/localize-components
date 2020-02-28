@@ -1,7 +1,5 @@
 # Localize React Components
 
-- Author : [HunSeol](https://github.com/Seolhun/)
-
 ## Used stacks
 - React
 - TypeScript
