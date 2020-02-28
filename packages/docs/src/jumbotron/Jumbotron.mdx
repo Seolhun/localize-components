@@ -5,10 +5,8 @@ menu: Components
 
 import { Playground, Props } from 'docz';
 import { LocalizeJumbotron } from '@seolhun/localize-components';
-import { Button } from '@seolhun/localize-components-atomic';
+import { LocalizeButton } from '@seolhun/localize-components-atomic';
 import { LocalizeThemeProvider } from '@seolhun/localize-components';
-
-import JumbotronPropsTable from './JumbotronPropsTable';
 
 # Jumbotron
 
@@ -37,9 +35,9 @@ import JumbotronPropsTable from './JumbotronPropsTable';
 <Playground>
   <LocalizeThemeProvider>
     <LocalizeJumbotron title='Hello LocalizeJumbotron'>
-      <Button mainColor='white'>
+      <LocalizeButton>
         Click!!
-      </Button>
+      </LocalizeButton>
     </LocalizeJumbotron>
   </LocalizeThemeProvider>
 </Playground>
@@ -49,9 +47,9 @@ import JumbotronPropsTable from './JumbotronPropsTable';
 <Playground>
   <LocalizeThemeProvider>
     <LocalizeJumbotron description='Hello, LocalizeJumbotron'>
-      <Button mainColor='white'>
+      <LocalizeButton>
         Click!!
-      </Button>
+      </LocalizeButton>
     </LocalizeJumbotron>
   </LocalizeThemeProvider>
 </Playground>

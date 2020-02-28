@@ -10,7 +10,7 @@ import {
   LocalizeThemeProvider,
   useDisclosure,
 } from '@seolhun/localize-components';
-import { Button } from '@seolhun/localize-components-atomic';
+import { LocalizeButton } from '@seolhun/localize-components-atomic';
 
 import ModalPropsTable from './ModalPropsTable';
 
@@ -29,9 +29,9 @@ import ModalPropsTable from './ModalPropsTable';
 
     return (
       <LocalizeThemeProvider>
-        <Button onClick={onToggle}>
+        <LocalizeButton onClick={onToggle}>
           {isOpen ? 'Show Modal' : 'Close Modal'}
-        </Button>
+        </LocalizeButton>
         <LocalizeModal isShow={isOpen} onClose={onToggle}>
           <div>LocalizeModal header</div>
           <div>LocalizeModal footer</div>

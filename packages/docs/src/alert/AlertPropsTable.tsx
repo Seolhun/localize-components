@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
 
-import { AlertProps } from '@seolhun/localize-components';
+import { LocalizeAlertProps } from '@seolhun/localize-components';
 
-const AlertPropsTable: FunctionComponent<AlertProps> = () => {
+const AlertPropsTable: FunctionComponent<LocalizeAlertProps> = () => {
   return <div />;
 };
 

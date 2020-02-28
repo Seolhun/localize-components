@@ -55,99 +55,6 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
   }}
 </Playground>
 
-## Give a mainColor
-
-<Playground>
-  {() => {
-    const [checkedItem, setItem] = useState({
-      label: 'label3',
-      value: 'value3',
-    })
-    const handleOnChange = useCallback((item) => {
-      setItem(item)
-    }, [checkedItem])
-
-    return (
-      <LocalizeThemeProvider>
-        <RadioGroup
-          groupName='localize2'
-          mainColor='danger'
-        >
-          {props => (
-            <>
-              <Radio
-                {...props}
-                item={{
-                  label: 'label3',
-                  value: 'value3',
-                }}
-                checkedItem={checkedItem}
-                onChange={handleOnChange}
-              />
-              <Radio
-                {...props}
-                item={{
-                  label: 'label4',
-                  value: 'value4',
-                }}
-                checkedItem={checkedItem}
-                onChange={handleOnChange}
-              />
-            </>
-          )}
-        </RadioGroup>
-      </LocalizeThemeProvider>
-    )
-  }}
-</Playground>
-
-## Give a subColor
-
-<Playground>
-  {() => {
-    const [checkedItem, setItem] = useState({
-      label: 'label5',
-      value: 'value5',
-    })
-    const handleOnChange = useCallback((item) => {
-      setItem(item)
-    }, [checkedItem])
-
-    return (
-      <LocalizeThemeProvider>
-        <RadioGroup
-          groupName='localize3'
-          mainColor='danger'
-          subColor='yellow'
-        >
-          {props => (
-            <>
-              <Radio
-                {...props}
-                item={{
-                  label: 'label5',
-                  value: 'value5',
-                }}
-                checkedItem={checkedItem}
-                onChange={handleOnChange}
-              />
-              <Radio
-                {...props}
-                item={{
-                  label: 'label6',
-                  value: 'value6',
-                }}
-                checkedItem={checkedItem}
-                onChange={handleOnChange}
-              />
-            </>
-          )}
-        </RadioGroup>
-      </LocalizeThemeProvider>
-    )
-  }}
-</Playground>
-
 ## Give a align
 
 ### - Vertical
@@ -166,7 +73,6 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
       <LocalizeThemeProvider>
         <RadioGroup
           groupName='localize4'
-          mainColor='danger'
           align='vertical'
         >
           {props => (
@@ -213,7 +119,6 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
       <LocalizeThemeProvider>
         <RadioGroup
           groupName='localize9'
-          mainColor='green'
           align='horizontal'
         >
           {props => (
@@ -262,7 +167,6 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
       <LocalizeThemeProvider>
         <RadioGroup
           groupName='localize4'
-          mainColor='danger'
           align='vertical'
           gap='20px'
         >
@@ -310,7 +214,6 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
       <LocalizeThemeProvider>
         <RadioGroup
           groupName='localize13'
-          mainColor='green'
           align='horizontal'
           gap='10em'
         >

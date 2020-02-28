@@ -13,8 +13,6 @@ import {
 } from '@seolhun/localize-components';
 import { LocalizeIcon } from '@seolhun/localize-components-icons';
 
-import LocalizeIconPropsTable from './LocalizeIconPropsTable';
-
 # LocalizeIcon
 
 ## Default
@@ -27,32 +25,15 @@ import LocalizeIconPropsTable from './LocalizeIconPropsTable';
   </LocalizeThemeProvider>
 </Playground>
 
-## IconType(svg, png)
-
-Default `svg` type
-
-<Playground>
-  <LocalizeThemeProvider>
-    <LocalizeCard>
-      <LocalizeIcon icon='user' iconType='png' />
-      <LocalizeIcon icon='badge' iconType='png' />
-      <LocalizeIcon icon='info' iconType='png' />
-      <LocalizeIcon icon='check' iconType='png' />
-    </LocalizeCard>
-  </LocalizeThemeProvider>
-</Playground>
-
 ## Color
 
-Only available on svg
-
 <Playground>
   <LocalizeThemeProvider>
     <LocalizeCard>
-      <LocalizeIcon icon='user' iconType='svg' mainColor='red' />
-      <LocalizeIcon icon='badge' iconType='svg' mainColor='royalBlue' />
-      <LocalizeIcon icon='info' iconType='png' />
-      <LocalizeIcon icon='check' iconType='png' />
+      <LocalizeIcon icon='user' />
+      <LocalizeIcon icon='badge' />
+      <LocalizeIcon icon='user' color='primary01' />
+      <LocalizeIcon icon='badge' color='primary02' />
     </LocalizeCard>
   </LocalizeThemeProvider>
 </Playground>
@@ -88,4 +69,4 @@ Only available on svg
 
 ## PropsTable
 
-<Props of={LocalizeIconPropsTable} />
+<Props of={LocalizeIcon} />

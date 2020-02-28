@@ -5,7 +5,7 @@ menu: Forms
 
 import { useState, useCallback } from 'react';
 import { Playground, Props } from 'docz';
-import { CheckBox } from '@seolhun/localize-components-atomic';
+import { LocalizeCheckBox } from '@seolhun/localize-components-atomic';
 import { LocalizeThemeProvider } from '@seolhun/localize-components';
 
 # CheckBox
@@ -42,110 +42,11 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
     return (
       <LocalizeThemeProvider>
         {items.map((item) => (
-          <CheckBox
+          <LocalizeCheckBox
             key={item.label}
             item={item}
             onChange={handleOnChange}
             checked={item.checked}
-          />
-        ))}
-      </LocalizeThemeProvider>
-    )
-  }}
-</Playground>
-
-## Give a mainColor
-
-<Playground>
-  {() => {
-    const [items, setItems] = useState([
-      {
-        label: 'Apple1',
-        value: 'Apple1',
-        checked: true,
-        mainColor: 'primary'
-      },
-      {
-        label: 'Peach1',
-        value: 'Peach1',
-        checked: false,
-        mainColor: '#41FF2B'
-      },
-    ])
-
-    const handleOnChange = useCallback((selectedItem) => {
-      const newItems = items.map((item) => {
-        if (selectedItem.value === item.value) {
-          return {
-            ...item,
-            ...selectedItem,
-          };
-        }
-        return item;
-      })
-      setItems(newItems)
-    }, [items])
-
-    return (
-      <LocalizeThemeProvider>
-        {items.map((item) => (
-          <CheckBox
-            key={item.label}
-            item={item}
-            onChange={handleOnChange}
-            checked={item.checked}
-            mainColor={item.mainColor}
-          />
-        ))}
-      </LocalizeThemeProvider>
-    )
-  }}
-</Playground>
-
-## Give a subColor
-
-<Playground>
-  {() => {
-    const [items, setItems] = useState([
-      {
-        label: 'Apple2',
-        value: 'Apple2',
-        checked: true,
-        mainColor: 'yellow',
-        subColor: 'red'
-      },
-      {
-        label: 'Peach2',
-        value: 'Peach2',
-        checked: false,
-        mainColor: 'red',
-        subColor: 'yellow'
-      },
-    ])
-
-    const handleOnChange = useCallback((selectedItem) => {
-      const newItems = items.map((item) => {
-        if (selectedItem.value === item.value) {
-          return {
-            ...item,
-            ...selectedItem,
-          };
-        }
-        return item;
-      })
-      setItems(newItems)
-    }, [items])
-
-    return (
-      <LocalizeThemeProvider>
-        {items.map((item) => (
-          <CheckBox
-            key={item.label}
-            item={item}
-            onChange={handleOnChange}
-            checked={item.checked}
-            mainColor={item.mainColor}
-            subColor={item.subColor}
           />
         ))}
       </LocalizeThemeProvider>
@@ -155,4 +56,4 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
 
 ## PropsTable
 
-<Props of={CheckBox} />
+<Props of={LocalizeCheckBox} />

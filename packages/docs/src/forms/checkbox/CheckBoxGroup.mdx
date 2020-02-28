@@ -4,7 +4,7 @@ menu: Forms
 ---
 
 import { Playground, Props } from 'docz';
-import { CheckBoxGroup, CheckBox } from '@seolhun/localize-components-atomic';
+import { LocalizeCheckBoxGroup, LocalizeCheckBox } from '@seolhun/localize-components-atomic';
 import { LocalizeThemeProvider } from '@seolhun/localize-components';
 
 
@@ -14,10 +14,10 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
 
 <Playground>
   <LocalizeThemeProvider>
-    <CheckBoxGroup groupName='localize'>
+    <LocalizeCheckBoxGroup groupName='localize'>
       {props => (
         <>
-          <CheckBox
+          <LocalizeCheckBox
             {...props}
             item={{
               label: 'label',
@@ -25,7 +25,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
             }}
             checked
           />
-          <CheckBox
+          <LocalizeCheckBox
             {...props}
             item={{
               label: 'label',
@@ -35,72 +35,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
           />
         </>
       )}
-    </CheckBoxGroup>
-  </LocalizeThemeProvider>
-</Playground>
-
-## Give a mainColor
-
-<Playground>
-  <LocalizeThemeProvider>
-    <CheckBoxGroup
-      groupName='localize2'
-      mainColor='danger'
-    >
-      {props => (
-        <>
-          <CheckBox
-            {...props}
-            item={{
-              label: 'label',
-              value: 'value',
-            }}
-            checked
-          />
-          <CheckBox
-            {...props}
-            item={{
-              label: 'label',
-              value: 'value',
-            }}
-            checked
-          />
-        </>
-      )}
-    </CheckBoxGroup>
-  </LocalizeThemeProvider>
-</Playground>
-
-## Give a subColor
-
-<Playground>
-  <LocalizeThemeProvider>
-    <CheckBoxGroup
-      groupName='localize3'
-      mainColor='danger'
-      subColor='yellow'
-    >
-      {props => (
-        <>
-          <CheckBox
-            {...props}
-            item={{
-              label: 'label',
-              value: 'value',
-            }}
-            checked
-          />
-          <CheckBox
-            {...props}
-            item={{
-              label: 'label',
-              value: 'value',
-            }}
-            checked
-          />
-        </>
-      )}
-    </CheckBoxGroup>
+    </LocalizeCheckBoxGroup>
   </LocalizeThemeProvider>
 </Playground>
 
@@ -108,14 +43,13 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
 
 <Playground>
   <LocalizeThemeProvider>
-    <CheckBoxGroup
+    <LocalizeCheckBoxGroup
       groupName='localize4'
-      mainColor='danger'
       align='vertical'
     >
       {props => (
         <>
-          <CheckBox
+          <LocalizeCheckBox
             {...props}
             item={{
               label: 'label',
@@ -123,7 +57,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
             }}
             checked
           />
-          <CheckBox
+          <LocalizeCheckBox
             {...props}
             item={{
               label: 'label',
@@ -133,15 +67,14 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
           />
         </>
       )}
-    </CheckBoxGroup>
-    <CheckBoxGroup
+    </LocalizeCheckBoxGroup>
+    <LocalizeCheckBoxGroup
       groupName='localize7'
-      mainColor='green'
       align='horizontal'
     >
       {props => (
         <>
-          <CheckBox
+          <LocalizeCheckBox
             {...props}
             item={{
               label: 'label',
@@ -149,7 +82,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
             }}
             checked
           />
-          <CheckBox
+          <LocalizeCheckBox
             {...props}
             item={{
               label: 'label',
@@ -159,7 +92,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
           />
         </>
       )}
-    </CheckBoxGroup>
+    </LocalizeCheckBoxGroup>
   </LocalizeThemeProvider>
 </Playground>
 
@@ -167,15 +100,14 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
 
 <Playground>
   <LocalizeThemeProvider>
-    <CheckBoxGroup
+    <LocalizeCheckBoxGroup
       groupName='localize7'
-      mainColor='black'
       align='horizontal'
       gap='30px'
     >
       {props => (
         <>
-          <CheckBox
+          <LocalizeCheckBox
             {...props}
             item={{
               label: 'label',
@@ -183,7 +115,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
             }}
             checked
           />
-          <CheckBox
+          <LocalizeCheckBox
             {...props}
             item={{
               label: 'label',
@@ -193,16 +125,15 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
           />
         </>
       )}
-    </CheckBoxGroup>
-    <CheckBoxGroup
+    </LocalizeCheckBoxGroup>
+    <LocalizeCheckBoxGroup
       groupName='localize7'
-      mainColor='sky'
       align='horizontal'
       gap='10em'
     >
       {props => (
         <>
-          <CheckBox
+          <LocalizeCheckBox
             {...props}
             item={{
               label: 'label',
@@ -210,7 +141,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
             }}
             checked
           />
-          <CheckBox
+          <LocalizeCheckBox
             {...props}
             item={{
               label: 'label',
@@ -218,7 +149,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
             }}
             checked
           />
-          <CheckBox
+          <LocalizeCheckBox
             {...props}
             item={{
               label: 'label',
@@ -228,10 +159,10 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
           />
         </>
       )}
-    </CheckBoxGroup>
+    </LocalizeCheckBoxGroup>
   </LocalizeThemeProvider>
 </Playground>
 
 ## PropsTable
 
-<Props of={CheckBoxGroup} />
+<Props of={LocalizeCheckBoxGroup} />
