@@ -59,7 +59,13 @@
 
 ## How to getting started
 #### Install Package
+
+
 ```bash
+# NPM
+$ npm install --save @seolhun/localize-components @seolhun/localize-components-atomic
+
+# Yarn
 $ yarn add @seolhun/localize-components @seolhun/localize-components-atomic
 ```
 
