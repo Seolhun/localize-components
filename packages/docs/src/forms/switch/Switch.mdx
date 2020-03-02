@@ -6,7 +6,7 @@ menu: Forms
 import { useState } from 'react';
 import { Playground, Props } from 'docz';
 import { LocalizeSwitch } from '@seolhun/localize-components-atomic';
-import { LocalizeThemeProvider } from '@seolhun/localize-components';
+import { LocalizeThemeProvider, lightTheme, darkTheme } from '@seolhun/localize-components';
 
 # Switch
 
@@ -16,16 +16,15 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
   {() => {
     const [isChecked, setIsChecked] = useState(false)
     return (
-      <LocalizeThemeProvider>
+      <LocalizeThemeProvider theme={isChecked ? lightTheme : darkTheme}>
         <LocalizeSwitch
           htmlFor='test'
           checked={isChecked}
-          onChange={(checked) => setIsChecked(!checked)}
+          onChange={(checked) => setIsChecked(event.target.checked)}
         />
       </LocalizeThemeProvider>
     )
   }}
-
 </Playground>
 
 ## PropsTable

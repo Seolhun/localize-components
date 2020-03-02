@@ -13,7 +13,9 @@ const SWITCH_CIRCLE = 25;
 const SWITCH_CONTAINER_WIDTH = SWITCH_CIRCLE * 2 + 2;
 const SWITCH_CONTAINER_HEIGHT = SWITCH_CIRCLE + 2;
 
-export interface LocalizeSwitchProps extends LocalizeBaseStyledProps {
+export interface LocalizeSwitchProps
+  extends LocalizeBaseStyledProps,
+    React.HTMLAttributes<HTMLInputElement> {
   /**
    * Set this to change Switch checked
    */
@@ -49,12 +51,6 @@ export interface LocalizeSwitchProps extends LocalizeBaseStyledProps {
   labelKey?: string;
 
   /**
-   * Set this to change Switch onChange
-   * @default () => null
-   */
-  onChange?: (checked: boolean) => void;
-
-  /**
    * Set this to change Switch onMouseOver
    * @default () => null
    */
@@ -71,15 +67,15 @@ const StyledSwitchLabel = styled.label<
   LocalizeThemeProps
 >(({ theme }) => {
   return {
-    userSelect: 'none',
     position: 'relative',
     display: 'inline-block',
     width: `${SWITCH_CONTAINER_WIDTH}px`,
     height: `${SWITCH_CONTAINER_HEIGHT}px`,
+    userSelect: 'none',
 
     [`input:checked + .${DEFAULT_CLASSNAME}__Slider:before`]: {
+      boxShadow: `0 0 1px 2px ${theme.colors.uiColor10}`,
       transform: `translateX(${SWITCH_CIRCLE}px)`,
-      boxShadow: `0 0 2px 3px ${theme.colors.uiColor07}`,
     },
   };
 });
@@ -93,26 +89,26 @@ const StyledSwitchInput = styled.input({
 const StyledSlider = styled.span<LocalizeBaseStyledProps, LocalizeThemeProps>(
   ({ theme }) => {
     return {
-      backgroundColor: theme.colors.primary01,
-      borderRadius: '35px',
-      cursor: 'pointer',
       position: 'absolute',
       top: 0,
       right: 0,
       bottom: 0,
       left: 0,
-      transition: '0.4s',
+      backgroundColor: theme.colors.primaryBackground01,
+      borderRadius: '35px',
+      cursor: 'pointer',
+      transition: 'all 0.4s',
 
       ['&:before']: {
         content: '""',
-        backgroundColor: theme.colors.primary01,
-        borderRadius: '50%',
         position: 'absolute',
         left: '1px',
         top: '1px',
         height: `${SWITCH_CIRCLE}px`,
         width: `${SWITCH_CIRCLE}px`,
-        transition: '0.4s',
+        backgroundColor: theme.colors.primary01,
+        borderRadius: '50%',
+        transition: 'all 0.4s',
       },
     };
   },
@@ -126,11 +122,12 @@ export const LocalizeSwitch: React.FC<LocalizeSwitchProps> = ({
   onChange = () => null,
   onMouseOut = () => null,
   onMouseOver = () => null,
+  ...props
 }) => {
   const handleChecked = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.stopPropagation();
 
-    onChange(checked);
+    onChange(event);
   };
 
   return (
@@ -142,6 +139,7 @@ export const LocalizeSwitch: React.FC<LocalizeSwitchProps> = ({
       onMouseOver={onMouseOver}
     >
       <StyledSwitchInput
+        {...props}
         id={htmlFor}
         checked={checked}
         className={classnames(`${DEFAULT_CLASSNAME}__Input`, className)}

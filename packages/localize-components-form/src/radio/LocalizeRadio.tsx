@@ -169,7 +169,7 @@ const StyledCheckMark = styled.span<RadioCheckBoxProps, LocalizeThemeProps>(
       position: 'absolute',
       content: '""',
       display: isChecked ? 'block' : 'none',
-      background: theme.colors.primaryBackground01,
+      backgroundColor: theme.colors.primary01,
       border: `1px solid ${theme.colors.uiColor07}`,
       height: `${RADIO_CHECKED_CIRCLE}px`,
       width: `${RADIO_CHECKED_CIRCLE}px`,

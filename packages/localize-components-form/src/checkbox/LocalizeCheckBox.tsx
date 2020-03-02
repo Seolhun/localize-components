@@ -162,7 +162,7 @@ const StyledCheckMark = styled.span<
       content: '""',
       position: 'absolute',
       display: 'none',
-      border: `solid ${theme.colors.uiColor08}`,
+      border: `solid ${theme.colors.uiColor10}`,
       borderWidth: '0 2px 2px 0',
       height: '8px',
       width: '4px',

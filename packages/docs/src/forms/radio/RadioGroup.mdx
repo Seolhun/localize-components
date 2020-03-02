@@ -6,7 +6,8 @@ menu: Forms
 import { useState, useCallback } from 'react';
 import { Playground, Props } from 'docz';
 import { LocalizeRadioGroup, LocalizeRadio } from '@seolhun/localize-components-atomic';
-import { LocalizeThemeProvider } from '@seolhun/localize-components';
+
+import { ThemeChangerProvider } from '../../ThemeChangerProvider'
 
 # LocalizeRadioGroup
 
@@ -23,7 +24,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
     }, [checkedItem])
 
     return (
-      <LocalizeThemeProvider>
+      <ThemeChangerProvider>
         <LocalizeRadioGroup groupName='localize'>
           {props => (
             <>
@@ -50,7 +51,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
             </>
           )}
         </LocalizeRadioGroup>
-      </LocalizeThemeProvider>
+      </ThemeChangerProvider>
     )
   }}
 </Playground>
@@ -70,7 +71,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
     }, [checkedItem])
 
     return (
-      <LocalizeThemeProvider>
+      <ThemeChangerProvider>
         <LocalizeRadioGroup
           groupName='localize4'
           align='vertical'
@@ -98,7 +99,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
             </>
           )}
         </LocalizeRadioGroup>
-      </LocalizeThemeProvider>
+      </ThemeChangerProvider>
     )
   }}
 </Playground>
@@ -116,7 +117,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
     }, [checkedItem])
 
     return (
-      <LocalizeThemeProvider>
+      <ThemeChangerProvider>
         <LocalizeRadioGroup
           groupName='localize9'
           align='horizontal'
@@ -144,7 +145,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
             </>
           )}
         </LocalizeRadioGroup>
-      </LocalizeThemeProvider>
+      </ThemeChangerProvider>
     )
   }}
 </Playground>
@@ -164,7 +165,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
     }, [checkedItem])
 
     return (
-      <LocalizeThemeProvider>
+      <ThemeChangerProvider>
         <LocalizeRadioGroup
           groupName='localize4'
           align='vertical'
@@ -193,7 +194,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
             </>
           )}
         </LocalizeRadioGroup>
-      </LocalizeThemeProvider>
+      </ThemeChangerProvider>
     )
   }}
 </Playground>
@@ -211,7 +212,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
     }, [checkedItem])
 
     return (
-      <LocalizeThemeProvider>
+      <ThemeChangerProvider>
         <LocalizeRadioGroup
           groupName='localize13'
           align='horizontal'
@@ -240,7 +241,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
             </>
           )}
         </LocalizeRadioGroup>
-      </LocalizeThemeProvider>
+      </ThemeChangerProvider>
     )
   }}
 </Playground>

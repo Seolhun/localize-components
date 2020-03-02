@@ -1,12 +1,13 @@
 ---
-name: LocalizeRadio
+name: Radio
 menu: Forms
 ---
 
-import { useState, useCallback } from 'react';
+import { useState } from 'react';
 import { Playground, Props } from 'docz';
 import { LocalizeRadio } from '@seolhun/localize-components-atomic';
-import { LocalizeThemeProvider } from '@seolhun/localize-components';
+
+import { ThemeChangerProvider } from '../../ThemeChangerProvider'
 
 # LocalizeRadio
 
@@ -18,12 +19,13 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
       label: 'label1',
       value: 'value1',
     })
-    const handleOnChange = useCallback((item) => {
+
+    const handleOnChange = (item) => {
       setItem(item)
-    }, [checkedItem])
+    }
 
     return (
-      <LocalizeThemeProvider>
+      <ThemeChangerProvider>
         <LocalizeRadio
           item={{
             label: 'label1',
@@ -42,7 +44,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
           onChange={handleOnChange}
           groupName='localize'
         />
-      </LocalizeThemeProvider>
+      </ThemeChangerProvider>
     )
   }}
 </Playground>
@@ -55,11 +57,13 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
       name: 'Shirts',
       price: 10000,
     })
-    const handleOnChange = useCallback((item) => {
+
+    const handleOnChange = (item) => {
       setItem(item)
-    }, [checkedItem])
+    }
+
     return (
-      <LocalizeThemeProvider>
+      <ThemeChangerProvider>
         <LocalizeRadio
           item={{
             name: 'Shirts',
@@ -84,7 +88,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
           mainColor='primary'
           subColor="danger"
         />
-      </LocalizeThemeProvider>
+      </ThemeChangerProvider>
     )
   }}
 </Playground>

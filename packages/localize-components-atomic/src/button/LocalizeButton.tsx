@@ -8,7 +8,7 @@ import {
   LocalizeStyledProps,
 } from '@seolhun/localize-components-styled-types';
 
-export interface LocalizeButtonProps
+interface LocalizeButtonProps
   extends React.HTMLAttributes<HTMLButtonElement>,
     LocalizeStyledProps {
   /**
@@ -35,16 +35,11 @@ const StyledLocalizeButton = styled.button<
 
   return {
     display: 'inline-block',
-    borderRadius: '6px',
-    border: '1px solid transparent',
-    backgroundColor: theme.colors.primary01,
     height: 'auto',
     padding: getStyleBySize(),
-
-    cursor: 'pointer',
-    outline: 'none',
-    transition: 'background-color 0.3s, border-color 0.3s, color 0.3s',
-    userSelect: 'none',
+    backgroundColor: theme.colors.primary01,
+    border: `1px solid transparent`,
+    borderRadius: '6px',
 
     color: theme.fontColors.inner,
     fontSize: `${fontSize}px`,
@@ -54,8 +49,14 @@ const StyledLocalizeButton = styled.button<
     verticalAlign: 'middle',
     whiteSpace: 'nowrap',
 
+    cursor: 'pointer',
+    outline: 'none',
+    transition: 'background-color 0.3s, border-color 0.3s, color 0.3s',
+    userSelect: 'none',
+
     '&:hover': {
-      backgroundColor: theme.colors.primaryBackground01,
+      border: `1px solid ${theme.colors.primary01}`,
+      backgroundColor: theme.colors.uiColor10,
       color: theme.fontColors.primary,
     },
 
@@ -67,7 +68,7 @@ const StyledLocalizeButton = styled.button<
   };
 });
 
-export const LocalizeButton: React.FC<LocalizeButtonProps> = ({
+const LocalizeButton: React.FC<LocalizeButtonProps> = ({
   children,
   className,
   ...props
@@ -80,5 +81,7 @@ export const LocalizeButton: React.FC<LocalizeButtonProps> = ({
     {children}
   </StyledLocalizeButton>
 );
+
+export { LocalizeButton, LocalizeButtonProps };
 
 export default LocalizeButton;

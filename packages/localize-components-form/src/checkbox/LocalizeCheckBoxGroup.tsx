@@ -54,7 +54,7 @@ interface LocalizeCheckBoxGroupProps extends LocalizeBaseStyledProps {
    * Set this to change CheckBox Group onClick
    * @default () => any;
    */
-  onClickItems?: (...args: any[]) => any;
+  onClick?: (...args: any[]) => any;
 }
 
 interface LocalizeCheckBoxContainerProps {
@@ -92,7 +92,7 @@ const LocalizeCheckBoxGroup: React.FC<LocalizeCheckBoxGroupProps> = ({
   useValueKey = false,
   align = 'vertical',
   gap = '1rem',
-  onClickItems = () => null,
+  onClick = () => null,
 }) => {
   return (
     <LocalizeCheckBoxContainer
@@ -107,7 +107,7 @@ const LocalizeCheckBoxGroup: React.FC<LocalizeCheckBoxGroupProps> = ({
         valueKey,
         useValueKey,
         align,
-        onClickItems,
+        onClick,
       })}
     </LocalizeCheckBoxContainer>
   );

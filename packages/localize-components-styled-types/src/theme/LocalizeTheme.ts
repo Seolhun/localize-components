@@ -61,6 +61,8 @@ export interface LocalizeThemeProps {
     uiColor06: string;
     uiColor07: string;
     uiColor08: string;
+    uiColor09: string;
+    uiColor10: string;
     error: string;
     disabled: string;
   };
@@ -74,7 +76,7 @@ export interface LocalizeThemeProps {
 }
 
 export const lightThemeColors: LocalizeThemeProps['colors'] = {
-  primary01: '#1247D7',
+  primary01: '#0044ff',
   primary02: '#0A32A0',
   primaryBackground01: '#FEFFFF',
   primaryBackground02: '#F0F6F7',
@@ -87,14 +89,17 @@ export const lightThemeColors: LocalizeThemeProps['colors'] = {
   uiColor06: '#999999',
   uiColor07: '#E3E3E3', // borderColor
   uiColor08: '#160B0B',
+  uiColor09: '#1B2030', // outerColor
+  uiColor10: '#FFFFFF', // innerColor
+
   error: '#FF1C1C',
   disabled: '#DDDDDD',
 };
 
 export const darkThemeColors: LocalizeThemeProps['colors'] = {
-  primary01: '#3160DE',
+  primary01: '#0044ff',
   primary02: '#0A32A0',
-  primaryBackground01: '#1B2030',
+  primaryBackground01: '#13161F',
   primaryBackground02: '#1C262C',
   primaryBackground03: '#2D3C6B',
   uiColor01: '#101114',
@@ -105,6 +110,8 @@ export const darkThemeColors: LocalizeThemeProps['colors'] = {
   uiColor06: '#B2B9C7',
   uiColor07: '#E6E6E6', // borderColor
   uiColor08: '#FFFFFF',
+  uiColor09: '#1B2030', // outerColor
+  uiColor10: '#FFFFFF', // innerColor
   error: '#FF4444',
   disabled: '#DDDDDD',
 };
