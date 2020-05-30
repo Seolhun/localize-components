@@ -40,4 +40,3 @@
 
 #### Types
 - [ ] @seolhun/localize-components-styled-types
-- [ ] @seolhun/localize-components-types

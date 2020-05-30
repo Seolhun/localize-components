@@ -52,8 +52,6 @@
 
 #### Types
 - @seolhun/localize-components-styled-types
-- @seolhun/localize-components-types
-
 
 ## How to getting started
 #### Install Package

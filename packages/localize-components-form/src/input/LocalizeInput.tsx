@@ -6,13 +6,13 @@ import {
   LocalizeThemeProps,
   LocalizeBaseStyledProps,
 } from '@seolhun/localize-components-styled-types';
-import { ValidationResponse } from '@seolhun/localize-components-types';
 
 const DEFAULT_CLASSNAME = '__Localize__Input';
 
-export interface LocalizeInputProps
-  extends React.InputHTMLAttributes<HTMLInputElement>,
-    LocalizeBaseStyledProps {
+type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
+type LocalizeProps = LocalizeBaseStyledProps & InputProps;
+
+export interface LocalizeInputProps extends LocalizeProps {
   /**
    * Set this to change Input rendering children node
    * @default ''
@@ -53,7 +53,12 @@ export interface LocalizeInputProps
    * Set this to change Input onChange
    * @default undefined
    */
-  onValidation?: (...args: any[]) => ValidationResponse;
+  onValidation?: (
+    ...args: any[]
+  ) => {
+    hasError: boolean;
+    message: string;
+  };
 
   /**
    * Set this to change Input rendering enterButton node

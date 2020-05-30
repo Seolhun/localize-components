@@ -1,3 +1,3 @@
 export * from './Col';
-export * from './Row';
+export * from './LocalizeRow';
 export * from './Container';

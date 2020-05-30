@@ -1,1 +1,1 @@
-export * from './LocalizeTypo';
+export * from './LocalizeText';

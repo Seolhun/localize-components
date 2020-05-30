@@ -1,3 +1,5 @@
-export type Size = 'large' | 'medium' | 'small';
+type LocalizeSize = 'xl' | 'lg' | 'md' | 'sm' | 'xs';
 
-export default Size;
+export { LocalizeSize };
+
+export default LocalizeSize;

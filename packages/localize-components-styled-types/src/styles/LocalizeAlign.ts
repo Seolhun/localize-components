@@ -1,3 +1,5 @@
-export type Align = 'center' | 'left' | 'right';
+type LocalizeAlign = 'center' | 'left' | 'right';
 
-export default Align;
+export { LocalizeAlign };
+
+export default LocalizeAlign;

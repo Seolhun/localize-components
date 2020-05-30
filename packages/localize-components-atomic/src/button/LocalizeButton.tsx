@@ -5,12 +5,13 @@ import classnames from 'classnames';
 
 import {
   LocalizeThemeProps,
-  LocalizeStyledProps,
+  LocalizeBaseStyledProps,
 } from '@seolhun/localize-components-styled-types';
 
-interface LocalizeButtonProps
-  extends React.HTMLAttributes<HTMLButtonElement>,
-    LocalizeStyledProps {
+type ButtonProps = React.HTMLAttributes<HTMLButtonElement>;
+type LocalizeProps = LocalizeBaseStyledProps & ButtonProps;
+
+interface LocalizeButtonProps extends LocalizeProps {
   /**
    * Set this to change LocalizeButton font-size
    * @default 12
@@ -21,10 +22,10 @@ interface LocalizeButtonProps
 const StyledLocalizeButton = styled.button<
   LocalizeButtonProps,
   LocalizeThemeProps
->(({ fontSize = 12, size = 'medium', theme }) => {
+>(({ fontSize = 12, size = 'md', theme }) => {
   const getStyleBySize = () => {
     switch (size) {
-      case 'large':
+      case '':
         return '15px 30px';
       case 'medium':
         return '10px 25px';

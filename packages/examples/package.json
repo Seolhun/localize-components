@@ -33,7 +33,6 @@
     "@seolhun/localize-components-hooks": "^0.5.2",
     "@seolhun/localize-components-styled-types": "^0.5.2",
     "@seolhun/localize-components-styled-utils": "^0.5.2",
-    "@seolhun/localize-components-types": "^0.5.2",
     "@seolhun/localize-components-event-utils": "^0.5.2",
     "classnames": "^2.2.6",
     "core-js": "^3.5.0",

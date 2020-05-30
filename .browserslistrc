@@ -2,6 +2,6 @@
 # https://github.com/browserslist/browserslist#best-practices
 ## e.g) npx browserslist
 
-last 1 version
-> 1%
-IE 10 # sorry
+defaults
+not dead
+maintained node versions

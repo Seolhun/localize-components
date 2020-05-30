@@ -1,4 +1,4 @@
-export type Position =
+type LocalizePosition =
   | 'bottom-center'
   | 'bottom-left'
   | 'bottom-right'
@@ -9,4 +9,6 @@ export type Position =
   | 'top-left'
   | 'top-right';
 
-export default Position;
+export { LocalizePosition };
+
+export default LocalizePosition;

@@ -1,4 +1,7 @@
-import { ValidationResponse } from '@seolhun/localize-components-types';
+interface ValidationResponse {
+  hasError: boolean;
+  message: string;
+}
 
 /* eslint-disable no-underscore-dangle */
 export const FORM_PROPERTIES = {
