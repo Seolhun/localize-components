@@ -5,7 +5,7 @@ import classnames from 'classnames';
 
 import {
   LocalizeThemeProps,
-  LocalizeBaseStyledProps,
+  LocalizeProps,
 } from '@seolhun/localize-components-styled-types';
 
 const DEFAULT_CLASSNAME = '__Localize__Switch';
@@ -13,9 +13,9 @@ const SWITCH_CIRCLE = 25;
 const SWITCH_CONTAINER_WIDTH = SWITCH_CIRCLE * 2 + 2;
 const SWITCH_CONTAINER_HEIGHT = SWITCH_CIRCLE + 2;
 
-export interface LocalizeSwitchProps
-  extends LocalizeBaseStyledProps,
-    React.HTMLAttributes<HTMLInputElement> {
+type InputProps = React.HTMLAttributes<HTMLInputElement>;
+
+interface LocalizeSwitchProps extends LocalizeProps, InputProps {
   /**
    * Set this to change Switch checked
    */
@@ -62,23 +62,22 @@ export interface LocalizeSwitchProps
   onMouseOut?: (...agrs: any[]) => void;
 }
 
-const StyledSwitchLabel = styled.label<
-  LocalizeBaseStyledProps,
-  LocalizeThemeProps
->(({ theme }) => {
-  return {
-    position: 'relative',
-    display: 'inline-block',
-    width: `${SWITCH_CONTAINER_WIDTH}px`,
-    height: `${SWITCH_CONTAINER_HEIGHT}px`,
-    userSelect: 'none',
+const StyledSwitchLabel = styled.label<LocalizeProps, LocalizeThemeProps>(
+  ({ theme }) => {
+    return {
+      position: 'relative',
+      display: 'inline-block',
+      width: `${SWITCH_CONTAINER_WIDTH}px`,
+      height: `${SWITCH_CONTAINER_HEIGHT}px`,
+      userSelect: 'none',
 
-    [`input:checked + .${DEFAULT_CLASSNAME}__Slider:before`]: {
-      boxShadow: `0 0 1px 2px ${theme.colors.uiColor10}`,
-      transform: `translateX(${SWITCH_CIRCLE}px)`,
-    },
-  };
-});
+      [`input:checked + .${DEFAULT_CLASSNAME}__Slider:before`]: {
+        boxShadow: `0 0 1px 2px ${theme.colors.uiColor10}`,
+        transform: `translateX(${SWITCH_CIRCLE}px)`,
+      },
+    };
+  },
+);
 
 const StyledSwitchInput = styled.input({
   opacity: 0,
@@ -86,7 +85,7 @@ const StyledSwitchInput = styled.input({
   height: 0,
 });
 
-const StyledSlider = styled.span<LocalizeBaseStyledProps, LocalizeThemeProps>(
+const StyledSlider = styled.span<LocalizeProps, LocalizeThemeProps>(
   ({ theme }) => {
     return {
       position: 'absolute',
@@ -114,7 +113,7 @@ const StyledSlider = styled.span<LocalizeBaseStyledProps, LocalizeThemeProps>(
   },
 );
 
-export const LocalizeSwitch: React.FC<LocalizeSwitchProps> = ({
+const LocalizeSwitch: React.FC<LocalizeSwitchProps> = ({
   checked,
   htmlFor,
   className,
@@ -154,5 +153,7 @@ export const LocalizeSwitch: React.FC<LocalizeSwitchProps> = ({
     </StyledSwitchLabel>
   );
 };
+
+export { LocalizeSwitchProps, LocalizeSwitch };
 
 export default LocalizeSwitch;

@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 
 import {
   LocalizeThemeProps,
-  LocalizeBaseStyledProps,
+  LocalizeProps,
 } from '@seolhun/localize-components-styled-types';
 
 import classnames from 'classnames';
@@ -12,7 +12,7 @@ import classnames from 'classnames';
 const DEFAULT_CLASSNAME = '__Localize__Box';
 
 export interface LocalizeBoxProps
-  extends LocalizeBaseStyledProps,
+  extends LocalizeProps,
     React.HTMLAttributes<HTMLDivElement> {}
 
 const StyledBoxWrapper = styled.div<LocalizeBoxProps, LocalizeThemeProps>(

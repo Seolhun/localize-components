@@ -23,10 +23,9 @@
     "test": "jest"
   },
   "dependencies": {
-    "classnames": "^2.2.6",
-    "polished": "^3.4.2",
-    "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "@seolhun/localize-components-styled-types": "^0.5.2",
+    "@seolhun/localize-components-styled-utils": "^0.5.2",
+    "polished": "^3.4.2"
   },
   "devDependencies": {},
   "engines": {

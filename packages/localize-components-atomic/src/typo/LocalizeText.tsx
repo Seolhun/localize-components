@@ -2,14 +2,14 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import {
-  LocalizeBaseStyledProps,
+  LocalizeProps,
   LocalizeThemeProps,
   ThemeFontsProps,
 } from '@seolhun/localize-components-styled-types';
 
 type LocalizeTextType = keyof ThemeFontsProps;
 
-interface LocalizeTextProps extends LocalizeBaseStyledProps {
+interface LocalizeTextProps extends LocalizeProps {
   type: LocalizeTextType;
 
   weight?: number;

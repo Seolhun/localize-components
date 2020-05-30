@@ -5,11 +5,11 @@ import classnames from 'classnames';
 
 import {
   LocalizeThemeProps,
-  LocalizeBaseStyledProps,
+  LocalizeProps,
 } from '@seolhun/localize-components-styled-types';
 
 type ButtonProps = React.HTMLAttributes<HTMLButtonElement>;
-type LocalizeProps = LocalizeBaseStyledProps & ButtonProps;
+type LocalizeProps = LocalizeProps & ButtonProps;
 
 interface LocalizeButtonProps extends LocalizeProps {
   /**

@@ -1,10 +1,10 @@
-export interface FontProps {
+interface FontProps {
   fontSize: any;
   fontWeight: any;
   lineHeight: any;
 }
 
-export interface ThemeFontsProps {
+interface ThemeFontsProps {
   h1: FontProps;
   h2: FontProps;
   h3: FontProps;
@@ -14,7 +14,7 @@ export interface ThemeFontsProps {
   p: FontProps;
 }
 
-export interface ThemeFontColorProps {
+interface ThemeFontColorProps {
   highlight: string;
   primary: string;
   secondary: string;
@@ -23,7 +23,7 @@ export interface ThemeFontColorProps {
   disabled: string;
 }
 
-export const lightFontsColors: ThemeFontColorProps = {
+const lightFontsColors: ThemeFontColorProps = {
   highlight: '#3A6FFE',
   primary: '#282c35',
   secondary: '#282c35',
@@ -32,7 +32,7 @@ export const lightFontsColors: ThemeFontColorProps = {
   disabled: '#999999',
 };
 
-export const darkFontsColors: ThemeFontColorProps = {
+const darkFontsColors: ThemeFontColorProps = {
   highlight: '#386BF8',
   primary: '#282c35',
   secondary: '#282c35',
@@ -41,7 +41,7 @@ export const darkFontsColors: ThemeFontColorProps = {
   disabled: '#999999',
 };
 
-export const fonts: ThemeFontsProps = {
+const fonts: ThemeFontsProps = {
   h1: {
     fontSize: '3rem',
     fontWeight: 700,
@@ -77,4 +77,13 @@ export const fonts: ThemeFontsProps = {
     fontWeight: 400,
     lineHeight: '12px',
   },
+};
+
+export {
+  FontProps,
+  ThemeFontsProps,
+  ThemeFontColorProps,
+  lightFontsColors,
+  darkFontsColors,
+  fonts,
 };

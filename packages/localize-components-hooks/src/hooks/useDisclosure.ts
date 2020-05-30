@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import React from 'react';
 
-export const useDisclosure = (defaultIsOpen = false) => {
-  const [isOpen, setIsOpen] = useState(defaultIsOpen);
+const useDisclosure = (defaultIsOpen = false) => {
+  const [isOpen, setIsOpen] = React.useState(defaultIsOpen);
 
   const onSet = (isShow: boolean) => setIsOpen(isShow);
   const onOpen = () => setIsOpen(true);
@@ -10,5 +10,7 @@ export const useDisclosure = (defaultIsOpen = false) => {
 
   return { isOpen, onSet, onOpen, onClose, onToggle };
 };
+
+export { useDisclosure };
 
 export default useDisclosure;

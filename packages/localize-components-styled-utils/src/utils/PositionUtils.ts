@@ -1,12 +1,12 @@
-import { Position } from '@seolhun/localize-components-styled-types';
+import { LocalizePosition } from '@seolhun/localize-components-styled-types';
 
-export const getPositionStyle = (position: Position) => {
-  const DEFAULT_MARGIN = 10;
+export const getPositionStyle = (position: LocalizePosition) => {
+  const DEFAULT_GAP = 10;
 
   switch (position) {
     case 'top-center': {
       return {
-        top: `${DEFAULT_MARGIN}px`,
+        top: `${DEFAULT_GAP}px`,
         left: 0,
         right: 0,
         margin: '0 auto',
@@ -14,16 +14,16 @@ export const getPositionStyle = (position: Position) => {
     }
     case 'top-left': {
       return {
-        top: `${DEFAULT_MARGIN}px`,
-        left: `${DEFAULT_MARGIN}px`,
+        top: `${DEFAULT_GAP}px`,
+        left: `${DEFAULT_GAP}px`,
         bottom: 'auto',
         right: 'auto',
       };
     }
     case 'top-right': {
       return {
-        top: `${DEFAULT_MARGIN}px`,
-        right: `${DEFAULT_MARGIN}px`,
+        top: `${DEFAULT_GAP}px`,
+        right: `${DEFAULT_GAP}px`,
         bottom: 'auto',
         left: 'auto',
       };
@@ -32,7 +32,7 @@ export const getPositionStyle = (position: Position) => {
       return {
         top: 0,
         bottom: 0,
-        left: `${DEFAULT_MARGIN}px`,
+        left: `${DEFAULT_GAP}px`,
         marginLeft: 0,
       };
     }
@@ -41,13 +41,13 @@ export const getPositionStyle = (position: Position) => {
         top: 0,
         bottom: 0,
         left: 0,
-        right: `${DEFAULT_MARGIN}px`,
+        right: `${DEFAULT_GAP}px`,
         marginRight: 0,
       };
     }
     case 'bottom-center': {
       return {
-        bottom: `${DEFAULT_MARGIN}px`,
+        bottom: `${DEFAULT_GAP}px`,
         left: 0,
         right: 0,
         margin: '0 auto',
@@ -56,17 +56,17 @@ export const getPositionStyle = (position: Position) => {
     case 'bottom-left': {
       return {
         top: 'auto',
-        bottom: `${DEFAULT_MARGIN}px`,
-        left: `${DEFAULT_MARGIN}px`,
+        bottom: `${DEFAULT_GAP}px`,
+        left: `${DEFAULT_GAP}px`,
         right: 'auto',
       };
     }
     case 'bottom-right': {
       return {
         top: 'auto',
-        bottom: `${DEFAULT_MARGIN}px`,
+        bottom: `${DEFAULT_GAP}px`,
         left: 'auto',
-        right: `${DEFAULT_MARGIN}px`,
+        right: `${DEFAULT_GAP}px`,
       };
     }
 

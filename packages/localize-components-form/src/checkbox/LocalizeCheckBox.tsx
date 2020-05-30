@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import {} from '@seolhun/localize-components-styled-utils';
 import {
   LocalizeThemeProps,
-  LocalizeBaseStyledProps,
+  LocalizeProps,
 } from '@seolhun/localize-components-styled-types';
 
 import { LocalizeCheckBoxGroupAlignType } from './LocalizeCheckBoxGroup';
@@ -14,7 +14,7 @@ const DEFAULT_CLASSNAME = '__Localize__CheckBox';
 
 interface LocalizeCheckBoxProps
   extends React.HTMLAttributes<HTMLInputElement>,
-    LocalizeBaseStyledProps {
+    LocalizeProps {
   /**
    * Set this to change CheckBox label
    */
@@ -130,48 +130,47 @@ const StyledCheckBox = styled.input({
   opacity: 0,
 });
 
-const StyledCheckMark = styled.span<
-  LocalizeBaseStyledProps,
-  LocalizeThemeProps
->(({ theme }) => {
-  return {
-    backgroundColor: theme.colors.primary01,
-    borderRadius: '6px',
-    border: '1px solid transparent',
-    display: 'inline-flex',
-    height: '16px',
-    justifyContent: 'flex-start',
-    left: 0,
-    position: 'absolute',
-    transition: 'border-color 0.35s, background-color 0.35s',
-    width: '16px',
-
-    [`.${DEFAULT_CLASSNAME}:hover ~ &`]: {
-      border: `1px solid ${theme.colors.uiColor07}`,
-
-      ['input:checked ~ &']: {
-        backgroundColor: theme.colors.primary02,
-      },
-    },
-
-    [`.${DEFAULT_CLASSNAME}:checked ~ &:after`]: {
-      display: 'block',
-    },
-
-    ['&::after']: {
-      content: '""',
+const StyledCheckMark = styled.span<LocalizeProps, LocalizeThemeProps>(
+  ({ theme }) => {
+    return {
+      backgroundColor: theme.colors.primary01,
+      borderRadius: '6px',
+      border: '1px solid transparent',
+      display: 'inline-flex',
+      height: '16px',
+      justifyContent: 'flex-start',
+      left: 0,
       position: 'absolute',
-      display: 'none',
-      border: `solid ${theme.colors.uiColor10}`,
-      borderWidth: '0 2px 2px 0',
-      height: '8px',
-      width: '4px',
-      left: '5px',
-      top: '2px',
-      transform: 'rotate(45deg)',
-    },
-  };
-});
+      transition: 'border-color 0.35s, background-color 0.35s',
+      width: '16px',
+
+      [`.${DEFAULT_CLASSNAME}:hover ~ &`]: {
+        border: `1px solid ${theme.colors.uiColor07}`,
+
+        ['input:checked ~ &']: {
+          backgroundColor: theme.colors.primary02,
+        },
+      },
+
+      [`.${DEFAULT_CLASSNAME}:checked ~ &:after`]: {
+        display: 'block',
+      },
+
+      ['&::after']: {
+        content: '""',
+        position: 'absolute',
+        display: 'none',
+        border: `solid ${theme.colors.uiColor10}`,
+        borderWidth: '0 2px 2px 0',
+        height: '8px',
+        width: '4px',
+        left: '5px',
+        top: '2px',
+        transform: 'rotate(45deg)',
+      },
+    };
+  },
+);
 
 const LocalizeCheckBox: React.FC<LocalizeCheckBoxProps> = ({
   item,

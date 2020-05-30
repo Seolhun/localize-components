@@ -3,13 +3,13 @@ import React from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
 
-import { LocalizeBaseStyledProps } from '@seolhun/localize-components-styled-types';
+import { LocalizeProps } from '@seolhun/localize-components-styled-types';
 
 const DEFAULT_CLASSNAME = '__Localize__CheckBoxGroup';
 
 export type LocalizeCheckBoxGroupAlignType = 'vertical' | 'horizontal';
 
-interface LocalizeCheckBoxGroupProps extends LocalizeBaseStyledProps {
+interface LocalizeCheckBoxGroupProps extends LocalizeProps {
   /**
    * Set this to change CheckBox Group children
    */

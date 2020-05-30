@@ -3,6 +3,10 @@
   "packages": [
     "packages/*"
   ],
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
+  },
   "command": {
     "publish": {
       "allowBranch": [
@@ -11,9 +15,13 @@
       ],
       "ignoreChanges": [
         "**/__test__",
-        "**/*.md"
-      ],
-      "ignore": [
+        "**/*.md",
+        "packages/docs",
+        "packages/examples"
+      ]
+    },
+    "bootstrap": {
+      "ignore":[
         "packages/docs",
         "packages/examples"
       ]

@@ -3,13 +3,13 @@ import React from 'react';
 import classnames from 'classnames';
 import styled from '@emotion/styled';
 
-import { LocalizeBaseStyledProps } from '@seolhun/localize-components-styled-types';
+import { LocalizeProps } from '@seolhun/localize-components-styled-types';
 
 const DEFAULT_CLASSNAME = '__Localize__RadioGroup';
 
 export type LocalizeRadioGroupAlignType = 'vertical' | 'horizontal';
 
-interface LocalizeRadioGroupProps extends LocalizeBaseStyledProps {
+interface LocalizeRadioGroupProps extends LocalizeProps {
   /**
    * Set this to change Radio Group children
    */

@@ -5,7 +5,7 @@ import { debounce } from 'lodash';
 import styled from '@emotion/styled';
 
 import { getClientWindowSize } from '@seolhun/localize-components-event-utils';
-import { LocalizeBaseStyledProps } from '@seolhun/localize-components-styled-types';
+import { LocalizeProps } from '@seolhun/localize-components-styled-types';
 
 const DEFAULT_CLASSNAME = '__Localize__Carousel';
 const PAGINATION = {
@@ -15,7 +15,7 @@ const PAGINATION = {
 const DEFAULT_RATIO = 0.5;
 
 interface LocalizeCarouselProps
-  extends LocalizeBaseStyledProps,
+  extends LocalizeProps,
     React.HTMLAttributes<HTMLDivElement> {
   /**
    * Set this to change LocalizeCarousel render items

@@ -43,7 +43,6 @@
 #### Mono Components
 - @seolhun/localize-components-form
 - @seolhun/localize-components-grid
-- @seolhun/localize-components-sidebar
 
 #### Utils
 - @seolhun/localize-components-hooks

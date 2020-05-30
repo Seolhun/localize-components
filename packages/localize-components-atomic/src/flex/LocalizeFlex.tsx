@@ -5,11 +5,11 @@ import {
   FlexDirectionProperty,
   JustifyContentProperty,
 } from 'csstype';
-import { LocalizeBaseStyledProps } from '@seolhun/localize-components-styled-types';
+import { LocalizeProps } from '@seolhun/localize-components-styled-types';
 
 export interface LocalizeFlexProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    LocalizeBaseStyledProps {
+    LocalizeProps {
   justifyContent?: JustifyContentProperty;
 
   alignItems?: AlignItemsProperty;

@@ -1,16 +1,13 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import styled from '@emotion/styled';
-import {
-  LocalizeThemeProps,
-  ColumnValueProps,
-} from '@seolhun/localize-components-styled-types';
+import classnames from 'classnames';
+
+import { LocalizeThemeProps, ColumnValueProps } from '@seolhun/localize-components-styled-types';
 import { getMediaQueryStyles } from '@seolhun/localize-components-styled-utils';
 
-import classnames from 'classnames';
 import { AlignItemsProperty, JustifyContentProperty } from 'csstype';
 
-interface ColProps {
-  children: ReactNode;
+interface LocalizeColProps {
   className?: string;
   xs?: ColumnValueProps;
   sm?: ColumnValueProps;
@@ -21,17 +18,8 @@ interface ColProps {
   justifyContent?: JustifyContentProperty;
 }
 
-const StyledCol = styled.div<ColProps, LocalizeThemeProps>(
-  ({
-    theme,
-    xl,
-    lg,
-    md,
-    sm,
-    xs,
-    alignItems = 'center',
-    justifyContent = 'flex-start',
-  }) => {
+const StyledCol = styled.div<LocalizeColProps, LocalizeThemeProps>(
+  ({ theme, xl, lg, md, sm, xs, alignItems = 'center', justifyContent = 'flex-start' }) => {
     return {
       ...((!!xs || xs === 0) && getMediaQueryStyles('XS', xs)),
       ...((!!sm || sm === 0) && getMediaQueryStyles('SM', sm)),
@@ -52,7 +40,7 @@ const StyledCol = styled.div<ColProps, LocalizeThemeProps>(
   },
 );
 
-const Col = ({ children, className, ...props }: ColProps) => {
+const LocalizeCol: React.FC<LocalizeColProps> = ({ children, className, ...props }) => {
   return (
     <StyledCol {...props} className={classnames('__Localize__Col', className)}>
       {children}
@@ -60,6 +48,6 @@ const Col = ({ children, className, ...props }: ColProps) => {
   );
 };
 
-export { ColProps, Col };
+export { LocalizeColProps, LocalizeCol };
 
-export default Col;
+export default LocalizeCol;

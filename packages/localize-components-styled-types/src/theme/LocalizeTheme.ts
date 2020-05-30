@@ -1,4 +1,3 @@
-import { LocalizeSize, LocalizeAlign, LocalizePosition } from '../styles';
 import {
   fonts,
   lightFontsColors,
@@ -8,7 +7,12 @@ import {
 } from './LocalizeFonts';
 import { LocalizeThemeGridProps } from './LocalizeGrid';
 
-interface LocalizeBaseStyledProps {
+enum LocalizeThemeType {
+  LIGHT = 'LIGHT',
+  DARK = 'DARK',
+}
+
+interface LocalizeProps {
   /**
    * Set this to change className
    * @default '''
@@ -16,33 +20,10 @@ interface LocalizeBaseStyledProps {
   className?: string;
 
   /**
-   * Set this to change position
-   * @default undefined
-   */
-  position?: LocalizePosition;
-
-  /**
-   * Set this to change align
-   * @default undefined
-   */
-  align?: LocalizeAlign;
-
-  /**
-   * Set this to change size
-   * @default md
-   */
-  size?: LocalizeSize;
-
-  /**
-   * Set this to change subColor
+   * Set this to change zIndex
    * @default undefined
    */
   zIndex?: number;
-}
-
-enum LocalizeThemeType {
-  LIGHT = 'LIGHT',
-  DARK = 'DARK',
 }
 
 interface LocalizeThemeProps<T = keyof typeof LocalizeThemeType> {
@@ -75,7 +56,7 @@ interface LocalizeThemeProps<T = keyof typeof LocalizeThemeType> {
   grid: LocalizeThemeGridProps;
 }
 
-export const LocalizeLightThemeColors: LocalizeThemeProps['colors'] = {
+const localizeLightThemeColors: LocalizeThemeProps['colors'] = {
   primary01: '#0044ff',
   primary02: '#0A32A0',
   primaryBackground01: '#FEFFFF',
@@ -91,12 +72,11 @@ export const LocalizeLightThemeColors: LocalizeThemeProps['colors'] = {
   uiColor08: '#160B0B',
   uiColor09: '#1B2030', // outerColor
   uiColor10: '#FFFFFF', // innerColor
-
   error: '#FF1C1C',
   disabled: '#DDDDDD',
 };
 
-export const LocalizeDarkThemeColors: LocalizeThemeProps['colors'] = {
+const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
   primary01: '#0044ff',
   primary02: '#0A32A0',
   primaryBackground01: '#13161F',
@@ -116,12 +96,12 @@ export const LocalizeDarkThemeColors: LocalizeThemeProps['colors'] = {
   disabled: '#DDDDDD',
 };
 
-const LocalizeLightTheme: LocalizeThemeProps = {
+const localizeLightTheme: LocalizeThemeProps = {
   type: 'LIGHT',
-  colors: LocalizeLightThemeColors,
+  colors: localizeLightThemeColors,
   layout: {
-    backgroundColor: LocalizeLightThemeColors.uiColor01,
-    fontColor: LocalizeLightThemeColors.uiColor08,
+    backgroundColor: localizeLightThemeColors.uiColor01,
+    fontColor: localizeLightThemeColors.uiColor08,
   },
   fonts,
   fontColors: lightFontsColors,
@@ -144,12 +124,12 @@ const LocalizeLightTheme: LocalizeThemeProps = {
   },
 };
 
-const LocalizeDarkTheme: LocalizeThemeProps = {
+const localizeDarkTheme: LocalizeThemeProps = {
   type: 'DARK',
-  colors: LocalizeDarkThemeColors,
+  colors: localizeDarkThemeColors,
   layout: {
-    backgroundColor: LocalizeDarkThemeColors.uiColor01,
-    fontColor: LocalizeDarkThemeColors.uiColor08,
+    backgroundColor: localizeDarkThemeColors.uiColor01,
+    fontColor: localizeDarkThemeColors.uiColor08,
   },
   fonts,
   fontColors: darkFontsColors,
@@ -173,10 +153,10 @@ const LocalizeDarkTheme: LocalizeThemeProps = {
 };
 
 export {
-  LocalizeBaseStyledProps,
-  LocalizeLightTheme,
-  LocalizeDarkTheme,
+  LocalizeProps,
+  localizeDarkThemeColors,
+  localizeLightThemeColors,
+  localizeLightTheme,
+  localizeDarkTheme,
   LocalizeThemeProps,
 };
-
-export default LocalizeThemeProps;

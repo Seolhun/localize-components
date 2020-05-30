@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import classnames from 'classnames';
 import {
   LocalizeThemeProps,
-  LocalizeBaseStyledProps,
+  LocalizeProps,
   LocalizeStyledProps,
 } from '@seolhun/localize-components-styled-types';
 
@@ -16,7 +16,7 @@ const RADIO_CHECKMARK_WIDTH = 16;
 
 export interface LocalizeRadioProps
   extends React.HTMLAttributes<HTMLInputElement>,
-    LocalizeBaseStyledProps {
+    LocalizeProps {
   /**
    * Set this to change Radio label
    */

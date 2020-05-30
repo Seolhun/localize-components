@@ -3,15 +3,15 @@ import styled from '@emotion/styled';
 
 import classnames from 'classnames';
 import {
+  LocalizeProps,
   LocalizeThemeProps,
-  LocalizeBaseStyledProps,
 } from '@seolhun/localize-components-styled-types';
 
 import { Icons, IconTypes } from './resources';
 
 const DEFAULT_CLASSNAME = '__Localize__Icon';
 
-interface LocalizeIconProps extends LocalizeBaseStyledProps {
+interface LocalizeIconProps extends LocalizeProps {
   /**
    * Set this to change Icon type
    */

@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-import { LocalizeBaseStyledProps } from '@seolhun/localize-components-styled-types';
+import { LocalizeProps } from '@seolhun/localize-components-styled-types';
 
 export interface LocalizeImageProps
   extends React.HTMLAttributes<HTMLImageElement>,
-    LocalizeBaseStyledProps {
+    LocalizeProps {
   /**
    * Set this to change Image width
    */

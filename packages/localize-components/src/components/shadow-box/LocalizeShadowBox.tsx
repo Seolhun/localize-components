@@ -3,14 +3,14 @@ import React from 'react';
 import classnames from 'classnames';
 import styled from '@emotion/styled';
 
-import { LocalizeBaseStyledProps } from '@seolhun/localize-components-styled-types';
+import { LocalizeProps } from '@seolhun/localize-components-styled-types';
 import { useDisclosure } from '@seolhun/localize-components-hooks';
 
 import { LAYOUT, fadeIn } from '../../styles';
 
 const DEFAULT_CLASSNAME = '__Localize__ShadowBox';
 
-interface LocalizeShadowBoxProps extends LocalizeBaseStyledProps {
+interface LocalizeShadowBoxProps extends LocalizeProps {
   /**
    * Set this to change LocalizeShadowBox isShow
    */

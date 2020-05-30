@@ -4,13 +4,13 @@ import classnames from 'classnames';
 import styled from '@emotion/styled';
 
 import {
-  LocalizeBaseStyledProps,
+  LocalizeProps,
   LocalizeThemeProps,
 } from '@seolhun/localize-components-styled-types';
 
 const DEFAULT_CLASSNAME = '__Localize__Hr';
 
-export interface LocalizeHrProps extends LocalizeBaseStyledProps {}
+export interface LocalizeHrProps extends LocalizeProps {}
 
 const StyledLocalizeHr = styled.hr<LocalizeHrProps, LocalizeThemeProps>(
   ({ theme }) => {

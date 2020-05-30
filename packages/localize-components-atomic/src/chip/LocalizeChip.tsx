@@ -6,10 +6,10 @@ import classnames from 'classnames';
 
 import {
   LocalizeThemeProps,
-  LocalizeBaseStyledProps,
+  LocalizeProps,
 } from '@seolhun/localize-components-styled-types';
 
-export interface LocalizeChipProps extends LocalizeBaseStyledProps {}
+export interface LocalizeChipProps extends LocalizeProps {}
 
 const StyledLocalizeChip = styled.button<LocalizeChipProps, LocalizeThemeProps>(
   ({ theme }) => {

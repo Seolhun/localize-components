@@ -5,12 +5,12 @@ import styled from '@emotion/styled';
 
 import {
   LocalizeThemeProps,
-  LocalizeBaseStyledProps,
+  LocalizeProps,
 } from '@seolhun/localize-components-styled-types';
 
 export interface LocalizeCircleProps
   extends React.HTMLAttributes<HTMLSpanElement>,
-    LocalizeBaseStyledProps {
+    LocalizeProps {
   /**
    * Set this to change LocalizeCircle onBlur
    * @default false

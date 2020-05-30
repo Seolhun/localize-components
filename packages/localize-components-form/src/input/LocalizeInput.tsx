@@ -4,13 +4,13 @@ import styled from '@emotion/styled';
 import classnames from 'classnames';
 import {
   LocalizeThemeProps,
-  LocalizeBaseStyledProps,
+  LocalizeProps,
 } from '@seolhun/localize-components-styled-types';
 
 const DEFAULT_CLASSNAME = '__Localize__Input';
 
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
-type LocalizeProps = LocalizeBaseStyledProps & InputProps;
+type LocalizeProps = LocalizeProps & InputProps;
 
 export interface LocalizeInputProps extends LocalizeProps {
   /**
@@ -86,7 +86,7 @@ export interface InputState {
   message: string;
 }
 
-const StyledInputBox = styled.div<LocalizeBaseStyledProps, LocalizeThemeProps>(
+const StyledInputBox = styled.div<LocalizeProps, LocalizeThemeProps>(
   ({ theme }) => {
     return {
       display: 'flex',

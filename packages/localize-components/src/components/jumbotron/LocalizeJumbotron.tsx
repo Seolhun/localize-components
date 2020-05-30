@@ -3,7 +3,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
 import {
-  LocalizeBaseStyledProps,
+  LocalizeProps,
   LocalizeThemeProps,
 } from '@seolhun/localize-components-styled-types';
 
@@ -11,7 +11,7 @@ const DEFAULT_CLASSNAME = '__Localize__Jumbotron';
 
 interface LocalizeJumbotronProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    LocalizeBaseStyledProps {
+    LocalizeProps {
   /**
    * Set this to change Jumbotron description
    * @default ''
@@ -25,19 +25,18 @@ interface LocalizeJumbotronProps
   title?: string;
 }
 
-const StyledJumbotronWrapper = styled.div<
-  LocalizeBaseStyledProps,
-  LocalizeThemeProps
->(({ theme, bgColor, fontColor }) => {
-  return {
-    backgroundColor: bgColor ? theme.colors[bgColor] : theme.colors.primary01,
-    color: fontColor ? theme.fontColors[fontColor] : theme.colors.uiColor08,
-    height: 'auto',
-    width: '100%',
-    padding: '1rem 2rem',
-    borderRadius: '5px',
-  };
-});
+const StyledJumbotronWrapper = styled.div<LocalizeProps, LocalizeThemeProps>(
+  ({ theme, bgColor, fontColor }) => {
+    return {
+      backgroundColor: bgColor ? theme.colors[bgColor] : theme.colors.primary01,
+      color: fontColor ? theme.fontColors[fontColor] : theme.colors.uiColor08,
+      height: 'auto',
+      width: '100%',
+      padding: '1rem 2rem',
+      borderRadius: '5px',
+    };
+  },
+);
 
 const StyledJumbotronContainer = styled.div<LocalizeJumbotronProps>({
   height: '100%',

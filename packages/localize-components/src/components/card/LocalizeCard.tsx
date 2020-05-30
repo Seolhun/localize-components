@@ -3,13 +3,13 @@ import React from 'react';
 import classnames from 'classnames';
 import styled from '@emotion/styled';
 import {
-  LocalizeBaseStyledProps,
+  LocalizeProps,
   LocalizeThemeProps,
 } from '@seolhun/localize-components-styled-types';
 
 const DEFAULT_CLASSNAME = '__Localize__Card';
 
-export interface LocalizeCardProps extends LocalizeBaseStyledProps {
+export interface LocalizeCardProps extends LocalizeProps {
   /**
    * Set this to change LocalizeCard borderRadius
    */
