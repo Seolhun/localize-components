@@ -26,4 +26,5 @@ module.exports = {
     '^.+\\.worker.(js|ts)$': '<rootDir>/__test__/__mocks__/workerMock.ts',
     'worker-loader?(.*)': '<rootDir>/__test__/__mocks__/workerMock.ts',
   },
+  setupFilesAfterEnv: ['<rootDir>/__test__/setUpTest.ts'],
 };
