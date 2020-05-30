@@ -1,4 +1,4 @@
-export const getClientWindowSize = (element) => {
+const getClientWindowSize = (element: HTMLElement) => {
   if (element) {
     const { clientHeight, clientWidth } = element;
     return {
@@ -6,6 +6,7 @@ export const getClientWindowSize = (element) => {
       clientWidth,
     };
   }
+
   const width =
     window.innerWidth ||
     document.documentElement.clientWidth ||
@@ -22,12 +23,6 @@ export const getClientWindowSize = (element) => {
   };
 };
 
-export const getScrollSize = () => {
-  const { scrollY, scrollX, screenTop, screenLeft } = window;
-  return {
-    scrollY,
-    scrollX,
-    screenTop,
-    screenLeft,
-  };
-};
+export { getClientWindowSize };
+
+export default getClientWindowSize;

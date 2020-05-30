@@ -22,7 +22,9 @@
 		"bundle": "rollup -c",
 		"test": "jest"
 	},
-	"dependencies": {},
+	"dependencies": {
+    "@seolhun/localize-components-event-utils": "^0.5.2"
+  },
 	"devDependencies": {},
 	"engines": {
 		"node": ">= 6.0.0",
