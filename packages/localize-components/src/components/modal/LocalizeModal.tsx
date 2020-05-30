@@ -4,15 +4,16 @@ import ReactDOM from 'react-dom';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
 import {
-  LocalizeStyledProps,
   LocalizeThemeProps,
   LocalizeProps,
 } from '@seolhun/localize-components-styled-types';
 import { useDisclosure } from '@seolhun/localize-components-hooks';
+import { preventWindowScroll } from '@seolhun/localize-components-event-utils';
 
 const DEFAULT_CLASSNAME = '__Localize__Modal';
+type DivProps = React.HTMLAttributes<HTMLDivElement>;
 
-interface LocalizeModalProps extends LocalizeStyledProps {
+interface LocalizeModalProps extends LocalizeProps, DivProps {
   /**
    * Set this to change Modal visibility
    */
@@ -41,24 +42,23 @@ const LocalizeModalWrapper = styled.div<LocalizeProps>(({ zIndex = 100 }) => {
   };
 });
 
-const LocalizeModalContainer = styled.div<
-  LocalizeStyledProps,
-  LocalizeThemeProps
->(({ theme }) => {
-  return {
-    position: 'fixed',
-    left: '50vw',
-    top: '50vh',
-    transform: 'translate(-50%, -50%)',
-    width: '100%',
-    maxWidth: '30rem',
-    minHeight: '10rem',
-    height: 'auto',
-    maxHeight: '100%',
-    backgroundColor: theme.colors.primaryBackground01,
-    borderRadius: '5px',
-  };
-});
+const LocalizeModalContainer = styled.div<LocalizeProps, LocalizeThemeProps>(
+  ({ theme }) => {
+    return {
+      position: 'fixed',
+      left: '50vw',
+      top: '50vh',
+      transform: 'translate(-50%, -50%)',
+      width: '100%',
+      maxWidth: '30rem',
+      minHeight: '10rem',
+      height: 'auto',
+      maxHeight: '100%',
+      backgroundColor: theme.colors.primaryBackground01,
+      borderRadius: '5px',
+    };
+  },
+);
 
 const CloseButton = styled.span({
   position: 'absolute',
@@ -82,11 +82,18 @@ const LocalizeModal: React.FC<LocalizeModalProps> = ({
   const wrapperRef = React.useRef<HTMLDivElement>(null);
   const { isOpen, onSet, onToggle } = useDisclosure(isShow);
 
+  React.useEffect(() => {
+    onSet(isShow);
+    preventWindowScroll(isShow);
+    return () => {
+      preventWindowScroll(isShow);
+    };
+  }, [isShow]);
+
   const handleToggleOpenStatus = () => {
     if (onClose) {
       onClose();
     }
-
     onToggle();
   };
 
@@ -104,10 +111,6 @@ const LocalizeModal: React.FC<LocalizeModalProps> = ({
       document.removeEventListener('keydown', handleOnCloseByKey);
     };
   }, []);
-
-  React.useEffect(() => {
-    onSet(isShow);
-  }, [isShow]);
 
   if (!isOpen) {
     return null;

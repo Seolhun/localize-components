@@ -8,8 +8,9 @@ import {
 } from '@seolhun/localize-components-styled-types';
 
 const DEFAULT_CLASSNAME = '__Localize__Card';
+type DivProps = React.HTMLAttributes<HTMLDivElement>;
 
-export interface LocalizeCardProps extends LocalizeProps {
+export interface LocalizeCardProps extends LocalizeProps, DivProps {
   /**
    * Set this to change LocalizeCard borderRadius
    */

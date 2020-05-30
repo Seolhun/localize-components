@@ -2,12 +2,19 @@ import React from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
 
-import { LocalizeThemeProps, ColumnValueProps } from '@seolhun/localize-components-styled-types';
+import {
+  LocalizeThemeProps,
+  ColumnValueProps,
+  LocalizeProps,
+} from '@seolhun/localize-components-styled-types';
 import { getMediaQueryStyles } from '@seolhun/localize-components-styled-utils';
 
 import { AlignItemsProperty, JustifyContentProperty } from 'csstype';
 
-interface LocalizeColProps {
+const DEFAULT_CLASSNAME = '__Localize__Col';
+type DivProps = React.HTMLAttributes<HTMLDivElement>;
+
+interface LocalizeColProps extends LocalizeProps, DivProps {
   className?: string;
   xs?: ColumnValueProps;
   sm?: ColumnValueProps;
@@ -42,7 +49,7 @@ const StyledCol = styled.div<LocalizeColProps, LocalizeThemeProps>(
 
 const LocalizeCol: React.FC<LocalizeColProps> = ({ children, className, ...props }) => {
   return (
-    <StyledCol {...props} className={classnames('__Localize__Col', className)}>
+    <StyledCol {...props} className={classnames(DEFAULT_CLASSNAME, className)}>
       {children}
     </StyledCol>
   );

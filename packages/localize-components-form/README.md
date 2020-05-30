@@ -3,18 +3,18 @@
 ## Used stacks
 - React
 - TypeScript
-- SCSS
-- Storybook
+- EmotionJS
+- Docz
 
 ## How to getting started
 #### Install Package
 ```bash
-$ yarn add @seolhun/localize-components
+$ npm install @seolhun/localize-components
 ```
 
 #### Run Docs
 ```bash
-$ yarn run dev
+$ npm run dev
 ```
 
 ## How to use

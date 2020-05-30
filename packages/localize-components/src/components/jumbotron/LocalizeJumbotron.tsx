@@ -8,10 +8,9 @@ import {
 } from '@seolhun/localize-components-styled-types';
 
 const DEFAULT_CLASSNAME = '__Localize__Jumbotron';
+type DivProps = React.HTMLAttributes<HTMLDivElement>;
 
-interface LocalizeJumbotronProps
-  extends React.HTMLAttributes<HTMLDivElement>,
-    LocalizeProps {
+interface LocalizeJumbotronProps extends LocalizeProps, DivProps {
   /**
    * Set this to change Jumbotron description
    * @default ''
@@ -29,7 +28,7 @@ const StyledJumbotronWrapper = styled.div<LocalizeProps, LocalizeThemeProps>(
   ({ theme, bgColor, fontColor }) => {
     return {
       backgroundColor: bgColor ? theme.colors[bgColor] : theme.colors.primary01,
-      color: fontColor ? theme.fontColors[fontColor] : theme.colors.uiColor08,
+      color: fontColor ? theme.colors[fontColor] : theme.colors.uiColor10,
       height: 'auto',
       width: '100%',
       padding: '1rem 2rem',

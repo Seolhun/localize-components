@@ -1,22 +1,21 @@
 import React from 'react';
 
 import classnames from 'classnames';
-import { debounce } from 'lodash';
 import styled from '@emotion/styled';
 
 import { getClientWindowSize } from '@seolhun/localize-components-event-utils';
 import { LocalizeProps } from '@seolhun/localize-components-styled-types';
 
 const DEFAULT_CLASSNAME = '__Localize__Carousel';
+type DivProps = React.HTMLAttributes<HTMLDivElement>;
+
 const PAGINATION = {
   PREV: 'prev',
   NEXT: 'next',
 };
 const DEFAULT_RATIO = 0.5;
 
-interface LocalizeCarouselProps
-  extends LocalizeProps,
-    React.HTMLAttributes<HTMLDivElement> {
+interface LocalizeCarouselProps extends LocalizeProps, DivProps {
   /**
    * Set this to change LocalizeCarousel render items
    */
@@ -98,24 +97,15 @@ const LocalizeCarousel: React.FC<LocalizeCarouselProps> = ({
   const handleImageWidth = () => {
     if (wrapperRef.current) {
       const { clientWidth } = getClientWindowSize(wrapperRef.current);
-
       setClientWidth(clientWidth);
     }
   };
 
-  const debouncedHandleImageWidth = debounce(
-    () => {
-      handleImageWidth();
-    },
-    250,
-    { leading: true, trailing: true },
-  );
-
   React.useEffect(() => {
     handleImageWidth();
-    window.addEventListener('resize', debouncedHandleImageWidth);
+    window.addEventListener('resize', handleImageWidth);
     return () => {
-      window.removeEventListener('resize', debouncedHandleImageWidth);
+      window.removeEventListener('resize', handleImageWidth);
     };
   }, []);
 

@@ -3,7 +3,7 @@ name: CheckBox
 menu: Forms
 ---
 
-import { useState, useCallback } from 'react';
+import React from 'react';
 import { Playground, Props } from 'docz';
 import { LocalizeCheckBox } from '@seolhun/localize-components-atomic';
 import { darkTheme } from '@seolhun/localize-components';
@@ -15,7 +15,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
 
 <Playground>
   {() => {
-    const [items, setItems] = useState([
+    const [items, setItems] = React.useState([
       {
         label: 'Apple',
         value: 'Apple',
@@ -28,7 +28,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
       },
     ])
 
-    const handleOnChange = useCallback((selectedItem) => {
+    const handleOnChange = (selectedItem) => {
       const newItems = items.map((item) => {
         if (selectedItem.value === item.value) {
           return {
@@ -38,7 +38,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
         return item;
       })
       setItems(newItems)
-    }, [items])
+    }
 
     return (
       <LocalizeThemeProvider>
@@ -59,7 +59,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
 
 <Playground>
   {() => {
-    const [items, setItems] = useState([
+    const [items, setItems] = React.useState([
       {
         label: 'Apple2',
         value: 'Apple2',
@@ -72,7 +72,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
       },
     ])
 
-    const handleOnChange = useCallback((selectedItem) => {
+    const handleOnChange = (selectedItem) => {
       const newItems = items.map((item) => {
         if (selectedItem.value === item.value) {
           return {
@@ -82,7 +82,7 @@ import { LocalizeThemeProvider } from '@seolhun/localize-components';
         return item;
       })
       setItems(newItems)
-    }, [items])
+    }
 
     return (
       <>

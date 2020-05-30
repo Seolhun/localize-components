@@ -3,15 +3,27 @@ import { FlexDirectionProperty, AlignItemsProperty, JustifyContentProperty } fro
 import styled from '@emotion/styled';
 import classnames from 'classnames';
 
-import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
+import { LocalizeThemeProps, LocalizeProps } from '@seolhun/localize-components-styled-types';
 
 const DEFAULT_CLASSNAME = '__Localize__Row';
+type DivProps = React.HTMLAttributes<HTMLDivElement>;
 
-interface LocalizeRowProps {
-  className?: string;
+interface LocalizeRowProps extends LocalizeProps, DivProps {
   isWrap?: boolean;
+
+  /**
+   * Set this change to flex direction
+   */
   flexDirection?: FlexDirectionProperty;
+
+  /**
+   * Set this change to flex align items
+   */
   alignItems?: AlignItemsProperty;
+
+  /**
+   * Set this change to flex justify content
+   */
   justifyContent?: JustifyContentProperty;
 }
 

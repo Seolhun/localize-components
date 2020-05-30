@@ -1,2 +1,2 @@
-export * from './PositionUtils';
+export * from './getPositionStyle';
 export * from './GridUtils';

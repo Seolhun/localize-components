@@ -12,15 +12,14 @@
 ## Used stacks
 - React
 - TypeScript
-- SCSS
-- emotion
+- EmotionJS
 - Docz
 
 ## How to getting started
 #### Install Package
 ```bash
-$ yarn add @seolhun/localize-components
-$ yarn add @seolhun/localize-components-atomic
+$ npm install @seolhun/localize-components
+$ npm install @seolhun/localize-components-atomic
 ```
 
 ## How to use

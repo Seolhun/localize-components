@@ -1,23 +1,22 @@
 import React from 'react';
-
 import styled from '@emotion/styled';
 import classnames from 'classnames';
 
 import {
   LocalizeThemeProps,
   MediaQueriesEnum,
+  LocalizeProps,
 } from '@seolhun/localize-components-styled-types';
 import { MEDIA_QUERIES } from '@seolhun/localize-components-styled-utils';
 
-interface ContainerProps {
-  children: React.ReactNode;
+const DEFAULT_CLASSNAME = '__Localize__Container';
+type DivProps = React.HTMLAttributes<HTMLDivElement>;
 
-  className?: string;
-
+interface LocalizeContainerProps extends LocalizeProps, DivProps {
   isFullWidth?: boolean;
 }
 
-const StyledContainer = styled.div<ContainerProps, LocalizeThemeProps>(
+const StyledContainer = styled.div<LocalizeContainerProps, LocalizeThemeProps>(
   ({ theme, isFullWidth = false }) => {
     const responsiveStyles = {
       [MEDIA_QUERIES.XXL]: {
@@ -51,16 +50,13 @@ const StyledContainer = styled.div<ContainerProps, LocalizeThemeProps>(
   },
 );
 
-const Container = ({ children, className, ...props }: ContainerProps) => {
+const LocalizeContainer: React.FC<LocalizeContainerProps> = ({ children, className, ...props }) => {
   return (
-    <StyledContainer
-      {...props}
-      className={classnames('__Localize__Container', className)}
-    >
+    <StyledContainer {...props} className={classnames(DEFAULT_CLASSNAME, className)}>
       {children}
     </StyledContainer>
   );
 };
 
-export { ContainerProps, Container };
-export default Container;
+export { LocalizeContainerProps, LocalizeContainer };
+export default LocalizeContainer;

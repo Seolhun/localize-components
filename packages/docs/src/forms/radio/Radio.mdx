@@ -3,7 +3,7 @@ name: Radio
 menu: Forms
 ---
 
-import { useState } from 'react';
+import React from 'react';
 import { Playground, Props } from 'docz';
 import { LocalizeRadio } from '@seolhun/localize-components-atomic';
 
@@ -15,7 +15,7 @@ import { ThemeChangerProvider } from '../../ThemeChangerProvider'
 
 <Playground>
   {() => {
-    const [checkedItem, setItem] = useState({
+    const [checkedItem, setItem] = React.useState({
       label: 'label1',
       value: 'value1',
     })
@@ -53,7 +53,7 @@ import { ThemeChangerProvider } from '../../ThemeChangerProvider'
 
 <Playground>
   {() => {
-    const [checkedItem, setItem] = useState({
+    const [checkedItem, setItem] = React.useState({
       name: 'Shirts',
       price: 10000,
     })

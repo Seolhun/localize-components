@@ -14,6 +14,18 @@ interface LocalizeProps {
   className?: string;
 
   /**
+   * Set this to change font color in theme
+   * @default undefined
+   */
+  fontColor?: keyof LocalizeThemeProps['colors'];
+
+  /**
+   * Set this to change background color in theme
+   * @default undefined
+   */
+  bgColor?: keyof LocalizeThemeProps['colors'];
+
+  /**
    * Set this to change zIndex
    * @default undefined
    */

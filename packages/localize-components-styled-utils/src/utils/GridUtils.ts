@@ -3,7 +3,7 @@ import {
   ColumnValueProps,
 } from '@seolhun/localize-components-styled-types';
 
-export const hasOffset = (columnValue: ColumnValueProps) => {
+const hasOffset = (columnValue: ColumnValueProps) => {
   if (typeof columnValue !== 'object') {
     return false;
   }
@@ -13,7 +13,7 @@ export const hasOffset = (columnValue: ColumnValueProps) => {
   return true;
 };
 
-export const isBeforeOffset = (columnValue: ColumnValueProps) => {
+const isBeforeOffset = (columnValue: ColumnValueProps) => {
   if (!hasOffset(columnValue)) {
     return false;
   }
@@ -22,7 +22,7 @@ export const isBeforeOffset = (columnValue: ColumnValueProps) => {
   return keys[0] ? keys[0] === 'offset' : false;
 };
 
-export const buildDefaultGridStyle = (sizeValue: number) => {
+const buildDefaultGridStyle = (sizeValue: number) => {
   const width = calcWidth(sizeValue);
   return {
     display: sizeValue === 0 ? 'none' : 'flex',
@@ -33,12 +33,12 @@ export const buildDefaultGridStyle = (sizeValue: number) => {
   };
 };
 
-export const calcWidth = (sizeValue: number) => {
+const calcWidth = (sizeValue: number) => {
   const gridCounts = 24;
   return sizeValue * (100 / gridCounts);
 };
 
-export const buildGridStyle = (columnValue: ColumnValueProps) => {
+const buildGridStyle = (columnValue: ColumnValueProps) => {
   if (typeof columnValue !== 'object') {
     return buildDefaultGridStyle(columnValue);
   }
@@ -87,7 +87,7 @@ export const createMediaQueryCondition = (
   }
 };
 
-export const getMediaQueryStyles = (
+const getMediaQueryStyles = (
   media: keyof typeof MediaQueriesEnum,
   columnValue: ColumnValueProps,
 ) => {
@@ -102,7 +102,7 @@ type MediaQueryProps = {
   [key in keyof typeof MediaQueriesEnum]: string;
 };
 
-export const MEDIA_QUERIES: MediaQueryProps = {
+const MEDIA_QUERIES: MediaQueryProps = {
   XXL: `@media ${createMediaQueryCondition('XXL')}`,
   XL: `@media ${createMediaQueryCondition('XL')}`,
   LG: `@media ${createMediaQueryCondition('LG')}`,
@@ -110,3 +110,5 @@ export const MEDIA_QUERIES: MediaQueryProps = {
   SM: `@media ${createMediaQueryCondition('SM')}`,
   XS: `@media ${createMediaQueryCondition('XS')}`,
 };
+
+export { getMediaQueryStyles, MEDIA_QUERIES };

@@ -3,7 +3,7 @@ name: RadioGroup
 menu: Forms
 ---
 
-import { useState, useCallback } from 'react';
+import React from 'react';
 import { Playground, Props } from 'docz';
 import { LocalizeRadioGroup, LocalizeRadio } from '@seolhun/localize-components-atomic';
 
@@ -15,13 +15,14 @@ import { ThemeChangerProvider } from '../../ThemeChangerProvider'
 
 <Playground>
   {() => {
-    const [checkedItem, setItem] = useState({
+    const [checkedItem, setItem] = React.useState({
       label: 'label1',
       value: 'value1',
     })
-    const handleOnChange = useCallback((item) => {
+
+    const handleOnChange = (item) => {
       setItem(item)
-    }, [checkedItem])
+    }
 
     return (
       <ThemeChangerProvider>
@@ -62,13 +63,14 @@ import { ThemeChangerProvider } from '../../ThemeChangerProvider'
 
 <Playground>
   {() => {
-    const [checkedItem, setItem] = useState({
+    const [checkedItem, setItem] = React.useState({
       label: 'label7',
       value: 'value7',
     })
-    const handleOnChange = useCallback((item) => {
+
+    const handleOnChange = (item) => {
       setItem(item)
-    }, [checkedItem])
+    }
 
     return (
       <ThemeChangerProvider>
@@ -108,13 +110,14 @@ import { ThemeChangerProvider } from '../../ThemeChangerProvider'
 
 <Playground>
   {() => {
-    const [checkedItem, setItem] = useState({
+    const [checkedItem, setItem] = React.useState({
       label: 'label9',
       value: 'value9',
     })
-    const handleOnChange = useCallback((item) => {
+
+    const handleOnChange = (item) => {
       setItem(item)
-    }, [checkedItem])
+    }
 
     return (
       <ThemeChangerProvider>
@@ -156,13 +159,14 @@ import { ThemeChangerProvider } from '../../ThemeChangerProvider'
 
 <Playground>
   {() => {
-    const [checkedItem, setItem] = useState({
+    const [checkedItem, setItem] = React.useState({
       label: 'label11',
       value: 'value11',
-    })
-    const handleOnChange = useCallback((item) => {
+    });
+
+    const handleOnChange = (item) => {
       setItem(item)
-    }, [checkedItem])
+    };
 
     return (
       <ThemeChangerProvider>
@@ -203,13 +207,14 @@ import { ThemeChangerProvider } from '../../ThemeChangerProvider'
 
 <Playground>
   {() => {
-    const [checkedItem, setItem] = useState({
+    const [checkedItem, setItem] = React.useState({
       label: 'label13',
       value: 'value13',
     })
-    const handleOnChange = useCallback((item) => {
+
+    const handleOnChange = (item) => {
       setItem(item)
-    }, [checkedItem])
+    }
 
     return (
       <ThemeChangerProvider>

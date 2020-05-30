@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { range } from 'lodash';
+import { range } from 'ramda';
 import { LocalizeJumbotron } from '@seolhun/localize-components';
 import { Container, Col, Row } from '@seolhun/localize-components-grid';
 

@@ -9,6 +9,7 @@ import {
   LocalizeSize,
 } from '@seolhun/localize-components-styled-types';
 
+const DEFAULT_CLASSNAME = '__Localize__Button';
 type ButtonProps = React.HTMLAttributes<HTMLButtonElement>;
 
 interface LocalizeButtonProps extends LocalizeProps, ButtonProps {
@@ -47,7 +48,7 @@ const StyledLocalizeButton = styled.button<
     border: `1px solid transparent`,
     borderRadius: '6px',
 
-    color: theme.fontColors.inner,
+    color: theme.colors.uiColor10,
     fontSize: `${fontSize}px`,
     fontWeight: 500,
     textDecoration: 'none',
@@ -63,12 +64,12 @@ const StyledLocalizeButton = styled.button<
     '&:hover': {
       border: `1px solid ${theme.colors.primary01}`,
       backgroundColor: theme.colors.uiColor10,
-      color: theme.fontColors.primary,
+      color: theme.colors.primary01,
     },
 
     '&:disabled': {
       backgroundColor: theme.colors.disabled,
-      color: theme.fontColors.disabled,
+      color: theme.colors.disabled,
       cursor: 'not-allowed',
     },
   };
@@ -81,8 +82,8 @@ const LocalizeButton: React.FC<LocalizeButtonProps> = ({
 }) => (
   <StyledLocalizeButton
     {...props}
-    className={classnames('__Localize__LocalizeButton', className)}
     type="button"
+    className={classnames(DEFAULT_CLASSNAME, className)}
   >
     {children}
   </StyledLocalizeButton>

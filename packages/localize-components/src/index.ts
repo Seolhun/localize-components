@@ -1,3 +1,5 @@
+import 'core-js/stable';
+
 export * from './components';
 
 export * from '@seolhun/localize-components-atomic';

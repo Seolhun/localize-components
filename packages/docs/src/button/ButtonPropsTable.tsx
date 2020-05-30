@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from 'react';
+import React from 'react';
 
-import { ButtonProps } from '@seolhun/localize-components-atomic';
+import { LocalizeButtonProps } from '@seolhun/localize-components-atomic';
 
-const ButtonPropsTable: FunctionComponent<ButtonProps> = () => {
+const ButtonPropsTable: React.FC<LocalizeButtonProps> = () => {
   return <div />;
 };
 
