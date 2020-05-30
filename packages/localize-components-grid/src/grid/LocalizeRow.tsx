@@ -3,7 +3,7 @@ import { FlexDirectionProperty, AlignItemsProperty, JustifyContentProperty } fro
 import styled from '@emotion/styled';
 import classnames from 'classnames';
 
-import { Lo } from '@seolhun/localize-components-styled-types';
+import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
 const DEFAULT_CLASSNAME = '__Localize__Row';
 

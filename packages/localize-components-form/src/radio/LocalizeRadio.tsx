@@ -5,7 +5,6 @@ import classnames from 'classnames';
 import {
   LocalizeThemeProps,
   LocalizeProps,
-  LocalizeStyledProps,
 } from '@seolhun/localize-components-styled-types';
 
 import { LocalizeRadioGroupAlignType } from './LocalizeRadioGroup';
@@ -14,9 +13,9 @@ const DEFAULT_CLASSNAME = '__Localize__Radio';
 const RADIO_CHECKED_CIRCLE = 8;
 const RADIO_CHECKMARK_WIDTH = 16;
 
-export interface LocalizeRadioProps
-  extends React.HTMLAttributes<HTMLInputElement>,
-    LocalizeProps {
+type InputProps = React.HTMLAttributes<HTMLInputElement>;
+
+export interface LocalizeRadioProps extends InputProps, LocalizeProps {
   /**
    * Set this to change Radio label
    */
@@ -94,7 +93,7 @@ interface SizeProps {
   align?: LocalizeRadioGroupAlignType;
 }
 
-interface RadioCheckBoxProps extends LocalizeStyledProps {
+interface RadioCheckBoxProps extends LocalizeProps {
   isChecked: boolean;
 }
 

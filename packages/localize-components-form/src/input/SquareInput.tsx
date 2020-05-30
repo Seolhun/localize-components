@@ -2,15 +2,18 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 import classnames from 'classnames';
-import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
+import {
+  LocalizeThemeProps,
+  LocalizeProps,
+} from '@seolhun/localize-components-styled-types';
 
 import { ErrorLabel } from './ErrorLabel';
 import { LocalizeBaseInput } from './LocalizeBaseInput';
 
 const DEFAULT_CLASSNAME = '__Localize__SquareInput';
+type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
 
-export interface SquareInputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface SquareInputProps extends LocalizeProps, InputProps {
   name: string;
 
   className?: string;

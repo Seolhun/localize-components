@@ -8,11 +8,9 @@ import {
 } from '@seolhun/localize-components-styled-types';
 
 const DEFAULT_CLASSNAME = '__Localize__Input';
-
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
-type LocalizeProps = LocalizeProps & InputProps;
 
-export interface LocalizeInputProps extends LocalizeProps {
+export interface LocalizeInputProps extends LocalizeProps, InputProps {
   /**
    * Set this to change Input rendering children node
    * @default ''

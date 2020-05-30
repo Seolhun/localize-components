@@ -6,8 +6,7 @@ import styled from '@emotion/styled';
 import { LocalizeProps } from '@seolhun/localize-components-styled-types';
 
 const DEFAULT_CLASSNAME = '__Localize__RadioGroup';
-
-export type LocalizeRadioGroupAlignType = 'vertical' | 'horizontal';
+type LocalizeRadioGroupAlignType = 'vertical' | 'horizontal';
 
 interface LocalizeRadioGroupProps extends LocalizeProps {
   /**
@@ -113,6 +112,10 @@ const LocalizeRadioGroup: React.FC<LocalizeRadioGroupProps> = ({
   );
 };
 
-export { LocalizeRadioGroup, LocalizeRadioGroupProps };
+export {
+  LocalizeRadioGroupAlignType,
+  LocalizeRadioGroup,
+  LocalizeRadioGroupProps,
+};
 
 export default LocalizeRadioGroup;
