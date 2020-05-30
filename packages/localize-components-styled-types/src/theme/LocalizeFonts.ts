@@ -14,76 +14,42 @@ interface ThemeFontsProps {
   p: FontProps;
 }
 
-interface ThemeFontColorProps {
-  highlight: string;
-  primary: string;
-  secondary: string;
-  color: string;
-  inner: string;
-  disabled: string;
-}
-
-const lightFontsColors: ThemeFontColorProps = {
-  highlight: '#3A6FFE',
-  primary: '#282c35',
-  secondary: '#282c35',
-  color: '#160B0B',
-  inner: '#FFFFFF',
-  disabled: '#999999',
-};
-
-const darkFontsColors: ThemeFontColorProps = {
-  highlight: '#386BF8',
-  primary: '#282c35',
-  secondary: '#282c35',
-  color: '#160B0B',
-  inner: '#FFFFFF',
-  disabled: '#999999',
-};
-
 const fonts: ThemeFontsProps = {
   h1: {
     fontSize: '3rem',
     fontWeight: 700,
-    lineHeight: '36px',
+    lineHeight: '3rem',
   },
   h2: {
     fontSize: '2.6rem',
     fontWeight: 700,
-    lineHeight: '32px',
+    lineHeight: '2.6rem',
   },
   h3: {
     fontSize: '2.2rem',
     fontWeight: 700,
-    lineHeight: '28px',
+    lineHeight: '2.2rem',
   },
   h4: {
     fontSize: '1.8rem',
     fontWeight: 700,
-    lineHeight: '24px',
+    lineHeight: '1.8rem',
   },
   h5: {
     fontSize: '1.4rem',
-    fontWeight: 700,
-    lineHeight: '20px',
+    fontWeight: 600,
+    lineHeight: '1.4rem',
   },
   h6: {
     fontSize: '1rem',
-    fontWeight: 700,
-    lineHeight: '16px',
+    fontWeight: 600,
+    lineHeight: '1rem',
   },
   p: {
     fontSize: '1rem',
     fontWeight: 400,
-    lineHeight: '12px',
+    lineHeight: '1rem',
   },
 };
 
-export {
-  FontProps,
-  ThemeFontsProps,
-  ThemeFontColorProps,
-  lightFontsColors,
-  darkFontsColors,
-  fonts,
-};
+export { FontProps, ThemeFontsProps, fonts };

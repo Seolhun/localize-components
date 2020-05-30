@@ -18,23 +18,12 @@ interface LocalizeTextProps extends LocalizeProps {
 }
 
 const getStyleLocalizeText = (type: LocalizeTextType) => {
-  const defaultLocalizeTextStyle = {
-    margin: 0,
-    padding: 0,
-  };
-
-  return styled[type]<LocalizeTextProps, LocalizeThemeProps>(
-    ({ theme, weight, isHighlight }) => {
-      const fonts = theme.fonts[type];
-      return {
-        ...defaultLocalizeTextStyle,
-        ...fonts,
-        color: isHighlight
-          ? theme.fontColors.highlight
-          : theme.fontColors.primary,
-      };
-    },
-  );
+  return styled[type]<LocalizeTextProps, LocalizeThemeProps>(({ theme }) => {
+    const fonts = theme.fonts[type];
+    return {
+      ...fonts,
+    };
+  });
 };
 
 const LocalizeText: React.FC<LocalizeTextProps> = ({
@@ -47,7 +36,7 @@ const LocalizeText: React.FC<LocalizeTextProps> = ({
   }, [type]);
 
   return (
-    <StyleLocalizeText type={type} weight={weight} css={css} {...props}>
+    <StyleLocalizeText {...props} type={type}>
       {children}
     </StyleLocalizeText>
   );

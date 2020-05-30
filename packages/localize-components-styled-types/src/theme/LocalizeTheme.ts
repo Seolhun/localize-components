@@ -1,10 +1,4 @@
-import {
-  fonts,
-  lightFontsColors,
-  darkFontsColors,
-  ThemeFontsProps,
-  ThemeFontColorProps,
-} from './LocalizeFonts';
+import { fonts, ThemeFontsProps } from './LocalizeFonts';
 import { LocalizeThemeGridProps } from './LocalizeGrid';
 
 enum LocalizeThemeType {
@@ -52,7 +46,6 @@ interface LocalizeThemeProps<T = keyof typeof LocalizeThemeType> {
     fontColor: string;
   };
   fonts: ThemeFontsProps;
-  fontColors: ThemeFontColorProps;
   grid: LocalizeThemeGridProps;
 }
 
@@ -104,7 +97,6 @@ const localizeLightTheme: LocalizeThemeProps = {
     fontColor: localizeLightThemeColors.uiColor08,
   },
   fonts,
-  fontColors: lightFontsColors,
   grid: {
     containerGutter: {
       right: '0',
@@ -132,7 +124,6 @@ const localizeDarkTheme: LocalizeThemeProps = {
     fontColor: localizeDarkThemeColors.uiColor08,
   },
   fonts,
-  fontColors: darkFontsColors,
   grid: {
     containerGutter: {
       right: '0',
