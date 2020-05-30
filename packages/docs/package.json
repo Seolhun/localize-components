@@ -20,7 +20,7 @@
     "build": "docz build",
     "docz:serve": "docz build && docz serve",
     "clear": "echo Has no clear scripts",
-    "test": "echo 'The is no Test'"
+    "test": "echo 'There are no test'"
   },
   "dependencies": {
     "@emotion/core": "^10.0.22",

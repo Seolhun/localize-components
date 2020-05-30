@@ -11,8 +11,7 @@
   "include": ["./src/**/*"],
   "exclude": [
     "node_modules",
-    "src/__test__/**",
-    "src/**/*.test.ts"
+    "__test__/**",
   ],
   "typeAcquisition": {
     "enable": true

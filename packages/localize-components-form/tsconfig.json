@@ -8,10 +8,10 @@
       "node"
     ],
   },
-  "include": ["./src/**/*"],
+  "include": ["./src/**/*", "__test__"],
   "exclude": [
     "node_modules",
-    "src/__test__/**",
+    "__test__/**",
     "src/**/*.test.ts"
   ],
   "typeAcquisition": {

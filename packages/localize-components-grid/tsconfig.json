@@ -4,16 +4,10 @@
     "declaration": true,
     "outDir": "dist",
     "rootDir": "src",
-    "types": [
-      "node"
-    ],
+    "types": ["node"]
   },
-  "include": ["./src/**/*"],
-  "exclude": [
-    "node_modules",
-    "src/__test__/**",
-    "src/**/*.test.ts"
-  ],
+  "include": ["./src/**/*", "__test__"],
+  "exclude": ["node_modules", "__test__/**"],
   "typeAcquisition": {
     "enable": true
   }

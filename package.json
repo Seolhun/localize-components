@@ -97,6 +97,7 @@
     "rollup-plugin-postcss": "^2.0.3",
     "rollup-plugin-typescript2": "^0.21.2",
     "surge": "^0.21.3",
+    "ts-jest": "^26.0.0",
     "ts-node": "^8.0.3",
     "typescript": "^3.9.3"
   },
