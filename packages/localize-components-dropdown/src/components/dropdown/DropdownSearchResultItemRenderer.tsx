@@ -59,13 +59,13 @@ const StyledSearchResultItem = styled.div<
 
   ...(isMatchIndex && {
     color:
-      theme.type === 'light' ? theme.colors.uiColor01 : theme.colors.uiColor08,
+      theme.type === 'LIGHT' ? theme.colors.uiColor01 : theme.colors.uiColor08,
     backgroundColor: theme.colors.primary01,
   }),
 
   '&:hover': {
     color:
-      theme.type === 'light' ? theme.colors.uiColor01 : theme.colors.uiColor08,
+      theme.type === 'LIGHT' ? theme.colors.uiColor01 : theme.colors.uiColor08,
     backgroundColor: theme.colors.primary01,
   },
 }));
