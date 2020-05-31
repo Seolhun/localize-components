@@ -27,10 +27,7 @@
     "@seolhun/localize-components-styled-utils": "^0.5.3",
     "polished": "^3.4.2"
   },
-  "devDependencies": {
-    "rollup-plugin-copy": "^3.3.0",
-    "rollup-plugin-react-svg": "^3.0.3"
-  },
+  "devDependencies": {},
   "engines": {
     "node": ">= 6.0.0",
     "npm": ">= 3.0.0"
