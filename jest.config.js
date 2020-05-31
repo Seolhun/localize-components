@@ -4,10 +4,12 @@ module.exports = {
   preset: 'ts-jest',
   globals: {
     'ts-jest': {
+      tsConfig: 'tsconfig.json',
       diagnostics: {
         pathRegex: /\.(spec|test)\.ts?(x)$/,
         warnOnly: true,
       },
+      babelConfig: true,
     },
   },
   collectCoverageFrom: ['**/*.{js,jsx,ts,tsx}', '!**/*.d.ts', '!**/node_modules/**'],
@@ -24,5 +26,6 @@ module.exports = {
     '^.+\\.worker.(js|ts)$': '<rootDir>/__test__/__mocks__/workerMock.ts',
     'worker-loader?(.*)': '<rootDir>/__test__/__mocks__/workerMock.ts',
   },
+  setupFiles: ['jest-canvas-mock'],
   setupFilesAfterEnv: ['<rootDir>/__test__/setUpTest.ts'],
 };
