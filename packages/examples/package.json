@@ -19,7 +19,7 @@
     "build": "node build/build.js",
     "clear": "echo Has no clear scripts",
     "dev": "node build/dev-server.js",
-    "test": "jest"
+    "test": "echo 'There are no test'"
   },
   "dependencies": {
     "@emotion/core": "^10.0.22",

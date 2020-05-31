@@ -20,7 +20,7 @@
 		"build": "rollup -c",
 		"clear": "rm -rf dist && rm -rf .rpt2_cache",
 		"bundle": "rollup -c",
-		"test": "jest"
+		"test": "echo 'There are no test'"
 	},
 	"dependencies": {
     "@seolhun/localize-components-styled-types": "^0.5.3",

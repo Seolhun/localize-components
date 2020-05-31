@@ -9,7 +9,6 @@ module.exports = {
         pathRegex: /\.(spec|test)\.ts?(x)$/,
         warnOnly: true,
       },
-      babelConfig: true,
     },
   },
   collectCoverageFrom: ['**/*.{js,jsx,ts,tsx}', '!**/*.d.ts', '!**/node_modules/**'],
