@@ -20,7 +20,7 @@
     "build": "rollup -c",
     "clear": "rm -rf dist && rm -rf .rpt2_cache",
     "bundle": "rollup -c",
-    "test": "echo 'There are no test'"
+    "test": "jest"
   },
   "dependencies": {
     "@seolhun/localize-components-atomic": "^0.5.2",
@@ -34,6 +34,8 @@
     "@seolhun/localize-components-styled-utils": "^0.5.2",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
+    "@testing-library/jest-dom": "^5.9.0",
+    "@testing-library/react": "^9.5.0",
     "classnames": "^2.2.6",
     "emotion-theming": "^10.0.27",
     "react": "^16.13.1",
@@ -41,7 +43,8 @@
   },
   "devDependencies": {
     "@types/react": "^16.9.35",
-    "@types/react-dom": "^16.9.8"
+    "@types/react-dom": "^16.9.8",
+    "ts-jest": "^26.1.0"
   },
   "engines": {
     "node": ">= 6.0.0",
