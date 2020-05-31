@@ -10,7 +10,7 @@ branches:
     - /^greenkeeper/.*$/
 
 install:
-  - npm ci
+  - npm install
 
 script:
   - npm run bs
