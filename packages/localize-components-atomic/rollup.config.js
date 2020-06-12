@@ -12,7 +12,16 @@ const externals = Object.keys(pkg.dependencies);
 
 export default {
   input: 'src/index.ts',
-
+  output: [
+    {
+      format: 'cjs',
+      file: pkg.main,
+    },
+    {
+      format: 'esm',
+      file: pkg.module,
+    },
+  ],
   external: [...externals],
   plugins: [
     resolve({
@@ -38,15 +47,5 @@ export default {
       plugins: [autoprefixer, postcssFlexboxfixer],
       modules: true,
     }),
-  ],
-  output: [
-    {
-      format: 'cjs',
-      file: pkg.main,
-    },
-    {
-      format: 'es',
-      file: pkg.module,
-    },
   ],
 };

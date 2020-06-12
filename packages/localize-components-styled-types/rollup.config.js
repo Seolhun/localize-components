@@ -1,7 +1,5 @@
-import autoprefixer from 'autoprefixer';
 import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
-import postcss from 'rollup-plugin-postcss';
 import resolve from 'rollup-plugin-node-resolve';
 import typescript from 'rollup-plugin-typescript2';
 
@@ -11,11 +9,19 @@ const externals = Object.keys(pkg.dependencies);
 
 export default {
   input: 'src/index.ts',
-
+  output: [
+    {
+      format: 'cjs',
+      file: pkg.main,
+    },
+    {
+      format: 'esm',
+      file: pkg.module,
+    },
+  ],
   external: [...externals],
   plugins: [
     resolve({
-      dedupe: ['react', 'react-dom'],
       mainFields: ['module', 'main'],
       extensions: ['.ts', '.tsx', '.js', '.jsx'],
     }),
@@ -28,20 +34,5 @@ export default {
     babel({
       exclude: /node_modules/,
     }),
-    postcss({
-      extract: true,
-      plugins: [autoprefixer],
-      modules: true,
-    }),
-  ],
-  output: [
-    {
-      format: 'cjs',
-      file: pkg.main,
-    },
-    {
-      format: 'es',
-      file: pkg.module,
-    },
   ],
 };

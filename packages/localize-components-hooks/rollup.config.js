@@ -9,11 +9,20 @@ const externals = Object.keys(pkg.dependencies);
 
 export default {
   input: 'src/index.ts',
-
+  output: [
+    {
+      format: 'cjs',
+      file: pkg.main,
+    },
+    {
+      format: 'esm',
+      file: pkg.module,
+    },
+  ],
   external: [...externals],
   plugins: [
     resolve({
-      dedupe: ['react', 'react-dom'],
+      dedupe: ['react'],
       mainFields: ['module', 'main'],
       extensions: ['.ts', '.tsx', '.js', '.jsx'],
     }),
@@ -26,15 +35,5 @@ export default {
     babel({
       exclude: /node_modules/,
     }),
-  ],
-  output: [
-    {
-      format: 'cjs',
-      file: pkg.main,
-    },
-    {
-      format: 'es',
-      file: pkg.module,
-    },
   ],
 };
