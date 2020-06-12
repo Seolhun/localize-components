@@ -2,7 +2,7 @@ import { preventDefault } from '../preventDefault';
 
 const SCROLL_CLASS_NAME = 'freezing-scroll';
 
-const disabledScrollByKey = (event) => {
+const disabledScrollByKey = (event: KeyboardEvent) => {
   const SCROLL_KEYS = ['ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight'];
   if (SCROLL_KEYS.includes(event.key)) {
     preventDefault(event);

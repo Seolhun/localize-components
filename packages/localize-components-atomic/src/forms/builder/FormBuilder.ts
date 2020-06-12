@@ -3,27 +3,12 @@ interface ValidationResponse {
   message: string;
 }
 
-/* eslint-disable no-underscore-dangle */
-export const FORM_PROPERTIES = {
-  value: 'value',
-  hasError: 'hasError',
-  message: 'message',
-  isRequired: 'isRequired',
-  requiredMessage: 'requiredMessage',
-  // Events
-  onValidation: 'onValidation',
-  // Options
-  isOnCreatedValidation: 'isOnCreatedValidation',
-  isOnChangeValidation: 'isOnChangeValidation',
-  onGroupValidation: 'onGroupValidation',
-};
-
 export interface FormBuilderProps {
   properties: Properties;
   handleOnValidation: (value?: any) => FormBuilder;
-  setProperties: (Properties) => FormBuilder;
-  setValue: (value) => FormBuilder;
-  getPropertyValueBy: (keyName: string) => any;
+  setProperties: (properties: Properties) => FormBuilder;
+  setValue: (value: any) => FormBuilder;
+  getPropertyValueBy: (keyName: keyof Properties) => any;
   getProperties: () => Properties;
   getValues: () => void;
 }
@@ -49,7 +34,7 @@ class FormBuilder implements FormBuilderProps {
   properties: Properties;
   options: Options;
 
-  constructor(properties, options) {
+  constructor(properties: Properties, options: Options) {
     const formProperties = this._initForm(properties, options);
     this.properties = formProperties.properties;
     this.options = formProperties.options;
@@ -64,16 +49,16 @@ class FormBuilder implements FormBuilderProps {
       isRequired = false,
       requiredMessage,
       // Events
-      onValidation = (value: string) => ({
+      onValidation = () => ({
         hasError: false,
         message: '',
       }),
-    },
+    }: Properties,
     {
       isOnCreatedValidation = false,
       isOnChangeValidation = false,
       onGroupValidation,
-    },
+    }: Options,
   ) => {
     let isValidObject = {
       hasError,
@@ -117,7 +102,7 @@ class FormBuilder implements FormBuilderProps {
     return this;
   };
 
-  setProperties(newProperties) {
+  setProperties(newProperties: Partial<Properties>) {
     this.properties = {
       ...this.properties,
       ...newProperties,
@@ -125,7 +110,7 @@ class FormBuilder implements FormBuilderProps {
     return this;
   }
 
-  setValue(value) {
+  setValue(value: Properties['value']) {
     if (this.options.isOnChangeValidation) {
       this.handleOnValidation(value);
     }
@@ -138,7 +123,7 @@ class FormBuilder implements FormBuilderProps {
   /**
    * Finished Methods
    */
-  getPropertyValueBy(propertyKey) {
+  getPropertyValueBy(propertyKey: keyof Properties) {
     return this.properties[propertyKey];
   }
 

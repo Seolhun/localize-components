@@ -1,14 +1,20 @@
 /* eslint-disable no-underscore-dangle */
-import FormBuilder, { FORM_PROPERTIES, FormBuilderProps } from './FormBuilder';
+import FormBuilder, { Properties } from './FormBuilder';
 
-class FormGroupBuilder {
-  group: {
-    [key: string]: FormBuilderProps;
-  };
+type FormLineGroupConstructor<T> = {
+  [key in keyof T]: Properties;
+};
+
+type FormLineGroupValues<T> = {
+  [key in keyof T]: FormBuilder;
+};
+
+class FormGroupBuilder<T> {
+  group: FormLineGroupValues<T>;
   isDisabled: boolean;
 
   constructor(
-    forms,
+    forms: FormLineGroupConstructor<T>,
     {
       isDisabled = false,
       isOnCreatedValidation = false,
@@ -17,24 +23,19 @@ class FormGroupBuilder {
         hasError: false,
         message: '',
       }),
-    }
+    },
   ) {
     this.isDisabled = isDisabled;
     this.group = Object.keys(forms).reduce(
       (obj, key) => ({
         ...obj,
-        [key]: new FormBuilder(
-          {
-            ...forms[key],
-          },
-          {
-            isOnChangeValidation,
-            isOnCreatedValidation,
-            onGroupValidation,
-          }
-        ),
+        [key]: new FormBuilder(forms[key as keyof T], {
+          isOnChangeValidation,
+          isOnCreatedValidation,
+          onGroupValidation,
+        }),
       }),
-      {}
+      {} as FormLineGroupValues<T>,
     );
     if (isOnCreatedValidation) {
       this._executeAllFormValidation();
@@ -43,9 +44,9 @@ class FormGroupBuilder {
 
   _executeAllFormValidation = () => {
     this.isDisabled = Object.keys(this.group).some((key) =>
-      this.group[key]
+      this.group[key as keyof T]
         .handleOnValidation()
-        .getPropertyValueBy(FORM_PROPERTIES.hasError)
+        .getPropertyValueBy('hasError'),
     );
     return this;
   };
@@ -55,7 +56,7 @@ class FormGroupBuilder {
    */
   getHasErrorAllForm = () => this._executeAllFormValidation().isDisabled;
 
-  getFormByName = (name) => this.group[name];
+  getFormByName = (formKey: keyof T) => this.group[formKey];
 
   getGroup = () => this.group;
 }

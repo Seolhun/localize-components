@@ -1,4 +1,4 @@
-function preventDefault(event) {
+function preventDefault(event: Event) {
   const currentEvent = event || window.event;
   if (currentEvent.preventDefault) {
     currentEvent.preventDefault();
