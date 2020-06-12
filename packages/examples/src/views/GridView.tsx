@@ -1,117 +1,120 @@
 import React from 'react';
 
-import { range } from 'ramda';
 import { LocalizeJumbotron } from '@seolhun/localize-components';
-import { Container, Col, Row } from '@seolhun/localize-components-grid';
+import {
+  LocalizeCol,
+  LocalizeRow,
+  LocalizeContainer,
+} from '@seolhun/localize-components-grid';
 
 const GridView = () => {
   return (
     <>
-      <Container>
+      <LocalizeContainer>
         <h2>Default</h2>
-        <Row>
-          <Col xs={24}>
+        <LocalizeRow>
+          <LocalizeCol xs={24}>
             <LocalizeJumbotron>
               <h3>xs-24</h3>
             </LocalizeJumbotron>
-          </Col>
-        </Row>
-        <Row>
-          <Col sm={12}>
+          </LocalizeCol>
+        </LocalizeRow>
+        <LocalizeRow>
+          <LocalizeCol sm={12}>
             <LocalizeJumbotron>
               <h3>sm-12</h3>
             </LocalizeJumbotron>
-          </Col>
-          <Col sm={12}>
+          </LocalizeCol>
+          <LocalizeCol sm={12}>
             <LocalizeJumbotron>
               <h3>sm-12</h3>
             </LocalizeJumbotron>
-          </Col>
-        </Row>
+          </LocalizeCol>
+        </LocalizeRow>
 
-        <Row>
-          <Col md={8}>
+        <LocalizeRow>
+          <LocalizeCol md={8}>
             <LocalizeJumbotron>
               <h3>md-8</h3>
             </LocalizeJumbotron>
-          </Col>
-          <Col md={8}>
+          </LocalizeCol>
+          <LocalizeCol md={8}>
             <LocalizeJumbotron>
               <h3>md-8</h3>
             </LocalizeJumbotron>
-          </Col>
-          <Col md={8}>
+          </LocalizeCol>
+          <LocalizeCol md={8}>
             <LocalizeJumbotron>
               <h3>md-8</h3>
             </LocalizeJumbotron>
-          </Col>
-        </Row>
+          </LocalizeCol>
+        </LocalizeRow>
 
-        <Row>
-          {range(4).map((key, idx) => (
-            <Col xs={6} md={12} key={idx}>
+        <LocalizeRow>
+          {[...new Array(4)].map((key, idx) => (
+            <LocalizeCol xs={6} md={12} key={idx}>
               <LocalizeJumbotron>
                 <h3>xs-6 md-12</h3>
               </LocalizeJumbotron>
-            </Col>
+            </LocalizeCol>
           ))}
-        </Row>
+        </LocalizeRow>
 
-        <Row>
-          {range(4).map((key, idx) => (
-            <Col xs={6} key={idx}>
+        <LocalizeRow>
+          {[...new Array(4)].map((key, idx) => (
+            <LocalizeCol xs={6} key={idx}>
               <LocalizeJumbotron>
                 <h3>4</h3>
               </LocalizeJumbotron>
-            </Col>
+            </LocalizeCol>
           ))}
-        </Row>
+        </LocalizeRow>
 
-        <Row>
-          {range(12).map((key, idx) => (
-            <Col xs={2} key={idx}>
+        <LocalizeRow>
+          {[...new Array(12)].map((key, idx) => (
+            <LocalizeCol xs={2} key={idx}>
               <LocalizeJumbotron>
                 <h3>2</h3>
               </LocalizeJumbotron>
-            </Col>
+            </LocalizeCol>
           ))}
-        </Row>
+        </LocalizeRow>
 
-        <Row>
-          {range(24).map((key, idx) => (
-            <Col xs={1} key={idx}>
+        <LocalizeRow>
+          {[...new Array(24)].map((key, idx) => (
+            <LocalizeCol xs={1} key={idx}>
               <LocalizeJumbotron>
                 <h3>1</h3>
               </LocalizeJumbotron>
-            </Col>
+            </LocalizeCol>
           ))}
-        </Row>
-      </Container>
+        </LocalizeRow>
+      </LocalizeContainer>
 
-      <Container>
-        <Row>
-          <Col sm={12} lg={8}>
+      <LocalizeContainer>
+        <LocalizeRow>
+          <LocalizeCol sm={12} lg={8}>
             <LocalizeJumbotron>
               <h2>SM-12 LG-8</h2>
             </LocalizeJumbotron>
-          </Col>
-          <Col sm={12} lg={8}>
+          </LocalizeCol>
+          <LocalizeCol sm={12} lg={8}>
             <LocalizeJumbotron>
               <h2>SM-12 LG-8</h2>
             </LocalizeJumbotron>
-          </Col>
-          <Col sm={24} lg={8}>
+          </LocalizeCol>
+          <LocalizeCol sm={24} lg={8}>
             <LocalizeJumbotron>
               <h2>SM-24 LG-8</h2>
             </LocalizeJumbotron>
-          </Col>
-        </Row>
-      </Container>
+          </LocalizeCol>
+        </LocalizeRow>
+      </LocalizeContainer>
 
-      <Container>
+      <LocalizeContainer>
         <h2>Offset</h2>
-        <Row>
-          <Col
+        <LocalizeRow>
+          <LocalizeCol
             xs={{
               span: 4,
               offset: 4,
@@ -132,8 +135,8 @@ const GridView = () => {
             <LocalizeJumbotron>
               <h2>span-4, offset-4</h2>
             </LocalizeJumbotron>
-          </Col>
-          <Col
+          </LocalizeCol>
+          <LocalizeCol
             xs={{
               span: 4,
               offset: 4,
@@ -142,8 +145,8 @@ const GridView = () => {
             <LocalizeJumbotron>
               <h2>span-4, offset-4</h2>
             </LocalizeJumbotron>
-          </Col>
-          <Col
+          </LocalizeCol>
+          <LocalizeCol
             xs={{
               offset: 4,
               span: 4,
@@ -164,62 +167,62 @@ const GridView = () => {
             <LocalizeJumbotron>
               <h2>offset-4, span-4</h2>
             </LocalizeJumbotron>
-          </Col>
-        </Row>
-      </Container>
+          </LocalizeCol>
+        </LocalizeRow>
+      </LocalizeContainer>
 
-      <Container>
-        <Row>
-          <Col xs={0} sm={12} md={12} lg={12} xl={0}>
+      <LocalizeContainer>
+        <LocalizeRow>
+          <LocalizeCol xs={0} sm={12} md={12} lg={12} xl={0}>
             <LocalizeJumbotron>
               <h2>
                 xs={0} sm={12} md={12} lg={12} xl={0}
               </h2>
             </LocalizeJumbotron>
-          </Col>
-          <Col xs={12} sm={0} md={12} lg={0} xl={12}>
+          </LocalizeCol>
+          <LocalizeCol xs={12} sm={0} md={12} lg={0} xl={12}>
             <LocalizeJumbotron>
               <h2>
                 xs={12} sm={0} md={12} lg={0} xl={12}
               </h2>
             </LocalizeJumbotron>
-          </Col>
-          <Col xs={12} sm={12} md={0} lg={12} xl={12}>
+          </LocalizeCol>
+          <LocalizeCol xs={12} sm={12} md={0} lg={12} xl={12}>
             <LocalizeJumbotron>
               <h2>
                 xs={12} sm={12} md={0} lg={12} xl={12}
               </h2>
             </LocalizeJumbotron>
-          </Col>
-        </Row>
-      </Container>
+          </LocalizeCol>
+        </LocalizeRow>
+      </LocalizeContainer>
 
-      <Container isFullWidth>
+      <LocalizeContainer isFullWidth>
         <h2>isFullWidth</h2>
-        <Row>
-          <Col xs={6} sm={3} md={6} lg={6} xl={8}>
+        <LocalizeRow>
+          <LocalizeCol xs={6} sm={3} md={6} lg={6} xl={8}>
             <LocalizeJumbotron>
               <h2>
                 xs={6} sm={3} md={6} lg={6} xl={8}
               </h2>
             </LocalizeJumbotron>
-          </Col>
-          <Col xs={12} sm={18} md={12} lg={12} xl={8}>
+          </LocalizeCol>
+          <LocalizeCol xs={12} sm={18} md={12} lg={12} xl={8}>
             <LocalizeJumbotron>
               <h2>
                 xs={12} sm={18} md={12} lg={12} xl={8}
               </h2>
             </LocalizeJumbotron>
-          </Col>
-          <Col xs={6} sm={3} md={6} lg={6} xl={8}>
+          </LocalizeCol>
+          <LocalizeCol xs={6} sm={3} md={6} lg={6} xl={8}>
             <LocalizeJumbotron>
               <h2>
                 xs={6} sm={3} md={6} lg={6} xl={8}
               </h2>
             </LocalizeJumbotron>
-          </Col>
-        </Row>
-      </Container>
+          </LocalizeCol>
+        </LocalizeRow>
+      </LocalizeContainer>
     </>
   );
 };

@@ -12,9 +12,9 @@ const ButtonView = () => {
         </div>
         <div className="col-sm-12">
           <h2>Give a size</h2>
-          <LocalizeButton size="small">small</LocalizeButton>
-          <LocalizeButton size="medium">medium</LocalizeButton>
-          <LocalizeButton size="large">large</LocalizeButton>
+          <LocalizeButton size="sm">small</LocalizeButton>
+          <LocalizeButton size="md">medium</LocalizeButton>
+          <LocalizeButton size="lg">large</LocalizeButton>
         </div>
       </div>
     </div>

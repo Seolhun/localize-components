@@ -19,7 +19,7 @@ const MenuView = () => {
           .map((router) => {
             return (
               <Link key={router.label} to={router.path}>
-                <LocalizeButton size="medium">{router.label}</LocalizeButton>
+                <LocalizeButton size="md">{router.label}</LocalizeButton>
               </Link>
             );
           })}
@@ -29,7 +29,7 @@ const MenuView = () => {
           .map((router) => {
             return (
               <Link key={router.label} to={router.path}>
-                <LocalizeButton size="medium">{router.label}</LocalizeButton>
+                <LocalizeButton size="md">{router.label}</LocalizeButton>
               </Link>
             );
           })}
