@@ -26,5 +26,12 @@
         "packages/examples"
       ]
     }
+  },
+  "changelog": {
+    "labels": {
+      "nextVersion": "Unreleased",
+      "feature": "New Feature",
+      "bug": "Bug Fix"
+    }
   }
 }

@@ -25,6 +25,7 @@
   "main": "./src/index.ts",
   "scripts": {
     "browserslist": "browserslist",
+    "changelog": "lerna-changelog",
     "link": "lerna link",
     "clean": "lerna clean --yes",
     "clear": "lerna run clear",
@@ -53,6 +54,7 @@
     "classnames": "^2.2.6",
     "core-js": "^3.5.0",
     "emotion-theming": "^10.0.27",
+    "lerna-changelog": "^1.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
@@ -91,6 +93,7 @@
     "jest-emotion": "^10.0.32",
     "lerna": "^3.22.0",
     "postcss-flexboxfixer": "0.0.5",
+    "postcss-flexbugs-fixes": "^4.2.1",
     "postcss-loader": "^3.0.0",
     "prettier": "^1.19.1",
     "rollup": "^1.32.1",
