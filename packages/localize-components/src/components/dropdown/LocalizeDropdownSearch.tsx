@@ -1,9 +1,8 @@
 import React from 'react';
-
 import styled from '@emotion/styled';
 import classnames from 'classnames';
 
-import { SquareInput } from '@seolhun/localize-components-form';
+import { SquareInput } from '@seolhun/localize-components-atomic';
 import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
 import { DropdownSearchResultItem } from './DropdownSearchResultItem';
