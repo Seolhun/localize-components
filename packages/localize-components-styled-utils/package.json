@@ -24,8 +24,7 @@
   },
   "peerDependencies": {},
 	"dependencies": {
-    "@seolhun/localize-components-styled-types": "^0.5.3",
-    "@seolhun/localize-components-styled-utils": "^0.5.3"
+    "@seolhun/localize-components-styled-types": "^0.5.3"
 	},
 	"devDependencies": {},
 	"engines": {

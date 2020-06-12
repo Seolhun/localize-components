@@ -2,8 +2,8 @@ import autoprefixer from 'autoprefixer';
 import postcssFlexboxfixer from 'postcss-flexboxfixer';
 import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
-import postcss from 'rollup-plugin-postcss';
 import resolve from 'rollup-plugin-node-resolve';
+import postcss from 'rollup-plugin-postcss';
 import typescript from 'rollup-plugin-typescript2';
 
 import pkg from './package.json';

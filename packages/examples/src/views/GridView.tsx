@@ -51,7 +51,7 @@ const GridView = () => {
         </LocalizeRow>
 
         <LocalizeRow>
-          {[...new Array(4)].map((key, idx) => (
+          {[...new Array(4)].map((_, idx) => (
             <LocalizeCol xs={6} md={12} key={idx}>
               <LocalizeJumbotron>
                 <h3>xs-6 md-12</h3>
@@ -61,7 +61,7 @@ const GridView = () => {
         </LocalizeRow>
 
         <LocalizeRow>
-          {[...new Array(4)].map((key, idx) => (
+          {[...new Array(4)].map((_, idx) => (
             <LocalizeCol xs={6} key={idx}>
               <LocalizeJumbotron>
                 <h3>4</h3>
@@ -71,7 +71,7 @@ const GridView = () => {
         </LocalizeRow>
 
         <LocalizeRow>
-          {[...new Array(12)].map((key, idx) => (
+          {[...new Array(12)].map((_, idx) => (
             <LocalizeCol xs={2} key={idx}>
               <LocalizeJumbotron>
                 <h3>2</h3>
@@ -81,7 +81,7 @@ const GridView = () => {
         </LocalizeRow>
 
         <LocalizeRow>
-          {[...new Array(24)].map((key, idx) => (
+          {[...new Array(24)].map((_, idx) => (
             <LocalizeCol xs={1} key={idx}>
               <LocalizeJumbotron>
                 <h3>1</h3>
