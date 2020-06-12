@@ -8,7 +8,7 @@ import typescript from 'rollup-plugin-typescript2';
 
 import pkg from './package.json';
 
-const externals = Object.keys(pkg.dependencies);
+const externals = Object.keys(pkg.peerDependencies);
 
 export default {
   input: 'src/index.ts',
@@ -18,7 +18,7 @@ export default {
       file: pkg.main,
     },
     {
-      format: 'esm',
+      format: 'es',
       file: pkg.module,
     },
   ],
@@ -34,22 +34,7 @@ export default {
       objectHashIgnoreUnknownHack: true,
     }),
     commonjs({
-      include: 'node_modules/**',
-      namedExports: {
-        'node_modules/react/index.js': [
-          'cloneElement',
-          'createContext',
-          'Component',
-          'createElement',
-          'forwardRef',
-        ],
-        'node_modules/react-dom/index.js': ['render', 'hydrate'],
-        'node_modules/react-is/index.js': [
-          'isElement',
-          'isValidElementType',
-          'ForwardRef',
-        ],
-      },
+      include: /node_modules/,
     }),
     babel({
       exclude: /node_modules/,
