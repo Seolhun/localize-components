@@ -234,13 +234,13 @@ export class LocalizeInput extends React.PureComponent<
   private inputBoxRef: any;
   private inputRef: any;
 
-  constructor(props) {
+  constructor(props: LocalizeInputProps) {
     super(props);
     this.state = {
-      hasError: !!props.hasError,
+      hasError: false,
       isFilled: false,
       isFocused: false,
-      message: props.message,
+      message: props.message || '',
     };
     this.inputBoxRef = React.createRef();
     this.inputRef = React.createRef();
@@ -254,7 +254,7 @@ export class LocalizeInput extends React.PureComponent<
     }
   }
 
-  handleOnBlur = (event) => {
+  handleOnBlur = (event: React.FocusEvent<HTMLInputElement>) => {
     const { onBlur } = this.props;
 
     this.setState({
@@ -265,7 +265,7 @@ export class LocalizeInput extends React.PureComponent<
     }
   };
 
-  handleOnChange = (event) => {
+  handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { onChange } = this.props;
 
     if (onChange) {
@@ -274,10 +274,10 @@ export class LocalizeInput extends React.PureComponent<
     this.handleOnValidation(event);
   };
 
-  handleOnKeyDown = ({ key }) => {
+  handleOnKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     const { useEnter = true } = this.props;
 
-    if (useEnter && key === 'Enter') {
+    if (useEnter && event.key === 'Enter') {
       this.handleOnSubmit();
     }
   };
@@ -291,7 +291,7 @@ export class LocalizeInput extends React.PureComponent<
     }
   };
 
-  handleOnValidation = (event) => {
+  handleOnValidation = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { onValidation } = this.props;
 
     if (event.target.value) {
@@ -320,7 +320,7 @@ export class LocalizeInput extends React.PureComponent<
     }
   };
 
-  handleRenderValue = (value) => {
+  handleRenderValue = (value: string) => {
     const { renderValue } = this.props;
 
     if (renderValue) {

@@ -30,13 +30,8 @@
     // Customized
     "declaration": true,
     "rootDir": ".",
-    "outDir": "dist",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    "outDir": "dist"
   },
-  "include": ["./src/**/*"],
   "exclude": [
     ".vscode",
     "node_modules/**",
