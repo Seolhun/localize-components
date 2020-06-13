@@ -33,7 +33,6 @@
 ## Mono Repos
 #### Documents
 - @seolhun/localize-components-docs
-- @seolhun/localize-components-examples
 
 #### Components
 - @seolhun/localize-components
@@ -61,6 +60,7 @@ $ yarn add @seolhun/localize-components @seolhun/localize-components-atomic
 ```
 
 ## How to use
+
 #### import
 ```js
 import { Alert } from '@seolhun/localize-components';
@@ -68,10 +68,9 @@ import { Button } from '@seolhun/localize-components-atomic';
 ```
 
 ## Examples
+
 ### PROD
-- Docs : [localize-components-docs.surge.sh](http://localize-components-docs.surge.sh/#/)
-- Examples : [localize-components-examples.surge.sh](http://localize-components-examples.surge.sh/#/)
+- Docs - Storybook : [localize-components-docs.surge.sh](http://localize-components-docs.surge.sh/#/)
 
 ### DEV
-- Docs : [dev.localize-components-docs.surge.sh](http://dev.localize-components-docs.surge.sh/#/)
-- Examples : [dev.localize-components-examples.surge.sh](http://dev.localize-components-examples.surge.sh/#/)
+- Docs - Storybook : [dev.localize-components-docs.surge.sh](http://dev.localize-components-docs.surge.sh/#/)

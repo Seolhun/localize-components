@@ -32,9 +32,9 @@ assignees: 'Seolhun'
 
 
 ## What packages is changed?
+
 #### Documents
 - [ ] @seolhun/localize-components-docs
-- [ ] @seolhun/localize-components-examples
 
 #### Components
 - [ ] @seolhun/localize-components

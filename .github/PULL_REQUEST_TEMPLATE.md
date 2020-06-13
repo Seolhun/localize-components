@@ -19,9 +19,9 @@
 
 
 ## What kind of change does this PR introduce?
+
 #### Documents
 - [ ] @seolhun/localize-components-docs
-- [ ] @seolhun/localize-components-examples
 
 #### Components
 - [ ] @seolhun/localize-components

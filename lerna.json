@@ -16,14 +16,12 @@
       "ignoreChanges": [
         "**/__test__",
         "**/*.md",
-        "packages/docs",
-        "packages/examples"
+        "packages/docs"
       ]
     },
     "bootstrap": {
       "ignore":[
-        "packages/docs",
-        "packages/examples"
+        "packages/docs"
       ]
     }
   },
