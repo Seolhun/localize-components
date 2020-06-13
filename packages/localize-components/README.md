@@ -1,10 +1,14 @@
 # Localize Components
 
 ## Used stacks
-- React
+
 - TypeScript
+- Babel 7
+- Lerna
+- RollupJS
+- React
 - EmotionJS
-- Docz
+- Storybook
 
 ## How to getting started
 #### Install Package

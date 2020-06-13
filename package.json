@@ -41,9 +41,6 @@
     "lint:fix": "eslint --fix '**/*.{ts,tsx,js,jsx}'",
     "prettier": "prettier --write '**/*.{ts,tsx,js,jsx}'",
     "fix": "npm run prettier && npm run lint:fix",
-    "build:docs": "build-storybook",
-    "dev": "start-storybook -s ./dist -p 6006",
-    "serve": "serve -p 6006 storybook-static",
     "deploy:docs": "surge packages/docs/dist/ http://localize-components-docs.surge.sh",
     "deploy:docs:dev": "surge packages/docs/dist/ http://dev.localize-components-docs.surge.sh"
   },

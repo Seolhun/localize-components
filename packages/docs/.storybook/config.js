@@ -14,7 +14,7 @@ export const globalStyle = `
 		font-size: 14px;
 	}
 
-	.html-lock-scroll {
+	.__Localize__freezing-scroll {
 		overflow: hidden !important;
 	}
 `;

@@ -21,14 +21,14 @@
 - Processing all most colors
 
 ## Used stacks
+
 - TypeScript
-- RollupJS, Webpack 4
-- React
-- emotionJS
-- polished
-- Lerna
 - Babel 7
-- Docz
+- Lerna
+- RollupJS
+- React
+- EmotionJS
+- Storybook
 
 ## Mono Repos
 #### Documents
