@@ -2,12 +2,8 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import { LocalizeSwitch } from '@seolhun/localize-components-atomic';
-import {
-  LocalizeThemeProvider,
-  lightTheme,
-  darkTheme,
-  LocalizeThemeProps,
-} from '@seolhun/localize-components';
+import { LocalizeThemeProvider } from '@seolhun/localize-components';
+import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
 const StyledBackground = styled.div<{}, LocalizeThemeProps>(({ theme }) => {
   return {
@@ -25,7 +21,7 @@ const ThemeChangerProvider: React.FC = ({ children }) => {
   };
 
   return (
-    <LocalizeThemeProvider theme={isChecked ? darkTheme : lightTheme}>
+    <LocalizeThemeProvider>
       <LocalizeSwitch
         htmlFor="test"
         checked={isChecked}

@@ -32,6 +32,7 @@
   "dependencies": {
     "@seolhun/localize-components": "^0.5.2",
     "@seolhun/localize-components-atomic": "^0.5.2",
+    "@seolhun/localize-components-styled-types": "^0.5.2",
     "docz": "^2.3.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"

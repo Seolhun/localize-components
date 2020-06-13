@@ -97,9 +97,9 @@ const LocalizeModal: React.FC<LocalizeModalProps> = ({
     onToggle();
   };
 
-  const handleOnCloseByKey = ({ key }) => {
+  const handleOnCloseByKey = (event: KeyboardEvent) => {
     if (wrapperRef.current) {
-      if (document.contains(wrapperRef.current) && key === 'Escape') {
+      if (document.contains(wrapperRef.current) && event.key === 'Escape') {
         handleToggleOpenStatus();
       }
     }
