@@ -29,7 +29,6 @@
     "traceResolution": false /* Report module resolution log messages. */ ,
     // Customized
     "declaration": true,
-    "rootDir": ".",
     "outDir": "dist"
   },
   "exclude": [
