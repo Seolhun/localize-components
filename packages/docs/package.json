@@ -18,8 +18,8 @@
   ],
   "scripts": {
     "build": "build-storybook -o dist",
-    "dev": "start-storybook -s ./dist -p 8080",
-    "serve": "serve -p 8080 dist",
+    "dev": "start-storybook -p 8080",
+    "start": "serve -p 8080 -s dist",
     "clear": "rm -rf dist && rm -rf .rpt2_cache",
     "test": "echo 'There are no test'"
   },
