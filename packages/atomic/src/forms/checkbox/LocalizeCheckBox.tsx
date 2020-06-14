@@ -163,7 +163,7 @@ const LocalizeCheckBoxContainer = styled.span<{}, LocalizeThemeProps>(
   }),
 );
 
-const Localize: React.FC<LocalizeCheckBoxProps> = ({
+const LocalizeCheckBox: React.FC<LocalizeCheckBoxProps> = ({
   children,
   primaryColor,
   fontColor,
@@ -233,6 +233,5 @@ const Localize: React.FC<LocalizeCheckBoxProps> = ({
   </LocalizeWrapper>
 );
 
-export { Localize };
-
-export default Localize;
+export { LocalizeCheckBoxProps, LocalizeCheckBox };
+export default LocalizeCheckBox;

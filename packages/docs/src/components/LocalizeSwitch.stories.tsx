@@ -1,17 +1,12 @@
 import React from 'react';
 import { actions } from '@storybook/addon-actions';
-import {
-  withKnobs,
-  text,
-  // select
-} from '@storybook/addon-knobs';
+import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { LocalizeSwitch } from '@seolhun/localize-components-atomic';
 
-// import { BDSize } from '../system';
-// import { storiesSizeOption } from '../_stories';
+import { storiesColorOption } from '../../src/_stories';
 
 export default {
-  title: 'UI | LocalizeSwitch',
+  title: 'Atomic | LocalizeSwitch',
   decorators: [withKnobs],
   component: LocalizeSwitch,
 };
@@ -25,11 +20,18 @@ export const Default = () => {
 
 export const DynamicProps = () => {
   const content = text('Children', 'Hello');
-  // const disabled = boolean('Disabled', false);
-  // const square = boolean('Square', false);
-  // const size = select('Size', storiesSizeOption, 'md');
-  // const fontSize = select('FontSize', storiesSizeOption, 'sm');
-  // const color = select('Color', storiesColorOption, '');
+  const disabled = boolean('Disabled', false);
+  const checked = boolean('Checked', false);
+  const primaryColor = select('PrimaryColor', storiesColorOption, 'primary01');
 
-  return <LocalizeSwitch {...eventsFromNames}>{content}</LocalizeSwitch>;
+  return (
+    <LocalizeSwitch
+      {...eventsFromNames}
+      primaryColor={primaryColor}
+      disabled={disabled}
+      checked={checked}
+    >
+      {content}
+    </LocalizeSwitch>
+  );
 };

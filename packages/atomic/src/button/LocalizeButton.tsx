@@ -20,6 +20,12 @@ interface LocalizeButtonProps extends LocalizeStyleProps, ButtonProps {
    * @default md
    */
   size?: LocalizeSize;
+
+  /**
+   * Set this to change disabled size
+   * @default false
+   */
+  disabled?: boolean;
 }
 
 const StyledLocalizeButton = styled.button<

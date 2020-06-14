@@ -112,37 +112,6 @@ const StyledInput = styled.input<LocalizeInputProps, LocalizeThemeProps>(
   },
 );
 
-const StyledEnterButton = styled.button<{}, LocalizeThemeProps>(({ theme }) => {
-  return {
-    alignItems: 'center',
-    backgroundColor: `${theme.colors.uiColor07}`,
-    borderRadius: '0 6px 6px 0',
-    color: `${theme.colors.uiColor08}`,
-
-    display: 'inline-flex',
-    flexBasis: '50px',
-    width: '50px',
-    flexShrink: 0,
-    height: '100%',
-    justifyContent: 'center',
-    verticalAlign: 'middle',
-
-    float: 'right',
-    cursor: 'pointer',
-
-    [`&.${DEFAULT_CLASSNAME}__EnterButton__IsFilled`]: {
-      backgroundColor: `${theme.colors.uiColor07}`,
-    },
-    [`&.${DEFAULT_CLASSNAME}__EnterButton__HasError`]: {
-      backgroundColor: `${theme.colors.uiColor07}`,
-      cursor: 'not-allowed !important',
-    },
-    ['&:hover, &:active']: {
-      backgroundColor: `${theme.colors.uiColor07}`,
-    },
-  };
-});
-
 const LocalizeInput = React.forwardRef<HTMLInputElement, LocalizeInputProps>(
   (
     {
