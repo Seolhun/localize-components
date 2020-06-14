@@ -7,7 +7,7 @@
   },
   "name": "@seolhun/localize-components-event-utils",
   "description": "Localizing React components event-utils to control cross browsing",
-  "version": "0.5.2",
+  "version": "0.5.3-beta.0",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "files": [
@@ -22,9 +22,6 @@
     "bundle": "rollup -c",
     "test": "echo 'There are no test'"
   },
-  "peerDependencies": {},
-  "dependencies": {},
-  "devDependencies": {},
   "engines": {
     "node": ">= 6.0.0",
     "npm": ">= 3.0.0"

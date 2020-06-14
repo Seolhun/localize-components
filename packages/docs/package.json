@@ -7,7 +7,7 @@
 	},
 	"name": "@seolhun/localize-components-docs",
 	"description": "Localizing React components is rendered by stand-alone not affect other styles.",
-	"version": "0.5.2",
+	"version": "0.5.3-beta.0",
 	"main": "dist/index.js",
 	"module": "dist/index.esm.js",
 	"files": [
@@ -31,13 +31,13 @@
 		"react-dom": "^16.13.1"
 	},
 	"dependencies": {
-		"@seolhun/localize-components": "^0.5.2",
-		"@seolhun/localize-components-atomic": "^0.5.2",
-		"@seolhun/localize-components-event-utils": "^0.5.2",
-		"@seolhun/localize-components-grid": "^0.5.2",
-		"@seolhun/localize-components-hooks": "^0.5.2",
-		"@seolhun/localize-components-styled-types": "^0.5.2",
-		"@seolhun/localize-components-styled-utils": "^0.5.2"
+		"@seolhun/localize-components": "^0.5.3-beta.0",
+		"@seolhun/localize-components-atomic": "^0.5.3-beta.0",
+		"@seolhun/localize-components-event-utils": "^0.5.3-beta.0",
+		"@seolhun/localize-components-grid": "^0.5.3-beta.0",
+		"@seolhun/localize-components-hooks": "^0.5.3-beta.0",
+		"@seolhun/localize-components-styled-types": "^0.5.3-beta.0",
+		"@seolhun/localize-components-styled-utils": "^0.5.3-beta.0"
 	},
 	"devDependencies": {
 		"@storybook/addon-actions": "^5.3.19",
