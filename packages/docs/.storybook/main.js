@@ -1,5 +1,4 @@
 module.exports = {
-  stories: [`../src/**/*.stories.(tsx|mdx)`],
   addons: [
     '@storybook/addon-actions',
     {
@@ -20,7 +19,7 @@ module.exports = {
       test: /\.(ts|tsx)$/,
       use: [
         {
-          loader: require.resolve('ts-loader'),
+          loader: require.resolve('awesome-typescript-loader'),
         },
         {
           loader: require.resolve('react-docgen-typescript-loader'),

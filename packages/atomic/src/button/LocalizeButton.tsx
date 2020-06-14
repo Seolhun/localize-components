@@ -13,7 +13,12 @@ const DEFAULT_CLASSNAME = '__Localize__Button';
 type ButtonProps = React.HTMLAttributes<HTMLButtonElement>;
 
 interface LocalizeButtonProps extends LocalizeProps, ButtonProps {
+  /**
+   * Set this to change LocalizeButton size
+   * @default md
+   */
   size?: LocalizeSize;
+
   /**
    * Set this to change LocalizeButton font-size
    * @default 12
@@ -21,29 +26,37 @@ interface LocalizeButtonProps extends LocalizeProps, ButtonProps {
   fontSize?: number;
 }
 
+const getStyleBySize = (size: LocalizeSize) => {
+  switch (size) {
+    case 'xl': {
+      return '1.2rem 2rem';
+    }
+    case 'lg': {
+      return '1.1rem 1.8rem';
+    }
+    case 'md': {
+      return '1rem 1.6rem';
+    }
+    case 'sm': {
+      return '0.9rem 1.4rem';
+    }
+    case 'xs': {
+      return '0.8rem 1.2rem';
+    }
+    default: {
+      return '1rem 1.6rem';
+    }
+  }
+};
+
 const StyledLocalizeButton = styled.button<
   LocalizeButtonProps,
   LocalizeThemeProps
 >(({ fontSize = 12, size = 'md', theme }) => {
-  const getStyleBySize = () => {
-    switch (size) {
-      case 'xl':
-        return '1.2rem 2rem';
-      case 'lg':
-        return '1.1rem 1.8rem';
-      case 'md':
-        return '1rem 1.6rem';
-      case 'sm':
-        return '0.9rem 1.4rem';
-      default:
-        return '0.8rem 1.2rem';
-    }
-  };
-
   return {
     display: 'inline-block',
     height: 'auto',
-    padding: getStyleBySize(),
+    padding: getStyleBySize(size),
     backgroundColor: theme.colors.primary01,
     border: `1px solid transparent`,
     borderRadius: '6px',

@@ -19,7 +19,9 @@ export const globalStyle = `
 	}
 `;
 
+const req = require.context('../src', true, /\.stories\.(ts|tsx)$/);
 function loadStories() {
+  req.keys().forEach((filename) => req(filename));
   addDecorator((story) => (
     <StoriesThemeWrapper>
       <Global

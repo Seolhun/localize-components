@@ -45,9 +45,6 @@
     "deploy:docs:dev": "surge packages/docs/dist/ http://dev.localize-components-docs.surge.sh"
   },
   "dependencies": {
-    "@babel/plugin-proposal-decorators": "^7.10.1",
-    "@babel/plugin-proposal-object-rest-spread": "^7.10.1",
-    "@babel/plugin-proposal-optional-chaining": "^7.10.1",
     "@babel/runtime": "^7.10.2",
     "@babel/runtime-corejs2": "^7.10.2",
     "@emotion/core": "^10.0.28",
@@ -63,6 +60,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.10.2",
+    "@babel/plugin-proposal-decorators": "^7.10.1",
+    "@babel/plugin-proposal-object-rest-spread": "^7.10.1",
+    "@babel/plugin-proposal-optional-chaining": "^7.10.1",
     "@babel/plugin-proposal-class-properties": "^7.10.1",
     "@babel/plugin-syntax-dynamic-import": "^7.8.3",
     "@babel/plugin-transform-arrow-functions": "^7.10.1",
@@ -84,8 +84,6 @@
     "@typescript-eslint/eslint-plugin": "^2.34.0",
     "@typescript-eslint/parser": "^2.34.0",
     "autoprefixer": "^9.7.3",
-    "awesome-typescript-loader": "^5.2.1",
-    "babel-loader": "^8.0.4",
     "babel-plugin-emotion": "^10.0.33",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.11.0",
