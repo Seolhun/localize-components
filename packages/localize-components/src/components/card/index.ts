@@ -1,1 +1,2 @@
-export *  from './LocalizeCard';
+export * from './LocalizeCard';
+export { default } from './LocalizeCard';

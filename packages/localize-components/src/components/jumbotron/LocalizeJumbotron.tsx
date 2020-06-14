@@ -1,33 +1,16 @@
 import React from 'react';
 
 import styled from '@emotion/styled';
-
-import {
-  LocalizeThemeStyledProps,
-  ILocalizeTheme,
-} from '@seolhun/localize-components-styled-types';
-import {
-  getValidThemeObject,
-  getThemeColorStyle,
-} from '@seolhun/localize-components-styled-utils';
-
 import classnames from 'classnames';
+import {
+  LocalizeStyleProps,
+  LocalizeThemeProps,
+} from '@seolhun/localize-components-styled-types';
 
-const DEFAULT_CLASSNAME = '__Localize__Jumbotron'
+const DEFAULT_CLASSNAME = '__Localize__Jumbotron';
+type DivProps = React.HTMLAttributes<HTMLDivElement>;
 
-export interface LocalizeJumbotronProps extends LocalizeThemeStyledProps, React.HTMLAttributes<HTMLDivElement> {
-  /**
-   * Set this to change Jumbotron rendering children node
-   * @default null
-   */
-  children?: React.ReactNode;
-
-  /**
-   * Set this to change Jumbotron className
-   * @default undefined
-   */
-  className?: string;
-
+interface LocalizeJumbotronProps extends LocalizeStyleProps, DivProps {
   /**
    * Set this to change Jumbotron description
    * @default ''
@@ -39,47 +22,42 @@ export interface LocalizeJumbotronProps extends LocalizeThemeStyledProps, React.
    * @default ''
    */
   title?: string;
-
-  /**
-   * Set this to change Jumbotron css
-   * @default {}
-   */
-  css?: {};
 }
 
-const StyledJumbotronWrapper = styled.div<LocalizeJumbotronProps, ILocalizeTheme>(({
-  theme,
-  ...props
-}) => {
-    const validTheme = getValidThemeObject(props, theme);
-    return {
-      backgroundColor: validTheme.mainColor,
-      color: getThemeColorStyle(validTheme.mainColor),
-      height: 'auto',
-      width: '100%',
-      borderRadius: theme.border.radius,
-    };
-  }
-);
+const StyledJumbotronWrapper = styled.div<
+  LocalizeStyleProps,
+  LocalizeThemeProps
+>(({ theme, primaryColor, fontColor, fontKey = 'normal' }) => {
+  const fonts = theme.fonts[fontKey];
+  const mainColor = theme.colors[primaryColor || 'primary01'];
+  const color = theme.colors[fontColor || 'uiColor08'];
+  return {
+    ...fonts,
+    backgroundColor: mainColor,
+    color,
+    height: 'auto',
+    width: '100%',
+    padding: '1rem 2rem',
+    borderRadius: '5px',
+  };
+});
 
 const StyledJumbotronContainer = styled.div<LocalizeJumbotronProps>({
   height: '100%',
   width: '100%',
-})
+});
 
-export const LocalizeJumbotron: React.FC<LocalizeJumbotronProps> = ({
+const LocalizeJumbotron: React.FC<LocalizeJumbotronProps> = ({
   children,
   className,
   description,
   title,
-  css = {},
   ...props
 }) => {
   return (
     <StyledJumbotronWrapper
       {...props}
       className={classnames(DEFAULT_CLASSNAME, className)}
-      css={css}
     >
       <StyledJumbotronContainer className={`${DEFAULT_CLASSNAME}__Container`}>
         {title && <h1>{title}</h1>}
@@ -89,5 +67,7 @@ export const LocalizeJumbotron: React.FC<LocalizeJumbotronProps> = ({
     </StyledJumbotronWrapper>
   );
 };
+
+export { LocalizeJumbotron, LocalizeJumbotronProps };
 
 export default LocalizeJumbotron;

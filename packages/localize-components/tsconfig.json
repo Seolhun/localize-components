@@ -1,20 +1,10 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "declaration": true,
     "outDir": "dist",
     "rootDir": "src",
-    "types": [
-      "node"
-    ],
+    "baseUrl": ".",
+    "declaration": true
   },
-  "include": ["./src/**/*"],
-  "exclude": [
-    "node_modules",
-    "src/__test__/**",
-    "src/**/*.test.ts"
-  ],
-  "typeAcquisition": {
-    "enable": true
-  }
+  "include": ["./src/**/*"]
 }

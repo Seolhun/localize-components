@@ -1,7 +1,3 @@
-export * from './components';
+import 'core-js/stable';
 
-export * from '@seolhun/localize-components-atomic';
-export * from '@seolhun/localize-components-dropdown';
-export * from '@seolhun/localize-components-grid';
-export * from '@seolhun/localize-components-hooks';
-export * from '@seolhun/localize-components-sidebar';
+export * from './components';

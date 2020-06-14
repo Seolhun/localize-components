@@ -3,57 +3,35 @@ import React from 'react';
 import styled from '@emotion/styled';
 
 import {
-  LocalizeThemeStyledProps,
-  ILocalizeTheme,
+  LocalizeThemeProps,
+  LocalizeProps,
 } from '@seolhun/localize-components-styled-types';
-import {
-  getValidThemeObject,
-  getThemeColorStyle,
-} from '@seolhun/localize-components-styled-utils';
 
 import classnames from 'classnames';
 
-const DEFAULT_CLASSNAME = '__Localize__Box'
+const DEFAULT_CLASSNAME = '__Localize__Box';
 
-export interface LocalizeBoxProps extends LocalizeThemeStyledProps, React.HTMLAttributes<HTMLDivElement> {
-  /**
-   * Set this to change Box rendering children node
-   * @default null
-   */
-  children: React.ReactNode;
+export interface LocalizeBoxProps
+  extends LocalizeProps,
+    React.HTMLAttributes<HTMLDivElement> {}
 
-  /**
-   * Set this to change Box className
-   * @default undefined
-   */
-  className?: string;
-
-  /**
-   * Set this to change Box css
-   * @default {}
-   */
-  css?: {};
-}
-
-const StyledBoxWrapper = styled.div<LocalizeBoxProps, ILocalizeTheme>(({
-  theme,
-  ...props
-}) => {
-    const validTheme = getValidThemeObject(props, theme);
+const StyledBoxWrapper = styled.div<LocalizeBoxProps, LocalizeThemeProps>(
+  ({ theme }) => {
     return {
-      backgroundColor: validTheme.mainColor,
-      color: getThemeColorStyle(validTheme.mainColor),
+      backgroundColor: theme.colors.primaryBackground01,
+      color: theme.colors.uiColor08,
       height: 'auto',
       width: '100%',
-      borderRadius: theme.border.radius,
+      padding: '1rem, 2rem',
+      borderRadius: '5px',
     };
-  }
+  },
 );
 
 const StyledBoxContainer = styled.div<LocalizeBoxProps>({
   width: '100%',
   height: '100%',
-})
+});
 
 export const LocalizeBox: React.FC<LocalizeBoxProps> = ({
   children,
@@ -65,7 +43,6 @@ export const LocalizeBox: React.FC<LocalizeBoxProps> = ({
     <StyledBoxWrapper
       {...props}
       className={classnames(DEFAULT_CLASSNAME, className)}
-      css={css}
     >
       <StyledBoxContainer className={`${DEFAULT_CLASSNAME}__Container`}>
         {children}

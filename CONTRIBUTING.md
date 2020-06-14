@@ -26,7 +26,7 @@ Commit messages should follow the [commit message convention](https://convention
 
 ### Pre-requisites
 
-- *Node:* `^8.11.3>=`
+- *Node:* `^10>=`
 - *Yarn:* `^1.9.4`
 
 ### Install

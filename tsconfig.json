@@ -1,21 +1,16 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "module": "es2015",
-    "moduleResolution": "node",
-    "inlineSourceMap": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "sourceMap": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "lib": [
-      "dom",
-      "es5",
-      "es6",
-      "es7",
-    ],
+    "lib": ["ES5", "ES6", "ES7", "dom"],
     "jsx": "react",
+    "allowJs": true,
     /* Strict Type-Checking Options */
-    "alwaysStrict": true,
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "noImplicitThis": true,
     "strict": true /* Enable all strict type-checking options. */ ,
     "strictFunctionTypes": true,
@@ -25,30 +20,20 @@
     "noFallthroughCasesInSwitch": true /* Report errors for fallthrough cases in switch statement. */ ,
     "noImplicitReturns": true /* Report error when not all code paths in function return a value. */ ,
     "noUnusedLocals": true /* Report errors on unused locals. */ ,
-    "noUnusedParameters": false /* Report errors on unused parameters. */ ,
+    "noUnusedParameters": true /* Report errors on unused parameters. */ ,
     /* Debugging Options */
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "inlineSources": false,
-    "listEmittedFiles": false /* Print names of generated files part of the compilation. */ ,
-    "listFiles": false /* Print names of files part of the compilation. */ ,
     "noEmitOnError": true,
     "pretty": true /* Stylize errors and messages using color and context. */ ,
     "traceResolution": false /* Report module resolution log messages. */ ,
     // Customized
     "declaration": true,
-    "rootDir": ".",
-    "outDir": "dist",
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    "outDir": "dist"
   },
-  "include": ["./src/**/*"],
   "exclude": [
     ".vscode",
     "node_modules/**",
-    "./src/__test__/**",
-    "./src/**/*.test.ts",
+    "__test__/**",
   ]
 }

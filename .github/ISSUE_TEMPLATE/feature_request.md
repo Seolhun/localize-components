@@ -32,25 +32,19 @@ assignees: 'Seolhun'
 
 
 ## What packages is changed?
+
 #### Documents
 - [ ] @seolhun/localize-components-docs
-- [ ] @seolhun/localize-components-examples
 
 #### Components
 - [ ] @seolhun/localize-components
 - [ ] @seolhun/localize-components-atomic
-- [ ] @seolhun/localize-components-icons
-
-#### Mono Components
-- [ ] @seolhun/localize-components-form
 - [ ] @seolhun/localize-components-grid
-- [ ] @seolhun/localize-components-sidebar
 
 #### Utils
 - [ ] @seolhun/localize-components-hooks
 - [ ] @seolhun/localize-components-styled-utils
-- [ ] @seolhun/localize-components-utils-event
+- [ ] @seolhun/localize-components-event-utils
 
 #### Types
 - [ ] @seolhun/localize-components-styled-types
-- [ ] @seolhun/localize-components-types

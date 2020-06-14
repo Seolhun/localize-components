@@ -3,6 +3,10 @@
   "packages": [
     "packages/*"
   ],
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
+  },
   "command": {
     "publish": {
       "allowBranch": [
@@ -10,15 +14,17 @@
         "develop"
       ],
       "ignoreChanges": [
-        "packages/templates",
         "**/__test__",
-        "**/*.md"
-      ],
-      "ignore": [
-        "packages/docs",
-        "packages/examples",
-        "packages/templates"
+        "**/*.md",
+        "packages/docs"
       ]
+    }
+  },
+  "changelog": {
+    "labels": {
+      "nextVersion": "Unreleased",
+      "feature": "New Feature",
+      "bug": "Bug Fix"
     }
   }
 }
