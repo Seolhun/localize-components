@@ -12,6 +12,14 @@ interface LocalizeProps {
    * @default undefined
    */
   className?: string;
+}
+
+interface LocalizeStyleProps extends LocalizeProps {
+  /**
+   * Set this to change background color in theme
+   * @default undefined
+   */
+  primaryColor?: keyof LocalizeThemeProps['colors'];
 
   /**
    * Set this to change font color in theme
@@ -24,18 +32,6 @@ interface LocalizeProps {
    * @default undefined
    */
   fontColor?: keyof LocalizeThemeProps['colors'];
-
-  /**
-   * Set this to change background color in theme
-   * @default undefined
-   */
-  bgColor?: keyof LocalizeThemeProps['colors'];
-
-  /**
-   * Set this to change zIndex
-   * @default undefined
-   */
-  zIndex?: number;
 }
 
 interface LocalizeThemeProps<T = keyof typeof LocalizeThemeEnum> {
@@ -157,6 +153,7 @@ const localizeDarkTheme: LocalizeThemeProps = {
 
 export {
   LocalizeProps,
+  LocalizeStyleProps,
   localizeDarkThemeColors,
   localizeLightThemeColors,
   localizeLightTheme,

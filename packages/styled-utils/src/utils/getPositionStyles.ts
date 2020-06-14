@@ -1,6 +1,6 @@
 import { LocalizePosition } from '@seolhun/localize-components-styled-types';
 
-export const getPositionStyle = (position: LocalizePosition) => {
+export const getPositionStyles = (position: LocalizePosition) => {
   const DEFAULT_GAP = 10;
 
   switch (position) {

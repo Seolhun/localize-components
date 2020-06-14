@@ -6,14 +6,15 @@ import { lighten } from 'polished';
 
 import {
   LocalizeThemeProps,
-  LocalizeProps,
+  LocalizeStyleProps,
   LocalizeSize,
 } from '@seolhun/localize-components-styled-types';
+import { getSizePaddingStyles } from '@seolhun/localize-components-styled-utils';
 
 const DEFAULT_CLASSNAME = '__Localize__Button';
 type ButtonProps = React.HTMLAttributes<HTMLButtonElement>;
 
-interface LocalizeButtonProps extends LocalizeProps, ButtonProps {
+interface LocalizeButtonProps extends LocalizeStyleProps, ButtonProps {
   /**
    * Set this to change LocalizeButton size
    * @default md
@@ -21,50 +22,28 @@ interface LocalizeButtonProps extends LocalizeProps, ButtonProps {
   size?: LocalizeSize;
 }
 
-const getStyleBySize = (size: LocalizeSize) => {
-  switch (size) {
-    case 'xl': {
-      return '1.2rem 2rem';
-    }
-    case 'lg': {
-      return '1.1rem 1.8rem';
-    }
-    case 'md': {
-      return '1rem 1.6rem';
-    }
-    case 'sm': {
-      return '0.9rem 1.4rem';
-    }
-    case 'xs': {
-      return '0.8rem 1.2rem';
-    }
-    default: {
-      return '1rem 1.6rem';
-    }
-  }
-};
-
 const StyledLocalizeButton = styled.button<
   LocalizeButtonProps,
   LocalizeThemeProps
->(({ theme, fontKey = 'normal', size = 'md', bgColor, fontColor }) => {
+>(({ theme, primaryColor, fontColor, fontKey = 'normal', size = 'md' }) => {
   const fonts = theme.fonts[fontKey];
-  const mainColor = theme.colors[bgColor || 'primary01'];
+  const mainColor = theme.colors[primaryColor || 'primary01'];
+  const color = theme.colors[fontColor || 'white'];
   return {
     ...fonts,
     display: 'inline-block',
-    padding: getStyleBySize(size),
+    padding: getSizePaddingStyles(size),
     backgroundColor: mainColor,
     border: `1px solid transparent`,
     borderRadius: '6px',
 
-    color: theme.colors[fontColor || 'white'],
+    color,
     textDecoration: 'none',
     textAlign: 'center',
     whiteSpace: 'nowrap',
     cursor: 'pointer',
     outline: 'none',
-    transition: 'background-color 0.3s, border-color 0.3s, color 0.3s',
+    transition: 'background-color 0.3s, border-color 0.3s',
     userSelect: 'none',
 
     '&:hover': {

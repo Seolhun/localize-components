@@ -1,41 +1,55 @@
 import React from 'react';
 
 import styled from '@emotion/styled';
-
+import { lighten } from 'polished';
 import classnames from 'classnames';
-
 import {
   LocalizeThemeProps,
-  LocalizeProps,
+  LocalizeStyleProps,
+  LocalizeSize,
 } from '@seolhun/localize-components-styled-types';
+import { getSizePaddingStyles } from '@seolhun/localize-components-styled-utils';
 
-export interface LocalizeChipProps extends LocalizeProps {}
+const DEFAULT_CLASSNAME = '__Localize__Chip';
+type ButtonProps = React.HTMLAttributes<HTMLButtonElement>;
+export interface LocalizeChipProps extends LocalizeStyleProps, ButtonProps {
+  /**
+   * Set this to change LocalizeButton size
+   * @default md
+   */
+  size?: LocalizeSize;
+}
 
 const StyledLocalizeChip = styled.button<LocalizeChipProps, LocalizeThemeProps>(
-  ({ theme }) => {
+  ({ theme, primaryColor, fontColor, fontKey = 'normal', size = 'md' }) => {
+    const fonts = theme.fonts[fontKey];
+    const mainColor = theme.colors[primaryColor || 'primary01'];
+    const color = theme.colors[fontColor || 'white'];
     return {
-      borderRadius: '6px',
-      border: `1px solid ${theme.colors.primary01}`,
-      backgroundColor: theme.colors.primaryBackground01,
-      color: theme.colors.primary01,
-      cursor: 'pointer',
+      ...fonts,
       height: 'auto',
+      padding: getSizePaddingStyles(size),
+      color,
+      backgroundColor: mainColor,
+      border: `1px solid ${mainColor}`,
+      borderRadius: '6px',
+      cursor: 'pointer',
       outline: 'none',
       transition: 'background-color 0.3s, border-color 0.3s',
-      verticalAlign: 'middle',
+      userSelect: 'none',
 
       '&:not(:disabled):not(.disabled)': {
         cursor: 'pointer',
       },
 
       '&:hover': {
-        backgroundColor: theme.colors.primary01,
-        borderColor: theme.colors.primaryBackground01,
+        backgroundColor: lighten(0.05, mainColor),
+        borderColor: mainColor,
       },
 
       '&:disabled': {
-        backgroundColor: theme.colors.uiColor07,
-        color: theme.colors.uiColor08,
+        backgroundColor: theme.colors.disabled,
+        color: theme.colors.disabled,
         cursor: 'not-allowed',
       },
     };
@@ -50,7 +64,7 @@ export const LocalizeChip: React.FC<LocalizeChipProps> = ({
   return (
     <StyledLocalizeChip
       {...props}
-      className={classnames('__Localize__Chip', className)}
+      className={classnames(DEFAULT_CLASSNAME, className)}
     >
       {children}
     </StyledLocalizeChip>

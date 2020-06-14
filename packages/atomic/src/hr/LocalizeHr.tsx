@@ -4,20 +4,21 @@ import classnames from 'classnames';
 import styled from '@emotion/styled';
 
 import {
-  LocalizeProps,
   LocalizeThemeProps,
+  LocalizeStyleProps,
 } from '@seolhun/localize-components-styled-types';
 
 const DEFAULT_CLASSNAME = '__Localize__Hr';
+type HRProps = React.HTMLAttributes<HTMLHRElement>;
 
-export interface LocalizeHrProps extends LocalizeProps {}
+export interface LocalizeHrProps extends LocalizeStyleProps, HRProps {}
 
 const StyledLocalizeHr = styled.hr<LocalizeHrProps, LocalizeThemeProps>(
-  ({ theme }) => {
+  ({ theme, primaryColor }) => {
+    const mainColor = theme.colors[primaryColor || 'primary01'];
     return {
       border: 0,
-      opacity: 0.1,
-      borderTop: `1px solid ${theme.colors.primary01}`,
+      borderTop: `1px solid ${mainColor}`,
     };
   },
 );

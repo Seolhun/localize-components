@@ -1,17 +1,15 @@
 import React from 'react';
 import { actions } from '@storybook/addon-actions';
-import {
-  withKnobs,
-  text,
-  // select
-} from '@storybook/addon-knobs';
+import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
 import { LocalizeButton } from '@seolhun/localize-components-atomic';
+
+import { storiesColorOption, storiesSizeOption } from '../../src/_stories';
 
 // import { BDSize } from '../system';
 // import { storiesSizeOption } from '../_stories';
 
 export default {
-  title: 'UI | LocalizeButton',
+  title: 'Atomic | LocalizeButton',
   decorators: [withKnobs],
   component: LocalizeButton,
 };
@@ -25,11 +23,13 @@ export const Default = () => {
 
 export const DynamicProps = () => {
   const content = text('Children', 'Hello');
-  // const disabled = boolean('Disabled', false);
-  // const square = boolean('Square', false);
-  // const size = select('Size', storiesSizeOption, 'md');
-  // const fontSize = select('FontSize', storiesSizeOption, 'sm');
-  // const color = select('Color', storiesColorOption, '');
+  const disabled = boolean('Disabled', false);
+  const size = select('Size', storiesSizeOption, 'md');
+  const primaryColor = select('Color', storiesColorOption, '');
 
-  return <LocalizeButton {...eventsFromNames}>{content}</LocalizeButton>;
+  return (
+    <LocalizeButton {...eventsFromNames} primaryColor={primaryColor}>
+      {content}
+    </LocalizeButton>
+  );
 };
