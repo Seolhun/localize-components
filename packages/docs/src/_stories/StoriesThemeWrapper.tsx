@@ -11,8 +11,7 @@ import {
 interface StoriesThemeWrapperProps {}
 
 const Wrapper = styled.div<{}, LocalizeThemeProps>(({ theme }) => ({
-  backgroundColor: theme.layout.backgroundColor,
-  color: theme.layout.fontColor,
+  color: theme.colors.primaryBackground01,
 }));
 
 const Container = styled.div<{}, LocalizeThemeProps>(() => ({
@@ -24,7 +23,6 @@ const StoriesThemeWrapper: React.FC<StoriesThemeWrapperProps> = ({
   children,
 }) => (
   <ThemeProvider theme={useDarkMode() ? localizeDarkTheme : localizeLightTheme}>
-    Example
     <Wrapper>
       <Container>{children}</Container>
     </Wrapper>

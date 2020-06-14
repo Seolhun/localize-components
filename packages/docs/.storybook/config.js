@@ -2,7 +2,7 @@ import React from 'react';
 import { Global, css } from '@emotion/core';
 import { addDecorator, configure, addParameters } from '@storybook/react';
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
-import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
+import { DocsPage, DocsContainer, Preview } from '@storybook/addon-docs/blocks';
 
 import { StoriesThemeWrapper } from '../src/_stories';
 import storybookTheme from './storybookTheme';
@@ -19,19 +19,7 @@ export const globalStyle = `
 	}
 `;
 
-const req = require.context('../src', true, /\.stories\.(ts|tsx)$/);
 function loadStories() {
-  req.keys().forEach((filename) => req(filename));
-  addDecorator((story) => (
-    <StoriesThemeWrapper>
-      <Global
-        styles={css`
-          ${globalStyle}
-        `}
-      />
-      {story()}
-    </StoriesThemeWrapper>
-  ));
   addParameters({
     viewport: {
       viewports: {
@@ -43,6 +31,7 @@ function loadStories() {
     docs: {
       container: DocsContainer,
       page: DocsPage,
+      Preview,
     },
   });
   addParameters({
@@ -51,6 +40,16 @@ function loadStories() {
       theme: storybookTheme,
     },
   });
+  addDecorator((story) => (
+    <StoriesThemeWrapper>
+      <Global
+        styles={css`
+          ${globalStyle}
+        `}
+      />
+      {story()}
+    </StoriesThemeWrapper>
+  ));
 }
 
 configure(loadStories, module);
