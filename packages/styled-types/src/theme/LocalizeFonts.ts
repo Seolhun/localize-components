@@ -1,20 +1,23 @@
-interface FontProps {
-  fontSize: any;
-  fontWeight: any;
-  lineHeight: any;
+type localizeFontType = {
+  fontSize: string;
+  fontWeight: number;
+  lineHeight: string;
+};
+
+interface LocalizeFontsProps {
+  h1: localizeFontType;
+  h2: localizeFontType;
+  h3: localizeFontType;
+  h4: localizeFontType;
+  h5: localizeFontType;
+  h6: localizeFontType;
+  p: localizeFontType;
+  big: localizeFontType;
+  normal: localizeFontType;
+  small: localizeFontType;
 }
 
-interface ThemeFontsProps {
-  h1: FontProps;
-  h2: FontProps;
-  h3: FontProps;
-  h4: FontProps;
-  h5: FontProps;
-  h6: FontProps;
-  p: FontProps;
-}
-
-const fonts: ThemeFontsProps = {
+const localizeFonts: LocalizeFontsProps = {
   h1: {
     fontSize: '3rem',
     fontWeight: 700,
@@ -50,6 +53,21 @@ const fonts: ThemeFontsProps = {
     fontWeight: 400,
     lineHeight: '1rem',
   },
+  big: {
+    fontSize: '1.4rem',
+    fontWeight: 500,
+    lineHeight: '1.4rem',
+  },
+  normal: {
+    fontSize: '1rem',
+    fontWeight: 400,
+    lineHeight: '1rem',
+  },
+  small: {
+    fontSize: '0.8rem',
+    fontWeight: 300,
+    lineHeight: '0,8rem',
+  },
 };
 
-export { FontProps, ThemeFontsProps, fonts };
+export { LocalizeFontsProps, localizeFonts };

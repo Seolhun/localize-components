@@ -1,4 +1,4 @@
-import { fonts, ThemeFontsProps } from './LocalizeFonts';
+import { localizeFonts, LocalizeFontsProps } from './LocalizeFonts';
 import { LocalizeThemeGridProps } from './LocalizeGrid';
 
 enum LocalizeThemeEnum {
@@ -9,9 +9,15 @@ enum LocalizeThemeEnum {
 interface LocalizeProps {
   /**
    * Set this to change className
-   * @default '''
+   * @default undefined
    */
   className?: string;
+
+  /**
+   * Set this to change font color in theme
+   * @default undefined
+   */
+  fontKey?: keyof LocalizeFontsProps;
 
   /**
    * Set this to change font color in theme
@@ -48,8 +54,6 @@ interface LocalizeThemeProps<T = keyof typeof LocalizeThemeEnum> {
     uiColor06: string;
     uiColor07: string;
     uiColor08: string;
-    uiColor09: string;
-    uiColor10: string;
     error: string;
     lightenError: string;
     success: string;
@@ -57,11 +61,7 @@ interface LocalizeThemeProps<T = keyof typeof LocalizeThemeEnum> {
     white: string;
     black: string;
   };
-  layout: {
-    backgroundColor: string;
-    fontColor: string;
-  };
-  fonts: ThemeFontsProps;
+  fonts: LocalizeFontsProps;
   grid: LocalizeThemeGridProps;
 }
 
@@ -79,8 +79,6 @@ const localizeLightThemeColors: LocalizeThemeProps['colors'] = {
   uiColor06: '#999999',
   uiColor07: '#E3E3E3', // borderColor
   uiColor08: '#160B0B',
-  uiColor09: '#1B2030', // outerColor
-  uiColor10: '#FFFFFF', // innerColor
   error: '#FF1C1C',
   lightenError: '#FFE8E7',
   success: '#23BF7B',
@@ -103,8 +101,6 @@ const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
   uiColor06: '#B2B9C7',
   uiColor07: '#E6E6E6', // borderColor
   uiColor08: '#FFFFFF',
-  uiColor09: '#1B2030', // outerColor
-  uiColor10: '#FFFFFF', // innerColor
   error: '#FF4444',
   lightenError: '#3E1B1E',
   success: '#12C979',
@@ -116,26 +112,22 @@ const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
 const localizeLightTheme: LocalizeThemeProps = {
   type: 'LIGHT',
   colors: localizeLightThemeColors,
-  layout: {
-    backgroundColor: localizeLightThemeColors.uiColor01,
-    fontColor: localizeLightThemeColors.uiColor08,
-  },
-  fonts,
+  fonts: localizeFonts,
   grid: {
     containerGutter: {
       right: '0',
       left: '0',
     },
     rowGutter: {
-      top: '1rem',
+      top: '0',
       right: '0',
       left: '0',
     },
     columnGutter: {
-      top: '0.75rem',
-      right: '0.75rem',
-      left: '0.75rem',
-      bottom: '0.75rem',
+      top: '0',
+      right: '0.8rem',
+      left: '0.8rem',
+      bottom: '1rem',
     },
   },
 };
@@ -143,26 +135,22 @@ const localizeLightTheme: LocalizeThemeProps = {
 const localizeDarkTheme: LocalizeThemeProps = {
   type: 'DARK',
   colors: localizeDarkThemeColors,
-  layout: {
-    backgroundColor: localizeDarkThemeColors.uiColor01,
-    fontColor: localizeDarkThemeColors.uiColor08,
-  },
-  fonts,
+  fonts: localizeFonts,
   grid: {
     containerGutter: {
       right: '0',
       left: '0',
     },
     rowGutter: {
-      top: '1rem',
+      top: '0',
       right: '0',
       left: '0',
     },
     columnGutter: {
-      top: '0.75rem',
-      right: '0.75rem',
-      left: '0.75rem',
-      bottom: '0.75rem',
+      top: '0',
+      right: '0.8rem',
+      left: '0.8rem',
+      bottom: '1rem',
     },
   },
 };

@@ -55,6 +55,7 @@
     "core-js": "^3.5.0",
     "emotion-theming": "^10.0.27",
     "lerna-changelog": "^1.0.1",
+    "polished": "^3.6.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },

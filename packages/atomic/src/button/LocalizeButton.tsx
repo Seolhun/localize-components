@@ -2,6 +2,7 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 import classnames from 'classnames';
+import { lighten } from 'polished';
 
 import {
   LocalizeThemeProps,
@@ -18,12 +19,6 @@ interface LocalizeButtonProps extends LocalizeProps, ButtonProps {
    * @default md
    */
   size?: LocalizeSize;
-
-  /**
-   * Set this to change LocalizeButton font-size
-   * @default 12
-   */
-  fontSize?: number;
 }
 
 const getStyleBySize = (size: LocalizeSize) => {
@@ -52,32 +47,29 @@ const getStyleBySize = (size: LocalizeSize) => {
 const StyledLocalizeButton = styled.button<
   LocalizeButtonProps,
   LocalizeThemeProps
->(({ fontSize = 12, size = 'md', theme }) => {
+>(({ theme, fontKey = 'normal', size = 'md', bgColor, fontColor }) => {
+  const fonts = theme.fonts[fontKey];
+  const mainColor = theme.colors[bgColor || 'primary01'];
   return {
+    ...fonts,
     display: 'inline-block',
-    height: 'auto',
     padding: getStyleBySize(size),
-    backgroundColor: theme.colors.primary01,
+    backgroundColor: mainColor,
     border: `1px solid transparent`,
     borderRadius: '6px',
 
-    color: theme.colors.uiColor10,
-    fontSize: `${fontSize}px`,
-    fontWeight: 500,
+    color: theme.colors[fontColor || 'white'],
     textDecoration: 'none',
     textAlign: 'center',
-    verticalAlign: 'middle',
     whiteSpace: 'nowrap',
-
     cursor: 'pointer',
     outline: 'none',
     transition: 'background-color 0.3s, border-color 0.3s, color 0.3s',
     userSelect: 'none',
 
     '&:hover': {
-      border: `1px solid ${theme.colors.primary01}`,
-      backgroundColor: theme.colors.uiColor10,
-      color: theme.colors.primary01,
+      border: `1px solid ${mainColor}`,
+      backgroundColor: lighten(0.05, mainColor),
     },
 
     '&:disabled': {
@@ -103,5 +95,4 @@ const LocalizeButton: React.FC<LocalizeButtonProps> = ({
 );
 
 export { LocalizeButton, LocalizeButtonProps };
-
 export default LocalizeButton;
