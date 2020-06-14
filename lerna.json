@@ -18,11 +18,6 @@
         "**/*.md",
         "packages/docs"
       ]
-    },
-    "bootstrap": {
-      "ignore":[
-        "packages/docs"
-      ]
     }
   },
   "changelog": {
