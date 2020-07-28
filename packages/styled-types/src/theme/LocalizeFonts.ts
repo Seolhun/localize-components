@@ -4,7 +4,7 @@ interface FontProps {
   lineHeight: any;
 }
 
-interface ThemeFontsProps {
+interface LocalizeThemeFontsProps {
   h1: FontProps;
   h2: FontProps;
   h3: FontProps;
@@ -14,7 +14,7 @@ interface ThemeFontsProps {
   p: FontProps;
 }
 
-const fonts: ThemeFontsProps = {
+const localizeFonts: LocalizeThemeFontsProps = {
   h1: {
     fontSize: '3rem',
     fontWeight: 700,
@@ -52,4 +52,4 @@ const fonts: ThemeFontsProps = {
   },
 };
 
-export { FontProps, ThemeFontsProps, fonts };
+export { FontProps, LocalizeThemeFontsProps, localizeFonts };

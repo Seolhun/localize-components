@@ -1,5 +1,4 @@
 enum MediaQueriesEnum {
-  XXL = 1800,
   XL = 1440,
   LG = 1200,
   MD = 960,
@@ -24,6 +23,7 @@ interface LocalizeThemeGridProps {
     top: string;
     right: string;
     left: string;
+    bottom: string;
   };
   columnGutter: {
     top: string;
@@ -33,4 +33,28 @@ interface LocalizeThemeGridProps {
   };
 }
 
-export { MediaQueriesEnum, ColumnValueProps, LocalizeThemeGridProps };
+const localizeGrid: LocalizeThemeGridProps = {
+  containerGutter: {
+    right: '0',
+    left: '0',
+  },
+  rowGutter: {
+    top: '0',
+    right: '0',
+    left: '0',
+    bottom: '0',
+  },
+  columnGutter: {
+    top: '0',
+    right: '1rem',
+    left: '1rem',
+    bottom: '1rem',
+  },
+}
+
+export {
+  MediaQueriesEnum,
+  ColumnValueProps,
+  LocalizeThemeGridProps,
+  localizeGrid
+};
