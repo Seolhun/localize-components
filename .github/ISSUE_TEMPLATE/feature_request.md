@@ -4,10 +4,7 @@ about: Suggest an idea for this project
 title: ''
 labels: 'NewFeature'
 assignees: 'Seolhun'
-
----
-
-## Purpose
+---## Purpose
 
 - Write the purpose this task.
 
@@ -27,24 +24,23 @@ assignees: 'Seolhun'
 
 - Add any other context or screenshots about the feature request here.
 
-
----
-
-
-## What packages is changed?
+---## What packages is changed?
 
 #### Documents
+
 - [ ] @seolhun/localize-components-docs
 
 #### Components
+
 - [ ] @seolhun/localize-components
 - [ ] @seolhun/localize-components-atomic
 - [ ] @seolhun/localize-components-grid
 
 #### Utils
+
 - [ ] @seolhun/localize-components-hooks
-- [ ] @seolhun/localize-components-styled-utils
 - [ ] @seolhun/localize-components-event-utils
 
 #### Types
+
 - [ ] @seolhun/localize-components-styled-types
