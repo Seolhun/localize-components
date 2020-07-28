@@ -1,65 +1,18 @@
-import React from 'react';
-import { FlexDirectionProperty, AlignItemsProperty, JustifyContentProperty } from 'csstype';
 import styled from '@emotion/styled';
-import classnames from 'classnames';
+import { FlexDirectionProperty } from 'csstype';
 
-import { LocalizeThemeProps, LocalizeProps } from '@seolhun/localize-components-styled-types';
-
-const DEFAULT_CLASSNAME = '__Localize__Row';
-type DivProps = React.HTMLAttributes<HTMLDivElement>;
-
-interface LocalizeRowProps extends LocalizeProps, DivProps {
-  isWrap?: boolean;
-
-  /**
-   * Set this change to flex direction
-   */
+export interface LocalizeRowProps {
+  noWrap?: boolean;
   flexDirection?: FlexDirectionProperty;
-
-  /**
-   * Set this change to flex align items
-   */
-  alignItems?: AlignItemsProperty;
-
-  /**
-   * Set this change to flex justify content
-   */
-  justifyContent?: JustifyContentProperty;
 }
 
-const StyledRow = styled.div<LocalizeRowProps, LocalizeThemeProps>(
-  ({
-    theme,
-    flexDirection = 'row',
-    isWrap = true,
-    alignItems = 'center',
-    justifyContent = 'flex-start',
-  }) => {
-    return {
-      display: 'flex',
-      flexWrap: isWrap ? 'wrap' : 'nowrap',
-      flexDirection,
-      alignItems,
-      justifyContent,
-      boxSizing: 'border-box',
-      marginRight: theme.grid.rowGutter.right,
-      marginLeft: theme.grid.rowGutter.left,
+const LocalizeRow = styled.div<LocalizeRowProps>(({ noWrap, flexDirection = 'row' }) => ({
+  display: 'flex',
+  width: 'auto',
+  flexDirection,
+  flexWrap: noWrap ? 'unset' : 'wrap',
+  overflow: noWrap ? 'auto' : 'hidden',
+}));
 
-      [`.${DEFAULT_CLASSNAME} + .${DEFAULT_CLASSNAME}`]: {
-        marginTop: theme.grid.rowGutter.top,
-      },
-    };
-  },
-);
-
-const LocalizeRow: React.FC<LocalizeRowProps> = ({ children, className, ...props }) => {
-  return (
-    <StyledRow {...props} className={classnames(DEFAULT_CLASSNAME, className)}>
-      {children}
-    </StyledRow>
-  );
-};
-
-export { LocalizeRowProps, LocalizeRow };
-
+export { LocalizeRow };
 export default LocalizeRow;
