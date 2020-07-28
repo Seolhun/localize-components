@@ -99,18 +99,18 @@ const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
   /**
  * @name Neutral
  */
-  neutral1: '#FFFFFF',
-  neutral2: '#FAFAFA',
-  neutral3: '#F5F5F5',
-  neutral4: '#F0F0F0',
-  neutral5: '#D9D9D9',
-  neutral6: '#BFBFBF',
-  neutral7: '#595959',
-  neutral8: '#434343',
-  neutral9: '#262626',
-  neutral10: '#1F1F1F',
-  neutral11: '#141414',
-  neutral12: '#000000',
+  neutral1: '#000000',
+  neutral2: '#141414',
+  neutral3: '#1F1F1F',
+  neutral4: '#262626',
+  neutral5: '#434343',
+  neutral6: '#595959',
+  neutral7: '#BFBFBF',
+  neutral8: '#D9D9D9',
+  neutral9: '#F0F0F0',
+  neutral10: '#F5F5F5',
+  neutral11: '#FAFAFA',
+  neutral12: '#FFFFFF',
   /**
   * @name Theme
   */

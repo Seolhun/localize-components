@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { lighten } from 'polished';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
 
@@ -14,62 +14,57 @@ type ButtonProps = React.HTMLAttributes<HTMLButtonElement>;
 
 interface LocalizeButtonProps extends LocalizeProps, ButtonProps {
   size?: LocalizeSize;
-  /**
-   * Set this to change LocalizeButton font-size
-   * @default 12
-   */
-  fontSize?: number;
+
+  borderRadius?: string;
 }
+
+const getSizeStyle = (size?: LocalizeSize) => {
+  switch (size) {
+    case 'xl':
+      return '1.2rem 2rem';
+    case 'lg':
+      return '1.1rem 1.8rem';
+    case 'md':
+      return '1rem 1.6rem';
+    case 'sm':
+      return '0.9rem 1.4rem';
+    default:
+      return '0.8rem 1.2rem';
+  }
+};
 
 const StyledLocalizeButton = styled.button<
   LocalizeButtonProps,
   LocalizeThemeProps
->(({ fontSize = 12, size = 'md', theme }) => {
-  const getStyleBySize = () => {
-    switch (size) {
-      case 'xl':
-        return '1.2rem 2rem';
-      case 'lg':
-        return '1.1rem 1.8rem';
-      case 'md':
-        return '1rem 1.6rem';
-      case 'sm':
-        return '0.9rem 1.4rem';
-      default:
-        return '0.8rem 1.2rem';
-    }
-  };
-
+>(({ theme, size = 'md', borderRadius }) => {
+  const fonts = theme.fonts.font1;
   return {
+    ...fonts,
     display: 'inline-block',
     height: 'auto',
-    padding: getStyleBySize(),
-    backgroundColor: theme.colors.primary01,
+    padding: getSizeStyle(size),
+    backgroundColor: theme.colors.primary,
     border: `1px solid transparent`,
-    borderRadius: '6px',
+    borderRadius,
+    color: theme.colors.neutral1,
 
-    color: theme.colors.uiColor10,
-    fontSize: `${fontSize}px`,
-    fontWeight: 500,
-    textDecoration: 'none',
     textAlign: 'center',
     verticalAlign: 'middle',
+    textDecoration: 'none',
     whiteSpace: 'nowrap',
-
-    cursor: 'pointer',
     outline: 'none',
     transition: 'background-color 0.3s, border-color 0.3s, color 0.3s',
     userSelect: 'none',
+    cursor: 'pointer',
 
     '&:hover': {
-      border: `1px solid ${theme.colors.primary01}`,
-      backgroundColor: theme.colors.uiColor10,
-      color: theme.colors.primary01,
+      backgroundColor: lighten(0.1, theme.colors.primary),
+      borderColor: theme.colors.primary,
     },
 
     '&:disabled': {
-      backgroundColor: theme.colors.disabled,
-      color: theme.colors.disabled,
+      backgroundColor: theme.colors.neutral4,
+      color: theme.colors.neutral3,
       cursor: 'not-allowed',
     },
   };
@@ -90,5 +85,4 @@ const LocalizeButton: React.FC<LocalizeButtonProps> = ({
 );
 
 export { LocalizeButton, LocalizeButtonProps };
-
 export default LocalizeButton;

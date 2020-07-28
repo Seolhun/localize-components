@@ -32,7 +32,8 @@
   "dependencies": {
     "@seolhun/localize-components-hooks": "^0.5.2",
     "@seolhun/localize-components-styled-types": "^0.5.2",
-    "@seolhun/localize-components-styled-utils": "^0.5.2"
+    "@seolhun/localize-components-styled-utils": "^0.5.2",
+    "polished": "^3.6.5"
   },
   "devDependencies": {},
   "engines": {
