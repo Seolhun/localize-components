@@ -69,7 +69,7 @@ const StyledLocalizeChip = styled.span<LocalizeChipProps, LocalizeThemeProps>(
   },
 );
 
-export const LocalizeChip: React.FC<LocalizeChipProps> = ({
+const LocalizeChip: React.FC<LocalizeChipProps> = ({
   children,
   className = '',
   ...props
@@ -84,4 +84,5 @@ export const LocalizeChip: React.FC<LocalizeChipProps> = ({
   );
 };
 
+export { LocalizeChip };
 export default LocalizeChip;

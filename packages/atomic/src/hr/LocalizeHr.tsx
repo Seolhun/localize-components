@@ -9,21 +9,23 @@ import {
 } from '@seolhun/localize-components-styled-types';
 
 const DEFAULT_CLASSNAME = '__Localize__Hr';
+type HRProps = React.HTMLAttributes<HTMLHRElement>;
 
-export interface LocalizeHrProps extends LocalizeProps {}
+export interface LocalizeHrProps extends LocalizeProps, HRProps {}
 
 const StyledLocalizeHr = styled.hr<LocalizeHrProps, LocalizeThemeProps>(
   ({ theme }) => {
     return {
       border: 0,
       opacity: 0.1,
-      borderTop: `1px solid ${theme.colors.primary01}`,
+      borderTop: `1px solid ${theme.colors.primary}`,
     };
   },
 );
 
-export const LocalizeHr: React.FC<LocalizeHrProps> = ({ className = '' }) => (
+const LocalizeHr: React.FC<LocalizeHrProps> = ({ className = '' }) => (
   <StyledLocalizeHr className={classnames(DEFAULT_CLASSNAME, className)} />
 );
 
+export { LocalizeHr };
 export default LocalizeHr;

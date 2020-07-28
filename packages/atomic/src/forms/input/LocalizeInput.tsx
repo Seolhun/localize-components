@@ -1,425 +1,94 @@
 import React from 'react';
-
 import styled from '@emotion/styled';
-import classnames from 'classnames';
-import {
-  LocalizeThemeProps,
-  LocalizeProps,
-} from '@seolhun/localize-components-styled-types';
+import { MarginProperty } from 'csstype';
 
-const DEFAULT_CLASSNAME = '__Localize__Input';
-type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
+import { LocalizeFormLabel } from '../LocalizeFormLabel';
+import { BaseInput, BaseInputProps, InputItemDirection } from './BaseInput';
 
-export interface LocalizeInputProps extends LocalizeProps, InputProps {
-  /**
-   * Set this to change Input rendering children node
-   * @default ''
-   */
-  value: string;
+export interface LocalizeInputProps extends BaseInputProps {
+  name?: string;
 
-  /**
-   * Set this to change Input autoFocus
-   * @default false
-   */
-  autoFocus?: boolean;
+  label?: React.ReactNode;
 
-  /**
-   * Set this to change Input className
-   * @default undefined
-   */
-  className?: string;
-
-  /**
-   * Set this to change Input onSubmit
-   * @default undefined
-   */
-  onSubmit?: (...args: any[]) => void;
-
-  /**
-   * Set this to change Input font-size
-   * @default 12
-   */
-  fontSize?: number;
-
-  /**
-   * Set this to change Input message
-   * @default ''
-   */
-  message?: string;
-
-  /**
-   * Set this to change Input onChange
-   * @default undefined
-   */
-  onValidation?: (
-    ...args: any[]
-  ) => {
-    hasError: boolean;
-    message: string;
-  };
-
-  /**
-   * Set this to change Input rendering enterButton node
-   * @default null
-   */
-  enterButton?: React.ReactNode;
-
-  /**
-   * Set this to change Input useEnter
-   * @default true
-   */
-  useEnter?: boolean;
-
-  /**
-   * Set this to change Input useEnter
-   * @default (value) => value,
-   */
-  renderValue?: (value: string) => string;
+  margin?: MarginProperty<string>;
 }
 
-export interface InputState {
-  hasError: boolean;
-  isFilled: boolean;
-  isFocused: boolean;
-  message: string;
+interface LocalizeInputWrapperProps {
+  margin?: LocalizeInputProps['margin'];
 }
 
-const StyledInputBox = styled.div<LocalizeProps, LocalizeThemeProps>(
-  ({ theme }) => {
+const LocalizeInputWrapper = styled.div<LocalizeInputWrapperProps>(
+  ({ margin }) => {
     return {
       display: 'flex',
-      verticalAlign: 'middle',
-      width: '100%',
-      height: '40px',
-      backgroundColor: theme.colors.primaryBackground01,
-      borderRadius: '6px',
-      border: `2px solid ${theme.colors.uiColor07}`,
-      padding: 0,
-      transition: 'border-color 0.3s, background-color 0.3s',
-
-      ['&:disabled']: {
-        cursor: 'not-allowed',
-      },
-
-      ['&:hover, &.isFocused']: {
-        border: `2px solid ${theme.colors.primary01}`,
-      },
+      flex: 1,
+      flexDirection: 'column',
+      margin,
     };
   },
 );
 
-const StyledDivInput = styled.div<LocalizeInputProps, LocalizeThemeProps>(
-  ({ fontSize = 12, theme }) => {
-    return {
-      appearance: 'textfield',
-      display: 'block',
-      height: 'auto',
-      width: '100%',
-      margin: 'auto 10px',
-      backgroundColor: 'transparent',
-      border: 0,
-      padding: 0,
-      fontSize: `${fontSize}px`,
-      color: theme.colors.uiColor06,
-      cursor: 'text',
-      lineHeight: '25px',
-      outline: 'none',
-      whiteSpace: 'nowrap',
-
-      ['&:empty:before']: {
-        ...theme.fonts.p.fontSize,
-        content: 'attr(data-placeholder)',
-        color: theme.colors.primary02,
-      },
-
-      ['&:required']: {
-        color: `${theme.colors.error}`,
-      },
-
-      ['&:disabled']: {
-        backgroundColor: `${theme.colors.uiColor07}`,
-        border: `1px solid ${theme.colors.uiColor07}`,
-        cursor: 'not-allowed !important',
-      },
-    };
-  },
-);
-
-const StyledInput = styled.input<LocalizeInputProps, LocalizeThemeProps>(
-  ({ theme }) => {
-    return {
-      display: 'none',
-      height: 'auto',
-      width: '100%',
-      backgroundColor: 'transparent',
-      border: 0,
-      color: theme.colors.primary02,
-      lineHeight: '25px',
-      margin: 'auto 10px',
-      padding: 0,
-
-      cursor: 'text',
-      outline: 'none',
-      whiteSpace: 'nowrap',
-
-      ['&::placeholder']: {
-        ...theme.fonts.p.fontSize,
-        color: theme.colors.uiColor07,
-      },
-
-      ['&:required']: {
-        color: `${theme.colors.error}`,
-      },
-
-      ['&:disabled']: {
-        backgroundColor: `${theme.colors.uiColor07}`,
-        border: `1px solid ${theme.colors.uiColor07}`,
-        cursor: 'not-allowed !important',
-      },
-    };
-  },
-);
-
-const StyledEnterButton = styled.button<{}, LocalizeThemeProps>(({ theme }) => {
-  return {
-    alignItems: 'center',
-    backgroundColor: `${theme.colors.uiColor07}`,
-    borderRadius: '0 6px 6px 0',
-    color: `${theme.colors.uiColor08}`,
-
-    display: 'inline-flex',
-    flexBasis: '50px',
-    width: '50px',
-    flexShrink: 0,
-    height: '100%',
-    justifyContent: 'center',
-    verticalAlign: 'middle',
-
-    float: 'right',
-    cursor: 'pointer',
-
-    [`&.${DEFAULT_CLASSNAME}__EnterButton__IsFilled`]: {
-      backgroundColor: `${theme.colors.uiColor07}`,
-    },
-    [`&.${DEFAULT_CLASSNAME}__EnterButton__HasError`]: {
-      backgroundColor: `${theme.colors.uiColor07}`,
-      cursor: 'not-allowed !important',
-    },
-    ['&:hover, &:active']: {
-      backgroundColor: `${theme.colors.uiColor07}`,
-    },
-  };
+const LocalizeInputRelativeContainer = styled.div({
+  position: 'relative',
 });
 
-const StyledErrorBox = styled.div<{}, LocalizeThemeProps>(({ theme }) => {
-  return {
-    ...theme.fonts.p.fontSize,
-    display: 'flex',
-    verticalAlign: 'middle',
-    minHeight: '10px',
-    height: 'auto',
-    width: '100%',
-    marginTop: '10px',
+const ItemWrapper = styled.div<{ itemDirection?: InputItemDirection }>(
+  ({ itemDirection }) => ({
+    position: 'absolute',
+    top: '25%',
+    ...(itemDirection === 'right'
+      ? {
+          right: '12px',
+        }
+      : {
+          left: '12px',
+        }),
+  }),
+);
 
-    [`&.${DEFAULT_CLASSNAME}__ErrorBox__HasError`]: {
-      color: `${theme.colors.error}`,
-    },
-  };
-});
-
-export class LocalizeInput extends React.PureComponent<
-  LocalizeInputProps,
-  InputState
-> {
-  private inputBoxRef: any;
-  private inputRef: any;
-
-  constructor(props: LocalizeInputProps) {
-    super(props);
-    this.state = {
-      hasError: false,
-      isFilled: false,
-      isFocused: false,
-      message: props.message || '',
-    };
-    this.inputBoxRef = React.createRef();
-    this.inputRef = React.createRef();
-  }
-
-  componentDidMount() {
-    const { autoFocus } = this.props;
-
-    if (autoFocus) {
-      this.initFocusTextInput();
-    }
-  }
-
-  handleOnBlur = (event: React.FocusEvent<HTMLInputElement>) => {
-    const { onBlur } = this.props;
-
-    this.setState({
-      isFocused: false,
-    });
-    if (onBlur) {
-      onBlur(event);
-    }
-  };
-
-  handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { onChange } = this.props;
-
-    if (onChange) {
-      onChange(event);
-    }
-    this.handleOnValidation(event);
-  };
-
-  handleOnKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
-    const { useEnter = true } = this.props;
-
-    if (useEnter && event.key === 'Enter') {
-      this.handleOnSubmit();
-    }
-  };
-
-  handleOnSubmit = () => {
-    const { onSubmit } = this.props;
-    const { hasError } = this.state;
-
-    if (!hasError && onSubmit) {
-      onSubmit();
-    }
-  };
-
-  handleOnValidation = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const { onValidation } = this.props;
-
-    if (event.target.value) {
-      this.setState({
-        isFilled: !!event.target.value,
-      });
-    }
-
-    if (onValidation) {
-      const { hasError, message } = onValidation(event);
-      this.setState({
-        hasError,
-        message,
-      });
-    }
-  };
-
-  handleIsFocused = (event: React.FocusEvent<HTMLInputElement>) => {
-    const { onFocus } = this.props;
-
-    this.setState({
-      isFocused: true,
-    });
-    if (onFocus) {
-      onFocus(event);
-    }
-  };
-
-  handleRenderValue = (value: string) => {
-    const { renderValue } = this.props;
-
-    if (renderValue) {
-      return {
-        __html: renderValue(value),
-      };
-    }
-    return {
-      __html: value,
-    };
-  };
-
-  initFocusTextInput = () => {
-    if (this.inputRef) {
-      this.setState({
-        isFocused: true,
-      });
-      this.inputRef.current.focus();
-    }
-  };
-
-  render() {
-    const {
-      value,
+const LocalizeInput = React.forwardRef<HTMLInputElement, LocalizeInputProps>(
+  (
+    {
       name,
-      className,
-      disabled = false,
-      fontSize = 12,
-      enterButton = null,
-      placeholder = '',
-      required = false,
-      type = 'text',
+      error,
+      label,
+      defaultValue,
+      width = '100%',
+      itemNode,
+      itemDirection = 'right',
+      itemWidth = '40px',
+      margin = '0 0 24px 0',
+      type,
       ...props
-    }: LocalizeInputProps = this.props;
-    const { hasError, isFilled, isFocused, message }: InputState = this.state;
-
-    return (
-      <div className={classnames(DEFAULT_CLASSNAME, className)}>
-        <StyledInputBox
+    },
+    ref,
+  ) => (
+    <LocalizeInputWrapper margin={margin}>
+      {label && <LocalizeFormLabel>{label}</LocalizeFormLabel>}
+      <LocalizeInputRelativeContainer>
+        {itemDirection === 'left' && itemNode && (
+          <ItemWrapper itemDirection={itemDirection}>{itemNode}</ItemWrapper>
+        )}
+        <BaseInput
           {...props}
-          ref={this.inputBoxRef}
-          className={classnames({
-            hasError,
-            isFocused,
-          })}
-        >
-          <StyledDivInput
-            {...props}
-            ref={this.inputRef}
-            name={name}
-            disabled={disabled}
-            onBlur={this.handleOnBlur}
-            onChange={this.handleOnChange}
-            onFocus={this.handleIsFocused}
-            onKeyDown={this.handleOnKeyDown}
-            fontSize={fontSize}
-            required={required}
-            type={type}
-            value=""
-            data-placeholder={placeholder}
-            dangerouslySetInnerHTML={this.handleRenderValue(value)}
-            contentEditable
-          />
-          <StyledInput
-            {...props}
-            ref={this.inputRef}
-            disabled={disabled}
-            onBlur={this.handleOnBlur}
-            onChange={this.handleOnChange}
-            onFocus={this.handleIsFocused}
-            onKeyDown={this.handleOnKeyDown}
-            placeholder={placeholder}
-            required={required}
-            type={type}
-            value={value}
-          />
-          {enterButton && (
-            <StyledEnterButton
-              className={classnames({
-                [`${DEFAULT_CLASSNAME}__EnterButton__HasError`]: hasError,
-                [`${DEFAULT_CLASSNAME}__EnterButton__IsFilled`]:
-                  isFilled && !hasError,
-              })}
-              onClick={this.handleOnSubmit}
-            >
-              {enterButton}
-            </StyledEnterButton>
-          )}
-        </StyledInputBox>
-        <StyledErrorBox
-          className={classnames(`${DEFAULT_CLASSNAME}__ErrorBox`, {
-            [`${DEFAULT_CLASSNAME}__ErrorBox__HasError`]: hasError,
-          })}
-        >
-          {hasError && `*${message}`}
-        </StyledErrorBox>
-      </div>
-    );
-  }
-}
+          type={type}
+          ref={ref}
+          name={name}
+          defaultValue={defaultValue}
+          error={error}
+          width={width}
+          itemNode={itemNode}
+          itemDirection={itemDirection}
+          itemWidth={itemWidth}
+        />
+        {itemDirection === 'right' && itemNode && (
+          <ItemWrapper itemDirection={itemDirection}>{itemNode}</ItemWrapper>
+        )}
+      </LocalizeInputRelativeContainer>
+      {!!error && <LocalizeFormLabel color="error">{error}</LocalizeFormLabel>}
+    </LocalizeInputWrapper>
+  ),
+);
 
+export { LocalizeInput };
 export default LocalizeInput;

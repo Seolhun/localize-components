@@ -8,11 +8,11 @@ import {
   LocalizeProps,
 } from '@seolhun/localize-components-styled-types';
 
-const DEFAULT_CLASSNAME = '__Localize__Switch';
 const SWITCH_CIRCLE = 25;
 const SWITCH_CONTAINER_WIDTH = SWITCH_CIRCLE * 2 + 2;
 const SWITCH_CONTAINER_HEIGHT = SWITCH_CIRCLE + 2;
 
+const DEFAULT_CLASSNAME = '__Localize__Switch';
 type InputProps = React.HTMLAttributes<HTMLInputElement>;
 
 interface LocalizeSwitchProps extends LocalizeProps, InputProps {
@@ -72,7 +72,7 @@ const StyledSwitchLabel = styled.label<LocalizeProps, LocalizeThemeProps>(
       userSelect: 'none',
 
       [`input:checked + .${DEFAULT_CLASSNAME}__Slider:before`]: {
-        boxShadow: `0 0 1px 2px ${theme.colors.uiColor10}`,
+        boxShadow: `0 0 1px 2px ${theme.colors.neutral10}`,
         transform: `translateX(${SWITCH_CIRCLE}px)`,
       },
     };
@@ -93,7 +93,7 @@ const StyledSlider = styled.span<LocalizeProps, LocalizeThemeProps>(
       right: 0,
       bottom: 0,
       left: 0,
-      backgroundColor: theme.colors.primaryBackground01,
+      backgroundColor: theme.colors.neutral1,
       borderRadius: '35px',
       cursor: 'pointer',
       transition: 'all 0.4s',
@@ -105,7 +105,7 @@ const StyledSlider = styled.span<LocalizeProps, LocalizeThemeProps>(
         top: '1px',
         height: `${SWITCH_CIRCLE}px`,
         width: `${SWITCH_CIRCLE}px`,
-        backgroundColor: theme.colors.primary01,
+        backgroundColor: theme.colors.primary,
         borderRadius: '50%',
         transition: 'all 0.4s',
       },
@@ -155,5 +155,4 @@ const LocalizeSwitch: React.FC<LocalizeSwitchProps> = ({
 };
 
 export { LocalizeSwitchProps, LocalizeSwitch };
-
 export default LocalizeSwitch;

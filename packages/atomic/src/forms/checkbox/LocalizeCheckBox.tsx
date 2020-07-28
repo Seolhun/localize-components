@@ -133,7 +133,7 @@ const StyledCheckBox = styled.input({
 const StyledCheckMark = styled.span<LocalizeProps, LocalizeThemeProps>(
   ({ theme }) => {
     return {
-      backgroundColor: theme.colors.primary01,
+      backgroundColor: theme.colors.primary,
       borderRadius: '6px',
       border: '1px solid transparent',
       display: 'inline-flex',
@@ -145,10 +145,10 @@ const StyledCheckMark = styled.span<LocalizeProps, LocalizeThemeProps>(
       width: '16px',
 
       [`.${DEFAULT_CLASSNAME}:hover ~ &`]: {
-        border: `1px solid ${theme.colors.uiColor07}`,
+        border: `1px solid ${theme.colors.neutral6}`,
 
         ['input:checked ~ &']: {
-          backgroundColor: theme.colors.primary02,
+          backgroundColor: theme.colors.primary,
         },
       },
 
@@ -160,7 +160,7 @@ const StyledCheckMark = styled.span<LocalizeProps, LocalizeThemeProps>(
         content: '""',
         position: 'absolute',
         display: 'none',
-        border: `solid ${theme.colors.uiColor10}`,
+        border: `solid ${theme.colors.neutral6}`,
         borderWidth: '0 2px 2px 0',
         height: '8px',
         width: '4px',

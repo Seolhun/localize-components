@@ -7,13 +7,16 @@ import {
   LocalizeThemeProps,
   LocalizeProps,
   LocalizeSize,
+  LocalizeThemeFontsProps,
 } from '@seolhun/localize-components-styled-types';
 
 const DEFAULT_CLASSNAME = '__Localize__Button';
 type ButtonProps = React.HTMLAttributes<HTMLButtonElement>;
 
-interface LocalizeButtonProps extends LocalizeProps, ButtonProps {
+export interface LocalizeButtonProps extends LocalizeProps, ButtonProps {
   size?: LocalizeSize;
+
+  fontSize?: keyof LocalizeThemeFontsProps;
 
   borderRadius?: string;
 }
@@ -36,8 +39,8 @@ const getSizeStyle = (size?: LocalizeSize) => {
 const StyledLocalizeButton = styled.button<
   LocalizeButtonProps,
   LocalizeThemeProps
->(({ theme, size = 'md', borderRadius }) => {
-  const fonts = theme.fonts.font1;
+>(({ theme, size = 'md', fontSize = 'font1', borderRadius }) => {
+  const fonts = theme.fonts[fontSize];
   return {
     ...fonts,
     display: 'inline-block',
@@ -84,5 +87,5 @@ const LocalizeButton: React.FC<LocalizeButtonProps> = ({
   </StyledLocalizeButton>
 );
 
-export { LocalizeButton, LocalizeButtonProps };
+export { LocalizeButton };
 export default LocalizeButton;

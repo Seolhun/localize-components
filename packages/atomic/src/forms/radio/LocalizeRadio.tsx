@@ -142,20 +142,20 @@ const StyledCheckBox = styled.span<RadioCheckBoxProps, LocalizeThemeProps>(
     const checkedStyle = {
       alignItems: 'center',
       justifyContent: 'center',
-      border: `1px solid ${theme.colors.uiColor07}`,
+      border: `1px solid ${theme.colors.neutral6}`,
     };
 
     return {
       display: 'inline-flex',
       height: `${RADIO_CHECKMARK_WIDTH}px`,
       width: `${RADIO_CHECKMARK_WIDTH}px`,
-      backgroundColor: theme.colors.primaryBackground01,
+      backgroundColor: theme.colors.neutral1,
       borderRadius: '50%',
-      border: `1px solid ${theme.colors.uiColor07}`,
+      border: `1px solid ${theme.colors.neutral6}`,
       transition: 'border-color 0.35s, background-color 0.35s',
 
       [`.${DEFAULT_CLASSNAME}:hover ~ &`]: {
-        border: `1px solid ${theme.colors.uiColor07}`,
+        border: `1px solid ${theme.colors.neutral6}`,
       },
       ...(isChecked && checkedStyle),
     };
@@ -168,8 +168,8 @@ const StyledCheckMark = styled.span<RadioCheckBoxProps, LocalizeThemeProps>(
       position: 'absolute',
       content: '""',
       display: isChecked ? 'block' : 'none',
-      backgroundColor: theme.colors.primary01,
-      border: `1px solid ${theme.colors.uiColor07}`,
+      backgroundColor: theme.colors.primary,
+      border: `1px solid ${theme.colors.neutral6}`,
       height: `${RADIO_CHECKED_CIRCLE}px`,
       width: `${RADIO_CHECKED_CIRCLE}px`,
       borderRadius: '50%',
