@@ -1,51 +1,53 @@
-import autoprefixer from 'autoprefixer';
-import postcssFlexboxfixer from 'postcss-flexboxfixer';
-import babel from 'rollup-plugin-babel';
-import commonjs from 'rollup-plugin-commonjs';
-import resolve from 'rollup-plugin-node-resolve';
-import postcss from 'rollup-plugin-postcss';
+import babel from '@rollup/plugin-babel';
+import commonjs from '@rollup/plugin-commonjs';
 import typescript from 'rollup-plugin-typescript2';
+import resolve from '@rollup/plugin-node-resolve';
+import { terser } from 'rollup-plugin-terser';
 
 import pkg from './package.json';
 
-const externals = Object.keys(pkg.peerDependencies);
+let externals = [];
+if (pkg.dependencies) {
+  externals = Object.keys(pkg.dependencies);
+}
 
 export default {
-  input: 'src/index.ts',
+  input: './src/index.ts',
   output: [
     {
       format: 'cjs',
-      file: pkg.main,
+      file: 'dist/index.js',
     },
     {
       format: 'es',
-      file: pkg.module,
+      file: 'dist/index.esm.js',
+    },
+    {
+      format: 'cjs',
+      file: 'dist/index.min.js',
+      plugins: [terser()],
+    },
+    {
+      format: 'es',
+      file: 'dist/index.esm.min.js',
+      plugins: [terser()],
     },
   ],
   external: [...externals],
   plugins: [
     resolve({
-      dedupe: ['react', 'react-dom'],
       mainFields: ['module', 'main'],
-      extensions: ['.ts', '.tsx', '.js', '.jsx'],
-    }),
-    typescript({
-      tsconfig: 'tsconfig.json',
-      objectHashIgnoreUnknownHack: true,
+      extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
     }),
     commonjs({
       include: /node_modules/,
     }),
-    babel({
-      exclude: /node_modules/,
+    typescript({
+      tsconfig: 'tsconfig.json',
     }),
-    /**
-     * @see https://github.com/postcss/postcss/blob/master/docs/plugins.md
-     */
-    postcss({
-      extract: true,
-      plugins: [autoprefixer, postcssFlexboxfixer],
-      modules: true,
+    babel({
+      babelHelpers: 'bundled',
+      exclude: /node_modules/,
     }),
   ],
 };

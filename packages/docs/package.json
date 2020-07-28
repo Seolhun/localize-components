@@ -36,9 +36,7 @@
     "@seolhun/localize-components-hooks": "^0.5.2",
     "@seolhun/localize-components-event-utils": "^0.5.2",
     "@seolhun/localize-components-styled-types": "^0.5.2",
-    "@seolhun/localize-components-styled-utils": "^0.5.2"
-  },
-  "devDependencies": {
+    "@seolhun/localize-components-styled-utils": "^0.5.2",
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-backgrounds": "^5.3.19",
     "@storybook/addon-console": "^1.2.1",
@@ -51,12 +49,14 @@
     "@storybook/addons": "^5.3.19",
     "@storybook/react": "^5.3.19",
     "@storybook/theming": "^5.3.19",
+    "storybook-dark-mode": "^0.6.1"
+  },
+  "devDependencies": {
     "@types/storybook__addon-backgrounds": "^5.2.1",
     "@types/storybook__addon-options": "^5.2.1",
     "@types/storybook__addon-viewport": "^5.2.1",
     "@types/storybook__react": "^5.2.1",
     "react-docgen-typescript-loader": "^3.7.2",
-    "storybook-dark-mode": "^0.6.1",
     "ts-loader": "^7.0.5"
   },
   "engines": {

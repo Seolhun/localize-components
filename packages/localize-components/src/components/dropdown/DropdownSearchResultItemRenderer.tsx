@@ -70,7 +70,9 @@ const StyledSearchResultItem = styled.div<
   },
 }));
 
-export const DropdownSearchResultItemRenderer: React.FC<DropdownSearchResultItemRendererProps> = ({
+export const DropdownSearchResultItemRenderer: React.FC<
+  DropdownSearchResultItemRendererProps
+> = ({
   items,
   selectedItemIndex,
   renderItem,

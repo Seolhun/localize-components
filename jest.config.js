@@ -18,14 +18,14 @@ module.exports = {
   },
   transformIgnorePatterns: ['/node_modules/', '^.+\\.module\\.(css|sass|scss)$'],
   testPathIgnorePatterns: ['/node_modules/', '/.next/'],
-  testMatch: ['<rootDir>/__test__/**/*.(test|spec).ts?(x)'],
+  testMatch: ['<rootDir>/test/**/*.(test|spec).ts?(x)'],
   moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx', 'js', 'jsx'],
   moduleNameMapper: {
     '^.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2|svg)$': 'identity-obj-proxy',
     '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
-    '^.+\\.worker.(js|ts)$': '<rootDir>/__test__/__mocks__/workerMock.ts',
-    'worker-loader?(.*)': '<rootDir>/__test__/__mocks__/workerMock.ts',
+    '^.+\\.worker.(js|ts)$': '<rootDir>/test/__mocks__/workerMock.ts',
+    'worker-loader?(.*)': '<rootDir>/test/__mocks__/workerMock.ts',
   },
   setupFiles: ['jest-canvas-mock'],
-  setupFilesAfterEnv: ['<rootDir>/__test__/setUpTest.ts'],
+  setupFilesAfterEnv: ['<rootDir>/test/setUpTest.ts'],
 };

@@ -20,7 +20,7 @@
       ]
     },
     "bootstrap": {
-      "ignore":[
+      "ignore": [
         "packages/docs"
       ]
     }

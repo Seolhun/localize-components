@@ -12,5 +12,4 @@ const useDisclosure = (defaultIsOpen = false) => {
 };
 
 export { useDisclosure };
-
 export default useDisclosure;
