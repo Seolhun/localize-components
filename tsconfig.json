@@ -3,56 +3,42 @@
     "target": "ES5",
     "module": "ESNext",
     "moduleResolution": "Node",
+    "inlineSourceMap": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "lib": [
-      "DOM",
-      "DOM.Iterable",
       "ES5",
       "ES6",
+      "ES7",
+      "dom"
     ],
     "jsx": "react",
-    /* Enable all strict type-checking options. */
-    // https://stackoverflow.com/questions/36795819/when-should-i-use-curly-braces-for-es6-import/36796281#36796281
-    "strict": true,
+    "allowJs": true,
     /* Strict Type-Checking Options */
-    "noImplicitAny": false,
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "strictPropertyInitialization": true,
+    "noImplicitAny": true,
     "noImplicitThis": true,
-    "alwaysStrict": true,
+    "strict": true /* Enable all strict type-checking options. */,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
     /* Additional Checks */
-    /* Report errors on unused locals. */
-    "noUnusedLocals": true,
-    /* Report errors on unused parameters. */
-    "noUnusedParameters": false,
-    /* Report error when not all code paths in function return a value. */
-    "noImplicitReturns": true,
-    /* Report errors for fallthrough cases in switch statement. */
-    "noFallthroughCasesInSwitch": true,
+    "noFallthroughCasesInSwitch": true /* Report errors for fallthrough cases in switch statement. */,
+    "noImplicitReturns": true /* Report error when not all code paths in function return a value. */,
+    "noUnusedLocals": true /* Report errors on unused locals. */,
+    "noUnusedParameters": true /* Report errors on unused parameters. */,
     /* Debugging Options */
-    /* Report module resolution log messages. */
-    "traceResolution": false,
-    /* Print names of generated files part of the compilation. */
-    "listEmittedFiles": false,
-    /* Print names of files part of the compilation. */
-    "listFiles": false,
-    /* Stylize errors and messages using color and context. */
-    "pretty": true,
-    // Mine
-    "declaration": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "noEmitOnError": true,
-    "sourceMap": false,
-    "rootDir": ".",
-    "outDir": "dist",
+    "pretty": true /* Stylize errors and messages using color and context. */,
+    "traceResolution": false /* Report module resolution log messages. */,
+    // Customized
+    "declaration": true,
+    "outDir": "dist"
   },
   "exclude": [
     ".vscode",
     "node_modules/**",
-    "./src/__test__/**",
-    "./src/**/*.test.ts",
-  ],
+    "__test__/**",
+  ]
 }
