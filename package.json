@@ -43,8 +43,9 @@
     "lint:fix": "eslint --fix '**/*.{ts,tsx,js,jsx}'",
     "prettier": "prettier --write '**/*.{ts,tsx,js,jsx}'",
     "fix": "npm run prettier && npm run lint:fix",
-    "deploy:docs": "surge packages/docs/dist/ http://localize-components-docs.surge.sh",
-    "deploy:docs:dev": "surge packages/docs/dist/ http://dev.localize-components-docs.surge.sh"
+    "build:docs": "cd docs && npm run build",
+    "deploy:docs": "surge docs/dist/ http://localize-components-docs.surge.sh",
+    "deploy:docs:dev": "surge docs/dist/ http://dev.localize-components-docs.surge.sh"
   },
   "dependencies": {
     "@emotion/core": "^10.0.28",

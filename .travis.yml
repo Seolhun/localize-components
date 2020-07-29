@@ -1,7 +1,7 @@
 language: node_js
 
 node_js:
-  - "10"
+  - '10'
 
 branches:
   only:
@@ -12,15 +12,20 @@ branches:
 install:
   - npm install
 
-script:
-  - npm run bs
-  - npm run lint
-  - npm run test
-  - npm run build
+jobs:
+  include:
+    - stage: Component Build
+      script:
+        - npm run bs
+        - npm run lint
+        - npm run test
+        - npm run build
 
-deploy:
-  - provider: script
-    script: ./bin/surge-deploy.sh
+    - stage: Docs Build
+      name: Storybook build & deploy
+      script:
+        - npm run docs:build
+      after_success: ./bin/surge-deploy.sh
 
 notifications:
   email:
