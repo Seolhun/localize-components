@@ -116,7 +116,6 @@ const localizeFonts: LocalizeThemeFontsProps = {
     fontWeight: 400,
     lineHeight: '76px',
   },
-
 };
 
 export { FontProps, LocalizeThemeFontsProps, localizeFonts };

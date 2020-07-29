@@ -1,7 +1,6 @@
 import React from 'react';
 import { Global, css } from '@emotion/core';
 import { addDecorator, configure, addParameters } from '@storybook/react';
-import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
 import { DocsPage, DocsContainer } from '@storybook/addon-docs/blocks';
 
 import { StoriesThemeWrapper } from '../src/_stories';
@@ -30,13 +29,6 @@ function loadStories() {
       {story()}
     </StoriesThemeWrapper>
   ));
-  addParameters({
-    viewport: {
-      viewports: {
-        ...INITIAL_VIEWPORTS,
-      },
-    },
-  });
   addParameters({
     docs: {
       container: DocsContainer,
