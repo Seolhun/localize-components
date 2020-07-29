@@ -5,9 +5,10 @@ import {
   text,
   // select
 } from '@storybook/addon-knobs';
-import { LocalizeButton } from '@seolhun/localize-components-atomic';
 
-// import { BDSize } from '../system';
+import { LocalizeButton } from '../../../packages/atomic';
+
+// import { LocalizeSize } from '../system';
 // import { storiesSizeOption } from '../_stories';
 
 export default {

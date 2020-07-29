@@ -42,8 +42,21 @@ interface LocalizeThemeProps<K = keyof typeof LocalizeThemeEnum> {
   };
   colors: {
     /**
-   * @name Neutral
-   */
+    * @name Primary
+    */
+    primary1: string;
+    primary2: string;
+    primary3: string;
+    primary4: string;
+    primary5: string;
+    primary6: string;
+    primary7: string;
+    primary8: string;
+    primary9: string;
+    primary10: string;
+    /**
+    * @name Neutral
+    */
     neutral1: string;
     neutral2: string;
     neutral3: string;
@@ -69,6 +82,16 @@ interface LocalizeThemeProps<K = keyof typeof LocalizeThemeEnum> {
 }
 
 const localizeLightThemeColors: LocalizeThemeProps['colors'] = {
+  primary1: '#e6f7ff',
+  primary2: '#bae7ff',
+  primary3: '#91d5ff',
+  primary4: '#69c0ff',
+  primary5: '#40a9ff',
+  primary6: '#1890ff',
+  primary7: '#096dd9',
+  primary8: '#0050b3',
+  primary9: '#003a8c',
+  primary10: '#002766',
   /**
  * @name Neutral
  */
@@ -96,6 +119,16 @@ const localizeLightThemeColors: LocalizeThemeProps['colors'] = {
 };
 
 const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
+  primary1: '#002766',
+  primary2: '#003a8c',
+  primary3: '#0050b3',
+  primary4: '#096dd9',
+  primary5: '#1890ff',
+  primary6: '#40a9ff',
+  primary7: '#69c0ff',
+  primary8: '#91d5ff',
+  primary9: '#bae7ff',
+  primary10: '#e6f7ff',
   /**
  * @name Neutral
  */

@@ -12,7 +12,7 @@ import { LocalizeModal, LocalizeModalProps } from '../modal';
 
 const DEFAULT_CLASSNAME = '__Localize__Alert';
 
-interface LocalizeAlertProps extends LocalizeProps, LocalizeModalProps {
+export interface LocalizeAlertProps extends LocalizeProps, LocalizeModalProps {
   /**
    * Set this to change Alert Click
    */
@@ -70,6 +70,5 @@ const LocalizeAlert: React.FC<LocalizeAlertProps> = ({
   );
 };
 
-export { LocalizeAlert, LocalizeAlertProps };
-
+export { LocalizeAlert };
 export default LocalizeAlert;

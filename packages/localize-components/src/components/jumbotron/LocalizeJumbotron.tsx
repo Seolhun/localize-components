@@ -10,7 +10,7 @@ import {
 const DEFAULT_CLASSNAME = '__Localize__Jumbotron';
 type DivProps = React.HTMLAttributes<HTMLDivElement>;
 
-interface LocalizeJumbotronProps extends LocalizeProps, DivProps {
+export interface LocalizeJumbotronProps extends LocalizeProps, DivProps {
   /**
    * Set this to change Jumbotron description
    * @default ''
@@ -27,8 +27,8 @@ interface LocalizeJumbotronProps extends LocalizeProps, DivProps {
 const StyledJumbotronWrapper = styled.div<LocalizeProps, LocalizeThemeProps>(
   ({ theme, bgColor, fontColor }) => {
     return {
-      backgroundColor: bgColor ? theme.colors[bgColor] : theme.colors.primary01,
-      color: fontColor ? theme.colors[fontColor] : theme.colors.uiColor10,
+      backgroundColor: bgColor ? theme.colors[bgColor] : theme.colors.primary,
+      color: fontColor ? theme.colors[fontColor] : theme.colors.neutral1,
       height: 'auto',
       width: '100%',
       padding: '1rem 2rem',
@@ -63,6 +63,5 @@ const LocalizeJumbotron: React.FC<LocalizeJumbotronProps> = ({
   );
 };
 
-export { LocalizeJumbotron, LocalizeJumbotronProps };
-
+export { LocalizeJumbotron };
 export default LocalizeJumbotron;

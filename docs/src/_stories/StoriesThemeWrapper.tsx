@@ -1,14 +1,13 @@
 import React from 'react';
-
+import styled from '@emotion/styled';
 import { ThemeProvider } from 'emotion-theming';
+import { useDarkMode } from 'storybook-dark-mode';
+
 import {
   LocalizeThemeProps,
   localizeDarkTheme,
   localizeLightTheme,
-} from '@seolhun/localize-components-styled-types';
-import { useDarkMode } from 'storybook-dark-mode';
-
-import styled from '@emotion/styled';
+} from '../../../packages/styled-types';
 
 interface StoriesThemeWrapperProps {}
 
@@ -33,5 +32,4 @@ const StoriesThemeWrapper: React.FC<StoriesThemeWrapperProps> = ({
 );
 
 export { StoriesThemeWrapper };
-
 export default StoriesThemeWrapper;

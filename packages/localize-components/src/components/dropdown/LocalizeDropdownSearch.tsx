@@ -2,7 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
 
-import { SquareInput } from '@seolhun/localize-components-atomic';
+import { LocalizeInput } from '@seolhun/localize-components-atomic';
 import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
 import { DropdownSearchResultItem } from './DropdownSearchResultItem';
@@ -176,8 +176,8 @@ const SearchResulContainer = styled.div<
   width: '100%',
   maxHeight: `${resultMaxHeight}px`,
   borderRadius: '5px',
-  border: `1px solid ${theme.colors.primary01}`,
-  backgroundColor: theme.colors.primaryBackground01,
+  border: `1px solid ${theme.colors.primary}`,
+  backgroundColor: theme.colors.neutral1,
   margin: '-14px 0 0',
   padding: '0',
   overflowY: 'auto',
@@ -188,8 +188,7 @@ const SearchResultWrapper = styled.div({
   margin: 0,
 });
 
-// export const LocalizeDropdownSearch: React.FC<LocalizeDropdownSearchProps> = ({
-export const LocalizeDropdownSearch = React.forwardRef<
+const LocalizeDropdownSearch = React.forwardRef<
   HTMLInputElement,
   LocalizeDropdownSearchProps
 >(
@@ -411,7 +410,7 @@ export const LocalizeDropdownSearch = React.forwardRef<
         <SearchDropdownInputContainer
           className={`${DEFAULT_CLASSNAME}__Input__Container`}
         >
-          <SquareInput
+          <LocalizeInput
             {...props}
             ref={inputRef}
             className={`${DEFAULT_CLASSNAME}__Input`}
@@ -426,7 +425,6 @@ export const LocalizeDropdownSearch = React.forwardRef<
             autoComplete="off"
           />
         </SearchDropdownInputContainer>
-        {/* TODO: React.window */}
         <SearchResulWrapper
           className={`${DEFAULT_CLASSNAME}__ResultWrapper`}
           isShowResult={isShowResult}
@@ -461,4 +459,5 @@ export const LocalizeDropdownSearch = React.forwardRef<
   },
 );
 
+export { LocalizeDropdownSearch };
 export default LocalizeDropdownSearch;

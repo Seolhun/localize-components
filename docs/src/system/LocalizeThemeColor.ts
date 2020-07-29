@@ -1,4 +1,4 @@
-import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
+import { LocalizeThemeProps } from '../../../packages/styled-types';
 
 type LocalizeThemeColor = keyof LocalizeThemeProps['colors'];
 

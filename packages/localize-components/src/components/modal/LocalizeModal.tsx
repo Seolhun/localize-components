@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
 import styled from '@emotion/styled';
 import classnames from 'classnames';
+
 import {
   LocalizeThemeProps,
   LocalizeProps,
@@ -13,7 +13,7 @@ import { preventWindowScroll } from '@seolhun/localize-components-event-utils';
 const DEFAULT_CLASSNAME = '__Localize__Modal';
 type DivProps = React.HTMLAttributes<HTMLDivElement>;
 
-interface LocalizeModalProps extends LocalizeProps, DivProps {
+export interface LocalizeModalProps extends LocalizeProps, DivProps {
   /**
    * Set this to change Modal visibility
    */
@@ -42,7 +42,7 @@ const LocalizeModalWrapper = styled.div<LocalizeProps>(({ zIndex = 100 }) => {
   };
 });
 
-const LocalizeModalContainer = styled.div<LocalizeProps, LocalizeThemeProps>(
+const LocalizeModalContainer = styled.div<{}, LocalizeThemeProps>(
   ({ theme }) => {
     return {
       position: 'fixed',
@@ -54,7 +54,7 @@ const LocalizeModalContainer = styled.div<LocalizeProps, LocalizeThemeProps>(
       minHeight: '10rem',
       height: 'auto',
       maxHeight: '100%',
-      backgroundColor: theme.colors.primaryBackground01,
+      backgroundColor: theme.colors.neutral1,
       borderRadius: '5px',
     };
   },
@@ -126,7 +126,7 @@ const LocalizeModal: React.FC<LocalizeModalProps> = ({
       tabIndex={0}
       {...props}
     >
-      <LocalizeModalContainer {...props}>
+      <LocalizeModalContainer>
         <CloseButton />
         {children}
       </LocalizeModalContainer>
@@ -135,6 +135,5 @@ const LocalizeModal: React.FC<LocalizeModalProps> = ({
   );
 };
 
-export { LocalizeModal, LocalizeModalProps };
-
+export { LocalizeModal };
 export default LocalizeModal;

@@ -9,8 +9,9 @@ import { useDisclosure } from '@seolhun/localize-components-hooks';
 import { LAYOUT, fadeIn } from '../../styles';
 
 const DEFAULT_CLASSNAME = '__Localize__ShadowBox';
+type DivProps = React.HTMLAttributes<HTMLDivElement>;
 
-interface LocalizeShadowBoxProps extends LocalizeProps {
+export interface LocalizeShadowBoxProps extends LocalizeProps, DivProps {
   /**
    * Set this to change LocalizeShadowBox isShow
    */
@@ -129,6 +130,5 @@ const LocalizeShadowBox: React.FC<LocalizeShadowBoxProps> = ({
   );
 };
 
-export { LocalizeShadowBoxProps, LocalizeShadowBox };
-
+export { LocalizeShadowBox };
 export default LocalizeShadowBox;

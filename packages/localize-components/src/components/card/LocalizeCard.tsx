@@ -31,12 +31,13 @@ const StyledLocalizeCardContainer = styled.div<
   return {
     padding: '15px 20px',
     borderRadius: borderRadius || '5px',
-    boxShadow: `0px 2px 1px -1px ${theme.colors.uiColor07}, 0px 1px 1px 0px ${theme.colors.uiColor07}, 0px 1px 3px 0px ${theme.colors.uiColor07}`,
-    backgroundColor: theme.colors.primaryBackground01,
+    boxShadow: `0px 2px 1px -1px ${theme.colors.neutral4}, 0px 1px 1px 0px ${theme.colors.neutral4}, 0px 1px 3px 0px ${theme.colors.neutral4}`,
+    backgroundColor: theme.colors.neutral1,
+    color: theme.colors.neutral12,
   };
 });
 
-export const LocalizeCard: React.FC<LocalizeCardProps> = ({
+const LocalizeCard: React.FC<LocalizeCardProps> = ({
   className,
   children,
   ...props
@@ -53,4 +54,5 @@ export const LocalizeCard: React.FC<LocalizeCardProps> = ({
   </StyledLocalizeCardWrapper>
 );
 
+export { LocalizeCard };
 export default LocalizeCard;

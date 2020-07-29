@@ -70,9 +70,7 @@ const SearchResultItemContainer = styled.div({
   margin: 0,
 });
 
-export const DropdownSearchResultItem: React.FC<
-  DropdownSearchResultItemProps
-> = ({
+export const DropdownSearchResultItem: React.FC<DropdownSearchResultItemProps> = ({
   items,
   isFetching,
   isFetchingNode,

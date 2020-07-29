@@ -1,9 +1,9 @@
 import { localizeLightTheme } from '@seolhun/localize-components-styled-types';
 
-import { BDSizeObject } from '../system';
+import { LocalizeSizeObject } from '../system';
 import { StoriesThemeWrapper } from './StoriesThemeWrapper';
 
-const storiesSizeOption: BDSizeObject = {
+const storiesSizeOption: LocalizeSizeObject = {
   xl: 'xl',
   lg: 'lg',
   md: 'md',

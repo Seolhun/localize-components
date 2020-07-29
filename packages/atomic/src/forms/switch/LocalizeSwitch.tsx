@@ -72,7 +72,7 @@ const StyledSwitchLabel = styled.label<LocalizeProps, LocalizeThemeProps>(
       userSelect: 'none',
 
       [`input:checked + .${DEFAULT_CLASSNAME}__Slider:before`]: {
-        boxShadow: `0 0 1px 2px ${theme.colors.neutral10}`,
+        boxShadow: `0 0 1px 2px ${theme.colors.neutral4}`,
         transform: `translateX(${SWITCH_CIRCLE}px)`,
       },
     };

@@ -10,16 +10,15 @@ import {
 import classnames from 'classnames';
 
 const DEFAULT_CLASSNAME = '__Localize__Box';
+type DivProps = React.HTMLAttributes<HTMLDivElement>;
 
-export interface LocalizeBoxProps
-  extends LocalizeProps,
-    React.HTMLAttributes<HTMLDivElement> {}
+export interface LocalizeBoxProps extends LocalizeProps, DivProps {}
 
 const StyledBoxWrapper = styled.div<LocalizeBoxProps, LocalizeThemeProps>(
   ({ theme }) => {
     return {
-      backgroundColor: theme.colors.primaryBackground01,
-      color: theme.colors.uiColor08,
+      backgroundColor: theme.colors.neutral1,
+      color: theme.colors.neutral12,
       height: 'auto',
       width: '100%',
       padding: '1rem, 2rem',
@@ -33,7 +32,7 @@ const StyledBoxContainer = styled.div<LocalizeBoxProps>({
   height: '100%',
 });
 
-export const LocalizeBox: React.FC<LocalizeBoxProps> = ({
+const LocalizeBox: React.FC<LocalizeBoxProps> = ({
   children,
   className,
   css = {},
@@ -51,4 +50,5 @@ export const LocalizeBox: React.FC<LocalizeBoxProps> = ({
   );
 };
 
+export { LocalizeBox };
 export default LocalizeBox;

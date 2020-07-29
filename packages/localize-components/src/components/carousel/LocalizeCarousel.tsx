@@ -6,16 +6,16 @@ import styled from '@emotion/styled';
 import { getClientWindowSize } from '@seolhun/localize-components-event-utils';
 import { LocalizeProps } from '@seolhun/localize-components-styled-types';
 
-const DEFAULT_CLASSNAME = '__Localize__Carousel';
-type DivProps = React.HTMLAttributes<HTMLDivElement>;
-
 const PAGINATION = {
   PREV: 'prev',
   NEXT: 'next',
 };
 const DEFAULT_RATIO = 0.5;
 
-interface LocalizeCarouselProps extends LocalizeProps, DivProps {
+const DEFAULT_CLASSNAME = '__Localize__Carousel';
+type DivProps = React.HTMLAttributes<HTMLDivElement>;
+
+export interface LocalizeCarouselProps extends LocalizeProps, DivProps {
   /**
    * Set this to change LocalizeCarousel render items
    */
@@ -161,6 +161,5 @@ const LocalizeCarousel: React.FC<LocalizeCarouselProps> = ({
   );
 };
 
-export { LocalizeCarouselProps, LocalizeCarousel };
-
+export { LocalizeCarousel };
 export default LocalizeCarousel;

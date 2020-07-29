@@ -15,13 +15,7 @@
       ],
       "ignoreChanges": [
         "**/__test__",
-        "**/*.md",
-        "packages/docs"
-      ]
-    },
-    "bootstrap": {
-      "ignore": [
-        "packages/docs"
+        "**/*.md"
       ]
     }
   },
