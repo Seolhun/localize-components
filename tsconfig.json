@@ -4,8 +4,8 @@
     "module": "ESNext",
     "moduleResolution": "Node",
     "inlineSourceMap": true,
-    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "lib": [
       "ES5",
       "ES6",
