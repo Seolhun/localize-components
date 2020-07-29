@@ -1,2 +1,3 @@
-export * from './LocalizeSize';
-export * from './LocalizeThemeColor';
+export * from './colors';
+export * from './fonts';
+export * from './sizes';

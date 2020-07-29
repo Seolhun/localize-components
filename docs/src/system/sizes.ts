@@ -1,7 +1,7 @@
 import { LocalizeSize } from '../../../packages/styled-types';
 
-type LocalizeSizeObject = {
+export type LocalizeSizeObject = {
   [key in LocalizeSize]: string;
 };
 
-export { LocalizeSize, LocalizeSizeObject };
+export { LocalizeSize };

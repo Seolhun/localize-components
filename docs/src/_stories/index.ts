@@ -1,6 +1,5 @@
 import { LocalizeSizeObject } from '../system';
 import { StoriesThemeWrapper } from './StoriesThemeWrapper';
-
 import { localizeLightTheme } from '../../../packages/styled-types';
 
 const storiesSizeOption: LocalizeSizeObject = {
@@ -19,9 +18,14 @@ const storiesColorOption = Object.keys(localizeLightTheme.colors).reduce(
   {},
 );
 
-export { storiesSizeOption, storiesColorOption, StoriesThemeWrapper };
+const storiesFontOption = Object.keys(localizeLightTheme.fonts).reduce(
+  (acc, key) => ({
+    ...acc,
+    [key]: key,
+  }),
+  {},
+);
 
-export default {
-  storiesSizeOption,
-  storiesColorOption,
+export {
+  storiesSizeOption, storiesColorOption, storiesFontOption, StoriesThemeWrapper
 };
