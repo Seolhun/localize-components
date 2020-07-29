@@ -36,7 +36,11 @@ const getSizeStyle = (size?: LocalizeSize) => {
 const StyledLocalizeButton = styled.button<
   LocalizeButtonProps,
   LocalizeThemeProps
->(({ theme, size = 'md', bgColor = 'primary' }) => {
+>(({ theme, size = 'md', bgColor = 'primary', borderRadius }) => {
+  const fonts = theme.fonts.font1;
+  const backgroundColor = theme.colors[bgColor];
+  const color = theme.colors.neutral1;
+
   return {
     ...fonts,
     display: 'inline-block',
@@ -45,8 +49,7 @@ const StyledLocalizeButton = styled.button<
     backgroundColor,
     border: `1px solid transparent`,
     borderRadius,
-    color: theme.colors.neutral1,
-
+    color,
     textAlign: 'center',
     verticalAlign: 'middle',
     textDecoration: 'none',
