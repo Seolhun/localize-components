@@ -14,7 +14,7 @@
         "develop"
       ],
       "ignoreChanges": [
-        "**/__test__",
+        "**/test",
         "**/*.md"
       ]
     }

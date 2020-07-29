@@ -10,7 +10,8 @@
       "ES5",
       "ES6",
       "ES7",
-      "dom"
+      "DOM",
+      "DOM.Iterable",
     ],
     "jsx": "react",
     "allowJs": true,
@@ -39,6 +40,6 @@
   "exclude": [
     ".vscode",
     "node_modules/**",
-    "__test__/**",
+    "test/**",
   ]
 }
