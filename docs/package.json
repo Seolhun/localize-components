@@ -59,7 +59,9 @@
     "@types/storybook__addon-viewport": "^5.2.1",
     "@types/storybook__react": "^5.2.1",
     "react-docgen-typescript-loader": "^3.7.2",
-    "ts-loader": "^7.0.5"
+    "ts-loader": "^7.0.5",
+    "ts-node": "^8.0.3",
+    "typescript": "^3.9.7"
   },
   "engines": {
     "node": ">= 6.0.0",

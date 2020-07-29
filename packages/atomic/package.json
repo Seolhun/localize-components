@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "@fortawesome/react-fontawesome": "^0.1.11",
+    "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@seolhun/localize-components-hooks": "^0.5.2",
     "@seolhun/localize-components-styled-types": "^0.5.2",
     "polished": "^3.6.5"

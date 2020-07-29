@@ -1,7 +1,7 @@
-import { localizeLightTheme } from '@seolhun/localize-components-styled-types';
-
 import { LocalizeSizeObject } from '../system';
 import { StoriesThemeWrapper } from './StoriesThemeWrapper';
+
+import { localizeLightTheme } from '../../../packages/styled-types';
 
 const storiesSizeOption: LocalizeSizeObject = {
   xl: 'xl',
