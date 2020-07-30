@@ -12,20 +12,15 @@ branches:
 install:
   - npm install
 
-jobs:
-  include:
-    - stage: Component Build
-      script:
-        - npm run bs
-        - npm run lint
-        - npm run test
-        - npm run build
+script:
+  - npm run bs
+  - npm run lint
+  - npm run test
+  - npm run build
+  - npm run build:docs
 
-    - stage: Docs Build
-      name: Storybook build & deploy
-      script:
-        - npm run docs:build
-      after_success: ./bin/surge-deploy.sh
+after_success:
+  - ./bin/surge-deploy.sh
 
 notifications:
   email:
