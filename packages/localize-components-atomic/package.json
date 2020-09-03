@@ -32,7 +32,7 @@
     "@seolhun/localize-components-types": "^0.5.2",
     "@seolhun/localize-components-utils-event": "^0.5.2",
     "classnames": "^2.2.6",
-    "core-js": "^3.5.0",
+    "core-js": "^3.6.5",
     "emotion-theming": "^10.0.27",
     "lodash": "^4.17.15",
     "polished": "^3.4.2",
