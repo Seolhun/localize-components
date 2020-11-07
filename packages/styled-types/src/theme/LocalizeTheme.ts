@@ -35,6 +35,9 @@ export interface LocalizeThemeProps<K = keyof typeof LocalizeThemeEnum> {
   type: K;
   fonts: LocalizeThemeFontsProps;
   colors: {
+    /**
+     * @name Primary
+     */
     primary1: string;
     primary2: string;
     primary3: string;
@@ -59,8 +62,8 @@ export interface LocalizeThemeProps<K = keyof typeof LocalizeThemeEnum> {
     secondary9: string;
     secondary10: string;
     /**
-    * @name Neutral
-    */
+     * @name Neutral
+     */
     neutral1: string;
     neutral2: string;
     neutral3: string;

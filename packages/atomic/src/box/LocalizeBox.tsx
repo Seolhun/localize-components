@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
-import { GOCIcon } from '../icons';
+import { LocalizeIcon } from '../icons';
 
 const CLASSNAME = '__Localize__Box';
 type DivProps = React.HTMLAttributes<HTMLDivElement>;
@@ -61,24 +61,20 @@ const LocalizeBoxCloser = styled.span<{}, LocalizeThemeProps>(({ theme }) => {
     height: '32px',
     border: `1px solid ${theme.colors.info}`,
     borderRadius: '50%',
-
-    [MEDIA_QUERIES.XS]: {
-      right: '-4px',
-      top: '-12px',
-    },
   };
 });
 
-const LocalizeBoxContainer = styled.div<LocalizeBoxContainerProps, LocalizeThemeProps>(
-  ({ padding, closable }) => {
-    return {
-      padding,
-      ...(closable && {
-        paddingRight: '52px',
-      }),
-    };
-  },
-);
+const LocalizeBoxContainer = styled.div<
+  LocalizeBoxContainerProps,
+  LocalizeThemeProps
+>(({ padding, closable }) => {
+  return {
+    padding,
+    ...(closable && {
+      paddingRight: '52px',
+    }),
+  };
+});
 
 const LocalizeBox: React.FC<LocalizeBoxProps> = ({
   children,
@@ -91,7 +87,7 @@ const LocalizeBox: React.FC<LocalizeBoxProps> = ({
   <LocalizeBoxWrapper {...props} className={classnames(CLASSNAME, className)}>
     {closable && (
       <LocalizeBoxCloser onClick={onClose}>
-        <GOCIcon icon={['fal', 'times']} color="info" iconSize="16px" />
+        <LocalizeIcon icon={['fal', 'times']} color="info" iconSize="16px" />
       </LocalizeBoxCloser>
     )}
     <LocalizeBoxContainer padding={padding} closable={closable}>

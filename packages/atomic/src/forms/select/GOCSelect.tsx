@@ -7,9 +7,9 @@ import { MEDIA_QUERIES } from '@/constants';
 import { GOCIcon } from '@/components';
 import { GOC_CONFIG } from '@/GOCConfig';
 
-import { GOCFormUIProps } from '../GOCFormUITypes';
-import { GOCFormDescription } from '../GOCFormDescription';
-import { GOCFormLabel } from '../GOCFormLabel';
+import { GOCFormUIProps } from '../LocalizeFormUITypes';
+import { GOCFormDescription } from '../LocalizeFormDescription';
+import { GOCFormLabel } from '../LocalizeFormLabel';
 import { GOCButton } from '../../button';
 import { GOCRadio, GOCRadioGroup } from '../radio';
 
@@ -102,14 +102,14 @@ const GOCSelectPlaceholder = styled.div<{}, GOCThemeProps>(({ theme }) => {
   return {
     ...theme.fonts[16],
     color: theme.colors['black-65'],
-  }
+  };
 });
 
 const GOCSelectArrowIconContainer = styled.span<{}, GOCThemeProps>(() => {
   return {
     position: 'absolute',
     right: '20px',
-  }
+  };
 });
 
 const GOCSelectBackground = styled(animated.div)<{}, GOCThemeProps>(
@@ -347,11 +347,15 @@ const GOCSelect = React.forwardRef<HTMLInputElement, GOCSelectProps>(
           <GOCSelectInputWrapper onClick={toggleSelector}>
             {currentItem?.key ? (
               <div>{getItemLabel(currentItem)}</div>
-            ): (
+            ) : (
               <GOCSelectPlaceholder>{props.placeholder}</GOCSelectPlaceholder>
             )}
             <GOCSelectArrowIconContainer>
-              <GOCIcon icon={['fas', 'chevron-down']} iconSize='12px' color='black-45' />
+              <GOCIcon
+                icon={['fas', 'chevron-down']}
+                iconSize="12px"
+                color="black-45"
+              />
             </GOCSelectArrowIconContainer>
           </GOCSelectInputWrapper>
           {/* Displayed SelectInput Part - End */}

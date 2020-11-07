@@ -3,9 +3,9 @@ import styled from '@emotion/styled';
 
 import { GOCThemeProps } from '@/context';
 
-import { GOCFormUIProps } from '../GOCFormUITypes';
-import GOCFormLabel from '../GOCFormLabel';
-import GOCFormDescription from '../GOCFormDescription';
+import { GOCFormUIProps } from '../LocalizeFormUITypes';
+import GOCFormLabel from '../LocalizeFormLabel';
+import GOCFormDescription from '../LocalizeFormDescription';
 
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
 

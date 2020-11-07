@@ -5,5 +5,5 @@ export * from './range';
 export * from './select';
 export * from './textarea';
 
-export * from './GOCFormGroup';
-export * from './GOCFormItem';
+export * from './LocalizeFormGroup';
+export * from './LocalizeFormItem';

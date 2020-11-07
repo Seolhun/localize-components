@@ -47,8 +47,16 @@ const LocalizeImageElement = styled.img<LocalizeImageProps>(
   }),
 );
 
-const LocalizeImage: React.FC<LocalizeImageProps> = ({ className, ...props }) => {
-  return <LocalizeImageElement {...props} className={classnames(CLASSNAME, className)} />;
+const LocalizeImage: React.FC<LocalizeImageProps> = ({
+  className,
+  ...props
+}) => {
+  return (
+    <LocalizeImageElement
+      {...props}
+      className={classnames(CLASSNAME, className)}
+    />
+  );
 };
 
 export { LocalizeImage };

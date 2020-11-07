@@ -36,10 +36,7 @@ const LocalizeFlex: React.FC<LocalizeFlexProps> = ({
   className,
   ...props
 }) => (
-  <StyledLocalizeFlex
-    {...props}
-    className={classnames(CLASSNAME, className)}
-  >
+  <StyledLocalizeFlex {...props} className={classnames(CLASSNAME, className)}>
     {children}
   </StyledLocalizeFlex>
 );

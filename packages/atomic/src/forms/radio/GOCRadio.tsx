@@ -6,11 +6,7 @@ import { GOCThemeProps } from '@/context';
 
 import { GOCFormUIProps } from '../GOCFormUITypes';
 
-
-export type GOCRadioThemeType =
-  | 'primary'
-  | 'secondary'
-  | 'default';
+export type GOCRadioThemeType = 'primary' | 'secondary' | 'default';
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
 
 export interface GOCRadioProps extends InputProps, GOCFormUIProps {
@@ -55,7 +51,6 @@ const GOCRadioCheckerCircle = styled.div<{}, GOCThemeProps>(() => ({
   transition: 'background-color 0.3s',
 }));
 
-
 const getThemeStyles = (theme: GOCThemeProps, props: GOCRadioProps) => {
   const { themeType } = props;
   switch (themeType) {
@@ -63,7 +58,7 @@ const getThemeStyles = (theme: GOCThemeProps, props: GOCRadioProps) => {
       return {
         // Hover
         '&:hover': {
-          color: `${theme.colors["black-45"]}`,
+          color: `${theme.colors['black-45']}`,
 
           [`${HidingInput}:not(:disabled):not(:read-only):not(:checked) + ${GOCRadioCheckerContainer}`]: {
             backgroundColor: theme.colors.white,
@@ -110,37 +105,37 @@ const getThemeStyles = (theme: GOCThemeProps, props: GOCRadioProps) => {
             backgroundColor: theme.colors.neutral5,
           },
         },
-      }
+      };
     }
     default: {
       return {
         // Hover
         '&:hover': {
-          color: `${theme.colors["black-45"]}`,
+          color: `${theme.colors['black-45']}`,
 
           [`${HidingInput}:not(:disabled):not(:read-only):not(:checked) + ${GOCRadioCheckerContainer}`]: {
             backgroundColor: theme.colors.white,
-            border: `2px solid ${theme.colors["black-45"]}`,
+            border: `2px solid ${theme.colors['black-45']}`,
           },
         },
 
         // Active
         [`${HidingInput}:active + ${GOCRadioCheckerContainer}`]: {
           backgroundColor: theme.colors.white,
-          border: `2px solid ${theme.colors["black-45"]}`,
+          border: `2px solid ${theme.colors['black-45']}`,
 
           [`${GOCRadioCheckerCircle}`]: {
-            backgroundColor: theme.colors["black-45"],
+            backgroundColor: theme.colors['black-45'],
           },
         },
 
         // Checked
         [`${HidingInput}:checked + ${GOCRadioCheckerContainer}`]: {
           backgroundColor: theme.colors.neutral2,
-          border: `2px solid ${theme.colors["black-45"]}`,
+          border: `2px solid ${theme.colors['black-45']}`,
 
           [`${GOCRadioCheckerCircle}`]: {
-            backgroundColor: theme.colors["black-45"],
+            backgroundColor: theme.colors['black-45'],
           },
         },
 
@@ -163,17 +158,18 @@ const getThemeStyles = (theme: GOCThemeProps, props: GOCRadioProps) => {
             backgroundColor: theme.colors.neutral5,
           },
         },
-      }
+      };
     }
   }
-}
+};
 
-
-const GOCRadioWrapper = styled.div<GOCCheckboxWrapperProps, GOCThemeProps>(({ theme, ...props }) => ({
-  display: 'block',
-  cursor: 'pointer',
-  ...(getThemeStyles(theme, props)),
-}));
+const GOCRadioWrapper = styled.div<GOCCheckboxWrapperProps, GOCThemeProps>(
+  ({ theme, ...props }) => ({
+    display: 'block',
+    cursor: 'pointer',
+    ...getThemeStyles(theme, props),
+  }),
+);
 
 const GOCRadioLabel = styled.label<GOCFormUIProps, GOCThemeProps>(
   ({ theme }) => {

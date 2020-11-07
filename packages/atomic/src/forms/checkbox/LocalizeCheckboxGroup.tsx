@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
 import React from 'react';
-import GOCFormDescription from '../GOCFormDescription';
+import GOCFormDescription from '../LocalizeFormDescription';
 
-import GOCFormLabel from '../GOCFormLabel';
-import { GOCFormUIProps } from '../GOCFormUITypes';
-import { GOCCheckboxProps } from './GOCCheckbox';
+import GOCFormLabel from '../LocalizeFormLabel';
+import { GOCFormUIProps } from '../LocalizeFormUITypes';
+import { GOCCheckboxProps } from './LocalizeCheckbox';
 
 export interface GOCCheckboxGroupProps
   extends GOCFormUIProps,

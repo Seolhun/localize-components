@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
 import React from 'react';
-import GOCFormDescription from '../GOCFormDescription';
+import GOCFormDescription from '../LocalizeFormDescription';
 
-import GOCFormLabel from '../GOCFormLabel';
-import { GOCFormUIProps } from '../GOCFormUITypes';
+import GOCFormLabel from '../LocalizeFormLabel';
+import { GOCFormUIProps } from '../LocalizeFormUITypes';
 import { GOCRadioProps } from './GOCRadio';
 
 export interface GOCRadioGroupProps

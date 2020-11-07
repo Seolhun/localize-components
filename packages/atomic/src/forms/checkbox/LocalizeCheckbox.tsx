@@ -4,13 +4,9 @@ import styled from '@emotion/styled';
 
 import { GOCThemeProps } from '@/context';
 
-import { GOCFormUIProps } from '../GOCFormUITypes';
+import { GOCFormUIProps } from '../LocalizeFormUITypes';
 
-
-export type GOCCheckboxThemeType =
-  | 'primary'
-  | 'secondary'
-  | 'default';
+export type GOCCheckboxThemeType = 'primary' | 'secondary' | 'default';
 
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
 export interface GOCCheckboxProps extends InputProps, GOCFormUIProps {
@@ -67,7 +63,7 @@ const getThemeStyles = (theme: GOCThemeProps, props: GOCCheckboxProps) => {
       return {
         // Hover
         '&:hover': {
-          color: `${theme.colors["black-45"]}`,
+          color: `${theme.colors['black-45']}`,
 
           [`${HidingInput}:not(:disabled):not(:read-only):not(:checked) + ${GOCCheckboxCheckerContainer}`]: {
             backgroundColor: theme.colors.white,
@@ -114,37 +110,37 @@ const getThemeStyles = (theme: GOCThemeProps, props: GOCCheckboxProps) => {
             stroke: theme.colors.neutral5,
           },
         },
-      }
+      };
     }
     default: {
       return {
         // Hover
         '&:hover': {
-          color: `${theme.colors["black-45"]}`,
+          color: `${theme.colors['black-45']}`,
 
           [`${HidingInput}:not(:disabled):not(:read-only):not(:checked) + ${GOCCheckboxCheckerContainer}`]: {
             backgroundColor: theme.colors.white,
-            border: `2px solid ${theme.colors["black-45"]}`,
+            border: `2px solid ${theme.colors['black-45']}`,
           },
         },
 
         // Active
         [`${HidingInput}:active + ${GOCCheckboxCheckerContainer}`]: {
           backgroundColor: theme.colors.white,
-          border: `2px solid ${theme.colors["black-45"]}`,
+          border: `2px solid ${theme.colors['black-45']}`,
 
           [`${GOCCheckboxCheckerIcon}`]: {
-            stroke: theme.colors["black-45"],
+            stroke: theme.colors['black-45'],
           },
         },
 
         // Checked
         [`${HidingInput}:checked + ${GOCCheckboxCheckerContainer}`]: {
           backgroundColor: theme.colors.neutral2,
-          border: `2px solid ${theme.colors["black-45"]}`,
+          border: `2px solid ${theme.colors['black-45']}`,
 
           [`${GOCCheckboxCheckerIcon}`]: {
-            stroke: theme.colors["black-45"],
+            stroke: theme.colors['black-45'],
           },
         },
 
@@ -167,17 +163,18 @@ const getThemeStyles = (theme: GOCThemeProps, props: GOCCheckboxProps) => {
             stroke: theme.colors.neutral5,
           },
         },
-      }
+      };
     }
   }
-}
+};
 
-
-const GOCCheckboxWrapper = styled.div<GOCCheckboxWrapperProps, GOCThemeProps>(({ theme, ...props }) => ({
-  display: 'block',
-  cursor: 'pointer',
-  ...(getThemeStyles(theme, props)),
-}));
+const GOCCheckboxWrapper = styled.div<GOCCheckboxWrapperProps, GOCThemeProps>(
+  ({ theme, ...props }) => ({
+    display: 'block',
+    cursor: 'pointer',
+    ...getThemeStyles(theme, props),
+  }),
+);
 
 const GOCCheckboxLabel = styled.label<GOCFormUIProps, GOCThemeProps>(
   ({ theme }) => {
@@ -201,12 +198,15 @@ const GOCCheckbox = React.forwardRef<HTMLInputElement, GOCCheckboxProps>(
     const { disabled, checked } = props;
 
     return (
-      <GOCCheckboxWrapper themeType={themeType} className={classnames(className)}>
+      <GOCCheckboxWrapper
+        themeType={themeType}
+        className={classnames(className)}
+      >
         <GOCCheckboxLabel disabled={disabled} checked={checked}>
           <HidingInput {...props} ref={ref} type="checkbox" />
           <GOCCheckboxCheckerContainer>
             <GOCCheckboxCheckerIcon checked={checked} viewBox="0 0 24 24">
-              <polyline points="20 5 10 16 5 12" strokeWidth='3px' />
+              <polyline points="20 5 10 16 5 12" strokeWidth="3px" />
             </GOCCheckboxCheckerIcon>
           </GOCCheckboxCheckerContainer>
           {children}

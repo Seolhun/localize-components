@@ -85,7 +85,6 @@ const LocalizeButton: React.FC<LocalizeButtonProps> = ({
 }) => (
   <StyledLocalizeButton
     {...props}
-    type="button"
     className={classnames(DEFAULT_CLASSNAME, className)}
   >
     {children}

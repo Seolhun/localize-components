@@ -5,9 +5,9 @@ import { GOCThemeProps } from '@/context';
 import { EmoteSelectorToggler } from '@/containers';
 import { StreamerEmoteModel } from '@/models';
 
-import { GOCFormUIProps } from '../GOCFormUITypes';
-import GOCFormLabel from '../GOCFormLabel';
-import GOCFormDescription from '../GOCFormDescription';
+import { GOCFormUIProps } from '../LocalizeFormUITypes';
+import GOCFormLabel from '../LocalizeFormLabel';
+import GOCFormDescription from '../LocalizeFormDescription';
 
 type TextAreaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
 

@@ -1,2 +1,2 @@
-export * from './GOCIcon';
-export * from './GOCIconText';
+export * from './LocalizeIcon';
+export * from './LocalizeIconText';
