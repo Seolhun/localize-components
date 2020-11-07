@@ -17,10 +17,7 @@ const GOCSelectOptionContainer = styled.div<{}, GOCThemeProps>({
   width: '100%',
 });
 
-const GOCSelectOption: React.FC<GOCSelectOptionProps> = ({
-  children,
-  ...props
-}) => {
+const GOCSelectOption: React.FC<GOCSelectOptionProps> = ({ children, ...props }) => {
   return (
     <GOCSelectOptionWrapper {...props}>
       <GOCSelectOptionContainer>{children}</GOCSelectOptionContainer>

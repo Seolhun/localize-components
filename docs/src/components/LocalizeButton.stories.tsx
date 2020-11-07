@@ -18,10 +18,8 @@ const knobs = {
   content: () => text('Children', 'LocalizeButton'),
   disabled: () => boolean('Disabled', false),
   borderRadius: () => text('BorderRadius', '10px'),
-  size: () =>
-    select<LocalizeSize>('Size', storiesSizeOption, 'md') as LocalizeSize,
-  bgColor: () =>
-    select<LocalizeThemeColors>('BgColor', storiesColorOption, 'primary'),
+  size: () => select<LocalizeSize>('Size', storiesSizeOption, 'md') as LocalizeSize,
+  bgColor: () => select<LocalizeThemeColors>('BgColor', storiesColorOption, 'primary'),
 };
 
 export const Default = () => {

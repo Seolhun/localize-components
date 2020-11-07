@@ -12,30 +12,16 @@ module.exports = {
       babelConfig: true,
     },
   },
-  collectCoverageFrom: [
-    '**/*.{js,jsx,ts,tsx}',
-    '!**/*.d.ts',
-    '!**/node_modules/**',
-  ],
+  collectCoverageFrom: ['**/*.{js,jsx,ts,tsx}', '!**/*.d.ts', '!**/node_modules/**'],
   transform: {
     '^.+\\.(ts|tsx)?$': 'ts-jest',
   },
-  transformIgnorePatterns: [
-    '/node_modules/',
-    '^.+\\.module\\.(css|sass|scss)$',
-  ],
+  transformIgnorePatterns: ['/node_modules/', '^.+\\.module\\.(css|sass|scss)$'],
   testPathIgnorePatterns: ['/node_modules/', '/.next/'],
   testMatch: ['<rootDir>/test/**/*.(test|spec).ts?(x)'],
-  moduleFileExtensions: [
-    ...defaults.moduleFileExtensions,
-    'ts',
-    'tsx',
-    'js',
-    'jsx',
-  ],
+  moduleFileExtensions: [...defaults.moduleFileExtensions, 'ts', 'tsx', 'js', 'jsx'],
   moduleNameMapper: {
-    '^.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2|svg)$':
-      'identity-obj-proxy',
+    '^.+\\.(css|styl|less|sass|scss|png|jpg|ttf|woff|woff2|svg)$': 'identity-obj-proxy',
     '^.+\\.module\\.(css|sass|scss)$': 'identity-obj-proxy',
     '^.+\\.worker.(js|ts)$': '<rootDir>/test/__mocks__/workerMock.ts',
     'worker-loader?(.*)': '<rootDir>/test/__mocks__/workerMock.ts',

@@ -21,72 +21,66 @@ const GOCTextAreaWrapper = styled.div({
   width: '100%',
 });
 
-const GOCTextAreaContainer = styled.div<GOCFormUIProps, GOCThemeProps>(
-  ({ theme }) => {
-    return {
-      ...theme.fonts.body1,
-      position: 'relative',
-      display: 'flex',
-      alignItems: 'center',
-    };
-  },
-);
+const GOCTextAreaContainer = styled.div<GOCFormUIProps, GOCThemeProps>(({ theme }) => {
+  return {
+    ...theme.fonts.body1,
+    position: 'relative',
+    display: 'flex',
+    alignItems: 'center',
+  };
+});
 
-const StyledTextArea = styled.textarea<GOCTextAreaProps, GOCThemeProps>(
-  ({ theme, error }) => {
-    return {
-      ...theme.fonts.subtitle1,
-      color: theme.colors['black-65'],
-      width: '100%',
-      height: '100%',
-      boxSizing: 'border-box',
-      padding: '10px 12px',
-      outline: 'none',
-      backgroundColor: error ? theme.colors['error-bg'] : theme.colors.neutral1,
-      border: `1px solid ${error ? theme.colors.error : theme.colors.neutral5}`,
-      resize: 'both',
-      overflow: 'auto',
+const StyledTextArea = styled.textarea<GOCTextAreaProps, GOCThemeProps>(({ theme, error }) => {
+  return {
+    ...theme.fonts.subtitle1,
+    color: theme.colors['black-65'],
+    width: '100%',
+    height: '100%',
+    boxSizing: 'border-box',
+    padding: '10px 12px',
+    outline: 'none',
+    backgroundColor: error ? theme.colors['error-bg'] : theme.colors.neutral1,
+    border: `1px solid ${error ? theme.colors.error : theme.colors.neutral5}`,
+    resize: 'both',
+    overflow: 'auto',
 
-      // WARNING: IE Didn't support
-      caretColor: theme.colors.info,
-      // for Safari boxShadow
-      boxShadow: 'none !important',
-      WebkitAppearance: 'none',
+    // WARNING: IE Didn't support
+    caretColor: theme.colors.info,
+    // for Safari boxShadow
+    boxShadow: 'none !important',
+    WebkitAppearance: 'none',
 
-      '&:focus': {
-        border: `1px solid ${error ? theme.colors.error : theme.colors.info}`,
-      },
+    '&:focus': {
+      border: `1px solid ${error ? theme.colors.error : theme.colors.info}`,
+    },
 
-      '&:disabled': {
-        backgroundColor: theme.colors.neutral2,
-        border: `1px solid ${theme.colors.neutral3}`,
-        color: theme.colors['black-25'],
-      },
+    '&:disabled': {
+      backgroundColor: theme.colors.neutral2,
+      border: `1px solid ${theme.colors.neutral3}`,
+      color: theme.colors['black-25'],
+    },
 
-      '&::placeholder': {
-        color: theme.colors['black-25'],
-      },
-    };
-  },
-);
+    '&::placeholder': {
+      color: theme.colors['black-25'],
+    },
+  };
+});
 
-const GOCTextAreaOptionContainer = styled.span<{}, GOCThemeProps>(
-  ({ theme }) => {
-    return {
-      ...theme.fonts[18],
-      position: 'absolute',
-      right: '16px',
-      bottom: '16px',
-      display: 'flex',
-      alignItems: 'center',
-      color: theme.colors['black-45'],
+const GOCTextAreaOptionContainer = styled.span<{}, GOCThemeProps>(({ theme }) => {
+  return {
+    ...theme.fonts[18],
+    position: 'absolute',
+    right: '16px',
+    bottom: '16px',
+    display: 'flex',
+    alignItems: 'center',
+    color: theme.colors['black-45'],
 
-      '& > *': {
-        marginRight: '8px',
-      },
-    };
-  },
-);
+    '& > *': {
+      marginRight: '8px',
+    },
+  };
+});
 
 const GOCTextArea = React.forwardRef<HTMLTextAreaElement, GOCTextAreaProps>(
   ({ label, help, error, visibleEmoji, ...props }, ref) => {
@@ -105,9 +99,7 @@ const GOCTextArea = React.forwardRef<HTMLTextAreaElement, GOCTextAreaProps>(
       [currentValue],
     );
 
-    const onChangeCurrentValue = (
-      e: React.ChangeEvent<HTMLTextAreaElement>,
-    ) => {
+    const onChangeCurrentValue = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
       const { value } = e.target;
       if (maxLength) {
         const isOverCount = value.length > maxLength;
@@ -130,19 +122,10 @@ const GOCTextArea = React.forwardRef<HTMLTextAreaElement, GOCTextAreaProps>(
       <GOCTextAreaWrapper>
         {label && <GOCFormLabel>{label}</GOCFormLabel>}
         <GOCTextAreaContainer>
-          <StyledTextArea
-            {...props}
-            ref={ref}
-            onChange={onChangeCurrentValue}
-            error={error}
-          />
+          <StyledTextArea {...props} ref={ref} onChange={onChangeCurrentValue} error={error} />
           <GOCTextAreaOptionContainer>
-            {visibleEmoji && (
-              <EmoteSelectorToggler onClickEmote={onClickEmote} />
-            )}
-            {maxLength && (
-              <span>{`${currentValue?.length || 0}/${maxLength}`}</span>
-            )}
+            {visibleEmoji && <EmoteSelectorToggler onClickEmote={onClickEmote} />}
+            {maxLength && <span>{`${currentValue?.length || 0}/${maxLength}`}</span>}
           </GOCTextAreaOptionContainer>
         </GOCTextAreaContainer>
         {help && <GOCFormDescription error={error}>{help}</GOCFormDescription>}

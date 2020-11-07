@@ -3,10 +3,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
 
-import {
-  LocalizeThemeProps,
-  LocalizeProps,
-} from '@seolhun/localize-components-styled-types';
+import { LocalizeThemeProps, LocalizeProps } from '@seolhun/localize-components-styled-types';
 
 const SWITCH_CIRCLE = 25;
 const SWITCH_CONTAINER_WIDTH = SWITCH_CIRCLE * 2 + 2;
@@ -62,22 +59,20 @@ interface LocalizeSwitchProps extends LocalizeProps, InputProps {
   onMouseOut?: (...agrs: any[]) => void;
 }
 
-const StyledSwitchLabel = styled.label<LocalizeProps, LocalizeThemeProps>(
-  ({ theme }) => {
-    return {
-      position: 'relative',
-      display: 'inline-block',
-      width: `${SWITCH_CONTAINER_WIDTH}px`,
-      height: `${SWITCH_CONTAINER_HEIGHT}px`,
-      userSelect: 'none',
+const StyledSwitchLabel = styled.label<LocalizeProps, LocalizeThemeProps>(({ theme }) => {
+  return {
+    position: 'relative',
+    display: 'inline-block',
+    width: `${SWITCH_CONTAINER_WIDTH}px`,
+    height: `${SWITCH_CONTAINER_HEIGHT}px`,
+    userSelect: 'none',
 
-      [`input:checked + .${DEFAULT_CLASSNAME}__Slider:before`]: {
-        boxShadow: `0 0 1px 2px ${theme.colors.neutral4}`,
-        transform: `translateX(${SWITCH_CIRCLE}px)`,
-      },
-    };
-  },
-);
+    [`input:checked + .${DEFAULT_CLASSNAME}__Slider:before`]: {
+      boxShadow: `0 0 1px 2px ${theme.colors.neutral4}`,
+      transform: `translateX(${SWITCH_CIRCLE}px)`,
+    },
+  };
+});
 
 const StyledSwitchInput = styled.input({
   opacity: 0,
@@ -85,33 +80,31 @@ const StyledSwitchInput = styled.input({
   height: 0,
 });
 
-const StyledSlider = styled.span<LocalizeProps, LocalizeThemeProps>(
-  ({ theme }) => {
-    return {
-      position: 'absolute',
-      top: 0,
-      right: 0,
-      bottom: 0,
-      left: 0,
-      backgroundColor: theme.colors.neutral1,
-      borderRadius: '35px',
-      cursor: 'pointer',
-      transition: 'all 0.4s',
+const StyledSlider = styled.span<LocalizeProps, LocalizeThemeProps>(({ theme }) => {
+  return {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    bottom: 0,
+    left: 0,
+    backgroundColor: theme.colors.neutral1,
+    borderRadius: '35px',
+    cursor: 'pointer',
+    transition: 'all 0.4s',
 
-      ['&:before']: {
-        content: '""',
-        position: 'absolute',
-        left: '1px',
-        top: '1px',
-        height: `${SWITCH_CIRCLE}px`,
-        width: `${SWITCH_CIRCLE}px`,
-        backgroundColor: theme.colors.primary,
-        borderRadius: '50%',
-        transition: 'all 0.4s',
-      },
-    };
-  },
-);
+    ['&:before']: {
+      content: '""',
+      position: 'absolute',
+      left: '1px',
+      top: '1px',
+      height: `${SWITCH_CIRCLE}px`,
+      width: `${SWITCH_CIRCLE}px`,
+      backgroundColor: theme.colors.primary,
+      borderRadius: '50%',
+      transition: 'all 0.4s',
+    },
+  };
+});
 
 const LocalizeSwitch: React.FC<LocalizeSwitchProps> = ({
   checked,
@@ -147,9 +140,7 @@ const LocalizeSwitch: React.FC<LocalizeSwitchProps> = ({
         value={htmlFor}
         name={groupName}
       />
-      <StyledSlider
-        className={classnames(`${DEFAULT_CLASSNAME}__Slider`, className)}
-      />
+      <StyledSlider className={classnames(`${DEFAULT_CLASSNAME}__Slider`, className)} />
     </StyledSwitchLabel>
   );
 };

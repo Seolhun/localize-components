@@ -26,9 +26,4 @@ const storiesFontOption = Object.keys(localizeLightTheme.fonts).reduce(
   {},
 );
 
-export {
-  storiesSizeOption,
-  storiesColorOption,
-  storiesFontOption,
-  StoriesThemeWrapper,
-};
+export { storiesSizeOption, storiesColorOption, storiesFontOption, StoriesThemeWrapper };

@@ -63,40 +63,38 @@ const GOCSelectContainer = styled.div<{}, GOCThemeProps>({
   height: '100%',
 });
 
-const GOCSelectInputWrapper = styled.div<GOCFormUIProps, GOCThemeProps>(
-  ({ theme, error }) => {
-    return {
-      ...theme.fonts.body1,
-      position: 'relative',
-      display: 'flex',
-      alignItems: 'center',
-      width: '100%',
-      height: '44px',
-      color: theme.colors['black-65'],
-      padding: '10px 32px 10px 12px',
-      outline: 'none',
+const GOCSelectInputWrapper = styled.div<GOCFormUIProps, GOCThemeProps>(({ theme, error }) => {
+  return {
+    ...theme.fonts.body1,
+    position: 'relative',
+    display: 'flex',
+    alignItems: 'center',
+    width: '100%',
+    height: '44px',
+    color: theme.colors['black-65'],
+    padding: '10px 32px 10px 12px',
+    outline: 'none',
 
-      backgroundColor: error ? theme.colors['error-bg'] : theme.colors.neutral1,
-      border: `1px solid ${error ? theme.colors.error : theme.colors.neutral5}`,
-      // WARNING: Not support IE
-      caretColor: theme.colors.info,
+    backgroundColor: error ? theme.colors['error-bg'] : theme.colors.neutral1,
+    border: `1px solid ${error ? theme.colors.error : theme.colors.neutral5}`,
+    // WARNING: Not support IE
+    caretColor: theme.colors.info,
 
-      '&:focus': {
-        border: `1px solid ${error ? theme.colors.error : theme.colors.info}`,
-      },
+    '&:focus': {
+      border: `1px solid ${error ? theme.colors.error : theme.colors.info}`,
+    },
 
-      '&:disabled': {
-        backgroundColor: theme.colors.neutral2,
-        border: `1px solid ${theme.colors.neutral3}`,
-        color: theme.colors['black-25'],
-      },
+    '&:disabled': {
+      backgroundColor: theme.colors.neutral2,
+      border: `1px solid ${theme.colors.neutral3}`,
+      color: theme.colors['black-25'],
+    },
 
-      '&::placeholder': {
-        color: theme.colors['black-25'],
-      },
-    };
-  },
-);
+    '&::placeholder': {
+      color: theme.colors['black-25'],
+    },
+  };
+});
 
 const GOCSelectPlaceholder = styled.div<{}, GOCThemeProps>(({ theme }) => {
   return {
@@ -112,24 +110,22 @@ const GOCSelectArrowIconContainer = styled.span<{}, GOCThemeProps>(() => {
   };
 });
 
-const GOCSelectBackground = styled(animated.div)<{}, GOCThemeProps>(
-  ({ theme }) => {
-    return {
-      position: 'fixed',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      width: '100%',
-      height: '100%',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      zIndex: GOC_CONFIG.Z_INDEX.MODAL,
-      backgroundColor: theme.colors['black-45'],
-    };
-  },
-);
+const GOCSelectBackground = styled(animated.div)<{}, GOCThemeProps>(({ theme }) => {
+  return {
+    position: 'fixed',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
+    height: '100%',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    zIndex: GOC_CONFIG.Z_INDEX.MODAL,
+    backgroundColor: theme.colors['black-45'],
+  };
+});
 
 const GOCSelectDropdownWrapper = styled.div<{}, GOCThemeProps>(({ theme }) => {
   return {
@@ -206,18 +202,16 @@ const GOCSelectDropdownTitle = styled.p<{}, GOCThemeProps>(({ theme }) => {
   };
 });
 
-const GOCSelectDropdownSubmitWrapper = styled.div<{}, GOCThemeProps>(
-  ({ theme }) => {
-    return {
-      position: 'absolute',
-      bottom: 0,
-      right: 0,
-      left: 0,
-      padding: '44px 24px',
-      backgroundColor: theme.colors.white,
-    };
-  },
-);
+const GOCSelectDropdownSubmitWrapper = styled.div<{}, GOCThemeProps>(({ theme }) => {
+  return {
+    position: 'absolute',
+    bottom: 0,
+    right: 0,
+    left: 0,
+    padding: '44px 24px',
+    backgroundColor: theme.colors.white,
+  };
+});
 
 const GOCCloseIconWrapper = styled.span<{}, GOCThemeProps>(() => {
   return {
@@ -260,20 +254,15 @@ const GOCSelect = React.forwardRef<HTMLInputElement, GOCSelectProps>(
     const { name } = props;
     const backgroundRef = React.useRef<HTMLDivElement>(null);
     const [isOpen, setOpen] = React.useState(false);
-    const [currentItem, setCurrentItem] = React.useState<
-      GOCSelectItemProps | undefined
-    >(item);
-    const [selectedItem, setSelectedItem] = React.useState<
-      GOCSelectItemProps | undefined
-    >();
+    const [currentItem, setCurrentItem] = React.useState<GOCSelectItemProps | undefined>(item);
+    const [selectedItem, setSelectedItem] = React.useState<GOCSelectItemProps | undefined>();
 
     const transitions = useTransition(isOpen, null, {
       from: { opacity: 0 },
       enter: { opacity: 1 },
       leave: { opacity: 0 },
       // @ts-ignore
-      config: (i, state) =>
-        state === 'leave' ? { duration: 100 } : { duration: 150 },
+      config: (i, state) => (state === 'leave' ? { duration: 100 } : { duration: 150 }),
     });
 
     React.useEffect(() => {
@@ -351,11 +340,7 @@ const GOCSelect = React.forwardRef<HTMLInputElement, GOCSelectProps>(
               <GOCSelectPlaceholder>{props.placeholder}</GOCSelectPlaceholder>
             )}
             <GOCSelectArrowIconContainer>
-              <GOCIcon
-                icon={['fas', 'chevron-down']}
-                iconSize="12px"
-                color="black-45"
-              />
+              <GOCIcon icon={['fas', 'chevron-down']} iconSize="12px" color="black-45" />
             </GOCSelectArrowIconContainer>
           </GOCSelectInputWrapper>
           {/* Displayed SelectInput Part - End */}
@@ -364,23 +349,11 @@ const GOCSelect = React.forwardRef<HTMLInputElement, GOCSelectProps>(
           {transitions.map(
             ({ item, key, props: style }: any) =>
               item && (
-                <GOCSelectBackground
-                  key={key}
-                  ref={backgroundRef}
-                  onClick={onClickBackgroundAway}
-                  style={style}
-                >
+                <GOCSelectBackground key={key} ref={backgroundRef} onClick={onClickBackgroundAway} style={style}>
                   <GOCSelectDropdownWrapper>
-                    {title && (
-                      <GOCSelectDropdownTitle>{title}</GOCSelectDropdownTitle>
-                    )}
+                    {title && <GOCSelectDropdownTitle>{title}</GOCSelectDropdownTitle>}
                     <GOCCloseIconWrapper>
-                      <GOCIcon
-                        icon={['fal', 'times']}
-                        color="black-45"
-                        onClick={toggleSelector}
-                        iconSize="22px"
-                      />
+                      <GOCIcon icon={['fal', 'times']} color="black-45" onClick={toggleSelector} iconSize="22px" />
                     </GOCCloseIconWrapper>
                     <GOCSelectDropdownContainer>
                       <GOCRadioGroup name={name} flexDirection="column">
@@ -393,9 +366,7 @@ const GOCSelect = React.forwardRef<HTMLInputElement, GOCSelectProps>(
                                 key={item.key}
                                 ref={ref}
                                 value={itemValue}
-                                checked={
-                                  getItemValue(selectedItem) === itemValue
-                                }
+                                checked={getItemValue(selectedItem) === itemValue}
                                 onChange={onClickSelectedItem(item)}
                               >
                                 {getItemLabel(item)}
@@ -407,12 +378,7 @@ const GOCSelect = React.forwardRef<HTMLInputElement, GOCSelectProps>(
                         )}
                       </GOCRadioGroup>
                       <GOCSelectDropdownSubmitWrapper>
-                        <GOCButton
-                          themeType="secondary"
-                          size="lg"
-                          onClick={onSubmitSelectedItem}
-                          width="100%"
-                        >
+                        <GOCButton themeType="secondary" size="lg" onClick={onSubmitSelectedItem} width="100%">
                           {submitLabel}
                         </GOCButton>
                       </GOCSelectDropdownSubmitWrapper>
@@ -422,9 +388,7 @@ const GOCSelect = React.forwardRef<HTMLInputElement, GOCSelectProps>(
               ),
           )}
           {/* Dropdown Part - End */}
-          {help && (
-            <GOCFormDescription error={error}>{help}</GOCFormDescription>
-          )}
+          {help && <GOCFormDescription error={error}>{help}</GOCFormDescription>}
         </GOCSelectContainer>
       </GOCSelectWrapper>
     );

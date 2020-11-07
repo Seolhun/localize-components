@@ -23,37 +23,33 @@ export interface GOCIconTextWrapperProps {
   iconTextMargin: Required<GOCIconTextProps['iconTextMargin']>;
 }
 
-const GOCIconTextWrapper = styled.div<GOCIconTextWrapperProps>(
-  ({ iconPlacement }) => {
-    return {
-      display: 'flex',
-      alignItems: 'center',
-      ...(iconPlacement === 'right'
-        ? {
-            flexDirection: 'row-reverse',
-          }
-        : {
-            flexDirection: 'row',
-          }),
-    };
-  },
-);
+const GOCIconTextWrapper = styled.div<GOCIconTextWrapperProps>(({ iconPlacement }) => {
+  return {
+    display: 'flex',
+    alignItems: 'center',
+    ...(iconPlacement === 'right'
+      ? {
+          flexDirection: 'row-reverse',
+        }
+      : {
+          flexDirection: 'row',
+        }),
+  };
+});
 
-const GOCIconContainer = styled.span<GOCIconTextWrapperProps>(
-  ({ iconPlacement, iconTextMargin }) => {
-    return {
-      display: 'inline-flex',
-      alignItems: 'center',
-      ...(iconPlacement === 'right'
-        ? {
-            marginLeft: iconTextMargin,
-          }
-        : {
-            marginRight: iconTextMargin,
-          }),
-    };
-  },
-);
+const GOCIconContainer = styled.span<GOCIconTextWrapperProps>(({ iconPlacement, iconTextMargin }) => {
+  return {
+    display: 'inline-flex',
+    alignItems: 'center',
+    ...(iconPlacement === 'right'
+      ? {
+          marginLeft: iconTextMargin,
+        }
+      : {
+          marginRight: iconTextMargin,
+        }),
+  };
+});
 
 const GOCIconText: React.FC<GOCIconTextProps> = ({
   iconPlacement = 'left',
@@ -68,10 +64,7 @@ const GOCIconText: React.FC<GOCIconTextProps> = ({
       iconTextMargin={iconTextMargin}
       {...props}
     >
-      <GOCIconContainer
-        iconPlacement={iconPlacement}
-        iconTextMargin={iconTextMargin}
-      >
+      <GOCIconContainer iconPlacement={iconPlacement} iconTextMargin={iconTextMargin}>
         <GOCIcon className="goc-icon-text__icon" {...props} />
       </GOCIconContainer>
       {children}

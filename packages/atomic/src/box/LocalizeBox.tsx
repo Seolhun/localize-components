@@ -2,14 +2,15 @@ import React from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
 
-import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
+import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
 import { LocalizeIcon } from '../icons';
 
 const CLASSNAME = '__Localize__Box';
 type DivProps = React.HTMLAttributes<HTMLDivElement>;
+type Props = LocalizeProps & DivProps & LocalizeBoxContainerProps;
 
-export interface LocalizeBoxProps extends LocalizeBoxContainerProps {
+export interface LocalizeBoxProps extends Props {
   /**
    * @default primary
    */
@@ -26,7 +27,7 @@ export interface LocalizeBoxProps extends LocalizeBoxContainerProps {
   borderRadius?: string;
 }
 
-interface LocalizeBoxContainerProps extends DivProps {
+interface LocalizeBoxContainerProps {
   padding?: string;
 
   closable?: boolean;
@@ -35,12 +36,7 @@ interface LocalizeBoxContainerProps extends DivProps {
 }
 
 const LocalizeBoxWrapper = styled.div<LocalizeBoxProps, LocalizeThemeProps>(
-  ({
-    theme,
-    color = 'primary',
-    backgroundColor = 'info',
-    borderRadius = '16px',
-  }) => ({
+  ({ theme, color = 'primary', backgroundColor = 'info', borderRadius = '16px' }) => ({
     position: 'relative',
     color: theme.colors[color],
     backgroundColor: theme.colors[backgroundColor],
@@ -64,10 +60,7 @@ const LocalizeBoxCloser = styled.span<{}, LocalizeThemeProps>(({ theme }) => {
   };
 });
 
-const LocalizeBoxContainer = styled.div<
-  LocalizeBoxContainerProps,
-  LocalizeThemeProps
->(({ padding, closable }) => {
+const LocalizeBoxContainer = styled.div<LocalizeBoxContainerProps, LocalizeThemeProps>(({ padding, closable }) => {
   return {
     padding,
     ...(closable && {
@@ -76,14 +69,7 @@ const LocalizeBoxContainer = styled.div<
   };
 });
 
-const LocalizeBox: React.FC<LocalizeBoxProps> = ({
-  children,
-  padding,
-  closable,
-  onClose,
-  className,
-  ...props
-}) => (
+const LocalizeBox: React.FC<LocalizeBoxProps> = ({ children, padding, closable, onClose, className, ...props }) => (
   <LocalizeBoxWrapper {...props} className={classnames(CLASSNAME, className)}>
     {closable && (
       <LocalizeBoxCloser onClick={onClose}>

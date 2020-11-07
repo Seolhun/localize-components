@@ -163,30 +163,26 @@ const getThemeStyles = (theme: GOCThemeProps, props: GOCRadioProps) => {
   }
 };
 
-const GOCRadioWrapper = styled.div<GOCCheckboxWrapperProps, GOCThemeProps>(
-  ({ theme, ...props }) => ({
-    display: 'block',
-    cursor: 'pointer',
-    ...getThemeStyles(theme, props),
-  }),
-);
+const GOCRadioWrapper = styled.div<GOCCheckboxWrapperProps, GOCThemeProps>(({ theme, ...props }) => ({
+  display: 'block',
+  cursor: 'pointer',
+  ...getThemeStyles(theme, props),
+}));
 
-const GOCRadioLabel = styled.label<GOCFormUIProps, GOCThemeProps>(
-  ({ theme }) => {
-    return {
-      ...theme.fonts.body1,
-      position: 'relative',
-      display: 'inline-flex',
-      alignItems: 'center',
-      width: '100%',
-      outline: 0,
-      color: theme.colors['black-45'],
-      transition: 'color 0.3s',
-      cursor: 'pointer',
-      userSelect: 'none',
-    };
-  },
-);
+const GOCRadioLabel = styled.label<GOCFormUIProps, GOCThemeProps>(({ theme }) => {
+  return {
+    ...theme.fonts.body1,
+    position: 'relative',
+    display: 'inline-flex',
+    alignItems: 'center',
+    width: '100%',
+    outline: 0,
+    color: theme.colors['black-45'],
+    transition: 'color 0.3s',
+    cursor: 'pointer',
+    userSelect: 'none',
+  };
+});
 
 const GOCRadio = React.forwardRef<HTMLInputElement, GOCRadioProps>(
   ({ children, themeType = 'default', className, ...props }, ref) => {

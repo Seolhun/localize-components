@@ -3,11 +3,7 @@ import styled from '@emotion/styled';
 import classnames from 'classnames';
 import { lighten } from 'polished';
 
-import {
-  LocalizeThemeProps,
-  LocalizeProps,
-  LocalizeSize,
-} from '@seolhun/localize-components-styled-types';
+import { LocalizeThemeProps, LocalizeProps, LocalizeSize } from '@seolhun/localize-components-styled-types';
 
 const CLASSNAME = '__Localize__Tag';
 type SpanProps = React.HTMLAttributes<HTMLSpanElement>;

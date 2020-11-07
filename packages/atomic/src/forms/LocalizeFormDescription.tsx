@@ -7,10 +7,7 @@ export interface LocalizeFormDescriptionProps {
   error?: React.ReactNode;
 }
 
-const Description = styled.div<
-  LocalizeFormDescriptionProps,
-  LocalizeThemeProps
->(({ theme, error }) => {
+const Description = styled.div<LocalizeFormDescriptionProps, LocalizeThemeProps>(({ theme, error }) => {
   return {
     color: error ? theme.colors.error : theme.colors.text1,
     marginTop: '8px',
@@ -18,10 +15,7 @@ const Description = styled.div<
   };
 });
 
-const LocalizeFormDescription: React.FC<LocalizeFormDescriptionProps> = ({
-  error,
-  children,
-}) => {
+const LocalizeFormDescription: React.FC<LocalizeFormDescriptionProps> = ({ error, children }) => {
   return <Description error={error}>{children}</Description>;
 };
 

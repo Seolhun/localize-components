@@ -27,15 +27,7 @@ export interface LocalizeImageProps extends ImageProps {
 }
 
 const LocalizeImageElement = styled.img<LocalizeImageProps>(
-  ({
-    borderRadius,
-    backgroundPosition,
-    backgroundRepeat,
-    backgroundSize = 'cover',
-    width,
-    height,
-    responsive,
-  }) => ({
+  ({ borderRadius, backgroundPosition, backgroundRepeat, backgroundSize = 'cover', width, height, responsive }) => ({
     maxWidth: '100%',
     width: responsive && !width ? '100%' : width || `${DEFAULT_SIZE}px`,
     height: responsive && !height ? '100%' : height || `${DEFAULT_SIZE}px`,
@@ -47,16 +39,8 @@ const LocalizeImageElement = styled.img<LocalizeImageProps>(
   }),
 );
 
-const LocalizeImage: React.FC<LocalizeImageProps> = ({
-  className,
-  ...props
-}) => {
-  return (
-    <LocalizeImageElement
-      {...props}
-      className={classnames(CLASSNAME, className)}
-    />
-  );
+const LocalizeImage: React.FC<LocalizeImageProps> = ({ className, ...props }) => {
+  return <LocalizeImageElement {...props} className={classnames(CLASSNAME, className)} />;
 };
 
 export { LocalizeImage };

@@ -6,9 +6,7 @@ import GOCFormLabel from '../LocalizeFormLabel';
 import { GOCFormUIProps } from '../LocalizeFormUITypes';
 import { GOCRadioProps } from './GOCRadio';
 
-export interface GOCRadioGroupProps
-  extends GOCFormUIProps,
-    GOCRadioDirectionProps {
+export interface GOCRadioGroupProps extends GOCFormUIProps, GOCRadioDirectionProps {
   name?: string;
 
   onChange?: GOCRadioProps['onChange'];
@@ -23,27 +21,25 @@ export interface GOCRadioDirectionProps {
 
 const GOCRadioGroupWrapper = styled.div({});
 
-const RadioChildrenWrapper = styled.div<GOCRadioDirectionProps>(
-  ({ flexDirection }) => {
-    return {
-      display: 'flex',
-      flexWrap: 'wrap',
-      flexDirection,
+const RadioChildrenWrapper = styled.div<GOCRadioDirectionProps>(({ flexDirection }) => {
+  return {
+    display: 'flex',
+    flexWrap: 'wrap',
+    flexDirection,
 
-      ...(flexDirection === 'column'
-        ? {
-            '.goc-group-radio + .goc-group-radio': {
-              marginTop: '16px',
-            },
-          }
-        : {
-            '.goc-group-radio + .goc-group-radio': {
-              marginLeft: '16px',
-            },
-          }),
-    };
-  },
-);
+    ...(flexDirection === 'column'
+      ? {
+          '.goc-group-radio + .goc-group-radio': {
+            marginTop: '16px',
+          },
+        }
+      : {
+          '.goc-group-radio + .goc-group-radio': {
+            marginLeft: '16px',
+          },
+        }),
+  };
+});
 
 const GOCRadioGroup: React.FC<GOCRadioGroupProps> = ({
   children,
@@ -74,9 +70,7 @@ const GOCRadioGroup: React.FC<GOCRadioGroupProps> = ({
   return (
     <GOCRadioGroupWrapper>
       {label && <GOCFormLabel htmlFor={name}>{label}</GOCFormLabel>}
-      <RadioChildrenWrapper flexDirection={flexDirection}>
-        {reactChildren}
-      </RadioChildrenWrapper>
+      <RadioChildrenWrapper flexDirection={flexDirection}>{reactChildren}</RadioChildrenWrapper>
       {help && <GOCFormDescription error={error}>{help}</GOCFormDescription>}
     </GOCRadioGroupWrapper>
   );

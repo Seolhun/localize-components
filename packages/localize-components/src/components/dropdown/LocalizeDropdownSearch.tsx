@@ -168,30 +168,26 @@ const SearchResulWrapper = styled.div<{
   zIndex,
 }));
 
-const SearchResulContainer = styled.div<
-  SearchResultContainerProps,
-  LocalizeThemeProps
->(({ theme, resultMaxHeight }) => ({
-  position: 'absolute',
-  width: '100%',
-  maxHeight: `${resultMaxHeight}px`,
-  borderRadius: '5px',
-  border: `1px solid ${theme.colors.primary}`,
-  backgroundColor: theme.colors.neutral1,
-  margin: '-14px 0 0',
-  padding: '0',
-  overflowY: 'auto',
-}));
+const SearchResulContainer = styled.div<SearchResultContainerProps, LocalizeThemeProps>(
+  ({ theme, resultMaxHeight }) => ({
+    position: 'absolute',
+    width: '100%',
+    maxHeight: `${resultMaxHeight}px`,
+    borderRadius: '5px',
+    border: `1px solid ${theme.colors.primary}`,
+    backgroundColor: theme.colors.neutral1,
+    margin: '-14px 0 0',
+    padding: '0',
+    overflowY: 'auto',
+  }),
+);
 
 const SearchResultWrapper = styled.div({
   padding: 0,
   margin: 0,
 });
 
-const LocalizeDropdownSearch = React.forwardRef<
-  HTMLInputElement,
-  LocalizeDropdownSearchProps
->(
+const LocalizeDropdownSearch = React.forwardRef<HTMLInputElement, LocalizeDropdownSearchProps>(
   (
     {
       items,
@@ -282,28 +278,16 @@ const LocalizeDropdownSearch = React.forwardRef<
       document.addEventListener('click', handleClickOutDropdown);
 
       if (scrollResultRef.current) {
-        scrollResultRef.current.addEventListener(
-          'scroll',
-          handleScrollWithPagination,
-        );
-        scrollResultRef.current.addEventListener(
-          'resize',
-          handleScrollWithPagination,
-        );
+        scrollResultRef.current.addEventListener('scroll', handleScrollWithPagination);
+        scrollResultRef.current.addEventListener('resize', handleScrollWithPagination);
       }
 
       return () => {
         document.removeEventListener('click', handleClickOutDropdown);
 
         if (scrollResultRef.current) {
-          scrollResultRef.current.removeEventListener(
-            'scroll',
-            handleScrollWithPagination,
-          );
-          scrollResultRef.current.removeEventListener(
-            'resize',
-            handleScrollWithPagination,
-          );
+          scrollResultRef.current.removeEventListener('scroll', handleScrollWithPagination);
+          scrollResultRef.current.removeEventListener('resize', handleScrollWithPagination);
         }
       };
     }, [scrollResultRef.current, onScrollPagination, isAsyncFetching]);
@@ -407,9 +391,7 @@ const LocalizeDropdownSearch = React.forwardRef<
         ref={dropdownWarpperRef}
         zIndex={zIndex}
       >
-        <SearchDropdownInputContainer
-          className={`${DEFAULT_CLASSNAME}__Input__Container`}
-        >
+        <SearchDropdownInputContainer className={`${DEFAULT_CLASSNAME}__Input__Container`}>
           <LocalizeInput
             {...props}
             ref={inputRef}
@@ -436,10 +418,7 @@ const LocalizeDropdownSearch = React.forwardRef<
             resultMaxHeight={resultMaxHeight}
             zIndex={zIndex}
           >
-            <SearchResultWrapper
-              onMouseOver={handleIsResultMouseOver}
-              onMouseOut={handleIsResultMouseOut}
-            >
+            <SearchResultWrapper onMouseOver={handleIsResultMouseOver} onMouseOut={handleIsResultMouseOut}>
               <DropdownSearchResultItem
                 items={items}
                 selectedItem={selectedItem}

@@ -6,9 +6,7 @@ import GOCFormLabel from '../LocalizeFormLabel';
 import { GOCFormUIProps } from '../LocalizeFormUITypes';
 import { GOCCheckboxProps } from './LocalizeCheckbox';
 
-export interface GOCCheckboxGroupProps
-  extends GOCFormUIProps,
-    GOCCheckboxDirectionProps {
+export interface GOCCheckboxGroupProps extends GOCFormUIProps, GOCCheckboxDirectionProps {
   name?: string;
 
   onChange?: GOCCheckboxProps['onChange'];
@@ -23,27 +21,25 @@ export interface GOCCheckboxDirectionProps {
 
 const GOCCheckboxGroupWrapper = styled.div({});
 
-const CheckboxChildrenWrapper = styled.div<GOCCheckboxDirectionProps>(
-  ({ flexDirection }) => {
-    return {
-      display: 'flex',
-      flexWrap: 'wrap',
-      flexDirection,
+const CheckboxChildrenWrapper = styled.div<GOCCheckboxDirectionProps>(({ flexDirection }) => {
+  return {
+    display: 'flex',
+    flexWrap: 'wrap',
+    flexDirection,
 
-      ...(flexDirection === 'column'
-        ? {
-            '.goc-group-checkbox + .goc-group-checkbox': {
-              marginTop: '16px',
-            },
-          }
-        : {
-            '.goc-group-checkbox + .goc-group-checkbox': {
-              marginLeft: '16px',
-            },
-          }),
-    };
-  },
-);
+    ...(flexDirection === 'column'
+      ? {
+          '.goc-group-checkbox + .goc-group-checkbox': {
+            marginTop: '16px',
+          },
+        }
+      : {
+          '.goc-group-checkbox + .goc-group-checkbox': {
+            marginLeft: '16px',
+          },
+        }),
+  };
+});
 
 const GOCCheckboxGroup: React.FC<GOCCheckboxGroupProps> = ({
   children,
@@ -74,9 +70,7 @@ const GOCCheckboxGroup: React.FC<GOCCheckboxGroupProps> = ({
   return (
     <GOCCheckboxGroupWrapper>
       {label && <GOCFormLabel htmlFor={name}>{label}</GOCFormLabel>}
-      <CheckboxChildrenWrapper flexDirection={flexDirection}>
-        {clonedChildren}
-      </CheckboxChildrenWrapper>
+      <CheckboxChildrenWrapper flexDirection={flexDirection}>{clonedChildren}</CheckboxChildrenWrapper>
       {help && <GOCFormDescription error={error}>{help}</GOCFormDescription>}
     </GOCCheckboxGroupWrapper>
   );

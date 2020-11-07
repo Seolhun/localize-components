@@ -1,6 +1,6 @@
 import { localizeFonts, LocalizeThemeFontsProps } from './LocalizeFonts';
 
-enum LocalizeThemeEnum {
+export enum LocalizeThemeEnum {
   LIGHT = 'LIGHT',
   DARK = 'DARK',
 }
@@ -14,7 +14,7 @@ export interface LocalizeProps {
 
   /**
    * Set this to change font color in theme
-   * @default undefined
+   * @default text1
    */
   fontColor?: keyof LocalizeThemeProps['colors'];
 
@@ -23,12 +23,6 @@ export interface LocalizeProps {
    * @default undefined
    */
   bgColor?: keyof LocalizeThemeProps['colors'];
-
-  /**
-   * Set this to change zIndex
-   * @default undefined
-   */
-  zIndex?: number;
 }
 
 export interface LocalizeThemeProps<K = keyof typeof LocalizeThemeEnum> {

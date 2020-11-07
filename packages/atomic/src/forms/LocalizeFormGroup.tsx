@@ -1,10 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-import {
-  LocalizeRow,
-  LocalizeRowProps,
-} from '@seolhun/localize-components-grid';
+import { LocalizeRow, LocalizeRowProps } from '@seolhun/localize-components-grid';
 import { LocalizeFormItem } from './LocalizeFormItem';
 
 export interface LocalizeFormGroupProps extends LocalizeRowProps {}
@@ -15,10 +12,7 @@ const StyledFormGroup = styled(LocalizeRow)<LocalizeRowProps>({
   },
 });
 
-const LocalizeFormGroup: React.FC<LocalizeFormGroupProps> = ({
-  children,
-  ...props
-}) => {
+const LocalizeFormGroup: React.FC<LocalizeFormGroupProps> = ({ children, ...props }) => {
   return <StyledFormGroup {...props}>{children}</StyledFormGroup>;
 };
 

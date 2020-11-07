@@ -17,18 +17,16 @@ const GOCRangeWrapper = styled.div({
   width: '100%',
 });
 
-const GOCRangeContainer = styled.div<GOCFormUIProps, GOCThemeProps>(
-  ({ theme }) => {
-    return {
-      ...theme.fonts.body1,
-      display: 'flex',
-      alignItems: 'center',
-      width: '100%',
-      height: '44px',
-      // TODO: Icon Color by State
-    };
-  },
-);
+const GOCRangeContainer = styled.div<GOCFormUIProps, GOCThemeProps>(({ theme }) => {
+  return {
+    ...theme.fonts.body1,
+    display: 'flex',
+    alignItems: 'center',
+    width: '100%',
+    height: '44px',
+    // TODO: Icon Color by State
+  };
+});
 
 const HidingInput = styled.input<{}, GOCThemeProps>(({ theme }) => {
   return {
@@ -78,20 +76,18 @@ const HidingInput = styled.input<{}, GOCThemeProps>(({ theme }) => {
   };
 });
 
-const VisibleValueContainer = styled.div<GOCFormUIProps, GOCThemeProps>(
-  ({ theme, disabled }) => {
-    return {
-      ...theme.fonts[16],
-      display: 'flex',
-      justifyContent: 'space-between',
-      color: theme.colors['black-45'],
+const VisibleValueContainer = styled.div<GOCFormUIProps, GOCThemeProps>(({ theme, disabled }) => {
+  return {
+    ...theme.fonts[16],
+    display: 'flex',
+    justifyContent: 'space-between',
+    color: theme.colors['black-45'],
 
-      ...(disabled && {
-        color: theme.colors.neutral5,
-      }),
-    };
-  },
-);
+    ...(disabled && {
+      color: theme.colors.neutral5,
+    }),
+  };
+});
 
 const GOCRange = React.forwardRef<HTMLInputElement, GOCRangeProps>(
   ({ label, help, error, visibleValue, ...props }, ref) => {
