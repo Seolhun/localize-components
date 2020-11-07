@@ -20,10 +20,9 @@ const LocalizeRadioCheckerContainer = styled.div<{}, LocalizeThemeProps>(({ them
   display: 'inline-flex',
   alignItems: 'center',
   justifyContent: 'center',
-
   width: '22px',
   height: '22px',
-  border: `2px solid ${theme.colors.neutral6}`,
+  border: `2px solid ${theme.colors.neutral5}`,
   borderRadius: '50%',
   marginRight: '8px',
   transition: 'background-color 0.3s',
@@ -52,14 +51,14 @@ const LocalizeRadioWrapper = styled.div<LocalizeProps, LocalizeThemeProps>(
       '&:hover': {
         color,
 
-        [`${HidingInput}:not(:disabled):not(:read-only):not(:checked) + ${LocalizeRadioCheckerContainer}`]: {
+        [`input:not(:disabled):not(:read-only) + ${LocalizeRadioCheckerContainer}`]: {
           backgroundColor,
           border: `2px solid ${borderColor}`,
         },
       },
 
       // Active
-      [`${HidingInput}:active + ${LocalizeRadioCheckerContainer}`]: {
+      [`input:active + ${LocalizeRadioCheckerContainer}`]: {
         backgroundColor,
         border: `2px solid ${borderColor}`,
 
@@ -69,7 +68,7 @@ const LocalizeRadioWrapper = styled.div<LocalizeProps, LocalizeThemeProps>(
       },
 
       // Checked
-      [`${HidingInput}:checked + ${LocalizeRadioCheckerContainer}`]: {
+      [`input:checked + ${LocalizeRadioCheckerContainer}`]: {
         backgroundColor,
         border: `2px solid ${borderColor}`,
 
@@ -79,7 +78,7 @@ const LocalizeRadioWrapper = styled.div<LocalizeProps, LocalizeThemeProps>(
       },
 
       // Readonly - Disabled
-      [`${HidingInput}:read-only, ${HidingInput}:disabled`]: {
+      [`input:read-only, input:disabled`]: {
         backgroundColor: theme.colors.neutral4,
         border: `2px solid ${theme.colors.neutral5}`,
 
@@ -89,7 +88,7 @@ const LocalizeRadioWrapper = styled.div<LocalizeProps, LocalizeThemeProps>(
       },
 
       // Disabled and Checked
-      [`${HidingInput}:disabled:checked + ${LocalizeRadioCheckerContainer}`]: {
+      [`input:disabled:checked + ${LocalizeRadioCheckerContainer}`]: {
         backgroundColor: theme.colors.neutral4,
         border: `2px solid ${theme.colors.neutral5}`,
 

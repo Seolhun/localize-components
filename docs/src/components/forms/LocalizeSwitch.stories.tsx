@@ -1,13 +1,13 @@
 import React from 'react';
 import { Story } from '@storybook/react/types-6-0';
 
-import { LocalizeInput, LocalizeInputProps } from '../../../../packages/atomic/dist';
+import { LocalizeSwitch, LocalizeSwitchProps } from '../../../../packages/atomic/dist';
 
 import { storiesColorOptions } from '../../controls';
 
 export default {
-  title: 'Atmoic | Forms | LocalizeInput',
-  component: LocalizeInput,
+  title: 'Atmoic | Forms | LocalizeSwitch',
+  component: LocalizeSwitch,
   argTypes: {
     fontColor: {
       defaultValue: 'conversion10',
@@ -33,21 +33,21 @@ export default {
   },
 };
 
-const Input: Story<LocalizeInputProps> = (args) => {
-  const [value, setValue] = React.useState(args.value);
+const Switch: Story<LocalizeSwitchProps> = (args) => {
+  const [checked, setChecked] = React.useState(args.checked);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value);
+    setChecked(e.target.checked);
   }
 
-  return <LocalizeInput {...args} onChange={onChange} value={value} />
+  return <LocalizeSwitch {...args} onChange={onChange} checked={checked} />
 };
 
-export const Default = Input.bind({});
+export const Default = Switch.bind({});
 Default.args = {
   label: 'Label',
   help: 'Help',
-  value: 'LocalizeInput',
+  value: 'LocalizeSwitch',
   error: false,
   disabled: false,
 };

@@ -2,7 +2,7 @@
 import React from 'react';
 import { Global, css } from '@emotion/core';
 
-import { ThemeProvider } from '../src/theme';
+import { LocalizeThemeProvider } from '../../packages/localize-components';
 
 const globalStyle = `
 	html, body {
@@ -18,14 +18,14 @@ const globalStyle = `
 
 const withThemeProvider = (Story, context) => {
   return (
-    <ThemeProvider>
+    <LocalizeThemeProvider>
       <Global
         styles={css`
           ${globalStyle}
         `}
       />
       <Story {...context} />
-    </ThemeProvider>
+    </LocalizeThemeProvider>
   );
 };
 export const decorators = [withThemeProvider];

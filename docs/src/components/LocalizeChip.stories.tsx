@@ -43,8 +43,8 @@ export default {
 
 const Chip: Story<LocalizeChipProps> = (args) => <LocalizeChip {...args} />;
 
-export const ChipStories = Chip.bind({});
-ChipStories.args = {
+export const Default = Chip.bind({});
+Default.args = {
   children: 'LocalizeChip',
   disabled: false,
 };

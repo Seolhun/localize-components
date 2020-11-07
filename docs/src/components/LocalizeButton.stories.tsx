@@ -43,8 +43,8 @@ export default {
 
 const Button: Story<LocalizeButtonProps> = (args) => <LocalizeButton {...args} />;
 
-export const ButtonStories = Button.bind({});
-ButtonStories.args = {
+export const Default = Button.bind({});
+Default.args = {
   children: 'LocalizeButton',
   disabled: false,
 };

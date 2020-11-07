@@ -11,44 +11,26 @@ const SWITCH_CONTAINER_HEIGHT = SWITCH_CIRCLE + 2;
 
 const CLASSNAME = '__Localize__Switch';
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
-type Props = InputProps & LocalizeProps;
+type Props = LocalizeProps & InputProps;
 
-interface LocalizeSwitchProps extends Props {
-  /**
-   * Set this to change Switch groupName
-   * @default ''
-   */
-  groupName?: string;
+export interface LocalizeSwitchProps extends Props {
+  // /**
+  //  * Set this to change font Color
+  //  * @default neutral1
+  //  */
+  // fontColor?: Props['fontColor'];
 
-  /**
-   * Set this to change Switch useValueKey
-   * @default false
-   */
-  useValueKey?: boolean;
+  // /**
+  //  * Set this to change backgroundColor
+  //  * @default primary
+  //  */
+  // bgColor?: Props['bgColor'];
 
-  /**
-   * Set this to change Switch valueKey
-   * @default 'value'
-   */
-  valueKey?: string;
-
-  /**
-   * Set this to change Switch labelKey
-   * @default 'label'
-   */
-  labelKey?: string;
-
-  /**
-   * Set this to change Switch onMouseOver
-   * @default () => null
-   */
-  onMouseOver?: (...agrs: any[]) => void;
-
-  /**
-   * Set this to change Switch onMouseOut
-   * @default () => null
-   */
-  onMouseOut?: (...agrs: any[]) => void;
+  // /**
+  //  * Set this to change borderColor
+  //  * @default undefined
+  //  */
+  // bdColor?: Props['bdColor'];
 }
 
 const StyledSwitchLabel = styled.label<LocalizeProps, LocalizeThemeProps>(({ theme }) => {
@@ -66,7 +48,8 @@ const StyledSwitchLabel = styled.label<LocalizeProps, LocalizeThemeProps>(({ the
   };
 });
 
-const StyledSwitchInput = styled.input({
+const HidingInput = styled.input({
+  position: 'absolute',
   opacity: 0,
   width: 0,
   height: 0,
@@ -101,17 +84,18 @@ const StyledSlider = styled.span<LocalizeProps, LocalizeThemeProps>(({ theme }) 
 /**
  * TODO: Change theme key and values
  */
-const LocalizeSwitch: React.FC<LocalizeSwitchProps> = ({
+const LocalizeSwitch = React.forwardRef<HTMLInputElement, LocalizeSwitchProps>(({
   className,
-  groupName = '',
-  onChange = () => null,
-  onMouseOut = () => null,
-  onMouseOver = () => null,
   ...props
-}) => {
+}, ref) => {
+  const { onChange } = props;
+
   const handleChecked = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.stopPropagation();
-    onChange(event);
+
+    if (onChange) {
+      onChange(event);
+    }
   };
 
   return (
@@ -119,20 +103,19 @@ const LocalizeSwitch: React.FC<LocalizeSwitchProps> = ({
       key={name}
       htmlFor={name}
       className={classnames(CLASSNAME, className)}
-      onMouseOut={onMouseOut}
-      onMouseOver={onMouseOver}
     >
-      <StyledSwitchInput
+      <HidingInput
         {...props}
+        ref={ref}
         id={name}
-        className={`${CLASSNAME}__Input`}
         type="checkbox"
+        className={`${CLASSNAME}__Input`}
         onChange={handleChecked}
       />
       <StyledSlider className={`${CLASSNAME}__Slider`} />
     </StyledSwitchLabel>
   );
-};
+});
 
-export { LocalizeSwitchProps, LocalizeSwitch };
+export { LocalizeSwitch };
 export default LocalizeSwitch;

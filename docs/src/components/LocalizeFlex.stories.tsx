@@ -36,8 +36,8 @@ export default {
 
 const Flex: Story<LocalizeFlexProps> = (args) => <LocalizeFlex {...args} />;
 
-export const FlexStories = Flex.bind({});
-FlexStories.args = {
+export const Default = Flex.bind({});
+Default.args = {
   children: 'LocalizeFlex',
   disabled: false,
 };

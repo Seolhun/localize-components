@@ -14,7 +14,7 @@ import {
 
 const DEFAULT_CLASSNAME = '__Localize__Modal';
 type DivProps = React.HTMLAttributes<HTMLDivElement>;
-type Props = DivProps & LocalizeProps;
+type Props = LocalizeProps & DivProps;
 
 export interface LocalizeModalProps extends Props {
   /**

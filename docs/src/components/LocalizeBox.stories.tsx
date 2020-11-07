@@ -43,8 +43,8 @@ export default {
 
 const Box: Story<LocalizeBoxProps> = (args) => <LocalizeBox {...args} />;
 
-export const BoxStories = Box.bind({});
-BoxStories.args = {
+export const Default = Box.bind({});
+Default.args = {
   children: 'LocalizeBox',
   disabled: false,
 };

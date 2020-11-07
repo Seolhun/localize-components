@@ -53,14 +53,14 @@ const LocalizeCheckboxWrapper = styled.div<LocalizeProps, LocalizeThemeProps>(
       '&:hover': {
         color,
 
-        [`${HidingInput}:not(:disabled):not(:checked) + ${LocalizeCheckboxCheckerContainer}`]: {
+        [`input:not(:disabled):not(:read-only) + ${LocalizeCheckboxCheckerContainer}`]: {
           backgroundColor,
           border: `2px solid ${borderColor}`,
         },
       },
 
       // Active
-      [`${HidingInput}:active + ${LocalizeCheckboxCheckerContainer}`]: {
+      [`input:active + ${LocalizeCheckboxCheckerContainer}`]: {
         backgroundColor,
         border: `2px solid ${borderColor}`,
 
@@ -70,7 +70,7 @@ const LocalizeCheckboxWrapper = styled.div<LocalizeProps, LocalizeThemeProps>(
       },
 
       // Checked
-      [`${HidingInput}:checked + ${LocalizeCheckboxCheckerContainer}`]: {
+      [`input:checked + ${LocalizeCheckboxCheckerContainer}`]: {
         backgroundColor,
         border: `2px solid ${borderColor}`,
 
@@ -80,7 +80,7 @@ const LocalizeCheckboxWrapper = styled.div<LocalizeProps, LocalizeThemeProps>(
       },
 
       // Readonly - Disabled
-      [`${HidingInput}:read-only, ${HidingInput}:disabled`]: {
+      [`input:read-only, input:disabled`]: {
         backgroundColor: theme.colors.neutral4,
         border: `2px solid ${theme.colors.neutral5}`,
 
@@ -90,7 +90,7 @@ const LocalizeCheckboxWrapper = styled.div<LocalizeProps, LocalizeThemeProps>(
       },
 
       // Disabled and Checked
-      [`${HidingInput}:disabled:checked + ${LocalizeCheckboxCheckerContainer}`]: {
+      [`input:disabled:checked + ${LocalizeCheckboxCheckerContainer}`]: {
         backgroundColor: theme.colors.neutral4,
         border: `2px solid ${theme.colors.neutral5}`,
 

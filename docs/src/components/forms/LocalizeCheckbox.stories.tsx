@@ -28,8 +28,8 @@ export default {
 
 const Checkbox: Story<LocalizeCheckboxProps> = (args) => <LocalizeCheckbox {...args} />;
 
-export const CheckboxStories = Checkbox.bind({});
-CheckboxStories.args = {
+export const Default = Checkbox.bind({});
+Default.args = {
   label: 'Label',
   help: 'Help',
   value: 'LocalizeCheckbox',

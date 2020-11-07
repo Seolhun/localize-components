@@ -45,7 +45,7 @@ const StyledLocalizeTagWrapper = styled.div<LocalizeTagProps, LocalizeThemeProps
       userSelect: 'none',
       cursor: 'pointer',
 
-      '&:active, &:hover': {
+      '&:not(:disabled):not(:read-only):active, &:not(:disabled):not(:read-only):hover': {
         backgroundColor: lighten(0.1, backgroundColor),
         borderColor: lighten(0.1, borderColor),
       },
