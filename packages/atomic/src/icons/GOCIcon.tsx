@@ -6,22 +6,18 @@ import {
   FontAwesomeIconProps,
 } from '@fortawesome/react-fontawesome';
 
-import {
-  LocalizeProps,
-  LocalizeThemeProps,
-} from '@seolhun/localize-components-styled-types';
+import { GOCThemeProps } from '@/context';
 
 type SpanProps = React.HTMLAttributes<HTMLSpanElement>;
-type ExtentionProps = LocalizeProps & SpanProps & LocalizeIconBackgroundProps;
 
-export interface LocalizeIconProps extends ExtentionProps {
+export interface GOCIconProps extends SpanProps, GOCIconBackgroundProps {
   icon: FontAwesomeIconProps['icon'];
 
-  color?: keyof LocalizeThemeProps['colors'];
+  color?: keyof GOCThemeProps['colors'];
 
   rotation?: FontAwesomeIconProps['rotation'];
 
-  hoveredColor?: keyof LocalizeThemeProps['colors'];
+  hoveredColor?: keyof GOCThemeProps['colors'];
 
   iconSize?: string;
 
@@ -34,7 +30,7 @@ export interface LocalizeIconProps extends ExtentionProps {
   margin?: string;
 }
 
-interface LocalizeIconBackgroundProps {
+interface GOCIconBackgroundProps {
   /**
    * @description 아이콘 보다 더 큰 배경화면이 존재하는 경우가 많아 이를 처리하기 위해 만듦. iconBackgroundSize가 가장 우선시 되는 변수값이며, 해당 값이 존재하지 않으면 iconBackground 모든 Props가 작동되지 않음.
    */
@@ -42,12 +38,12 @@ interface LocalizeIconBackgroundProps {
 
   iconBackgroundBorderRadius?: string;
 
-  iconBackgroundColor?: keyof LocalizeThemeProps['colors'];
+  iconBackgroundColor?: keyof GOCThemeProps['colors'];
 
   iconBackgroundOpacity?: string;
 }
 
-const IconWrapper = styled.span<LocalizeIconProps, LocalizeThemeProps>(
+const IconWrapper = styled.span<GOCIconProps, GOCThemeProps>(
   ({ theme, margin, iconSize, color, hoveredColor, iconBackgroundSize }) => {
     return {
       position: 'relative',
@@ -70,7 +66,7 @@ const IconWrapper = styled.span<LocalizeIconProps, LocalizeThemeProps>(
   },
 );
 
-const IconContainer = styled.span<{}, LocalizeThemeProps>(() => ({
+const IconContainer = styled.span<{}, GOCThemeProps>(() => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -78,8 +74,8 @@ const IconContainer = styled.span<{}, LocalizeThemeProps>(() => ({
 }));
 
 const IconBackgroundContainer = styled.div<
-  LocalizeIconBackgroundProps,
-  LocalizeThemeProps
+  GOCIconBackgroundProps,
+  GOCThemeProps
 >(
   ({
     theme,
@@ -99,7 +95,7 @@ const IconBackgroundContainer = styled.div<
   }),
 );
 
-const LocalizeIcon = React.forwardRef<HTMLSpanElement, LocalizeIconProps>(
+const GOCIcon = React.forwardRef<HTMLSpanElement, GOCIconProps>(
   (
     {
       icon,
@@ -144,5 +140,4 @@ const LocalizeIcon = React.forwardRef<HTMLSpanElement, LocalizeIconProps>(
   ),
 );
 
-export { LocalizeIcon };
-export default LocalizeIcon;
+export { GOCIcon };

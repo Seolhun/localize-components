@@ -58,10 +58,9 @@ export interface LocalizeThemeProps<K = keyof typeof LocalizeThemeEnum> {
     secondary8: string;
     secondary9: string;
     secondary10: string;
-    secondary11: string;
     /**
-     * @name Neutral
-     */
+    * @name Neutral
+    */
     neutral1: string;
     neutral2: string;
     neutral3: string;
@@ -189,7 +188,6 @@ export const localizeLightThemeColors: LocalizeThemeProps['colors'] = {
   secondary8: '#1C2F61',
   secondary9: '#142656',
   secondary10: '#09183F',
-  secondary11: '#000F17',
   /**
    * @name Neutral
    */
@@ -315,7 +313,6 @@ export const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
   secondary8: '#1C2F61',
   secondary9: '#142656',
   secondary10: '#09183F',
-  secondary11: '#000F17',
   /**
    * @name Neutral
    */

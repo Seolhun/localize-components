@@ -1,1 +1,1 @@
-export * from './LocalizeInput';
+export * from './GOCInput';

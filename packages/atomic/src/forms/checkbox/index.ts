@@ -1,3 +1,2 @@
-export * from './LocalizeCheckBox';
-export * from './LocalizeCheckBoxGroup';
-export { default } from './LocalizeCheckBox';
+export * from './GOCCheckbox';
+export * from './GOCCheckboxGroup';

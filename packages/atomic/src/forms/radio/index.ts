@@ -1,3 +1,2 @@
-export * from './LocalizeRadio';
-export * from './LocalizeRadioGroup';
-export { default } from './LocalizeRadio';
+export * from './GOCRadio';
+export * from './GOCRadioGroup';

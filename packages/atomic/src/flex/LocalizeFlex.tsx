@@ -8,7 +8,7 @@ import {
 } from 'csstype';
 import { LocalizeProps } from '@seolhun/localize-components-styled-types';
 
-const DEFAULT_CLASSNAME = '__Localize__Flex';
+const CLASSNAME = '__Localize__Flex';
 type DivProps = React.HTMLAttributes<HTMLDivElement>;
 
 export interface LocalizeFlexProps extends LocalizeProps, DivProps {
@@ -24,7 +24,6 @@ const StyledLocalizeFlex = styled.div<LocalizeFlexProps>(
     return {
       display: 'flex',
       flex: '1',
-      width: '100%',
       flexDirection,
       alignItems,
       justifyContent,
@@ -39,7 +38,7 @@ const LocalizeFlex: React.FC<LocalizeFlexProps> = ({
 }) => (
   <StyledLocalizeFlex
     {...props}
-    className={classnames(DEFAULT_CLASSNAME, className)}
+    className={classnames(CLASSNAME, className)}
   >
     {children}
   </StyledLocalizeFlex>
