@@ -91,10 +91,10 @@ const LocalizeSelectInputWrapper = styled.div<LocalizeProps & LocalizeFormStateP
       '&:read-only, &:disabled': {
         backgroundColor: theme.colors.neutral4,
         borderColor: theme.colors.neutral5,
-        color: theme.colors.neutral5,
+        color: theme.colors.neutral8,
       },
       '&::placeholder': {
-        color: theme.colors.neutral5,
+        color: theme.colors.neutral8,
       },
     };
   },

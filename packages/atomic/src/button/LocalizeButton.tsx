@@ -52,11 +52,10 @@ const StyledLocalizeButton = styled.button<LocalizeButtonProps, LocalizeThemePro
         backgroundColor: lighten(0.1, backgroundColor),
         borderColor: lighten(0.1, borderColor),
       },
-      '&:read-only, &:disabled': {
+      '&:disabled': {
         backgroundColor: theme.colors.neutral4,
         borderColor: theme.colors.neutral5,
-      },
-      '&:disabled': {
+        color: theme.colors.neutral8,
         cursor: 'not-allowed',
       },
     };
