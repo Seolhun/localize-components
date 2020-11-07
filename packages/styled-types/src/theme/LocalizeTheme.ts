@@ -36,6 +36,19 @@ export interface LocalizeThemeProps<K = keyof typeof LocalizeThemeEnum> {
   fonts: LocalizeThemeFontsProps;
   colors: {
     /**
+     * @name AccessibleText
+     */
+    text1: string;
+    text2: string;
+    text3: string;
+    text4: string;
+    text5: string;
+    text6: string;
+    text7: string;
+    text8: string;
+    text9: string;
+    text10: string;
+    /**
      * @name Primary
      */
     primary1: string;
@@ -167,17 +180,33 @@ export interface LocalizeThemeProps<K = keyof typeof LocalizeThemeEnum> {
   };
 }
 
-export const localizeLightThemeColors: LocalizeThemeProps['colors'] = {
-  primary1: '#FFFEEB',
-  primary2: '#FEFAC7',
-  primary3: '#FDF5A3',
-  primary4: '#FFF36C',
-  primary5: '#FAED67',
-  primary6: '#F7E853',
-  primary7: '#F8DA4F',
-  primary8: '#F4C246',
-  primary9: '#F2AB3D',
-  primary10: '#EB8432',
+const localizeLightThemeColors: LocalizeThemeProps['colors'] = {
+  /**
+   * @name AccessibleText
+   */
+  text1: '#FFFFFF',
+  text2: '#F5F5F5',
+  text3: '#D9D9D9',
+  text4: '#BFBFBF',
+  text5: '#595959',
+  text6: '#434343',
+  text7: '#262626',
+  text8: '#1F1F1F',
+  text9: '#141414',
+  text10: '#000000',
+  /**
+   * @name Primary
+   */
+  primary1: '#e6f7ff',
+  primary2: '#bae7ff',
+  primary3: '#91d5ff',
+  primary4: '#69c0ff',
+  primary5: '#40a9ff',
+  primary6: '#1890ff',
+  primary7: '#096dd9',
+  primary8: '#0050b3',
+  primary9: '#003a8c',
+  primary10: '#002766',
   /**
    * @name Secondary
    */
@@ -292,17 +321,33 @@ export const localizeLightThemeColors: LocalizeThemeProps['colors'] = {
   discord: '#8C9EFF',
 };
 
-export const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
-  primary1: '#FFFEEB',
-  primary2: '#FEFAC7',
-  primary3: '#FDF5A3',
-  primary4: '#FFF36C',
-  primary5: '#FAED67',
-  primary6: '#F7E853',
-  primary7: '#F8DA4F',
-  primary8: '#F4C246',
-  primary9: '#F2AB3D',
-  primary10: '#EB8432',
+const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
+  /**
+   * @name AccessibleText
+   */
+  text1: '#000000',
+  text2: '#141414',
+  text3: '#1F1F1F',
+  text4: '#262626',
+  text5: '#434343',
+  text6: '#595959',
+  text7: '#BFBFBF',
+  text8: '#D9D9D9',
+  text9: '#F5F5F5',
+  text10: '#FFFFFF',
+  /**
+   * @name Primary
+   */
+  primary1: '#e6f7ff',
+  primary2: '#bae7ff',
+  primary3: '#91d5ff',
+  primary4: '#69c0ff',
+  primary5: '#40a9ff',
+  primary6: '#1890ff',
+  primary7: '#096dd9',
+  primary8: '#0050b3',
+  primary9: '#003a8c',
+  primary10: '#002766',
   /**
    * @name Secondary
    */
