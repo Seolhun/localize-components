@@ -2,14 +2,14 @@ import React from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
 import { FontAwesomeIcon, FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
-import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
+import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
+const CLASSNAME = '__Localize__Icon';
 type SpanProps = React.HTMLAttributes<HTMLSpanElement>;
+type Props = SpanProps & LocalizeProps & LocalizeIconBackgroundProps;
 
-export interface LocalizeIconProps extends SpanProps, LocalizeIconBackgroundProps {
+export interface LocalizeIconProps extends Props {
   icon: FontAwesomeIconProps['icon'];
-
-  color?: keyof LocalizeThemeProps['colors'];
 
   rotation?: FontAwesomeIconProps['rotation'];
 
@@ -40,7 +40,7 @@ interface LocalizeIconBackgroundProps {
 }
 
 const IconWrapper = styled.span<LocalizeIconProps, LocalizeThemeProps>(
-  ({ theme, margin, iconSize, color, hoveredColor, iconBackgroundSize }) => {
+  ({ theme, margin, iconSize, fontColor, hoveredColor, iconBackgroundSize }) => {
     return {
       position: 'relative',
       display: 'inline-flex',
@@ -49,15 +49,16 @@ const IconWrapper = styled.span<LocalizeIconProps, LocalizeThemeProps>(
       width: iconBackgroundSize,
       height: iconBackgroundSize,
       fontSize: iconSize,
-      color: color ? theme.colors[color] : 'inherit',
+      color: fontColor ? theme.colors[fontColor] : 'inherit',
       margin,
       cursor: 'pointer',
       userSelect: 'none',
-      '&:hover': hoveredColor
-        ? {
-            color: theme.colors[hoveredColor],
-          }
-        : null,
+
+      ...(hoveredColor && {
+        '&:hover': {
+          color: theme.colors[hoveredColor],
+        },
+      }),
     };
   },
 );

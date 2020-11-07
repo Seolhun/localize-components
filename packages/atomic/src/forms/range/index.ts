@@ -1,1 +1,1 @@
-export * from './GOCRange';
+export * from './LocalizeRange';

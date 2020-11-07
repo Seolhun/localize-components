@@ -1,15 +1,15 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-import { GOCIcon, GOCIconProps } from './LocalizeIcon';
+import { LocalizeIcon, LocalizeIconProps } from './LocalizeIcon';
 
-type GOCIconTextAlignType = 'left' | 'right';
+type LocalizeIconTextAlignType = 'left' | 'right';
 
-export interface GOCIconTextProps extends GOCIconProps {
+export interface LocalizeIconTextProps extends LocalizeIconProps {
   /**
    * @default left
    */
-  iconPlacement?: GOCIconTextAlignType;
+  iconPlacement?: LocalizeIconTextAlignType;
 
   /**
    * @default 8px
@@ -17,13 +17,13 @@ export interface GOCIconTextProps extends GOCIconProps {
   iconTextMargin?: string;
 }
 
-export interface GOCIconTextWrapperProps {
-  iconPlacement: Required<GOCIconTextProps['iconPlacement']>;
+export interface LocalizeIconTextWrapperProps {
+  iconPlacement: Required<LocalizeIconTextProps['iconPlacement']>;
 
-  iconTextMargin: Required<GOCIconTextProps['iconTextMargin']>;
+  iconTextMargin: Required<LocalizeIconTextProps['iconTextMargin']>;
 }
 
-const GOCIconTextWrapper = styled.div<GOCIconTextWrapperProps>(({ iconPlacement }) => {
+const LocalizeIconTextWrapper = styled.div<LocalizeIconTextWrapperProps>(({ iconPlacement }) => {
   return {
     display: 'flex',
     alignItems: 'center',
@@ -37,7 +37,7 @@ const GOCIconTextWrapper = styled.div<GOCIconTextWrapperProps>(({ iconPlacement 
   };
 });
 
-const GOCIconContainer = styled.span<GOCIconTextWrapperProps>(({ iconPlacement, iconTextMargin }) => {
+const LocalizeIconContainer = styled.span<LocalizeIconTextWrapperProps>(({ iconPlacement, iconTextMargin }) => {
   return {
     display: 'inline-flex',
     alignItems: 'center',
@@ -51,26 +51,26 @@ const GOCIconContainer = styled.span<GOCIconTextWrapperProps>(({ iconPlacement, 
   };
 });
 
-const GOCIconText: React.FC<GOCIconTextProps> = ({
+const LocalizeIconText: React.FC<LocalizeIconTextProps> = ({
   iconPlacement = 'left',
   iconTextMargin = '8px',
   children,
   ...props
 }) => {
   return (
-    <GOCIconTextWrapper
+    <LocalizeIconTextWrapper
       className="goc-icon-text__wrapper"
       iconPlacement={iconPlacement}
       iconTextMargin={iconTextMargin}
       {...props}
     >
-      <GOCIconContainer iconPlacement={iconPlacement} iconTextMargin={iconTextMargin}>
-        <GOCIcon className="goc-icon-text__icon" {...props} />
-      </GOCIconContainer>
+      <LocalizeIconContainer iconPlacement={iconPlacement} iconTextMargin={iconTextMargin}>
+        <LocalizeIcon className="goc-icon-text__icon" {...props} />
+      </LocalizeIconContainer>
       {children}
-    </GOCIconTextWrapper>
+    </LocalizeIconTextWrapper>
   );
 };
 
-export { GOCIconText };
-export default GOCIconText;
+export { LocalizeIconText };
+export default LocalizeIconText;

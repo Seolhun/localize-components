@@ -1,24 +1,29 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import classnames from 'classnames';
+import { lighten } from 'polished';
 
-import { isNil } from '@/utils';
+import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
-import { LocalizeIcon } from '../../icons';
+import { LocalizeIcon, LocalizeIconProps } from '../../icons';
+import { LocalizeFormWrapper } from '../wrapper';
 import { LocalizeFormStateProps } from '../LocalizeFormStateProps';
-import LocalizeFormLabel from '../LocalizeFormLabel';
-import LocalizeFormDescription from '../LocalizeFormDescription';
-import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
+const CLASSNAME = '__Localize__Input';
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
+type Props = InputProps & LocalizeProps & LocalizeFormStateProps;
 
-export interface LocalizeInputProps extends InputProps, LocalizeFormStateProps {
-  icon?: LocalizeIcon;
+export interface LocalizeInputProps extends Props {
+  /**
+   * To change icon by font-awesome
+   */
+  icon?: LocalizeIconProps['icon'];
+
+  /**
+   * To change icon color
+   */
+  iconColor?: LocalizeIconProps['color'];
 }
-
-const LocalizeInputWrapper = styled.div({
-  position: 'relative',
-  width: '100%',
-});
 
 const LocalizeInputContainer = styled.div<LocalizeFormStateProps, LocalizeThemeProps>(() => {
   return {
@@ -37,61 +42,62 @@ const LocalizeInputContainer = styled.div<LocalizeFormStateProps, LocalizeThemeP
   };
 });
 
-const StyledInput = styled.input<LocalizeInputProps, LocalizeThemeProps>(({ theme, error, visibleIcon }) => {
-  return {
-    color: theme.colors.neutral1,
-    width: '100%',
-    height: '100%',
-    ...(visibleIcon
-      ? {
-          padding: '10px 32px 10px 12px',
-        }
-      : {
-          padding: '10px 12px',
-        }),
-    outline: 'none',
-    backgroundColor: error ? theme.colors.error : theme.colors.neutral1,
-    border: `1px solid ${error ? theme.colors.error : theme.colors.neutral5}`,
-    borderRadius: '2px',
+const StyledInput = styled.input<LocalizeInputProps, LocalizeThemeProps>(
+  ({ theme, fontColor = 'conversion10', bgColor = 'conversion1', bdColor, error, visibleIcon }) => {
+    const color = theme.colors[fontColor];
+    const backgroundColor = theme.colors[bgColor];
+    const borderColor = theme.colors[bdColor || bgColor];
 
-    // WARNING: Not support IE
-    caretColor: theme.colors.info,
-    // for Safari boxShadow
-    boxShadow: 'none !important',
-    WebkitAppearance: 'none',
+    return {
+      color,
+      width: '100%',
+      height: '100%',
+      ...(visibleIcon
+        ? {
+            padding: '10px 32px 10px 12px',
+          }
+        : {
+            padding: '10px 12px',
+          }),
+      backgroundColor: error ? theme.colors.error : backgroundColor,
+      border: `1px solid ${error ? theme.colors.error : theme.colors.neutral5}`,
+      borderRadius: '2px',
+      outline: 'none',
+      // WARNING: Not support IE
+      caretColor: theme.colors.info,
+      // for Safari boxShadow
+      boxShadow: 'none !important',
+      WebkitAppearance: 'none',
 
-    '&:focus': {
-      border: `1px solid ${error ? theme.colors.error : theme.colors.info}`,
-    },
-    '&:read-only, &:disabled': {
-      fontWeight: 400,
-      backgroundColor: theme.colors.neutral2,
-      border: `1px solid ${theme.colors.neutral3}`,
-      color: theme.colors['black-25'],
-    },
-    '&::placeholder': {
-      color: theme.colors['black-25'],
-    },
-  };
-});
+      '&:focus': {
+        border: `1px solid ${error ? theme.colors.error : theme.colors.info}`,
+      },
+      '&:not(:disabled):not(:read-only):active, &:not(:disabled):not(:read-only):hover': {
+        borderColor: lighten(0.1, borderColor),
+      },
+      '&:read-only, &:disabled': {
+        backgroundColor: theme.colors.neutral4,
+        borderColor: theme.colors.neutral5,
+        color: theme.colors.neutral5,
+      },
+      '&::placeholder': {
+        color: theme.colors.neutral5,
+      },
+    };
+  },
+);
 
 const LocalizeInput = React.forwardRef<HTMLInputElement, LocalizeInputProps>(
-  ({ label, help, error, visibleIcon = true, ...props }, ref) => {
-    const initialValue = props.defaultValue || props.value;
-    const isSuccess = !error && !isNil(initialValue);
+  ({ className, label, help, error, visibleIcon = true, icon, iconColor, ...props }, ref) => {
     const isSelectable = !props.disabled && !props.readOnly;
 
     return (
-      <LocalizeInputWrapper>
-        {label && <LocalizeFormLabel>{label}</LocalizeFormLabel>}
+      <LocalizeFormWrapper className={classnames(CLASSNAME, className)} label={label} help={help} error={error}>
         <LocalizeInputContainer>
           <StyledInput {...props} ref={ref} error={error} visibleIcon={visibleIcon} autoComplete="false" />
-          {isSelectable && icon && (error || isSuccess) && (
-            <LocalizeIcon iconSize="16px" icon={icon} color={iconColor} />
-          )}
+          {isSelectable && icon && <LocalizeIcon iconSize="16px" icon={icon} color={iconColor} />}
         </LocalizeInputContainer>
-        {help && <LocalizeFormDescription error={error}>{help}</LocalizeFormDescription>}
-      </LocalizeInputWrapper>
+      </LocalizeFormWrapper>
     );
   },
 );

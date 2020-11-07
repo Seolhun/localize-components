@@ -5,8 +5,7 @@ import classnames from 'classnames';
 import { LocalizeColProps, LocalizeCol } from '@seolhun/localize-components-grid';
 
 import { LocalizeFormStateProps } from './LocalizeFormStateProps';
-import LocalizeFormLabel from './LocalizeFormLabel';
-import LocalizeFormDescription from './LocalizeFormDescription';
+import { LocalizeFormWrapper } from './wrapper';
 
 const CLASSNAME = '__Localize__FormItem';
 export interface LocalizeFormItemProps extends LocalizeColProps {
@@ -22,9 +21,9 @@ const LocalizeFormItemWrapper = styled(LocalizeCol)<LocalizeColProps>({});
 const LocalizeFormItem: React.FC<LocalizeFormItemProps> = ({ children, className, label, help, error, ...props }) => {
   return (
     <LocalizeFormItemWrapper {...props} className={classnames(CLASSNAME, className)}>
-      {label && <LocalizeFormLabel>{label}</LocalizeFormLabel>}
-      {children}
-      {help && <LocalizeFormDescription error={error}>{help}</LocalizeFormDescription>}
+      <LocalizeFormWrapper label={label} help={help} error={error}>
+        {children}
+      </LocalizeFormWrapper>
     </LocalizeFormItemWrapper>
   );
 };

@@ -9,7 +9,7 @@ export interface LocalizeFormDescriptionProps {
 
 const Description = styled.div<LocalizeFormDescriptionProps, LocalizeThemeProps>(({ theme, error }) => {
   return {
-    color: error ? theme.colors.error : theme.colors.text1,
+    color: error ? theme.colors.error : theme.colors.conversion10,
     marginTop: '8px',
     minHeight: '20px',
   };

@@ -12,7 +12,7 @@ type Props = LocalizeProps & DivProps & LocalizeBoxContainerProps;
 
 export interface LocalizeBoxProps extends Props {
   /**
-   * @default text1
+   * @default conversion10
    */
   fontColor?: Props['fontColor'];
 
@@ -41,7 +41,7 @@ interface LocalizeBoxContainerProps {
 }
 
 const LocalizeBoxWrapper = styled.div<LocalizeBoxProps, LocalizeThemeProps>(
-  ({ theme, fontColor = 'text1', bgColor = 'primary', borderRadius = '12px', bdColor }) => {
+  ({ theme, fontColor = 'conversion10', bgColor = 'primary', borderRadius = '12px', bdColor }) => {
     const color = theme.colors[fontColor];
     const backgroundColor = theme.colors[bgColor];
     const borderColor = theme.colors[bdColor || bgColor];

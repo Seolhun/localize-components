@@ -1,34 +1,30 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import classnames from 'classnames';
 
-import { GOCThemeProps } from '@/context';
+import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
-import { GOCFormUIProps } from '../LocalizeFormStateProps';
-import GOCFormLabel from '../LocalizeFormLabel';
-import GOCFormDescription from '../LocalizeFormDescription';
+import { LocalizeFormStateProps } from '../LocalizeFormStateProps';
+import { LocalizeFormWrapper } from '../wrapper';
 
+const CLASSNAME = '__Localize__Range';
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
+type Props = LocalizeProps & InputProps & LocalizeFormStateProps;
 
-export interface GOCRangeProps extends InputProps, GOCFormUIProps {
+export interface LocalizeRangeProps extends Props {
   visibleValue?: boolean;
 }
 
-const GOCRangeWrapper = styled.div({
-  width: '100%',
-});
-
-const GOCRangeContainer = styled.div<GOCFormUIProps, GOCThemeProps>(({ theme }) => {
+const LocalizeRangeContainer = styled.div<LocalizeFormStateProps, LocalizeProps>(() => {
   return {
-    ...theme.fonts.body1,
     display: 'flex',
     alignItems: 'center',
     width: '100%',
     height: '44px',
-    // TODO: Icon Color by State
   };
 });
 
-const HidingInput = styled.input<{}, GOCThemeProps>(({ theme }) => {
+const HidingInput = styled.input<{}, LocalizeThemeProps>(({ theme }) => {
   return {
     appearance: 'none',
     width: '100%',
@@ -36,7 +32,6 @@ const HidingInput = styled.input<{}, GOCThemeProps>(({ theme }) => {
     padding: 0,
     margin: 0,
     borderRadius: '2px',
-    background: theme.colors['black-45'],
     outline: 'none',
 
     // Range Handler
@@ -76,38 +71,39 @@ const HidingInput = styled.input<{}, GOCThemeProps>(({ theme }) => {
   };
 });
 
-const VisibleValueContainer = styled.div<GOCFormUIProps, GOCThemeProps>(({ theme, disabled }) => {
-  return {
-    ...theme.fonts[16],
-    display: 'flex',
-    justifyContent: 'space-between',
-    color: theme.colors['black-45'],
+const VisibleValueContainer = styled.div<LocalizeRangeProps, LocalizeThemeProps>(
+  ({ theme, fontColor = 'neutral1', disabled }) => {
+    const color = theme.colors[fontColor];
 
-    ...(disabled && {
-      color: theme.colors.neutral5,
-    }),
-  };
-});
+    return {
+      display: 'flex',
+      justifyContent: 'space-between',
+      color,
 
-const GOCRange = React.forwardRef<HTMLInputElement, GOCRangeProps>(
-  ({ label, help, error, visibleValue, ...props }, ref) => {
+      ...(disabled && {
+        color: theme.colors.neutral5,
+      }),
+    };
+  },
+);
+
+const LocalizeRange = React.forwardRef<HTMLInputElement, LocalizeRangeProps>(
+  ({ className, label, help, error, visibleValue, ...props }, ref) => {
     return (
-      <GOCRangeWrapper>
-        {label && <GOCFormLabel>{label}</GOCFormLabel>}
-        <GOCRangeContainer>
+      <LocalizeFormWrapper className={classnames(CLASSNAME, className)} label={label} help={help} error={error}>
+        <LocalizeRangeContainer>
           <HidingInput {...props} ref={ref} type="range" />
-        </GOCRangeContainer>
+        </LocalizeRangeContainer>
         {visibleValue && (
           <VisibleValueContainer {...props}>
             <span>{props.min}</span>
             <span>{props.max}</span>
           </VisibleValueContainer>
         )}
-        {help && <GOCFormDescription error={error}>{help}</GOCFormDescription>}
-      </GOCRangeWrapper>
+      </LocalizeFormWrapper>
     );
   },
 );
 
-export { GOCRange };
-export default GOCRange;
+export { LocalizeRange };
+export default LocalizeRange;

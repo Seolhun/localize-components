@@ -40,65 +40,66 @@ const LocalizeRadioCheckerCircle = styled.div<{}, LocalizeThemeProps>(() => ({
 
 const LocalizeRadioWrapper = styled.div<LocalizeProps, LocalizeThemeProps>(
   ({ theme, bgColor = 'neutral1', bdColor }) => {
-  const backgroundColor = theme.colors[bgColor];
-  const color = theme.colors.neutral1;
-  const borderColor = theme.colors[bdColor || bgColor];
+    const backgroundColor = theme.colors[bgColor];
+    const color = theme.colors.neutral1;
+    const borderColor = theme.colors[bdColor || bgColor];
 
-  return {
-    display: 'block',
-    cursor: 'pointer',
+    return {
+      display: 'block',
+      cursor: 'pointer',
 
-    // Hover
-    '&:hover': {
-      color,
+      // Hover
+      '&:hover': {
+        color,
 
-      [`${HidingInput}:not(:disabled):not(:read-only):not(:checked) + ${LocalizeRadioCheckerContainer}`]: {
+        [`${HidingInput}:not(:disabled):not(:read-only):not(:checked) + ${LocalizeRadioCheckerContainer}`]: {
+          backgroundColor,
+          border: `2px solid ${borderColor}`,
+        },
+      },
+
+      // Active
+      [`${HidingInput}:active + ${LocalizeRadioCheckerContainer}`]: {
         backgroundColor,
         border: `2px solid ${borderColor}`,
+
+        [`${LocalizeRadioCheckerCircle}`]: {
+          backgroundColor: borderColor,
+        },
       },
-    },
 
-    // Active
-    [`${HidingInput}:active + ${LocalizeRadioCheckerContainer}`]: {
-      backgroundColor,
-      border: `2px solid ${borderColor}`,
+      // Checked
+      [`${HidingInput}:checked + ${LocalizeRadioCheckerContainer}`]: {
+        backgroundColor,
+        border: `2px solid ${borderColor}`,
 
-      [`${LocalizeRadioCheckerCircle}`]: {
-        backgroundColor: borderColor,
+        [`${LocalizeRadioCheckerCircle}`]: {
+          backgroundColor: borderColor,
+        },
       },
-    },
 
-    // Checked
-    [`${HidingInput}:checked + ${LocalizeRadioCheckerContainer}`]: {
-      backgroundColor,
-      border: `2px solid ${borderColor}`,
+      // Readonly - Disabled
+      [`${HidingInput}:read-only, ${HidingInput}:disabled`]: {
+        backgroundColor: theme.colors.neutral4,
+        border: `2px solid ${theme.colors.neutral5}`,
 
-      [`${LocalizeRadioCheckerCircle}`]: {
-        backgroundColor: borderColor,
+        [`${LocalizeRadioCheckerCircle}`]: {
+          backgroundColor: theme.colors.neutral5,
+        },
       },
-    },
 
-    // Readonly - Disabled
-    [`${HidingInput}:read-only, ${HidingInput}:disabled`]: {
-      backgroundColor: theme.colors.neutral4,
-      border: `2px solid ${theme.colors.neutral5}`,
+      // Disabled and Checked
+      [`${HidingInput}:disabled:checked + ${LocalizeRadioCheckerContainer}`]: {
+        backgroundColor: theme.colors.neutral4,
+        border: `2px solid ${theme.colors.neutral5}`,
 
-      [`${LocalizeRadioCheckerCircle}`]: {
-        backgroundColor: theme.colors.neutral5,
+        [`${LocalizeRadioCheckerCircle}`]: {
+          backgroundColor: theme.colors.neutral5,
+        },
       },
-    },
-
-    // Disabled and Checked
-    [`${HidingInput}:disabled:checked + ${LocalizeRadioCheckerContainer}`]: {
-      backgroundColor: theme.colors.neutral4,
-      border: `2px solid ${theme.colors.neutral5}`,
-
-      [`${LocalizeRadioCheckerCircle}`]: {
-        backgroundColor: theme.colors.neutral5,
-      },
-    }
-  }
-});
+    };
+  },
+);
 
 const LocalizeRadioLabel = styled.label<LocalizeFormStateProps, LocalizeThemeProps>(({ theme }) => {
   return {
@@ -107,7 +108,7 @@ const LocalizeRadioLabel = styled.label<LocalizeFormStateProps, LocalizeThemePro
     alignItems: 'center',
     width: '100%',
     outline: 0,
-    color: theme.colors.text1,
+    color: theme.colors.conversion10,
     transition: 'color 0.3s',
     cursor: 'pointer',
     userSelect: 'none',

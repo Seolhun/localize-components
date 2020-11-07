@@ -9,20 +9,11 @@ const SWITCH_CIRCLE = 25;
 const SWITCH_CONTAINER_WIDTH = SWITCH_CIRCLE * 2 + 2;
 const SWITCH_CONTAINER_HEIGHT = SWITCH_CIRCLE + 2;
 
-const DEFAULT_CLASSNAME = '__Localize__Switch';
-type InputProps = React.HTMLAttributes<HTMLInputElement>;
+const CLASSNAME = '__Localize__Switch';
+type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
+type Props = InputProps & LocalizeProps;
 
-interface LocalizeSwitchProps extends LocalizeProps, InputProps {
-  /**
-   * Set this to change Switch checked
-   */
-  checked: boolean;
-
-  /**
-   * Set this to change Switch htmlFor
-   */
-  htmlFor: string;
-
+interface LocalizeSwitchProps extends Props {
   /**
    * Set this to change Switch groupName
    * @default ''
@@ -52,6 +43,7 @@ interface LocalizeSwitchProps extends LocalizeProps, InputProps {
    * @default () => null
    */
   onMouseOver?: (...agrs: any[]) => void;
+
   /**
    * Set this to change Switch onMouseOut
    * @default () => null
@@ -67,7 +59,7 @@ const StyledSwitchLabel = styled.label<LocalizeProps, LocalizeThemeProps>(({ the
     height: `${SWITCH_CONTAINER_HEIGHT}px`,
     userSelect: 'none',
 
-    [`input:checked + .${DEFAULT_CLASSNAME}__Slider:before`]: {
+    [`input:checked + .${CLASSNAME}__Slider:before`]: {
       boxShadow: `0 0 1px 2px ${theme.colors.neutral4}`,
       transform: `translateX(${SWITCH_CIRCLE}px)`,
     },
@@ -106,9 +98,10 @@ const StyledSlider = styled.span<LocalizeProps, LocalizeThemeProps>(({ theme }) 
   };
 });
 
+/**
+ * TODO: Change theme key and values
+ */
 const LocalizeSwitch: React.FC<LocalizeSwitchProps> = ({
-  checked,
-  htmlFor,
   className,
   groupName = '',
   onChange = () => null,
@@ -118,29 +111,25 @@ const LocalizeSwitch: React.FC<LocalizeSwitchProps> = ({
 }) => {
   const handleChecked = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.stopPropagation();
-
     onChange(event);
   };
 
   return (
     <StyledSwitchLabel
-      key={htmlFor}
-      htmlFor={htmlFor}
-      className={classnames(`${DEFAULT_CLASSNAME}__Label`, className)}
+      key={name}
+      htmlFor={name}
+      className={classnames(CLASSNAME, className)}
       onMouseOut={onMouseOut}
       onMouseOver={onMouseOver}
     >
       <StyledSwitchInput
         {...props}
-        id={htmlFor}
-        checked={checked}
-        className={classnames(`${DEFAULT_CLASSNAME}__Input`, className)}
+        id={name}
+        className={`${CLASSNAME}__Input`}
         type="checkbox"
         onChange={handleChecked}
-        value={htmlFor}
-        name={groupName}
       />
-      <StyledSlider className={classnames(`${DEFAULT_CLASSNAME}__Slider`, className)} />
+      <StyledSlider className={`${CLASSNAME}__Slider`} />
     </StyledSwitchLabel>
   );
 };

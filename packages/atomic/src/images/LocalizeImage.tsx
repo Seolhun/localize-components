@@ -6,8 +6,9 @@ import classnames from 'classnames';
 const DEFAULT_SIZE = 100;
 const CLASSNAME = '__Localize__Image';
 type ImageProps = React.ImgHTMLAttributes<HTMLImageElement>;
+type Props = ImageProps;
 
-export interface LocalizeImageProps extends ImageProps {
+export interface LocalizeImageProps extends Props {
   width?: string;
 
   height?: string;

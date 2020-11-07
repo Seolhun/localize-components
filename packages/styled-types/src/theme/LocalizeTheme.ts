@@ -29,25 +29,18 @@ export interface LocalizeProps {
    * @default undefined
    */
   bdColor?: keyof LocalizeThemeProps['colors'];
+
+  /**
+   * Set this to change zIndex
+   * @default undefined
+   */
+  zIndex?: number;
 }
 
 export interface LocalizeThemeProps<K = keyof typeof LocalizeThemeEnum> {
   type: K;
   fonts: LocalizeThemeFontsProps;
   colors: {
-    /**
-     * @name AccessibleText
-     */
-    text1: string;
-    text2: string;
-    text3: string;
-    text4: string;
-    text5: string;
-    text6: string;
-    text7: string;
-    text8: string;
-    text9: string;
-    text10: string;
     /**
      * @name Primary
      */
@@ -74,6 +67,20 @@ export interface LocalizeThemeProps<K = keyof typeof LocalizeThemeEnum> {
     secondary8: string;
     secondary9: string;
     secondary10: string;
+    /**
+     * @name Conversion
+     * To change color based on theme type
+     */
+    conversion1: string;
+    conversion2: string;
+    conversion3: string;
+    conversion4: string;
+    conversion5: string;
+    conversion6: string;
+    conversion7: string;
+    conversion8: string;
+    conversion9: string;
+    conversion10: string;
     /**
      * @name Neutral
      */
@@ -182,19 +189,6 @@ export interface LocalizeThemeProps<K = keyof typeof LocalizeThemeEnum> {
 
 const localizeLightThemeColors: LocalizeThemeProps['colors'] = {
   /**
-   * @name AccessibleText
-   */
-  text1: '#FFFFFF',
-  text2: '#F5F5F5',
-  text3: '#D9D9D9',
-  text4: '#BFBFBF',
-  text5: '#595959',
-  text6: '#434343',
-  text7: '#262626',
-  text8: '#1F1F1F',
-  text9: '#141414',
-  text10: '#000000',
-  /**
    * @name Primary
    */
   primary1: '#e6f7ff',
@@ -220,6 +214,20 @@ const localizeLightThemeColors: LocalizeThemeProps['colors'] = {
   secondary8: '#1C2F61',
   secondary9: '#142656',
   secondary10: '#09183F',
+  /**
+   * @name Conversion
+   * To change color based on theme type
+   */
+  conversion1: '#FFFFFF',
+  conversion2: '#F5F5F5',
+  conversion3: '#D9D9D9',
+  conversion4: '#BFBFBF',
+  conversion5: '#595959',
+  conversion6: '#434343',
+  conversion7: '#262626',
+  conversion8: '#1F1F1F',
+  conversion9: '#141414',
+  conversion10: '#000000',
   /**
    * @name Neutral
    */
@@ -323,19 +331,6 @@ const localizeLightThemeColors: LocalizeThemeProps['colors'] = {
 
 const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
   /**
-   * @name AccessibleText
-   */
-  text1: '#000000',
-  text2: '#141414',
-  text3: '#1F1F1F',
-  text4: '#262626',
-  text5: '#434343',
-  text6: '#595959',
-  text7: '#BFBFBF',
-  text8: '#D9D9D9',
-  text9: '#F5F5F5',
-  text10: '#FFFFFF',
-  /**
    * @name Primary
    */
   primary1: '#e6f7ff',
@@ -361,6 +356,20 @@ const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
   secondary8: '#1C2F61',
   secondary9: '#142656',
   secondary10: '#09183F',
+  /**
+   * @name Conversion
+   * To change color based on theme type
+   */
+  conversion1: '#000000',
+  conversion2: '#141414',
+  conversion3: '#1F1F1F',
+  conversion4: '#262626',
+  conversion5: '#434343',
+  conversion6: '#595959',
+  conversion7: '#BFBFBF',
+  conversion8: '#D9D9D9',
+  conversion9: '#F5F5F5',
+  conversion10: '#FFFFFF',
   /**
    * @name Neutral
    */

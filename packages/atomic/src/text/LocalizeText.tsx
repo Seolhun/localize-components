@@ -9,7 +9,7 @@ const DEFAULT_CLASSNAME = '__Localize__Text';
 type HeadingProps = React.HTMLAttributes<HTMLHeadingElement>;
 type LocalizeTextType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p';
 
-interface LocalizeTextProps extends LocalizeProps, HeadingProps {
+export interface LocalizeTextProps extends LocalizeProps, HeadingProps {
   type: LocalizeTextType;
 
   color?: keyof LocalizeThemeProps['colors'];
@@ -39,5 +39,5 @@ const LocalizeText: React.FC<LocalizeTextProps> = ({ type, children, className, 
   );
 };
 
-export { LocalizeTextProps, LocalizeText };
+export { LocalizeText };
 export default LocalizeText;

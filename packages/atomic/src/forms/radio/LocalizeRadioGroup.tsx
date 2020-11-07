@@ -1,14 +1,12 @@
 import styled from '@emotion/styled';
 import React from 'react';
-import GOCFormDescription from '../LocalizeFormDescription';
 
-import GOCFormLabel from '../LocalizeFormLabel';
+import { LocalizeFormWrapper } from '../wrapper';
 import { LocalizeFormStateProps } from '../LocalizeFormStateProps';
 import { LocalizeRadioProps } from './LocalizeRadio';
 
-
-const CLASSNAME = '__Localize__CheckboxGroup';
-type Props = LocalizeCheckboxDirectionProps & LocalizeFormStateProps;
+const CLASSNAME = '__Localize__RadioGroup';
+type Props = LocalizeRadioDirectionProps & LocalizeFormStateProps;
 
 export interface LocalizeRadioGroupProps extends Props {
   name?: string;
@@ -16,16 +14,14 @@ export interface LocalizeRadioGroupProps extends Props {
   onChange?: LocalizeRadioProps['onChange'];
 }
 
-export interface LocalizeCheckboxDirectionProps {
+export interface LocalizeRadioDirectionProps {
   /**
    * @default row
    */
   flexDirection?: 'row' | 'column';
 }
 
-const LocalizeRadioGroupWrapper = styled.div({});
-
-const CheckboxChildrenWrapper = styled.div<LocalizeCheckboxDirectionProps>(({ flexDirection }) => {
+const RadioChildrenWrapper = styled.div<LocalizeRadioDirectionProps>(({ flexDirection }) => {
   return {
     display: 'flex',
     flexWrap: 'wrap',
@@ -72,11 +68,9 @@ const LocalizeRadioGroup: React.FC<LocalizeRadioGroupProps> = ({
   );
 
   return (
-    <LocalizeRadioGroupWrapper>
-      {label && <GOCFormLabel htmlFor={name}>{label}</GOCFormLabel>}
-      <CheckboxChildrenWrapper flexDirection={flexDirection}>{clonedChildren}</CheckboxChildrenWrapper>
-      {help && <GOCFormDescription error={error}>{help}</GOCFormDescription>}
-    </LocalizeRadioGroupWrapper>
+    <LocalizeFormWrapper name={name} label={label} help={help} error={error}>
+      <RadioChildrenWrapper flexDirection={flexDirection}>{clonedChildren}</RadioChildrenWrapper>
+    </LocalizeFormWrapper>
   );
 };
 

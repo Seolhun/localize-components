@@ -1,2 +1,1 @@
-export * from './GOCHTMLTextArea';
-export * from './GOCTextArea';
+export * from './LocalizeTextArea';

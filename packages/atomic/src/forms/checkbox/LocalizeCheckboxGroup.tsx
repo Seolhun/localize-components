@@ -1,14 +1,13 @@
 import styled from '@emotion/styled';
 import React from 'react';
-import GOCFormDescription from '../LocalizeFormDescription';
 
-import GOCFormLabel from '../LocalizeFormLabel';
+import { LocalizeFormWrapper } from '../wrapper';
 import { LocalizeFormStateProps } from '../LocalizeFormStateProps';
 import { LocalizeCheckboxProps } from './LocalizeCheckbox';
 
-
 const CLASSNAME = '__Localize__CheckboxGroup';
 type Props = LocalizeCheckboxDirectionProps & LocalizeFormStateProps;
+
 export interface LocalizeCheckboxGroupProps extends Props {
   name?: string;
 
@@ -21,8 +20,6 @@ export interface LocalizeCheckboxDirectionProps {
    */
   flexDirection?: 'row' | 'column';
 }
-
-const LocalizeCheckboxGroupWrapper = styled.div({});
 
 const CheckboxChildrenWrapper = styled.div<LocalizeCheckboxDirectionProps>(({ flexDirection }) => {
   return {
@@ -71,11 +68,9 @@ const LocalizeCheckboxGroup: React.FC<LocalizeCheckboxGroupProps> = ({
   );
 
   return (
-    <LocalizeCheckboxGroupWrapper>
-      {label && <GOCFormLabel htmlFor={name}>{label}</GOCFormLabel>}
+    <LocalizeFormWrapper name={name} label={label} help={help} error={error}>
       <CheckboxChildrenWrapper flexDirection={flexDirection}>{clonedChildren}</CheckboxChildrenWrapper>
-      {help && <GOCFormDescription error={error}>{help}</GOCFormDescription>}
-    </LocalizeCheckboxGroupWrapper>
+    </LocalizeFormWrapper>
   );
 };
 

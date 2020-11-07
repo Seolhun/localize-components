@@ -1,2 +1,2 @@
-export * from './GOCSelect';
-export * from './GOCSelectOption';
+export * from './LocalizeSelect';
+export * from './LocalizeSelectOption';

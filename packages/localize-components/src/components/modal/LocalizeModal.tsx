@@ -14,8 +14,9 @@ import {
 
 const DEFAULT_CLASSNAME = '__Localize__Modal';
 type DivProps = React.HTMLAttributes<HTMLDivElement>;
+type Props = DivProps & LocalizeProps;
 
-export interface LocalizeModalProps extends LocalizeProps, DivProps {
+export interface LocalizeModalProps extends Props {
   /**
    * Set this to change Modal visibility
    */
@@ -32,7 +33,7 @@ export interface LocalizeModalProps extends LocalizeProps, DivProps {
   targetElement?: Element;
 }
 
-const LocalizeModalWrapper = styled.div<LocalizeProps>(({ zIndex = 100 }) => {
+const LocalizeModalWrapper = styled.div<LocalizeProps>(({ zIndex = 10000 }) => {
   return {
     position: 'fixed',
     top: 0,
