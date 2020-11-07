@@ -15,32 +15,35 @@ export default {
 
 const events = actions('onChange', 'onClick', 'onMouseOver', 'onMouseOut');
 const knobs = {
-  content: () => text('Children', 'LocalizeHr'),
-  disabled: () => boolean('Disabled', false),
-  borderRadius: () => text('BorderRadius', '10px'),
-  size: () => select<LocalizeSize>('Size', storiesSizeOption, 'md') as LocalizeSize,
-  bgColor: () => select<LocalizeThemeColors>('BgColor', storiesColorOption, 'primary'),
+  children: () => text('children', 'LocalizeButton'),
+  fontColor: () => select<LocalizeThemeColors>('fontColor', storiesColorOption, 'neutral1'),
+  bgColor: () => select<LocalizeThemeColors>('bgColor', storiesColorOption, 'primary'),
+  bdColor: () => select<LocalizeThemeColors>('bdColor', storiesColorOption, 'primary'),
+  size: () => select<LocalizeSize>('size', storiesSizeOption, 'md') as LocalizeSize,
+  borderRadius: () => text('borderRadius', ''),
+  disabled: () => boolean('disabled', false),
 };
 
+
 export const Default = () => {
-  const content = knobs.content();
+  const children = knobs.children();
   return (
     <LocalizeRow>
       <LocalizeCol>
-        <LocalizeHr {...events}>{content}</LocalizeHr>
+        <LocalizeHr {...events}>{children}</LocalizeHr>
       </LocalizeCol>
     </LocalizeRow>
   );
 };
 
 export const DynamicProps = () => {
-  const content = knobs.content();
+  const children = knobs.children();
   const bgColor = knobs.bgColor();
   const borderRadius = knobs.borderRadius();
   const disabled = knobs.disabled();
   const size = knobs.size();
   const props = {
-    content,
+    children,
     bgColor,
     borderRadius,
     size,
@@ -51,7 +54,7 @@ export const DynamicProps = () => {
     <LocalizeRow>
       <LocalizeCol>
         <LocalizeHr {...events} {...props}>
-          {content}
+          {children}
         </LocalizeHr>
       </LocalizeCol>
     </LocalizeRow>

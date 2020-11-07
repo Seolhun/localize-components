@@ -15,56 +15,59 @@ export default {
 
 const events = actions('onClick', 'onMouseOver', 'onMouseOut');
 const knobs = {
-  content: () => text('Children', 'LocalizeChip'),
-  disabled: () => boolean('Disabled', false),
-  borderRadius: () => text('BorderRadius', '10px'),
-  size: () => select<LocalizeSize>('Size', storiesSizeOption, 'md') as LocalizeSize,
-  bgColor: () => select<LocalizeThemeColors>('BgColor', storiesColorOption, 'primary'),
+  children: () => text('children', 'LocalizeButton'),
+  fontColor: () => select<LocalizeThemeColors>('fontColor', storiesColorOption, 'neutral1'),
+  bgColor: () => select<LocalizeThemeColors>('bgColor', storiesColorOption, 'primary'),
+  bdColor: () => select<LocalizeThemeColors>('bdColor', storiesColorOption, 'primary'),
+  size: () => select<LocalizeSize>('size', storiesSizeOption, 'md') as LocalizeSize,
+  borderRadius: () => text('borderRadius', ''),
+  disabled: () => boolean('disabled', false),
 };
 
+
 export const Default = () => {
-  const content = knobs.content();
+  const children = knobs.children();
   return (
     <LocalizeRow>
       <LocalizeCol>
-        <LocalizeChip {...events}>{content}</LocalizeChip>
+        <LocalizeChip {...events}>{children}</LocalizeChip>
       </LocalizeCol>
     </LocalizeRow>
   );
 };
 
 export const Size = () => {
-  const content = knobs.content();
+  const children = knobs.children();
   return (
     <LocalizeRow>
       <LocalizeCol md={8}>
         <h4>xl</h4>
         <LocalizeChip size="xl" {...events}>
-          {content}
+          {children}
         </LocalizeChip>
       </LocalizeCol>
       <LocalizeCol md={8}>
         <h4>lg</h4>
         <LocalizeChip size="lg" {...events}>
-          {content}
+          {children}
         </LocalizeChip>
       </LocalizeCol>
       <LocalizeCol md={8}>
         <h4>md</h4>
         <LocalizeChip size="md" {...events}>
-          {content}
+          {children}
         </LocalizeChip>
       </LocalizeCol>
       <LocalizeCol md={8}>
         <h4>sm</h4>
         <LocalizeChip size="sm" {...events}>
-          {content}
+          {children}
         </LocalizeChip>
       </LocalizeCol>
       <LocalizeCol md={8}>
         <h4>xs</h4>
         <LocalizeChip size="xs" {...events}>
-          {content}
+          {children}
         </LocalizeChip>
       </LocalizeCol>
     </LocalizeRow>
@@ -72,13 +75,13 @@ export const Size = () => {
 };
 
 export const DynamicProps = () => {
-  const content = knobs.content();
+  const children = knobs.children();
   const bgColor = knobs.bgColor();
   const borderRadius = knobs.borderRadius();
   const disabled = knobs.disabled();
   const size = knobs.size();
   const props = {
-    content,
+    children,
     bgColor,
     borderRadius,
     size,
@@ -89,7 +92,7 @@ export const DynamicProps = () => {
     <LocalizeRow>
       <LocalizeCol>
         <LocalizeChip {...events} {...props}>
-          {content}
+          {children}
         </LocalizeChip>
       </LocalizeCol>
     </LocalizeRow>
