@@ -19,13 +19,13 @@ export interface LocalizeProps {
   fontColor?: keyof LocalizeThemeProps['colors'];
 
   /**
-   * Set this to change background color in theme
+   * Set this to change background color
    * @default undefined
    */
   bgColor?: keyof LocalizeThemeProps['colors'];
 
   /**
-   * Set this to change border color in theme
+   * Set this to change border color
    * @default undefined
    */
   bdColor?: keyof LocalizeThemeProps['colors'];

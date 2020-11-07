@@ -2,27 +2,15 @@ import React from 'react';
 import classnames from 'classnames';
 import styled from '@emotion/styled';
 
-import { LocalizeFormUIProps } from '../LocalizeFormUITypes';
-import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
+import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
-export type LocalizeCheckboxThemeType = 'primary' | 'secondary' | 'default';
+import { LocalizeFormStateProps } from '../LocalizeFormStateProps';
 
+const CLASSNAME = '__Localize__Checkbox';
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
-export interface LocalizeCheckboxProps extends InputProps, LocalizeFormUIProps {
-  /**
-   * Button backgroundColor
-   * @default default
-   */
-  themeType?: LocalizeCheckboxThemeType;
-}
+type Props = LocalizeProps & InputProps & LocalizeFormStateProps;
 
-interface LocalizeCheckboxWrapperProps {
-  /**
-   * Button backgroundColor
-   * @default default
-   */
-  themeType: LocalizeCheckboxProps['themeType'];
-}
+export interface LocalizeCheckboxProps extends Props {}
 
 const HidingInput = styled.input<{}>({
   display: 'none',
@@ -41,7 +29,7 @@ const LocalizeCheckboxCheckerContainer = styled.div<{}, LocalizeThemeProps>(({ t
   transition: 'background-color 0.3s',
 }));
 
-const LocalizeCheckboxCheckerIcon = styled.svg<LocalizeFormUIProps, LocalizeThemeProps>(({ theme, checked }) => ({
+const LocalizeCheckboxCheckerIcon = styled.svg<LocalizeFormStateProps, LocalizeThemeProps>(({ theme, checked }) => ({
   width: '22px',
   height: '22px',
   fill: 'none',
@@ -51,69 +39,76 @@ const LocalizeCheckboxCheckerIcon = styled.svg<LocalizeFormUIProps, LocalizeThem
   transition: 'opacity 0.3s',
 }));
 
-const LocalizeCheckboxWrapper = styled.div<LocalizeCheckboxWrapperProps, LocalizeThemeProps>(({ theme, ...props }) => ({
-  display: 'block',
-  cursor: 'pointer',
-  // Hover
-  '&:hover': {
-    color: `${theme.colors['black-45']}`,
+const LocalizeCheckboxWrapper = styled.div<LocalizeProps, LocalizeThemeProps>(
+  ({ theme, bgColor = 'neutral1', bdColor }) => {
+  const backgroundColor = theme.colors[bgColor];
+  const color = theme.colors.neutral1;
+  const borderColor = theme.colors[bdColor || bgColor];
 
-    [`${HidingInput}:not(:disabled):not(:read-only):not(:checked) + ${LocalizeCheckboxCheckerContainer}`]: {
-      backgroundColor: theme.colors.white,
-      border: `2px solid ${theme.colors.secondary}`,
-    },
-  },
-
-  // Active
-  [`${HidingInput}:active + ${LocalizeCheckboxCheckerContainer}`]: {
-    backgroundColor: theme.colors.white,
-    border: `2px solid ${theme.colors.secondary}`,
-
-    [`${LocalizeCheckboxCheckerIcon}`]: {
-      stroke: theme.colors.secondary,
-    },
-  },
-
-  // Checked
-  [`${HidingInput}:checked + ${LocalizeCheckboxCheckerContainer}`]: {
-    backgroundColor: theme.colors.secondary1,
-    border: `2px solid ${theme.colors.secondary}`,
-
-    [`${LocalizeCheckboxCheckerIcon}`]: {
-      stroke: theme.colors.secondary,
-    },
-  },
-
-  // Readonly - Disabled
-  [`${HidingInput}:read-only, ${HidingInput}:disabled`]: {
-    backgroundColor: theme.colors.neutral4,
-    border: `2px solid ${theme.colors.neutral5}`,
-
-    [`${LocalizeCheckboxCheckerIcon}`]: {
-      stroke: theme.colors.neutral5,
-    },
-  },
-
-  // Disabled and Checked
-  [`${HidingInput}:disabled:checked + ${LocalizeCheckboxCheckerContainer}`]: {
-    backgroundColor: theme.colors.neutral4,
-    border: `2px solid ${theme.colors.neutral5}`,
-
-    [`${LocalizeCheckboxCheckerIcon}`]: {
-      stroke: theme.colors.neutral5,
-    },
-  },
-}));
-
-const LocalizeCheckboxLabel = styled.label<LocalizeFormUIProps, LocalizeThemeProps>(({ theme }) => {
   return {
-    ...theme.fonts.body1,
+    display: 'block',
+    cursor: 'pointer',
+
+    // Hover
+    '&:hover': {
+      color,
+
+      [`${HidingInput}:not(:disabled):not(:read-only):not(:checked) + ${LocalizeCheckboxCheckerContainer}`]: {
+        backgroundColor,
+        border: `2px solid ${borderColor}`,
+      },
+    },
+
+    // Active
+    [`${HidingInput}:active + ${LocalizeCheckboxCheckerContainer}`]: {
+      backgroundColor,
+      border: `2px solid ${borderColor}`,
+
+      [`${LocalizeCheckboxCheckerIcon}`]: {
+        stroke: borderColor,
+      },
+    },
+
+    // Checked
+    [`${HidingInput}:checked + ${LocalizeCheckboxCheckerContainer}`]: {
+      backgroundColor,
+      border: `2px solid ${borderColor}`,
+
+      [`${LocalizeCheckboxCheckerIcon}`]: {
+        stroke: borderColor,
+      },
+    },
+
+    // Readonly - Disabled
+    [`${HidingInput}:read-only, ${HidingInput}:disabled`]: {
+      backgroundColor: theme.colors.neutral4,
+      border: `2px solid ${theme.colors.neutral5}`,
+
+      [`${LocalizeCheckboxCheckerIcon}`]: {
+        stroke: theme.colors.neutral5,
+      },
+    },
+
+    // Disabled and Checked
+    [`${HidingInput}:disabled:checked + ${LocalizeCheckboxCheckerContainer}`]: {
+      backgroundColor: theme.colors.neutral4,
+      border: `2px solid ${theme.colors.neutral5}`,
+
+      [`${LocalizeCheckboxCheckerIcon}`]: {
+        stroke: theme.colors.neutral5,
+      },
+    },
+  }
+});
+
+const LocalizeCheckboxLabel = styled.label<LocalizeFormStateProps, LocalizeThemeProps>(({ theme }) => {
+  return {
     position: 'relative',
     display: 'inline-flex',
     alignItems: 'center',
     width: '100%',
     outline: 0,
-    color: theme.colors['black-45'],
+    color: theme.colors.text1,
     transition: 'color 0.3s',
     cursor: 'pointer',
     userSelect: 'none',
@@ -121,11 +116,11 @@ const LocalizeCheckboxLabel = styled.label<LocalizeFormUIProps, LocalizeThemePro
 });
 
 const LocalizeCheckbox = React.forwardRef<HTMLInputElement, LocalizeCheckboxProps>(
-  ({ children, themeType = 'default', className, ...props }, ref) => {
+  ({ children, className, ...props }, ref) => {
     const { disabled, checked } = props;
 
     return (
-      <LocalizeCheckboxWrapper themeType={themeType} className={classnames(className)}>
+      <LocalizeCheckboxWrapper className={classnames(CLASSNAME, className)}>
         <LocalizeCheckboxLabel disabled={disabled} checked={checked}>
           <HidingInput {...props} ref={ref} type="checkbox" />
           <LocalizeCheckboxCheckerContainer>

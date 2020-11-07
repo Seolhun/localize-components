@@ -4,15 +4,16 @@ import GOCFormDescription from '../LocalizeFormDescription';
 
 import GOCFormLabel from '../LocalizeFormLabel';
 import { LocalizeFormStateProps } from '../LocalizeFormStateProps';
-import { LocalizeCheckboxProps } from './LocalizeCheckbox';
+import { LocalizeRadioProps } from './LocalizeRadio';
 
 
 const CLASSNAME = '__Localize__CheckboxGroup';
 type Props = LocalizeCheckboxDirectionProps & LocalizeFormStateProps;
-export interface LocalizeCheckboxGroupProps extends Props {
+
+export interface LocalizeRadioGroupProps extends Props {
   name?: string;
 
-  onChange?: LocalizeCheckboxProps['onChange'];
+  onChange?: LocalizeRadioProps['onChange'];
 }
 
 export interface LocalizeCheckboxDirectionProps {
@@ -22,7 +23,7 @@ export interface LocalizeCheckboxDirectionProps {
   flexDirection?: 'row' | 'column';
 }
 
-const LocalizeCheckboxGroupWrapper = styled.div({});
+const LocalizeRadioGroupWrapper = styled.div({});
 
 const CheckboxChildrenWrapper = styled.div<LocalizeCheckboxDirectionProps>(({ flexDirection }) => {
   return {
@@ -44,7 +45,7 @@ const CheckboxChildrenWrapper = styled.div<LocalizeCheckboxDirectionProps>(({ fl
   };
 });
 
-const LocalizeCheckboxGroup: React.FC<LocalizeCheckboxGroupProps> = ({
+const LocalizeRadioGroup: React.FC<LocalizeRadioGroupProps> = ({
   children,
   name,
   label,
@@ -56,7 +57,7 @@ const LocalizeCheckboxGroup: React.FC<LocalizeCheckboxGroupProps> = ({
   const clonedChildren = React.Children.map(
     // @ts-ignore
     children,
-    (child: React.ReactElement<LocalizeCheckboxProps>, index) => {
+    (child: React.ReactElement<LocalizeRadioProps>, index) => {
       if (typeof child === 'object') {
         return React.cloneElement(child, {
           key: index + 1,
@@ -71,13 +72,13 @@ const LocalizeCheckboxGroup: React.FC<LocalizeCheckboxGroupProps> = ({
   );
 
   return (
-    <LocalizeCheckboxGroupWrapper>
+    <LocalizeRadioGroupWrapper>
       {label && <GOCFormLabel htmlFor={name}>{label}</GOCFormLabel>}
       <CheckboxChildrenWrapper flexDirection={flexDirection}>{clonedChildren}</CheckboxChildrenWrapper>
       {help && <GOCFormDescription error={error}>{help}</GOCFormDescription>}
-    </LocalizeCheckboxGroupWrapper>
+    </LocalizeRadioGroupWrapper>
   );
 };
 
-export { LocalizeCheckboxGroup };
-export default LocalizeCheckboxGroup;
+export { LocalizeRadioGroup };
+export default LocalizeRadioGroup;

@@ -19,9 +19,9 @@ const StyledLocalizeFlex = styled.div<LocalizeFlexProps>(({ flexDirection, align
   return {
     display: 'flex',
     flex: '1',
-    flexDirection,
     alignItems,
     justifyContent,
+    flexDirection,
   };
 });
 

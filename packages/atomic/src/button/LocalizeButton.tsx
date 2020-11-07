@@ -3,7 +3,12 @@ import { lighten } from 'polished';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
 
-import { LocalizeThemeProps, LocalizeProps, LocalizeSize } from '@seolhun/localize-components-styled-types';
+import {
+  LocalizeThemeProps,
+  LocalizeProps,
+  LocalizeSize,
+  getLocalizeSizeBy,
+} from '@seolhun/localize-components-styled-types';
 
 const DEFAULT_CLASSNAME = '__Localize__Button';
 type ButtonProps = React.HTMLAttributes<HTMLButtonElement>;
@@ -13,47 +18,29 @@ export interface LocalizeButtonProps extends ExtentionProps {
   size?: LocalizeSize;
 
   /**
+   * Set this to change border radius
    * @default undefined
    */
   borderRadius?: string;
 }
 
-const getPaddingBySize = (size?: LocalizeSize) => {
-  switch (size) {
-    case 'xl': {
-      return '1.4rem 2rem';
-    }
-    case 'lg': {
-      return '1.2rem 1.8rem';
-    }
-    case 'md': {
-      return '1rem 1.4rem';
-    }
-    case 'sm': {
-      return '0.8rem 1rem';
-    }
-    default: {
-      return '0.6rem 0.8rem';
-    }
-  }
-};
-
 const StyledLocalizeButton = styled.button<LocalizeButtonProps, LocalizeThemeProps>(
-  ({ theme, size = 'md', fontColor = 'neutral1', bgColor = 'primary', bdColor, borderRadius }) => {
+  ({ theme, size = 'md', fontColor = 'text1', bgColor = 'primary', bdColor, borderRadius }) => {
     const color = theme.colors[fontColor];
     const backgroundColor = theme.colors[bgColor];
     const borderColor = theme.colors[bdColor || bgColor];
 
     return {
       display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
       height: 'auto',
       color,
       backgroundColor,
-      padding: getPaddingBySize(size),
+      padding: getLocalizeSizeBy(size),
       border: `1px solid ${borderColor}`,
       borderRadius,
-      alignItems: 'center',
-      justifyContent: 'center',
+
       textDecoration: 'none',
       whiteSpace: 'nowrap',
       outline: 'none',
@@ -63,11 +50,11 @@ const StyledLocalizeButton = styled.button<LocalizeButtonProps, LocalizeThemePro
 
       '&:active, &:hover': {
         backgroundColor: lighten(0.1, backgroundColor),
-        borderColor: theme.colors.primary,
+        borderColor: lighten(0.1, borderColor),
       },
       '&:read-only, &:disabled': {
         backgroundColor: theme.colors.neutral4,
-        color: theme.colors.neutral1,
+        borderColor: theme.colors.neutral5,
       },
       '&:disabled': {
         cursor: 'not-allowed',
