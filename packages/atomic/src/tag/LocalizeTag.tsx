@@ -21,21 +21,26 @@ export interface LocalizeTagProps extends ExtentionProps {
 
 const getSizeStyle = (size?: LocalizeSize) => {
   switch (size) {
-    case 'xl':
+    case 'xl': {
       return '1.4rem 2rem';
-    case 'lg':
+    }
+    case 'lg': {
       return '1.2rem 1.8rem';
-    case 'md':
+    }
+    case 'md': {
       return '1rem 1.4rem';
-    case 'sm':
+    }
+    case 'sm': {
       return '0.8rem 1rem';
-    default:
+    }
+    default: {
       return '0.6rem 0.8rem';
+    }
   }
 };
 
 const StyledLocalizeTag = styled.span<LocalizeTagProps, LocalizeThemeProps>(
-  ({ theme, size = 'md', bgColor = 'primary', borderRadius }) => {
+  ({ theme, size = 'md', bgColor = 'primary', borderRadius = '50%' }) => {
     const fonts = theme.fonts.font1;
     const backgroundColor = theme.colors[bgColor];
     const color = theme.colors.neutral1;

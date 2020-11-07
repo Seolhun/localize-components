@@ -21,16 +21,21 @@ export interface LocalizeButtonProps extends ExtentionProps {
 
 const getSizeStyle = (size?: LocalizeSize) => {
   switch (size) {
-    case 'xl':
+    case 'xl': {
       return '1.4rem 2rem';
-    case 'lg':
+    }
+    case 'lg': {
       return '1.2rem 1.8rem';
-    case 'md':
+    }
+    case 'md': {
       return '1rem 1.4rem';
-    case 'sm':
+    }
+    case 'sm': {
       return '0.8rem 1rem';
-    default:
+    }
+    default: {
       return '0.6rem 0.8rem';
+    }
   }
 };
 
