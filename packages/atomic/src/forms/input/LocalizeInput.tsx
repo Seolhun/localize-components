@@ -4,14 +4,14 @@ import styled from '@emotion/styled';
 import { isNil } from '@/utils';
 
 import { LocalizeIcon } from '../../icons';
-import { LocalizeFormUIProps } from '../LocalizeFormUITypes';
+import { LocalizeFormStateProps } from '../LocalizeFormStateProps';
 import LocalizeFormLabel from '../LocalizeFormLabel';
 import LocalizeFormDescription from '../LocalizeFormDescription';
 import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
 
-export interface LocalizeInputProps extends InputProps, LocalizeFormUIProps {
+export interface LocalizeInputProps extends InputProps, LocalizeFormStateProps {
   icon?: LocalizeIcon;
 }
 
@@ -20,7 +20,7 @@ const LocalizeInputWrapper = styled.div({
   width: '100%',
 });
 
-const LocalizeInputContainer = styled.div<LocalizeFormUIProps, LocalizeThemeProps>(() => {
+const LocalizeInputContainer = styled.div<LocalizeFormStateProps, LocalizeThemeProps>(() => {
   return {
     position: 'relative',
     display: 'flex',

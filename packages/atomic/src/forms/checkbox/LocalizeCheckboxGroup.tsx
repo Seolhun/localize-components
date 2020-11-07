@@ -3,25 +3,25 @@ import React from 'react';
 import GOCFormDescription from '../LocalizeFormDescription';
 
 import GOCFormLabel from '../LocalizeFormLabel';
-import { GOCFormUIProps } from '../LocalizeFormUITypes';
-import { GOCCheckboxProps } from './LocalizeCheckbox';
+import { LocalizeFormStateProps } from '../LocalizeFormStateProps';
+import { LocalizeCheckboxProps } from './LocalizeCheckbox';
 
-export interface GOCCheckboxGroupProps extends GOCFormUIProps, GOCCheckboxDirectionProps {
+export interface LocalizeCheckboxGroupProps extends LocalizeFormStateProps, LocalizeCheckboxDirectionProps {
   name?: string;
 
-  onChange?: GOCCheckboxProps['onChange'];
+  onChange?: LocalizeCheckboxProps['onChange'];
 }
 
-export interface GOCCheckboxDirectionProps {
+export interface LocalizeCheckboxDirectionProps {
   /**
    * @default row
    */
   flexDirection?: 'row' | 'column';
 }
 
-const GOCCheckboxGroupWrapper = styled.div({});
+const LocalizeCheckboxGroupWrapper = styled.div({});
 
-const CheckboxChildrenWrapper = styled.div<GOCCheckboxDirectionProps>(({ flexDirection }) => {
+const CheckboxChildrenWrapper = styled.div<LocalizeCheckboxDirectionProps>(({ flexDirection }) => {
   return {
     display: 'flex',
     flexWrap: 'wrap',
@@ -41,7 +41,7 @@ const CheckboxChildrenWrapper = styled.div<GOCCheckboxDirectionProps>(({ flexDir
   };
 });
 
-const GOCCheckboxGroup: React.FC<GOCCheckboxGroupProps> = ({
+const LocalizeCheckboxGroup: React.FC<LocalizeCheckboxGroupProps> = ({
   children,
   label,
   name,
@@ -53,7 +53,7 @@ const GOCCheckboxGroup: React.FC<GOCCheckboxGroupProps> = ({
   const clonedChildren = React.Children.map(
     // @ts-ignore
     children,
-    (child: React.ReactElement<GOCCheckboxProps>, index) => {
+    (child: React.ReactElement<LocalizeCheckboxProps>, index) => {
       if (typeof child === 'object') {
         return React.cloneElement(child, {
           key: `go-checkbox-${index + 1}`,
@@ -68,13 +68,13 @@ const GOCCheckboxGroup: React.FC<GOCCheckboxGroupProps> = ({
   );
 
   return (
-    <GOCCheckboxGroupWrapper>
+    <LocalizeCheckboxGroupWrapper>
       {label && <GOCFormLabel htmlFor={name}>{label}</GOCFormLabel>}
       <CheckboxChildrenWrapper flexDirection={flexDirection}>{clonedChildren}</CheckboxChildrenWrapper>
       {help && <GOCFormDescription error={error}>{help}</GOCFormDescription>}
-    </GOCCheckboxGroupWrapper>
+    </LocalizeCheckboxGroupWrapper>
   );
 };
 
-export { GOCCheckboxGroup };
-export default GOCCheckboxGroup;
+export { LocalizeCheckboxGroup };
+export default LocalizeCheckboxGroup;

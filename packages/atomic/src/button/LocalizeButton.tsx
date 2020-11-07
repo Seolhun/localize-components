@@ -12,10 +12,13 @@ type ExtentionProps = LocalizeProps & ButtonProps;
 export interface LocalizeButtonProps extends ExtentionProps {
   size?: LocalizeSize;
 
+  /**
+   * @default undefined
+   */
   borderRadius?: string;
 }
 
-const getSizeStyle = (size?: LocalizeSize) => {
+const getPaddingBySize = (size?: LocalizeSize) => {
   switch (size) {
     case 'xl': {
       return '1.4rem 2rem';
@@ -36,22 +39,21 @@ const getSizeStyle = (size?: LocalizeSize) => {
 };
 
 const StyledLocalizeButton = styled.button<LocalizeButtonProps, LocalizeThemeProps>(
-  ({ theme, size = 'md', bgColor = 'primary', borderRadius }) => {
-    const fonts = theme.fonts.font1;
+  ({ theme, size = 'md', fontColor = 'neutral1', bgColor = 'primary', bdColor, borderRadius }) => {
+    const color = theme.colors[fontColor];
     const backgroundColor = theme.colors[bgColor];
-    const color = theme.colors.neutral1;
+    const borderColor = theme.colors[bdColor || bgColor];
 
     return {
-      ...fonts,
-      display: 'inline-block',
+      display: 'flex',
       height: 'auto',
-      padding: getSizeStyle(size),
-      backgroundColor,
-      border: `1px solid transparent`,
-      borderRadius,
       color,
-      textAlign: 'center',
-      verticalAlign: 'middle',
+      backgroundColor,
+      padding: getPaddingBySize(size),
+      border: `1px solid ${borderColor}`,
+      borderRadius,
+      alignItems: 'center',
+      justifyContent: 'center',
       textDecoration: 'none',
       whiteSpace: 'nowrap',
       outline: 'none',
@@ -59,24 +61,29 @@ const StyledLocalizeButton = styled.button<LocalizeButtonProps, LocalizeThemePro
       userSelect: 'none',
       cursor: 'pointer',
 
-      '&:hover': {
+      '&:active, &:hover': {
         backgroundColor: lighten(0.1, backgroundColor),
         borderColor: theme.colors.primary,
       },
-
-      '&:disabled': {
+      '&:read-only, &:disabled': {
         backgroundColor: theme.colors.neutral4,
         color: theme.colors.neutral1,
+      },
+      '&:disabled': {
         cursor: 'not-allowed',
       },
     };
   },
 );
 
-const LocalizeButton: React.FC<LocalizeButtonProps> = ({ children, className, ...props }) => (
-  <StyledLocalizeButton {...props} className={classnames(DEFAULT_CLASSNAME, className)}>
-    {children}
-  </StyledLocalizeButton>
+const LocalizeButton = React.forwardRef<HTMLButtonElement, LocalizeButtonProps>(
+  ({ children, className, ...props }, ref) => {
+    return (
+      <StyledLocalizeButton {...props} ref={ref} className={classnames(DEFAULT_CLASSNAME, className)}>
+        {children}
+      </StyledLocalizeButton>
+    );
+  },
 );
 
 export { LocalizeButton };

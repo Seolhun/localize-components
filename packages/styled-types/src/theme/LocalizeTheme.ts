@@ -23,6 +23,12 @@ export interface LocalizeProps {
    * @default undefined
    */
   bgColor?: keyof LocalizeThemeProps['colors'];
+
+  /**
+   * Set this to change border color in theme
+   * @default undefined
+   */
+  bdColor?: keyof LocalizeThemeProps['colors'];
 }
 
 export interface LocalizeThemeProps<K = keyof typeof LocalizeThemeEnum> {

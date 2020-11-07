@@ -5,7 +5,7 @@ import { GOCThemeProps } from '@/context';
 import { EmoteSelectorToggler } from '@/containers';
 import { StreamerEmoteModel } from '@/models';
 
-import { GOCFormUIProps } from '../LocalizeFormUITypes';
+import { GOCFormUIProps } from '../LocalizeFormStateProps';
 import GOCFormLabel from '../LocalizeFormLabel';
 import GOCFormDescription from '../LocalizeFormDescription';
 

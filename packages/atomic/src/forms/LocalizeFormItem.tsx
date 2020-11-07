@@ -4,17 +4,17 @@ import classnames from 'classnames';
 
 import { LocalizeColProps, LocalizeCol } from '@seolhun/localize-components-grid';
 
-import { LocalizeFormUIProps } from './LocalizeFormUITypes';
+import { LocalizeFormStateProps } from './LocalizeFormStateProps';
 import LocalizeFormLabel from './LocalizeFormLabel';
 import LocalizeFormDescription from './LocalizeFormDescription';
 
 const CLASSNAME = '__Localize__FormItem';
 export interface LocalizeFormItemProps extends LocalizeColProps {
-  label?: LocalizeFormUIProps['label'];
+  label?: LocalizeFormStateProps['label'];
 
-  help?: LocalizeFormUIProps['help'];
+  help?: LocalizeFormStateProps['help'];
 
-  error?: LocalizeFormUIProps['error'];
+  error?: LocalizeFormStateProps['error'];
 }
 
 const LocalizeFormItemWrapper = styled(LocalizeCol)<LocalizeColProps>({});

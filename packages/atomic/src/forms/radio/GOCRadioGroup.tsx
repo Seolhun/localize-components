@@ -3,7 +3,7 @@ import React from 'react';
 import GOCFormDescription from '../LocalizeFormDescription';
 
 import GOCFormLabel from '../LocalizeFormLabel';
-import { GOCFormUIProps } from '../LocalizeFormUITypes';
+import { GOCFormUIProps } from '../LocalizeFormStateProps';
 import { GOCRadioProps } from './GOCRadio';
 
 export interface GOCRadioGroupProps extends GOCFormUIProps, GOCRadioDirectionProps {

@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 import { GOCThemeProps } from '@/context';
 
-import { GOCFormUIProps } from '../LocalizeFormUITypes';
+import { GOCFormUIProps } from '../LocalizeFormStateProps';
 import GOCFormLabel from '../LocalizeFormLabel';
 import GOCFormDescription from '../LocalizeFormDescription';
 

@@ -12,17 +12,22 @@ type Props = LocalizeProps & DivProps & LocalizeBoxContainerProps;
 
 export interface LocalizeBoxProps extends Props {
   /**
+   * @default text1
+   */
+  fontColor?: Props['fontColor'];
+
+  /**
    * @default primary
    */
-  color?: keyof LocalizeThemeProps['colors'];
+  bgColor?: Props['bgColor'];
 
   /**
-   * @default info
+   * @default undefined
    */
-  backgroundColor?: keyof LocalizeThemeProps['colors'];
+  bdColor?: Props['bdColor'];
 
   /**
-   * @default 16px
+   * @default 12px
    */
   borderRadius?: string;
 }
@@ -36,15 +41,22 @@ interface LocalizeBoxContainerProps {
 }
 
 const LocalizeBoxWrapper = styled.div<LocalizeBoxProps, LocalizeThemeProps>(
-  ({ theme, color = 'primary', backgroundColor = 'info', borderRadius = '16px' }) => ({
-    position: 'relative',
-    color: theme.colors[color],
-    backgroundColor: theme.colors[backgroundColor],
-    borderRadius,
-  }),
+  ({ theme, fontColor = 'text1', bgColor = 'primary', borderRadius = '12px', bdColor }) => {
+    const color = theme.colors[fontColor];
+    const backgroundColor = theme.colors[bgColor];
+    const borderColor = theme.colors[bdColor || bgColor];
+
+    return {
+      position: 'relative',
+      color,
+      backgroundColor,
+      borderColor,
+      borderRadius,
+    };
+  },
 );
 
-const LocalizeBoxCloser = styled.span<{}, LocalizeThemeProps>(({ theme }) => {
+const LocalizeBoxCloser = styled.span<LocalizeProps, LocalizeThemeProps>(() => {
   return {
     position: 'absolute',
     right: '16px',
@@ -55,7 +67,6 @@ const LocalizeBoxCloser = styled.span<{}, LocalizeThemeProps>(({ theme }) => {
     backgroundColor: 'white',
     width: '32px',
     height: '32px',
-    border: `1px solid ${theme.colors.info}`,
     borderRadius: '50%',
   };
 });
@@ -69,7 +80,7 @@ const LocalizeBoxContainer = styled.div<LocalizeBoxContainerProps, LocalizeTheme
   };
 });
 
-const LocalizeBox: React.FC<LocalizeBoxProps> = ({ children, padding, closable, onClose, className, ...props }) => (
+const LocalizeBox: React.FC<LocalizeBoxProps> = ({ children, className, padding, closable, onClose, ...props }) => (
   <LocalizeBoxWrapper {...props} className={classnames(CLASSNAME, className)}>
     {closable && (
       <LocalizeBoxCloser onClick={onClose}>

@@ -1,6 +1,6 @@
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
 
-export interface LocalizeFormUIProps {
+export interface LocalizeFormStateProps {
   label?: React.ReactNode;
 
   error?: React.ReactNode;

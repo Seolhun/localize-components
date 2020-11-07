@@ -7,7 +7,7 @@ import { MEDIA_QUERIES } from '@/constants';
 import { GOCIcon } from '@/components';
 import { GOC_CONFIG } from '@/GOCConfig';
 
-import { GOCFormUIProps } from '../LocalizeFormUITypes';
+import { GOCFormUIProps } from '../LocalizeFormStateProps';
 import { GOCFormDescription } from '../LocalizeFormDescription';
 import { GOCFormLabel } from '../LocalizeFormLabel';
 import { GOCButton } from '../../button';
