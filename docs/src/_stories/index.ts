@@ -1,29 +1,10 @@
-import { LocalizeSizeObject } from '../system';
-import { StoriesThemeWrapper } from './StoriesThemeWrapper';
+import { LocalizeSize } from '../../../packages/styled-types';
 import { localizeLightTheme } from '../../../packages/styled-types';
 
-const storiesSizeOption: LocalizeSizeObject = {
-  xl: 'xl',
-  lg: 'lg',
-  md: 'md',
-  sm: 'sm',
-  xs: 'xs',
-};
+export * from './StoriesThemeWrapper';
 
-const storiesColorOption = Object.keys(localizeLightTheme.colors).reduce(
-  (acc, key) => ({
-    ...acc,
-    [key]: key,
-  }),
-  {},
-);
+export const storiesSizeOptions: LocalizeSize[] = ['xl', 'lg', 'md', 'sm', 'xs'];
 
-const storiesFontOption = Object.keys(localizeLightTheme.fonts).reduce(
-  (acc, key) => ({
-    ...acc,
-    [key]: key,
-  }),
-  {},
-);
+export const storiesColorOptions = Object.keys(localizeLightTheme.colors).map((key) => key);
 
-export { storiesSizeOption, storiesColorOption, storiesFontOption, StoriesThemeWrapper };
+export const storiesFontOptions = Object.keys(localizeLightTheme.fonts).map((key) => key);

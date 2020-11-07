@@ -1,10 +1,15 @@
+import { addons } from '@storybook/addons';
 import { create } from '@storybook/theming';
 
-// import favicon from './favicon.ico';
 import logo from './logo.png';
 
-export default create({
+const theme = create({
+  base: 'light',
   brandTitle: 'Localize-Components UI',
   brandUrl: 'https://localize-component.sh',
   brandImage: logo,
+});
+
+addons.setConfig({
+  theme,
 });
