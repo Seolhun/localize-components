@@ -1,7 +1,8 @@
 // .storybook/preview.js
 import React from 'react';
 import { Global, css } from '@emotion/core';
-import { StoriesThemeWrapper } from '../src/_stories';
+
+import { ThemeProvider } from '../src/theme';
 
 const globalStyle = `
 	html, body {
@@ -17,14 +18,14 @@ const globalStyle = `
 
 const withThemeProvider = (Story, context) => {
   return (
-    <StoriesThemeWrapper>
+    <ThemeProvider>
       <Global
         styles={css`
           ${globalStyle}
         `}
       />
       <Story {...context} />
-    </StoriesThemeWrapper>
+    </ThemeProvider>
   );
 };
 export const decorators = [withThemeProvider];

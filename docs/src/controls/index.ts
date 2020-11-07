@@ -1,8 +1,6 @@
 import { LocalizeSize } from '../../../packages/styled-types';
 import { localizeLightTheme } from '../../../packages/styled-types';
 
-export * from './StoriesThemeWrapper';
-
 export const storiesSizeOptions: LocalizeSize[] = ['xl', 'lg', 'md', 'sm', 'xs'];
 
 export const storiesColorOptions = Object.keys(localizeLightTheme.colors).map((key) => key);

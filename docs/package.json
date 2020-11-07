@@ -39,8 +39,7 @@
     "core-js": "^3.5.0",
     "emotion-theming": "^10.0.27",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "storybook-dark-mode": "^1.0.3"
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",
