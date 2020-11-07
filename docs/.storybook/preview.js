@@ -69,7 +69,7 @@ export const parameters = {
    * @see https://storybook.js.org/docs/react/essentials/controls
    */
   controls: {
-    expanded: true
+    expanded: true,
   },
   actions: {
     argTypesRegex: '^on[A-Z].*',

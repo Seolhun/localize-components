@@ -17,8 +17,8 @@
     "README.md"
   ],
   "scripts": {
-    "build": "build-storybook --no-dll",
-    "dev": "start-storybook -p 6006 --no-dll",
+    "build": "build-storybook -s ./public --no-dll",
+    "dev": "start-storybook -s ./public -p 6006 --no-dll",
     "clear": "rm -rf dist && rm -rf .rpt2_cache",
     "lint": "eslint \"src/**/*.{ts,tsx,js,jsx}\"",
     "lint:fix": "eslint \"src/**/*.{ts,tsx,js,jsx}\" --fix",
@@ -67,7 +67,6 @@
     "@types/storybook__addon-viewport": "^5.2.1",
     "@types/storybook__react": "^5.2.1",
     "babel-loader": "^8.0.4",
-    "babel-plugin-emotion": "^10.0.33",
     "react-docgen-typescript-loader": "^3.7.2",
     "react-is": "^17.0.1",
     "ts-loader": "^7.0.5",

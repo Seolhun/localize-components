@@ -15,17 +15,39 @@ type ButtonProps = React.HTMLAttributes<HTMLButtonElement>;
 type ExtentionProps = LocalizeProps & ButtonProps;
 
 export interface LocalizeButtonProps extends ExtentionProps {
+  /**
+   * Set this to change font Color
+   * @default conversion10
+   */
+  fontColor?: ExtentionProps['fontColor'];
+
+  /**
+   * Set this to change backgroundColor
+   * @default primary
+   */
+  bgColor?: ExtentionProps['bgColor'];
+
+  /**
+   * Set this to change borderColor
+   * @default undefined
+   */
+  bdColor?: ExtentionProps['bdColor'];
+
+  /**
+   * Set this to change font color
+   * @default sm
+   */
   size?: LocalizeSize;
 
   /**
    * Set this to change border radius
-   * @default undefined
+   * @default 4px
    */
   borderRadius?: string;
 }
 
 const StyledLocalizeButton = styled.button<LocalizeButtonProps, LocalizeThemeProps>(
-  ({ theme, size = 'md', fontColor = 'text1', bgColor = 'primary', bdColor, borderRadius }) => {
+  ({ theme, size, fontColor = 'conversion10', bgColor = 'primary', bdColor, borderRadius = '4px' }) => {
     const color = theme.colors[fontColor];
     const backgroundColor = theme.colors[bgColor];
     const borderColor = theme.colors[bdColor || bgColor];
@@ -48,7 +70,7 @@ const StyledLocalizeButton = styled.button<LocalizeButtonProps, LocalizeThemePro
       userSelect: 'none',
       cursor: 'pointer',
 
-      '&:active, &:hover': {
+      '&:not(:disabled):not(:read-only):active, &:not(:disabled):not(:read-only):hover': {
         backgroundColor: lighten(0.1, backgroundColor),
         borderColor: lighten(0.1, borderColor),
       },

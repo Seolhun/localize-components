@@ -53,7 +53,7 @@ const LocalizeCheckboxWrapper = styled.div<LocalizeProps, LocalizeThemeProps>(
       '&:hover': {
         color,
 
-        [`${HidingInput}:not(:disabled):not(:read-only):not(:checked) + ${LocalizeCheckboxCheckerContainer}`]: {
+        [`${HidingInput}:not(:disabled):not(:checked) + ${LocalizeCheckboxCheckerContainer}`]: {
           backgroundColor,
           border: `2px solid ${borderColor}`,
         },

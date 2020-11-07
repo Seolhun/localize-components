@@ -2,7 +2,12 @@ import React from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
 
-import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
+import {
+  getLocalizeSizeBy,
+  LocalizeProps,
+  LocalizeSize,
+  LocalizeThemeProps,
+} from '@seolhun/localize-components-styled-types';
 
 import { LocalizeIcon } from '../icons';
 
@@ -27,13 +32,17 @@ export interface LocalizeBoxProps extends Props {
   bdColor?: Props['bdColor'];
 
   /**
-   * @default 12px
+   * @default 8px
    */
   borderRadius?: string;
 }
 
 interface LocalizeBoxContainerProps {
-  padding?: string;
+  /**
+   * Set this to change font color
+   * @default sm
+   */
+  size?: LocalizeSize;
 
   closable?: boolean;
 
@@ -41,7 +50,7 @@ interface LocalizeBoxContainerProps {
 }
 
 const LocalizeBoxWrapper = styled.div<LocalizeBoxProps, LocalizeThemeProps>(
-  ({ theme, fontColor = 'conversion10', bgColor = 'primary', borderRadius = '12px', bdColor }) => {
+  ({ theme, fontColor = 'conversion10', bgColor = 'primary', borderRadius = '8px', bdColor }) => {
     const color = theme.colors[fontColor];
     const backgroundColor = theme.colors[bgColor];
     const borderColor = theme.colors[bdColor || bgColor];
@@ -71,23 +80,23 @@ const LocalizeBoxCloser = styled.span<LocalizeProps, LocalizeThemeProps>(() => {
   };
 });
 
-const LocalizeBoxContainer = styled.div<LocalizeBoxContainerProps, LocalizeThemeProps>(({ padding, closable }) => {
+const LocalizeBoxContainer = styled.div<LocalizeBoxContainerProps, LocalizeThemeProps>(({ size, closable }) => {
   return {
-    padding,
+    padding: getLocalizeSizeBy(size),
     ...(closable && {
       paddingRight: '52px',
     }),
   };
 });
 
-const LocalizeBox: React.FC<LocalizeBoxProps> = ({ children, className, padding, closable, onClose, ...props }) => (
+const LocalizeBox: React.FC<LocalizeBoxProps> = ({ children, className, size, closable, onClose, ...props }) => (
   <LocalizeBoxWrapper {...props} className={classnames(CLASSNAME, className)}>
     {closable && (
       <LocalizeBoxCloser onClick={onClose}>
         <LocalizeIcon icon={['fal', 'times']} color="info" iconSize="16px" />
       </LocalizeBoxCloser>
     )}
-    <LocalizeBoxContainer padding={padding} closable={closable}>
+    <LocalizeBoxContainer size={size} closable={closable}>
       {children}
     </LocalizeBoxContainer>
   </LocalizeBoxWrapper>

@@ -1,14 +1,14 @@
 import React from 'react';
 import { Story } from '@storybook/react/types-6-0';
 
-import { LocalizeChip, LocalizeChipProps } from '../../../packages/atomic/dist';
+import { LocalizeBox, LocalizeBoxProps } from '../../../packages/atomic/dist';
 import { LocalizeRow, LocalizeCol } from '../../../packages/grid/dist';
 
 import { storiesSizeOptions, storiesColorOptions } from '../controls';
 
 export default {
-  title: 'Atmoic | LocalizeChip',
-  component: LocalizeChip,
+  title: 'Atmoic | LocalizeBox',
+  component: LocalizeBox,
   argTypes: {
     fontColor: {
       defaultValue: 'neutral1',
@@ -41,55 +41,56 @@ export default {
   },
 };
 
-const Chip: Story<LocalizeChipProps> = (args) => <LocalizeChip {...args} />;
+const Box: Story<LocalizeBoxProps> = (args) => <LocalizeBox {...args} />;
 
-export const ChipStories = Chip.bind({});
-ChipStories.args = {
-  children: 'LocalizeChip',
+export const BoxStories = Box.bind({});
+BoxStories.args = {
+  children: 'LocalizeBox',
   disabled: false,
 };
 
-const ChipSizes: Story<LocalizeChipProps> = (args) => {
+const BoxSizes: Story<LocalizeBoxProps> = (args) => {
   const children = args.children;
   return (
     <>
       <LocalizeRow>
-        <LocalizeCol md={8}>
+        <LocalizeCol>
           <h4>xl</h4>
-          <LocalizeChip {...args} size="xl">
+          <LocalizeBox {...args} size="xl">
             {children}
-          </LocalizeChip>
+          </LocalizeBox>
         </LocalizeCol>
-        <LocalizeCol md={8}>
+        <LocalizeCol>
           <h4>lg</h4>
-          <LocalizeChip {...args} size="lg">
+          <LocalizeBox {...args} size="lg">
             {children}
-          </LocalizeChip>
+          </LocalizeBox>
         </LocalizeCol>
-        <LocalizeCol md={8}>
+        <LocalizeCol>
           <h4>md</h4>
-          <LocalizeChip {...args} size="md">
+          <LocalizeBox {...args} size="md">
             {children}
-          </LocalizeChip>
+          </LocalizeBox>
         </LocalizeCol>
-        <LocalizeCol md={8}>
+        <LocalizeCol>
           <h4>sm</h4>
-          <LocalizeChip {...args} size="sm">
+          <LocalizeBox {...args} size="sm">
             {children}
-          </LocalizeChip>
+          </LocalizeBox>
         </LocalizeCol>
-        <LocalizeCol md={8}>
+        <LocalizeCol>
           <h4>xs</h4>
-          <LocalizeChip {...args} size="xs">
+          <LocalizeBox {...args} size="xs">
             {children}
-          </LocalizeChip>
+          </LocalizeBox>
         </LocalizeCol>
       </LocalizeRow>
     </>
   );
 };
-export const ChipsStorieSizes = ChipSizes.bind({});
-ChipsStorieSizes.args = {
-  children: 'LocalizeChip',
+export const BoxSizesStories = BoxSizes.bind({});
+BoxSizesStories.args = {
+  children: 'LocalizeBox',
+  borderRadius: '12px',
   disabled: false,
 };

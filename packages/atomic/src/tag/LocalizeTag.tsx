@@ -24,20 +24,17 @@ export interface LocalizeTagProps extends ExtentionProps {
   borderRadius?: string;
 }
 
-const StyledLocalizeTag = styled.span<LocalizeTagProps, LocalizeThemeProps>(
-  ({ theme, size = 'md', bgColor = 'primary', bdColor, borderRadius = '50%' }) => {
+const StyledLocalizeTagWrapper = styled.div<LocalizeTagProps, LocalizeThemeProps>(
+  ({ theme, bgColor = 'primary', bdColor, borderRadius = '50%' }) => {
     const color = theme.colors.neutral1;
     const backgroundColor = theme.colors[bgColor];
     const borderColor = theme.colors[bdColor || bgColor];
 
     return {
-      display: 'inline-flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      height: 'auto',
+      position: 'relative',
+      display: 'inline-block',
       color,
       backgroundColor,
-      padding: getLocalizeSizeBy(size),
       border: `1px solid ${borderColor}`,
       borderRadius,
 
@@ -62,15 +59,20 @@ const StyledLocalizeTag = styled.span<LocalizeTagProps, LocalizeThemeProps>(
   },
 );
 
-const LocalizeTag: React.FC<LocalizeTagProps> = ({
-  children,
-  className = '',
-  ...props
-}) => {
+const StyledLocalizeTagContainer = styled.span<LocalizeTagProps, LocalizeThemeProps>(({ size }) => {
+  return {
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: getLocalizeSizeBy(size),
+  };
+});
+
+const LocalizeTag: React.FC<LocalizeTagProps> = ({ children, className, size, ...props }) => {
   return (
-    <StyledLocalizeTag {...props} className={classnames(CLASSNAME, className)}>
-      {children}
-    </StyledLocalizeTag>
+    <StyledLocalizeTagWrapper {...props} className={classnames(CLASSNAME, className)}>
+      <StyledLocalizeTagContainer size={size}>{children}</StyledLocalizeTagContainer>
+    </StyledLocalizeTagWrapper>
   );
 };
 

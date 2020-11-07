@@ -15,6 +15,24 @@ type Props = InputProps & LocalizeProps & LocalizeFormStateProps;
 
 export interface LocalizeInputProps extends Props {
   /**
+   * Set this to change font Color
+   * @default conversion10
+   */
+  fontColor?: Props['fontColor'];
+
+  /**
+   * Set this to change backgroundColor
+   * @default conversion1
+   */
+  bgColor?: Props['bgColor'];
+
+  /**
+   * Set this to change borderColor
+   * @default primary
+   */
+  bdColor?: Props['bdColor'];
+
+  /**
    * To change icon by font-awesome
    */
   icon?: LocalizeIconProps['icon'];
@@ -31,10 +49,8 @@ const LocalizeInputContainer = styled.div<LocalizeFormStateProps, LocalizeThemeP
     display: 'flex',
     alignItems: 'center',
     width: '100%',
-    height: '44px',
 
-    // TODO: Icon Color by Static
-    '.goc-input-state-icon': {
+    [`${LocalizeIcon}`]: {
       position: 'absolute',
       top: '14px',
       right: '10px',
@@ -43,7 +59,7 @@ const LocalizeInputContainer = styled.div<LocalizeFormStateProps, LocalizeThemeP
 });
 
 const StyledInput = styled.input<LocalizeInputProps, LocalizeThemeProps>(
-  ({ theme, fontColor = 'conversion10', bgColor = 'conversion1', bdColor, error, visibleIcon }) => {
+  ({ theme, fontColor = 'conversion10', bgColor = 'conversion1', bdColor = 'primary', error, visibleIcon }) => {
     const color = theme.colors[fontColor];
     const backgroundColor = theme.colors[bgColor];
     const borderColor = theme.colors[bdColor || bgColor];
@@ -59,23 +75,23 @@ const StyledInput = styled.input<LocalizeInputProps, LocalizeThemeProps>(
         : {
             padding: '10px 12px',
           }),
-      backgroundColor: error ? theme.colors.error : backgroundColor,
+      backgroundColor,
       border: `1px solid ${error ? theme.colors.error : theme.colors.neutral5}`,
       borderRadius: '2px',
       outline: 'none',
       // WARNING: Not support IE
-      caretColor: theme.colors.info,
+      caretColor: theme.colors.primary,
       // for Safari boxShadow
       boxShadow: 'none !important',
       WebkitAppearance: 'none',
 
-      '&:focus': {
-        border: `1px solid ${error ? theme.colors.error : theme.colors.info}`,
-      },
       '&:not(:disabled):not(:read-only):active, &:not(:disabled):not(:read-only):hover': {
-        borderColor: lighten(0.1, borderColor),
+        borderColor,
       },
-      '&:read-only, &:disabled': {
+      '&:focus': {
+        border: `1px solid ${error ? theme.colors.error : lighten(0.1, borderColor)}`,
+      },
+      '&:disabled': {
         backgroundColor: theme.colors.neutral4,
         borderColor: theme.colors.neutral5,
         color: theme.colors.neutral8,

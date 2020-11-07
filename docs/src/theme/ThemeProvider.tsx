@@ -6,11 +6,7 @@ import { LocalizeThemeProvider } from '../../../packages/localize-components/dis
 interface ThemeProviderProps {}
 
 const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  return (
-    <LocalizeThemeProvider theme={localizeLightTheme}>
-      {children}
-    </LocalizeThemeProvider>
-  );
+  return <LocalizeThemeProvider theme={localizeLightTheme}>{children}</LocalizeThemeProvider>;
 };
 
 export { ThemeProvider };

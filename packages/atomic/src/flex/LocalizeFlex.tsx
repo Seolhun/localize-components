@@ -6,11 +6,12 @@ import { LocalizeProps } from '@seolhun/localize-components-styled-types';
 
 const CLASSNAME = '__Localize__Flex';
 type DivProps = React.HTMLAttributes<HTMLDivElement>;
+type Props = LocalizeProps & DivProps;
 
-export interface LocalizeFlexProps extends LocalizeProps, DivProps {
-  justifyContent?: JustifyContentProperty;
-
+export interface LocalizeFlexProps extends Props {
   alignItems?: AlignItemsProperty;
+
+  justifyContent?: JustifyContentProperty;
 
   flexDirection?: FlexDirectionProperty;
 }

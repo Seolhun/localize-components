@@ -1,13 +1,13 @@
 import React from 'react';
 import { Story } from '@storybook/react/types-6-0';
 
-import { storiesSizeOptions, storiesColorOptions } from '../_stories';
 import { LocalizeButton, LocalizeButtonProps } from '../../../packages/atomic';
-import { LocalizeRow } from '../../../packages/atomic/node_modules/@seolhun/localize-components-grid/dist';
-import { LocalizeCol } from '../../../packages/atomic/node_modules/@seolhun/localize-components-grid/dist';
+import { LocalizeRow, LocalizeCol } from '../../../packages/grid';
+
+import { storiesSizeOptions, storiesColorOptions } from '../controls';
 
 export default {
-  title: 'UI | LocalizeButton',
+  title: 'Atmoic | LocalizeButton',
   component: LocalizeButton,
   argTypes: {
     fontColor: {
@@ -46,7 +46,6 @@ const Button: Story<LocalizeButtonProps> = (args) => <LocalizeButton {...args} /
 export const ButtonStories = Button.bind({});
 ButtonStories.args = {
   children: 'LocalizeButton',
-  borderRadius: '12px',
   disabled: false,
 };
 
@@ -87,11 +86,10 @@ const SizeButtons: Story<LocalizeButtonProps> = (args) => {
         </LocalizeCol>
       </LocalizeRow>
     </>
-  )
+  );
 };
 export const SizeButtonsStories = SizeButtons.bind({});
 SizeButtonsStories.args = {
   children: 'LocalizeButton',
-  borderRadius: '12px',
   disabled: false,
 };

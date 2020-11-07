@@ -11,11 +11,12 @@ export const getLocalizeSizeBy = (size?: LocalizeSize) => {
     case 'md': {
       return '1rem 1.4rem';
     }
-    case 'sm': {
-      return '0.8rem 1rem';
-    }
-    default: {
+    case 'xs': {
       return '0.6rem 0.8rem';
+    }
+    // SM
+    default: {
+      return '0.8rem 1rem';
     }
   }
 };
