@@ -5,11 +5,12 @@ import {
   LocalizeRow,
   LocalizeRowProps,
 } from '@seolhun/localize-components-grid';
+import { LocalizeFormItem } from './LocalizeFormItem';
 
 export interface LocalizeFormGroupProps extends LocalizeRowProps {}
 
 const StyledFormGroup = styled(LocalizeRow)<LocalizeRowProps>({
-  [`${LocalizeRow} + ${LocalizeRow}`]: {
+  [`${LocalizeFormItem} + ${LocalizeFormItem}`]: {
     marginTop: '24px',
   },
 });

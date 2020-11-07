@@ -1,18 +1,16 @@
 import React from 'react';
 import styled from '@emotion/styled';
-
-import { GOCThemeProps } from '@/context';
+import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
 type LabelProps = React.LabelHTMLAttributes<HTMLLabelElement>;
 
 export interface GOCFormLabelProps extends LabelProps {}
 
-const StyledGOCFormLabel = styled.label<{}, GOCThemeProps>(({ theme }) => {
+const StyledGOCFormLabel = styled.label<{}, LocalizeThemeProps>(({ theme }) => {
   return {
-    ...theme.fonts.subtitle1,
     display: 'block',
     width: '100%',
-    color: theme.colors['black-65'],
+    color: theme.colors.text1,
     marginBottom: '8px',
   };
 });

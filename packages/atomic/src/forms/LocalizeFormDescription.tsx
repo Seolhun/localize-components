@@ -12,7 +12,7 @@ const Description = styled.div<
   LocalizeThemeProps
 >(({ theme, error }) => {
   return {
-    color: error ? theme.colors.error : theme.colors.neutral1,
+    color: error ? theme.colors.error : theme.colors.text1,
     marginTop: '8px',
     minHeight: '20px',
   };
