@@ -34,7 +34,7 @@
     "classnames": "^2.2.6",
     "core-js": "^3.5.0",
     "emotion-theming": "^10.0.27",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.20",
     "polished": "^3.4.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
