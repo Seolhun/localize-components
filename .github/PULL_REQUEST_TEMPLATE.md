@@ -20,19 +20,10 @@
 
 #### Documents
 
-- [ ] @seolhun/localize-components-docs
-
-#### Components
-
-- [ ] @seolhun/localize-components
-- [ ] @seolhun/localize-components-atomic
-- [ ] @seolhun/localize-components-grid
-
-#### Utils
-
-- [ ] @seolhun/localize-components-hooks
-- [ ] @seolhun/localize-components-event-utils
-
-#### Types
-
-- [ ] @seolhun/localize-components-styled-types
+- [ ] docs
+- [ ] atomic
+- [ ] event-utils
+- [ ] grid
+- [ ] hooks
+- [ ] localize-components
+- [ ] styled-types
