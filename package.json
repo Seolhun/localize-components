@@ -42,10 +42,7 @@
     "lint": "lerna run lint",
     "lint:fix": "eslint --fix '**/*.{ts,tsx,js,jsx}'",
     "prettier": "prettier --write '**/*.{ts,tsx,js,jsx}'",
-    "fix": "npm run prettier && npm run lint:fix",
-    "build:docs": "cd docs && npm run build",
-    "deploy:docs": "surge docs/dist/ http://localize-components-docs.surge.sh",
-    "deploy:docs:dev": "surge docs/dist/ http://dev.localize-components-docs.surge.sh"
+    "fix": "npm run prettier && npm run lint:fix"
   },
   "dependencies": {
     "@emotion/core": "^10.0.28",
