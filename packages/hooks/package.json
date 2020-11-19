@@ -22,7 +22,9 @@
 		"bundle": "rollup -c",
 		"test": "echo 'There are no test'"
 	},
-	"peerDependencies": {},
+  "peerDependencies": {
+    "react": "^16.13.1"
+  },
 	"dependencies": {},
 	"devDependencies": {},
 	"engines": {
