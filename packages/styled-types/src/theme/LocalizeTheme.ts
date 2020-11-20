@@ -31,7 +31,7 @@ export interface LocalizeProps {
   zIndex?: number;
 }
 
-interface LocalizeThemeProps<K = keyof typeof LocalizeThemeEnum> {
+export interface LocalizeThemeProps<K = keyof typeof LocalizeThemeEnum> {
   type: K;
   fonts: LocalizeThemeFontsProps;
   colors: {
