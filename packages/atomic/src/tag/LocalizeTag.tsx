@@ -9,10 +9,11 @@ import {
   LocalizeSize,
 } from '@seolhun/localize-components-styled-types';
 
-const DEFAULT_CLASSNAME = '__Localize__Button';
+const CLASSNAME = '__Localize__Tag';
 type SpanProps = React.HTMLAttributes<HTMLSpanElement>;
+type ExtentionProps = LocalizeProps & SpanProps;
 
-export interface LocalizeChipProps extends LocalizeProps, SpanProps {
+export interface LocalizeTagProps extends ExtentionProps {
   size?: LocalizeSize;
 
   borderRadius?: string;
@@ -33,7 +34,7 @@ const getSizeStyle = (size?: LocalizeSize) => {
   }
 };
 
-const StyledLocalizeChip = styled.span<LocalizeChipProps, LocalizeThemeProps>(
+const StyledLocalizeTag = styled.span<LocalizeTagProps, LocalizeThemeProps>(
   ({ theme, size = 'md', bgColor = 'primary', borderRadius }) => {
     const fonts = theme.fonts.font1;
     const backgroundColor = theme.colors[bgColor];
@@ -72,20 +73,17 @@ const StyledLocalizeChip = styled.span<LocalizeChipProps, LocalizeThemeProps>(
   },
 );
 
-const LocalizeChip: React.FC<LocalizeChipProps> = ({
+const LocalizeTag: React.FC<LocalizeTagProps> = ({
   children,
   className = '',
   ...props
 }) => {
   return (
-    <StyledLocalizeChip
-      {...props}
-      className={classnames(DEFAULT_CLASSNAME, className)}
-    >
+    <StyledLocalizeTag {...props} className={classnames(CLASSNAME, className)}>
       {children}
-    </StyledLocalizeChip>
+    </StyledLocalizeTag>
   );
 };
 
-export { LocalizeChip };
-export default LocalizeChip;
+export { LocalizeTag };
+export default LocalizeTag;
