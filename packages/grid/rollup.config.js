@@ -21,12 +21,14 @@ export default {
   },
   external: [...externals],
   plugins: [
-    resolve(),
-    typescript({
+    resolve({
+      mainFields: ['module', 'main'],
+      extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
     }),
     commonjs({
       include: /node_modules/,
     }),
+    typescript(),
     babel({
       babelHelpers: 'bundled',
       exclude: /node_modules/,

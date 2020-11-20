@@ -50,6 +50,7 @@
     "browserslist": "^4.14.7",
     "classnames": "^2.2.6",
     "core-js": "^3.7.0",
+    "dayjs": "^1.9.6",
     "emotion-theming": "^10.0.27",
     "lerna-changelog": "^1.0.1",
     "react": "^16.14.0",
