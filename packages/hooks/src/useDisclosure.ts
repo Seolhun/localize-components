@@ -1,14 +1,14 @@
 import React from 'react';
 
-const useDisclosure = (defaultIsOpen = false) => {
-  const [isOpen, setIsOpen] = React.useState(defaultIsOpen);
+const useDisclosure = (defaultVisible = false) => {
+  const [visible, setVisible] = React.useState(defaultVisible);
 
-  const onSet = (isShow: boolean) => setIsOpen(isShow);
-  const onOpen = () => setIsOpen(true);
-  const onClose = () => setIsOpen(false);
-  const onToggle = () => setIsOpen(!isOpen);
+  const onSetVisible = (visible: boolean) => setVisible(visible);
+  const onVisible = () => setVisible(true);
+  const onInvisible = () => setVisible(false);
+  const onToggle = () => setVisible(!visible);
 
-  return { isOpen, onSet, onOpen, onClose, onToggle };
+  return { visible, onSetVisible, onVisible, onInvisible, onToggle };
 };
 
 export { useDisclosure };
