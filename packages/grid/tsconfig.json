@@ -6,5 +6,5 @@
     "baseUrl": ".",
     "declaration": true
   },
-  "include": ["./src/**/*.ts"]
+  "include": ["./src/**/*"]
 }

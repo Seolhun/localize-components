@@ -7,8 +7,7 @@ import {
   LocalizeThemeProps,
   LocalizeProps,
 } from '@seolhun/localize-components-styled-types';
-import { useDisclosure } from '@seolhun/localize-components-hooks';
-import { preventWindowScroll } from '@seolhun/localize-components-event-utils';
+import { useDisclosure, useLockScroll } from '@seolhun/localize-components-hooks';
 
 const DEFAULT_CLASSNAME = '__Localize__Modal';
 type DivProps = React.HTMLAttributes<HTMLDivElement>;
@@ -17,7 +16,7 @@ export interface LocalizeModalProps extends LocalizeProps, DivProps {
   /**
    * Set this to change Modal visibility
    */
-  isShow?: boolean;
+  isOpen?: boolean;
 
   /**
    * Set this to change Modal visibility
@@ -74,21 +73,18 @@ const CloseButton = styled.span({
 const LocalizeModal: React.FC<LocalizeModalProps> = ({
   children,
   className,
-  isShow = false,
+  isOpen = false,
   onClose = () => null,
   targetElement,
   ...props
 }) => {
   const wrapperRef = React.useRef<HTMLDivElement>(null);
-  const { isOpen, onSet, onToggle } = useDisclosure(isShow);
+  const { visible, onToggle, onSetVisible } = useDisclosure(isOpen);
+  useLockScroll(visible);
 
   React.useEffect(() => {
-    onSet(isShow);
-    preventWindowScroll(isShow);
-    return () => {
-      preventWindowScroll(isShow);
-    };
-  }, [isShow]);
+    onSetVisible(isOpen);
+  }, [isOpen]);
 
   const handleToggleOpenStatus = () => {
     if (onClose) {
@@ -112,7 +108,7 @@ const LocalizeModal: React.FC<LocalizeModalProps> = ({
     };
   }, []);
 
-  if (!isOpen) {
+  if (!visible) {
     return null;
   }
 

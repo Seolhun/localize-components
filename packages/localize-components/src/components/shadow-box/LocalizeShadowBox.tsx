@@ -13,9 +13,9 @@ type DivProps = React.HTMLAttributes<HTMLDivElement>;
 
 export interface LocalizeShadowBoxProps extends LocalizeProps, DivProps {
   /**
-   * Set this to change LocalizeShadowBox isShow
+   * Set this to change LocalizeShadowBox isOpen
    */
-  isShow?: boolean;
+  isOpen?: boolean;
 
   /**
    * Set this to change LocalizeShadowBox onClose
@@ -77,27 +77,11 @@ const LocalizeShadowBoxContent = styled.div({
 const LocalizeShadowBox: React.FC<LocalizeShadowBoxProps> = ({
   children,
   className,
-  isShow = false,
+  isOpen = false,
   onClose = () => null,
 }) => {
   const wrapperRef = React.useRef<HTMLDivElement>(null);
-  const { isOpen, onSet, onToggle } = useDisclosure(isShow);
-
-  const handleToggleOpenStatus = () => {
-    if (onClose) {
-      onClose();
-    }
-
-    onToggle();
-  };
-
-  const handleOnCloseByKey = (event: KeyboardEvent) => {
-    if (wrapperRef.current) {
-      if (document.contains(wrapperRef.current) && event.key === 'Escape') {
-        handleToggleOpenStatus();
-      }
-    }
-  };
+  const { visible, onSetVisible, onInvisible } = useDisclosure(isOpen);
 
   React.useEffect(() => {
     document.addEventListener('keydown', handleOnCloseByKey);
@@ -107,10 +91,25 @@ const LocalizeShadowBox: React.FC<LocalizeShadowBoxProps> = ({
   }, []);
 
   React.useEffect(() => {
-    onSet(isShow);
-  }, [isShow]);
+    onSetVisible(isOpen);
+  }, [isOpen]);
 
-  if (!isOpen) {
+  const handleToggleOpenStatus = React.useCallback(() => {
+    if (onClose) {
+      onClose();
+    }
+    onInvisible();
+  }, [visible]);
+
+  const handleOnCloseByKey = (event: KeyboardEvent) => {
+    if (wrapperRef.current) {
+      if (document.contains(wrapperRef.current) && event.key === 'Escape') {
+        handleToggleOpenStatus();
+      }
+    }
+  };
+
+  if (!visible) {
     return null;
   }
 

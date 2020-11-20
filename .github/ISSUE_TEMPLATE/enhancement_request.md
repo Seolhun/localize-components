@@ -41,7 +41,7 @@ assignees: 'Seolhun'
 #### Utils
 
 - [ ] @seolhun/localize-components-hooks
-- [ ] @seolhun/localize-components-event-utils
+- [ ] @seolhun/localize-components-utils
 
 #### Types
 
