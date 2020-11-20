@@ -7,3 +7,5 @@ export * from './dropdown';
 export * from './modal';
 export * from './shadow-box';
 export * from './theme';
+export * from './toast';
+export * from './tooltip';

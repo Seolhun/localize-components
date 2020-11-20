@@ -3,7 +3,7 @@ import React from 'react';
 import classnames from 'classnames';
 import styled from '@emotion/styled';
 
-import { getClientWindowSize } from '@seolhun/localize-components-event-utils';
+import { useClientWindowSize } from '@seolhun/localize-components-hooks';
 import { LocalizeProps } from '@seolhun/localize-components-styled-types';
 
 const PAGINATION = {
@@ -91,23 +91,8 @@ const LocalizeCarousel: React.FC<LocalizeCarouselProps> = ({
   zIndex = 100,
 }) => {
   const wrapperRef = React.useRef<HTMLDivElement>(null);
-  const [clientWidth, setClientWidth] = React.useState(0);
+  const { clientWidth } = useClientWindowSize(wrapperRef);
   const [pageIndex, setPageInddex] = React.useState(0);
-
-  const handleImageWidth = () => {
-    if (wrapperRef.current) {
-      const { clientWidth } = getClientWindowSize(wrapperRef.current);
-      setClientWidth(clientWidth);
-    }
-  };
-
-  React.useEffect(() => {
-    handleImageWidth();
-    window.addEventListener('resize', handleImageWidth);
-    return () => {
-      window.removeEventListener('resize', handleImageWidth);
-    };
-  }, []);
 
   const handlePageIndex = (name: string) => () => {
     let newPageIndex = pageIndex;
