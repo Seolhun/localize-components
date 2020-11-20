@@ -1,14 +1,14 @@
 import React from 'react';
 import { Story } from '@storybook/react/types-6-0';
 
-import { LocalizeChip, LocalizeChipProps } from '../../../packages/atomic/dist';
+import { LocalizeTag, LocalizeTagProps } from '../../../packages/atomic/dist';
 import { LocalizeRow, LocalizeCol } from '../../../packages/grid/dist';
 
 import { storiesSizeOptions, storiesColorOptions } from '../controls';
 
 export default {
-  title: 'Atmoic | LocalizeChip',
-  component: LocalizeChip,
+  title: 'Atmoic | LocalizeTag',
+  component: LocalizeTag,
   argTypes: {
     fontColor: {
       defaultValue: 'neutral1',
@@ -41,55 +41,55 @@ export default {
   },
 };
 
-const Chip: Story<LocalizeChipProps> = (args) => <LocalizeChip {...args} />;
+const Tag: Story<LocalizeTagProps> = (args) => <LocalizeTag {...args} />;
 
-export const Default = Chip.bind({});
+export const Default = Tag.bind({});
 Default.args = {
-  children: 'LocalizeChip',
+  children: 'LocalizeTag',
   disabled: false,
 };
 
-const ChipSizes: Story<LocalizeChipProps> = (args) => {
+const TagSizes: Story<LocalizeTagProps> = (args) => {
   const children = args.children;
   return (
     <>
       <LocalizeRow>
         <LocalizeCol md={8}>
           <h4>xl</h4>
-          <LocalizeChip {...args} size="xl">
+          <LocalizeTag {...args} size="xl">
             {children}
-          </LocalizeChip>
+          </LocalizeTag>
         </LocalizeCol>
         <LocalizeCol md={8}>
           <h4>lg</h4>
-          <LocalizeChip {...args} size="lg">
+          <LocalizeTag {...args} size="lg">
             {children}
-          </LocalizeChip>
+          </LocalizeTag>
         </LocalizeCol>
         <LocalizeCol md={8}>
           <h4>md</h4>
-          <LocalizeChip {...args} size="md">
+          <LocalizeTag {...args} size="md">
             {children}
-          </LocalizeChip>
+          </LocalizeTag>
         </LocalizeCol>
         <LocalizeCol md={8}>
           <h4>sm</h4>
-          <LocalizeChip {...args} size="sm">
+          <LocalizeTag {...args} size="sm">
             {children}
-          </LocalizeChip>
+          </LocalizeTag>
         </LocalizeCol>
         <LocalizeCol md={8}>
           <h4>xs</h4>
-          <LocalizeChip {...args} size="xs">
+          <LocalizeTag {...args} size="xs">
             {children}
-          </LocalizeChip>
+          </LocalizeTag>
         </LocalizeCol>
       </LocalizeRow>
     </>
   );
 };
-export const ChipsStorieSizes = ChipSizes.bind({});
-ChipsStorieSizes.args = {
-  children: 'LocalizeChip',
+export const TagsStorieSizes = TagSizes.bind({});
+TagsStorieSizes.args = {
+  children: 'LocalizeTag',
   disabled: false,
 };

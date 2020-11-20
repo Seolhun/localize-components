@@ -19,13 +19,11 @@ export interface LocalizeSwitchProps extends Props {
   //  * @default neutral1
   //  */
   // fontColor?: Props['fontColor'];
-
   // /**
   //  * Set this to change backgroundColor
   //  * @default primary
   //  */
   // bgColor?: Props['bgColor'];
-
   // /**
   //  * Set this to change borderColor
   //  * @default undefined
@@ -84,10 +82,7 @@ const StyledSlider = styled.span<LocalizeProps, LocalizeThemeProps>(({ theme }) 
 /**
  * TODO: Change theme key and values
  */
-const LocalizeSwitch = React.forwardRef<HTMLInputElement, LocalizeSwitchProps>(({
-  className,
-  ...props
-}, ref) => {
+const LocalizeSwitch = React.forwardRef<HTMLInputElement, LocalizeSwitchProps>(({ className, ...props }, ref) => {
   const { onChange } = props;
 
   const handleChecked = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -99,11 +94,7 @@ const LocalizeSwitch = React.forwardRef<HTMLInputElement, LocalizeSwitchProps>((
   };
 
   return (
-    <StyledSwitchLabel
-      key={name}
-      htmlFor={name}
-      className={classnames(CLASSNAME, className)}
-    >
+    <StyledSwitchLabel key={name} htmlFor={name} className={classnames(CLASSNAME, className)}>
       <HidingInput
         {...props}
         ref={ref}

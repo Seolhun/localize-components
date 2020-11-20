@@ -25,7 +25,7 @@ export interface LocalizeTagProps extends ExtentionProps {
 }
 
 const StyledLocalizeTagWrapper = styled.div<LocalizeTagProps, LocalizeThemeProps>(
-  ({ theme, bgColor = 'primary', bdColor, borderRadius = '50%' }) => {
+  ({ theme, bgColor = 'primary', bdColor, borderRadius = '24px' }) => {
     const color = theme.colors.neutral1;
     const backgroundColor = theme.colors[bgColor];
     const borderColor = theme.colors[bdColor || bgColor];

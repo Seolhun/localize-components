@@ -3,10 +3,7 @@ import ReactDOM from 'react-dom';
 import styled from '@emotion/styled';
 
 import { LocalizeMediaQueries } from '@seolhun/localize-components-grid';
-import {
-  LocalizeProps,
-  LocalizeThemeProps,
-} from '@seolhun/localize-components-styled-types';
+import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
 import { LocalizeTooltipProps } from './LocalizeTooltip';
 
@@ -49,10 +46,7 @@ interface LocalizeTooltipHTMLProps {
   clientRect: DOMRect;
 }
 
-const TooltipOverlayHTMLWrapper = styled.div<
-  LocalizeTooltipUIStateProps,
-  LocalizeThemeProps
->((props) => {
+const TooltipOverlayHTMLWrapper = styled.div<LocalizeTooltipUIStateProps, LocalizeThemeProps>((props) => {
   return {
     position: 'absolute',
     zIndex: 100,
@@ -60,18 +54,14 @@ const TooltipOverlayHTMLWrapper = styled.div<
   };
 });
 
-const TooltipOverlayHTML = styled.div<
-  LocalizeTooltipHTMLProps,
-  LocalizeThemeProps
->(({ theme, ...props }) => {
+const TooltipOverlayHTML = styled.div<LocalizeTooltipHTMLProps, LocalizeThemeProps>(({ theme, ...props }) => {
   return {
     padding: '16px',
     width: '300px',
     backgroundColor: theme.colors['black-65'],
     color: theme.colors.white,
     borderRadius: '4px',
-    filter:
-      'drop-shadow(0px 4px 4px rgba(51, 51, 51, 0.04)), drop-shadow(0px 4px 16px rgba(51, 51, 51, 0.08))',
+    filter: 'drop-shadow(0px 4px 4px rgba(51, 51, 51, 0.04)), drop-shadow(0px 4px 16px rgba(51, 51, 51, 0.08))',
     userSelect: 'none',
 
     '&::after': {
@@ -96,10 +86,7 @@ const TooltipOverlayHTML = styled.div<
   };
 });
 
-const getTooltipStyleByPlacement = ({
-  placement,
-  clientRect,
-}: LocalizeTooltipUIStateProps) => {
+const getTooltipStyleByPlacement = ({ placement, clientRect }: LocalizeTooltipUIStateProps) => {
   switch (placement) {
     default: {
       return {

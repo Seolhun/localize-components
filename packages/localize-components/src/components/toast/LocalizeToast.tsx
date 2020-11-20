@@ -2,20 +2,11 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { animated, useTransition } from 'react-spring';
 
-import {
-  LocalizeProps,
-  LocalizeThemeProps,
-} from '@seolhun/localize-components-styled-types';
+import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 import { LocalizeMediaQueries } from '@seolhun/localize-components-grid';
-import {
-  LocalizeIcon,
-  LocalizeText,
-} from '@seolhun/localize-components-atomic';
+import { LocalizeIcon, LocalizeText } from '@seolhun/localize-components-atomic';
 
-import {
-  LocalizeToastContext,
-  LocalizeToastMessageUKProps,
-} from './LocalizeToastContext';
+import { LocalizeToastContext, LocalizeToastMessageUKProps } from './LocalizeToastContext';
 
 type DivProps = React.HTMLAttributes<HTMLDivElement>;
 type ExtentionProps = LocalizeProps & DivProps & LocalizeToastMessageUKProps;
@@ -24,10 +15,7 @@ export interface LocalizeToastProps extends ExtentionProps {
   timeout: number;
 }
 
-const LocalizeToastAnimatedWrapper = styled(animated.div)<
-  {},
-  LocalizeThemeProps
->(() => {
+const LocalizeToastAnimatedWrapper = styled(animated.div)<{}, LocalizeThemeProps>(() => {
   return {
     '& + &': {
       marginTop: '16px',
@@ -46,8 +34,7 @@ const LocalizeToastContainer = styled.div<
     backgroundColor: theme.colors[type],
     width: '345px',
     padding: '14px 24px',
-    boxShadow:
-      '0px 4px 4px rgba(51, 51, 51, 0.04), 0px 4px 16px rgba(51, 51, 51, 0.08)',
+    boxShadow: '0px 4px 4px rgba(51, 51, 51, 0.04), 0px 4px 16px rgba(51, 51, 51, 0.08)',
     borderRadius: '8px',
 
     [LocalizeMediaQueries.XS]: {
@@ -73,16 +60,14 @@ const LocalizeTitle = styled.div<{}, LocalizeThemeProps>(({ theme }) => {
   };
 });
 
-const LocalizeTitleText = styled.div<{ hasIcon: boolean }, LocalizeThemeProps>(
-  ({ hasIcon }) => {
-    return {
-      width: hasIcon ? '225px' : '255px',
-      overflow: 'hidden',
-      whiteSpace: 'nowrap',
-      textOverflow: 'ellipsis',
-    };
-  },
-);
+const LocalizeTitleText = styled.div<{ hasIcon: boolean }, LocalizeThemeProps>(({ hasIcon }) => {
+  return {
+    width: hasIcon ? '225px' : '255px',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis',
+  };
+});
 
 const LocalizeMessage = styled.div<{}, LocalizeThemeProps>(() => {
   return {
@@ -91,15 +76,7 @@ const LocalizeMessage = styled.div<{}, LocalizeThemeProps>(() => {
   };
 });
 
-const LocalizeToast: React.FC<LocalizeToastProps> = ({
-  timeout,
-  visible,
-  id,
-  title,
-  type,
-  message,
-  icon,
-}) => {
+const LocalizeToast: React.FC<LocalizeToastProps> = ({ timeout, visible, id, title, type, message, icon }) => {
   const timeoutRef = React.useRef<any>(null);
   const [, dispatch] = React.useContext(LocalizeToastContext);
 
@@ -136,17 +113,8 @@ const LocalizeToast: React.FC<LocalizeToastProps> = ({
               <LocalizeToastContainer type={type}>
                 <LocalizeHeaderWrapper>
                   <LocalizeTitle>
-                    {icon && (
-                      <LocalizeIcon
-                        color="white"
-                        icon={icon}
-                        iconSize="24px"
-                        margin="0 8px 0 0"
-                      />
-                    )}
-                    <LocalizeTitleText hasIcon={!!icon}>
-                      {title}
-                    </LocalizeTitleText>
+                    {icon && <LocalizeIcon color="white" icon={icon} iconSize="24px" margin="0 8px 0 0" />}
+                    <LocalizeTitleText hasIcon={!!icon}>{title}</LocalizeTitleText>
                   </LocalizeTitle>
                   <LocalizeIcon
                     onClick={() =>

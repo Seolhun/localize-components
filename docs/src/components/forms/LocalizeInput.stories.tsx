@@ -38,9 +38,9 @@ const Input: Story<LocalizeInputProps> = (args) => {
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
-  }
+  };
 
-  return <LocalizeInput {...args} onChange={onChange} value={value} />
+  return <LocalizeInput {...args} onChange={onChange} value={value} />;
 };
 
 export const Default = Input.bind({});

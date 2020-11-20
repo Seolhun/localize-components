@@ -2,10 +2,7 @@ import React from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
 
-import {
-  LocalizeProps,
-  LocalizeThemeProps,
-} from '@seolhun/localize-components-styled-types';
+import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 import { LocalizeMediaQueries } from '@seolhun/localize-components-grid';
 import {
   LocalizeToastContext,
@@ -38,35 +35,33 @@ const LocalizeToastProviderWrapper = styled.div<{}, LocalizeThemeProps>(() => {
   };
 });
 
-const LocalizeToastProviderContainer = styled.div<{}, LocalizeThemeProps>(
-  () => {
-    return {
-      position: 'fixed',
+const LocalizeToastProviderContainer = styled.div<{}, LocalizeThemeProps>(() => {
+  return {
+    position: 'fixed',
 
-      '&.top-left': {
-        top: '1rem',
-        left: '1rem',
+    '&.top-left': {
+      top: '1rem',
+      left: '1rem',
 
-        [LocalizeMediaQueries.XS]: {
-          right: '1rem',
-        },
-      },
-      '&.top-right': {
-        top: '1rem',
+      [LocalizeMediaQueries.XS]: {
         right: '1rem',
-
-        [LocalizeMediaQueries.XS]: {
-          left: '1rem',
-        },
       },
-    };
-  },
-);
+    },
+    '&.top-right': {
+      top: '1rem',
+      right: '1rem',
 
-const toastReducer: React.Reducer<
-  LocalizeToastMessageUKProps[],
-  LocalizeToastDispatchActionType
-> = (state = [], action) => {
+      [LocalizeMediaQueries.XS]: {
+        left: '1rem',
+      },
+    },
+  };
+});
+
+const toastReducer: React.Reducer<LocalizeToastMessageUKProps[], LocalizeToastDispatchActionType> = (
+  state = [],
+  action,
+) => {
   const { payload, type } = action;
   switch (type) {
     case 'ADD_TOAST': {

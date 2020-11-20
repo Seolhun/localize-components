@@ -39,10 +39,7 @@ interface LocalizeTooltipWrapperProps {
   margin: string;
 }
 
-const LocalizeTooltipWrapper = styled.div<
-  LocalizeTooltipWrapperProps,
-  LocalizeThemeProps
->(({ margin }) => {
+const LocalizeTooltipWrapper = styled.div<LocalizeTooltipWrapperProps, LocalizeThemeProps>(({ margin }) => {
   return {
     display: 'inline-block',
     margin,
@@ -91,17 +88,8 @@ const LocalizeTooltip: React.FC<LocalizeTooltipProps> = ({
 
   return (
     <LocalizeTooltipWrapper {...props} ref={tooltipRef} margin={margin}>
-      <LocalizeIcon
-        icon={['fas', 'exclamation']}
-        onClick={onClickTooltip}
-        iconSize={`${ICON_DOM_SIZE}px`}
-      />
-      <LocalizeTooltipPortal
-        visible={visible}
-        tooltip={tooltip}
-        placement={placement}
-        clientRect={clientRect}
-      />
+      <LocalizeIcon icon={['fas', 'exclamation']} onClick={onClickTooltip} iconSize={`${ICON_DOM_SIZE}px`} />
+      <LocalizeTooltipPortal visible={visible} tooltip={tooltip} placement={placement} clientRect={clientRect} />
     </LocalizeTooltipWrapper>
   );
 };

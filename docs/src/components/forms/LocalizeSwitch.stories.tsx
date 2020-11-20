@@ -38,16 +38,18 @@ const Switch: Story<LocalizeSwitchProps> = (args) => {
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(e.target.checked);
-  }
+  };
 
-  return <LocalizeSwitch {...args} onChange={onChange} checked={checked} />
+  return (
+    <LocalizeSwitch {...args} onChange={onChange} checked={checked} />
+  );
 };
 
 export const Default = Switch.bind({});
 Default.args = {
   label: 'Label',
   help: 'Help',
-  value: 'LocalizeSwitch',
+  checked: false,
   error: false,
   disabled: false,
 };

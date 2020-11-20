@@ -1,11 +1,7 @@
 import React from 'react';
 
-const useClientRect = <T extends HTMLElement>(
-  ref: React.RefObject<T>,
-): DOMRect | undefined => {
-  const [clientRect, setClientRect] = React.useState<DOMRect | undefined>(
-    undefined,
-  );
+const useClientRect = <T extends HTMLElement>(ref: React.RefObject<T>): DOMRect | undefined => {
+  const [clientRect, setClientRect] = React.useState<DOMRect | undefined>(undefined);
 
   React.useEffect(() => {
     handleCurerntDomClientRect();

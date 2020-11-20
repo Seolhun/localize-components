@@ -6,7 +6,7 @@ import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-
 
 const CLASSNAME = '__Localize__Icon';
 type SpanProps = React.HTMLAttributes<HTMLSpanElement>;
-type Props =  LocalizeProps & SpanProps & LocalizeIconBackgroundProps;
+type Props = LocalizeProps & SpanProps & LocalizeIconBackgroundProps;
 
 export interface LocalizeIconProps extends Props {
   icon: FontAwesomeIconProps['icon'];

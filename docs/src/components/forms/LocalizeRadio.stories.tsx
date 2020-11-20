@@ -38,9 +38,9 @@ const Radio: Story<LocalizeRadioProps> = (args) => {
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(e.target.checked);
-  }
+  };
 
-  return <LocalizeRadio {...args} onChange={onChange} checked={checked} />
+  return <LocalizeRadio {...args} onChange={onChange} checked={checked} />;
 };
 
 export const Default = Radio.bind({});

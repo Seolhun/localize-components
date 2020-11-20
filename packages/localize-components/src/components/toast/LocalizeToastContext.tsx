@@ -31,26 +31,15 @@ export interface LocalizeToastMessageUKProps extends LocalizeToastMessageProps {
   visible: boolean;
 }
 
-export type LocalizeToastDispatchActionNameType =
-  | 'ADD_TOAST'
-  | 'REMOVE_TOAST'
-  | 'RESET_TOASTS';
+export type LocalizeToastDispatchActionNameType = 'ADD_TOAST' | 'REMOVE_TOAST' | 'RESET_TOASTS';
 export type LocalizeToastDispatchActionType = {
   type: LocalizeToastDispatchActionNameType;
   payload?: any;
 };
-export type LocalizeToastDispatchType = (
-  action: LocalizeToastDispatchActionType,
-) => void;
-export type LocalizeToastContextProps = [
-  LocalizeToastMessageUKProps[],
-  LocalizeToastDispatchType,
-];
+export type LocalizeToastDispatchType = (action: LocalizeToastDispatchActionType) => void;
+export type LocalizeToastContextProps = [LocalizeToastMessageUKProps[], LocalizeToastDispatchType];
 
-const LocalizeToastContext = React.createContext<LocalizeToastContextProps>([
-  [],
-  () => null,
-]);
+const LocalizeToastContext = React.createContext<LocalizeToastContextProps>([[], () => null]);
 
 export { LocalizeToastContext };
 export default LocalizeToastContext;

@@ -21,6 +21,7 @@
     "clear": "rm -rf dist && rm -rf .rpt2_cache",
     "lint": "eslint \"src/**/*.{ts,tsx,js,jsx}\"",
     "lint:fix": "eslint \"src/**/*.{ts,tsx,js,jsx}\" --fix",
+    "prettier": "prettier --write '**/*.{ts,tsx,js,jsx}'",
     "bundle": "rollup -c",
     "watch": "rollup -cw",
     "test": "echo 'There are no test'"

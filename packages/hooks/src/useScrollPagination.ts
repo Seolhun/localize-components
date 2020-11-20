@@ -33,9 +33,7 @@ const DEFAULT_PROPS: Required<UseScrollPaginationProps> = {
   loading: true,
 };
 
-const useScrollPagination = (
-  props: UseScrollPaginationProps = DEFAULT_PROPS,
-) => {
+const useScrollPagination = (props: UseScrollPaginationProps = DEFAULT_PROPS) => {
   const {
     page = DEFAULT_PROPS.page,
     perPage = DEFAULT_PROPS.perPage,
@@ -133,10 +131,7 @@ const useScrollPagination = (
   const watchScroll = () => {
     const { scrollTop, clientHeight, scrollHeight } = document.documentElement;
     const triggeredScrollHeight = scrollTop + clientHeight;
-    if (
-      maxScrollHeight !== triggeredScrollHeight &&
-      triggeredScrollHeight === scrollHeight
-    ) {
+    if (maxScrollHeight !== triggeredScrollHeight && triggeredScrollHeight === scrollHeight) {
       setMaxScrollHeight(triggeredScrollHeight);
       if (hasNextPage) {
         setCurrentPage(currentPage + 1);

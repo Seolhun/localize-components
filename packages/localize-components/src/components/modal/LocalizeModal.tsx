@@ -3,14 +3,8 @@ import ReactDOM from 'react-dom';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
 
-import {
-  LocalizeThemeProps,
-  LocalizeProps,
-} from '@seolhun/localize-components-styled-types';
-import {
-  useDisclosure,
-  useLockScroll,
-} from '@seolhun/localize-components-hooks';
+import { LocalizeThemeProps, LocalizeProps } from '@seolhun/localize-components-styled-types';
+import { useDisclosure, useLockScroll } from '@seolhun/localize-components-hooks';
 
 const DEFAULT_CLASSNAME = '__Localize__Modal';
 type DivProps = React.HTMLAttributes<HTMLDivElement>;

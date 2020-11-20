@@ -4,7 +4,11 @@ import { Story } from '@storybook/react/types-6-0';
 import { LocalizeFlex, LocalizeFlexProps } from '../../../packages/atomic/dist';
 import { LocalizeRow, LocalizeCol } from '../../../packages/grid/dist';
 
-import { storiesAlignItemsOptions, storiesJustifyContentOptions, storiesFlexDirectionOptions } from '../controls';
+import {
+  storiesAlignItemsOptions,
+  storiesJustifyContentOptions,
+  storiesFlexDirectionOptions,
+} from '../controls';
 
 export default {
   title: 'Atmoic | LocalizeFlex',
@@ -48,32 +52,32 @@ const FlexSizes: Story<LocalizeFlexProps> = (args) => {
     <>
       <LocalizeRow>
         <LocalizeCol md={8}>
-          <LocalizeFlex {...args} alignItems='flex-start'>
+          <LocalizeFlex {...args} alignItems="flex-start">
             {children}
           </LocalizeFlex>
         </LocalizeCol>
         <LocalizeCol md={8}>
-          <LocalizeFlex {...args} alignItems='center'>
+          <LocalizeFlex {...args} alignItems="center">
             {children}
           </LocalizeFlex>
         </LocalizeCol>
         <LocalizeCol md={8}>
-          <LocalizeFlex {...args} alignItems='flex-end'>
+          <LocalizeFlex {...args} alignItems="flex-end">
             {children}
           </LocalizeFlex>
         </LocalizeCol>
         <LocalizeCol md={8}>
-          <LocalizeFlex {...args} justifyContent='flex-start'>
+          <LocalizeFlex {...args} justifyContent="flex-start">
             {children}
           </LocalizeFlex>
         </LocalizeCol>
         <LocalizeCol md={8}>
-          <LocalizeFlex {...args} justifyContent='center'>
+          <LocalizeFlex {...args} justifyContent="center">
             {children}
           </LocalizeFlex>
         </LocalizeCol>
         <LocalizeCol md={8}>
-          <LocalizeFlex {...args} justifyContent='flex-end'>
+          <LocalizeFlex {...args} justifyContent="flex-end">
             {children}
           </LocalizeFlex>
         </LocalizeCol>
