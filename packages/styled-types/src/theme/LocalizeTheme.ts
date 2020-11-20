@@ -149,19 +149,6 @@ export interface LocalizeThemeProps<K = keyof typeof LocalizeThemeEnum> {
     purple9: string;
     purple10: string;
     /**
-     * @name textColor
-     */
-    white: string;
-    'black-85': string;
-    'white-85': string;
-    'black-65': string;
-    'white-65': string;
-    'black-45': string;
-    'white-45': string;
-    'black-25': string;
-    'white-25': string;
-    black: string;
-    /**
      * @name Theme
      */
     primary: string;
@@ -296,19 +283,6 @@ const localizeLightThemeColors: LocalizeThemeProps['colors'] = {
   purple9: '#22075e',
   purple10: '#120338',
   /**
-   * @name textColor
-   */
-  white: `#FFFFFF`,
-  'black-85': `rgba(0, 0, 0, 0.85)`,
-  'white-85': `rgba(255, 255, 255, 0.85)`,
-  'black-65': `rgba(0, 0, 0, 0.65)`,
-  'white-65': `rgba(255, 255, 255, 0.65)`,
-  'black-45': `rgba(0, 0, 0, 0.45)`,
-  'white-45': `rgba(255, 255, 255, 0.45)`,
-  'black-25': `rgba(0, 0, 0, 0.25)`,
-  'white-25': `rgba(255, 255, 255, 0.25)`,
-  black: `#000000`,
-  /**
    * @name Theme
    */
   primary: '#F7E853',
@@ -437,19 +411,6 @@ const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
   purple8: '#391085',
   purple9: '#22075e',
   purple10: '#120338',
-  /**
-   * @name textColor
-   */
-  white: `#FFFFFF`,
-  'black-85': `rgba(0, 0, 0, 0.85)`,
-  'white-85': `rgba(255, 255, 255, 0.85)`,
-  'black-65': `rgba(0, 0, 0, 0.65)`,
-  'white-65': `rgba(255, 255, 255, 0.65)`,
-  'black-45': `rgba(0, 0, 0, 0.45)`,
-  'white-45': `rgba(255, 255, 255, 0.45)`,
-  'black-25': `rgba(0, 0, 0, 0.25)`,
-  'white-25': `rgba(255, 255, 255, 0.25)`,
-  black: `#000000`,
   /**
    * @name Theme
    */
