@@ -1,3 +1,4 @@
+export * from './useClientRect';
 export * from './useDisclosure';
 export * from './useLockScroll';
 export * from './usePageState';
