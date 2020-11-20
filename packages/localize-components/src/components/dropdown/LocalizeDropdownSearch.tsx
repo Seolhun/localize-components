@@ -418,7 +418,10 @@ const LocalizeDropdownSearch = React.forwardRef<HTMLInputElement, LocalizeDropdo
             resultMaxHeight={resultMaxHeight}
             zIndex={zIndex}
           >
-            <SearchResultWrapper onMouseOver={handleIsResultMouseOver} onMouseOut={handleIsResultMouseOut}>
+            <SearchResultWrapper
+              onMouseOver={handleIsResultMouseOver}
+              onMouseOut={handleIsResultMouseOut}
+            >
               <DropdownSearchResultItem
                 items={items}
                 selectedItem={selectedItem}

@@ -90,7 +90,12 @@ const VisibleValueContainer = styled.div<LocalizeRangeProps, LocalizeThemeProps>
 const LocalizeRange = React.forwardRef<HTMLInputElement, LocalizeRangeProps>(
   ({ className, label, help, error, visibleValue, ...props }, ref) => {
     return (
-      <LocalizeFormWrapper className={classnames(CLASSNAME, className)} label={label} help={help} error={error}>
+      <LocalizeFormWrapper
+        className={classnames(CLASSNAME, className)}
+        label={label}
+        help={help}
+        error={error}
+      >
         <LocalizeRangeContainer>
           <HidingInput {...props} ref={ref} type="range" />
         </LocalizeRangeContainer>

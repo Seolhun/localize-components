@@ -111,7 +111,12 @@ const LocalizeTextArea = React.forwardRef<HTMLTextAreaElement, LocalizeTextAreaP
     };
 
     return (
-      <LocalizeFormWrapper className={classnames(CLASSNAME, className)} label={label} help={help} error={error}>
+      <LocalizeFormWrapper
+        className={classnames(CLASSNAME, className)}
+        label={label}
+        help={help}
+        error={error}
+      >
         <LocalizeTextAreaContainer>
           <StyledTextArea {...props} ref={ref} onChange={onChangeCurrentValue} error={error} />
           <LocalizeTextAreaOptionContainer>

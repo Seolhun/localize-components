@@ -30,7 +30,9 @@ const StyledBoxContainer = styled.div<LocalizeBoxProps>({
 const LocalizeBox: React.FC<LocalizeBoxProps> = ({ children, className, css = {}, ...props }) => {
   return (
     <StyledBoxWrapper {...props} className={classnames(DEFAULT_CLASSNAME, className)}>
-      <StyledBoxContainer className={`${DEFAULT_CLASSNAME}__Container`}>{children}</StyledBoxContainer>
+      <StyledBoxContainer className={`${DEFAULT_CLASSNAME}__Container`}>
+        {children}
+      </StyledBoxContainer>
     </StyledBoxWrapper>
   );
 };

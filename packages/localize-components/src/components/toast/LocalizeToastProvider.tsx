@@ -58,10 +58,10 @@ const LocalizeToastProviderContainer = styled.div<{}, LocalizeThemeProps>(() => 
   };
 });
 
-const toastReducer: React.Reducer<LocalizeToastMessageUKProps[], LocalizeToastDispatchActionType> = (
-  state = [],
-  action,
-) => {
+const toastReducer: React.Reducer<
+  LocalizeToastMessageUKProps[],
+  LocalizeToastDispatchActionType
+> = (state = [], action) => {
   const { payload, type } = action;
   switch (type) {
     case 'ADD_TOAST': {

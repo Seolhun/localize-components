@@ -107,7 +107,8 @@ const LocalizeCarousel: React.FC<LocalizeCarouselProps> = ({
   };
 
   const getImageMaxWidthByClient = (displayedImageCount: number) => {
-    const sliceLength = items.length > displayedImageCount ? displayedImageCount + DEFAULT_RATIO : items.length;
+    const sliceLength =
+      items.length > displayedImageCount ? displayedImageCount + DEFAULT_RATIO : items.length;
     const imageWidth = clientWidth / sliceLength;
     return imageWidth;
   };

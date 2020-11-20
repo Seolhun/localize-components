@@ -71,7 +71,13 @@ const IconContainer = styled.span<{}, LocalizeThemeProps>(() => ({
 }));
 
 const IconBackgroundContainer = styled.div<LocalizeIconBackgroundProps, LocalizeThemeProps>(
-  ({ theme, iconBackgroundBorderRadius, iconBackgroundColor, iconBackgroundSize, iconBackgroundOpacity }) => ({
+  ({
+    theme,
+    iconBackgroundBorderRadius,
+    iconBackgroundColor,
+    iconBackgroundSize,
+    iconBackgroundOpacity,
+  }) => ({
     position: 'absolute',
     width: iconBackgroundSize,
     height: iconBackgroundSize,

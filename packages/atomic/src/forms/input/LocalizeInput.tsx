@@ -59,7 +59,14 @@ const LocalizeInputContainer = styled.div<LocalizeFormStateProps, LocalizeThemeP
 });
 
 const StyledInput = styled.input<LocalizeInputProps, LocalizeThemeProps>(
-  ({ theme, fontColor = 'conversion10', bgColor = 'conversion1', bdColor = 'primary', error, visibleIcon }) => {
+  ({
+    theme,
+    fontColor = 'conversion10',
+    bgColor = 'conversion1',
+    bdColor = 'primary',
+    error,
+    visibleIcon,
+  }) => {
     const color = theme.colors[fontColor];
     const backgroundColor = theme.colors[bgColor];
     const borderColor = theme.colors[bdColor || bgColor];
@@ -108,9 +115,20 @@ const LocalizeInput = React.forwardRef<HTMLInputElement, LocalizeInputProps>(
     const isSelectable = !props.disabled && !props.readOnly;
 
     return (
-      <LocalizeFormWrapper className={classnames(CLASSNAME, className)} label={label} help={help} error={error}>
+      <LocalizeFormWrapper
+        className={classnames(CLASSNAME, className)}
+        label={label}
+        help={help}
+        error={error}
+      >
         <LocalizeInputContainer>
-          <StyledInput {...props} ref={ref} error={error} visibleIcon={visibleIcon} autoComplete="false" />
+          <StyledInput
+            {...props}
+            ref={ref}
+            error={error}
+            visibleIcon={visibleIcon}
+            autoComplete="false"
+          />
           {isSelectable && icon && <LocalizeIcon iconSize="16px" icon={icon} color={iconColor} />}
         </LocalizeInputContainer>
       </LocalizeFormWrapper>

@@ -80,16 +80,25 @@ const LocalizeBoxCloser = styled.span<LocalizeProps, LocalizeThemeProps>(() => {
   };
 });
 
-const LocalizeBoxContainer = styled.div<LocalizeBoxContainerProps, LocalizeThemeProps>(({ size, closable }) => {
-  return {
-    padding: getLocalizeSizeBy(size),
-    ...(closable && {
-      paddingRight: '52px',
-    }),
-  };
-});
+const LocalizeBoxContainer = styled.div<LocalizeBoxContainerProps, LocalizeThemeProps>(
+  ({ size, closable }) => {
+    return {
+      padding: getLocalizeSizeBy(size),
+      ...(closable && {
+        paddingRight: '52px',
+      }),
+    };
+  },
+);
 
-const LocalizeBox: React.FC<LocalizeBoxProps> = ({ children, className, size, closable, onClose, ...props }) => (
+const LocalizeBox: React.FC<LocalizeBoxProps> = ({
+  children,
+  className,
+  size,
+  closable,
+  onClose,
+  ...props
+}) => (
   <LocalizeBoxWrapper {...props} className={classnames(CLASSNAME, className)}>
     {closable && (
       <LocalizeBoxCloser onClick={onClose}>

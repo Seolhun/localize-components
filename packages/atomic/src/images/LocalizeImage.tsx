@@ -28,7 +28,15 @@ export interface LocalizeImageProps extends Props {
 }
 
 const LocalizeImageElement = styled.img<LocalizeImageProps>(
-  ({ borderRadius, backgroundPosition, backgroundRepeat, backgroundSize = 'cover', width, height, responsive }) => ({
+  ({
+    borderRadius,
+    backgroundPosition,
+    backgroundRepeat,
+    backgroundSize = 'cover',
+    width,
+    height,
+    responsive,
+  }) => ({
     maxWidth: '100%',
     width: responsive && !width ? '100%' : width || `${DEFAULT_SIZE}px`,
     height: responsive && !height ? '100%' : height || `${DEFAULT_SIZE}px`,

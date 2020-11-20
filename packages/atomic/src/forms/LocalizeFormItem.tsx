@@ -18,7 +18,14 @@ export interface LocalizeFormItemProps extends LocalizeColProps {
 
 const LocalizeFormItemWrapper = styled(LocalizeCol)<LocalizeColProps>({});
 
-const LocalizeFormItem: React.FC<LocalizeFormItemProps> = ({ children, className, label, help, error, ...props }) => {
+const LocalizeFormItem: React.FC<LocalizeFormItemProps> = ({
+  children,
+  className,
+  label,
+  help,
+  error,
+  ...props
+}) => {
   return (
     <LocalizeFormItemWrapper {...props} className={classnames(CLASSNAME, className)}>
       <LocalizeFormWrapper label={label} help={help} error={error}>

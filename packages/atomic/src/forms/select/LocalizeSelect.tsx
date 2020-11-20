@@ -61,44 +61,45 @@ const LocalizeSelectContainer = styled.div<{}, LocalizeThemeProps>({
   height: '100%',
 });
 
-const LocalizeSelectInputWrapper = styled.div<LocalizeProps & LocalizeFormStateProps, LocalizeThemeProps>(
-  ({ theme, fontColor = 'conversion10', bgColor = 'conversion1', bdColor, error }) => {
-    const color = theme.colors[fontColor];
-    const backgroundColor = theme.colors[bgColor];
-    const borderColor = theme.colors[bdColor || bgColor];
+const LocalizeSelectInputWrapper = styled.div<
+  LocalizeProps & LocalizeFormStateProps,
+  LocalizeThemeProps
+>(({ theme, fontColor = 'conversion10', bgColor = 'conversion1', bdColor, error }) => {
+  const color = theme.colors[fontColor];
+  const backgroundColor = theme.colors[bgColor];
+  const borderColor = theme.colors[bdColor || bgColor];
 
-    return {
-      position: 'relative',
-      display: 'flex',
-      alignItems: 'center',
-      width: '100%',
-      height: '40px',
-      color,
-      padding: '10px 32px 10px 12px',
-      outline: 'none',
+  return {
+    position: 'relative',
+    display: 'flex',
+    alignItems: 'center',
+    width: '100%',
+    height: '40px',
+    color,
+    padding: '10px 32px 10px 12px',
+    outline: 'none',
 
-      backgroundColor,
-      border: `1px solid ${error ? theme.colors.error : theme.colors.neutral5}`,
-      // WARNING: Not support IE
-      caretColor: theme.colors.primary,
+    backgroundColor,
+    border: `1px solid ${error ? theme.colors.error : theme.colors.neutral5}`,
+    // WARNING: Not support IE
+    caretColor: theme.colors.primary,
 
-      '&:focus': {
-        border: `1px solid ${error ? theme.colors.error : borderColor}`,
-      },
-      '&:not(:disabled):not(:read-only):active, &:not(:disabled):not(:read-only):hover': {
-        borderColor: lighten(0.1, borderColor),
-      },
-      '&:read-only, &:disabled': {
-        backgroundColor: theme.colors.neutral4,
-        borderColor: theme.colors.neutral5,
-        color: theme.colors.neutral8,
-      },
-      '&::placeholder': {
-        color: theme.colors.neutral8,
-      },
-    };
-  },
-);
+    '&:focus': {
+      border: `1px solid ${error ? theme.colors.error : borderColor}`,
+    },
+    '&:not(:disabled):not(:read-only):active, &:not(:disabled):not(:read-only):hover': {
+      borderColor: lighten(0.1, borderColor),
+    },
+    '&:read-only, &:disabled': {
+      backgroundColor: theme.colors.neutral4,
+      borderColor: theme.colors.neutral5,
+      color: theme.colors.neutral8,
+    },
+    '&::placeholder': {
+      color: theme.colors.neutral8,
+    },
+  };
+});
 
 const LocalizeSelectPlaceholder = styled.div<{}, LocalizeThemeProps>(({ theme }) => {
   return {
@@ -330,7 +331,12 @@ const LocalizeSelect = React.forwardRef<HTMLInputElement, LocalizeSelectProps>(
     };
 
     return (
-      <LocalizeFormWrapper className={classnames(CLASSNAME, className)} label={label} help={help} error={error}>
+      <LocalizeFormWrapper
+        className={classnames(CLASSNAME, className)}
+        label={label}
+        help={help}
+        error={error}
+      >
         <LocalizeSelectContainer>
           <LocalizeSelectInputWrapper onClick={toggleSelector}>
             {currentItem?.key ? (
@@ -348,11 +354,20 @@ const LocalizeSelect = React.forwardRef<HTMLInputElement, LocalizeSelectProps>(
           {transitions.map(
             ({ item, key, props: style }: any) =>
               item && (
-                <LocalizeSelectBackground key={key} ref={backgroundRef} onClick={onClickBackgroundAway} style={style}>
+                <LocalizeSelectBackground
+                  key={key}
+                  ref={backgroundRef}
+                  onClick={onClickBackgroundAway}
+                  style={style}
+                >
                   <LocalizeSelectDropdownWrapper>
                     {title && <LocalizeSelectDropdownTitle>{title}</LocalizeSelectDropdownTitle>}
                     <LocalizeCloseIconWrapper>
-                      <LocalizeIcon icon={['fal', 'times']} onClick={toggleSelector} iconSize="22px" />
+                      <LocalizeIcon
+                        icon={['fal', 'times']}
+                        onClick={toggleSelector}
+                        iconSize="22px"
+                      />
                     </LocalizeCloseIconWrapper>
                     <LocalizeSelectDropdownContainer>
                       <LocalizeRadioGroup name={name} flexDirection="column">

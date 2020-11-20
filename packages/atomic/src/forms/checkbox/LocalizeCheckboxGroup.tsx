@@ -69,7 +69,9 @@ const LocalizeCheckboxGroup: React.FC<LocalizeCheckboxGroupProps> = ({
 
   return (
     <LocalizeFormWrapper name={name} label={label} help={help} error={error}>
-      <CheckboxChildrenWrapper flexDirection={flexDirection}>{clonedChildren}</CheckboxChildrenWrapper>
+      <CheckboxChildrenWrapper flexDirection={flexDirection}>
+        {clonedChildren}
+      </CheckboxChildrenWrapper>
     </LocalizeFormWrapper>
   );
 };

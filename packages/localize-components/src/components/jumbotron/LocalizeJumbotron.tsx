@@ -21,23 +21,31 @@ export interface LocalizeJumbotronProps extends LocalizeProps, DivProps {
   title?: string;
 }
 
-const StyledJumbotronWrapper = styled.div<LocalizeProps, LocalizeThemeProps>(({ theme, bgColor, fontColor }) => {
-  return {
-    backgroundColor: bgColor ? theme.colors[bgColor] : theme.colors.primary,
-    color: fontColor ? theme.colors[fontColor] : theme.colors.neutral1,
-    height: 'auto',
-    width: '100%',
-    padding: '1rem 2rem',
-    borderRadius: '5px',
-  };
-});
+const StyledJumbotronWrapper = styled.div<LocalizeProps, LocalizeThemeProps>(
+  ({ theme, bgColor, fontColor }) => {
+    return {
+      backgroundColor: bgColor ? theme.colors[bgColor] : theme.colors.primary,
+      color: fontColor ? theme.colors[fontColor] : theme.colors.neutral1,
+      height: 'auto',
+      width: '100%',
+      padding: '1rem 2rem',
+      borderRadius: '5px',
+    };
+  },
+);
 
 const StyledJumbotronContainer = styled.div<LocalizeJumbotronProps>({
   height: '100%',
   width: '100%',
 });
 
-const LocalizeJumbotron: React.FC<LocalizeJumbotronProps> = ({ children, className, description, title, ...props }) => {
+const LocalizeJumbotron: React.FC<LocalizeJumbotronProps> = ({
+  children,
+  className,
+  description,
+  title,
+  ...props
+}) => {
   return (
     <StyledJumbotronWrapper {...props} className={classnames(DEFAULT_CLASSNAME, className)}>
       <StyledJumbotronContainer className={`${DEFAULT_CLASSNAME}__Container`}>

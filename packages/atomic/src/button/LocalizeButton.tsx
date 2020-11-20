@@ -47,7 +47,14 @@ export interface LocalizeButtonProps extends ExtentionProps {
 }
 
 const StyledLocalizeButton = styled.button<LocalizeButtonProps, LocalizeThemeProps>(
-  ({ theme, size, fontColor = 'conversion10', bgColor = 'primary', bdColor, borderRadius = '4px' }) => {
+  ({
+    theme,
+    size,
+    fontColor = 'conversion10',
+    bgColor = 'primary',
+    bdColor,
+    borderRadius = '4px',
+  }) => {
     const color = theme.colors[fontColor];
     const backgroundColor = theme.colors[bgColor];
     const borderColor = theme.colors[bdColor || bgColor];
@@ -87,7 +94,11 @@ const StyledLocalizeButton = styled.button<LocalizeButtonProps, LocalizeThemePro
 const LocalizeButton = React.forwardRef<HTMLButtonElement, LocalizeButtonProps>(
   ({ children, className, ...props }, ref) => {
     return (
-      <StyledLocalizeButton {...props} ref={ref} className={classnames(DEFAULT_CLASSNAME, className)}>
+      <StyledLocalizeButton
+        {...props}
+        ref={ref}
+        className={classnames(DEFAULT_CLASSNAME, className)}
+      >
         {children}
       </StyledLocalizeButton>
     );

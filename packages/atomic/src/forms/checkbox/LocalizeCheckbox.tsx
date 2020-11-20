@@ -29,15 +29,17 @@ const LocalizeCheckboxCheckerContainer = styled.div<{}, LocalizeThemeProps>(({ t
   transition: 'background-color 0.3s',
 }));
 
-const LocalizeCheckboxCheckerIcon = styled.svg<LocalizeFormStateProps, LocalizeThemeProps>(({ theme, checked }) => ({
-  width: '22px',
-  height: '22px',
-  fill: 'none',
-  stroke: theme.colors.red1,
-  strokeWidth: '4px',
-  opacity: checked ? 1 : 0,
-  transition: 'opacity 0.3s',
-}));
+const LocalizeCheckboxCheckerIcon = styled.svg<LocalizeFormStateProps, LocalizeThemeProps>(
+  ({ theme, checked }) => ({
+    width: '22px',
+    height: '22px',
+    fill: 'none',
+    stroke: theme.colors.red1,
+    strokeWidth: '4px',
+    opacity: checked ? 1 : 0,
+    transition: 'opacity 0.3s',
+  }),
+);
 
 const LocalizeCheckboxWrapper = styled.div<LocalizeProps, LocalizeThemeProps>(
   ({ theme, bgColor = 'neutral1', bdColor }) => {
@@ -102,19 +104,21 @@ const LocalizeCheckboxWrapper = styled.div<LocalizeProps, LocalizeThemeProps>(
   },
 );
 
-const LocalizeCheckboxLabel = styled.label<LocalizeFormStateProps, LocalizeThemeProps>(({ theme }) => {
-  return {
-    position: 'relative',
-    display: 'inline-flex',
-    alignItems: 'center',
-    width: '100%',
-    outline: 0,
-    color: theme.colors.conversion10,
-    transition: 'color 0.3s',
-    cursor: 'pointer',
-    userSelect: 'none',
-  };
-});
+const LocalizeCheckboxLabel = styled.label<LocalizeFormStateProps, LocalizeThemeProps>(
+  ({ theme }) => {
+    return {
+      position: 'relative',
+      display: 'inline-flex',
+      alignItems: 'center',
+      width: '100%',
+      outline: 0,
+      color: theme.colors.conversion10,
+      transition: 'color 0.3s',
+      cursor: 'pointer',
+      userSelect: 'none',
+    };
+  },
+);
 
 const LocalizeCheckbox = React.forwardRef<HTMLInputElement, LocalizeCheckboxProps>(
   ({ children, className, ...props }, ref) => {

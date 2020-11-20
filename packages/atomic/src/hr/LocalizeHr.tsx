@@ -15,13 +15,15 @@ export interface LocalizeHrProps extends Props {
   borderColor?: Props['bgColor'];
 }
 
-const GOCStyledHr = styled.hr<LocalizeHrProps, LocalizeThemeProps>(({ theme, borderColor = 'neutral4' }) => {
-  return {
-    width: '100%',
-    border: 0,
-    borderTop: `1px solid ${theme.colors[borderColor]}`,
-  };
-});
+const GOCStyledHr = styled.hr<LocalizeHrProps, LocalizeThemeProps>(
+  ({ theme, borderColor = 'neutral4' }) => {
+    return {
+      width: '100%',
+      border: 0,
+      borderTop: `1px solid ${theme.colors[borderColor]}`,
+    };
+  },
+);
 
 const LocalizeHr: React.FC<LocalizeHrProps> = ({ color, className, ...props }) => {
   return <GOCStyledHr {...props} color={color} className={classnames(CLASSNAME, className)} />;

@@ -22,9 +22,11 @@ const useClientWindowSize = <T extends HTMLElement>(ref?: React.RefObject<T>) =>
       setClientHeight(clientHeight);
       return;
     }
-    const width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    const width =
+      window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
     setClientWidth(width);
-    const height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+    const height =
+      window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
     setClientHeight(height);
   }, [ref, clientWidth, clientHeight]);
 

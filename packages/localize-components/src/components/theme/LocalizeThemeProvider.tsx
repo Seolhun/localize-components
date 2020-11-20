@@ -11,7 +11,10 @@ export interface LocalizeThemeProviderProps {
   theme?: LocalizeThemeProps;
 }
 
-const LocalizeThemeProvider: React.FC<LocalizeThemeProviderProps> = ({ children, theme = localizeLightTheme }) => {
+const LocalizeThemeProvider: React.FC<LocalizeThemeProviderProps> = ({
+  children,
+  theme = localizeLightTheme,
+}) => {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
 

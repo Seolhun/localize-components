@@ -40,9 +40,7 @@ const Switch: Story<LocalizeSwitchProps> = (args) => {
     setChecked(e.target.checked);
   };
 
-  return (
-    <LocalizeSwitch {...args} onChange={onChange} checked={checked} />
-  );
+  return <LocalizeSwitch {...args} onChange={onChange} checked={checked} />;
 };
 
 export const Default = Switch.bind({});

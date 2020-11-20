@@ -76,7 +76,15 @@ const LocalizeMessage = styled.div<{}, LocalizeThemeProps>(() => {
   };
 });
 
-const LocalizeToast: React.FC<LocalizeToastProps> = ({ timeout, visible, id, title, type, message, icon }) => {
+const LocalizeToast: React.FC<LocalizeToastProps> = ({
+  timeout,
+  visible,
+  id,
+  title,
+  type,
+  message,
+  icon,
+}) => {
   const timeoutRef = React.useRef<any>(null);
   const [, dispatch] = React.useContext(LocalizeToastContext);
 
@@ -113,7 +121,9 @@ const LocalizeToast: React.FC<LocalizeToastProps> = ({ timeout, visible, id, tit
               <LocalizeToastContainer type={type}>
                 <LocalizeHeaderWrapper>
                   <LocalizeTitle>
-                    {icon && <LocalizeIcon color="white" icon={icon} iconSize="24px" margin="0 8px 0 0" />}
+                    {icon && (
+                      <LocalizeIcon color="white" icon={icon} iconSize="24px" margin="0 8px 0 0" />
+                    )}
                     <LocalizeTitleText hasIcon={!!icon}>{title}</LocalizeTitleText>
                   </LocalizeTitle>
                   <LocalizeIcon

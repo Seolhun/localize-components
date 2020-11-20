@@ -16,15 +16,17 @@ export interface LocalizeFlexProps extends Props {
   flexDirection?: Property.FlexDirection;
 }
 
-const StyledLocalizeFlex = styled.div<LocalizeFlexProps>(({ flexDirection, alignItems, justifyContent }) => {
-  return {
-    display: 'flex',
-    flex: '1',
-    alignItems,
-    justifyContent,
-    flexDirection,
-  };
-});
+const StyledLocalizeFlex = styled.div<LocalizeFlexProps>(
+  ({ flexDirection, alignItems, justifyContent }) => {
+    return {
+      display: 'flex',
+      flex: '1',
+      alignItems,
+      justifyContent,
+      flexDirection,
+    };
+  },
+);
 
 const LocalizeFlex: React.FC<LocalizeFlexProps> = ({ children, className, ...props }) => (
   <StyledLocalizeFlex {...props} className={classnames(CLASSNAME, className)}>

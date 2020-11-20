@@ -37,19 +37,21 @@ const LocalizeIconTextWrapper = styled.div<LocalizeIconTextWrapperProps>(({ icon
   };
 });
 
-const LocalizeIconContainer = styled.span<LocalizeIconTextWrapperProps>(({ iconPlacement, iconTextMargin }) => {
-  return {
-    display: 'inline-flex',
-    alignItems: 'center',
-    ...(iconPlacement === 'right'
-      ? {
-          marginLeft: iconTextMargin,
-        }
-      : {
-          marginRight: iconTextMargin,
-        }),
-  };
-});
+const LocalizeIconContainer = styled.span<LocalizeIconTextWrapperProps>(
+  ({ iconPlacement, iconTextMargin }) => {
+    return {
+      display: 'inline-flex',
+      alignItems: 'center',
+      ...(iconPlacement === 'right'
+        ? {
+            marginLeft: iconTextMargin,
+          }
+        : {
+            marginRight: iconTextMargin,
+          }),
+    };
+  },
+);
 
 const LocalizeIconText: React.FC<LocalizeIconTextProps> = ({
   iconPlacement = 'left',

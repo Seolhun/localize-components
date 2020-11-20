@@ -82,31 +82,33 @@ const StyledSlider = styled.span<LocalizeProps, LocalizeThemeProps>(({ theme }) 
 /**
  * TODO: Change theme key and values
  */
-const LocalizeSwitch = React.forwardRef<HTMLInputElement, LocalizeSwitchProps>(({ className, ...props }, ref) => {
-  const { onChange } = props;
+const LocalizeSwitch = React.forwardRef<HTMLInputElement, LocalizeSwitchProps>(
+  ({ className, ...props }, ref) => {
+    const { onChange } = props;
 
-  const handleChecked = (event: React.ChangeEvent<HTMLInputElement>) => {
-    event.stopPropagation();
+    const handleChecked = (event: React.ChangeEvent<HTMLInputElement>) => {
+      event.stopPropagation();
 
-    if (onChange) {
-      onChange(event);
-    }
-  };
+      if (onChange) {
+        onChange(event);
+      }
+    };
 
-  return (
-    <StyledSwitchLabel key={name} htmlFor={name} className={classnames(CLASSNAME, className)}>
-      <HidingInput
-        {...props}
-        ref={ref}
-        id={name}
-        type="checkbox"
-        className={`${CLASSNAME}__Input`}
-        onChange={handleChecked}
-      />
-      <StyledSlider className={`${CLASSNAME}__Slider`} />
-    </StyledSwitchLabel>
-  );
-});
+    return (
+      <StyledSwitchLabel key={name} htmlFor={name} className={classnames(CLASSNAME, className)}>
+        <HidingInput
+          {...props}
+          ref={ref}
+          id={name}
+          type="checkbox"
+          className={`${CLASSNAME}__Input`}
+          onChange={handleChecked}
+        />
+        <StyledSlider className={`${CLASSNAME}__Slider`} />
+      </StyledSwitchLabel>
+    );
+  },
+);
 
 export { LocalizeSwitch };
 export default LocalizeSwitch;
