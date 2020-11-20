@@ -61,8 +61,8 @@ const TooltipOverlayHTML = styled.div<LocalizeTooltipHTMLProps, LocalizeThemePro
     return {
       padding: '16px',
       width: '300px',
-      backgroundColor: theme.colors['black-65'],
-      color: theme.colors.white,
+      backgroundColor: theme.colors.neutral10,
+      color: theme.colors.neutral12,
       borderRadius: '4px',
       filter:
         'drop-shadow(0px 4px 4px rgba(51, 51, 51, 0.04)), drop-shadow(0px 4px 16px rgba(51, 51, 51, 0.08))',
@@ -123,7 +123,7 @@ const getTooltipArrowStyleByPlacement = (
       return {
         top: '-10px',
         left: `${ICON_DOM_SIZE * 1.5}px`,
-        borderColor: `transparent transparent ${theme.colors['black-65']}  transparent`,
+        borderColor: `transparent transparent ${theme.colors.neutral10}  transparent`,
 
         [LocalizeMediaQueries.SM]: {
           left: `${clientRect.x - threshold}px`,

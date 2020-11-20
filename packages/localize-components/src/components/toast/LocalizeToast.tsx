@@ -56,7 +56,7 @@ const LocalizeTitle = styled.div<{}, LocalizeThemeProps>(({ theme }) => {
     display: 'flex',
     flex: 1,
     alignItems: 'center',
-    color: theme.colors.white,
+    color: theme.colors.neutral12,
   };
 });
 
@@ -122,7 +122,7 @@ const LocalizeToast: React.FC<LocalizeToastProps> = ({
                 <LocalizeHeaderWrapper>
                   <LocalizeTitle>
                     {icon && (
-                      <LocalizeIcon color="white" icon={icon} iconSize="24px" margin="0 8px 0 0" />
+                      <LocalizeIcon color="neutral1" icon={icon} iconSize="24px" margin="0 8px 0 0" />
                     )}
                     <LocalizeTitleText hasIcon={!!icon}>{title}</LocalizeTitleText>
                   </LocalizeTitle>
@@ -133,7 +133,7 @@ const LocalizeToast: React.FC<LocalizeToastProps> = ({
                         payload: id,
                       })
                     }
-                    color="white"
+                    color="neutral1"
                     icon={['fas', 'times']}
                     iconSize="24px"
                     margin="0 0 0 8px"
@@ -141,7 +141,7 @@ const LocalizeToast: React.FC<LocalizeToastProps> = ({
                 </LocalizeHeaderWrapper>
                 {message && (
                   <LocalizeMessage>
-                    <LocalizeText type="p" color="white">
+                    <LocalizeText type="p" color="neutral1">
                       {message}
                     </LocalizeText>
                   </LocalizeMessage>

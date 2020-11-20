@@ -308,16 +308,16 @@ const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
    * @name Conversion
    * To change color based on theme type
    */
-  conversion1: '#000000',
-  conversion2: '#141414',
-  conversion3: '#1F1F1F',
-  conversion4: '#262626',
-  conversion5: '#434343',
-  conversion6: '#595959',
-  conversion7: '#BFBFBF',
-  conversion8: '#D9D9D9',
-  conversion9: '#F5F5F5',
-  conversion10: '#FFFFFF',
+  conversion1: '#FFFFFF',
+  conversion2: '#F5F5F5',
+  conversion3: '#D9D9D9',
+  conversion4: '#BFBFBF',
+  conversion5: '#595959',
+  conversion6: '#434343',
+  conversion7: '#262626',
+  conversion8: '#1F1F1F',
+  conversion9: '#141414',
+  conversion10: '#000000',
   /**
    * @name Primary
    */
