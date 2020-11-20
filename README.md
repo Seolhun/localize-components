@@ -1,4 +1,6 @@
-# Localize Components
+<div style='text-align: center; margin-top: 40px'>
+  <img src='./.github/logo.png' />
+</div>
 
 ## Production
 
@@ -10,10 +12,6 @@
 
 ![Dev Build](https://github.com/Seolhun/localize-components/workflows/Dev%20Build/badge.svg?branch=develop)
 [![Build Status](https://travis-ci.com/Seolhun/localize-components.svg?branch=develop)](https://travis-ci.com/Seolhun/localize-components)
-
-<div style='text-align: center; margin-top: 40px'>
-  <img src='./.github/logo.png' />
-</div>
 
 ## Why
 
