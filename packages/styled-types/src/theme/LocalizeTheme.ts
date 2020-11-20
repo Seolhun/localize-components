@@ -1,10 +1,38 @@
 import { localizeFonts, LocalizeThemeFontsProps } from './LocalizeFonts';
 
-/**
- * @see https://ant.design/docs/spec/colors
- */
-export interface GOCThemeProps {
-  type: 'light' | 'dark';
+enum LocalizeThemeEnum {
+  LIGHT = 'LIGHT',
+  DARK = 'DARK',
+}
+
+export interface LocalizeProps {
+  /**
+   * Set this to change className
+   * @default '''
+   */
+  className?: string;
+
+  /**
+   * Set this to change font color in theme
+   * @default undefined
+   */
+  fontColor?: keyof LocalizeThemeProps['colors'];
+
+  /**
+   * Set this to change background color in theme
+   * @default undefined
+   */
+  bgColor?: keyof LocalizeThemeProps['colors'];
+
+  /**
+   * Set this to change zIndex
+   * @default undefined
+   */
+  zIndex?: number;
+}
+
+interface LocalizeThemeProps<K = keyof typeof LocalizeThemeEnum> {
+  type: K;
   fonts: LocalizeThemeFontsProps;
   colors: {
     primary1: string;
@@ -137,7 +165,7 @@ export interface GOCThemeProps {
   };
 }
 
-export const localizeLightThemeColors: GOCThemeProps['colors'] = {
+export const localizeLightThemeColors: LocalizeThemeProps['colors'] = {
   primary1: '#FFFEEB',
   primary2: '#FEFAC7',
   primary3: '#FDF5A3',
@@ -263,7 +291,7 @@ export const localizeLightThemeColors: GOCThemeProps['colors'] = {
   discord: '#8C9EFF',
 };
 
-export const localizeDarkThemeColors: GOCThemeProps['colors'] = {
+export const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
   primary1: '#FFFEEB',
   primary2: '#FEFAC7',
   primary3: '#FDF5A3',
@@ -389,8 +417,8 @@ export const localizeDarkThemeColors: GOCThemeProps['colors'] = {
   discord: '#8C9EFF',
 };
 
-export const lightTheme: GOCThemeProps = {
-  type: 'light',
+export const lightTheme: LocalizeThemeProps = {
+  type: 'LIGHT',
   fonts: localizeFonts,
   colors: localizeLightThemeColors,
   layout: {
@@ -399,8 +427,8 @@ export const lightTheme: GOCThemeProps = {
   },
 };
 
-export const darkTheme: GOCThemeProps = {
-  type: 'dark',
+export const darkTheme: LocalizeThemeProps = {
+  type: 'DARK',
   fonts: localizeFonts,
   colors: localizeDarkThemeColors,
   layout: {
