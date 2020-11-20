@@ -4,10 +4,7 @@ about: Suggest an enhancement idea for this project
 title: ''
 labels: 'Enhancement'
 assignees: 'Seolhun'
-
----
-
-## Purpose
+---## Purpose
 
 - Write the purpose this task.
 
@@ -27,30 +24,25 @@ assignees: 'Seolhun'
 
 - Add any other context or screenshots about the feature request here.
 
-
 ---
 
-
 ## What packages is changed?
+
 #### Documents
+
 - [ ] @seolhun/localize-components-docs
-- [ ] @seolhun/localize-components-examples
 
 #### Components
+
 - [ ] @seolhun/localize-components
 - [ ] @seolhun/localize-components-atomic
-- [ ] @seolhun/localize-components-icons
-
-#### Mono Components
-- [ ] @seolhun/localize-components-form
 - [ ] @seolhun/localize-components-grid
-- [ ] @seolhun/localize-components-sidebar
 
 #### Utils
+
 - [ ] @seolhun/localize-components-hooks
-- [ ] @seolhun/localize-components-styled-utils
-- [ ] @seolhun/localize-components-utils-event
+- [ ] @seolhun/localize-components-utils
 
 #### Types
+
 - [ ] @seolhun/localize-components-styled-types
-- [ ] @seolhun/localize-components-types

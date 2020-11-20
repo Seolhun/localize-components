@@ -10,34 +10,20 @@
 
 - Link related issues
 
-
 ## Additional context
 
 - Add any other context or screenshots about the feature request here.
 
 ---
 
-
 ## What kind of change does this PR introduce?
+
 #### Documents
-- [ ] @seolhun/localize-components-docs
-- [ ] @seolhun/localize-components-examples
 
-#### Components
-- [ ] @seolhun/localize-components
-- [ ] @seolhun/localize-components-atomic
-- [ ] @seolhun/localize-components-icons
-
-#### Mono Components
-- [ ] @seolhun/localize-components-form
-- [ ] @seolhun/localize-components-grid
-- [ ] @seolhun/localize-components-sidebar
-
-#### Utils
-- [ ] @seolhun/localize-components-hooks
-- [ ] @seolhun/localize-components-styled-utils
-- [ ] @seolhun/localize-components-utils-event
-
-#### Types
-- [ ] @seolhun/localize-components-styled-types
-- [ ] @seolhun/localize-components-types
+- [ ] docs
+- [ ] atomic
+- [ ] utils
+- [ ] grid
+- [ ] hooks
+- [ ] localize-components
+- [ ] styled-types

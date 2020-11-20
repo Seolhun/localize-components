@@ -1,5 +1,2 @@
-import ShadowBox, { ShadowBoxProps } from './ShadowBox';
-
-export { ShadowBox, ShadowBoxProps };
-
-export default ShadowBox;
+export * from './LocalizeShadowBox';
+export { default } from './LocalizeShadowBox';

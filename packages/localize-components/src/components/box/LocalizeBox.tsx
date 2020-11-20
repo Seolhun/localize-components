@@ -2,71 +2,34 @@ import React from 'react';
 
 import styled from '@emotion/styled';
 
-import {
-  LocalizeThemeStyledProps,
-  ILocalizeTheme,
-} from '@seolhun/localize-components-styled-types';
-import {
-  getValidThemeObject,
-  getThemeColorStyle,
-} from '@seolhun/localize-components-styled-utils';
+import { LocalizeThemeProps, LocalizeProps } from '@seolhun/localize-components-styled-types';
 
 import classnames from 'classnames';
 
-const DEFAULT_CLASSNAME = '__Localize__Box'
+const DEFAULT_CLASSNAME = '__Localize__Box';
+type DivProps = React.HTMLAttributes<HTMLDivElement>;
 
-export interface LocalizeBoxProps extends LocalizeThemeStyledProps, React.HTMLAttributes<HTMLDivElement> {
-  /**
-   * Set this to change Box rendering children node
-   * @default null
-   */
-  children: React.ReactNode;
+export interface LocalizeBoxProps extends LocalizeProps, DivProps {}
 
-  /**
-   * Set this to change Box className
-   * @default undefined
-   */
-  className?: string;
-
-  /**
-   * Set this to change Box css
-   * @default {}
-   */
-  css?: {};
-}
-
-const StyledBoxWrapper = styled.div<LocalizeBoxProps, ILocalizeTheme>(({
-  theme,
-  ...props
-}) => {
-    const validTheme = getValidThemeObject(props, theme);
-    return {
-      backgroundColor: validTheme.mainColor,
-      color: getThemeColorStyle(validTheme.mainColor),
-      height: 'auto',
-      width: '100%',
-      borderRadius: theme.border.radius,
-    };
-  }
-);
+const StyledBoxWrapper = styled.div<LocalizeBoxProps, LocalizeThemeProps>(({ theme }) => {
+  return {
+    backgroundColor: theme.colors.neutral1,
+    color: theme.colors.neutral12,
+    height: 'auto',
+    width: '100%',
+    padding: '1rem, 2rem',
+    borderRadius: '5px',
+  };
+});
 
 const StyledBoxContainer = styled.div<LocalizeBoxProps>({
   width: '100%',
   height: '100%',
-})
+});
 
-export const LocalizeBox: React.FC<LocalizeBoxProps> = ({
-  children,
-  className,
-  css = {},
-  ...props
-}) => {
+const LocalizeBox: React.FC<LocalizeBoxProps> = ({ children, className, css = {}, ...props }) => {
   return (
-    <StyledBoxWrapper
-      {...props}
-      className={classnames(DEFAULT_CLASSNAME, className)}
-      css={css}
-    >
+    <StyledBoxWrapper {...props} className={classnames(DEFAULT_CLASSNAME, className)}>
       <StyledBoxContainer className={`${DEFAULT_CLASSNAME}__Container`}>
         {children}
       </StyledBoxContainer>
@@ -74,4 +37,5 @@ export const LocalizeBox: React.FC<LocalizeBoxProps> = ({
   );
 };
 
+export { LocalizeBox };
 export default LocalizeBox;

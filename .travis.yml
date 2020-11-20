@@ -1,17 +1,29 @@
 language: node_js
 
 node_js:
-  - "10"
+  - '10'
+  - '12'
+  - '14'
 
-jobs:
-  include:
-    - stage: Builds
-      script:
-        - npm install
-        - npm run bs
-        - npm run build
-      after_success:
-        - ./bin/surge-deploy.sh
+branches:
+  only:
+    - master
+    - develop
+    - /^release/.*$/
+    - /^feature/.*$/
+    - /^synk/.*$/
+
+install:
+  - npm ci
+
+script:
+  - npm run bs
+  - npm run lint
+  - npm run test
+  - npm run build
+
+after_success:
+  - ./bin/build-deploy-docs.sh
 
 notifications:
   email:
