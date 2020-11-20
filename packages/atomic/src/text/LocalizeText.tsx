@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
-import { WidthProperty } from 'csstype';
+import { Property } from 'csstype';
 
 import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
@@ -14,7 +14,7 @@ export interface LocalizeTextProps extends LocalizeProps, HeadingProps {
 
   color?: keyof LocalizeThemeProps['colors'];
 
-  weight?: WidthProperty<string>;
+  weight?: Property.Width<string>;
 }
 
 const getStyleLocalizeText = (type: LocalizeTextType) => {

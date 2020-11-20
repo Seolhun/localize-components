@@ -1,11 +1,11 @@
-import { AlignItemsProperty, FlexDirectionProperty, JustifyContentProperty } from 'csstype';
+import { Property } from 'csstype';
 
 import { LocalizeSize } from '../../../packages/styled-types';
 import { localizeLightTheme } from '../../../packages/styled-types';
 
 export const storiesSizeOptions: LocalizeSize[] = ['xl', 'lg', 'md', 'sm', 'xs'];
 
-export const storiesAlignItemsOptions: AlignItemsProperty[] = [
+export const storiesAlignItemsOptions: Property.AlignItems[] = [
   '-moz-initial',
   'inherit',
   'initial',
@@ -23,7 +23,7 @@ export const storiesAlignItemsOptions: AlignItemsProperty[] = [
   'stretch',
 ];
 
-export const storiesJustifyContentOptions: JustifyContentProperty[] = [
+export const storiesJustifyContentOptions: Property.JustifyContent[] = [
   '-moz-initial',
   'inherit',
   'initial',
@@ -43,7 +43,7 @@ export const storiesJustifyContentOptions: JustifyContentProperty[] = [
   'right',
 ];
 
-export const storiesFlexDirectionOptions: FlexDirectionProperty[] = [
+export const storiesFlexDirectionOptions: Property.FlexDirection[] = [
   '-moz-initial',
   'inherit',
   'initial',

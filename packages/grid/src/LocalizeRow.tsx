@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { FlexDirectionProperty } from 'csstype';
+import { Property } from 'csstype';
 import classnames from 'classnames';
 
 import { LocalizeMediaQueries } from './LocalizeGrid.Helpers';
@@ -9,7 +9,7 @@ type DivProps = React.HTMLAttributes<HTMLDivElement>;
 export interface LocalizeRowProps extends DivProps {
   noWrap?: boolean;
 
-  flexDirection?: FlexDirectionProperty;
+  flexDirection?: Property.FlexDirection;
 
   /**
    * @default -8
