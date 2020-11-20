@@ -100,37 +100,38 @@ const LocalizeStyledTable = styled.table<{}, LocalizeThemeProps>(() => {
   };
 });
 
-const LocalizeTableHeader = styled.thead<LocalizeTableHeaderProps, LocalizeThemeProps>(({
-  fixedHeader
-}) => {
-  return {
-    position: fixedHeader? 'fixed' : 'unset'
-  };
-});
+const LocalizeTableHeader = styled.thead<LocalizeTableHeaderProps, LocalizeThemeProps>(
+  ({ fixedHeader }) => {
+    return {
+      position: fixedHeader ? 'fixed' : 'unset',
+    };
+  },
+);
 
-const LocalizeTableBody = styled.tbody<LocalizeTableBodyProps, LocalizeThemeProps>(({
-  fixedHeader,
-  fixedHeaderMargin,
-}) => {
-  return {
-    position: fixedHeader? 'fixed' : 'unset',
-    marginTop: fixedHeader ? fixedHeaderMargin : '0',
-  };
-});
+const LocalizeTableBody = styled.tbody<LocalizeTableBodyProps, LocalizeThemeProps>(
+  ({ fixedHeader, fixedHeaderMargin }) => {
+    return {
+      position: fixedHeader ? 'fixed' : 'unset',
+      marginTop: fixedHeader ? fixedHeaderMargin : '0',
+    };
+  },
+);
 
-const LocalizeStyledTableFooterWrapper = styled.div<{ height: string }, LocalizeThemeProps>(({ theme, height }) => {
-  return {
-    width: '100%',
-    height: '100%',
-    minHeight: height,
-    backgroundColor: theme.colors.neutral3,
-    padding: '8px 0',
+const LocalizeStyledTableFooterWrapper = styled.div<{ height: string }, LocalizeThemeProps>(
+  ({ theme, height }) => {
+    return {
+      width: '100%',
+      height: '100%',
+      minHeight: height,
+      backgroundColor: theme.colors.neutral3,
+      padding: '8px 0',
 
-    borderRight: `1px solid ${theme.colors.neutral4}`,
-    borderBottom: `1px solid ${theme.colors.neutral4}`,
-    borderLeft: `1px solid ${theme.colors.neutral4}`,
-  };
-});
+      borderRight: `1px solid ${theme.colors.neutral4}`,
+      borderBottom: `1px solid ${theme.colors.neutral4}`,
+      borderLeft: `1px solid ${theme.colors.neutral4}`,
+    };
+  },
+);
 
 function LocalizeTable<T>({
   dataSource,
@@ -150,15 +151,12 @@ function LocalizeTable<T>({
     return 'No Data';
   }, [renderEmptyData]);
 
-  const handleRenderHeader = React.useCallback(
-    (header: LocalizeHeaderRenderType) => {
-      if (typeof header === 'function') {
-        return header();
-      }
-      return header;
-    },
-    [],
-  );
+  const handleRenderHeader = React.useCallback((header: LocalizeHeaderRenderType) => {
+    if (typeof header === 'function') {
+      return header();
+    }
+    return header;
+  }, []);
 
   const handleRenderFooter = React.useCallback(() => {
     if (renderFooter) {
@@ -195,7 +193,11 @@ function LocalizeTable<T>({
           <LocalizeTableHeader fixedHeader={fixedHeader}>
             <LocalizeTableRow height={rowHeight} responsive={responsive}>
               {columns.map((colum, headerRowIndex) => (
-                <LocalizeTableHeaderCell key={headerRowIndex} width={colum.width} className={colum.headerClassName}>
+                <LocalizeTableHeaderCell
+                  key={headerRowIndex}
+                  width={colum.width}
+                  className={colum.headerClassName}
+                >
                   {handleRenderHeader(colum.header)}
                 </LocalizeTableHeaderCell>
               ))}
@@ -203,8 +205,8 @@ function LocalizeTable<T>({
           </LocalizeTableHeader>
           <LocalizeTableBody fixedHeader={fixedHeader} fixedHeaderMargin={rowHeight}>
             {dataSource.length === 0 ? (
-              <LocalizeTableRow height='200px' responsive={responsive}>
-                <td colSpan={columns.length} align='center'>
+              <LocalizeTableRow height="200px" responsive={responsive}>
+                <td colSpan={columns.length} align="center">
                   {handleRenderEmptyData()}
                 </td>
               </LocalizeTableRow>
@@ -231,7 +233,9 @@ function LocalizeTable<T>({
         </>
       </LocalizeStyledTable>
       {renderFooter && (
-        <LocalizeStyledTableFooterWrapper height={rowHeight}>{handleRenderFooter()}</LocalizeStyledTableFooterWrapper>
+        <LocalizeStyledTableFooterWrapper height={rowHeight}>
+          {handleRenderFooter()}
+        </LocalizeStyledTableFooterWrapper>
       )}
     </LocalizeStyledTableWrapper>
   );

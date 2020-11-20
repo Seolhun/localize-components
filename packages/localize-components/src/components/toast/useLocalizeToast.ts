@@ -1,5 +1,8 @@
 import React from 'react';
-import { LocalizeToastContext, LocalizeToastMessageProps } from './LocalizeToastContext';
+import {
+  LocalizeToastContext,
+  LocalizeToastMessageProps,
+} from './LocalizeToastContext';
 
 const useLocalizeToast = () => {
   const [, dispatch] = React.useContext(LocalizeToastContext);

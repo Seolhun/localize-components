@@ -39,14 +39,15 @@ interface LocalizeTooltipWrapperProps {
   margin: string;
 }
 
-const LocalizeTooltipWrapper = styled.div<LocalizeTooltipWrapperProps, LocalizeThemeProps>(
-  ({ margin }) => {
-    return {
-      display: 'inline-block',
-      margin,
-    };
-  },
-);
+const LocalizeTooltipWrapper = styled.div<
+  LocalizeTooltipWrapperProps,
+  LocalizeThemeProps
+>(({ margin }) => {
+  return {
+    display: 'inline-block',
+    margin,
+  };
+});
 
 const LocalizeTooltip: React.FC<LocalizeTooltipProps> = ({
   tooltip,

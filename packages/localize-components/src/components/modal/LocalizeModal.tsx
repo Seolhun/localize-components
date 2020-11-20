@@ -7,7 +7,10 @@ import {
   LocalizeThemeProps,
   LocalizeProps,
 } from '@seolhun/localize-components-styled-types';
-import { useDisclosure, useLockScroll } from '@seolhun/localize-components-hooks';
+import {
+  useDisclosure,
+  useLockScroll,
+} from '@seolhun/localize-components-hooks';
 
 const DEFAULT_CLASSNAME = '__Localize__Modal';
 type DivProps = React.HTMLAttributes<HTMLDivElement>;

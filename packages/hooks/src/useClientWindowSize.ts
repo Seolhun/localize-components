@@ -1,6 +1,8 @@
 import React from 'react';
 
-const useClientWindowSize = <T extends HTMLElement>(ref?: React.RefObject<T>) => {
+const useClientWindowSize = <T extends HTMLElement>(
+  ref?: React.RefObject<T>,
+) => {
   const [clientWidth, setClientWidth] = React.useState(0);
   const [clientHeight, setClientHeight] = React.useState(0);
 
@@ -19,7 +21,7 @@ const useClientWindowSize = <T extends HTMLElement>(ref?: React.RefObject<T>) =>
     if (ref?.current) {
       const { clientWidth, clientHeight } = ref.current;
       setClientWidth(clientWidth);
-      setClientHeight(clientHeight)
+      setClientHeight(clientHeight);
       return;
     }
     const width =
@@ -31,8 +33,7 @@ const useClientWindowSize = <T extends HTMLElement>(ref?: React.RefObject<T>) =>
       window.innerHeight ||
       document.documentElement.clientHeight ||
       document.body.clientHeight;
-    setClientHeight(height)
-
+    setClientHeight(height);
   }, [ref, clientWidth, clientHeight]);
 
   return { clientWidth, clientHeight };

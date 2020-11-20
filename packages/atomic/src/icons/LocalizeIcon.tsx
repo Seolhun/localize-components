@@ -6,8 +6,10 @@ import {
   FontAwesomeIconProps,
 } from '@fortawesome/react-fontawesome';
 
-import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
-
+import {
+  LocalizeProps,
+  LocalizeThemeProps,
+} from '@seolhun/localize-components-styled-types';
 
 type SpanProps = React.HTMLAttributes<HTMLSpanElement>;
 type ExtentionProps = LocalizeProps & SpanProps & LocalizeIconBackgroundProps;
@@ -144,4 +146,3 @@ const LocalizeIcon = React.forwardRef<HTMLSpanElement, LocalizeIconProps>(
 
 export { LocalizeIcon };
 export default LocalizeIcon;
-

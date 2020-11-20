@@ -4,7 +4,6 @@ import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-
 
 import { LocalizeTableProps } from './LocalizeTable';
 
-
 type ExtentionProps<T = any> = LocalizeProps & LocalizeTableProps<T>;
 
 export interface LocalizeFreezingTableProps<T> extends ExtentionProps<T> {}

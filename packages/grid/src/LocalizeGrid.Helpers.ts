@@ -14,10 +14,18 @@ export enum LocalizeMediaQueryEnum {
 
 export const LocalizeMediaQueries = {
   XL: `@media (min-width: ${LocalizeMediaQueryEnum.XL}px)`,
-  LG: `@media (min-width: ${LocalizeMediaQueryEnum.LG}px) and (max-width: ${LocalizeMediaQueryEnum.XL - 1}px)`,
-  MD: `@media (min-width: ${LocalizeMediaQueryEnum.MD}px) and (max-width: ${LocalizeMediaQueryEnum.LG - 1}px)`,
-  SM: `@media (min-width: ${LocalizeMediaQueryEnum.SM}px) and (max-width: ${LocalizeMediaQueryEnum.MD - 1}px)`,
-  XS: `@media (min-width: ${LocalizeMediaQueryEnum.XS}px) and (max-width: ${LocalizeMediaQueryEnum.SM - 1}px)`,
+  LG: `@media (min-width: ${
+    LocalizeMediaQueryEnum.LG
+  }px) and (max-width: ${LocalizeMediaQueryEnum.XL - 1}px)`,
+  MD: `@media (min-width: ${
+    LocalizeMediaQueryEnum.MD
+  }px) and (max-width: ${LocalizeMediaQueryEnum.LG - 1}px)`,
+  SM: `@media (min-width: ${
+    LocalizeMediaQueryEnum.SM
+  }px) and (max-width: ${LocalizeMediaQueryEnum.MD - 1}px)`,
+  XS: `@media (min-width: ${
+    LocalizeMediaQueryEnum.XS
+  }px) and (max-width: ${LocalizeMediaQueryEnum.SM - 1}px)`,
 };
 
 export const LOCALIZE_COLUM_COTUNT = 24;
@@ -60,13 +68,16 @@ export const buildGridStyle = (columnValue: LocalizeColumnValue) => {
   }
 
   const { offset = 0 } = columnValue;
-  Object.assign(styles, _isBeforeOffset(columnValue)
-    ? {
-      marginLeft: `${(offset / LOCALIZE_COLUM_COTUNT) * 100}%`,
-    }
-    : {
-      marginRight: `${(offset / LOCALIZE_COLUM_COTUNT) * 100}%`,
-    });
+  Object.assign(
+    styles,
+    _isBeforeOffset(columnValue)
+      ? {
+          marginLeft: `${(offset / LOCALIZE_COLUM_COTUNT) * 100}%`,
+        }
+      : {
+          marginRight: `${(offset / LOCALIZE_COLUM_COTUNT) * 100}%`,
+        },
+  );
   return styles;
 };
 
@@ -79,13 +90,7 @@ interface GetMediaQueryStylesProps {
 }
 
 export const getMediaQueryStyles = (columnValues: GetMediaQueryStylesProps) => {
-  const {
-    xl,
-    lg,
-    md,
-    sm,
-    xs,
-  } = columnValues;
+  const { xl, lg, md, sm, xs } = columnValues;
   return {
     [LocalizeMediaQueries.XL]: {
       ...buildGridStyle(xl || lg || md || sm || xs || LOCALIZE_COLUM_COTUNT),

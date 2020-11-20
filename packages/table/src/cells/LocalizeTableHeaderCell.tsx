@@ -26,7 +26,11 @@ const LocalizeTableHeaderCell: React.FC<LocalizeTableHeaderCellProps> = ({
   className,
   ...props
 }) => {
-  return <LocalizeTableHeaderCellWrapper {...props} className={classnames(CLASSNAME, className)}>{children}</LocalizeTableHeaderCellWrapper>;
+  return (
+    <LocalizeTableHeaderCellWrapper {...props} className={classnames(CLASSNAME, className)}>
+      {children}
+    </LocalizeTableHeaderCellWrapper>
+  );
 };
 
 export { LocalizeTableHeaderCell };

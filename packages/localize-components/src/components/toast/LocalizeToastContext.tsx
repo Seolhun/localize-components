@@ -39,7 +39,9 @@ export type LocalizeToastDispatchActionType = {
   type: LocalizeToastDispatchActionNameType;
   payload?: any;
 };
-export type LocalizeToastDispatchType = (action: LocalizeToastDispatchActionType) => void;
+export type LocalizeToastDispatchType = (
+  action: LocalizeToastDispatchActionType,
+) => void;
 export type LocalizeToastContextProps = [
   LocalizeToastMessageUKProps[],
   LocalizeToastDispatchType,

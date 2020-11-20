@@ -13,25 +13,29 @@ export interface LocalizeTableRowProps extends ExtensionProps {
   responsive: LocalizeTableProps['responsive'];
 }
 
-const LocalizeStyledTableRow = styled.tr<LocalizeTableRowProps, LocalizeThemeProps>(({ theme, height, responsive }) => {
-  return {
-    ...(responsive ? {
-      minHeight: height,
-    } : {
-      height,
-    }),
+const LocalizeStyledTableRow = styled.tr<LocalizeTableRowProps, LocalizeThemeProps>(
+  ({ theme, height, responsive }) => {
+    return {
+      ...(responsive
+        ? {
+            minHeight: height,
+          }
+        : {
+            height,
+          }),
 
-    '&:first-child': {
-      borderLeft: `1px solid ${theme.colors.neutral4}`,
-    },
-    '&:last-child': {
-      borderBottom: `1px solid ${theme.colors.neutral4}`,
-    },
-  };
-});
+      '&:first-child': {
+        borderLeft: `1px solid ${theme.colors.neutral4}`,
+      },
+      '&:last-child': {
+        borderBottom: `1px solid ${theme.colors.neutral4}`,
+      },
+    };
+  },
+);
 
 const LocalizeTableRow: React.FC<LocalizeTableRowProps> = ({ children, ...props }) => {
-  return <LocalizeStyledTableRow { ...props}>{children}</LocalizeStyledTableRow>;
+  return <LocalizeStyledTableRow {...props}>{children}</LocalizeStyledTableRow>;
 };
 
 export { LocalizeTableRow };

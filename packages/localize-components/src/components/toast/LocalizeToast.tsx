@@ -2,12 +2,20 @@ import React from 'react';
 import styled from '@emotion/styled';
 import { animated, useTransition } from 'react-spring';
 
-import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
+import {
+  LocalizeProps,
+  LocalizeThemeProps,
+} from '@seolhun/localize-components-styled-types';
 import { LocalizeMediaQueries } from '@seolhun/localize-components-grid';
-import { LocalizeIcon, LocalizeText } from '@seolhun/localize-components-atomic';
+import {
+  LocalizeIcon,
+  LocalizeText,
+} from '@seolhun/localize-components-atomic';
 
-import { LocalizeToastContext, LocalizeToastMessageUKProps }from './LocalizeToastContext';
-
+import {
+  LocalizeToastContext,
+  LocalizeToastMessageUKProps,
+} from './LocalizeToastContext';
 
 type DivProps = React.HTMLAttributes<HTMLDivElement>;
 type ExtentionProps = LocalizeProps & DivProps & LocalizeToastMessageUKProps;
@@ -16,7 +24,10 @@ export interface LocalizeToastProps extends ExtentionProps {
   timeout: number;
 }
 
-const LocalizeToastAnimatedWrapper = styled(animated.div)<{}, LocalizeThemeProps>(() => {
+const LocalizeToastAnimatedWrapper = styled(animated.div)<
+  {},
+  LocalizeThemeProps
+>(() => {
   return {
     '& + &': {
       marginTop: '16px',
@@ -133,7 +144,9 @@ const LocalizeToast: React.FC<LocalizeToastProps> = ({
                         margin="0 8px 0 0"
                       />
                     )}
-                    <LocalizeTitleText hasIcon={!!icon}>{title}</LocalizeTitleText>
+                    <LocalizeTitleText hasIcon={!!icon}>
+                      {title}
+                    </LocalizeTitleText>
                   </LocalizeTitle>
                   <LocalizeIcon
                     onClick={() =>
@@ -150,7 +163,7 @@ const LocalizeToast: React.FC<LocalizeToastProps> = ({
                 </LocalizeHeaderWrapper>
                 {message && (
                   <LocalizeMessage>
-                    <LocalizeText type='p' color="white">
+                    <LocalizeText type="p" color="white">
                       {message}
                     </LocalizeText>
                   </LocalizeMessage>

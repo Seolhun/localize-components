@@ -3,7 +3,10 @@ import ReactDOM from 'react-dom';
 import styled from '@emotion/styled';
 
 import { LocalizeMediaQueries } from '@seolhun/localize-components-grid';
-import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
+import {
+  LocalizeProps,
+  LocalizeThemeProps,
+} from '@seolhun/localize-components-styled-types';
 
 import { LocalizeTooltipProps } from './LocalizeTooltip';
 
@@ -57,40 +60,41 @@ const TooltipOverlayHTMLWrapper = styled.div<
   };
 });
 
-const TooltipOverlayHTML = styled.div<LocalizeTooltipHTMLProps, LocalizeThemeProps>(
-  ({ theme, ...props }) => {
-    return {
-      padding: '16px',
-      width: '300px',
-      backgroundColor: theme.colors['black-65'],
-      color: theme.colors.white,
-      borderRadius: '4px',
-      filter:
-        'drop-shadow(0px 4px 4px rgba(51, 51, 51, 0.04)), drop-shadow(0px 4px 16px rgba(51, 51, 51, 0.08))',
-      userSelect: 'none',
+const TooltipOverlayHTML = styled.div<
+  LocalizeTooltipHTMLProps,
+  LocalizeThemeProps
+>(({ theme, ...props }) => {
+  return {
+    padding: '16px',
+    width: '300px',
+    backgroundColor: theme.colors['black-65'],
+    color: theme.colors.white,
+    borderRadius: '4px',
+    filter:
+      'drop-shadow(0px 4px 4px rgba(51, 51, 51, 0.04)), drop-shadow(0px 4px 16px rgba(51, 51, 51, 0.08))',
+    userSelect: 'none',
 
-      '&::after': {
-        ...getTooltipArrowStyleByPlacement(props, theme),
-        content: '""',
-        position: 'absolute',
-        marginLeft: '-5px',
-        borderWidth: '5px',
-        borderStyle: 'solid',
-      },
+    '&::after': {
+      ...getTooltipArrowStyleByPlacement(props, theme),
+      content: '""',
+      position: 'absolute',
+      marginLeft: '-5px',
+      borderWidth: '5px',
+      borderStyle: 'solid',
+    },
 
-      '.Localize__Tooltip__Hightlight': {
-        color: theme.colors.primary6,
-      },
+    '.Localize__Tooltip__Hightlight': {
+      color: theme.colors.primary6,
+    },
 
-      [LocalizeMediaQueries.SM]: {
-        width: '100%',
-      },
-      [LocalizeMediaQueries.XS]: {
-        width: '100%',
-      },
-    };
-  },
-);
+    [LocalizeMediaQueries.SM]: {
+      width: '100%',
+    },
+    [LocalizeMediaQueries.XS]: {
+      width: '100%',
+    },
+  };
+});
 
 const getTooltipStyleByPlacement = ({
   placement,
