@@ -11,8 +11,9 @@ import {
 
 const DEFAULT_CLASSNAME = '__Localize__Button';
 type ButtonProps = React.HTMLAttributes<HTMLButtonElement>;
+type ExtentionProps = LocalizeProps & ButtonProps;
 
-export interface LocalizeButtonProps extends LocalizeProps, ButtonProps {
+export interface LocalizeButtonProps extends ExtentionProps {
   size?: LocalizeSize;
 
   borderRadius?: string;

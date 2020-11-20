@@ -18,9 +18,11 @@ import {
 import { LocalizeIcon } from '../icons';
 
 const DEFAULT_CLASSNAME = '__Localize__Image';
-type ImageProps = React.ImgHTMLAttributes<HTMLImageElement>;
 
-export interface LocalizeImageProps extends LocalizeProps, ImageProps {
+type ImageProps = React.ImgHTMLAttributes<HTMLImageElement>;
+type ExtentionProps = LocalizeProps & ImageProps;
+
+export interface LocalizeImageProps extends ExtentionProps {
   responsive?: boolean;
 
   width?: WidthProperty<string>;
@@ -131,7 +133,7 @@ const LocalizeImage: React.FC<LocalizeImageProps> = ({
         {hasError || !src ? (
           <LocalizeImageEmptryImage {...props}>
             <LocalizeImageEmptryImageLogo>
-              <LocalizeIcon icon={['fas', 'image']} size="28px" />
+              <LocalizeIcon icon={['fas', 'image']} iconSize="28px" />
             </LocalizeImageEmptryImageLogo>
           </LocalizeImageEmptryImage>
         ) : (
