@@ -1,2 +1,2 @@
-export * from './GOCTableDataCell';
-export * from './GOCTableHeaderCell';
+export * from './LocalizeTableDataCell';
+export * from './LocalizeTableHeaderCell';

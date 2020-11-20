@@ -1,1 +1,1 @@
-export * from './GOCTableRow';
+export * from './LocalizeTableRow';

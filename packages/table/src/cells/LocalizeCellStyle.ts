@@ -1,8 +1,8 @@
 import { PropertiesFallback } from 'csstype';
 
-import { GOCThemeProps } from '@/context';
+import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
-const GOCCellStyles = (theme: GOCThemeProps): any => {
+const LocalizeCellStyle = (theme: LocalizeThemeProps): any => {
   return {
     color: theme.colors["black-85"],
     padding: '0 10px',
@@ -16,5 +16,5 @@ const GOCCellStyles = (theme: GOCThemeProps): any => {
   } as PropertiesFallback<HTMLTableCellElement>
 }
 
-export { GOCCellStyles };
-export default GOCCellStyles;
+export { LocalizeCellStyle };
+export default LocalizeCellStyle;

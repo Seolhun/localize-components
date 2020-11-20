@@ -2,17 +2,18 @@ import React from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
 
-import { GOCThemeProps } from '@/context';
-import { GOCHeaderRenderType, GOCTableColumProps } from './GOCTableColumnTypes';
-import { GOCTableRow } from './rows';
-import { GOCTableHeaderCell, GOCTableDataCell } from './cells';
+import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
-const CLASSNAME = 'GOC__TABLE';
+import { LocalizeTableRow } from './rows';
+import { LocalizeTableHeaderCell, LocalizeTableDataCell } from './cells';
+import { LocalizeHeaderRenderType, LocalizeTableColumProps } from './LocalizeTableColumnTypes';
 
-export interface GOCTableProps<T = any> {
+const CLASSNAME = '__Localize__Table';
+
+export interface LocalizeTableProps<T = any> {
   dataSource: T[];
 
-  columns: GOCTableColumProps<T>[];
+  columns: LocalizeTableColumProps<T>[];
 
   renderFooter?: () => React.ReactNode;
 
@@ -50,7 +51,7 @@ export interface GOCTableProps<T = any> {
   /**
    * @name CellPart
    */
-  fixedHeader?: GOCTableHeaderProps['fixedHeader'];
+  fixedHeader?: LocalizeTableHeaderProps['fixedHeader'];
 
   /**
    * @name OptionPart
@@ -61,30 +62,30 @@ export interface GOCTableProps<T = any> {
   renderEmptyData?: () => React.ReactNode;
 }
 
-interface GOCTableHeaderProps {
+interface LocalizeTableHeaderProps {
   /**
    * Table header is fixed
    */
   fixedHeader?: boolean;
 }
 
-interface GOCTableHeaderProps {
+interface LocalizeTableHeaderProps {
   /**
    * Table header is fixed
    */
   fixedHeader?: boolean;
 }
 
-interface GOCTableBodyProps {
+interface LocalizeTableBodyProps {
   /**
    * Table header is fixed
    */
-  fixedHeader?: GOCTableHeaderProps['fixedHeader'];
+  fixedHeader?: LocalizeTableHeaderProps['fixedHeader'];
 
-  fixedHeaderMargin?: GOCTableProps['rowHeight'];
+  fixedHeaderMargin?: LocalizeTableProps['rowHeight'];
 }
 
-const GOCStyledTableWrapper = styled.div<{}, GOCThemeProps>(() => {
+const LocalizeStyledTableWrapper = styled.div<{}, LocalizeThemeProps>(() => {
   return {
     position: 'relative',
     width: '100%',
@@ -92,14 +93,14 @@ const GOCStyledTableWrapper = styled.div<{}, GOCThemeProps>(() => {
   };
 });
 
-const GOCStyledTable = styled.table<{}, GOCThemeProps>(() => {
+const LocalizeStyledTable = styled.table<{}, LocalizeThemeProps>(() => {
   return {
     width: '100%',
     height: '100%',
   };
 });
 
-const GOCTableHeader = styled.thead<GOCTableHeaderProps, GOCThemeProps>(({
+const LocalizeTableHeader = styled.thead<LocalizeTableHeaderProps, LocalizeThemeProps>(({
   fixedHeader
 }) => {
   return {
@@ -107,7 +108,7 @@ const GOCTableHeader = styled.thead<GOCTableHeaderProps, GOCThemeProps>(({
   };
 });
 
-const GOCTableBody = styled.tbody<GOCTableBodyProps, GOCThemeProps>(({
+const LocalizeTableBody = styled.tbody<LocalizeTableBodyProps, LocalizeThemeProps>(({
   fixedHeader,
   fixedHeaderMargin,
 }) => {
@@ -117,7 +118,7 @@ const GOCTableBody = styled.tbody<GOCTableBodyProps, GOCThemeProps>(({
   };
 });
 
-const GOCStyledTableFooterWrapper = styled.div<{ height: string }, GOCThemeProps>(({ theme, height }) => {
+const LocalizeStyledTableFooterWrapper = styled.div<{ height: string }, LocalizeThemeProps>(({ theme, height }) => {
   return {
     width: '100%',
     height: '100%',
@@ -131,7 +132,7 @@ const GOCStyledTableFooterWrapper = styled.div<{ height: string }, GOCThemeProps
   };
 });
 
-function GOCTable<T>({
+function LocalizeTable<T>({
   dataSource,
   columns,
   renderFooter,
@@ -141,7 +142,7 @@ function GOCTable<T>({
   responsive = true,
   fixedHeader,
   renderEmptyData,
-}: GOCTableProps<T>) {
+}: LocalizeTableProps<T>) {
   const handleRenderEmptyData = React.useCallback(() => {
     if (renderEmptyData) {
       return renderEmptyData();
@@ -150,7 +151,7 @@ function GOCTable<T>({
   }, [renderEmptyData]);
 
   const handleRenderHeader = React.useCallback(
-    (header: GOCHeaderRenderType) => {
+    (header: LocalizeHeaderRenderType) => {
       if (typeof header === 'function') {
         return header();
       }
@@ -188,29 +189,29 @@ function GOCTable<T>({
   );
 
   return (
-    <GOCStyledTableWrapper>
-      <GOCStyledTable className={classnames(CLASSNAME)}>
+    <LocalizeStyledTableWrapper>
+      <LocalizeStyledTable className={classnames(CLASSNAME)}>
         <>
-          <GOCTableHeader fixedHeader={fixedHeader}>
-            <GOCTableRow height={rowHeight} responsive={responsive}>
+          <LocalizeTableHeader fixedHeader={fixedHeader}>
+            <LocalizeTableRow height={rowHeight} responsive={responsive}>
               {columns.map((colum, headerRowIndex) => (
-                <GOCTableHeaderCell key={headerRowIndex} width={colum.width} className={colum.headerClassName}>
+                <LocalizeTableHeaderCell key={headerRowIndex} width={colum.width} className={colum.headerClassName}>
                   {handleRenderHeader(colum.header)}
-                </GOCTableHeaderCell>
+                </LocalizeTableHeaderCell>
               ))}
-            </GOCTableRow>
-          </GOCTableHeader>
-          <GOCTableBody fixedHeader={fixedHeader} fixedHeaderMargin={rowHeight}>
+            </LocalizeTableRow>
+          </LocalizeTableHeader>
+          <LocalizeTableBody fixedHeader={fixedHeader} fixedHeaderMargin={rowHeight}>
             {dataSource.length === 0 ? (
-              <GOCTableRow height='200px' responsive={responsive}>
+              <LocalizeTableRow height='200px' responsive={responsive}>
                 <td colSpan={columns.length} align='center'>
                   {handleRenderEmptyData()}
                 </td>
-              </GOCTableRow>
+              </LocalizeTableRow>
             ) : (
               dataSource.map((rowData, bodyRowIndex) => {
                 return (
-                  <GOCTableRow
+                  <LocalizeTableRow
                     key={bodyRowIndex}
                     className={classnames(handleSelectedRowClassName(rowData))}
                     onClick={handleOnClickRow(rowData)}
@@ -218,23 +219,23 @@ function GOCTable<T>({
                     responsive={responsive}
                   >
                     {columns.map((colum, columnIndex) => (
-                      <GOCTableDataCell key={columnIndex} className={colum.dataClassName}>
+                      <LocalizeTableDataCell key={columnIndex} className={colum.dataClassName}>
                         {colum.render(rowData)}
-                      </GOCTableDataCell>
+                      </LocalizeTableDataCell>
                     ))}
-                  </GOCTableRow>
+                  </LocalizeTableRow>
                 );
               })
             )}
-          </GOCTableBody>
+          </LocalizeTableBody>
         </>
-      </GOCStyledTable>
+      </LocalizeStyledTable>
       {renderFooter && (
-        <GOCStyledTableFooterWrapper height={rowHeight}>{handleRenderFooter()}</GOCStyledTableFooterWrapper>
+        <LocalizeStyledTableFooterWrapper height={rowHeight}>{handleRenderFooter()}</LocalizeStyledTableFooterWrapper>
       )}
-    </GOCStyledTableWrapper>
+    </LocalizeStyledTableWrapper>
   );
 }
 
-export { GOCTable };
-export default GOCTable;
+export { LocalizeTable };
+export default LocalizeTable;

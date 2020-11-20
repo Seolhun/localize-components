@@ -1,3 +1,2 @@
-export * from './EditableCell';
-export * from './GOCFreezingTable';
-export * from './GOCTable';
+export * from './LocalizeFreezingTable';
+export * from './LocalizeTable';
