@@ -22,7 +22,7 @@
 
 - [ ] docs
 - [ ] atomic
-- [ ] event-utils
+- [ ] utils
 - [ ] grid
 - [ ] hooks
 - [ ] localize-components
