@@ -1,7 +1,7 @@
-import babel from '@rollup/plugin-babel';
-import commonjs from '@rollup/plugin-commonjs';
-import typescript from 'rollup-plugin-typescript2';
+import typescript from '@rollup/plugin-typescript';
 import resolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+import babel from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 
 import pkg from './package.json';
@@ -13,37 +13,19 @@ if (pkg.dependencies) {
 
 export default {
   input: './src/index.ts',
-  output: [
-    {
-      format: 'cjs',
-      file: 'dist/index.js',
-    },
-    {
-      format: 'es',
-      file: 'dist/index.esm.js',
-    },
-    {
-      format: 'cjs',
-      file: 'dist/index.min.js',
-      plugins: [terser()],
-    },
-    {
-      format: 'es',
-      file: 'dist/index.esm.min.js',
-      plugins: [terser()],
-    },
-  ],
+  output: {
+    sourcemap: true,
+    format: 'es',
+    dir: 'dist',
+    plugins: [terser()],
+  },
   external: [...externals],
   plugins: [
-    resolve({
-      mainFields: ['module', 'main'],
-      extensions: ['.ts', '.tsx', '.js', '.jsx', '.json'],
+    resolve(),
+    typescript({
     }),
     commonjs({
       include: /node_modules/,
-    }),
-    typescript({
-      tsconfig: 'tsconfig.json',
     }),
     babel({
       babelHelpers: 'bundled',
