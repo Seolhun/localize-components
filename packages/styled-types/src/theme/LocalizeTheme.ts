@@ -192,16 +192,16 @@ const localizeLightThemeColors: LocalizeThemeProps['colors'] = {
   /**
    * @name Primary
    */
-  primary1: '#e6f7ff',
-  primary2: '#bae7ff',
-  primary3: '#91d5ff',
-  primary4: '#69c0ff',
-  primary5: '#40a9ff',
-  primary6: '#1890ff',
-  primary7: '#096dd9',
-  primary8: '#0050b3',
-  primary9: '#003a8c',
-  primary10: '#002766',
+  primary1: '#f0f5ff',
+  primary2: '#d6e4ff',
+  primary3: '#adc6ff',
+  primary4: '#85a5ff',
+  primary5: '#597ef7',
+  primary6: '#2f54eb',
+  primary7: '#1d39c4',
+  primary8: '#10239e',
+  primary9: '#061178',
+  primary10: '#030852',
   /**
    * @name Secondary
    */
@@ -285,8 +285,8 @@ const localizeLightThemeColors: LocalizeThemeProps['colors'] = {
   /**
    * @name Theme
    */
-  primary: '#F7E853',
-  secondary: '#1C2F61',
+  primary: '#2f54eb',
+  secondary: '#002766',
   success: '#6AB95C',
   info: '#1890FF',
   warning: '#FAAD14',
@@ -321,16 +321,16 @@ const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
   /**
    * @name Primary
    */
-  primary1: '#e6f7ff',
-  primary2: '#bae7ff',
-  primary3: '#91d5ff',
-  primary4: '#69c0ff',
-  primary5: '#40a9ff',
-  primary6: '#1890ff',
-  primary7: '#096dd9',
-  primary8: '#0050b3',
-  primary9: '#003a8c',
-  primary10: '#002766',
+  primary1: '#f0f5ff',
+  primary2: '#d6e4ff',
+  primary3: '#adc6ff',
+  primary4: '#85a5ff',
+  primary5: '#597ef7',
+  primary6: '#2f54eb',
+  primary7: '#1d39c4',
+  primary8: '#10239e',
+  primary9: '#061178',
+  primary10: '#030852',
   /**
    * @name Secondary
    */
@@ -414,8 +414,8 @@ const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
   /**
    * @name Theme
    */
-  primary: '#F7E853',
-  secondary: '#1C2F61',
+  primary: '#2f54eb',
+  secondary: '#002766',
   success: '#6AB95C',
   info: '#1890FF',
   warning: '#FAAD14',
