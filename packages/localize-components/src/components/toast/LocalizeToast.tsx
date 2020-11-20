@@ -122,7 +122,12 @@ const LocalizeToast: React.FC<LocalizeToastProps> = ({
                 <LocalizeHeaderWrapper>
                   <LocalizeTitle>
                     {icon && (
-                      <LocalizeIcon color="neutral1" icon={icon} iconSize="24px" margin="0 8px 0 0" />
+                      <LocalizeIcon
+                        color="neutral1"
+                        icon={icon}
+                        iconSize="24px"
+                        margin="0 8px 0 0"
+                      />
                     )}
                     <LocalizeTitleText hasIcon={!!icon}>{title}</LocalizeTitleText>
                   </LocalizeTitle>
