@@ -5,7 +5,7 @@ import { animated, useTransition } from 'react-spring';
 import { lighten } from 'polished';
 
 import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
-import { LOCALIZE_MEDIA_QUERIES } from '@seolhun/localize-components-grid';
+import { LocalizeMediaQueries } from '@seolhun/localize-components-grid';
 
 import { LocalizeIcon } from '../../icons';
 import { LocalizeButton } from '../../button';
@@ -139,7 +139,7 @@ const LocalizeSelectDropdownWrapper = styled.div<{}, LocalizeThemeProps>(({ them
     padding: '32px 0 0',
     backgroundColor: theme.colors.conversion9,
 
-    [LOCALIZE_MEDIA_QUERIES.MD]: {
+    [LocalizeMediaQueries.MD]: {
       position: 'fixed',
       top: 'auto',
       right: 0,
@@ -149,7 +149,7 @@ const LocalizeSelectDropdownWrapper = styled.div<{}, LocalizeThemeProps>(({ them
       height: '100%',
     },
 
-    [LOCALIZE_MEDIA_QUERIES.SM]: {
+    [LocalizeMediaQueries.SM]: {
       position: 'fixed',
       top: 'auto',
       right: 0,
@@ -159,7 +159,7 @@ const LocalizeSelectDropdownWrapper = styled.div<{}, LocalizeThemeProps>(({ them
       height: '100%',
     },
 
-    [LOCALIZE_MEDIA_QUERIES.XS]: {
+    [LocalizeMediaQueries.XS]: {
       position: 'fixed',
       top: 'auto',
       right: 0,
@@ -190,13 +190,13 @@ const LocalizeSelectDropdownTitle = styled.p<{}, LocalizeThemeProps>(({ theme })
     marginBottom: '24px',
     color: theme.colors.conversion9,
 
-    [LOCALIZE_MEDIA_QUERIES.MD]: {
+    [LocalizeMediaQueries.MD]: {
       justifyContent: 'flex-start',
     },
-    [LOCALIZE_MEDIA_QUERIES.SM]: {
+    [LocalizeMediaQueries.SM]: {
       justifyContent: 'flex-start',
     },
-    [LOCALIZE_MEDIA_QUERIES.XS]: {
+    [LocalizeMediaQueries.XS]: {
       justifyContent: 'flex-start',
     },
   };
@@ -219,13 +219,13 @@ const LocalizeCloseIconWrapper = styled.span<{}, LocalizeThemeProps>(() => {
     top: '36px',
     left: '36px',
 
-    [LOCALIZE_MEDIA_QUERIES.MD]: {
+    [LocalizeMediaQueries.MD]: {
       display: 'none',
     },
-    [LOCALIZE_MEDIA_QUERIES.SM]: {
+    [LocalizeMediaQueries.SM]: {
       display: 'none',
     },
-    [LOCALIZE_MEDIA_QUERIES.XS]: {
+    [LocalizeMediaQueries.XS]: {
       display: 'none',
     },
   };
