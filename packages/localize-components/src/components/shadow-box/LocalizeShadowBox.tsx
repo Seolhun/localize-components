@@ -114,10 +114,7 @@ const LocalizeShadowBox: React.FC<LocalizeShadowBoxProps> = ({
   }
 
   return (
-    <LocalizeShadowBoxWrapper
-      ref={wrapperRef}
-      className={classnames(DEFAULT_CLASSNAME, className)}
-    >
+    <LocalizeShadowBoxWrapper ref={wrapperRef} className={classnames(DEFAULT_CLASSNAME, className)}>
       <LocalizeShadowBoxContainer>
         <CloseContainer onClick={handleToggleOpenStatus}>
           <CloseIcon deg={'-45'} />

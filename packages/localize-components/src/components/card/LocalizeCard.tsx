@@ -2,10 +2,7 @@ import React from 'react';
 
 import classnames from 'classnames';
 import styled from '@emotion/styled';
-import {
-  LocalizeProps,
-  LocalizeThemeProps,
-} from '@seolhun/localize-components-styled-types';
+import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
 const DEFAULT_CLASSNAME = '__Localize__Card';
 type DivProps = React.HTMLAttributes<HTMLDivElement>;
@@ -17,17 +14,11 @@ export interface LocalizeCardProps extends LocalizeProps, DivProps {
   borderRadius?: string;
 }
 
-const StyledLocalizeCardWrapper = styled.div<
-  LocalizeCardProps,
-  LocalizeThemeProps
->({
+const StyledLocalizeCardWrapper = styled.div<LocalizeCardProps, LocalizeThemeProps>({
   width: '100%',
 });
 
-const StyledLocalizeCardContainer = styled.div<
-  LocalizeCardProps,
-  LocalizeThemeProps
->(({ theme, borderRadius }) => {
+const StyledLocalizeCardContainer = styled.div<LocalizeCardProps, LocalizeThemeProps>(({ theme, borderRadius }) => {
   return {
     padding: '15px 20px',
     borderRadius: borderRadius || '5px',
@@ -37,18 +28,9 @@ const StyledLocalizeCardContainer = styled.div<
   };
 });
 
-const LocalizeCard: React.FC<LocalizeCardProps> = ({
-  className,
-  children,
-  ...props
-}) => (
-  <StyledLocalizeCardWrapper
-    className={classnames(DEFAULT_CLASSNAME, className)}
-  >
-    <StyledLocalizeCardContainer
-      {...props}
-      className={`${DEFAULT_CLASSNAME}__Container`}
-    >
+const LocalizeCard: React.FC<LocalizeCardProps> = ({ className, children, ...props }) => (
+  <StyledLocalizeCardWrapper className={classnames(DEFAULT_CLASSNAME, className)}>
+    <StyledLocalizeCardContainer {...props} className={`${DEFAULT_CLASSNAME}__Container`}>
       {children}
     </StyledLocalizeCardContainer>
   </StyledLocalizeCardWrapper>

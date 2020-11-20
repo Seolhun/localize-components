@@ -48,10 +48,7 @@ export interface DropdownSearchResultItemRendererProps {
   uniqukeKey?: string;
 }
 
-const StyledSearchResultItem = styled.div<
-  { isMatchIndex: boolean },
-  LocalizeThemeProps
->(({ isMatchIndex, theme }) => ({
+const StyledSearchResultItem = styled.div<{ isMatchIndex: boolean }, LocalizeThemeProps>(({ isMatchIndex, theme }) => ({
   padding: '6px 18px',
   cursor: 'pointer',
   color: theme.colors.neutral12,
@@ -86,9 +83,7 @@ export const DropdownSearchResultItemRenderer: React.FC<DropdownSearchResultItem
     }
   }, [selectedItemIndex]);
 
-  const handleClickItem = (item: any, index: number) => (
-    event: React.MouseEvent<HTMLDivElement>,
-  ) => {
+  const handleClickItem = (item: any, index: number) => (event: React.MouseEvent<HTMLDivElement>) => {
     event.stopPropagation();
 
     onClickItem(item, index);

@@ -7,6 +7,7 @@ import {
   LocalizeThemeProps,
   LocalizeProps,
   LocalizeSize,
+  getLocalizeSizeBy,
 } from '@seolhun/localize-components-styled-types';
 
 const DEFAULT_CLASSNAME = '__Localize__Button';
@@ -14,77 +15,83 @@ type ButtonProps = React.HTMLAttributes<HTMLButtonElement>;
 type ExtentionProps = LocalizeProps & ButtonProps;
 
 export interface LocalizeButtonProps extends ExtentionProps {
+  /**
+   * Set this to change font Color
+   * @default conversion10
+   */
+  fontColor?: ExtentionProps['fontColor'];
+
+  /**
+   * Set this to change backgroundColor
+   * @default primary
+   */
+  bgColor?: ExtentionProps['bgColor'];
+
+  /**
+   * Set this to change borderColor
+   * @default undefined
+   */
+  bdColor?: ExtentionProps['bdColor'];
+
+  /**
+   * Set this to change font color
+   * @default sm
+   */
   size?: LocalizeSize;
 
+  /**
+   * Set this to change border radius
+   * @default 4px
+   */
   borderRadius?: string;
 }
 
-const getSizeStyle = (size?: LocalizeSize) => {
-  switch (size) {
-    case 'xl':
-      return '1.4rem 2rem';
-    case 'lg':
-      return '1.2rem 1.8rem';
-    case 'md':
-      return '1rem 1.4rem';
-    case 'sm':
-      return '0.8rem 1rem';
-    default:
-      return '0.6rem 0.8rem';
-  }
-};
+const StyledLocalizeButton = styled.button<LocalizeButtonProps, LocalizeThemeProps>(
+  ({ theme, size, fontColor = 'conversion10', bgColor = 'primary', bdColor, borderRadius = '4px' }) => {
+    const color = theme.colors[fontColor];
+    const backgroundColor = theme.colors[bgColor];
+    const borderColor = theme.colors[bdColor || bgColor];
 
-const StyledLocalizeButton = styled.button<
-  LocalizeButtonProps,
-  LocalizeThemeProps
->(({ theme, size = 'md', bgColor = 'primary', borderRadius }) => {
-  const fonts = theme.fonts.font1;
-  const backgroundColor = theme.colors[bgColor];
-  const color = theme.colors.neutral1;
+    return {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: 'auto',
+      color,
+      backgroundColor,
+      padding: getLocalizeSizeBy(size),
+      border: `1px solid ${borderColor}`,
+      borderRadius,
 
-  return {
-    ...fonts,
-    display: 'inline-block',
-    height: 'auto',
-    padding: getSizeStyle(size),
-    backgroundColor,
-    border: `1px solid transparent`,
-    borderRadius,
-    color,
-    textAlign: 'center',
-    verticalAlign: 'middle',
-    textDecoration: 'none',
-    whiteSpace: 'nowrap',
-    outline: 'none',
-    transition: 'background-color 0.3s, border-color 0.3s, color 0.3s',
-    userSelect: 'none',
-    cursor: 'pointer',
+      textDecoration: 'none',
+      whiteSpace: 'nowrap',
+      outline: 'none',
+      transition: 'background-color 0.3s, border-color 0.3s, color 0.3s',
+      userSelect: 'none',
+      cursor: 'pointer',
 
-    '&:hover': {
-      backgroundColor: lighten(0.1, backgroundColor),
-      borderColor: theme.colors.primary,
-    },
+      '&:not(:disabled):not(:read-only):active, &:not(:disabled):not(:read-only):hover': {
+        backgroundColor: lighten(0.1, backgroundColor),
+        borderColor: lighten(0.1, borderColor),
+      },
+      '&:disabled': {
+        backgroundColor: theme.colors.neutral4,
+        borderColor: theme.colors.neutral5,
+        color: theme.colors.neutral8,
+        cursor: 'not-allowed',
+      },
+    };
+  },
+);
 
-    '&:disabled': {
-      backgroundColor: theme.colors.neutral4,
-      color: theme.colors.neutral1,
-      cursor: 'not-allowed',
-    },
-  };
-});
-
-const LocalizeButton: React.FC<LocalizeButtonProps> = ({
-  children,
-  className,
-  ...props
-}) => (
-  <StyledLocalizeButton
-    {...props}
-    type="button"
-    className={classnames(DEFAULT_CLASSNAME, className)}
-  >
-    {children}
-  </StyledLocalizeButton>
+const LocalizeButton = React.forwardRef<HTMLButtonElement, LocalizeButtonProps>(
+  ({ children, className, ...props }, ref) => {
+    return (
+      <StyledLocalizeButton {...props} ref={ref} className={classnames(DEFAULT_CLASSNAME, className)}>
+        {children}
+      </StyledLocalizeButton>
+    );
+  },
 );
 
 export { LocalizeButton };

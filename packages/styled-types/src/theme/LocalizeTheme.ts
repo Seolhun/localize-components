@@ -1,6 +1,6 @@
 import { localizeFonts, LocalizeThemeFontsProps } from './LocalizeFonts';
 
-enum LocalizeThemeEnum {
+export enum LocalizeThemeEnum {
   LIGHT = 'LIGHT',
   DARK = 'DARK',
 }
@@ -14,15 +14,21 @@ export interface LocalizeProps {
 
   /**
    * Set this to change font color in theme
-   * @default undefined
+   * @default text1
    */
   fontColor?: keyof LocalizeThemeProps['colors'];
 
   /**
-   * Set this to change background color in theme
+   * Set this to change background color
    * @default undefined
    */
   bgColor?: keyof LocalizeThemeProps['colors'];
+
+  /**
+   * Set this to change border color
+   * @default undefined
+   */
+  bdColor?: keyof LocalizeThemeProps['colors'];
 
   /**
    * Set this to change zIndex
@@ -35,6 +41,23 @@ export interface LocalizeThemeProps<K = keyof typeof LocalizeThemeEnum> {
   type: K;
   fonts: LocalizeThemeFontsProps;
   colors: {
+    /**
+     * @name Conversion
+     * To change color based on theme type
+     */
+    conversion1: string;
+    conversion2: string;
+    conversion3: string;
+    conversion4: string;
+    conversion5: string;
+    conversion6: string;
+    conversion7: string;
+    conversion8: string;
+    conversion9: string;
+    conversion10: string;
+    /**
+     * @name Primary
+     */
     primary1: string;
     primary2: string;
     primary3: string;
@@ -58,7 +81,6 @@ export interface LocalizeThemeProps<K = keyof typeof LocalizeThemeEnum> {
     secondary8: string;
     secondary9: string;
     secondary10: string;
-    secondary11: string;
     /**
      * @name Neutral
      */
@@ -165,17 +187,34 @@ export interface LocalizeThemeProps<K = keyof typeof LocalizeThemeEnum> {
   };
 }
 
-export const localizeLightThemeColors: LocalizeThemeProps['colors'] = {
-  primary1: '#FFFEEB',
-  primary2: '#FEFAC7',
-  primary3: '#FDF5A3',
-  primary4: '#FFF36C',
-  primary5: '#FAED67',
-  primary6: '#F7E853',
-  primary7: '#F8DA4F',
-  primary8: '#F4C246',
-  primary9: '#F2AB3D',
-  primary10: '#EB8432',
+const localizeLightThemeColors: LocalizeThemeProps['colors'] = {
+  /**
+   * @name Conversion
+   * To change color based on theme type
+   */
+  conversion1: '#FFFFFF',
+  conversion2: '#F5F5F5',
+  conversion3: '#D9D9D9',
+  conversion4: '#BFBFBF',
+  conversion5: '#595959',
+  conversion6: '#434343',
+  conversion7: '#262626',
+  conversion8: '#1F1F1F',
+  conversion9: '#141414',
+  conversion10: '#000000',
+  /**
+   * @name Primary
+   */
+  primary1: '#e6f7ff',
+  primary2: '#bae7ff',
+  primary3: '#91d5ff',
+  primary4: '#69c0ff',
+  primary5: '#40a9ff',
+  primary6: '#1890ff',
+  primary7: '#096dd9',
+  primary8: '#0050b3',
+  primary9: '#003a8c',
+  primary10: '#002766',
   /**
    * @name Secondary
    */
@@ -189,7 +228,6 @@ export const localizeLightThemeColors: LocalizeThemeProps['colors'] = {
   secondary8: '#1C2F61',
   secondary9: '#142656',
   secondary10: '#09183F',
-  secondary11: '#000F17',
   /**
    * @name Neutral
    */
@@ -291,17 +329,34 @@ export const localizeLightThemeColors: LocalizeThemeProps['colors'] = {
   discord: '#8C9EFF',
 };
 
-export const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
-  primary1: '#FFFEEB',
-  primary2: '#FEFAC7',
-  primary3: '#FDF5A3',
-  primary4: '#FFF36C',
-  primary5: '#FAED67',
-  primary6: '#F7E853',
-  primary7: '#F8DA4F',
-  primary8: '#F4C246',
-  primary9: '#F2AB3D',
-  primary10: '#EB8432',
+const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
+  /**
+   * @name Conversion
+   * To change color based on theme type
+   */
+  conversion1: '#000000',
+  conversion2: '#141414',
+  conversion3: '#1F1F1F',
+  conversion4: '#262626',
+  conversion5: '#434343',
+  conversion6: '#595959',
+  conversion7: '#BFBFBF',
+  conversion8: '#D9D9D9',
+  conversion9: '#F5F5F5',
+  conversion10: '#FFFFFF',
+  /**
+   * @name Primary
+   */
+  primary1: '#e6f7ff',
+  primary2: '#bae7ff',
+  primary3: '#91d5ff',
+  primary4: '#69c0ff',
+  primary5: '#40a9ff',
+  primary6: '#1890ff',
+  primary7: '#096dd9',
+  primary8: '#0050b3',
+  primary9: '#003a8c',
+  primary10: '#002766',
   /**
    * @name Secondary
    */
@@ -315,7 +370,6 @@ export const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
   secondary8: '#1C2F61',
   secondary9: '#142656',
   secondary10: '#09183F',
-  secondary11: '#000F17',
   /**
    * @name Neutral
    */

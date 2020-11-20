@@ -79,8 +79,7 @@ export const DropdownSearchResultItem: React.FC<DropdownSearchResultItemProps> =
   ...props
 }) => {
   const isFetchingData = isFetching && items.length === 0;
-  const hasNoData =
-    !isFetching && (!items || !Array.isArray(items) || items.length === 0);
+  const hasNoData = !isFetching && (!items || !Array.isArray(items) || items.length === 0);
 
   if (isFetchingData) {
     return (

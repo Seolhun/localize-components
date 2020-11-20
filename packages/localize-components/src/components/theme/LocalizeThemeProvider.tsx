@@ -1,12 +1,9 @@
 import React from 'react';
 
 import { ThemeProvider } from 'emotion-theming';
-import {
-  localizeLightTheme,
-  LocalizeThemeProps,
-} from '@seolhun/localize-components-styled-types';
+import { localizeLightTheme, LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
-interface LocalizeThemeProviderProps {
+export interface LocalizeThemeProviderProps {
   /**
    * Set this to change LocalizeThemeProvider theme
    * @default lightTheme
@@ -14,13 +11,9 @@ interface LocalizeThemeProviderProps {
   theme?: LocalizeThemeProps;
 }
 
-const LocalizeThemeProvider: React.FC<LocalizeThemeProviderProps> = ({
-  children,
-  theme = localizeLightTheme,
-}) => {
+const LocalizeThemeProvider: React.FC<LocalizeThemeProviderProps> = ({ children, theme = localizeLightTheme }) => {
   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
 };
 
-export { LocalizeThemeProviderProps, LocalizeThemeProvider };
-
+export { LocalizeThemeProvider };
 export default LocalizeThemeProvider;

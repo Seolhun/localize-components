@@ -1,256 +1,136 @@
 import React from 'react';
-
 import styled from '@emotion/styled';
 import classnames from 'classnames';
-import {
-  LocalizeThemeProps,
-  LocalizeProps,
-} from '@seolhun/localize-components-styled-types';
 
-import { LocalizeRadioGroupAlignType } from './LocalizeRadioGroup';
+import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
-const DEFAULT_CLASSNAME = '__Localize__Radio';
-const RADIO_CHECKED_CIRCLE = 8;
-const RADIO_CHECKMARK_WIDTH = 16;
+import { LocalizeFormStateProps } from '../LocalizeFormStateProps';
 
-type InputProps = React.HTMLAttributes<HTMLInputElement>;
+const CLASSNAME = '__Localize__Radio';
+type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
+type Props = LocalizeProps & InputProps & LocalizeFormStateProps;
 
-export interface LocalizeRadioProps extends InputProps, LocalizeProps {
-  /**
-   * Set this to change Radio label
-   */
-  item: RadioItemProps;
+export interface LocalizeRadioProps extends Props {}
 
-  /**
-   * Set this to change Radio checkedItem
-   */
-  checkedItem: RadioItemProps;
+const HidingInput = styled.input<{}>({
+  display: 'none',
+});
 
-  /**
-   * Set this to change Radio groupName
-   * @default ''
-   */
-  groupName?: string;
+const LocalizeRadioCheckerContainer = styled.div<{}, LocalizeThemeProps>(({ theme }) => ({
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: '22px',
+  height: '22px',
+  border: `2px solid ${theme.colors.neutral5}`,
+  borderRadius: '50%',
+  marginRight: '8px',
+  transition: 'background-color 0.3s',
+}));
 
-  /**
-   * Set this to change Radio labelKey
-   * @default 'label'
-   */
-  labelKey?: string;
+const LocalizeRadioCheckerCircle = styled.div<{}, LocalizeThemeProps>(() => ({
+  display: 'block',
+  width: '10px',
+  height: '10px',
+  backgroundColor: 'transparent',
+  borderRadius: '50%',
+  transition: 'background-color 0.3s',
+}));
 
-  /**
-   * Set this to change Radio onClick
-   * @default undefined
-   */
-  onClick?: (item: RadioItemProps, ...agrs: any[]) => void;
-
-  /**
-   * Set this to change Radio onChange
-   * @default () => null
-   */
-  onChange?: (item: RadioItemProps, ...agrs: any[]) => void;
-
-  /**
-   * Set this to change Radio onMouseOver
-   * @default () => null
-   */
-  onMouseOver?: (...agrs: any[]) => void;
-
-  /**
-   * Set this to change Radio onMouseOut
-   * @default () => null
-   */
-  onMouseOut?: (...agrs: any[]) => void;
-
-  /**
-   * Set this to change Radio useLabelKey
-   * @default false
-   */
-  useLabelKey?: boolean;
-
-  /**
-   * Set this to change Radio valueKey
-   * @default 'value'
-   */
-  valueKey?: string;
-
-  /**
-   * Set this to change Radio Group align
-   * @default undefined
-   */
-  align?: LocalizeRadioGroupAlignType;
-}
-
-export interface RadioItemProps {
-  [key: string]: any;
-}
-
-interface SizeProps {
-  /**
-   * Set this to change Radio Group align
-   * @default undefined
-   */
-  align?: LocalizeRadioGroupAlignType;
-}
-
-interface RadioCheckBoxProps extends LocalizeProps {
-  isChecked: boolean;
-}
-
-const StyledRadioLabel = styled.label<SizeProps, LocalizeThemeProps>(
-  ({ align }) => {
-    const getDisplayByalign = () => {
-      if (align === 'horizontal') {
-        return 'inline-flex';
-      }
-      return 'flex';
-    };
-
-    const getWidthByAlign = () => {
-      if (align === 'horizontal') {
-        return 'auto';
-      }
-      return '100%';
-    };
+const LocalizeRadioWrapper = styled.div<LocalizeProps, LocalizeThemeProps>(
+  ({ theme, bgColor = 'neutral1', bdColor }) => {
+    const backgroundColor = theme.colors[bgColor];
+    const color = theme.colors.neutral1;
+    const borderColor = theme.colors[bdColor || bgColor];
 
     return {
-      position: 'relative',
-      display: getDisplayByalign(),
-      alignItems: 'center',
-      height: 'auto',
-      width: getWidthByAlign(),
+      display: 'block',
       cursor: 'pointer',
-      userSelect: 'none',
 
-      '& + &': {
-        marginLeft: '1rem',
+      // Hover
+      '&:hover': {
+        color,
+
+        [`input:not(:disabled):not(:read-only) + ${LocalizeRadioCheckerContainer}`]: {
+          backgroundColor,
+          border: `2px solid ${borderColor}`,
+        },
+      },
+
+      // Active
+      [`input:active + ${LocalizeRadioCheckerContainer}`]: {
+        backgroundColor,
+        border: `2px solid ${borderColor}`,
+
+        [`${LocalizeRadioCheckerCircle}`]: {
+          backgroundColor: borderColor,
+        },
+      },
+
+      // Checked
+      [`input:checked + ${LocalizeRadioCheckerContainer}`]: {
+        backgroundColor,
+        border: `2px solid ${borderColor}`,
+
+        [`${LocalizeRadioCheckerCircle}`]: {
+          backgroundColor: borderColor,
+        },
+      },
+
+      // Readonly - Disabled
+      [`input:read-only, input:disabled`]: {
+        backgroundColor: theme.colors.neutral4,
+        border: `2px solid ${theme.colors.neutral5}`,
+
+        [`${LocalizeRadioCheckerCircle}`]: {
+          backgroundColor: theme.colors.neutral5,
+        },
+      },
+
+      // Disabled and Checked
+      [`input:disabled:checked + ${LocalizeRadioCheckerContainer}`]: {
+        backgroundColor: theme.colors.neutral4,
+        border: `2px solid ${theme.colors.neutral5}`,
+
+        [`${LocalizeRadioCheckerCircle}`]: {
+          backgroundColor: theme.colors.neutral5,
+        },
       },
     };
   },
 );
 
-const StyledRadioInput = styled.input({
-  position: 'absolute',
-  height: 0,
-  width: 0,
-  opacity: 0,
-  cursor: 'pointer',
+const LocalizeRadioLabel = styled.label<LocalizeFormStateProps, LocalizeThemeProps>(({ theme }) => {
+  return {
+    position: 'relative',
+    display: 'inline-flex',
+    alignItems: 'center',
+    width: '100%',
+    outline: 0,
+    color: theme.colors.conversion10,
+    transition: 'color 0.3s',
+    cursor: 'pointer',
+    userSelect: 'none',
+  };
 });
 
-const StyledCheckBox = styled.span<RadioCheckBoxProps, LocalizeThemeProps>(
-  ({ theme, isChecked }) => {
-    const checkedStyle = {
-      alignItems: 'center',
-      justifyContent: 'center',
-      border: `1px solid ${theme.colors.neutral6}`,
-    };
+const LocalizeRadio = React.forwardRef<HTMLInputElement, LocalizeRadioProps>(
+  ({ children, className, ...props }, ref) => {
+    const { disabled, checked } = props;
 
-    return {
-      display: 'inline-flex',
-      height: `${RADIO_CHECKMARK_WIDTH}px`,
-      width: `${RADIO_CHECKMARK_WIDTH}px`,
-      backgroundColor: theme.colors.neutral1,
-      borderRadius: '50%',
-      border: `1px solid ${theme.colors.neutral6}`,
-      transition: 'border-color 0.35s, background-color 0.35s',
-
-      [`.${DEFAULT_CLASSNAME}:hover ~ &`]: {
-        border: `1px solid ${theme.colors.neutral6}`,
-      },
-      ...(isChecked && checkedStyle),
-    };
+    return (
+      <LocalizeRadioWrapper className={classnames(CLASSNAME, className)}>
+        <LocalizeRadioLabel disabled={disabled} checked={checked}>
+          <HidingInput {...props} ref={ref} type="radio" />
+          <LocalizeRadioCheckerContainer>
+            <LocalizeRadioCheckerCircle />
+          </LocalizeRadioCheckerContainer>
+          {children}
+        </LocalizeRadioLabel>
+      </LocalizeRadioWrapper>
+    );
   },
 );
 
-const StyledCheckMark = styled.span<RadioCheckBoxProps, LocalizeThemeProps>(
-  ({ isChecked, theme }) => {
-    return {
-      position: 'absolute',
-      content: '""',
-      display: isChecked ? 'block' : 'none',
-      backgroundColor: theme.colors.primary,
-      border: `1px solid ${theme.colors.neutral6}`,
-      height: `${RADIO_CHECKED_CIRCLE}px`,
-      width: `${RADIO_CHECKED_CIRCLE}px`,
-      borderRadius: '50%',
-    };
-  },
-);
-
-const StyledRadioText = styled.span({
-  paddingLeft: '7px',
-});
-
-export const LocalizeRadio: React.FC<LocalizeRadioProps> = ({
-  item,
-  // IsNotRequired
-  checkedItem = {},
-  className,
-  groupName = '',
-  labelKey = 'label',
-  valueKey = 'value',
-  onClick,
-  onChange = () => null,
-  onMouseOut = () => null,
-  onMouseOver = () => null,
-  useLabelKey = false,
-  align = 'horizontal',
-  ...props
-}) => {
-  const usedKey = useLabelKey ? labelKey : valueKey;
-  const isChecked = React.useMemo(() => {
-    return checkedItem[usedKey] === item[usedKey];
-  }, [usedKey, checkedItem, item]);
-
-  const handleOnChange = React.useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      event.stopPropagation();
-      onChange({
-        [labelKey]: item[labelKey],
-        [valueKey]: item[valueKey],
-      });
-      if (onClick) {
-        onClick({
-          [labelKey]: item[labelKey],
-          [valueKey]: item[valueKey],
-        });
-      }
-    },
-    [labelKey, valueKey, usedKey, item],
-  );
-
-  return (
-    <StyledRadioLabel
-      htmlFor={item[usedKey]}
-      className={classnames(`${DEFAULT_CLASSNAME}__Label`, className)}
-      onMouseOut={onMouseOut}
-      onMouseOver={onMouseOver}
-      align={align}
-    >
-      <StyledRadioInput
-        {...props}
-        type="radio"
-        id={item[usedKey]}
-        checked={isChecked}
-        className={DEFAULT_CLASSNAME}
-        value={item[usedKey]}
-        name={groupName || item[usedKey]}
-        onChange={handleOnChange}
-      />
-      <StyledCheckBox
-        className={`${DEFAULT_CLASSNAME}__CheckBox`}
-        isChecked={isChecked}
-      >
-        <StyledCheckMark
-          className={`${DEFAULT_CLASSNAME}__CheckMark`}
-          isChecked={isChecked}
-        />
-      </StyledCheckBox>
-      <StyledRadioText className={`${DEFAULT_CLASSNAME}__Text`}>
-        {item[labelKey]}
-      </StyledRadioText>
-    </StyledRadioLabel>
-  );
-};
-
+export { LocalizeRadio };
 export default LocalizeRadio;

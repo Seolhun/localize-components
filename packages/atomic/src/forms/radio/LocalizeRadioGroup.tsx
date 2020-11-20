@@ -1,121 +1,78 @@
+import styled from '@emotion/styled';
 import React from 'react';
 
-import classnames from 'classnames';
-import styled from '@emotion/styled';
+import { LocalizeFormWrapper } from '../wrapper';
+import { LocalizeFormStateProps } from '../LocalizeFormStateProps';
+import { LocalizeRadioProps } from './LocalizeRadio';
 
-import { LocalizeProps } from '@seolhun/localize-components-styled-types';
+const CLASSNAME = '__Localize__RadioGroup';
+type Props = LocalizeRadioDirectionProps & LocalizeFormStateProps;
 
-const DEFAULT_CLASSNAME = '__Localize__RadioGroup';
-type LocalizeRadioGroupAlignType = 'vertical' | 'horizontal';
+export interface LocalizeRadioGroupProps extends Props {
+  name?: string;
 
-interface LocalizeRadioGroupProps extends LocalizeProps {
-  /**
-   * Set this to change Radio Group children
-   */
-  children: (props: LocalizeRadioGroupProps) => React.ReactNode;
-
-  /**
-   * Set this to change Radio Group name
-   */
-  groupName?: string;
-
-  /**
-   * Set this to change Radio Group labelKey
-   * @default 'label'
-   */
-  labelKey?: string;
-
-  /**
-   * Set this to change Radio Group valueKey
-   * @default 'value'
-   */
-  valueKey?: string;
-
-  /**
-   * Set this to change Radio Group useValueKey
-   * @default false
-   */
-  useValueKey?: boolean;
-
-  /**
-   * Set this to change Radio Group align
-   * @default 'vertical'
-   */
-  align?: LocalizeRadioGroupAlignType;
-
-  /**
-   * Set this to change Radio Group gap
-   * @default '10px'
-   */
-  gap?: string;
-
-  /**
-   * Set this to change Radio Group onClick
-   * @default () => any;
-   */
-  onClick?: (...args: any[]) => any;
+  onChange?: LocalizeRadioProps['onChange'];
 }
 
-interface LocalizeRadioGroupContainerProps {
-  align: LocalizeRadioGroupAlignType;
-  gap: string;
+export interface LocalizeRadioDirectionProps {
+  /**
+   * @default row
+   */
+  flexDirection?: 'row' | 'column';
 }
 
-const LocalizeRadioGroupContainer = styled.div<
-  LocalizeRadioGroupContainerProps
->(({ align, gap }) => {
-  const getGapStylesByAlign = () => {
-    const isVertical = align === 'vertical';
-    if (isVertical) {
-      return {
-        marginBottom: `${gap}`,
-      };
-    }
-    return {
-      marginRight: `${gap}`,
-    };
-  };
+const RadioChildrenWrapper = styled.div<LocalizeRadioDirectionProps>(({ flexDirection }) => {
   return {
-    '& > *:not(:last-child)': {
-      ...getGapStylesByAlign(),
-    },
+    display: 'flex',
+    flexWrap: 'wrap',
+    flexDirection,
+
+    ...(flexDirection === 'column'
+      ? {
+          [`.${CLASSNAME} + .${CLASSNAME}`]: {
+            marginTop: '16px',
+          },
+        }
+      : {
+          [`.${CLASSNAME} + .${CLASSNAME}`]: {
+            marginLeft: '16px',
+          },
+        }),
   };
 });
 
 const LocalizeRadioGroup: React.FC<LocalizeRadioGroupProps> = ({
   children,
-  groupName,
-  className,
-  labelKey = 'label',
-  valueKey = 'value',
-  useValueKey = false,
-  align = 'vertical',
-  gap = '10px',
-  onClick = () => null,
+  name,
+  label,
+  help,
+  error,
+  onChange,
+  flexDirection = 'row',
 }) => {
+  const clonedChildren = React.Children.map(
+    // @ts-ignore
+    children,
+    (child: React.ReactElement<LocalizeRadioProps>, index) => {
+      if (typeof child === 'object') {
+        return React.cloneElement(child, {
+          key: index + 1,
+          className: CLASSNAME,
+          name,
+          onChange,
+          ...child.props,
+        });
+      }
+      return child;
+    },
+  );
+
   return (
-    <LocalizeRadioGroupContainer
-      className={classnames(DEFAULT_CLASSNAME, className)}
-      align={align}
-      gap={gap}
-    >
-      {children({
-        children,
-        groupName,
-        labelKey,
-        valueKey,
-        useValueKey,
-        align,
-        onClick,
-      })}
-    </LocalizeRadioGroupContainer>
+    <LocalizeFormWrapper name={name} label={label} help={help} error={error}>
+      <RadioChildrenWrapper flexDirection={flexDirection}>{clonedChildren}</RadioChildrenWrapper>
+    </LocalizeFormWrapper>
   );
 };
 
-export {
-  LocalizeRadioGroupAlignType,
-  LocalizeRadioGroup,
-  LocalizeRadioGroupProps,
-};
-
+export { LocalizeRadioGroup };
 export default LocalizeRadioGroup;

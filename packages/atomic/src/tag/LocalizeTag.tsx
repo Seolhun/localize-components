@@ -7,6 +7,7 @@ import {
   LocalizeThemeProps,
   LocalizeProps,
   LocalizeSize,
+  getLocalizeSizeBy,
 } from '@seolhun/localize-components-styled-types';
 
 const CLASSNAME = '__Localize__Tag';
@@ -16,42 +17,27 @@ type ExtentionProps = LocalizeProps & SpanProps;
 export interface LocalizeTagProps extends ExtentionProps {
   size?: LocalizeSize;
 
+  /**
+   * Set this to change border radius
+   * @default undefined
+   */
   borderRadius?: string;
 }
 
-const getSizeStyle = (size?: LocalizeSize) => {
-  switch (size) {
-    case 'xl':
-      return '1.4rem 2rem';
-    case 'lg':
-      return '1.2rem 1.8rem';
-    case 'md':
-      return '1rem 1.4rem';
-    case 'sm':
-      return '0.8rem 1rem';
-    default:
-      return '0.6rem 0.8rem';
-  }
-};
-
-const StyledLocalizeTag = styled.span<LocalizeTagProps, LocalizeThemeProps>(
-  ({ theme, size = 'md', bgColor = 'primary', borderRadius }) => {
-    const fonts = theme.fonts.font1;
-    const backgroundColor = theme.colors[bgColor];
+const StyledLocalizeTagWrapper = styled.div<LocalizeTagProps, LocalizeThemeProps>(
+  ({ theme, bgColor = 'primary', bdColor, borderRadius = '50%' }) => {
     const color = theme.colors.neutral1;
+    const backgroundColor = theme.colors[bgColor];
+    const borderColor = theme.colors[bdColor || bgColor];
 
     return {
-      ...fonts,
+      position: 'relative',
       display: 'inline-block',
-      height: 'auto',
-      padding: getSizeStyle(size),
-      backgroundColor,
-      border: `1px solid transparent`,
-      borderRadius,
       color,
+      backgroundColor,
+      border: `1px solid ${borderColor}`,
+      borderRadius,
 
-      textAlign: 'center',
-      verticalAlign: 'middle',
       textDecoration: 'none',
       whiteSpace: 'nowrap',
       outline: 'none',
@@ -59,29 +45,34 @@ const StyledLocalizeTag = styled.span<LocalizeTagProps, LocalizeThemeProps>(
       userSelect: 'none',
       cursor: 'pointer',
 
-      '&:hover': {
+      '&:not(:disabled):not(:read-only):active, &:not(:disabled):not(:read-only):hover': {
         backgroundColor: lighten(0.1, backgroundColor),
-        borderColor: backgroundColor,
+        borderColor: lighten(0.1, borderColor),
       },
-
       '&:disabled': {
         backgroundColor: theme.colors.neutral4,
-        color: theme.colors.neutral3,
+        borderColor: theme.colors.neutral5,
+        color: theme.colors.neutral8,
         cursor: 'not-allowed',
       },
     };
   },
 );
 
-const LocalizeTag: React.FC<LocalizeTagProps> = ({
-  children,
-  className = '',
-  ...props
-}) => {
+const StyledLocalizeTagContainer = styled.span<LocalizeTagProps, LocalizeThemeProps>(({ size }) => {
+  return {
+    display: 'inline-flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: getLocalizeSizeBy(size),
+  };
+});
+
+const LocalizeTag: React.FC<LocalizeTagProps> = ({ children, className, size, ...props }) => {
   return (
-    <StyledLocalizeTag {...props} className={classnames(CLASSNAME, className)}>
-      {children}
-    </StyledLocalizeTag>
+    <StyledLocalizeTagWrapper {...props} className={classnames(CLASSNAME, className)}>
+      <StyledLocalizeTagContainer size={size}>{children}</StyledLocalizeTagContainer>
+    </StyledLocalizeTagWrapper>
   );
 };
 

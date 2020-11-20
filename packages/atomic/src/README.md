@@ -16,7 +16,24 @@ type ExtentionProps = LocalizeProps & DivProps;
 
 export interface LocalizeSomethingProps extends ExtentionProps {}
 
-const LocalizeSomethingWrapper = styled.div<{}, LocalizeThemeProps>(() => {
+const LocalizeSomethingWrapper = styled.div<LocalizeProps, LocalizeThemeProps>(({
+  theme,
+  fontColor = 'conversion10',
+  bgColor = 'primary',
+  borderColor
+}) => {
+  const color = theme.colors[fontColor];
+  const backgroundColor = theme.colors[bgColor];
+  const borderColor = theme.colors[bdColor || bgColor];
+
+  return {
+    color,
+    backgroundColor,
+    borderColor,
+  }
+});
+
+const LocalizeSomethingContainer = styled.div<LocalizeProps, LocalizeThemeProps>(() =>{
   return {}
 })
 

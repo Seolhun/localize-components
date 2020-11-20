@@ -14,8 +14,9 @@ import {
 
 const DEFAULT_CLASSNAME = '__Localize__Modal';
 type DivProps = React.HTMLAttributes<HTMLDivElement>;
+type Props = LocalizeProps & DivProps;
 
-export interface LocalizeModalProps extends LocalizeProps, DivProps {
+export interface LocalizeModalProps extends Props {
   /**
    * Set this to change Modal visibility
    */
@@ -32,7 +33,7 @@ export interface LocalizeModalProps extends LocalizeProps, DivProps {
   targetElement?: Element;
 }
 
-const LocalizeModalWrapper = styled.div<LocalizeProps>(({ zIndex = 100 }) => {
+const LocalizeModalWrapper = styled.div<LocalizeProps>(({ zIndex = 10000 }) => {
   return {
     position: 'fixed',
     top: 0,
@@ -44,23 +45,21 @@ const LocalizeModalWrapper = styled.div<LocalizeProps>(({ zIndex = 100 }) => {
   };
 });
 
-const LocalizeModalContainer = styled.div<{}, LocalizeThemeProps>(
-  ({ theme }) => {
-    return {
-      position: 'fixed',
-      left: '50vw',
-      top: '50vh',
-      transform: 'translate(-50%, -50%)',
-      width: '100%',
-      maxWidth: '30rem',
-      minHeight: '10rem',
-      height: 'auto',
-      maxHeight: '100%',
-      backgroundColor: theme.colors.neutral1,
-      borderRadius: '5px',
-    };
-  },
-);
+const LocalizeModalContainer = styled.div<{}, LocalizeThemeProps>(({ theme }) => {
+  return {
+    position: 'fixed',
+    left: '50vw',
+    top: '50vh',
+    transform: 'translate(-50%, -50%)',
+    width: '100%',
+    maxWidth: '30rem',
+    minHeight: '10rem',
+    height: 'auto',
+    maxHeight: '100%',
+    backgroundColor: theme.colors.neutral1,
+    borderRadius: '5px',
+  };
+});
 
 const CloseButton = styled.span({
   position: 'absolute',

@@ -17,9 +17,8 @@
     "README.md"
   ],
   "scripts": {
-    "build": "build-storybook -o dist",
-    "dev": "start-storybook -s ./dist -p 8080",
-    "serve": "serve -p 8080 dist",
+    "build": "build-storybook -s ./public --no-dll",
+    "dev": "start-storybook -s ./public -p 6006 --no-dll",
     "clear": "rm -rf dist && rm -rf .rpt2_cache",
     "lint": "eslint \"src/**/*.{ts,tsx,js,jsx}\"",
     "lint:fix": "eslint \"src/**/*.{ts,tsx,js,jsx}\" --fix",
@@ -33,17 +32,6 @@
     "react-dom": "^16.13.1"
   },
   "dependencies": {
-    "@storybook/addon-actions": "^5.3.19",
-    "@storybook/addon-backgrounds": "^5.3.19",
-    "@storybook/addon-console": "^1.2.1",
-    "@storybook/addon-docs": "^5.3.19",
-    "@storybook/addon-knobs": "^5.3.19",
-    "@storybook/addon-links": "^5.3.19",
-    "@storybook/addon-options": "^5.3.19",
-    "@storybook/addon-storysource": "^5.3.19",
-    "@storybook/addons": "^5.3.19",
-    "@storybook/react": "^5.3.19",
-    "@storybook/theming": "^5.3.19",
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "browserslist": "^4.13.0",
@@ -52,7 +40,7 @@
     "emotion-theming": "^10.0.27",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "storybook-dark-mode": "^0.6.1"
+    "csstype": "^3.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.10.5",
@@ -70,13 +58,17 @@
     "@babel/plugin-transform-spread": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
+    "@emotion/babel-plugin": "^11.0.0-next.12",
+    "@storybook/addon-actions": "^6.0.28",
+    "@storybook/addon-essentials": "^6.0.28",
+    "@storybook/addon-links": "^6.0.28",
+    "@storybook/react": "^6.0.28",
+    "@storybook/theming": "^6.0.28",
     "@types/storybook__addon-backgrounds": "^5.2.1",
     "@types/storybook__addon-options": "^5.2.1",
     "@types/storybook__addon-viewport": "^5.2.1",
     "@types/storybook__react": "^5.2.1",
     "babel-loader": "^8.0.4",
-    "babel-plugin-emotion": "^10.0.33",
-    "react-docgen-typescript-loader": "^3.7.2",
     "ts-loader": "^7.0.5",
     "ts-node": "^8.0.3",
     "typescript": "^3.9.7"

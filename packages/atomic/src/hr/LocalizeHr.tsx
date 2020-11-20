@@ -1,31 +1,31 @@
 import React from 'react';
-
-import classnames from 'classnames';
 import styled from '@emotion/styled';
+import classnames from 'classnames';
 
-import {
-  LocalizeProps,
-  LocalizeThemeProps,
-} from '@seolhun/localize-components-styled-types';
+import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
-const DEFAULT_CLASSNAME = '__Localize__Hr';
-type HRProps = React.HTMLAttributes<HTMLHRElement>;
+const CLASSNAME = '__Localize__Hr';
+type HrProps = React.HTMLAttributes<HTMLHRElement>;
+type Props = LocalizeProps & HrProps;
 
-export interface LocalizeHrProps extends LocalizeProps, HRProps {}
+export interface LocalizeHrProps extends Props {
+  /**
+   * @default neutral4
+   */
+  borderColor?: Props['bgColor'];
+}
 
-const StyledLocalizeHr = styled.hr<LocalizeHrProps, LocalizeThemeProps>(
-  ({ theme }) => {
-    return {
-      border: 0,
-      opacity: 0.1,
-      borderTop: `1px solid ${theme.colors.primary}`,
-    };
-  },
-);
+const GOCStyledHr = styled.hr<LocalizeHrProps, LocalizeThemeProps>(({ theme, borderColor = 'neutral4' }) => {
+  return {
+    width: '100%',
+    border: 0,
+    borderTop: `1px solid ${theme.colors[borderColor]}`,
+  };
+});
 
-const LocalizeHr: React.FC<LocalizeHrProps> = ({ className = '' }) => (
-  <StyledLocalizeHr className={classnames(DEFAULT_CLASSNAME, className)} />
-);
+const LocalizeHr: React.FC<LocalizeHrProps> = ({ color, className, ...props }) => {
+  return <GOCStyledHr {...props} color={color} className={classnames(CLASSNAME, className)} />;
+};
 
 export { LocalizeHr };
 export default LocalizeHr;

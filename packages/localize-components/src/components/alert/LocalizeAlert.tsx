@@ -3,10 +3,7 @@ import React from 'react';
 import classnames from 'classnames';
 import styled from '@emotion/styled';
 import { LocalizeButton } from '@seolhun/localize-components-atomic';
-import {
-  LocalizeThemeProps,
-  LocalizeProps,
-} from '@seolhun/localize-components-styled-types';
+import { LocalizeThemeProps, LocalizeProps } from '@seolhun/localize-components-styled-types';
 
 import { LocalizeModal, LocalizeModalProps } from '../modal';
 
@@ -25,10 +22,7 @@ export interface LocalizeAlertProps extends LocalizeProps, LocalizeModalProps {
   buttonLabel?: string;
 }
 
-const StyledModal = styled(LocalizeModal)<
-  LocalizeAlertProps,
-  LocalizeThemeProps
->({
+const StyledModal = styled(LocalizeModal)<LocalizeAlertProps, LocalizeThemeProps>({
   minHeight: '200px',
   paddingBottom: '3rem',
 });
@@ -56,15 +50,9 @@ const LocalizeAlert: React.FC<LocalizeAlertProps> = ({
   };
 
   return (
-    <StyledModal
-      {...props}
-      className={classnames(DEFAULT_CLASSNAME, className)}
-      onClose={onClose}
-    >
+    <StyledModal {...props} className={classnames(DEFAULT_CLASSNAME, className)} onClose={onClose}>
       <AlertButtonContainer>
-        <LocalizeButton onClick={onCloseWithClick}>
-          {buttonLabel}
-        </LocalizeButton>
+        <LocalizeButton onClick={onCloseWithClick}>{buttonLabel}</LocalizeButton>
       </AlertButtonContainer>
     </StyledModal>
   );

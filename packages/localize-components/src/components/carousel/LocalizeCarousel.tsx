@@ -107,10 +107,7 @@ const LocalizeCarousel: React.FC<LocalizeCarouselProps> = ({
   };
 
   const getImageMaxWidthByClient = (displayedImageCount: number) => {
-    const sliceLength =
-      items.length > displayedImageCount
-        ? displayedImageCount + DEFAULT_RATIO
-        : items.length;
+    const sliceLength = items.length > displayedImageCount ? displayedImageCount + DEFAULT_RATIO : items.length;
     const imageWidth = clientWidth / sliceLength;
     return imageWidth;
   };
@@ -120,10 +117,7 @@ const LocalizeCarousel: React.FC<LocalizeCarouselProps> = ({
   }, [displayedImageCount]);
 
   return (
-    <CarouselWrapper
-      className={classnames(DEFAULT_CLASSNAME, className)}
-      zIndex={zIndex}
-    >
+    <CarouselWrapper className={classnames(DEFAULT_CLASSNAME, className)} zIndex={zIndex}>
       <CarouselContainer ref={wrapperRef}>
         <PrevPaginationContainer onClick={handlePageIndex(PAGINATION.PREV)} />
         <NextPaginationContainer onClick={handlePageIndex(PAGINATION.NEXT)} />
@@ -134,8 +128,7 @@ const LocalizeCarousel: React.FC<LocalizeCarouselProps> = ({
               flex: `0 0 ${100 / displayedImageCount}%`,
               maxWidth: `${memoizedImageWidth}px`,
               paddingRight: `${imageGap}px`,
-              transform: `matrix(1, 0, 0, 1, -${memoizedImageWidth *
-                pageIndex}, 0)`,
+              transform: `matrix(1, 0, 0, 1, -${memoizedImageWidth * pageIndex}, 0)`,
             }}
           >
             {children(item, idx)}

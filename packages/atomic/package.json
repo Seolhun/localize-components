@@ -22,6 +22,7 @@
     "lint": "eslint \"src/**/*.{ts,tsx,js,jsx}\"",
     "lint:fix": "eslint \"src/**/*.{ts,tsx,js,jsx}\" --fix",
     "bundle": "rollup -c",
+    "watch": "rollup -cw",
     "test": "echo 'There are no test'"
   },
   "peerDependencies": {
@@ -35,11 +36,14 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/react-fontawesome": "^0.1.12",
+    "@seolhun/localize-components-grid": "^0.5.2",
     "@seolhun/localize-components-hooks": "^0.5.2",
     "@seolhun/localize-components-styled-types": "^0.5.2",
     "polished": "^3.6.7"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@emotion/babel-plugin": "^11.0.0-next.12"
+  },
   "engines": {
     "node": ">= 6.0.0",
     "npm": ">= 3.0.0"

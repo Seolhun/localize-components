@@ -1,93 +1,121 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { MarginProperty } from 'csstype';
+import classnames from 'classnames';
+import { lighten } from 'polished';
 
-import { LocalizeFormLabel } from '../LocalizeFormLabel';
-import { BaseInput, BaseInputProps, InputItemDirection } from './BaseInput';
+import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
-export interface LocalizeInputProps extends BaseInputProps {
-  name?: string;
+import { LocalizeIcon, LocalizeIconProps } from '../../icons';
+import { LocalizeFormWrapper } from '../wrapper';
+import { LocalizeFormStateProps } from '../LocalizeFormStateProps';
 
-  label?: React.ReactNode;
+const CLASSNAME = '__Localize__Input';
+type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
+type Props = InputProps & LocalizeProps & LocalizeFormStateProps;
 
-  margin?: MarginProperty<string>;
+export interface LocalizeInputProps extends Props {
+  /**
+   * Set this to change font Color
+   * @default conversion10
+   */
+  fontColor?: Props['fontColor'];
+
+  /**
+   * Set this to change backgroundColor
+   * @default conversion1
+   */
+  bgColor?: Props['bgColor'];
+
+  /**
+   * Set this to change borderColor
+   * @default primary
+   */
+  bdColor?: Props['bdColor'];
+
+  /**
+   * To change icon by font-awesome
+   */
+  icon?: LocalizeIconProps['icon'];
+
+  /**
+   * To change icon color
+   */
+  iconColor?: LocalizeIconProps['color'];
 }
 
-interface LocalizeInputWrapperProps {
-  margin?: LocalizeInputProps['margin'];
-}
+const LocalizeInputContainer = styled.div<LocalizeFormStateProps, LocalizeThemeProps>(() => {
+  return {
+    position: 'relative',
+    display: 'flex',
+    alignItems: 'center',
+    width: '100%',
 
-const LocalizeInputWrapper = styled.div<LocalizeInputWrapperProps>(
-  ({ margin }) => {
+    [`${LocalizeIcon}`]: {
+      position: 'absolute',
+      top: '14px',
+      right: '10px',
+    },
+  };
+});
+
+const StyledInput = styled.input<LocalizeInputProps, LocalizeThemeProps>(
+  ({ theme, fontColor = 'conversion10', bgColor = 'conversion1', bdColor = 'primary', error, visibleIcon }) => {
+    const color = theme.colors[fontColor];
+    const backgroundColor = theme.colors[bgColor];
+    const borderColor = theme.colors[bdColor || bgColor];
+
     return {
-      display: 'flex',
-      flex: 1,
-      flexDirection: 'column',
-      margin,
+      color,
+      width: '100%',
+      height: '100%',
+      ...(visibleIcon
+        ? {
+            padding: '10px 32px 10px 12px',
+          }
+        : {
+            padding: '10px 12px',
+          }),
+      backgroundColor,
+      border: `1px solid ${error ? theme.colors.error : theme.colors.neutral5}`,
+      borderRadius: '2px',
+      outline: 'none',
+      // WARNING: Not support IE
+      caretColor: theme.colors.primary,
+      // for Safari boxShadow
+      boxShadow: 'none !important',
+      WebkitAppearance: 'none',
+
+      '&:not(:disabled):not(:read-only):active, &:not(:disabled):not(:read-only):hover': {
+        borderColor,
+      },
+      '&:focus': {
+        border: `1px solid ${error ? theme.colors.error : lighten(0.1, borderColor)}`,
+      },
+      '&:disabled': {
+        backgroundColor: theme.colors.neutral4,
+        borderColor: theme.colors.neutral5,
+        color: theme.colors.neutral8,
+      },
+      '&::placeholder': {
+        color: theme.colors.neutral5,
+      },
     };
   },
 );
 
-const LocalizeInputRelativeContainer = styled.div({
-  position: 'relative',
-});
-
-const ItemWrapper = styled.div<{ itemDirection?: InputItemDirection }>(
-  ({ itemDirection }) => ({
-    position: 'absolute',
-    top: '25%',
-    ...(itemDirection === 'right'
-      ? {
-          right: '12px',
-        }
-      : {
-          left: '12px',
-        }),
-  }),
-);
-
 const LocalizeInput = React.forwardRef<HTMLInputElement, LocalizeInputProps>(
-  (
-    {
-      name,
-      error,
-      label,
-      defaultValue,
-      width = '100%',
-      itemNode,
-      itemDirection = 'right',
-      itemWidth = '40px',
-      margin = '0 0 24px 0',
-      type,
-      ...props
-    },
-    ref,
-  ) => (
-    <LocalizeInputWrapper margin={margin}>
-      {label && <LocalizeFormLabel>{label}</LocalizeFormLabel>}
-      <LocalizeInputRelativeContainer>
-        {itemDirection === 'left' && itemNode && (
-          <ItemWrapper itemDirection={itemDirection}>{itemNode}</ItemWrapper>
-        )}
-        <BaseInput
-          {...props}
-          type={type}
-          ref={ref}
-          name={name}
-          defaultValue={defaultValue}
-          error={error}
-          width={width}
-          itemNode={itemNode}
-          itemDirection={itemDirection}
-          itemWidth={itemWidth}
-        />
-        {itemDirection === 'right' && itemNode && (
-          <ItemWrapper itemDirection={itemDirection}>{itemNode}</ItemWrapper>
-        )}
-      </LocalizeInputRelativeContainer>
-      {!!error && <LocalizeFormLabel color="error">{error}</LocalizeFormLabel>}
-    </LocalizeInputWrapper>
-  ),
+  ({ className, label, help, error, visibleIcon = true, icon, iconColor, ...props }, ref) => {
+    const isSelectable = !props.disabled && !props.readOnly;
+
+    return (
+      <LocalizeFormWrapper className={classnames(CLASSNAME, className)} label={label} help={help} error={error}>
+        <LocalizeInputContainer>
+          <StyledInput {...props} ref={ref} error={error} visibleIcon={visibleIcon} autoComplete="false" />
+          {isSelectable && icon && <LocalizeIcon iconSize="16px" icon={icon} color={iconColor} />}
+        </LocalizeInputContainer>
+      </LocalizeFormWrapper>
+    );
+  },
 );
 
 export { LocalizeInput };
