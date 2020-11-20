@@ -21,6 +21,8 @@
     "dev": "start-storybook -s ./dist -p 8080",
     "serve": "serve -p 8080 dist",
     "clear": "rm -rf dist && rm -rf .rpt2_cache",
+    "lint": "eslint \"src/**/*.{ts,tsx,js,jsx}\"",
+    "lint:fix": "eslint \"src/**/*.{ts,tsx,js,jsx}\" --fix",
     "test": "echo 'There are no test'"
   },
   "peerDependencies": {
