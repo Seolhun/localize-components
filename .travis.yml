@@ -8,6 +8,7 @@ branches:
     - master
     - develop
     - /^release/.*$/
+    - /^feature/.*$/
     - /^synk/.*$/
 
 install:
