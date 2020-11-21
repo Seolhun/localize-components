@@ -6,7 +6,7 @@ import { LocalizeSwitch, LocalizeSwitchProps } from '../../../packages/forms/dis
 import { storiesColorOptions } from '../controls';
 
 export default {
-  title: 'Atmoic | Forms | LocalizeSwitch',
+  title: 'Forms | LocalizeSwitch',
   component: LocalizeSwitch,
   argTypes: {
     fontColor: {

@@ -6,7 +6,7 @@ import { LocalizeRadio, LocalizeRadioProps } from '../../../packages/forms/dist'
 import { storiesColorOptions } from '../controls';
 
 export default {
-  title: 'Atmoic | Forms | LocalizeRadio',
+  title: 'Forms | LocalizeRadio',
   component: LocalizeRadio,
   argTypes: {
     fontColor: {
