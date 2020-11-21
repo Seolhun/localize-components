@@ -1,9 +1,15 @@
 import { Property } from 'csstype';
 
-import { LocalizeSize } from '../../../packages/styled-types';
+import { LocalizeIntentThemeType, LocalizeSize } from '../../../packages/styled-types';
 import { localizeLightTheme } from '../../../packages/styled-types';
 
 export const storiesSizeOptions: LocalizeSize[] = ['xl', 'lg', 'md', 'sm', 'xs'];
+
+export const storiesIntentOptions: LocalizeIntentThemeType[] = ['default', 'primary', 'secondary', 'info', 'success', 'warning', 'error'];
+
+export const storiesColorOptions = Object.keys(localizeLightTheme.colors).map((key) => key);
+
+export const storiesFontOptions = Object.keys(localizeLightTheme.fonts).map((key) => key);
 
 export const storiesAlignItemsOptions: Property.AlignItems[] = [
   '-moz-initial',
@@ -54,7 +60,3 @@ export const storiesFlexDirectionOptions: Property.FlexDirection[] = [
   'row',
   'row-reverse',
 ];
-
-export const storiesColorOptions = Object.keys(localizeLightTheme.colors).map((key) => key);
-
-export const storiesFontOptions = Object.keys(localizeLightTheme.fonts).map((key) => key);

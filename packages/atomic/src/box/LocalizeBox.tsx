@@ -3,7 +3,9 @@ import styled from '@emotion/styled';
 import classnames from 'classnames';
 
 import {
+  getLocalizeIntentAndColor,
   getLocalizeSizeBy,
+  LocalizeIntentThemeType,
   LocalizeProps,
   LocalizeSize,
   LocalizeThemeProps,
@@ -16,24 +18,10 @@ type Props = LocalizeProps & DivProps & LocalizeBoxContainerProps;
 
 export interface LocalizeBoxProps extends Props {
   /**
-   * @default conversion10
+   * Set this to change variant
+   * @default default
    */
-  fontColor?: Props['fontColor'];
-
-  /**
-   * @default primary
-   */
-  bgColor?: Props['bgColor'];
-
-  /**
-   * @default undefined
-   */
-  bdColor?: Props['bdColor'];
-
-  /**
-   * @default 8px
-   */
-  borderRadius?: string;
+  intent?: LocalizeIntentThemeType;
 }
 
 interface LocalizeBoxContainerProps {
@@ -49,17 +37,28 @@ interface LocalizeBoxContainerProps {
 }
 
 const LocalizeBoxWrapper = styled.div<LocalizeBoxProps, LocalizeThemeProps>(
-  ({ theme, fontColor = 'conversion10', bgColor = 'primary', borderRadius = '8px', bdColor }) => {
-    const color = theme.colors[fontColor];
-    const backgroundColor = theme.colors[bgColor];
-    const borderColor = theme.colors[bdColor || bgColor];
-
+  ({
+    theme,
+    intent = 'default',
+    localize = {
+      bgColor: 'primary',
+      bdColor: 'transparent',
+      fontColor: 'conversion1',
+    },
+  }) => {
+    const localizeColor = getLocalizeIntentAndColor(theme, intent, localize);
+    const { backgroundColor, borderColor, color } = localizeColor;
     return {
       position: 'relative',
       color,
       backgroundColor,
       borderColor,
-      borderRadius,
+      borderRadius: '8px',
+      textDecoration: 'none',
+      whiteSpace: 'nowrap',
+      outline: 'none',
+      transition: 'background-color 0.3s, border-color 0.3s, color 0.3s',
+      userSelect: 'none',
     };
   },
 );
