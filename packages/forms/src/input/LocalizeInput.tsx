@@ -3,7 +3,11 @@ import styled from '@emotion/styled';
 import classnames from 'classnames';
 import { lighten } from 'polished';
 
-import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
+import {
+  LocalizeProps,
+  LocalizeThemeProps,
+  getLocalizeColor,
+} from '@seolhun/localize-components-styled-types';
 import { LocalizeIcon, LocalizeIconProps } from '@seolhun/localize-components-icon';
 
 import { LocalizeFormWrapper } from '../wrapper';
@@ -11,9 +15,9 @@ import { LocalizeFormStateProps } from '../LocalizeFormStateProps';
 
 const CLASSNAME = '__Localize__Input';
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
-type Props = InputProps & LocalizeProps & LocalizeFormStateProps;
+type ExtentionProps = LocalizeProps & InputProps & LocalizeFormStateProps;
 
-export interface LocalizeInputProps extends Props {
+export interface LocalizeInputProps extends ExtentionProps {
   /**
    * To change icon by font-awesome
    */
@@ -43,15 +47,16 @@ const LocalizeInputContainer = styled.div<LocalizeFormStateProps, LocalizeThemeP
 const StyledInput = styled.input<LocalizeInputProps, LocalizeThemeProps>(
   ({
     theme,
-    fontColor = 'conversion10',
-    bgColor = 'conversion1',
-    bdColor = 'primary',
     error,
     visibleIcon,
+    localize = {
+      bgColor: 'conversion8',
+      bdColor: 'transparent',
+      fontColor: 'conversion1',
+    },
   }) => {
-    const color = theme.colors[fontColor];
-    const backgroundColor = theme.colors[bgColor];
-    const borderColor = theme.colors[bdColor || bgColor];
+    const localizeColor = getLocalizeColor(theme, localize);
+    const { backgroundColor, borderColor, color } = localizeColor;
 
     return {
       color,

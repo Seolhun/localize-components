@@ -2,15 +2,19 @@ import React from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
 
-import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
+import {
+  LocalizeProps,
+  LocalizeThemeProps,
+  getLocalizeColor,
+} from '@seolhun/localize-components-styled-types';
 
 import { LocalizeFormStateProps } from '../LocalizeFormStateProps';
 
 const CLASSNAME = '__Localize__Radio';
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
-type Props = LocalizeProps & InputProps & LocalizeFormStateProps;
+type ExtentionProps = LocalizeProps & InputProps;
 
-export interface LocalizeRadioProps extends Props {}
+export interface LocalizeRadioProps extends ExtentionProps {}
 
 const HidingInput = styled.input<{}>({
   display: 'none',
@@ -38,10 +42,16 @@ const LocalizeRadioCheckerCircle = styled.div<{}, LocalizeThemeProps>(() => ({
 }));
 
 const LocalizeRadioWrapper = styled.div<LocalizeProps, LocalizeThemeProps>(
-  ({ theme, bgColor = 'neutral1', bdColor }) => {
-    const backgroundColor = theme.colors[bgColor];
-    const color = theme.colors.neutral1;
-    const borderColor = theme.colors[bdColor || bgColor];
+  ({
+    theme,
+    localize = {
+      bgColor: 'conversion8',
+      bdColor: 'transparent',
+      fontColor: 'conversion1',
+    },
+  }) => {
+    const localizeColor = getLocalizeColor(theme, localize);
+    const { backgroundColor, borderColor, color } = localizeColor;
 
     return {
       display: 'block',

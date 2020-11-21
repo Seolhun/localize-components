@@ -5,7 +5,11 @@ import { animated, useTransition } from 'react-spring';
 import { lighten } from 'polished';
 
 import { LocalizeButton } from '@seolhun/localize-components-atomic';
-import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
+import {
+  LocalizeProps,
+  LocalizeThemeProps,
+  getLocalizeColor,
+} from '@seolhun/localize-components-styled-types';
 import { LocalizeMediaQueries } from '@seolhun/localize-components-grid';
 import { LocalizeIcon } from '@seolhun/localize-components-icon';
 
@@ -15,7 +19,7 @@ import { LocalizeFormStateProps } from '../LocalizeFormStateProps';
 
 const CLASSNAME = '__Localize__Input';
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
-type Props = InputProps & LocalizeProps & LocalizeFormStateProps;
+type ExtentionProps = LocalizeProps & InputProps & LocalizeFormStateProps;
 
 export interface LocalizeSelectItemProps {
   key: string;
@@ -25,7 +29,7 @@ export interface LocalizeSelectItemProps {
   value?: string;
 }
 
-export interface LocalizeSelectProps extends Props {
+export interface LocalizeSelectProps extends ExtentionProps {
   /**
    * @description 선택할 수 있는 아이템 리스트
    */
@@ -64,42 +68,51 @@ const LocalizeSelectContainer = styled.div<{}, LocalizeThemeProps>({
 const LocalizeSelectInputWrapper = styled.div<
   LocalizeProps & LocalizeFormStateProps,
   LocalizeThemeProps
->(({ theme, fontColor = 'conversion10', bgColor = 'conversion1', bdColor, error }) => {
-  const color = theme.colors[fontColor];
-  const backgroundColor = theme.colors[bgColor];
-  const borderColor = theme.colors[bdColor || bgColor];
+>(
+  ({
+    theme,
+    error,
+    localize = {
+      bgColor: 'conversion8',
+      bdColor: 'transparent',
+      fontColor: 'conversion1',
+    },
+  }) => {
+    const localizeColor = getLocalizeColor(theme, localize);
+    const { backgroundColor, borderColor, color } = localizeColor;
 
-  return {
-    position: 'relative',
-    display: 'flex',
-    alignItems: 'center',
-    width: '100%',
-    height: '40px',
-    color,
-    padding: '10px 32px 10px 12px',
-    outline: 'none',
+    return {
+      position: 'relative',
+      display: 'flex',
+      alignItems: 'center',
+      width: '100%',
+      height: '40px',
+      color,
+      padding: '10px 32px 10px 12px',
+      outline: 'none',
 
-    backgroundColor,
-    border: `1px solid ${error ? theme.colors.error : theme.colors.neutral5}`,
-    // WARNING: Not support IE
-    caretColor: theme.colors.primary,
+      backgroundColor,
+      border: `1px solid ${error ? theme.colors.error : theme.colors.neutral5}`,
+      // WARNING: Not support IE
+      caretColor: theme.colors.primary,
 
-    '&:focus': {
-      border: `1px solid ${error ? theme.colors.error : borderColor}`,
-    },
-    '&:not(:disabled):not(:read-only):active, &:not(:disabled):not(:read-only):hover': {
-      borderColor: lighten(0.1, borderColor),
-    },
-    '&:read-only, &:disabled': {
-      backgroundColor: theme.colors.neutral4,
-      borderColor: theme.colors.neutral5,
-      color: theme.colors.neutral8,
-    },
-    '&::placeholder': {
-      color: theme.colors.neutral8,
-    },
-  };
-});
+      '&:focus': {
+        border: `1px solid ${error ? theme.colors.error : borderColor}`,
+      },
+      '&:not(:disabled):not(:read-only):active, &:not(:disabled):not(:read-only):hover': {
+        borderColor: lighten(0.1, borderColor),
+      },
+      '&:read-only, &:disabled': {
+        backgroundColor: theme.colors.neutral4,
+        borderColor: theme.colors.neutral5,
+        color: theme.colors.neutral8,
+      },
+      '&::placeholder': {
+        color: theme.colors.neutral8,
+      },
+    };
+  },
+);
 
 const LocalizeSelectPlaceholder = styled.div<{}, LocalizeThemeProps>(({ theme }) => {
   return {

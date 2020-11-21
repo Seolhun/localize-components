@@ -2,15 +2,19 @@ import React from 'react';
 import classnames from 'classnames';
 import styled from '@emotion/styled';
 
-import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
+import {
+  getLocalizeColor,
+  LocalizeProps,
+  LocalizeThemeProps,
+} from '@seolhun/localize-components-styled-types';
 
 import { LocalizeFormStateProps } from '../LocalizeFormStateProps';
 
 const CLASSNAME = '__Localize__Checkbox';
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
-type Props = LocalizeProps & InputProps & LocalizeFormStateProps;
+type ExtentionProps = LocalizeProps & InputProps;
 
-export interface LocalizeCheckboxProps extends Props {}
+export interface LocalizeCheckboxProps extends ExtentionProps {}
 
 const HidingInput = styled.input<{}>({
   display: 'none',
@@ -42,10 +46,16 @@ const LocalizeCheckboxCheckerIcon = styled.svg<LocalizeFormStateProps, LocalizeT
 );
 
 const LocalizeCheckboxWrapper = styled.div<LocalizeProps, LocalizeThemeProps>(
-  ({ theme, bgColor = 'neutral1', bdColor }) => {
-    const backgroundColor = theme.colors[bgColor];
-    const color = theme.colors.neutral1;
-    const borderColor = theme.colors[bdColor || bgColor];
+  ({
+    theme,
+    localize = {
+      bgColor: 'conversion8',
+      bdColor: 'transparent',
+      fontColor: 'conversion1',
+    },
+  }) => {
+    const localizeColor = getLocalizeColor(theme, localize);
+    const { backgroundColor, borderColor, color } = localizeColor;
 
     return {
       display: 'block',

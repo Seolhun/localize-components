@@ -2,7 +2,11 @@ import React from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
 
-import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
+import {
+  LocalizeProps,
+  LocalizeThemeProps,
+  getLocalizeColor,
+} from '@seolhun/localize-components-styled-types';
 
 import { LocalizeFormStateProps } from '../LocalizeFormStateProps';
 import { LocalizeFormWrapper } from '../wrapper';
@@ -72,8 +76,17 @@ const HidingInput = styled.input<{}, LocalizeThemeProps>(({ theme }) => {
 });
 
 const VisibleValueContainer = styled.div<LocalizeRangeProps, LocalizeThemeProps>(
-  ({ theme, fontColor = 'neutral1', disabled }) => {
-    const color = theme.colors[fontColor];
+  ({
+    theme,
+    disabled,
+    localize = {
+      bgColor: 'conversion8',
+      bdColor: 'transparent',
+      fontColor: 'conversion1',
+    },
+  }) => {
+    const localizeColor = getLocalizeColor(theme, localize);
+    const { color } = localizeColor;
 
     return {
       display: 'flex',

@@ -3,7 +3,11 @@ import styled from '@emotion/styled';
 import classnames from 'classnames';
 import { lighten } from 'polished';
 
-import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
+import {
+  LocalizeProps,
+  LocalizeThemeProps,
+  getLocalizeColor,
+} from '@seolhun/localize-components-styled-types';
 
 import { LocalizeFormWrapper } from '../wrapper';
 import { LocalizeFormStateProps } from '../LocalizeFormStateProps';
@@ -23,10 +27,17 @@ const LocalizeTextAreaContainer = styled.div<{}, LocalizeThemeProps>(() => {
 });
 
 const StyledTextArea = styled.textarea<LocalizeTextAreaProps, LocalizeThemeProps>(
-  ({ theme, fontColor = 'conversion10', bgColor = 'conversion1', bdColor, error }) => {
-    const color = theme.colors[fontColor];
-    const backgroundColor = theme.colors[bgColor];
-    const borderColor = theme.colors[bdColor || bgColor];
+  ({
+    theme,
+    error,
+    localize = {
+      bgColor: 'conversion8',
+      bdColor: 'transparent',
+      fontColor: 'conversion1',
+    },
+  }) => {
+    const localizeColor = getLocalizeColor(theme, localize);
+    const { backgroundColor, borderColor, color } = localizeColor;
 
     return {
       color,
