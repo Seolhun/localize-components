@@ -311,7 +311,7 @@ const localizeLightThemeColors: LocalizeThemeProps['colors'] = {
   /**
    * @name Theme
    */
-  default: '#BFBFBF',
+  default: '#262626',
   primary: '#2f54eb',
   secondary: '#002766',
   success: '#6AB95C',
@@ -445,7 +445,7 @@ const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
   /**
    * @name Theme
    */
-  default: '#BFBFBF',
+  default: '#262626',
   primary: '#2f54eb',
   secondary: '#002766',
   success: '#6AB95C',
