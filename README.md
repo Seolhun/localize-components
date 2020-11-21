@@ -16,10 +16,12 @@
 
 ## Why
 
-As a front-end developer, I found it very difficult to create a UI that considers various variables. In particular, controlling all of the inconsistent styles and undefined variables has exhausted me.
+As a front-end developer, I found it very difficult to create a UI that considers various variables, inconsistent styles. Sometimes,, unexpectable component design made exhausts me.
 
-With this experience in the background, I created localize-component.
-The advantage of localize-component is that you can perform new styling by overriding the current UI style based on the defined value of the theme through props called localize. In other words, you can experience the localized UI based on the current theme.
+With this experience in the background, I created `localize-component`.
+The advantage of localize-component is that you can make new style UI by overriding `localize` props. But, All colors come from theme context. So localize UI is changed by key and value of theme. 
+
+If you use this, can customize and experience UI extensively by chaning theme you want.
 
 ## Goal
 
