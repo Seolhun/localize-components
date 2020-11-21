@@ -17,7 +17,7 @@
     "README.md"
   ],
   "scripts": {
-    "build": "build-storybook -s ./public --no-dll",
+    "build": "build-storybook -s ./public -o dist --no-dll",
     "dev": "start-storybook -s ./public -p 6006 --no-dll",
     "clear": "rm -rf dist && rm -rf .rpt2_cache",
     "lint": "eslint \"src/**/*.{ts,tsx,js,jsx}\"",
