@@ -94,11 +94,7 @@ const StyledLocalizeButton = styled.button<LocalizeButtonProps, LocalizeThemePro
 const LocalizeButton = React.forwardRef<HTMLButtonElement, LocalizeButtonProps>(
   ({ children, className, ...props }, ref) => {
     return (
-      <StyledLocalizeButton
-        {...props}
-        ref={ref}
-        className={classnames(CLASSNAME, className)}
-      >
+      <StyledLocalizeButton {...props} ref={ref} className={classnames(CLASSNAME, className)}>
         {children}
       </StyledLocalizeButton>
     );
