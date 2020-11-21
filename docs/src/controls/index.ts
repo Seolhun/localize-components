@@ -5,7 +5,7 @@ import { localizeLightTheme } from '../../../packages/styled-types';
 
 export const storiesSizeOptions: LocalizeSize[] = ['xl', 'lg', 'md', 'sm', 'xs'];
 
-export const storiesIntentOptions: LocalizeIntentThemeType[] = ['default', 'primary', 'secondary', 'info', 'success', 'warning', 'error'];
+export const storiesIntentOptions: LocalizeIntentThemeType[] = ['localize', 'default', 'primary', 'secondary', 'info', 'success', 'warning', 'error'];
 
 export const storiesColorOptions = Object.keys(localizeLightTheme.colors).map((key) => key);
 
