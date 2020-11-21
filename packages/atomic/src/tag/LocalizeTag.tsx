@@ -4,40 +4,86 @@ import classnames from 'classnames';
 import { lighten } from 'polished';
 
 import {
-  LocalizeThemeProps,
+  getLocalizeIntentAndColor,
+  getLocalizeSizeBy,
+  LocalizeIntentThemeType,
   LocalizeProps,
   LocalizeSize,
-  getLocalizeSizeBy,
+  LocalizeStyleResponseType,
+  LocalizeThemeProps,
 } from '@seolhun/localize-components-styled-types';
 
 const CLASSNAME = '__Localize__Tag';
 type SpanProps = React.HTMLAttributes<HTMLSpanElement>;
 type ExtentionProps = LocalizeProps & SpanProps;
+type LocalizeButtonVariantType = 'solid' | 'outline';
 
 export interface LocalizeTagProps extends ExtentionProps {
+  /**
+   * Set this to change font color
+   * @default md
+   */
   size?: LocalizeSize;
 
   /**
-   * Set this to change border radius
-   * @default undefined
+   * Set this to change variant
+   * @default solid
    */
-  borderRadius?: string;
+  variant?: LocalizeButtonVariantType;
+
+  /**
+   * Set this to change variant
+   * @default default
+   */
+  intent?: LocalizeIntentThemeType;
+}
+
+function getLocalizeButtonStyle(
+  theme: LocalizeThemeProps,
+  variant: LocalizeButtonVariantType,
+  localizeColors: LocalizeStyleResponseType,
+) {
+  const { backgroundColor, borderColor, color } = localizeColors;
+  switch (variant) {
+    case 'outline': {
+      return {
+        color: theme.colors.conversion10,
+        backgroundColor: borderColor,
+        border: `1px solid ${backgroundColor}`,
+      }
+    }
+    default: {
+      return {
+        color,
+        backgroundColor,
+        border: `1px solid ${borderColor}`,
+      }
+    }
+  }
 }
 
 const StyledLocalizeTagWrapper = styled.div<LocalizeTagProps, LocalizeThemeProps>(
-  ({ theme, bgColor = 'primary', bdColor, borderRadius = '24px' }) => {
-    const color = theme.colors.neutral1;
-    const backgroundColor = theme.colors[bgColor];
-    const borderColor = theme.colors[bdColor || bgColor];
-
+  ({
+    theme,
+    size = 'md',
+    variant = 'solid',
+    intent = 'default',
+    localize = {
+      bgColor: 'primary',
+      bdColor: 'transparent',
+      fontColor: 'conversion10',
+    },
+  }) => {
+    const localizeColor = getLocalizeIntentAndColor(theme, intent, localize);
+    const { backgroundColor, borderColor } = localizeColor;
     return {
-      position: 'relative',
-      display: 'inline-block',
-      color,
+      ...getLocalizeButtonStyle(theme, variant, localizeColor),
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
       backgroundColor,
-      border: `1px solid ${borderColor}`,
-      borderRadius,
-
+      padding: getLocalizeSizeBy(size),
+      borderRadius: '24px',
       textDecoration: 'none',
       whiteSpace: 'nowrap',
       outline: 'none',

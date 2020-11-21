@@ -15,24 +15,6 @@ type Props = InputProps & LocalizeProps & LocalizeFormStateProps;
 
 export interface LocalizeInputProps extends Props {
   /**
-   * Set this to change font Color
-   * @default conversion10
-   */
-  fontColor?: Props['fontColor'];
-
-  /**
-   * Set this to change backgroundColor
-   * @default conversion1
-   */
-  bgColor?: Props['bgColor'];
-
-  /**
-   * Set this to change borderColor
-   * @default primary
-   */
-  bdColor?: Props['bdColor'];
-
-  /**
    * To change icon by font-awesome
    */
   icon?: LocalizeIconProps['icon'];

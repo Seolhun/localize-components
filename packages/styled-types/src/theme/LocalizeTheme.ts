@@ -1,34 +1,51 @@
 import { localizeFonts, LocalizeThemeFontsProps } from './LocalizeFonts';
 
+export type LocalizeIntentThemeType =
+  | 'localize'
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'success'
+  | 'info'
+  | 'warning'
+  | 'error';
+
 export enum LocalizeThemeEnum {
   LIGHT = 'LIGHT',
   DARK = 'DARK',
 }
 
-export interface LocalizeProps {
-  /**
-   * Set this to change className
-   * @default '''
-   */
-  className?: string;
-
-  /**
-   * Set this to change font color in theme
-   * @default text1
-   */
-  fontColor?: keyof LocalizeThemeProps['colors'];
-
+export interface LocalizeStyleProps {
   /**
    * Set this to change background color
-   * @default undefined
+   * @default primary
    */
   bgColor?: keyof LocalizeThemeProps['colors'];
 
   /**
    * Set this to change border color
-   * @default undefined
+   * @default transparent
    */
   bdColor?: keyof LocalizeThemeProps['colors'];
+
+  /**
+   * Set this to change font color in theme
+   * @default conversion1
+   */
+  fontColor?: keyof LocalizeThemeProps['colors'];
+}
+
+export interface LocalizeProps {
+  /**
+   * Set this to change localie styles
+   */
+  localize?: LocalizeStyleProps;
+
+  /**
+   * Set this to change className
+   * @default ''
+   */
+  className?: string;
 
   /**
    * Set this to change zIndex
@@ -41,6 +58,10 @@ export interface LocalizeThemeProps<K = keyof typeof LocalizeThemeEnum> {
   type: K;
   fonts: LocalizeThemeFontsProps;
   colors: {
+    /**
+     * @name Transparent
+     */
+    transparent: string;
     /**
      * @name Conversion
      * To change color based on theme type
@@ -151,6 +172,7 @@ export interface LocalizeThemeProps<K = keyof typeof LocalizeThemeEnum> {
     /**
      * @name Theme
      */
+    default: string;
     primary: string;
     secondary: string;
     success: string;
@@ -176,6 +198,10 @@ export interface LocalizeThemeProps<K = keyof typeof LocalizeThemeEnum> {
 
 const localizeLightThemeColors: LocalizeThemeProps['colors'] = {
   /**
+   * @name Transparent
+   */
+  transparent: 'transparent',
+  /**
    * @name Conversion
    * To change color based on theme type
    */
@@ -285,6 +311,7 @@ const localizeLightThemeColors: LocalizeThemeProps['colors'] = {
   /**
    * @name Theme
    */
+  default: '#BFBFBF',
   primary: '#2f54eb',
   secondary: '#002766',
   success: '#6AB95C',
@@ -305,6 +332,10 @@ const localizeLightThemeColors: LocalizeThemeProps['colors'] = {
 
 const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
   /**
+   * @name Transparent
+   */
+  transparent: 'transparent',
+  /**
    * @name Conversion
    * To change color based on theme type
    */
@@ -414,6 +445,7 @@ const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
   /**
    * @name Theme
    */
+  default: '#BFBFBF',
   primary: '#2f54eb',
   secondary: '#002766',
   success: '#6AB95C',

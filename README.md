@@ -16,15 +16,15 @@
 
 ## Why
 
-- I just want to build react components without third party css side-effect.
-  - All components have global stylesheet affecting origin product css.
+As a front-end developer, I found it very difficult to create a UI that considers various variables. In particular, controlling all of the inconsistent styles and undefined variables has exhausted me.
+
+With this experience in the background, I created localize-component.
+The advantage of localize-component is that you can perform new styling by overriding the current UI style based on the defined value of the theme through props called localize. In other words, you can experience the localized UI based on the current theme.
 
 ## Goal
 
-- Localized-style
-- All components be changed for Theme by React Context.
-  - All core variables is controlled by context
-- Processing all most colors
+- A theme based styling.
+- Overriding localize props styling.
 
 ## Used stacks
 

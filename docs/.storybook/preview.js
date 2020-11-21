@@ -11,7 +11,7 @@ const globalStyle = `
 		font-size: 14px;
 	}
 
-	.__Localize__Freezing__Scroll {
+	.__Localize__Window__LockScroll {
 		overflow: hidden !important;
 	}
 `;
@@ -51,11 +51,11 @@ export const parameters = {
     values: [
       {
         name: 'Light',
-        value: '#F5F5F5',
+        value: '#ffffff',
       },
       {
         name: 'Dark',
-        value: '#141414',
+        value: '#13161F',
       },
     ],
   },
