@@ -30,7 +30,8 @@
     "@emotion/styled": "^10.0.27",
     "classnames": "^2.2.6",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "polished": "^3.6.5"
   },
   "dependencies": {
     "@seolhun/localize-components-styled-types": "^0.5.2",
