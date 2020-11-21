@@ -14,75 +14,85 @@ See [TODOLIST.md](https://github.com/Seolhun/localize-components/blob/develop/TO
 
 > These list are versioning beta.
 
+- **Forms**
+  - FormGroup
+  - FormItem
+  - FormLabel
+  - FormHelp
+  - Checkbox
+    - Checkbox Group
+  - FileInput
+  - Input
+  - Radio
+    - Radio Group
+  - Range
+  - Select
+  - Switch
+
+- **Grid**
+  - Container
+  - Row
+  - Col
+
+- **Icon**
+  - Icon
+  - IconText
+
 ## Development
 
 > These list are versioning alpha.
 
+- **Atmoic**
+  - Anchor
+  - Audio
+  - Box
+  - Button
+    - ButtonGroup
+  - Card
+  - Hr
+  - Image
+  - Progressbar
+  - Skeleton
+  - Spinner
+  - Tag
+  - Typography
+
+- **Components**
+  - Alert
+  - Confirm
+  - Drawer
+  - Dropdown
+  - DropdownSearch
+  - Modal
+  - Popover
+  - Steps
+  - Tabs
+  - Toast
+  - Tooltip
+
+- **Table**
+  - Table
+  - FreezingTable
+  - TableOptionDrawer
+
 ---
 
-### Atmoic
+- **Atmoic**
+  - Skeleton
 
-- Anchor
-- Audio
-- Box
-- Button
-  - ButtonGroup
-- Card
-- Hr
-- Image
-- Progressbar
-- Skeleton
-- Spinner
-- Tag
-- Typography
+- **Forms**
+  - 
 
-### Forms
+- **Components**
+  - Breadcrumbs
+  - Collapse
+  - Tree
 
-- FormGroup
-- FormItem
-- FormLabel
-- FormHelp
-- Checkbox
-  - Checkbox Group
-- FileInput
-- Input
-- Radio
-  - Radio Group
-- Range
-- Select
-- Switch
+- **Grid**
+  - 
 
-### Components
+- **Table**
+  - 
 
-- Alert
-- Breadcrumbs
-- Collapse
-- Confirm
-- Drawer
-- Dropdown
-- DropdownSearch
-- Modal
-- Popover
-- Steps
-- Tabs
-- Toast
-- Tooltip
-- Tree
-
-### Grid
-
-- Container
-- Row
-- Col
-
-### Table
-
-- Table
-- FreezingTable
-- TableOptionDrawer
-
-### Icon
-
-- Icon
-- IconText
-
+- **Icon**
+  - 
