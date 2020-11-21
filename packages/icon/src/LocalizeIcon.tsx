@@ -38,13 +38,7 @@ interface LocalizeIconBackgroundProps {
 }
 
 const IconWrapper = styled.span<LocalizeIconProps, LocalizeThemeProps>(
-  ({
-    theme,
-    margin,
-    iconSize,
-    fontColor,
-    iconBackgroundSize,
-  }) => {
+  ({ theme, margin, iconSize, fontColor, iconBackgroundSize }) => {
     return {
       position: 'relative',
       display: 'inline-flex',

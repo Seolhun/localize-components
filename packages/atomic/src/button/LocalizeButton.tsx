@@ -61,7 +61,7 @@ function getLocalizeButtonStyle(
           backgroundColor: borderColor,
           border: `1px solid ${darken(0.1, backgroundColor)}`,
         },
-      }
+      };
     }
     default: {
       return {
@@ -74,7 +74,7 @@ function getLocalizeButtonStyle(
           backgroundColor: darken(0.1, backgroundColor),
           border: `1px solid ${darken(0.1, borderColor)}`,
         },
-      }
+      };
     }
   }
 }
@@ -127,11 +127,7 @@ const StyledLocalizeButton = styled.button<LocalizeButtonProps, LocalizeThemePro
 const LocalizeButton = React.forwardRef<HTMLButtonElement, LocalizeButtonProps>(
   ({ children, className, ...props }, ref) => {
     return (
-      <StyledLocalizeButton
-        {...props}
-        ref={ref}
-        className={classnames(CLASSNAME, className)}
-      >
+      <StyledLocalizeButton {...props} ref={ref} className={classnames(CLASSNAME, className)}>
         {children}
       </StyledLocalizeButton>
     );

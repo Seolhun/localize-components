@@ -50,14 +50,14 @@ function getLocalizeButtonStyle(
         color: theme.colors.conversion10,
         backgroundColor: borderColor,
         border: `1px solid ${backgroundColor}`,
-      }
+      };
     }
     default: {
       return {
         color,
         backgroundColor,
         border: `1px solid ${borderColor}`,
-      }
+      };
     }
   }
 }

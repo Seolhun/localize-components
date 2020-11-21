@@ -61,12 +61,12 @@ const Button: Story<LocalizeButtonProps> = (args) => {
     bgColor: args.bgColor,
     bdColor: args.bdColor,
     color: args.color,
-  }
+  };
   return (
-    <LocalizeButton {...args} localize={localize} >
+    <LocalizeButton {...args} localize={localize}>
       {children}
     </LocalizeButton>
-  )
+  );
 };
 
 export const Default = Button.bind({});
@@ -82,7 +82,7 @@ const IntentButtons: Story<LocalizeButtonProps> = (args) => {
     bgColor: args.bgColor,
     bdColor: args.bdColor,
     color: args.color,
-  }
+  };
   return (
     <LocalizeRow>
       {storiesIntentOptions.map((intent) => (
@@ -110,7 +110,7 @@ const SizeButtons: Story<LocalizeButtonProps> = (args) => {
     bgColor: args.bgColor,
     bdColor: args.bdColor,
     color: args.color,
-  }
+  };
   return (
     <LocalizeRow>
       <LocalizeCol md={8}>
