@@ -2,20 +2,18 @@ import React from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
 import { FontAwesomeIcon, FontAwesomeIconProps } from '@fortawesome/react-fontawesome';
-import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
+import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
 const CLASSNAME = '__Localize__Icon';
 type SpanProps = React.HTMLAttributes<HTMLSpanElement>;
-type ExtentionProps = LocalizeProps & SpanProps & LocalizeIconBackgroundProps;
+type ExtentionProps = SpanProps & LocalizeIconBackgroundProps;
 
 export interface LocalizeIconProps extends ExtentionProps {
   icon: FontAwesomeIconProps['icon'];
 
-  rotation?: FontAwesomeIconProps['rotation'];
-
-  hoveredColor?: keyof LocalizeThemeProps['colors'];
-
   iconSize?: string;
+
+  fontColor?: keyof LocalizeThemeProps['colors'];
 
   /**
    * @default 1x
@@ -40,7 +38,13 @@ interface LocalizeIconBackgroundProps {
 }
 
 const IconWrapper = styled.span<LocalizeIconProps, LocalizeThemeProps>(
-  ({ theme, margin, iconSize, fontColor, hoveredColor, iconBackgroundSize }) => {
+  ({
+    theme,
+    margin,
+    iconSize,
+    fontColor,
+    iconBackgroundSize,
+  }) => {
     return {
       position: 'relative',
       display: 'inline-flex',
@@ -53,12 +57,6 @@ const IconWrapper = styled.span<LocalizeIconProps, LocalizeThemeProps>(
       margin,
       cursor: 'pointer',
       userSelect: 'none',
-
-      ...(hoveredColor && {
-        '&:hover': {
-          color: theme.colors[hoveredColor],
-        },
-      }),
     };
   },
 );
@@ -92,12 +90,10 @@ const LocalizeIcon = React.forwardRef<HTMLSpanElement, LocalizeIconProps>(
     {
       className,
       icon,
-      color,
+      fontColor,
       iconImageSize = '1x',
       iconSize,
       margin,
-      rotation,
-      hoveredColor,
       iconBackgroundSize,
       iconBackgroundColor,
       iconBackgroundBorderRadius,
@@ -111,10 +107,9 @@ const LocalizeIcon = React.forwardRef<HTMLSpanElement, LocalizeIconProps>(
       ref={ref}
       className={classnames(CLASSNAME, className)}
       icon={icon}
-      color={color}
-      hoveredColor={hoveredColor}
-      iconImageSize={iconImageSize}
+      fontColor={fontColor}
       iconSize={iconSize}
+      iconImageSize={iconImageSize}
       iconBackgroundSize={iconBackgroundSize}
       margin={margin}
     >
@@ -127,7 +122,7 @@ const LocalizeIcon = React.forwardRef<HTMLSpanElement, LocalizeIconProps>(
         />
       )}
       <IconContainer>
-        <FontAwesomeIcon icon={icon} size={iconImageSize} rotation={rotation} />
+        <FontAwesomeIcon icon={icon} size={iconImageSize} />
       </IconContainer>
     </IconWrapper>
   ),
