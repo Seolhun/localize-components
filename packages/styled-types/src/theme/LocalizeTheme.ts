@@ -8,7 +8,7 @@ export enum LocalizeThemeEnum {
 export interface LocalizeProps {
   /**
    * Set this to change className
-   * @default '''
+   * @default ''
    */
   className?: string;
 
