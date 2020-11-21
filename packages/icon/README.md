@@ -1,4 +1,4 @@
-# Localize Components Table
+# Localize Components Icon
 
 ## Used stacks
 
@@ -14,11 +14,11 @@
 #### Install Package
 
 ```bash
-$ npm install @seolhun/localize-components-table
+$ npm install @seolhun/localize-components-icon
 ```
 
 ## How to use
 #### import
 ```js
-import { LocalizeTable } from '@seolhun/localize-components-table';
+import { LocalizeIcon } from '@seolhun/localize-components-icon';
 ```

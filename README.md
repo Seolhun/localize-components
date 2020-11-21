@@ -46,7 +46,9 @@
 
 - @seolhun/localize-components
 - @seolhun/localize-components-atomic
+- @seolhun/localize-components-icon
 - @seolhun/localize-components-grid
+- @seolhun/localize-components-table
 
 #### Utils
 
@@ -74,8 +76,12 @@ $ yarn add @seolhun/localize-components @seolhun/localize-components-atomic
 #### import
 
 ```js
-import { Alert } from '@seolhun/localize-components';
-import { Button } from '@seolhun/localize-components-atomic';
+import { LocalizeAlert } from '@seolhun/localize-components';
+import { LocalizeButton } from '@seolhun/localize-components-atomic';
+import { LocalizeInput } from '@seolhun/localize-components-forms';
+import { LocalizeIcon } from '@seolhun/localize-components-icon';
+import { LocalizeTable } from '@seolhun/localize-components-table';
+import { LocalizeRow, LocalizeCol } from '@seolhun/localize-components-grid';
 ```
 
 ## Examples
