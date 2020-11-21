@@ -84,12 +84,12 @@ import { LocalizeTable } from '@seolhun/localize-components-table';
 import { LocalizeRow, LocalizeCol } from '@seolhun/localize-components-grid';
 ```
 
-## Examples
+## Docs
 
-### PROD
+#### PROD
 
 - Docs - Storybook : [localize-components-docs.surge.sh](http://localize-components-docs.surge.sh/#/)
 
-### DEV
+#### DEV
 
 - Docs - Storybook : [dev.localize-components-docs.surge.sh](http://dev.localize-components-docs.surge.sh/#/)
