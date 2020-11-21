@@ -57,9 +57,9 @@ function getLocalizeButtonStyle(
         border: `1px solid ${backgroundColor}`,
 
         '&:hover, &:active': {
-          color: darken(0.1, backgroundColor),
-          backgroundColor: borderColor,
-          border: `1px solid ${darken(0.1, backgroundColor)}`,
+          color,
+          backgroundColor,
+          border: `1px solid ${borderColor}`,
         },
       };
     }
