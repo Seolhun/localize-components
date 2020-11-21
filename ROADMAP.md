@@ -46,8 +46,8 @@ See [TODOLIST.md](https://github.com/Seolhun/localize-components/blob/develop/TO
   - Anchor
   - Audio
   - Box
-  - Button
-    - ButtonGroup
+  - [x] Button
+    - [x] ButtonGroup
   - Card
   - Hr
   - Image

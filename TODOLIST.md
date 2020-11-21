@@ -1,20 +1,6 @@
 
 # Component TODO List
 
-## Production
-
-> These list are versioning major.
-
-## Stage
-
-> These list are versioning beta.
-
-## Development
-
-> These list are versioning alpha.
-
----
-
 - **Atmoic**
   - Anchor
   - Audio
