@@ -7,7 +7,7 @@ import { LocalizeThemeProps, LocalizeProps } from '@seolhun/localize-components-
 
 import { LocalizeModal, LocalizeModalProps } from '../modal';
 
-const DEFAULT_CLASSNAME = '__Localize__Alert';
+const CLASSNAME = '__Localize__Alert';
 
 export interface LocalizeAlertProps extends LocalizeProps, LocalizeModalProps {
   /**
@@ -50,7 +50,7 @@ const LocalizeAlert: React.FC<LocalizeAlertProps> = ({
   };
 
   return (
-    <StyledModal {...props} className={classnames(DEFAULT_CLASSNAME, className)} onClose={onClose}>
+    <StyledModal {...props} className={classnames(CLASSNAME, className)} onClose={onClose}>
       <AlertButtonContainer>
         <LocalizeButton onClick={onCloseWithClick}>{buttonLabel}</LocalizeButton>
       </AlertButtonContainer>

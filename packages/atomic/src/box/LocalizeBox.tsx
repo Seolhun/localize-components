@@ -8,8 +8,7 @@ import {
   LocalizeSize,
   LocalizeThemeProps,
 } from '@seolhun/localize-components-styled-types';
-
-import { LocalizeIcon } from '../icons';
+import { LocalizeIcon } from '@seolhun/localize-components-icon';
 
 const CLASSNAME = '__Localize__Box';
 type DivProps = React.HTMLAttributes<HTMLDivElement>;

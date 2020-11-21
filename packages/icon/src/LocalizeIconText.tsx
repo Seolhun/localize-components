@@ -1,11 +1,15 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import classnames from 'classnames';
 
 import { LocalizeIcon, LocalizeIconProps } from './LocalizeIcon';
 
 type LocalizeIconTextAlignType = 'left' | 'right';
 
-export interface LocalizeIconTextProps extends LocalizeIconProps {
+const CLASSNAME = '__Localize__IconText';
+type ExtentionProps = LocalizeIconProps;
+
+export interface LocalizeIconTextProps extends ExtentionProps {
   /**
    * @default left
    */
@@ -57,17 +61,18 @@ const LocalizeIconText: React.FC<LocalizeIconTextProps> = ({
   iconPlacement = 'left',
   iconTextMargin = '8px',
   children,
+  className,
   ...props
 }) => {
   return (
     <LocalizeIconTextWrapper
-      className="goc-icon-text__wrapper"
+      className={classnames(CLASSNAME, className)}
       iconPlacement={iconPlacement}
       iconTextMargin={iconTextMargin}
       {...props}
     >
       <LocalizeIconContainer iconPlacement={iconPlacement} iconTextMargin={iconTextMargin}>
-        <LocalizeIcon className="goc-icon-text__icon" {...props} />
+        <LocalizeIcon className={`${CLASSNAME}__Icon`} {...props} />
       </LocalizeIconContainer>
       {children}
     </LocalizeIconTextWrapper>

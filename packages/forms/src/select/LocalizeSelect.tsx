@@ -4,11 +4,11 @@ import classnames from 'classnames';
 import { animated, useTransition } from 'react-spring';
 import { lighten } from 'polished';
 
+import { LocalizeButton } from '@seolhun/localize-components-atmoic';
 import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 import { LocalizeMediaQueries } from '@seolhun/localize-components-grid';
+import { LocalizeIcon } from '@seolhun/localize-components-icon';
 
-import { LocalizeIcon } from '../../icons';
-import { LocalizeButton } from '../../button';
 import { LocalizeFormWrapper } from '../wrapper';
 import { LocalizeRadio, LocalizeRadioGroup } from '../radio';
 import { LocalizeFormStateProps } from '../LocalizeFormStateProps';

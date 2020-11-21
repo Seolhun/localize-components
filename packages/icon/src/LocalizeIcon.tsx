@@ -6,9 +6,9 @@ import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-
 
 const CLASSNAME = '__Localize__Icon';
 type SpanProps = React.HTMLAttributes<HTMLSpanElement>;
-type Props = LocalizeProps & SpanProps & LocalizeIconBackgroundProps;
+type ExtentionProps = LocalizeProps & SpanProps & LocalizeIconBackgroundProps;
 
-export interface LocalizeIconProps extends Props {
+export interface LocalizeIconProps extends ExtentionProps {
   icon: FontAwesomeIconProps['icon'];
 
   rotation?: FontAwesomeIconProps['rotation'];

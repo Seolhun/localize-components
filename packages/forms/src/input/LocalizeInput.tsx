@@ -4,8 +4,8 @@ import classnames from 'classnames';
 import { lighten } from 'polished';
 
 import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
+import { LocalizeIcon, LocalizeIconProps } from '@seolhun/localize-components-icon';
 
-import { LocalizeIcon, LocalizeIconProps } from '../../icons';
 import { LocalizeFormWrapper } from '../wrapper';
 import { LocalizeFormStateProps } from '../LocalizeFormStateProps';
 

@@ -8,7 +8,7 @@ import { useDisclosure } from '@seolhun/localize-components-hooks';
 
 import { LAYOUT, fadeIn } from '../../styles';
 
-const DEFAULT_CLASSNAME = '__Localize__ShadowBox';
+const CLASSNAME = '__Localize__ShadowBox';
 type DivProps = React.HTMLAttributes<HTMLDivElement>;
 
 export interface LocalizeShadowBoxProps extends LocalizeProps, DivProps {
@@ -114,7 +114,7 @@ const LocalizeShadowBox: React.FC<LocalizeShadowBoxProps> = ({
   }
 
   return (
-    <LocalizeShadowBoxWrapper ref={wrapperRef} className={classnames(DEFAULT_CLASSNAME, className)}>
+    <LocalizeShadowBoxWrapper ref={wrapperRef} className={classnames(CLASSNAME, className)}>
       <LocalizeShadowBoxContainer>
         <CloseContainer onClick={handleToggleOpenStatus}>
           <CloseIcon deg={'-45'} />

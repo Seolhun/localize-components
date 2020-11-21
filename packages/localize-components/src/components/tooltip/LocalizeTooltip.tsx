@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
 
-import { LocalizeIcon } from '@seolhun/localize-components-atomic';
 import { useClientRect } from '@seolhun/localize-components-hooks';
 import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
+import { LocalizeIcon } from '@seolhun/localize-components-icon';
 
 import LocalizeTooltipPortal from './LocalizeTooltipPortal';
 

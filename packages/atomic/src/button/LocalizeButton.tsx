@@ -10,7 +10,7 @@ import {
   getLocalizeSizeBy,
 } from '@seolhun/localize-components-styled-types';
 
-const DEFAULT_CLASSNAME = '__Localize__Button';
+const CLASSNAME = '__Localize__Button';
 type ButtonProps = React.HTMLAttributes<HTMLButtonElement>;
 type ExtentionProps = LocalizeProps & ButtonProps;
 
@@ -97,7 +97,7 @@ const LocalizeButton = React.forwardRef<HTMLButtonElement, LocalizeButtonProps>(
       <StyledLocalizeButton
         {...props}
         ref={ref}
-        className={classnames(DEFAULT_CLASSNAME, className)}
+        className={classnames(CLASSNAME, className)}
       >
         {children}
       </StyledLocalizeButton>

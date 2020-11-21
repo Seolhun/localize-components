@@ -5,7 +5,7 @@
     "email": "shun10116@gmail.com",
     "url": "https://github.com/Seolhun"
   },
-  "name": "@seolhun/localize-components-grid",
+  "name": "@seolhun/localize-components-icon",
   "description": "Localizing React components to render Grid for arragement",
   "version": "0.5.2",
   "main": "dist/index.js",
@@ -26,19 +26,20 @@
     "test": "echo 'There are no test'"
   },
   "peerDependencies": {
-    "@emotion/core": "^10.1.1",
+    "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
     "classnames": "^2.2.6",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "polished": "^3.6.5"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/react-fontawesome": "^0.1.12",
     "@seolhun/localize-components-styled-types": "^0.5.2",
     "polished": "^3.6.7"
   },
-  "devDependencies": {
-    "@emotion/babel-plugin": "^11.0.0"
-  },
+  "devDependencies": {},
   "engines": {
     "node": ">= 6.0.0",
     "npm": ">= 3.0.0"
