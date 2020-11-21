@@ -1,6 +1,7 @@
 import { localizeFonts, LocalizeThemeFontsProps } from './LocalizeFonts';
 
 export type LocalizeIntentThemeType =
+  | 'localize'
   | 'default'
   | 'primary'
   | 'secondary'

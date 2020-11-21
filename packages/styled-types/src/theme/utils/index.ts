@@ -1,1 +1,1 @@
-export * from './getLocalizeStyle';
+export * from './getLocalizeColor';

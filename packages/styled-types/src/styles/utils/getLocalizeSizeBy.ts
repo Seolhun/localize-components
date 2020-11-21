@@ -15,7 +15,7 @@ export const getLocalizeSizeBy = (size?: LocalizeSize) => {
       return '0.6rem 0.8rem';
     }
     case 'xs': {
-      return '0.6rem 0.8rem';
+      return '0.5rem 0.6rem';
     }
     // MD
     default: {

@@ -26,7 +26,7 @@ export function getLocalizeIntentAndColor(
   intent: LocalizeIntentThemeType,
   localize?: LocalizeStyleProps
 ): LocalizeStyleResponseType {
-  if (localize) {
+  if (intent === 'localize' && localize) {
     return getLocalizeColor(theme, localize);
   }
   switch (intent) {
