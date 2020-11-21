@@ -1,14 +1,14 @@
 import React from 'react';
 import { Story } from '@storybook/react/types-6-0';
 
-import { LocalizeFlex, LocalizeFlexProps } from '../../../packages/atomic/dist';
-import { LocalizeRow, LocalizeCol } from '../../../packages/grid/dist';
+import { LocalizeFlex, LocalizeFlexProps } from '../../../../packages/atomic/dist';
+import { LocalizeRow, LocalizeCol } from '../../../../packages/grid/dist';
 
 import {
   storiesAlignItemsOptions,
   storiesJustifyContentOptions,
   storiesFlexDirectionOptions,
-} from '../controls';
+} from '../../controls';
 
 export default {
   title: 'Atmoic | LocalizeFlex',
