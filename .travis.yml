@@ -23,7 +23,7 @@ script:
   - npm run build
 
 after_success:
-  - ./bin/build-deploy-docs.sh
+  - ./bin/docs-ci.sh
 
 notifications:
   email:
