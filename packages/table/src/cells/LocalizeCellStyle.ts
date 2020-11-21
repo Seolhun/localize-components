@@ -10,7 +10,7 @@ const LocalizeCellStyle = (theme: LocalizeThemeProps): any => {
     borderRight: `1px solid ${theme.colors.neutral4}`,
     borderBottom: `1px solid ${theme.colors.neutral4}`,
 
-    '&:first-child': {
+    '&:first-of-type': {
       borderLeft: `1px solid ${theme.colors.neutral4}`,
     },
   } as PropertiesFallback<HTMLTableCellElement>;

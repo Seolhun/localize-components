@@ -24,10 +24,10 @@ const LocalizeStyledTableRow = styled.tr<LocalizeTableRowProps, LocalizeThemePro
             height,
           }),
 
-      '&:first-child': {
+      '&:first-of-type': {
         borderLeft: `1px solid ${theme.colors.neutral4}`,
       },
-      '&:last-child': {
+      '&:last-of-type': {
         borderBottom: `1px solid ${theme.colors.neutral4}`,
       },
     };
