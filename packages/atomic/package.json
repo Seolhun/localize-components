@@ -31,18 +31,12 @@
     "@emotion/styled": "^10.0.27",
     "classnames": "^2.2.6",
     "react": "^16.14.0",
-    "react-dom": "^16.14.0",
     "polished": "^3.6.5"
   },
   "dependencies": {
-    "@seolhun/localize-components-grid": "^0.5.2",
-    "@seolhun/localize-components-hooks": "^0.5.2",
     "@seolhun/localize-components-icon": "^0.5.2",
     "@seolhun/localize-components-styled-types": "^0.5.2",
     "polished": "^3.6.7"
-  },
-  "devDependencies": {
-    "@emotion/babel-plugin": "^11.0.0"
   },
   "engines": {
     "node": ">= 6.0.0",
