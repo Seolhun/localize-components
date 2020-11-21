@@ -22,3 +22,11 @@ $ npm install @seolhun/localize-components-atomic
 ```js
 import { LocalizeButton } from '@seolhun/localize-components-atomic';
 ```
+
+## Localize-Component styling Priority
+
+1. Components props
+  - eg) Button.variant: solid
+2. Component `intent` props
+  - eg) Button.intent: primary
+3. Localize style variable `localize` props

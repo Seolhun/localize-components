@@ -39,59 +39,20 @@
   </div>
 </div>
 
-### Variant
-
-<div style='display: flex;'>
-  <div style='display: inline-flex; flex: 1;'>
-    <img 
-      src='./resources/button.options.size.png'
-      alt='button.options.size.png'
-      width='100%'
-    />
-  </div>
-  <div style='display: inline-flex; flex: 1;'>
-    클릭 유도 문안 버튼은 강력한 강조를 전달하며 경험에 필수적인 작업을 위해 예약되어 있습니다. 
-    섹션 당 하나의 클릭 유도 문안 버튼 만 있어야합니다. 
-    이 버튼은 의도적으로 눈에 띄기위한 것이므로 조용한 스타일이 없습니다.
-  </div>
-</div>
-
-### Disabled
-
-<div style='display: flex;'>
-  <div style='display: inline-flex; flex: 1;'>
-    <img 
-      src='./resources/button.options.size.png'
-      alt='button.options.size.png'
-      width='100%'
-    />
-  </div>
-  <div style='display: inline-flex; flex: 1;'>
-    A button in a disabled state shows that an action exists, but is not available in that circumstance. 
-    This state can be used to maintain layout continuity and to communicate that an action may become available later.
-  </div>
-</div>
-
 ## Props
 
 ```tsx
   /**
-   * Set this to change variant
-   * @default solid
-   */
-  variant?: 'solid' | 'outline' | 'rounded';
-
-  /**
-   * Set this to change intent
-   * @default default
-   */
-  intent?: 'default' | 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'error';
-
-  /**
    * Set this to change size
    * @default md
    */
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  size?: 'xl' | 'lg' | 'md' | 'sm' | 'xs';
+
+  /**
+   * Set this to change variant
+   * @default solid
+   */
+  variant?: 'solid' | 'outline' | 'bordered';
 ```
 
 ## Behaviors
