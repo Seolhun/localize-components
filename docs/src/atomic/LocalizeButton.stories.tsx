@@ -1,14 +1,14 @@
 import React from 'react';
 import { Story } from '@storybook/react/types-6-0';
 
-import { LocalizeBox, LocalizeBoxProps } from '../../../../packages/atomic/dist';
-import { LocalizeRow, LocalizeCol } from '../../../../packages/grid/dist';
+import { LocalizeButton, LocalizeButtonProps } from '../../../packages/atomic/dist';
+import { LocalizeRow, LocalizeCol } from '../../../packages/grid/dist';
 
-import { storiesSizeOptions, storiesColorOptions } from '../../controls';
+import { storiesSizeOptions, storiesColorOptions } from '../controls';
 
 export default {
-  title: 'Atmoic | LocalizeBox',
-  component: LocalizeBox,
+  title: 'Atmoic | LocalizeButton',
+  component: LocalizeButton,
   argTypes: {
     fontColor: {
       defaultValue: 'neutral1',
@@ -41,56 +41,55 @@ export default {
   },
 };
 
-const Box: Story<LocalizeBoxProps> = (args) => <LocalizeBox {...args} />;
+const Button: Story<LocalizeButtonProps> = (args) => <LocalizeButton {...args} />;
 
-export const Default = Box.bind({});
+export const Default = Button.bind({});
 Default.args = {
-  children: 'LocalizeBox',
+  children: 'LocalizeButton',
   disabled: false,
 };
 
-const BoxSizes: Story<LocalizeBoxProps> = (args) => {
+const SizeButtons: Story<LocalizeButtonProps> = (args) => {
   const children = args.children;
   return (
     <>
       <LocalizeRow>
-        <LocalizeCol>
+        <LocalizeCol md={8}>
           <h4>xl</h4>
-          <LocalizeBox {...args} size="xl">
+          <LocalizeButton {...args} size="xl">
             {children}
-          </LocalizeBox>
+          </LocalizeButton>
         </LocalizeCol>
-        <LocalizeCol>
+        <LocalizeCol md={8}>
           <h4>lg</h4>
-          <LocalizeBox {...args} size="lg">
+          <LocalizeButton {...args} size="lg">
             {children}
-          </LocalizeBox>
+          </LocalizeButton>
         </LocalizeCol>
-        <LocalizeCol>
+        <LocalizeCol md={8}>
           <h4>md</h4>
-          <LocalizeBox {...args} size="md">
+          <LocalizeButton {...args} size="md">
             {children}
-          </LocalizeBox>
+          </LocalizeButton>
         </LocalizeCol>
-        <LocalizeCol>
+        <LocalizeCol md={8}>
           <h4>sm</h4>
-          <LocalizeBox {...args} size="sm">
+          <LocalizeButton {...args} size="sm">
             {children}
-          </LocalizeBox>
+          </LocalizeButton>
         </LocalizeCol>
-        <LocalizeCol>
+        <LocalizeCol md={8}>
           <h4>xs</h4>
-          <LocalizeBox {...args} size="xs">
+          <LocalizeButton {...args} size="xs">
             {children}
-          </LocalizeBox>
+          </LocalizeButton>
         </LocalizeCol>
       </LocalizeRow>
     </>
   );
 };
-export const BoxSizesStories = BoxSizes.bind({});
-BoxSizesStories.args = {
-  children: 'LocalizeBox',
-  borderRadius: '12px',
+export const SizeButtonsStories = SizeButtons.bind({});
+SizeButtonsStories.args = {
+  children: 'LocalizeButton',
   disabled: false,
 };

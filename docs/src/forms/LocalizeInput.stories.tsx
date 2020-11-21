@@ -1,13 +1,13 @@
 import React from 'react';
 import { Story } from '@storybook/react/types-6-0';
 
-import { LocalizeRadio, LocalizeRadioProps } from '../../../../packages/atomic/dist';
+import { LocalizeInput, LocalizeInputProps } from '../../../packages/forms/dist';
 
-import { storiesColorOptions } from '../../controls';
+import { storiesColorOptions } from '../controls';
 
 export default {
-  title: 'Atmoic | Forms | LocalizeRadio',
-  component: LocalizeRadio,
+  title: 'Atmoic | Forms | LocalizeInput',
+  component: LocalizeInput,
   argTypes: {
     fontColor: {
       defaultValue: 'conversion10',
@@ -33,21 +33,21 @@ export default {
   },
 };
 
-const Radio: Story<LocalizeRadioProps> = (args) => {
-  const [checked, setChecked] = React.useState(args.checked);
+const Input: Story<LocalizeInputProps> = (args) => {
+  const [value, setValue] = React.useState(args.value);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setChecked(e.target.checked);
+    setValue(e.target.value);
   };
 
-  return <LocalizeRadio {...args} onChange={onChange} checked={checked} />;
+  return <LocalizeInput {...args} onChange={onChange} value={value} />;
 };
 
-export const Default = Radio.bind({});
+export const Default = Input.bind({});
 Default.args = {
   label: 'Label',
   help: 'Help',
-  value: 'LocalizeRadio',
+  value: 'LocalizeInput',
   error: false,
   disabled: false,
 };

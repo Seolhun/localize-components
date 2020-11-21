@@ -1,12 +1,12 @@
 import React from 'react';
 import { Story } from '@storybook/react/types-6-0';
 
-import { LocalizeCheckbox, LocalizeCheckboxProps } from '../../../../packages/atomic/dist';
+import { LocalizeCheckbox, LocalizeCheckboxProps } from '../../../packages/forms/dist';
 
-import { storiesColorOptions } from '../../controls';
+import { storiesColorOptions } from '../controls';
 
 export default {
-  title: 'Atmoic | Forms | LocalizeCheckbox',
+  title: 'Forms | LocalizeCheckbox',
   component: LocalizeCheckbox,
   argTypes: {
     fontColor: {

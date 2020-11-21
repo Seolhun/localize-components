@@ -1,13 +1,13 @@
 import React from 'react';
 import { Story } from '@storybook/react/types-6-0';
 
-import { LocalizeSwitch, LocalizeSwitchProps } from '../../../../packages/atomic/dist';
+import { LocalizeRadio, LocalizeRadioProps } from '../../../packages/forms/dist';
 
-import { storiesColorOptions } from '../../controls';
+import { storiesColorOptions } from '../controls';
 
 export default {
-  title: 'Atmoic | Forms | LocalizeSwitch',
-  component: LocalizeSwitch,
+  title: 'Atmoic | Forms | LocalizeRadio',
+  component: LocalizeRadio,
   argTypes: {
     fontColor: {
       defaultValue: 'conversion10',
@@ -33,21 +33,21 @@ export default {
   },
 };
 
-const Switch: Story<LocalizeSwitchProps> = (args) => {
+const Radio: Story<LocalizeRadioProps> = (args) => {
   const [checked, setChecked] = React.useState(args.checked);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setChecked(e.target.checked);
   };
 
-  return <LocalizeSwitch {...args} onChange={onChange} checked={checked} />;
+  return <LocalizeRadio {...args} onChange={onChange} checked={checked} />;
 };
 
-export const Default = Switch.bind({});
+export const Default = Radio.bind({});
 Default.args = {
   label: 'Label',
   help: 'Help',
-  checked: false,
+  value: 'LocalizeRadio',
   error: false,
   disabled: false,
 };

@@ -1,14 +1,14 @@
 import React from 'react';
 import { Story } from '@storybook/react/types-6-0';
 
-import { LocalizeTag, LocalizeTagProps } from '../../../../packages/atomic/dist';
-import { LocalizeRow, LocalizeCol } from '../../../../packages/grid/dist';
+import { LocalizeBox, LocalizeBoxProps } from '../../../packages/atomic/dist';
+import { LocalizeRow, LocalizeCol } from '../../../packages/grid/dist';
 
-import { storiesSizeOptions, storiesColorOptions } from '../../controls';
+import { storiesSizeOptions, storiesColorOptions } from '../controls';
 
 export default {
-  title: 'Atmoic | LocalizeTag',
-  component: LocalizeTag,
+  title: 'Atmoic | LocalizeBox',
+  component: LocalizeBox,
   argTypes: {
     fontColor: {
       defaultValue: 'neutral1',
@@ -41,55 +41,56 @@ export default {
   },
 };
 
-const Tag: Story<LocalizeTagProps> = (args) => <LocalizeTag {...args} />;
+const Box: Story<LocalizeBoxProps> = (args) => <LocalizeBox {...args} />;
 
-export const Default = Tag.bind({});
+export const Default = Box.bind({});
 Default.args = {
-  children: 'LocalizeTag',
+  children: 'LocalizeBox',
   disabled: false,
 };
 
-const TagSizes: Story<LocalizeTagProps> = (args) => {
+const BoxSizes: Story<LocalizeBoxProps> = (args) => {
   const children = args.children;
   return (
     <>
       <LocalizeRow>
-        <LocalizeCol md={8}>
+        <LocalizeCol>
           <h4>xl</h4>
-          <LocalizeTag {...args} size="xl">
+          <LocalizeBox {...args} size="xl">
             {children}
-          </LocalizeTag>
+          </LocalizeBox>
         </LocalizeCol>
-        <LocalizeCol md={8}>
+        <LocalizeCol>
           <h4>lg</h4>
-          <LocalizeTag {...args} size="lg">
+          <LocalizeBox {...args} size="lg">
             {children}
-          </LocalizeTag>
+          </LocalizeBox>
         </LocalizeCol>
-        <LocalizeCol md={8}>
+        <LocalizeCol>
           <h4>md</h4>
-          <LocalizeTag {...args} size="md">
+          <LocalizeBox {...args} size="md">
             {children}
-          </LocalizeTag>
+          </LocalizeBox>
         </LocalizeCol>
-        <LocalizeCol md={8}>
+        <LocalizeCol>
           <h4>sm</h4>
-          <LocalizeTag {...args} size="sm">
+          <LocalizeBox {...args} size="sm">
             {children}
-          </LocalizeTag>
+          </LocalizeBox>
         </LocalizeCol>
-        <LocalizeCol md={8}>
+        <LocalizeCol>
           <h4>xs</h4>
-          <LocalizeTag {...args} size="xs">
+          <LocalizeBox {...args} size="xs">
             {children}
-          </LocalizeTag>
+          </LocalizeBox>
         </LocalizeCol>
       </LocalizeRow>
     </>
   );
 };
-export const TagsStorieSizes = TagSizes.bind({});
-TagsStorieSizes.args = {
-  children: 'LocalizeTag',
+export const BoxSizesStories = BoxSizes.bind({});
+BoxSizesStories.args = {
+  children: 'LocalizeBox',
+  borderRadius: '12px',
   disabled: false,
 };
