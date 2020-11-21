@@ -99,7 +99,7 @@ const StyledLocalizeTagWrapper = styled.div<LocalizeTagProps, LocalizeThemeProps
         backgroundColor: theme.colors.neutral4,
         borderColor: theme.colors.neutral5,
         color: theme.colors.neutral8,
-        cursor: 'not-allowed',
+        cursor: 'auto',
       },
     };
   },
