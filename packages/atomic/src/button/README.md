@@ -79,13 +79,13 @@
    * Set this to change variant
    * @default solid
    */
-  variant?: 'solid' | 'outline' | 'rounded';
+  variant?: 'solid' | 'outline';
 
   /**
    * Set this to change intent
    * @default default
    */
-  intent?: 'default' | 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'error';
+  intent?: 'localize' | 'default' | 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'error';
 
   /**
    * Set this to change size
