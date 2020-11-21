@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import { animated, useTransition } from 'react-spring';
 import { lighten } from 'polished';
 
-import { LocalizeButton } from '@seolhun/localize-components-atmoic';
+import { LocalizeButton } from '@seolhun/localize-components-atomic';
 import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 import { LocalizeMediaQueries } from '@seolhun/localize-components-grid';
 import { LocalizeIcon } from '@seolhun/localize-components-icon';

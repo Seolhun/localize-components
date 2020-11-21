@@ -34,7 +34,7 @@
     "polished": "^3.6.5"
   },
   "dependencies": {
-    "@seolhun/localize-components-atmoic": "^0.5.2",
+    "@seolhun/localize-components-atomic": "^0.5.2",
     "@seolhun/localize-components-grid": "^0.5.2",
     "@seolhun/localize-components-hooks": "^0.5.2",
     "@seolhun/localize-components-icon": "^0.5.2",
