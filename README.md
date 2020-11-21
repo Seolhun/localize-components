@@ -1,17 +1,17 @@
-<div style='text-align: center; margin-top: 40px'>
+<div style='text-align: center; margin-top: 40px; width: 100%;'>
   <img src='./.github/logo.png' />
 </div>
 
-![Dev Build](https://github.com/Seolhun/localize-components/workflows/Dev%20Build/badge.svg?branch=develop)
-
 ## Production
 
+![Github Build](https://github.com/Seolhun/localize-components/workflows/Github%20Build/badge.svg?branch=master)
 [![Build Status](https://travis-ci.com/Seolhun/localize-components.svg?branch=master)](https://travis-ci.com/Seolhun/localize-components)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/87c0d9f96fc74d94b60c0c397a6b30c6)](https://www.codacy.com/app/shun10114/localize-components?utm_source=github.com&utm_medium=referral&utm_content=Seolhun/localize-components&utm_campaign=Badge_Grade)
 [![codebeat badge](https://codebeat.co/badges/2ab413e3-946a-4719-bb75-07e76851cbba)](https://codebeat.co/projects/github-com-seolhun-localize-components-master)
 
 ## Development
 
+![Github Build](https://github.com/Seolhun/localize-components/workflows/Github%20Build/badge.svg?branch=develop)
 [![Build Status](https://travis-ci.com/Seolhun/localize-components.svg?branch=develop)](https://travis-ci.com/Seolhun/localize-components)
 
 ## Why
