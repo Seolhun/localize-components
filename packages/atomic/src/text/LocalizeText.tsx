@@ -5,7 +5,7 @@ import { Property } from 'csstype';
 
 import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
-const DEFAULT_CLASSNAME = '__Localize__Text';
+const CLASSNAME = '__Localize__Text';
 type HeadingProps = React.HTMLAttributes<HTMLHeadingElement>;
 type LocalizeTextType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p';
 
@@ -33,7 +33,7 @@ const LocalizeText: React.FC<LocalizeTextProps> = ({ type, children, className, 
   }, [type]);
 
   return (
-    <StyleLocalizeText {...props} type={type} className={classnames(DEFAULT_CLASSNAME, className)}>
+    <StyleLocalizeText {...props} type={type} className={classnames(CLASSNAME, className)}>
       {children}
     </StyleLocalizeText>
   );

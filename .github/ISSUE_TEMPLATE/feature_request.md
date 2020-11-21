@@ -34,7 +34,10 @@ assignees: 'Seolhun'
 
 - [ ] @seolhun/localize-components
 - [ ] @seolhun/localize-components-atomic
+- [ ] @seolhun/localize-components-forms
+- [ ] @seolhun/localize-components-icon
 - [ ] @seolhun/localize-components-grid
+- [ ] @seolhun/localize-components-table@seolhun/localize-components-grid
 
 #### Utils
 

@@ -2,12 +2,12 @@ import React from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
 
-import { LocalizeInput } from '@seolhun/localize-components-atomic';
+import { LocalizeInput } from '@seolhun/localize-components-forms';
 import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
 import { DropdownSearchResultItem } from './DropdownSearchResultItem';
 
-const DEFAULT_CLASSNAME = '__Localize__DropdownSearch';
+const CLASSNAME = '__Localize__DropdownSearch';
 const NO_DATA_MESSAGE = 'Not found data';
 
 export interface LocalizeDropdownSearchProps {
@@ -387,15 +387,15 @@ const LocalizeDropdownSearch = React.forwardRef<HTMLInputElement, LocalizeDropdo
 
     return (
       <SearchDropdownWrapper
-        className={classnames(DEFAULT_CLASSNAME, className)}
+        className={classnames(CLASSNAME, className)}
         ref={dropdownWarpperRef}
         zIndex={zIndex}
       >
-        <SearchDropdownInputContainer className={`${DEFAULT_CLASSNAME}__Input__Container`}>
+        <SearchDropdownInputContainer className={`${CLASSNAME}__Input__Container`}>
           <LocalizeInput
             {...props}
             ref={inputRef}
-            className={`${DEFAULT_CLASSNAME}__Input`}
+            className={`${CLASSNAME}__Input`}
             type={type}
             value={query}
             name={name}
@@ -408,12 +408,12 @@ const LocalizeDropdownSearch = React.forwardRef<HTMLInputElement, LocalizeDropdo
           />
         </SearchDropdownInputContainer>
         <SearchResulWrapper
-          className={`${DEFAULT_CLASSNAME}__ResultWrapper`}
+          className={`${CLASSNAME}__ResultWrapper`}
           isShowResult={isShowResult}
           zIndex={zIndex}
         >
           <SearchResulContainer
-            className={`${DEFAULT_CLASSNAME}__ResultContainer`}
+            className={`${CLASSNAME}__ResultContainer`}
             ref={scrollResultRef}
             resultMaxHeight={resultMaxHeight}
             zIndex={zIndex}

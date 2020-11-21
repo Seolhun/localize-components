@@ -4,7 +4,7 @@ import styled from '@emotion/styled';
 import classnames from 'classnames';
 import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
-const DEFAULT_CLASSNAME = '__Localize__Jumbotron';
+const CLASSNAME = '__Localize__Jumbotron';
 type DivProps = React.HTMLAttributes<HTMLDivElement>;
 
 export interface LocalizeJumbotronProps extends LocalizeProps, DivProps {
@@ -47,8 +47,8 @@ const LocalizeJumbotron: React.FC<LocalizeJumbotronProps> = ({
   ...props
 }) => {
   return (
-    <StyledJumbotronWrapper {...props} className={classnames(DEFAULT_CLASSNAME, className)}>
-      <StyledJumbotronContainer className={`${DEFAULT_CLASSNAME}__Container`}>
+    <StyledJumbotronWrapper {...props} className={classnames(CLASSNAME, className)}>
+      <StyledJumbotronContainer className={`${CLASSNAME}__Container`}>
         {title && <h1>{title}</h1>}
         {description && <h5>{description}</h5>}
         {children && children}

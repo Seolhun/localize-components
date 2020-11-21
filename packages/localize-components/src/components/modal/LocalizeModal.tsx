@@ -6,7 +6,7 @@ import classnames from 'classnames';
 import { LocalizeThemeProps, LocalizeProps } from '@seolhun/localize-components-styled-types';
 import { useDisclosure, useLockScroll } from '@seolhun/localize-components-hooks';
 
-const DEFAULT_CLASSNAME = '__Localize__Modal';
+const CLASSNAME = '__Localize__Modal';
 type DivProps = React.HTMLAttributes<HTMLDivElement>;
 type Props = LocalizeProps & DivProps;
 
@@ -111,7 +111,7 @@ const LocalizeModal: React.FC<LocalizeModalProps> = ({
   return ReactDOM.createPortal(
     <LocalizeModalWrapper
       ref={wrapperRef}
-      className={classnames(DEFAULT_CLASSNAME, className)}
+      className={classnames(CLASSNAME, className)}
       aria-label="modal"
       aria-modal="true"
       role="dialog"

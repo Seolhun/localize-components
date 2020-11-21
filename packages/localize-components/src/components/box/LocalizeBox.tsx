@@ -6,7 +6,7 @@ import { LocalizeThemeProps, LocalizeProps } from '@seolhun/localize-components-
 
 import classnames from 'classnames';
 
-const DEFAULT_CLASSNAME = '__Localize__Box';
+const CLASSNAME = '__Localize__Box';
 type DivProps = React.HTMLAttributes<HTMLDivElement>;
 
 export interface LocalizeBoxProps extends LocalizeProps, DivProps {}
@@ -29,8 +29,8 @@ const StyledBoxContainer = styled.div<LocalizeBoxProps>({
 
 const LocalizeBox: React.FC<LocalizeBoxProps> = ({ children, className, css = {}, ...props }) => {
   return (
-    <StyledBoxWrapper {...props} className={classnames(DEFAULT_CLASSNAME, className)}>
-      <StyledBoxContainer className={`${DEFAULT_CLASSNAME}__Container`}>
+    <StyledBoxWrapper {...props} className={classnames(CLASSNAME, className)}>
+      <StyledBoxContainer className={`${CLASSNAME}__Container`}>
         {children}
       </StyledBoxContainer>
     </StyledBoxWrapper>

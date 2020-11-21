@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
-import { LocalizeIconProps } from '@seolhun/localize-components-atomic';
+import { LocalizeIconProps } from '@seolhun/localize-components-icon';
 
 export interface LocalizeToastMessageProps {
   /**
