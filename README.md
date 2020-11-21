@@ -2,6 +2,8 @@
   <img src='./.github/logo.png' />
 </div>
 
+![Dev Build](https://github.com/Seolhun/localize-components/workflows/Dev%20Build/badge.svg?branch=develop)
+
 ## Production
 
 [![Build Status](https://travis-ci.com/Seolhun/localize-components.svg?branch=master)](https://travis-ci.com/Seolhun/localize-components)
@@ -10,7 +12,6 @@
 
 ## Development
 
-![Dev Build](https://github.com/Seolhun/localize-components/workflows/Dev%20Build/badge.svg?branch=develop)
 [![Build Status](https://travis-ci.com/Seolhun/localize-components.svg?branch=develop)](https://travis-ci.com/Seolhun/localize-components)
 
 ## Why
