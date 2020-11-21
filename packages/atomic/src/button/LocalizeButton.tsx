@@ -1,7 +1,7 @@
 import React from 'react';
-import { lighten } from 'polished';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
+import { darken } from 'polished';
 
 import {
   getLocalizeIntentAndColor,
@@ -44,7 +44,7 @@ export interface LocalizeButtonProps extends ExtentionProps {
 }
 
 function getLocalizeButtonStyle(
-  theme: LocalizeThemeProps,
+  _theme: LocalizeThemeProps,
   variant: LocalizeButtonVariantType,
   localizeColors: LocalizeStyleResponseType,
 ) {
@@ -52,9 +52,15 @@ function getLocalizeButtonStyle(
   switch (variant) {
     case 'outline': {
       return {
-        color: theme.colors.conversion10,
+        color: backgroundColor,
         backgroundColor: borderColor,
         border: `1px solid ${backgroundColor}`,
+
+        '&:hover, &:active': {
+          color: darken(0.1, backgroundColor),
+          backgroundColor: borderColor,
+          border: `1px solid ${darken(0.1, backgroundColor)}`,
+        },
       }
     }
     default: {
@@ -62,6 +68,12 @@ function getLocalizeButtonStyle(
         color,
         backgroundColor,
         border: `1px solid ${borderColor}`,
+
+        '&:hover, &:active': {
+          color,
+          backgroundColor: darken(0.1, backgroundColor),
+          border: `1px solid ${darken(0.1, borderColor)}`,
+        },
       }
     }
   }
@@ -77,7 +89,7 @@ const StyledLocalizeButton = styled.button<LocalizeButtonProps, LocalizeThemePro
     localize = {
       bgColor: 'primary',
       bdColor: 'transparent',
-      fontColor: 'conversion10',
+      fontColor: 'conversion1',
     },
   }) => {
     const localizeColor = getLocalizeIntentAndColor(theme, intent, localize);
@@ -88,18 +100,19 @@ const StyledLocalizeButton = styled.button<LocalizeButtonProps, LocalizeThemePro
       alignItems: 'center',
       justifyContent: 'center',
       height: 'auto',
+      maxWidth: '150px',
       padding: getLocalizeSizeBy(size),
       borderRadius: rounded ? '6px' : '0',
       textDecoration: 'none',
-      whiteSpace: 'nowrap',
       outline: 'none',
       transition: 'background-color 0.3s, border-color 0.3s, color 0.3s',
       userSelect: 'none',
       cursor: 'pointer',
+      wordBreak: 'break-word',
 
       '&:not(:disabled):not(:read-only):active, &:not(:disabled):not(:read-only):hover': {
-        backgroundColor: lighten(0.1, backgroundColor),
-        borderColor: lighten(0.1, borderColor),
+        backgroundColor: darken(0.1, backgroundColor),
+        borderColor: darken(0.1, borderColor),
       },
       '&:disabled': {
         backgroundColor: theme.colors.neutral4,

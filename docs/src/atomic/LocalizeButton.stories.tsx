@@ -17,6 +17,13 @@ export default {
         options: storiesSizeOptions,
       },
     },
+    variant: {
+      defaultValue: 'solid',
+      control: {
+        type: 'select',
+        options: ['solid', 'outline'],
+      },
+    },
     intent: {
       defaultValue: 'default',
       control: {
@@ -65,6 +72,7 @@ const Button: Story<LocalizeButtonProps> = (args) => {
 export const Default = Button.bind({});
 Default.args = {
   children: 'LocalizeButton',
+  rounded: false,
   disabled: false,
 };
 
@@ -76,24 +84,23 @@ const IntentButtons: Story<LocalizeButtonProps> = (args) => {
     color: args.color,
   }
   return (
-    <>
-      <LocalizeRow>
-        {storiesIntentOptions.map((intent) => (
-          <LocalizeCol md={8} key={intent}>
-            <h4>xl</h4>
-            <LocalizeButton {...args} intent={intent} localize={localize}>
-              {children}
-            </LocalizeButton>
-          </LocalizeCol>
-        ))}
-      </LocalizeRow>
-    </>
+    <LocalizeRow>
+      {storiesIntentOptions.map((intent) => (
+        <LocalizeCol md={8} key={intent}>
+          <h3>{intent}</h3>
+          <LocalizeButton {...args} intent={intent} localize={localize}>
+            {children}
+          </LocalizeButton>
+        </LocalizeCol>
+      ))}
+    </LocalizeRow>
   );
 };
 
 export const IntentButtonsStories = IntentButtons.bind({});
 IntentButtonsStories.args = {
   children: 'LocalizeButton',
+  rounded: false,
   disabled: false,
 };
 
@@ -105,45 +112,44 @@ const SizeButtons: Story<LocalizeButtonProps> = (args) => {
     color: args.color,
   }
   return (
-    <>
-      <LocalizeRow>
-        <LocalizeCol md={8}>
-          <h4>xl</h4>
-          <LocalizeButton {...args} localize={localize} size="xl">
-            {children}
-          </LocalizeButton>
-        </LocalizeCol>
-        <LocalizeCol md={8}>
-          <h4>lg</h4>
-          <LocalizeButton {...args} localize={localize} size="lg">
-            {children}
-          </LocalizeButton>
-        </LocalizeCol>
-        <LocalizeCol md={8}>
-          <h4>md</h4>
-          <LocalizeButton {...args} localize={localize} size="md">
-            {children}
-          </LocalizeButton>
-        </LocalizeCol>
-        <LocalizeCol md={8}>
-          <h4>sm</h4>
-          <LocalizeButton {...args} localize={localize} size="sm">
-            {children}
-          </LocalizeButton>
-        </LocalizeCol>
-        <LocalizeCol md={8}>
-          <h4>xs</h4>
-          <LocalizeButton {...args} localize={localize} size="xs">
-            {children}
-          </LocalizeButton>
-        </LocalizeCol>
-      </LocalizeRow>
-    </>
+    <LocalizeRow>
+      <LocalizeCol md={8}>
+        <h3>xl</h3>
+        <LocalizeButton {...args} localize={localize} size="xl">
+          {children}
+        </LocalizeButton>
+      </LocalizeCol>
+      <LocalizeCol md={8}>
+        <h3>lg</h3>
+        <LocalizeButton {...args} localize={localize} size="lg">
+          {children}
+        </LocalizeButton>
+      </LocalizeCol>
+      <LocalizeCol md={8}>
+        <h3>md</h3>
+        <LocalizeButton {...args} localize={localize} size="md">
+          {children}
+        </LocalizeButton>
+      </LocalizeCol>
+      <LocalizeCol md={8}>
+        <h3>sm</h3>
+        <LocalizeButton {...args} localize={localize} size="sm">
+          {children}
+        </LocalizeButton>
+      </LocalizeCol>
+      <LocalizeCol md={8}>
+        <h3>xs</h3>
+        <LocalizeButton {...args} localize={localize} size="xs">
+          {children}
+        </LocalizeButton>
+      </LocalizeCol>
+    </LocalizeRow>
   );
 };
 
 export const SizeButtonsStories = SizeButtons.bind({});
 SizeButtonsStories.args = {
   children: 'LocalizeButton',
+  rounded: false,
   disabled: false,
 };
