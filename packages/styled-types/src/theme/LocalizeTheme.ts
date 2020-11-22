@@ -56,6 +56,7 @@ export interface LocalizeProps {
 
 export interface LocalizeThemeProps<K = keyof typeof LocalizeThemeEnum> {
   type: K;
+  rtl: boolean;
   fonts: LocalizeThemeFontsProps;
   colors: {
     /**
@@ -466,6 +467,7 @@ const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
 
 export const localizeLightTheme: LocalizeThemeProps = {
   type: 'LIGHT',
+  rtl: true,
   fonts: localizeFonts,
   colors: localizeLightThemeColors,
   layout: {
@@ -476,6 +478,7 @@ export const localizeLightTheme: LocalizeThemeProps = {
 
 export const localizeDarkTheme: LocalizeThemeProps = {
   type: 'DARK',
+  rtl: true,
   fonts: localizeFonts,
   colors: localizeDarkThemeColors,
   layout: {

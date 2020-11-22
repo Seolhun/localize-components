@@ -39,21 +39,6 @@
   </div>
 </div>
 
-### Intent
-
-<div style='display: flex;'>
-  <div style='display: inline-flex; flex: 1;'>
-    <img 
-      src='./resources/button.options.size.png'
-      alt='button.options.size.png'
-      width='100%'
-    />
-  </div>
-  <div style='display: inline-flex; flex: 1;'>
-    Buttons come in 8 different intent colors: 'localize', 'default', 'primary', 'secondary', 'info', 'success', 'warning', 'error'.
-  </div>
-</div>
-
 ### Variant
 
 <div style='display: flex;'>
@@ -67,6 +52,22 @@
   <div style='display: inline-flex; flex: 1;'>
     The primary button is used for medium emphasis. 
     It should be used in place of a call to action button when the action requires less prominence, or if there are multiple primary actions of the same importance on the page.
+  </div>
+</div>
+
+### Intent
+
+<div style='display: flex;'>
+  <div style='display: inline-flex; flex: 1;'>
+    <img 
+      src='./resources/button.options.size.png'
+      alt='button.options.size.png'
+      width='100%'
+    />
+  </div>
+  <div style='display: inline-flex; flex: 1;'>
+    Buttons come in 8 different intent colors: 'localize', 'default', 'primary', 'secondary', 'info', 'success', 'warning', 'error'.
+    if you give intent 'localize' props that is changed by localize props.
   </div>
 </div>
 
@@ -90,6 +91,12 @@
 
 ```tsx
   /**
+   * Set this to change size
+   * @default md
+   */
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+
+  /**
    * Set this to change variant
    * @default solid
    */
@@ -102,10 +109,9 @@
   intent?: 'localize' | 'default' | 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'error';
 
   /**
-   * Set this to change size
-   * @default md
+   * Set this to change variant
    */
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  disabled?: boolean;
 ```
 
 ## Behaviors
