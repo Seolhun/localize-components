@@ -4,8 +4,8 @@
 
 <div style='display: flex;'>
   <img 
-    src='./resources/button.anatomy.png'
-    alt='button.options.size.png'
+    src='./docs/resources/something.anatomy.png'
+    alt='something.options.size.png'
     width='100%'
   />
 </div>
@@ -14,8 +14,8 @@
 
 <div style='display: flex;'>
   <img 
-    src='./resources/button.specs.png'
-    alt='button.options.size.png'
+    src='./docs/resources/something.specs.png'
+    alt='something.options.size.png'
     width='100%'
   />
 </div>
@@ -27,8 +27,8 @@
 <div style='display: flex;'>
   <div style='display: inline-flex; flex: 1;'>
     <img 
-      src='./resources/button.options.size.png'
-      alt='button.options.size.png'
+      src='./docs/resources/something.options.size.png'
+      alt='something.options.size.png'
       width='100%'
     />
   </div>
@@ -86,6 +86,6 @@
 
 ## References
 
-- [Spectrum.adobe](https://spectrum.adobe.com/page/button)
-- [Material](https://material.io/components/buttons)
-- [Blueprintjs](https://blueprintjs.com/docs/#core/components/button)
+- [Spectrum.adobe](https://spectrum.adobe.com/page/something)
+- [Material](https://material.io/components/somethings)
+- [Blueprintjs](https://blueprintjs.com/docs/#core/components/something)

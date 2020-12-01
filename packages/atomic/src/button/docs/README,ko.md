@@ -3,21 +3,31 @@
 ## Anatomy
 
 <div style='display: flex;'>
-  <img 
-    src='./resources/button.anatomy.png'
-    alt='button.options.size.png'
-    width='100%'
-  />
+  <div style='display: inline-flex; flex: 1;'>
+    <img 
+      src='./resources/anatomy/button.anatomy.png'
+      alt='button.options.size.png'
+      width='100%'
+    />
+  </div>
+  <div style='display: inline-flex; flex: 1;'>
+    분해 설명
+  </div>
 </div>
 
 ## Specs
 
 <div style='display: flex;'>
-  <img 
-    src='./resources/button.specs.png'
-    alt='button.options.size.png'
-    width='100%'
-  />
+  <div style='display: inline-flex; flex: 1;'>
+    <img 
+      src='./resources/specs/button.specs.png'
+      alt='button.options.size.png'
+      width='100%'
+    />
+  </div>
+  <div style='display: inline-flex; flex: 1;'>
+    스펙 설명
+  </div>
 </div>
 
 ## Options
@@ -27,15 +37,15 @@
 <div style='display: flex;'>
   <div style='display: inline-flex; flex: 1;'>
     <img 
-      src='./resources/button.options.size.png'
+      src='./resources/options/button.options.size.png'
       alt='button.options.size.png'
       width='100%'
     />
   </div>
   <div style='display: inline-flex; flex: 1;'>
-    Buttons come in four different sizes: 'xs' | 'sm' | 'md' | 'lg' | 'xl'.
-    The md size is the default and most frequent option.
-    Use the other sizes sparingly; they should be used to create a hierarchy of importance within the page.
+    버튼 사이즈는 'xs' | 'sm' | 'md' | 'lg' | 'xl' 존재합니다.
+    자주 사용되는 size는 md이며, 이를 기본 값으로 사용합니다.
+    버튼 간의 다른 크기는 조금만 사용하세요. 페이지 내에서 중요한 계층을 만드는 데 사용해야합니다.
   </div>
 </div>
 
@@ -44,14 +54,16 @@
 <div style='display: flex;'>
   <div style='display: inline-flex; flex: 1;'>
     <img 
-      src='./resources/button.options.size.png'
+      src='./resources/options/button.options.variant.png'
       alt='button.options.size.png'
       width='100%'
     />
   </div>
+  
   <div style='display: inline-flex; flex: 1;'>
-    The primary button is used for medium emphasis. 
-    It should be used in place of a call to action button when the action requires less prominence, or if there are multiple primary actions of the same importance on the page.
+    버튼 intent는 'solid' | 'outline' 존재합니다.
+    자주 사용되는 variant는 solid이며, 이를 기본 값으로 사용합니다.
+    solid와 outline은 서로 상반된 스타일을 가지고 있어, 강조할 때는 주로 solid를 사용합니다.
   </div>
 </div>
 
@@ -60,14 +72,15 @@
 <div style='display: flex;'>
   <div style='display: inline-flex; flex: 1;'>
     <img 
-      src='./resources/button.options.size.png'
+      src='./resources/options/button.options.intent.png'
       alt='button.options.size.png'
       width='100%'
     />
   </div>
   <div style='display: inline-flex; flex: 1;'>
-    Buttons come in 8 different intent colors: 'localize', 'default', 'primary', 'secondary', 'info', 'success', 'warning', 'error'.
-    if you give intent 'localize' props that is changed by localize props.
+    버튼 intent는 'default' | 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'error' 존재합니다.
+    자주 사용되는 intent는 primary이며, 이를 기본 값으로 사용합니다.
+    intent는 주로 계층과 상태를 나타내며, 강조할 떄는 primary를 사용합니다.
   </div>
 </div>
 
@@ -76,14 +89,14 @@
 <div style='display: flex;'>
   <div style='display: inline-flex; flex: 1;'>
     <img 
-      src='./resources/button.options.size.png'
+      src='./resources/options/button.options.disabled.png'
       alt='button.options.size.png'
       width='100%'
     />
   </div>
   <div style='display: inline-flex; flex: 1;'>
-    A button in a disabled state shows that an action exists, but is not available in that circumstance. 
-    This state can be used to maintain layout continuity and to communicate that an action may become available later.
+    비활성화 된 상태의 버튼은 작업이 존재하지만 해당 상황에서 사용할 수 없음을 나타냅니다.
+    이 상태는 레이아웃 연속성을 유지하고 나중에 작업을 사용할 수 있음을 알리는 데 사용할 수 있습니다.
   </div>
 </div>
 
@@ -147,4 +160,4 @@
 
 - [Spectrum.adobe](https://spectrum.adobe.com/page/button)
 - [Material](https://material.io/components/buttons)
-- [Blueprintjs](https://blueprintjs.com/docs/#core/components/button)
+- [Blueprintjs](https://blueprintjs.com/#core/components/button)
