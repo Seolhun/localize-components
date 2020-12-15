@@ -1,14 +1,15 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import { Property } from 'csstype';
 
 import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
 import { LocalizeTableProps } from '../LocalizeTable';
 
-type TrProps = React.TableHTMLAttributes<HTMLTableRowElement>;
+type TrProps = React.HTMLAttributes<HTMLTableRowElement>;
 type ExtensionProps = TrProps;
 export interface LocalizeTableRowProps extends ExtensionProps {
-  height: string;
+  height: Property.Height;
 
   responsive: LocalizeTableProps['responsive'];
 }

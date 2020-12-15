@@ -1,10 +1,15 @@
 import React from 'react';
+import { Property } from 'csstype';
 
 export type LocalizeHeaderRenderType = React.ReactNode | LocalizeTableHeaderRenderFunction;
 export type LocalizeTableHeaderRenderFunction = () => React.ReactNode;
-export type LocalizeTableCellRenderFunction<T = any> = (rowData: T) => React.ReactNode;
+export type LocalizeTableCellRenderFunction<T = any> = (
+  rowData: T,
+  rowIndex: number,
+) => React.ReactNode;
+export type LocalizeTableRowEventHandler<T = any> = (rowData: T, rowIndex: number) => void;
 
-export interface LocalizeTableColumProps<T = any> {
+export interface LocalizeTableColumnProps<T = any> {
   header: LocalizeHeaderRenderType;
 
   render: LocalizeTableCellRenderFunction<T>;
@@ -22,10 +27,10 @@ export interface LocalizeTableColumProps<T = any> {
   /**
    * Cell - Width
    */
-  width?: string;
+  width?: Property.Width;
 
   /**
    * Cell - Text Eliipsis 여부
    */
-  ellipsis?: boolean;
+  textOverflow?: Property.TextOverflow;
 }
