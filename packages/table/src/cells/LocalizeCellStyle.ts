@@ -7,11 +7,11 @@ const LocalizeCellStyle = (theme: LocalizeThemeProps): any => {
     color: theme.colors['conversion10'],
     padding: '0 10px',
 
-    borderRight: `1px solid ${theme.colors.neutral4}`,
-    borderBottom: `1px solid ${theme.colors.neutral4}`,
+    borderRight: `1px solid ${theme.colors.neutral3}`,
+    borderBottom: `1px solid ${theme.colors.neutral3}`,
 
     '&:first-of-type': {
-      borderLeft: `1px solid ${theme.colors.neutral4}`,
+      borderLeft: `1px solid ${theme.colors.neutral3}`,
     },
   } as PropertiesFallback<HTMLTableCellElement>;
 };
