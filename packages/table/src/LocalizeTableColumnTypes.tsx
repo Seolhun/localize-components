@@ -3,7 +3,10 @@ import { Property } from 'csstype';
 
 export type LocalizeHeaderRenderType = React.ReactNode | LocalizeTableHeaderRenderFunction;
 export type LocalizeTableHeaderRenderFunction = () => React.ReactNode;
-export type LocalizeTableCellRenderFunction<T = any> = (rowData: T, rowIndex: number) => React.ReactNode;
+export type LocalizeTableCellRenderFunction<T = any> = (
+  rowData: T,
+  rowIndex: number,
+) => React.ReactNode;
 export type LocalizeTableRowEventHandler<T = any> = (rowData: T, rowIndex: number) => void;
 
 export interface LocalizeTableColumnProps<T = any> {

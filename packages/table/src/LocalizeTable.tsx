@@ -3,11 +3,20 @@ import styled from '@emotion/styled';
 import classnames from 'classnames';
 import { Property } from 'csstype';
 
-import { getLocalizeIntentAndColor, LocalizeIntentThemeType, LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
+import {
+  getLocalizeIntentAndColor,
+  LocalizeIntentThemeType,
+  LocalizeProps,
+  LocalizeThemeProps,
+} from '@seolhun/localize-components-styled-types';
 
 import { LocalizeTableRow } from './rows';
 import { LocalizeTableHeaderCell, LocalizeTableDataCell } from './cells';
-import { LocalizeHeaderRenderType, LocalizeTableColumnProps, LocalizeTableRowEventHandler } from './LocalizeTableColumnTypes';
+import {
+  LocalizeHeaderRenderType,
+  LocalizeTableColumnProps,
+  LocalizeTableRowEventHandler,
+} from './LocalizeTableColumnTypes';
 
 const CLASSNAME = '__Localize__Table';
 type TableProps = React.TableHTMLAttributes<HTMLTableElement>;
@@ -96,51 +105,55 @@ interface LocalizeTableBodyProps {
   rowHeight?: LocalizeTableProps['rowHeight'];
 }
 
-const LocalizeStyledTableWrapper = styled.div<LocalizeTableThemeProps, LocalizeThemeProps>(({
-  theme,
-  intent = 'default',
-  localize = {
-    bgColor: 'primary',
-    bdColor: 'neutral3',
-    fontColor: 'conversion1',
-  },
-}) => {
-  const localizeColor = getLocalizeIntentAndColor(theme, intent, localize);
-  const { borderColor } = localizeColor;
-  return {
-    position: 'relative',
-    width: '100%',
-    height: '100%',
-    overflow: 'auto',
-    border: `1px solid ${borderColor}`,
-  };
-});
-
-const LocalizeStyledTable = styled.table<LocalizeTableThemeProps, LocalizeThemeProps>(({
-  theme,
-  intent = 'default',
-  localize = {
-    bgColor: 'primary',
-    bdColor: 'neutral3',
-    fontColor: 'conversion1',
-  },
-}) => {
-  const localizeColor = getLocalizeIntentAndColor(theme, intent, localize);
-  const { backgroundColor, color, borderColor } = localizeColor;
-  return {
-    width: '100%',
-    height: '100%',
-
-    th: {
-      backgroundColor,
-      borderColor,
-      color,
+const LocalizeStyledTableWrapper = styled.div<LocalizeTableThemeProps, LocalizeThemeProps>(
+  ({
+    theme,
+    intent = 'default',
+    localize = {
+      bgColor: 'primary',
+      bdColor: 'neutral3',
+      fontColor: 'conversion1',
     },
-    td: {
-      borderColor,
-    }
-  };
-});
+  }) => {
+    const localizeColor = getLocalizeIntentAndColor(theme, intent, localize);
+    const { borderColor } = localizeColor;
+    return {
+      position: 'relative',
+      width: '100%',
+      height: '100%',
+      overflow: 'auto',
+      border: `1px solid ${borderColor}`,
+    };
+  },
+);
+
+const LocalizeStyledTable = styled.table<LocalizeTableThemeProps, LocalizeThemeProps>(
+  ({
+    theme,
+    intent = 'default',
+    localize = {
+      bgColor: 'primary',
+      bdColor: 'neutral3',
+      fontColor: 'conversion1',
+    },
+  }) => {
+    const localizeColor = getLocalizeIntentAndColor(theme, intent, localize);
+    const { backgroundColor, color, borderColor } = localizeColor;
+    return {
+      width: '100%',
+      height: '100%',
+
+      th: {
+        backgroundColor,
+        borderColor,
+        color,
+      },
+      td: {
+        borderColor,
+      },
+    };
+  },
+);
 
 const LocalizeTableHeader = styled.thead<LocalizeTableHeaderProps, LocalizeThemeProps>(
   ({ fixedHeader }) => {
@@ -160,19 +173,20 @@ const LocalizeTableBody = styled.tbody<LocalizeTableBodyProps, LocalizeThemeProp
   },
 );
 
-const LocalizeStyledTableFooterWrapper = styled.div<{ height: Property.Height; }, LocalizeThemeProps>(
-  ({ theme, height }) => {
-    return {
-      width: '100%',
-      height: '100%',
-      minHeight: height,
-      backgroundColor: theme.colors.neutral3,
-      borderRight: `1px solid ${theme.colors.neutral4}`,
-      borderBottom: `1px solid ${theme.colors.neutral4}`,
-      borderLeft: `1px solid ${theme.colors.neutral4}`,
-    };
-  },
-);
+const LocalizeStyledTableFooterWrapper = styled.div<
+  { height: Property.Height },
+  LocalizeThemeProps
+>(({ theme, height }) => {
+  return {
+    width: '100%',
+    height: '100%',
+    minHeight: height,
+    backgroundColor: theme.colors.neutral3,
+    borderRight: `1px solid ${theme.colors.neutral4}`,
+    borderBottom: `1px solid ${theme.colors.neutral4}`,
+    borderLeft: `1px solid ${theme.colors.neutral4}`,
+  };
+});
 
 function LocalizeTable<T>({
   datasources,

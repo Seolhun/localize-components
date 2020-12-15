@@ -15,15 +15,17 @@ export interface LocalizeTableHeaderCellProps extends ExtensionProps {
   width?: Property.Width;
 }
 
-const LocalizeTableHeaderCellWrapper = styled.th<LocalizeTableHeaderCellProps, LocalizeThemeProps>(({ theme, width }) => {
-  return {
-    ...LocalizeCellStyles(theme),
-    width,
-    backgroundColor: theme.colors.neutral3,
-    borderBottom: `1px solid ${theme.colors.neutral3}`,
-    transition: 'background-color 0.25s',
-  };
-});
+const LocalizeTableHeaderCellWrapper = styled.th<LocalizeTableHeaderCellProps, LocalizeThemeProps>(
+  ({ theme, width }) => {
+    return {
+      ...LocalizeCellStyles(theme),
+      width,
+      backgroundColor: theme.colors.neutral3,
+      borderBottom: `1px solid ${theme.colors.neutral3}`,
+      transition: 'background-color 0.25s',
+    };
+  },
+);
 
 const LocalizeTableHeaderCell: React.FC<LocalizeTableHeaderCellProps> = ({
   children,

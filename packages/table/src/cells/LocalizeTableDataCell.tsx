@@ -15,12 +15,14 @@ export interface LocalizeTableDataCellProps extends ExtensionProps {
   width?: Property.Width;
 }
 
-const LocalizeTableDataCellWrapper = styled.td<LocalizeTableDataCellProps, LocalizeThemeProps>(({ theme, width }) => {
-  return {
-    ...LocalizeCellStyle(theme),
-    width,
-  };
-});
+const LocalizeTableDataCellWrapper = styled.td<LocalizeTableDataCellProps, LocalizeThemeProps>(
+  ({ theme, width }) => {
+    return {
+      ...LocalizeCellStyle(theme),
+      width,
+    };
+  },
+);
 
 const LocalizeTableDataCell: React.FC<LocalizeTableDataCellProps> = ({ children, className }) => {
   return (
