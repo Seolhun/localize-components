@@ -5,16 +5,13 @@ import babel from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 
 import pkg from './package.json';
-
-let externals = [];
-if (pkg.dependencies) {
-  externals = Object.keys(pkg.dependencies);
-}
+const externals = Object.keys(pkg.peerDependencies);
+const isProd = process.env.NODE_ENV === 'production';
 
 export default {
   input: './src/index.ts',
   output: {
-    sourcemap: true,
+    sourcemap: isProd,
     format: 'es',
     dir: 'dist',
     plugins: [terser()],
