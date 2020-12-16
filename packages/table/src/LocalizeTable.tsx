@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
-import { Property } from 'csstype';
 
 import {
   getLocalizeIntentAndColor,
@@ -52,7 +51,7 @@ export interface LocalizeTableProps<T = any> extends ExtentionProps {
   bordered?: boolean;
 
   /**
-   * @name RowPart
+   * Set this to change selected className
    */
   selectedRowClassName?: (rowItem: T) => string;
 
@@ -62,12 +61,12 @@ export interface LocalizeTableProps<T = any> extends ExtentionProps {
   onClickRow?: LocalizeTableRowEventHandler<T>;
 
   /**
-   * @default 50px
+   * @default 50
    * Set this this change row height
    * responsive가 true일 경우 rowHeight값은 minHeight로 바뀜
    * TODO: 고정 높이 해결해야 함
    */
-  rowHeight?: Property.Height;
+  rowHeight?: number;
 
   /**
    * @default true
@@ -78,30 +77,37 @@ export interface LocalizeTableProps<T = any> extends ExtentionProps {
   responsive?: boolean;
 
   /**
-   * @name CellPart
+   * Set this to change table header fixed
    */
-  fixedHeader?: LocalizeTableHeaderProps['fixedHeader'];
+  fixedHeader?: boolean;
 
   /**
-   * @name OptionPart
+   * Set this to change table height
+   * @default 300
    */
+  fixedTableHeight?: number;
+
   /**
+   * Set this to change no data node
    * @default 'No Data'
    */
   renderEmptyData?: () => React.ReactNode;
 }
 
+type LocalizeTableWrapperProps = LocalizeTableThemeProps & Pick<LocalizeTableProps, 'fixedHeader'| 'fixedTableHeight'>
+
 interface LocalizeTableHeaderProps {
-  /**
-   * Table header is fixed
-   */
-  fixedHeader?: boolean;
+  fixedHeader?: LocalizeTableProps['fixedHeader'];
+
+  fixedTableHeight?: LocalizeTableProps['fixedTableHeight'];
+
+  rowHeight?: LocalizeTableProps['rowHeight'];
 }
+
 interface LocalizeTableBodyProps {
-  /**
-   * Table header is fixed
-   */
-  fixedHeader?: LocalizeTableHeaderProps['fixedHeader'];
+  fixedHeader?: LocalizeTableProps['fixedHeader'];
+
+  fixedTableHeight?: LocalizeTableProps['fixedTableHeight'];
 
   rowHeight?: LocalizeTableProps['rowHeight'];
 }
@@ -110,7 +116,7 @@ interface LocalizeTableOptionProps {
   rowHeight?: LocalizeTableProps['rowHeight'];
 }
 
-const LocalizeStyledTableWrapper = styled.div<LocalizeTableThemeProps, LocalizeThemeProps>(
+const LocalizeStyledTableWrapper = styled.div<LocalizeTableWrapperProps, LocalizeThemeProps>(
   ({
     theme,
     intent = 'default',
@@ -119,14 +125,15 @@ const LocalizeStyledTableWrapper = styled.div<LocalizeTableThemeProps, LocalizeT
       bdColor: 'neutral3',
       fontColor: 'conversion1',
     },
+    fixedHeader,
+    fixedTableHeight,
   }) => {
     const localizeColor = getLocalizeIntentAndColor(theme, intent, localize);
     const { borderColor } = localizeColor;
     return {
       position: 'relative',
       width: '100%',
-      height: '100%',
-      overflow: 'auto',
+      height: fixedHeader ? fixedTableHeight : '100%',
       border: `1px solid ${borderColor}`,
     };
   },
@@ -147,6 +154,8 @@ const LocalizeStyledTable = styled.table<LocalizeTableThemeProps, LocalizeThemeP
     return {
       width: '100%',
       height: '100%',
+      borderSpacing: 0,
+      borderColor,
 
       th: {
         backgroundColor,
@@ -163,17 +172,26 @@ const LocalizeStyledTable = styled.table<LocalizeTableThemeProps, LocalizeThemeP
 const LocalizeTableHeader = styled.thead<LocalizeTableHeaderProps, LocalizeThemeProps>(
   ({ fixedHeader }) => {
     return {
-      position: fixedHeader ? 'fixed' : 'unset',
+      position: fixedHeader ? 'absolute' : 'unset',
+      top: 0,
+      right: 0,
+      left: 0,
       zIndex: 1,
     };
   },
 );
 
 const LocalizeTableBody = styled.tbody<LocalizeTableBodyProps, LocalizeThemeProps>(
-  ({ fixedHeader, rowHeight }) => {
+  ({ fixedHeader, fixedTableHeight, rowHeight }) => {
     return {
       position: fixedHeader ? 'absolute' : 'unset',
-      marginTop: fixedHeader ? rowHeight : '0',
+      top: 0,
+      right: 0,
+      left: 0,
+      marginTop: fixedHeader ? rowHeight : 0,
+      height: fixedHeader ? fixedTableHeight : '100%',
+      overflowY: 'auto',
+      overflowX: 'hidden',
     };
   },
 );
@@ -182,7 +200,6 @@ const LocalizeTableOption = styled.div<LocalizeTableOptionProps, LocalizeThemePr
   ({ theme, rowHeight }) => {
     return {
       width: '100%',
-      height: '100%',
       minHeight: rowHeight,
       backgroundColor: theme.colors.neutral3,
       borderRight: `1px solid ${theme.colors.neutral4}`,
@@ -199,9 +216,10 @@ function LocalizeTable<T>({
   renderOption,
   selectedRowClassName,
   onClickRow,
-  rowHeight = '50px',
+  rowHeight = 50,
   responsive = true,
   fixedHeader,
+  fixedTableHeight = 300,
   renderEmptyData,
   ...props
 }: LocalizeTableProps<T>) {
@@ -247,11 +265,29 @@ function LocalizeTable<T>({
     [selectedRowClassName],
   );
 
+  const memoizedFixedTableHeight = React.useMemo(() => {
+    let tableHeight = fixedTableHeight;
+    if (renderOption) {
+      tableHeight += rowHeight;
+    }
+    if (fixedHeader) {
+      tableHeight += rowHeight;
+    }
+    return tableHeight;
+  }, [renderOption, rowHeight, fixedHeader, fixedTableHeight])
+
   return (
-    <LocalizeStyledTableWrapper {...props} intent={intent}>
+    <LocalizeStyledTableWrapper {...props} intent={intent}
+    fixedHeader={fixedHeader}
+    fixedTableHeight={memoizedFixedTableHeight}
+    >
       <LocalizeStyledTable {...props} className={classnames(CLASSNAME)} intent={intent}>
         <>
-          <LocalizeTableHeader fixedHeader={fixedHeader}>
+          <LocalizeTableHeader
+            fixedHeader={fixedHeader}
+            fixedTableHeight={fixedTableHeight}
+            rowHeight={rowHeight}
+          >
             <LocalizeTableRow height={rowHeight} responsive={responsive}>
               {columns.map((colum, headerRowIndex) => (
                 <LocalizeTableHeaderCell
@@ -264,9 +300,13 @@ function LocalizeTable<T>({
               ))}
             </LocalizeTableRow>
           </LocalizeTableHeader>
-          <LocalizeTableBody fixedHeader={fixedHeader} rowHeight={rowHeight}>
+          <LocalizeTableBody
+            fixedHeader={fixedHeader}
+            fixedTableHeight={fixedTableHeight}
+            rowHeight={rowHeight}
+          >
             {datasources.length === 0 ? (
-              <LocalizeTableRow height="200px" responsive={responsive}>
+              <LocalizeTableRow height={fixedTableHeight} responsive={responsive}>
                 <td colSpan={columns.length} align="center">
                   {handleRenderEmptyData()}
                 </td>

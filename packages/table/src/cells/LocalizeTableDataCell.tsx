@@ -24,9 +24,13 @@ const LocalizeTableDataCellWrapper = styled.td<LocalizeTableDataCellProps, Local
   },
 );
 
-const LocalizeTableDataCell: React.FC<LocalizeTableDataCellProps> = ({ children, className }) => {
+const LocalizeTableDataCell: React.FC<LocalizeTableDataCellProps> = ({
+  children,
+  className,
+  ...props
+}) => {
   return (
-    <LocalizeTableDataCellWrapper className={classnames(CLASSNAME, className)}>
+    <LocalizeTableDataCellWrapper {...props} className={classnames(CLASSNAME, className)}>
       {children}
     </LocalizeTableDataCellWrapper>
   );

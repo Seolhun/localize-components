@@ -12,5 +12,5 @@ const theme = create({
 
 addons.setConfig({
   theme,
-  panelPosition: 'right',
+  panelPosition: 'bottom',
 });

@@ -43,7 +43,7 @@ export default {
 
 const columns: LocalizeTableColumnProps<TableDummyProps>[] = [{
   header: 'id',
-  width: '10%',
+  width: '100px',
   render: (data) => (
     <div>
         {data.id}
@@ -51,7 +51,7 @@ const columns: LocalizeTableColumnProps<TableDummyProps>[] = [{
   )
 },{
   header: 'first_name',
-  width: '20%',
+  width: '200px',
   render: (data) => (
     <div>
         {data.first_name}
@@ -59,7 +59,7 @@ const columns: LocalizeTableColumnProps<TableDummyProps>[] = [{
   )
 },{
   header: 'last_name',
-  width: '20%',
+  width: '200px',
   render: (data) => (
     <div>
         {data.last_name}
@@ -67,7 +67,7 @@ const columns: LocalizeTableColumnProps<TableDummyProps>[] = [{
   )
 },{
   header: 'email',
-  width: '20%',
+  width: '200px',
   render: (data) => (
     <div>
         {data.email}
@@ -75,7 +75,7 @@ const columns: LocalizeTableColumnProps<TableDummyProps>[] = [{
   )
 },{
   header: 'gender',
-  width: '10%',
+  width: '100px',
   render: (data) => (
     <div>
         {data.gender}
@@ -83,7 +83,7 @@ const columns: LocalizeTableColumnProps<TableDummyProps>[] = [{
   )
 },{
   header: 'ip_address',
-  width: '20%',
+  width: '200px',
   render: (data) => (
     <div>
         {data.ip_address}
@@ -99,7 +99,7 @@ const renderEmptyData = () => {
   )
 }
 
-const renderFooter = () => {
+const renderOption = () => {
   return (
     <div>
       This is Footer
@@ -130,8 +130,7 @@ const Table: Story<LocalizeTableProps<TableDummyProps>> = (args) => {
       onClickRow={onClick}
       selectedRowClassName={() => 'Selected__Row'}
       renderEmptyData={renderEmptyData}
-      renderFooter={renderFooter}
-
+      renderOption={renderOption}
     />
   );
 };
@@ -139,6 +138,42 @@ const Table: Story<LocalizeTableProps<TableDummyProps>> = (args) => {
 export const TableStories = Table.bind({});
 TableStories.args = {
   bordered: false,
-  fixedHeader: false,
+  rowHeight: 50,
+};
+
+
+const FixedTable: Story<LocalizeTableProps<TableDummyProps>> = (args) => {
+  const localize = {
+    bgColor: args.bgColor,
+    bdColor: args.bdColor,
+    color: args.color,
+  };
+
+  const onClick = React.useCallback((data: TableDummyProps, rowIndex: number) => {
+    console.log({
+      data,
+      rowIndex,
+    })
+  }, []);
+
+  return (
+    <LocalizeTable
+      {...args}
+      localize={localize}
+      datasources={datasources.slice(0, 100)}
+      columns={columns}
+      onClickRow={onClick}
+      selectedRowClassName={() => 'Selected__Row'}
+      renderEmptyData={renderEmptyData}
+      renderOption={renderOption}
+    />
+  );
+};
+
+export const FixedTableStories = FixedTable.bind({});
+FixedTableStories.args = {
+  bordered: false,
+  fixedHeader: true,
+  fixedTableHeight: 300,
   rowHeight: 50,
 };
