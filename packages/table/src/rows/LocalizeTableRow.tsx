@@ -18,7 +18,7 @@ const LocalizeStyledTableRow = styled.div<LocalizeTableRowProps, LocalizeThemePr
       flexWrap: 'nowrap',
 
       '&:first-of-type': {
-        borderLeft: `1px solid ${theme.colors.neutral4}`,
+        borderTop: `1px solid ${theme.colors.neutral4}`,
       },
       '&:last-of-type': {
         borderBottom: `1px solid ${theme.colors.neutral4}`,

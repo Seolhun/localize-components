@@ -15,6 +15,7 @@ const CLASSNAME = '__Localize__Table__HeaderCell';
 
 type DivProps = React.HTMLAttributes<HTMLDivElement>;
 type ExtensionProps = DivProps;
+
 export interface LocalizeTableHeaderCellProps extends ExtensionProps {
   width?: Property.Width;
 
@@ -34,9 +35,14 @@ const LocalizeTableHeaderCellWrapper = styled.div<LocalizeTableHeaderCellProps, 
       justifyContent: horizontalAlign,
       width,
       height: `${height}px`,
-      backgroundColor: theme.colors.neutral3,
-      borderBottom: `1px solid ${theme.colors.neutral3}`,
       transition: 'background-color 0.25s',
+
+      borderRight: `1px solid ${theme.colors.neutral3}`,
+      borderBottom: `1px solid ${theme.colors.neutral3}`,
+
+      '&:first-of-type': {
+        borderLeft: `1px solid ${theme.colors.neutral3}`,
+      },
     };
   },
 );
