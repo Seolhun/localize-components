@@ -1,7 +1,7 @@
 import React from 'react';
 import { Story } from '@storybook/react/types-6-0';
 
-import { LocalizeVirtualTable, LocalizeVirtualTableProps, LocalizeTableColumnProps } from '../../../packages/table/dist';
+import { LocalizeVirtualTable, LocalizeVirtualTableProps, LocalizeVirtualTableColumnProps } from '../../../packages/table/dist';
 
 import { storiesColorOptions, storiesIntentOptions } from '../controls';
 import { datasources, TableDummyProps } from './table.dummy';
@@ -41,7 +41,7 @@ export default {
   },
 };
 
-const columns: LocalizeTableColumnProps<TableDummyProps>[] = [{
+const columns: LocalizeVirtualTableColumnProps<TableDummyProps>[] = [{
   header: 'id',
   width: '10%',
   render: (data) => (
@@ -68,6 +68,7 @@ const columns: LocalizeTableColumnProps<TableDummyProps>[] = [{
 },{
   header: 'email',
   width: '20%',
+  freezing: true,
   render: (data) => (
     <div>
       {data.email}
@@ -76,6 +77,7 @@ const columns: LocalizeTableColumnProps<TableDummyProps>[] = [{
 },{
   header: 'gender',
   width: '10%',
+  freezing: true,
   render: (data) => (
     <div>
       {data.gender}

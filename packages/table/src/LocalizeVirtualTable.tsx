@@ -17,14 +17,16 @@ import {
   LocalizeTableHeaderProps,
   LocalizeTableBodyProps,
 } from './LocalizeTable';
-import { LocalizeHeaderRenderType } from './LocalizeTableTypes';
+import { LocalizeHeaderRenderType, LocalizeVirtualTableColumnProps } from './LocalizeTableTypes';
 
 const CLASSNAME = '__Localize__VirtualTable';
 type DivProps = React.HTMLAttributes<HTMLDivElement>;
 type ExtentionProps<T> = DivProps &
   LocalizeTableThemeProps &
-  Omit<LocalizeTableProps<T>, 'fixedHeader'>;
-export interface LocalizeVirtualTableProps<T = any> extends ExtentionProps<T> {}
+  Omit<LocalizeTableProps<T>, 'columns' | 'fixedHeader'>;
+export interface LocalizeVirtualTableProps<T = any> extends ExtentionProps<T> {
+  columns: LocalizeVirtualTableColumnProps[];
+}
 
 type PickLocalizeVirtualTableType<T> = Pick<
   LocalizeVirtualTableProps<T>,
@@ -32,8 +34,8 @@ type PickLocalizeVirtualTableType<T> = Pick<
 >;
 type LocalizeStyledVirtualTableProps<T> = LocalizeTableThemeProps & PickLocalizeVirtualTableType<T>;
 
-interface PickLocalizeVirtualTableRowProps {
-  columns: LocalizeVirtualTableProps['columns'];
+interface PickLocalizeVirtualTableDataRowProps {
+  columns: LocalizeVirtualTableColumnProps[];
 
   rowHeight?: LocalizeVirtualTableProps['rowHeight'];
 
@@ -56,8 +58,8 @@ interface ListChildComponentProps<T> {
   isScrolling?: boolean;
 }
 
-type LocalizeVirtualTableRowProps<T> = ListChildComponentProps<T> &
-  PickLocalizeVirtualTableRowProps;
+type LocalizeVirtualTableDataRowProps<T> = ListChildComponentProps<T> &
+  PickLocalizeVirtualTableDataRowProps;
 
 const LocalizeStyledVirtualTable = styled.div<
   LocalizeStyledVirtualTableProps<any>,
@@ -125,7 +127,7 @@ const LocalizeVirtualTableBody = styled.div<LocalizeTableBodyProps, LocalizeThem
   },
 );
 
-function LocalizeVirtualTableRow<T>({
+function LocalizeVirtualTableDataRow<T>({
   index,
   style,
   data,
@@ -133,19 +135,21 @@ function LocalizeVirtualTableRow<T>({
   rowHeight,
   onClickRow,
   ...props
-}: LocalizeVirtualTableRowProps<T>) {
+}: LocalizeVirtualTableDataRowProps<T>) {
   return (
     <LocalizeTableRow {...props} style={style} onClick={onClickRow}>
-      {columns.map((colum, columnIndex) => (
-        <LocalizeTableDataCell
-          className={colum.dataCellClassName}
-          key={columnIndex}
-          width={colum.width}
-          height={rowHeight}
-        >
-          {colum.render(data, index)}
-        </LocalizeTableDataCell>
-      ))}
+      {columns.map((colum, columnIndex) => {
+        return (
+          <LocalizeTableDataCell
+            className={colum.dataCellClassName}
+            key={columnIndex}
+            width={colum.width}
+            height={rowHeight}
+          >
+            {colum.render(data, index)}
+          </LocalizeTableDataCell>
+        )
+      })}
     </LocalizeTableRow>
   );
 }
@@ -170,6 +174,14 @@ function LocalizeVirtualTable<T>({
     const tableHeight = fixedTableHeight + rowHeight;
     return tableHeight;
   }, [rowHeight, fixedTableHeight]);
+
+  const memoizedFreezingColumns = React.useMemo(() => {
+    return columns.sort((a, b) => {
+      const prev: any = !!a.freezing;
+      const next: any = !!b.freezing;
+      return next - prev;
+    })
+  }, [JSON.stringify(columns)]);
 
   const handleRenderHeader = React.useCallback((header: LocalizeHeaderRenderType) => {
     if (typeof header === 'function') {
@@ -213,7 +225,7 @@ function LocalizeVirtualTable<T>({
         rowHeight={rowHeight}
       >
         <LocalizeTableRow>
-          {columns.map((colum, headerRowIndex) => (
+          {memoizedFreezingColumns.map((colum, headerRowIndex) => (
             <LocalizeTableHeaderCell
               key={headerRowIndex}
               className={colum.headerCellClassName}
@@ -244,7 +256,7 @@ function LocalizeVirtualTable<T>({
                 const { index } = listProps;
                 const data = datasources[index];
                 return (
-                  <LocalizeVirtualTableRow<T>
+                  <LocalizeVirtualTableDataRow<T>
                     {...listProps}
                     data={datasources[index]}
                     columns={columns}

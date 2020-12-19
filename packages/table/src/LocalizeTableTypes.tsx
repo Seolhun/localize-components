@@ -55,9 +55,8 @@ export interface LocalizeTableColumnProps<T = any> {
    * Cell - Width
    */
   width?: Property.Width;
+}
 
-  /**
-   * Cell - Text Eliipsis 여부
-   */
-  textOverflow?: Property.TextOverflow;
+export interface LocalizeVirtualTableColumnProps<T = any> extends LocalizeTableColumnProps<T>{
+  freezing?: boolean;
 }
