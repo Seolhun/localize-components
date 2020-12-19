@@ -1,28 +1,21 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import classnames from 'classnames';
 
 import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
-import { LocalizeTableProps } from '../LocalizeTable';
+const CLASSNAME = '__Localize__Table__Row';
 
-type TrProps = React.HTMLAttributes<HTMLTableRowElement>;
-type ExtensionProps = TrProps;
-export interface LocalizeTableRowProps extends ExtensionProps {
-  height: number;
+type DivProps = React.HTMLAttributes<HTMLDivElement>;
+type ExtensionProps = DivProps;
+export interface LocalizeTableRowProps extends ExtensionProps {}
 
-  responsive: LocalizeTableProps['responsive'];
-}
-
-const LocalizeStyledTableRow = styled.tr<LocalizeTableRowProps, LocalizeThemeProps>(
-  ({ theme, height, responsive }) => {
+const LocalizeStyledTableRow = styled.div<LocalizeTableRowProps, LocalizeThemeProps>(
+  ({ theme }) => {
     return {
-      ...(responsive
-        ? {
-            minHeight: `${height}px`,
-          }
-        : {
-            height: `${height}px`,
-          }),
+      display: 'flex',
+      flex: 1,
+      flexWrap: 'nowrap',
 
       '&:first-of-type': {
         borderLeft: `1px solid ${theme.colors.neutral4}`,
@@ -34,8 +27,12 @@ const LocalizeStyledTableRow = styled.tr<LocalizeTableRowProps, LocalizeThemePro
   },
 );
 
-const LocalizeTableRow: React.FC<LocalizeTableRowProps> = ({ children, ...props }) => {
-  return <LocalizeStyledTableRow {...props}>{children}</LocalizeStyledTableRow>;
+const LocalizeTableRow: React.FC<LocalizeTableRowProps> = ({ children, className, ...props }) => {
+  return (
+    <LocalizeStyledTableRow {...props} className={classnames(CLASSNAME, className)}>
+      {children}
+    </LocalizeStyledTableRow>
+  );
 };
 
 export { LocalizeTableRow };

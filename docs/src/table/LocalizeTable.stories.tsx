@@ -43,7 +43,7 @@ export default {
 
 const columns: LocalizeTableColumnProps<TableDummyProps>[] = [{
   header: 'id',
-  width: '100px',
+  width: '10%',
   render: (data) => (
     <div>
         {data.id}
@@ -51,7 +51,7 @@ const columns: LocalizeTableColumnProps<TableDummyProps>[] = [{
   )
 },{
   header: 'first_name',
-  width: '200px',
+  width: '20%',
   render: (data) => (
     <div>
         {data.first_name}
@@ -59,7 +59,7 @@ const columns: LocalizeTableColumnProps<TableDummyProps>[] = [{
   )
 },{
   header: 'last_name',
-  width: '200px',
+  width: '20%',
   render: (data) => (
     <div>
         {data.last_name}
@@ -67,7 +67,7 @@ const columns: LocalizeTableColumnProps<TableDummyProps>[] = [{
   )
 },{
   header: 'email',
-  width: '200px',
+  width: '20%',
   render: (data) => (
     <div>
         {data.email}
@@ -75,7 +75,7 @@ const columns: LocalizeTableColumnProps<TableDummyProps>[] = [{
   )
 },{
   header: 'gender',
-  width: '100px',
+  width: '10%',
   render: (data) => (
     <div>
         {data.gender}
@@ -83,7 +83,7 @@ const columns: LocalizeTableColumnProps<TableDummyProps>[] = [{
   )
 },{
   header: 'ip_address',
-  width: '200px',
+  width: '20%',
   render: (data) => (
     <div>
         {data.ip_address}
@@ -95,14 +95,6 @@ const renderEmptyData = () => {
   return (
     <div>
       There are no data
-    </div>
-  )
-}
-
-const renderOption = () => {
-  return (
-    <div>
-      This is Footer
     </div>
   )
 }
@@ -130,7 +122,6 @@ const Table: Story<LocalizeTableProps<TableDummyProps>> = (args) => {
       onClickRow={onClick}
       selectedRowClassName={() => 'Selected__Row'}
       renderEmptyData={renderEmptyData}
-      renderOption={renderOption}
     />
   );
 };
@@ -165,7 +156,6 @@ const FixedTable: Story<LocalizeTableProps<TableDummyProps>> = (args) => {
       onClickRow={onClick}
       selectedRowClassName={() => 'Selected__Row'}
       renderEmptyData={renderEmptyData}
-      renderOption={renderOption}
     />
   );
 };

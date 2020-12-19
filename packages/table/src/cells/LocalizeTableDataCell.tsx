@@ -6,20 +6,35 @@ import { Property } from 'csstype';
 import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
 import { LocalizeCellStyle } from './LocalizeCellStyle';
+import {
+  LocalizeCellVerticalAlignType,
+  LocalizeCellHorizontalAlignType,
+} from '../LocalizeTableTypes';
 
-const CLASSNAME = '__Localize__Table__HeaderCell';
+const CLASSNAME = '__Localize__Table__DataCell';
 
-type TdProps = React.HTMLAttributes<HTMLTableDataCellElement>;
-type ExtensionProps = TdProps;
+type DivProps = React.HTMLAttributes<HTMLDivElement>;
+type ExtensionProps = DivProps;
+
 export interface LocalizeTableDataCellProps extends ExtensionProps {
   width?: Property.Width;
+
+  height?: number;
+
+  verticalAlign?: LocalizeCellVerticalAlignType;
+
+  horizontalAlign?: LocalizeCellHorizontalAlignType;
 }
 
-const LocalizeTableDataCellWrapper = styled.td<LocalizeTableDataCellProps, LocalizeThemeProps>(
-  ({ theme, width }) => {
+const LocalizeTableDataCellWrapper = styled.div<LocalizeTableDataCellProps, LocalizeThemeProps>(
+  ({ theme, width, height, verticalAlign = 'center', horizontalAlign = 'flex-start' }) => {
     return {
       ...LocalizeCellStyle(theme),
+      display: 'inline-flex',
+      alignItems: verticalAlign,
+      justifyContent: horizontalAlign,
       width,
+      height: `${height}px`,
     };
   },
 );

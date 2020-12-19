@@ -5,21 +5,35 @@ import { Property } from 'csstype';
 
 import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
-import LocalizeCellStyles from './LocalizeCellStyle';
+import { LocalizeCellStyle } from './LocalizeCellStyle';
+import {
+  LocalizeCellHorizontalAlignType,
+  LocalizeCellVerticalAlignType,
+} from '../LocalizeTableTypes';
 
 const CLASSNAME = '__Localize__Table__HeaderCell';
 
-type ThProps = React.HTMLAttributes<HTMLTableHeaderCellElement>;
-type ExtensionProps = ThProps;
+type DivProps = React.HTMLAttributes<HTMLDivElement>;
+type ExtensionProps = DivProps;
 export interface LocalizeTableHeaderCellProps extends ExtensionProps {
   width?: Property.Width;
+
+  height?: number;
+
+  verticalAlign?: LocalizeCellVerticalAlignType;
+
+  horizontalAlign?: LocalizeCellHorizontalAlignType;
 }
 
-const LocalizeTableHeaderCellWrapper = styled.th<LocalizeTableHeaderCellProps, LocalizeThemeProps>(
-  ({ theme, width }) => {
+const LocalizeTableHeaderCellWrapper = styled.div<LocalizeTableHeaderCellProps, LocalizeThemeProps>(
+  ({ theme, width, height, verticalAlign = 'center', horizontalAlign = 'center' }) => {
     return {
-      ...LocalizeCellStyles(theme),
+      ...LocalizeCellStyle(theme),
+      display: 'inline-flex',
+      alignItems: verticalAlign,
+      justifyContent: horizontalAlign,
       width,
+      height: `${height}px`,
       backgroundColor: theme.colors.neutral3,
       borderBottom: `1px solid ${theme.colors.neutral3}`,
       transition: 'background-color 0.25s',

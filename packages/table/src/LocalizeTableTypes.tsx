@@ -9,6 +9,9 @@ export type LocalizeTableCellRenderFunction<T = any> = (
 ) => React.ReactNode;
 export type LocalizeTableRowEventHandler<T = any> = (rowData: T, rowIndex: number) => void;
 
+export type LocalizeCellVerticalAlignType = Property.AlignItems;
+export type LocalizeCellHorizontalAlignType = Property.JustifyContent;
+
 export interface LocalizeTableColumnProps<T = any> {
   header: LocalizeHeaderRenderType;
 
@@ -17,12 +20,36 @@ export interface LocalizeTableColumnProps<T = any> {
   /**
    * HeaderCell - className
    */
-  headerClassName?: string;
+  headerCellClassName?: string;
+
+  /**
+   * DataCell - vertical alignment
+   * @default center
+   */
+  headerCellVerticalAlign?: LocalizeCellVerticalAlignType;
+
+  /**
+   * DataCell - horizontal alignment
+   * @default center
+   */
+  headerCellHorizontalAlign?: LocalizeCellHorizontalAlignType;
 
   /**
    * DataCell - className
    */
-  dataClassName?: string;
+  dataCellClassName?: string;
+
+  /**
+   * DataCell - vertical alignment
+   * @default center
+   */
+  dataCellVerticalAlign?: LocalizeCellVerticalAlignType;
+
+  /**
+   * DataCell - horizontal alignment
+   * @default start
+   */
+  dataCellHorizontalAlign?: LocalizeCellHorizontalAlignType;
 
   /**
    * Cell - Width
