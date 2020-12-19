@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import classnames from 'classnames';
 
 import {
-  getLocalizeIntentAndColor,
+  getLocalizeIntentColor,
   getLocalizeSizeBy,
   LocalizeIntentThemeType,
   LocalizeProps,
@@ -46,7 +46,7 @@ const LocalizeBoxWrapper = styled.div<LocalizeBoxProps, LocalizeThemeProps>(
       fontColor: 'conversion1',
     },
   }) => {
-    const localizeColor = getLocalizeIntentAndColor(theme, intent, localize);
+    const localizeColor = getLocalizeIntentColor(theme, intent, localize);
     const { backgroundColor, borderColor, color } = localizeColor;
     return {
       position: 'relative',

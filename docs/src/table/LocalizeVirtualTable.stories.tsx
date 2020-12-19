@@ -1,14 +1,14 @@
 import React from 'react';
 import { Story } from '@storybook/react/types-6-0';
 
-import { LocalizeTable, LocalizeTableProps, LocalizeTableColumnProps } from '../../../packages/table/dist';
+import { LocalizeVirtualTable, LocalizeVirtualTableProps, LocalizeTableColumnProps } from '../../../packages/table/dist';
 
 import { storiesColorOptions, storiesIntentOptions } from '../controls';
 import { datasources, TableDummyProps } from './table.dummy';
 
 export default {
-  title: 'Table | LocalizeTable',
-  component: LocalizeTable,
+  title: 'Table | LocalizeVirtualTable',
+  component: LocalizeVirtualTable,
   argTypes: {
     intent: {
       defaultValue: 'default',
@@ -99,7 +99,8 @@ const renderEmptyData = () => {
   )
 }
 
-const Table: Story<LocalizeTableProps<TableDummyProps>> = (args) => {
+
+const VirtualTable: Story<LocalizeVirtualTableProps<TableDummyProps>> = (args) => {
   const localize = {
     bgColor: args.bgColor,
     bdColor: args.bdColor,
@@ -114,56 +115,21 @@ const Table: Story<LocalizeTableProps<TableDummyProps>> = (args) => {
   }, []);
 
   return (
-    <LocalizeTable
+    <LocalizeVirtualTable
       {...args}
       localize={localize}
       datasources={datasources.slice(0, 100)}
       columns={columns}
-      onClickRow={onClick}
       selectedRowClassName={() => 'Selected__Row'}
+      onClickRow={onClick}
       renderEmptyData={renderEmptyData}
     />
   );
 };
 
-export const TableStories = Table.bind({});
-TableStories.args = {
+export const VirtualTableStories = VirtualTable.bind({});
+VirtualTableStories.args = {
   bordered: true,
-  rowHeight: 50,
-};
-
-
-const FixedTable: Story<LocalizeTableProps<TableDummyProps>> = (args) => {
-  const localize = {
-    bgColor: args.bgColor,
-    bdColor: args.bdColor,
-    color: args.color,
-  };
-
-  const onClick = React.useCallback((data: TableDummyProps, rowIndex: number) => {
-    console.log({
-      data,
-      rowIndex,
-    })
-  }, []);
-
-  return (
-    <LocalizeTable
-      {...args}
-      localize={localize}
-      datasources={datasources.slice(0, 100)}
-      columns={columns}
-      onClickRow={onClick}
-      selectedRowClassName={() => 'Selected__Row'}
-      renderEmptyData={renderEmptyData}
-    />
-  );
-};
-
-export const FixedTableStories = FixedTable.bind({});
-FixedTableStories.args = {
-  bordered: true,
-  fixedHeader: true,
   fixedTableHeight: 300,
   rowHeight: 50,
 };

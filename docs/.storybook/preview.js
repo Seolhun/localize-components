@@ -62,9 +62,7 @@ export const parameters = {
   /**
    * @see https://storybook.js.org/docs/react/essentials/viewport
    */
-  viewport: {
-    defaultViewport: 'responsive',
-  },
+  viewport: {},
   /**
    * @see https://storybook.js.org/docs/react/essentials/controls
    */

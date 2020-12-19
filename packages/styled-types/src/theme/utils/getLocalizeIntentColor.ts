@@ -7,7 +7,7 @@ export type GetLocalizeIntentAndColorResponseType = {
   borderColor: string;
 };
 
-export function getLocalizeIntentAndColor(
+export function getLocalizeIntentColor(
   theme: LocalizeThemeProps,
   intent: LocalizeIntentThemeType,
   localize?: LocalizeStyleProps,

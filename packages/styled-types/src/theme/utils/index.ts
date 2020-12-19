@@ -1,2 +1,2 @@
 export * from './getLocalizeColor';
-export * from './getLocalizeIntentAndColor';
+export * from './getLocalizeIntentColor';

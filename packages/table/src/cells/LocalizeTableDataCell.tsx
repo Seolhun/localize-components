@@ -36,9 +36,10 @@ const LocalizeTableDataCellWrapper = styled.div<LocalizeTableDataCellProps, Loca
       width,
       height: `${height}px`,
       transition: 'background-color 0.25s',
-
       borderRight: `1px solid ${theme.colors.neutral3}`,
       borderBottom: `1px solid ${theme.colors.neutral3}`,
+      textOverflow: 'ellipsis',
+      overflow: 'hidden',
 
       '&:first-of-type': {
         borderLeft: `1px solid ${theme.colors.neutral3}`,

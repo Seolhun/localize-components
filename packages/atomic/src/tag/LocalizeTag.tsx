@@ -4,12 +4,12 @@ import classnames from 'classnames';
 import { lighten } from 'polished';
 
 import {
-  getLocalizeIntentAndColor,
+  getLocalizeIntentColor,
   getLocalizeSizeBy,
   LocalizeIntentThemeType,
   LocalizeProps,
   LocalizeSize,
-  LocalizeStyleResponseType,
+  GetLocalizeColorResponseType,
   LocalizeThemeProps,
 } from '@seolhun/localize-components-styled-types';
 
@@ -41,7 +41,7 @@ export interface LocalizeTagProps extends ExtentionProps {
 function getLocalizeButtonStyle(
   theme: LocalizeThemeProps,
   variant: LocalizeButtonVariantType,
-  localizeColors: LocalizeStyleResponseType,
+  localizeColors: GetLocalizeColorResponseType,
 ) {
   const { backgroundColor, borderColor, color } = localizeColors;
   switch (variant) {
@@ -74,7 +74,7 @@ const StyledLocalizeTagWrapper = styled.div<LocalizeTagProps, LocalizeThemeProps
       fontColor: 'conversion10',
     },
   }) => {
-    const localizeColor = getLocalizeIntentAndColor(theme, intent, localize);
+    const localizeColor = getLocalizeIntentColor(theme, intent, localize);
     const { backgroundColor, borderColor } = localizeColor;
     return {
       ...getLocalizeButtonStyle(theme, variant, localizeColor),

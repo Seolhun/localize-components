@@ -11,11 +11,12 @@ type ExtensionProps = DivProps;
 export interface LocalizeTableRowProps extends ExtensionProps {}
 
 const LocalizeStyledTableRow = styled.div<LocalizeTableRowProps, LocalizeThemeProps>(
-  ({ theme }) => {
+  ({ theme, onClick }) => {
     return {
       display: 'flex',
       flex: 1,
       flexWrap: 'nowrap',
+      cursor: onClick ? 'pointer' : 'auto',
 
       '&:first-of-type': {
         borderTop: `1px solid ${theme.colors.neutral4}`,

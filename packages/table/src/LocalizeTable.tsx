@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 import classnames from 'classnames';
 
 import {
-  getLocalizeIntentAndColor,
+  getLocalizeIntentColor,
   LocalizeIntentThemeType,
   LocalizeProps,
   LocalizeThemeProps,
@@ -18,16 +18,8 @@ import {
 } from './LocalizeTableTypes';
 
 const CLASSNAME = '__Localize__Table';
-type TableProps = React.TableHTMLAttributes<HTMLTableElement>;
-type ExtentionProps = LocalizeTableThemeProps & TableProps;
-
-interface LocalizeTableThemeProps extends LocalizeProps {
-  /**
-   * Set this to change variant
-   * @default default
-   */
-  intent?: LocalizeIntentThemeType;
-}
+type DivProps = React.HTMLAttributes<HTMLDivElement>;
+type ExtentionProps = DivProps & LocalizeTableThemeProps;
 
 export interface LocalizeTableProps<T = any> extends ExtentionProps {
   /**
@@ -53,8 +45,6 @@ export interface LocalizeTableProps<T = any> extends ExtentionProps {
   /**
    * @default 50
    * Set this this change row height
-   * responsive가 true일 경우 rowHeight값은 minHeight로 바뀜
-   * TODO: 고정 높이 해결해야 함
    */
   rowHeight?: number;
 
@@ -77,25 +67,32 @@ export interface LocalizeTableProps<T = any> extends ExtentionProps {
 
   /**
    * Set this to change table cell border
+   * @default true
    */
   bordered?: boolean;
 }
 
-type PickStyledTableType = Pick<
+export interface LocalizeTableThemeProps extends LocalizeProps {
+  /**
+   * Set this to change variant
+   * @default default
+   */
+  intent?: LocalizeIntentThemeType;
+}
+
+type PickLocalizeTableType = Pick<
   LocalizeTableProps,
   'fixedHeader' | 'fixedTableHeight' | 'bordered'
 >;
-type LocalizeStyledTableProps = LocalizeTableThemeProps & PickStyledTableType;
+type LocalizeStyledTableProps = LocalizeTableThemeProps & PickLocalizeTableType;
 
-interface LocalizeTableHeaderProps {
+export interface LocalizeTableHeaderProps {
   fixedHeader?: LocalizeTableProps['fixedHeader'];
-
-  fixedTableHeight?: LocalizeTableProps['fixedTableHeight'];
 
   rowHeight?: LocalizeTableProps['rowHeight'];
 }
 
-interface LocalizeTableBodyProps {
+export interface LocalizeTableBodyProps {
   fixedHeader?: LocalizeTableProps['fixedHeader'];
 
   fixedTableHeight?: LocalizeTableProps['fixedTableHeight'];
@@ -115,9 +112,10 @@ const LocalizeStyledTable = styled.div<LocalizeStyledTableProps, LocalizeThemePr
     fixedHeader,
     fixedTableHeight,
   }) => {
-    const localizeColor = getLocalizeIntentAndColor(theme, intent, localize);
+    const localizeColor = getLocalizeIntentColor(theme, intent, localize);
     const { backgroundColor, color, borderColor } = localizeColor;
     return {
+      position: 'relative',
       width: fixedHeader ? 'auto' : '100%',
       height: fixedHeader ? fixedTableHeight : '100%',
       borderSpacing: 0,
@@ -165,7 +163,7 @@ const LocalizeTableBody = styled.div<LocalizeTableBodyProps, LocalizeThemeProps>
   },
 );
 
-function LocalizeTable<T>({
+function LocalizeTable<T = any>({
   className,
   datasources,
   columns,
@@ -176,7 +174,7 @@ function LocalizeTable<T>({
   fixedHeader,
   fixedTableHeight = 300,
   renderEmptyData,
-  bordered,
+  bordered = true,
   ...props
 }: LocalizeTableProps<T>) {
   const memoizedFixedTableHeight = React.useMemo(() => {
@@ -202,7 +200,7 @@ function LocalizeTable<T>({
   }, []);
 
   const handleOnClickRow = React.useCallback(
-    (rowItem: T, rowIndex: number) => async (e: React.MouseEvent<HTMLTableRowElement>) => {
+    (rowItem: T, rowIndex: number) => (e: React.MouseEvent<HTMLDivElement>) => {
       e.stopPropagation();
 
       if (onClickRow) {
@@ -225,7 +223,7 @@ function LocalizeTable<T>({
   return (
     <LocalizeStyledTable
       {...props}
-      className={classnames(CLASSNAME)}
+      className={classnames(CLASSNAME, className)}
       intent={intent}
       fixedHeader={fixedHeader}
       fixedTableHeight={memoizedFixedTableHeight}
@@ -234,7 +232,6 @@ function LocalizeTable<T>({
       <LocalizeTableHeader
         className={classnames(`${CLASSNAME}__Header`)}
         fixedHeader={fixedHeader}
-        fixedTableHeight={fixedTableHeight}
         rowHeight={rowHeight}
       >
         <LocalizeTableRow>
