@@ -55,7 +55,7 @@ export interface LocalizeTableProps<T = any> extends ExtentionProps {
 
   /**
    * Set this to change table height
-   * @default 300
+   * @default 500
    */
   fixedTableHeight?: number;
 
@@ -172,7 +172,7 @@ function LocalizeTable<T = any>({
   onClickRow,
   rowHeight = 50,
   fixedHeader,
-  fixedTableHeight = 300,
+  fixedTableHeight = 500,
   renderEmptyData,
   bordered = true,
   ...props

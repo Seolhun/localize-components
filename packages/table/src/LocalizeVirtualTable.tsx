@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import { FixedSizeList } from 'react-window';
-import AutoSizer from 'react-virtualized-auto-sizer';
 import classnames from 'classnames';
 
 import {
@@ -83,6 +82,8 @@ const LocalizeStyledVirtualTable = styled.div<
       height: fixedTableHeight,
       borderSpacing: 0,
       borderColor,
+      overflowY: 'auto',
+      overflowX: 'hidden',
 
       '.__Localize__Table__Row': {
         borderColor,
@@ -121,8 +122,7 @@ const LocalizeVirtualTableBody = styled.div<LocalizeTableBodyProps, LocalizeThem
       // this is differences LocalzeTable
       paddingTop: fixedHeader ? rowHeight : 0,
       height: fixedHeader ? fixedTableHeight : '100%',
-      overflowY: 'auto',
-      overflowX: 'hidden',
+
     };
   },
 );
@@ -165,11 +165,28 @@ function LocalizeVirtualTable<T>({
   selectedRowClassName,
   onClickRow,
   rowHeight = 50,
-  fixedTableHeight = 300,
+  fixedTableHeight = 500,
   renderEmptyData,
   bordered = true,
   ...props
 }: React.PropsWithChildren<LocalizeVirtualTableProps<T>>) {
+  const [scrollX, setScrollX] = React.useState(document.scrollingElement?.scrollLeft);
+  const [scrollY, setScrollY] = React.useState(document.scrollingElement?.scrollTop);
+
+  const handleScroll = React.useCallback(() => {
+    const x = document.scrollingElement?.scrollLeft
+    const y = document.scrollingElement?.scrollTop;
+    setScrollX(x);
+    setScrollY(y);
+  }, []);
+
+  React.useEffect(() => {
+    window.addEventListener('resize', handleScroll);
+    return () => {
+      window.removeEventListener('resize', handleScroll);
+    }
+  }, []);
+
   const memoizedFixedTableHeight = React.useMemo(() => {
     const tableHeight = fixedTableHeight + rowHeight;
     return tableHeight;
@@ -211,6 +228,11 @@ function LocalizeVirtualTable<T>({
     [selectedRowClassName],
   );
 
+  console.log('@@', {
+    scrollX,
+    scrollY,
+  })
+
   return (
     <LocalizeStyledVirtualTable
       {...props}
@@ -243,32 +265,27 @@ function LocalizeVirtualTable<T>({
         fixedTableHeight={fixedTableHeight}
         rowHeight={rowHeight}
       >
-        <AutoSizer>
-          {({ height, width }) => (
-            <FixedSizeList
-              className={classnames(CLASSNAME, className)}
-              height={height}
-              width={width}
-              itemCount={datasources.length}
-              itemSize={rowHeight}
-            >
-              {(listProps) => {
-                const { index } = listProps;
-                const data = datasources[index];
-                return (
-                  <LocalizeVirtualTableDataRow<T>
-                    {...listProps}
-                    data={datasources[index]}
-                    columns={columns}
-                    selectedRowClassName={handleSelectedRowClassName}
-                    onClickRow={handleOnClickRow(data, index)}
-                    rowHeight={rowHeight}
-                  />
-                );
-              }}
-            </FixedSizeList>
-          )}
-        </AutoSizer>
+        <FixedSizeList
+          height={fixedTableHeight}
+          width='auto'
+          itemCount={datasources.length}
+          itemSize={rowHeight}
+        >
+          {(listProps) => {
+            const { index } = listProps;
+            const data = datasources[index];
+            return (
+              <LocalizeVirtualTableDataRow<T>
+                {...listProps}
+                data={datasources[index]}
+                columns={columns}
+                selectedRowClassName={handleSelectedRowClassName}
+                onClickRow={handleOnClickRow(data, index)}
+                rowHeight={rowHeight}
+              />
+            );
+          }}
+        </FixedSizeList>
       </LocalizeVirtualTableBody>
     </LocalizeStyledVirtualTable>
   );

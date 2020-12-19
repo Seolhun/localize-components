@@ -164,6 +164,6 @@ export const FixedTableStories = FixedTable.bind({});
 FixedTableStories.args = {
   bordered: true,
   fixedHeader: true,
-  fixedTableHeight: 300,
+  fixedTableHeight: 500,
   rowHeight: 50,
 };

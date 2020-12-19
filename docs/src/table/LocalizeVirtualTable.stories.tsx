@@ -132,6 +132,6 @@ const VirtualTable: Story<LocalizeVirtualTableProps<TableDummyProps>> = (args) =
 export const VirtualTableStories = VirtualTable.bind({});
 VirtualTableStories.args = {
   bordered: true,
-  fixedTableHeight: 300,
+  fixedTableHeight: 500,
   rowHeight: 50,
 };
