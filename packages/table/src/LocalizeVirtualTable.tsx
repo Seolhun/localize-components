@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { FixedSizeList } from 'react-window';
+import { FixedSizeList, ListOnScrollProps } from 'react-window';
 import classnames from 'classnames';
 
 import {
@@ -170,21 +170,14 @@ function LocalizeVirtualTable<T>({
   bordered = true,
   ...props
 }: React.PropsWithChildren<LocalizeVirtualTableProps<T>>) {
-  const [scrollX, setScrollX] = React.useState(document.scrollingElement?.scrollLeft);
-  const [scrollY, setScrollY] = React.useState(document.scrollingElement?.scrollTop);
+  // const [scrollX, setScrollX] = React.useState(document.scrollingElement?.scrollLeft);
+  // const [scrollY, setScrollY] = React.useState(document.scrollingElement?.scrollTop);
 
-  const handleScroll = React.useCallback(() => {
-    const x = document.scrollingElement?.scrollLeft
-    const y = document.scrollingElement?.scrollTop;
-    setScrollX(x);
-    setScrollY(y);
-  }, []);
+  const handleScroll = React.useCallback((props: ListOnScrollProps) => {
+    // setScrollX(x);
+    // setScrollY(y);
 
-  React.useEffect(() => {
-    window.addEventListener('resize', handleScroll);
-    return () => {
-      window.removeEventListener('resize', handleScroll);
-    }
+  console.log('@@', props)
   }, []);
 
   const memoizedFixedTableHeight = React.useMemo(() => {
@@ -228,10 +221,6 @@ function LocalizeVirtualTable<T>({
     [selectedRowClassName],
   );
 
-  console.log('@@', {
-    scrollX,
-    scrollY,
-  })
 
   return (
     <LocalizeStyledVirtualTable
@@ -270,6 +259,7 @@ function LocalizeVirtualTable<T>({
           width='auto'
           itemCount={datasources.length}
           itemSize={rowHeight}
+          onScroll={handleScroll}
         >
           {(listProps) => {
             const { index } = listProps;

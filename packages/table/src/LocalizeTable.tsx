@@ -120,6 +120,8 @@ const LocalizeStyledTable = styled.div<LocalizeStyledTableProps, LocalizeThemePr
       height: fixedHeader ? fixedTableHeight : '100%',
       borderSpacing: 0,
       borderColor,
+      overflowY: 'auto',
+      overflowX: 'hidden',
 
       '.__Localize__Table__Row': {
         borderColor,
@@ -157,8 +159,6 @@ const LocalizeTableBody = styled.div<LocalizeTableBodyProps, LocalizeThemeProps>
       flexDirection: 'column',
       marginTop: fixedHeader ? rowHeight : 0,
       height: fixedHeader ? fixedTableHeight : '100%',
-      overflowY: 'auto',
-      overflowX: 'hidden',
     };
   },
 );
