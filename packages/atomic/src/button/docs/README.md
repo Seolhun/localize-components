@@ -38,7 +38,7 @@
 
 ![./resources/options/button.options.intent.png](./resources/options/button.options.intent.png)
 
-- 버튼 intent는 'default' | 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'error' 존재합니다.
+- 버튼 intent는 `default` | `primary` | `secondary` | `success` | `info` | `warning` | `error` 존재합니다.
 - 자주 사용되는 intent는 primary이며, 이를 기본 값으로 사용합니다.
 - intent는 주로 계층과 상태를 나타내며, 강조할 떄는 primary를 사용합니다.
 
@@ -122,7 +122,10 @@
 
 ## References
 
-- [Spectrum.adobe](https://spectrum.adobe.com/page/button)
-- [Material](https://material.io/components/buttons)
-- [Blueprintjs](https://blueprintjs.com/#core/components/button)
-****
+- [https://spectrum.adobe.com/page/button/](https://spectrum.adobe.com/page/button/)
+- [https://chakra-ui.com/docs/form/button](https://chakra-ui.com/docs/form/button)
+- [https://blueprintjs.com/docs/#core/components/button](https://blueprintjs.com/docs/#core/components/button)
+- [https://material.io/components/buttons](https://material.io/components/buttons)
+- [http://styleguide.co.kr/content/component/component-core.php](http://styleguide.co.kr/content/component/component-core.php)
+- [https://evergreen.segment.com/components/button](https://evergreen.segment.com/components/button)
+- [https://ant.design/components/button/](https://ant.design/components/button/)

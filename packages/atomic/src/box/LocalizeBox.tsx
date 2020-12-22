@@ -18,7 +18,7 @@ type Props = LocalizeProps & DivProps & LocalizeBoxContainerProps;
 
 export interface LocalizeBoxProps extends Props {
   /**
-   * Set this to change variant
+   * Set this to change intent color
    * @default default
    */
   intent?: LocalizeIntentThemeType;

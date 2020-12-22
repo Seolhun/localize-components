@@ -24,7 +24,7 @@ type ExtentionProps = LocalizeTableThemeProps & TableProps;
 
 interface LocalizeTableThemeProps extends LocalizeProps {
   /**
-   * Set this to change variant
+   * Set this to change intent color
    * @default default
    */
   intent?: LocalizeIntentThemeType;

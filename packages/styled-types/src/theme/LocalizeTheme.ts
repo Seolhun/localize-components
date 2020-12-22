@@ -17,6 +17,12 @@ export enum LocalizeThemeEnum {
 
 export interface LocalizeStyleProps {
   /**
+   * Set this to change font color
+   * @default conversion1
+   */
+  fontColor?: keyof LocalizeThemeProps['colors'];
+
+  /**
    * Set this to change background color
    * @default primary
    */
@@ -27,12 +33,6 @@ export interface LocalizeStyleProps {
    * @default transparent
    */
   bdColor?: keyof LocalizeThemeProps['colors'];
-
-  /**
-   * Set this to change font color in theme
-   * @default conversion1
-   */
-  fontColor?: keyof LocalizeThemeProps['colors'];
 }
 
 export interface LocalizeProps {
