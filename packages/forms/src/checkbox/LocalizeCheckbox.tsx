@@ -38,7 +38,7 @@ const LocalizeCheckboxCheckerIcon = styled.svg<LocalizeFormStateProps, LocalizeT
     width: '22px',
     height: '22px',
     fill: 'none',
-    stroke: theme.colors.red1,
+    stroke: theme.colors.error1,
     strokeWidth: '4px',
     opacity: checked ? 1 : 0,
     transition: 'opacity 0.3s',

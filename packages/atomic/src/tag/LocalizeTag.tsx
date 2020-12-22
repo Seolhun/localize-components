@@ -32,7 +32,7 @@ export interface LocalizeTagProps extends ExtentionProps {
   variant?: LocalizeButtonVariantType;
 
   /**
-   * Set this to change variant
+   * Set this to change intent color
    * @default default
    */
   intent?: LocalizeIntentThemeType;
