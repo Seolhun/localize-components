@@ -78,6 +78,21 @@ export interface LocalizeThemeProps<K = keyof typeof LocalizeThemeEnum> {
     conversion9: string;
     conversion10: string;
     /**
+     * @name Neutral
+     */
+    neutral1: string;
+    neutral2: string;
+    neutral3: string;
+    neutral4: string;
+    neutral5: string;
+    neutral6: string;
+    neutral7: string;
+    neutral8: string;
+    neutral9: string;
+    neutral10: string;
+    neutral11: string;
+    neutral12: string;
+    /**
      * @name Primary
      */
     primary1: string;
@@ -104,72 +119,57 @@ export interface LocalizeThemeProps<K = keyof typeof LocalizeThemeEnum> {
     secondary9: string;
     secondary10: string;
     /**
-     * @name Neutral
+     * @name Success
      */
-    neutral1: string;
-    neutral2: string;
-    neutral3: string;
-    neutral4: string;
-    neutral5: string;
-    neutral6: string;
-    neutral7: string;
-    neutral8: string;
-    neutral9: string;
-    neutral10: string;
-    neutral11: string;
-    neutral12: string;
+    success1: string;
+    success2: string;
+    success3: string;
+    success4: string;
+    success5: string;
+    success6: string;
+    success7: string;
+    success8: string;
+    success9: string;
+    success10: string;
     /**
-     * @name Red
+     * @name Info
      */
-    red1: string;
-    red2: string;
-    red3: string;
-    red4: string;
-    red5: string;
-    red6: string;
-    red7: string;
-    red8: string;
-    red9: string;
-    red10: string;
+    info1: string;
+    info2: string;
+    info3: string;
+    info4: string;
+    info5: string;
+    info6: string;
+    info7: string;
+    info8: string;
+    info9: string;
+    info10: string;
     /**
-     * @name Volcano
+     * @name Warning
      */
-    volcano1: string;
-    volcano2: string;
-    volcano3: string;
-    volcano4: string;
-    volcano5: string;
-    volcano6: string;
-    volcano7: string;
-    volcano8: string;
-    volcano9: string;
-    volcano10: string;
+    warning1: string;
+    warning2: string;
+    warning3: string;
+    warning4: string;
+    warning5: string;
+    warning6: string;
+    warning7: string;
+    warning8: string;
+    warning9: string;
+    warning10: string;
     /**
-     * @name Orange
+     * @name Error
      */
-    orange1: string;
-    orange2: string;
-    orange3: string;
-    orange4: string;
-    orange5: string;
-    orange6: string;
-    orange7: string;
-    orange8: string;
-    orange9: string;
-    orange10: string;
-    /**
-     * @name Purple
-     */
-    purple1: string;
-    purple2: string;
-    purple3: string;
-    purple4: string;
-    purple5: string;
-    purple6: string;
-    purple7: string;
-    purple8: string;
-    purple9: string;
-    purple10: string;
+    error1: string;
+    error2: string;
+    error3: string;
+    error4: string;
+    error5: string;
+    error6: string;
+    error7: string;
+    error8: string;
+    error9: string;
+    error10: string;
     /**
      * @name Theme
      */
@@ -180,6 +180,11 @@ export interface LocalizeThemeProps<K = keyof typeof LocalizeThemeEnum> {
     info: string;
     warning: string;
     error: string;
+    /**
+     * @name State
+     */
+    readonly: string;
+    disabled: string;
     /**
      * @name Socials
      */
@@ -217,6 +222,21 @@ const localizeLightThemeColors: LocalizeThemeProps['colors'] = {
   conversion9: '#141414',
   conversion10: '#000000',
   /**
+   * @name Neutral
+   */
+  neutral1: '#FFFFFF',
+  neutral2: '#FAFAFA',
+  neutral3: '#F5F5F5',
+  neutral4: '#F0F0F0',
+  neutral5: '#D9D9D9',
+  neutral6: '#BFBFBF',
+  neutral7: '#595959',
+  neutral8: '#434343',
+  neutral9: '#262626',
+  neutral10: '#1F1F1F',
+  neutral11: '#141414',
+  neutral12: '#000000',
+  /**
    * @name Primary
    */
   primary1: '#f0f5ff',
@@ -243,82 +263,72 @@ const localizeLightThemeColors: LocalizeThemeProps['colors'] = {
   secondary9: '#142656',
   secondary10: '#09183F',
   /**
-   * @name Neutral
+   * @name Success
    */
-  neutral1: '#FFFFFF',
-  neutral2: '#FAFAFA',
-  neutral3: '#F5F5F5',
-  neutral4: '#F0F0F0',
-  neutral5: '#D9D9D9',
-  neutral6: '#BFBFBF',
-  neutral7: '#595959',
-  neutral8: '#434343',
-  neutral9: '#262626',
-  neutral10: '#1F1F1F',
-  neutral11: '#141414',
-  neutral12: '#000000',
+  success1: '#f6ffed',
+  success2: '#d9f7be',
+  success3: '#b7eb8f',
+  success4: '#95de64',
+  success5: '#73d13d',
+  success6: '#52c41a',
+  success7: '#389e0d',
+  success8: '#237804',
+  success9: '#135200',
+  success10: '#092b00',
   /**
-   * @name Red
+   * @name Info
    */
-  red1: '#fff1f0',
-  red2: '#ffccc7',
-  red3: '#ffa39e',
-  red4: '#ff7875',
-  red5: '#ff4d4f',
-  red6: '#f5222d',
-  red7: '#cf1322',
-  red8: '#a8071a',
-  red9: '#820014',
-  red10: '#5c0011',
+  info1: '#e6f7ff',
+  info2: '#bae7ff',
+  info3: '#91d5ff',
+  info4: '#69c0ff',
+  info5: '#40a9ff',
+  info6: '#1890ff',
+  info7: '#096dd9',
+  info8: '#0050b3',
+  info9: '#003a8c',
+  info10: '#002766',
   /**
-   * @name Volcano
+   * @name Warning
    */
-  volcano1: '#fff2e8',
-  volcano2: '#ffd8bf',
-  volcano3: '#ffbb96',
-  volcano4: '#ff9c6e',
-  volcano5: '#ff7a45',
-  volcano6: '#fa541c',
-  volcano7: '#d4380d',
-  volcano8: '#ad2102',
-  volcano9: '#871400',
-  volcano10: '#610b00',
+  warning1: '#fff2e8',
+  warning2: '#ffd8bf',
+  warning3: '#ffbb96',
+  warning4: '#ff9c6e',
+  warning5: '#ff7a45',
+  warning6: '#fa541c',
+  warning7: '#d4380d',
+  warning8: '#ad2102',
+  warning9: '#871400',
+  warning10: '#610b00',
   /**
-   * @name Orange
+   * @name Error
    */
-  orange1: '#fff7e6',
-  orange2: '#ffe7ba',
-  orange3: '#ffd591',
-  orange4: '#ffc069',
-  orange5: '#ffa940',
-  orange6: '#fa8c16',
-  orange7: '#d46b08',
-  orange8: '#ad4e00',
-  orange9: '#873800',
-  orange10: '#612500',
-  /**
-   * @name Purple
-   */
-  purple1: '#f9f0ff',
-  purple2: '#efdbff',
-  purple3: '#d3adf7',
-  purple4: '#b37feb',
-  purple5: '#9254de',
-  purple6: '#722ed1',
-  purple7: '#531dab',
-  purple8: '#391085',
-  purple9: '#22075e',
-  purple10: '#120338',
+  error1: '#fff1f0',
+  error2: '#ffccc7',
+  error3: '#ffa39e',
+  error4: '#ff7875',
+  error5: '#ff4d4f',
+  error6: '#f5222d',
+  error7: '#cf1322',
+  error8: '#a8071a',
+  error9: '#820014',
+  error10: '#5c0011',
   /**
    * @name Theme
    */
   default: '#262626',
   primary: '#2f54eb',
-  secondary: '#002766',
-  success: '#6AB95C',
-  info: '#1890FF',
-  warning: '#FAAD14',
-  error: '#F5862E',
+  secondary: '#2A3E73',
+  success: '#52c41a',
+  info: '#1890ff',
+  warning: '#fa541c',
+  error: '#f5222d',
+  /**
+   * @name State
+   */
+  readonly: '#F5F5F5',
+  disabled: '#F0F0F0',
   /**
    * @name Socials
    */
@@ -351,6 +361,21 @@ const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
   conversion9: '#141414',
   conversion10: '#000000',
   /**
+   * @name Neutral
+   */
+  neutral1: '#FFFFFF',
+  neutral2: '#FAFAFA',
+  neutral3: '#F5F5F5',
+  neutral4: '#F0F0F0',
+  neutral5: '#D9D9D9',
+  neutral6: '#BFBFBF',
+  neutral7: '#595959',
+  neutral8: '#434343',
+  neutral9: '#262626',
+  neutral10: '#1F1F1F',
+  neutral11: '#141414',
+  neutral12: '#000000',
+  /**
    * @name Primary
    */
   primary1: '#f0f5ff',
@@ -377,82 +402,72 @@ const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
   secondary9: '#142656',
   secondary10: '#09183F',
   /**
-   * @name Neutral
+   * @name Success
    */
-  neutral1: '#FFFFFF',
-  neutral2: '#FAFAFA',
-  neutral3: '#F5F5F5',
-  neutral4: '#F0F0F0',
-  neutral5: '#D9D9D9',
-  neutral6: '#BFBFBF',
-  neutral7: '#595959',
-  neutral8: '#434343',
-  neutral9: '#262626',
-  neutral10: '#1F1F1F',
-  neutral11: '#141414',
-  neutral12: '#000000',
+  success1: '#f6ffed',
+  success2: '#d9f7be',
+  success3: '#b7eb8f',
+  success4: '#95de64',
+  success5: '#73d13d',
+  success6: '#52c41a',
+  success7: '#389e0d',
+  success8: '#237804',
+  success9: '#135200',
+  success10: '#092b00',
   /**
-   * @name Red
+   * @name Info
    */
-  red1: '#fff1f0',
-  red2: '#ffccc7',
-  red3: '#ffa39e',
-  red4: '#ff7875',
-  red5: '#ff4d4f',
-  red6: '#f5222d',
-  red7: '#cf1322',
-  red8: '#a8071a',
-  red9: '#820014',
-  red10: '#5c0011',
+  info1: '#e6f7ff',
+  info2: '#bae7ff',
+  info3: '#91d5ff',
+  info4: '#69c0ff',
+  info5: '#40a9ff',
+  info6: '#1890ff',
+  info7: '#096dd9',
+  info8: '#0050b3',
+  info9: '#003a8c',
+  info10: '#002766',
   /**
-   * @name Volcano
+   * @name Warning
    */
-  volcano1: '#fff2e8',
-  volcano2: '#ffd8bf',
-  volcano3: '#ffbb96',
-  volcano4: '#ff9c6e',
-  volcano5: '#ff7a45',
-  volcano6: '#fa541c',
-  volcano7: '#d4380d',
-  volcano8: '#ad2102',
-  volcano9: '#871400',
-  volcano10: '#610b00',
+  warning1: '#fff2e8',
+  warning2: '#ffd8bf',
+  warning3: '#ffbb96',
+  warning4: '#ff9c6e',
+  warning5: '#ff7a45',
+  warning6: '#fa541c',
+  warning7: '#d4380d',
+  warning8: '#ad2102',
+  warning9: '#871400',
+  warning10: '#610b00',
   /**
-   * @name Orange
+   * @name Error
    */
-  orange1: '#fff7e6',
-  orange2: '#ffe7ba',
-  orange3: '#ffd591',
-  orange4: '#ffc069',
-  orange5: '#ffa940',
-  orange6: '#fa8c16',
-  orange7: '#d46b08',
-  orange8: '#ad4e00',
-  orange9: '#873800',
-  orange10: '#612500',
-  /**
-   * @name Purple
-   */
-  purple1: '#f9f0ff',
-  purple2: '#efdbff',
-  purple3: '#d3adf7',
-  purple4: '#b37feb',
-  purple5: '#9254de',
-  purple6: '#722ed1',
-  purple7: '#531dab',
-  purple8: '#391085',
-  purple9: '#22075e',
-  purple10: '#120338',
+  error1: '#fff1f0',
+  error2: '#ffccc7',
+  error3: '#ffa39e',
+  error4: '#ff7875',
+  error5: '#ff4d4f',
+  error6: '#f5222d',
+  error7: '#cf1322',
+  error8: '#a8071a',
+  error9: '#820014',
+  error10: '#5c0011',
   /**
    * @name Theme
    */
   default: '#262626',
   primary: '#2f54eb',
-  secondary: '#002766',
-  success: '#6AB95C',
-  info: '#1890FF',
-  warning: '#FAAD14',
-  error: '#F5862E',
+  secondary: '#2A3E73',
+  success: '#52c41a',
+  info: '#1890ff',
+  warning: '#fa541c',
+  error: '#f5222d',
+  /**
+   * @name State
+   */
+  readonly: '#F5F5F5',
+  disabled: '#F0F0F0',
   /**
    * @name Socials
    */
