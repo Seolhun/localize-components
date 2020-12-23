@@ -1,6 +1,6 @@
 # LocalizeButton
 
-## Anatomy
+## 1. Anatomy
 
 ![./resources/anatomy/button.anatomy.png](./resources/anatomy/button.anatomy.png)
 
@@ -8,7 +8,7 @@
 
 ---
 
-## Specs
+## 2. Specs
 
 ![./resources/specs/button.specs.png](./resources/specs/button.specs.png)
 
@@ -16,7 +16,7 @@
 
 ---
 
-## Options
+## 3. Options
 
 ### Size
 
@@ -51,7 +51,7 @@
 
 ---
 
-## Props
+## 4. Props
 
 ```tsx
   /**
@@ -80,20 +80,20 @@
 
 ---
 
-## Behaviors
+## 5. Behaviors
 
 - All interactive states
   - Includes all interactive states that are applicable (hover, down, focus, keyboard focus, disabled).
 
 ---
 
-## Accessibility
+## 6. Accessibility
 
 접근성
 
 ---
 
-## Design checklist
+## 7. Design checklist
 
 - [ ] All color themes
   - Works properly across all four color themes (light, dark).
@@ -108,13 +108,13 @@
 
 ---
 
-## Internationalization
+## 8. Internationalization
 
 국제화
 
 ---
 
-## Use cases
+## 9. Use cases
 
 유즈 케이스
 
