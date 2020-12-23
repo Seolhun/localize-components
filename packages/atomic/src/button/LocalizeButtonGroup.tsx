@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { Property } from 'csstype';
 import React from 'react';
 
 import { LocalizeButtonProps } from './LocalizeButton';
@@ -15,6 +16,16 @@ export interface LocalizeButtonGroupProps extends ExtentionProps {
   direction?: LocalizeButtonDirectionType;
 
   /**
+   * Set this to change group align items
+   */
+  alignItems?: Property.AlignItems;
+
+  /**
+   * Set this to change group justify content
+   */
+  justifyContent?: Property.JustifyContent;
+
+  /**
    * Set this to change between buttons gutter
    * @default 0
    */
@@ -28,48 +39,50 @@ export interface LocalizeButtonGroupProps extends ExtentionProps {
 }
 
 const LocalizeButtonGroupWrapper = styled.div<LocalizeButtonGroupProps>(
-  ({ direction, rounded, gutter = 0 }) => {
+  ({ direction, alignItems, justifyContent, rounded, gutter = 0 }) => {
     const radiusByRounded = rounded ? '6px' : '0';
     return {
       display: 'flex',
       flexWrap: 'wrap',
       flexDirection: direction,
+      alignItems,
+      justifyContent,
 
       ...(direction === 'column'
         ? {
-            button: {
+            [`.${CLASSNAME}`]: {
               borderRadius: '0',
             },
-            'button + button': {
+            [`.${CLASSNAME} + .${CLASSNAME}`]: {
               marginTop: `${gutter}px`,
             },
-            'button:first-of-type': {
+            [`.${CLASSNAME}:first-of-type`]: {
               borderRadius: `${radiusByRounded} ${radiusByRounded} 0 0`,
             },
-            'button:last-of-type': {
+            [`.${CLASSNAME}:last-of-type`]: {
               borderRadius: `0 0 ${radiusByRounded} ${radiusByRounded}`,
             },
-            'button:not(last-of-type)': {
-              borderBottomWidth: gutter ? 1 : 0,
+            [`.${CLASSNAME}:not(:last-of-type)`]: {
+              borderBottomWidth: gutter > 0 ? 1 : 0,
             },
           }
         : {
-            button: {
-              borderRadius: '0',
-            },
-            'button + button': {
-              marginLeft: `${gutter}px`,
-            },
-            'button:first-of-type': {
-              borderRadius: `${radiusByRounded} 0 0 ${radiusByRounded}`,
-            },
-            'button:last-of-type': {
-              borderRadius: `0 ${radiusByRounded} ${radiusByRounded} 0`,
-            },
-            'button:not(last-of-type)': {
-              borderRightWidth: gutter ? 1 : 0,
-            },
-          }),
+          [`.${CLASSNAME}`]: {
+            borderRadius: '0',
+          },
+          [`.${CLASSNAME} + .${CLASSNAME}`]: {
+            marginLeft: `${gutter}px`,
+          },
+          [`.${CLASSNAME}:first-of-type`]: {
+            borderRadius: `${radiusByRounded} 0 0 ${radiusByRounded}`,
+          },
+          [`.${CLASSNAME}:last-of-type`]: {
+            borderRadius: `0 ${radiusByRounded} ${radiusByRounded} 0`,
+          },
+          [`.${CLASSNAME}:not(:last-of-type)`]: {
+            borderRightWidth: gutter > 0 ? 1 : 0,
+          },
+        }),
     };
   },
 );

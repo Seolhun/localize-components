@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import { darken } from 'polished';
 
 import {
-  getLocalizeIntentAndColor,
+  getLocalizeIntentColor,
   getLocalizeSizeBy,
   LocalizeIntentThemeType,
   LocalizeProps,
@@ -92,7 +92,7 @@ const StyledLocalizeButton = styled.button<LocalizeButtonProps, LocalizeThemePro
       fontColor: 'conversion1',
     },
   }) => {
-    const localizeColor = getLocalizeIntentAndColor(theme, intent, localize);
+    const localizeColor = getLocalizeIntentColor(theme, intent, localize);
     const { backgroundColor, borderColor } = localizeColor;
     return {
       ...getLocalizeButtonStyle(theme, variant, localizeColor),
@@ -117,8 +117,8 @@ const StyledLocalizeButton = styled.button<LocalizeButtonProps, LocalizeThemePro
         borderColor: darken(0.1, borderColor),
       },
       '&:disabled': {
-        backgroundColor: theme.colors.neutral4,
-        borderColor: theme.colors.neutral5,
+        backgroundColor: theme.colors.disabled,
+        borderColor: theme.colors.disabled,
         color: theme.colors.neutral8,
         cursor: 'auto',
       },

@@ -34,10 +34,10 @@ const ButtonGroup: Story<LocalizeButtonGroupProps> = (args) => {
   const children = args.children;
   return (
     <LocalizeButtonGroup {...args} gutter={args.gutter}>
-      <LocalizeButton {...args} intent="default" variant="outline">
+      <LocalizeButton {...args} intent="default" variant='outline'>
         {children}
       </LocalizeButton>
-      <LocalizeButton {...args} intent="default" variant="outline">
+      <LocalizeButton {...args} intent="default">
         {children}
       </LocalizeButton>
       <LocalizeButton {...args} intent="primary">

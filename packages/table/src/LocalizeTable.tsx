@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import { Property } from 'csstype';
 
 import {
-  getLocalizeIntentAndColor,
+  getLocalizeIntentColor,
   LocalizeIntentThemeType,
   LocalizeProps,
   LocalizeThemeProps,
@@ -115,7 +115,7 @@ const LocalizeStyledTableWrapper = styled.div<LocalizeTableThemeProps, LocalizeT
       fontColor: 'conversion1',
     },
   }) => {
-    const localizeColor = getLocalizeIntentAndColor(theme, intent, localize);
+    const localizeColor = getLocalizeIntentColor(theme, intent, localize);
     const { borderColor } = localizeColor;
     return {
       position: 'relative',
@@ -137,7 +137,7 @@ const LocalizeStyledTable = styled.table<LocalizeTableThemeProps, LocalizeThemeP
       fontColor: 'conversion1',
     },
   }) => {
-    const localizeColor = getLocalizeIntentAndColor(theme, intent, localize);
+    const localizeColor = getLocalizeIntentColor(theme, intent, localize);
     const { backgroundColor, color, borderColor } = localizeColor;
     return {
       width: '100%',

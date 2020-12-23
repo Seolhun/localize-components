@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
-import { lighten } from 'polished';
+import { darken } from 'polished';
 
 import {
-  getLocalizeIntentAndColor,
+  getLocalizeIntentColor,
   getLocalizeSizeBy,
   LocalizeIntentThemeType,
   LocalizeProps,
@@ -47,9 +47,15 @@ function getLocalizeButtonStyle(
   switch (variant) {
     case 'outline': {
       return {
-        color: theme.colors.conversion10,
-        backgroundColor: borderColor,
+        color,
+        backgroundColor: theme.colors.conversion1,
         border: `1px solid ${backgroundColor}`,
+
+        '&:hover, &:active': {
+          color,
+          backgroundColor,
+          border: `1px solid ${borderColor}`,
+        },
       };
     }
     default: {
@@ -57,6 +63,12 @@ function getLocalizeButtonStyle(
         color,
         backgroundColor,
         border: `1px solid ${borderColor}`,
+
+        '&:hover, &:active': {
+          color,
+          backgroundColor: darken(0.1, backgroundColor),
+          border: `1px solid ${darken(0.1, borderColor)}`,
+        },
       };
     }
   }
@@ -74,7 +86,7 @@ const StyledLocalizeTagWrapper = styled.div<LocalizeTagProps, LocalizeThemeProps
       fontColor: 'conversion10',
     },
   }) => {
-    const localizeColor = getLocalizeIntentAndColor(theme, intent, localize);
+    const localizeColor = getLocalizeIntentColor(theme, intent, localize);
     const { backgroundColor, borderColor } = localizeColor;
     return {
       ...getLocalizeButtonStyle(theme, variant, localizeColor),
@@ -92,12 +104,12 @@ const StyledLocalizeTagWrapper = styled.div<LocalizeTagProps, LocalizeThemeProps
       cursor: 'pointer',
 
       '&:not(:disabled):not(:read-only):active, &:not(:disabled):not(:read-only):hover': {
-        backgroundColor: lighten(0.1, backgroundColor),
-        borderColor: lighten(0.1, borderColor),
+        backgroundColor: darken(0.1, backgroundColor),
+        borderColor: darken(0.1, borderColor),
       },
       '&:disabled': {
-        backgroundColor: theme.colors.neutral4,
-        borderColor: theme.colors.neutral5,
+        backgroundColor: theme.colors.disabled,
+        borderColor: theme.colors.disabled,
         color: theme.colors.neutral8,
         cursor: 'auto',
       },
@@ -105,12 +117,11 @@ const StyledLocalizeTagWrapper = styled.div<LocalizeTagProps, LocalizeThemeProps
   },
 );
 
-const StyledLocalizeTagContainer = styled.span<LocalizeTagProps, LocalizeThemeProps>(({ size }) => {
+const StyledLocalizeTagContainer = styled.span<LocalizeTagProps, LocalizeThemeProps>(() => {
   return {
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: getLocalizeSizeBy(size),
   };
 });
 

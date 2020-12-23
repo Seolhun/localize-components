@@ -183,7 +183,6 @@ export interface LocalizeThemeProps<K = keyof typeof LocalizeThemeEnum> {
     /**
      * @name State
      */
-    readonly: string;
     disabled: string;
     /**
      * @name Socials
@@ -327,7 +326,6 @@ const localizeLightThemeColors: LocalizeThemeProps['colors'] = {
   /**
    * @name State
    */
-  readonly: '#F5F5F5',
   disabled: '#F0F0F0',
   /**
    * @name Socials
@@ -456,7 +454,7 @@ const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
   /**
    * @name Theme
    */
-  default: '#262626',
+  default: '#21262D',
   primary: '#2f54eb',
   secondary: '#2A3E73',
   success: '#52c41a',
@@ -466,7 +464,6 @@ const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
   /**
    * @name State
    */
-  readonly: '#F5F5F5',
   disabled: '#F0F0F0',
   /**
    * @name Socials
