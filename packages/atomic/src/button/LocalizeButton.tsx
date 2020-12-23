@@ -46,9 +46,9 @@ export interface LocalizeButtonProps extends ExtentionProps {
 function getLocalizeButtonVariantStyle(
   _theme: LocalizeThemeProps,
   variant: LocalizeButtonVariantType,
-  localizeColors: LocalizeStyleResponseType,
+  localizedColor: LocalizeStyleResponseType,
 ) {
-  const { backgroundColor, borderColor, innerColor } = localizeColors;
+  const { backgroundColor, borderColor, innerColor } = localizedColor;
   switch (variant) {
     case 'outline': {
       return {
@@ -93,10 +93,10 @@ const StyledLocalizeButton = styled.button<LocalizeButtonProps, LocalizeThemePro
     },
     rounded,
   }) => {
-    const localizeColor = getLocalizeIntentColor(theme, intent, localize);
-    const { backgroundColor, borderColor } = localizeColor;
+    const localizedColor = getLocalizeIntentColor(theme, intent, localize);
+    const { backgroundColor, borderColor } = localizedColor;
     return {
-      ...getLocalizeButtonVariantStyle(theme, variant, localizeColor),
+      ...getLocalizeButtonVariantStyle(theme, variant, localizedColor),
       display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',

@@ -1,28 +1,38 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
-import { Property } from 'csstype';
 
 import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
-import LocalizeCellStyles from './LocalizeCellStyle';
+import { LocalizeCellProps, LocalizeCellStyle } from './LocalizeCellStyle';
 
 const CLASSNAME = '__Localize__Table__HeaderCell';
 
-type ThProps = React.HTMLAttributes<HTMLTableHeaderCellElement>;
-type ExtensionProps = ThProps;
-export interface LocalizeTableHeaderCellProps extends ExtensionProps {
-  width?: Property.Width;
-}
+type DivProps = React.HTMLAttributes<HTMLDivElement>;
+type ExtensionProps = DivProps & LocalizeCellProps;
 
-const LocalizeTableHeaderCellWrapper = styled.th<LocalizeTableHeaderCellProps, LocalizeThemeProps>(
-  ({ theme, width }) => {
+export interface LocalizeTableHeaderCellProps extends ExtensionProps {}
+
+const LocalizeTableHeaderCellWrapper = styled.div<LocalizeTableHeaderCellProps, LocalizeThemeProps>(
+  ({ theme, width, height, verticalAlign = 'center', horizontalAlign = 'center', freezing }) => {
     return {
-      ...LocalizeCellStyles(theme),
+      ...LocalizeCellStyle(theme),
+      position: freezing ? 'fixed' : 'unset',
+      display: 'inline-flex',
+      alignItems: verticalAlign,
+      justifyContent: horizontalAlign,
       width,
-      backgroundColor: theme.colors.neutral3,
-      borderBottom: `1px solid ${theme.colors.neutral3}`,
+      minWidth: width,
+      height: `${height}px`,
       transition: 'background-color 0.25s',
+      borderRight: `1px solid ${theme.colors.neutral3}`,
+      borderBottom: `1px solid ${theme.colors.neutral3}`,
+      textOverflow: 'ellipsis',
+      overflow: 'hidden',
+
+      '&:first-of-type': {
+        borderLeft: `1px solid ${theme.colors.neutral3}`,
+      },
     };
   },
 );

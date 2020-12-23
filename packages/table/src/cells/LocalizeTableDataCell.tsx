@@ -1,32 +1,49 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
-import { Property } from 'csstype';
 
 import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
-import { LocalizeCellStyle } from './LocalizeCellStyle';
+import { LocalizeCellProps, LocalizeCellStyle } from './LocalizeCellStyle';
 
-const CLASSNAME = '__Localize__Table__HeaderCell';
+const CLASSNAME = '__Localize__Table__DataCell';
 
-type TdProps = React.HTMLAttributes<HTMLTableDataCellElement>;
-type ExtensionProps = TdProps;
-export interface LocalizeTableDataCellProps extends ExtensionProps {
-  width?: Property.Width;
-}
+type DivProps = React.HTMLAttributes<HTMLDivElement>;
+type ExtensionProps = DivProps & LocalizeCellProps;
 
-const LocalizeTableDataCellWrapper = styled.td<LocalizeTableDataCellProps, LocalizeThemeProps>(
-  ({ theme, width }) => {
+export interface LocalizeTableDataCellProps extends ExtensionProps {}
+
+const LocalizeTableDataCellWrapper = styled.div<LocalizeTableDataCellProps, LocalizeThemeProps>(
+  ({ theme, width, height, verticalAlign = 'center', horizontalAlign = 'flex-start', freezing }) => {
     return {
       ...LocalizeCellStyle(theme),
+      position: freezing ? 'fixed' : 'unset',
+      display: 'inline-flex',
+      alignItems: verticalAlign,
+      justifyContent: horizontalAlign,
       width,
+      minWidth: width,
+      height: `${height}px`,
+      transition: 'background-color 0.25s',
+      borderRight: `1px solid ${theme.colors.neutral3}`,
+      borderBottom: `1px solid ${theme.colors.neutral3}`,
+      textOverflow: 'ellipsis',
+      overflow: 'hidden',
+
+      '&:first-of-type': {
+        borderLeft: `1px solid ${theme.colors.neutral3}`,
+      },
     };
   },
 );
 
-const LocalizeTableDataCell: React.FC<LocalizeTableDataCellProps> = ({ children, className }) => {
+const LocalizeTableDataCell: React.FC<LocalizeTableDataCellProps> = ({
+  children,
+  className,
+  ...props
+}) => {
   return (
-    <LocalizeTableDataCellWrapper className={classnames(CLASSNAME, className)}>
+    <LocalizeTableDataCellWrapper {...props} className={classnames(CLASSNAME, className)}>
       {children}
     </LocalizeTableDataCellWrapper>
   );

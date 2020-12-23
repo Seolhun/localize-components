@@ -51,8 +51,8 @@ const LocalizeCheckboxWrapper = styled.div<LocalizeCheckboxProps, LocalizeThemeP
     },
     rounded,
   }) => {
-    const localizeColor = getLocalizeIntentColor(theme, intent, localize);
-    const { backgroundColor, borderColor, color } = localizeColor;
+    const localizedColor = getLocalizeIntentColor(theme, intent, localize);
+    const { backgroundColor, borderColor, color } = localizedColor;
     const scale = getLocalizeSizeBy(size);
 
     return {

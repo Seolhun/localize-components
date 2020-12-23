@@ -41,9 +41,9 @@ export interface LocalizeTagProps extends ExtentionProps {
 function getLocalizeTagStyle(
   theme: LocalizeThemeProps,
   variant: LocalizeButtonVariantType,
-  localizeColors: LocalizeStyleResponseType,
+  localizedColor: LocalizeStyleResponseType,
 ) {
-  const { backgroundColor, borderColor, innerColor } = localizeColors;
+  const { backgroundColor, borderColor, innerColor } = localizedColor;
   switch (variant) {
     case 'outline': {
       return {
@@ -87,10 +87,10 @@ const StyledLocalizeTagWrapper = styled.div<LocalizeTagProps, LocalizeThemeProps
       fontColor: 'conversion10',
     },
   }) => {
-    const localizeColor = getLocalizeIntentColor(theme, intent, localize);
-    const { backgroundColor, borderColor } = localizeColor;
+    const localizedColor = getLocalizeIntentColor(theme, intent, localize);
+    const { backgroundColor, borderColor } = localizedColor;
     return {
-      ...getLocalizeTagStyle(theme, variant, localizeColor),
+      ...getLocalizeTagStyle(theme, variant, localizedColor),
       display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',

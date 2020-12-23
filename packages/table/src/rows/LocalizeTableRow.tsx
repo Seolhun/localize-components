@@ -1,32 +1,25 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { Property } from 'csstype';
+import classnames from 'classnames';
 
 import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
-import { LocalizeTableProps } from '../LocalizeTable';
+const CLASSNAME = '__Localize__Table__Row';
 
-type TrProps = React.HTMLAttributes<HTMLTableRowElement>;
-type ExtensionProps = TrProps;
-export interface LocalizeTableRowProps extends ExtensionProps {
-  height: Property.Height;
+type DivProps = React.HTMLAttributes<HTMLDivElement>;
+type ExtensionProps = DivProps;
+export interface LocalizeTableRowProps extends ExtensionProps {}
 
-  responsive: LocalizeTableProps['responsive'];
-}
-
-const LocalizeStyledTableRow = styled.tr<LocalizeTableRowProps, LocalizeThemeProps>(
-  ({ theme, height, responsive }) => {
+const LocalizeStyledTableRow = styled.div<LocalizeTableRowProps, LocalizeThemeProps>(
+  ({ theme, onClick }) => {
     return {
-      ...(responsive
-        ? {
-            minHeight: height,
-          }
-        : {
-            height,
-          }),
+      display: 'flex',
+      flex: 1,
+      flexWrap: 'nowrap',
+      cursor: onClick ? 'pointer' : 'auto',
 
       '&:first-of-type': {
-        borderLeft: `1px solid ${theme.colors.neutral4}`,
+        borderTop: `1px solid ${theme.colors.neutral4}`,
       },
       '&:last-of-type': {
         borderBottom: `1px solid ${theme.colors.neutral4}`,
@@ -35,8 +28,12 @@ const LocalizeStyledTableRow = styled.tr<LocalizeTableRowProps, LocalizeThemePro
   },
 );
 
-const LocalizeTableRow: React.FC<LocalizeTableRowProps> = ({ children, ...props }) => {
-  return <LocalizeStyledTableRow {...props}>{children}</LocalizeStyledTableRow>;
+const LocalizeTableRow: React.FC<LocalizeTableRowProps> = ({ children, className, ...props }) => {
+  return (
+    <LocalizeStyledTableRow {...props} className={classnames(CLASSNAME, className)}>
+      {children}
+    </LocalizeStyledTableRow>
+  );
 };
 
 export { LocalizeTableRow };

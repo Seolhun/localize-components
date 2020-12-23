@@ -47,8 +47,8 @@ const LocalizeBoxWrapper = styled.div<LocalizeBoxProps, LocalizeThemeProps>(
       fontColor: 'conversion10',
     },
   }) => {
-    const localizeColor = getLocalizeIntentColor(theme, intent, localize);
-    const { backgroundColor, borderColor, innerColor } = localizeColor;
+    const localizedColor = getLocalizeIntentColor(theme, intent, localize);
+    const { backgroundColor, borderColor, innerColor } = localizedColor;
     return {
       position: 'relative',
       color: innerColor,
