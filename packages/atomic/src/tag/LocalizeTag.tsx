@@ -107,12 +107,6 @@ const StyledLocalizeTagWrapper = styled.div<LocalizeTagProps, LocalizeThemeProps
         backgroundColor: darken(0.1, backgroundColor),
         borderColor: darken(0.1, borderColor),
       },
-      '&:disabled': {
-        backgroundColor: theme.colors.disabled,
-        borderColor: theme.colors.disabled,
-        color: theme.colors.neutral8,
-        cursor: 'auto',
-      },
     };
   },
 );

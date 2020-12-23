@@ -76,33 +76,6 @@ Default.args = {
   disabled: false,
 };
 
-const IntentButtons: Story<LocalizeButtonProps> = (args) => {
-  const children = args.children;
-  const localize = {
-    bgColor: args.bgColor,
-    bdColor: args.bdColor,
-    color: args.color,
-  };
-  return (
-    <LocalizeRow>
-      {storiesIntentOptions.map((intent) => (
-        <LocalizeCol md={8} key={intent}>
-          <h3>{intent}</h3>
-          <LocalizeButton {...args} intent={intent} localize={localize}>
-            {children}
-          </LocalizeButton>
-        </LocalizeCol>
-      ))}
-    </LocalizeRow>
-  );
-};
-
-export const IntentButtonsStories = IntentButtons.bind({});
-IntentButtonsStories.args = {
-  children: 'LocalizeButton',
-  rounded: false,
-  disabled: false,
-};
 
 const SizeButtons: Story<LocalizeButtonProps> = (args) => {
   const children = args.children;
@@ -149,6 +122,35 @@ const SizeButtons: Story<LocalizeButtonProps> = (args) => {
 
 export const SizeButtonsStories = SizeButtons.bind({});
 SizeButtonsStories.args = {
+  children: 'LocalizeButton',
+  rounded: false,
+  disabled: false,
+};
+
+
+const IntentButtons: Story<LocalizeButtonProps> = (args) => {
+  const children = args.children;
+  const localize = {
+    bgColor: args.bgColor,
+    bdColor: args.bdColor,
+    color: args.color,
+  };
+  return (
+    <LocalizeRow>
+      {storiesIntentOptions.map((intent) => (
+        <LocalizeCol md={8} key={intent}>
+          <h3>{intent}</h3>
+          <LocalizeButton {...args} intent={intent} localize={localize}>
+            {children}
+          </LocalizeButton>
+        </LocalizeCol>
+      ))}
+    </LocalizeRow>
+  );
+};
+
+export const IntentButtonsStories = IntentButtons.bind({});
+IntentButtonsStories.args = {
   children: 'LocalizeButton',
   rounded: false,
   disabled: false,

@@ -1,29 +1,18 @@
-import styled from '@emotion/styled';
-import { Property } from 'csstype';
 import React from 'react';
+import styled from '@emotion/styled';
 
 import { LocalizeButtonProps } from './LocalizeButton';
 
 const CLASSNAME = '__Localize__ButtonGroup';
 type ButtonProps = React.HTMLAttributes<HTMLButtonElement>;
 type ExtentionProps = Omit<LocalizeButtonProps, keyof ButtonProps>;
-type LocalizeButtonDirectionType = 'row' | 'column';
+type LocalizeButtonDirectionType = 'row' | 'column' | 'row-reverse' | 'column-reverse';
 
 export interface LocalizeButtonGroupProps extends ExtentionProps {
   /**
    * Set this to change group direction
    */
   direction?: LocalizeButtonDirectionType;
-
-  /**
-   * Set this to change group align items
-   */
-  alignItems?: Property.AlignItems;
-
-  /**
-   * Set this to change group justify content
-   */
-  justifyContent?: Property.JustifyContent;
 
   /**
    * Set this to change between buttons gutter
@@ -39,14 +28,11 @@ export interface LocalizeButtonGroupProps extends ExtentionProps {
 }
 
 const LocalizeButtonGroupWrapper = styled.div<LocalizeButtonGroupProps>(
-  ({ direction, alignItems, justifyContent, rounded, gutter = 0 }) => {
+  ({ direction, rounded, gutter = 0 }) => {
     const radiusByRounded = rounded ? '6px' : '0';
     return {
       display: 'flex',
-      flexWrap: 'wrap',
       flexDirection: direction,
-      alignItems,
-      justifyContent,
 
       ...(direction === 'column'
         ? {

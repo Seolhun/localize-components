@@ -7,7 +7,7 @@ import {
   LocalizeButtonGroupProps,
 } from '../../../packages/atomic/dist';
 
-import { storiesSizeOptions, storiesColorOptions, storiesIntentOptions } from '../controls';
+import { storiesSizeOptions, storiesAlignItemsOptions, storiesJustifyContentOptions } from '../controls';
 
 export default {
   title: 'Atmoic | LocalizeButtonGroup',
