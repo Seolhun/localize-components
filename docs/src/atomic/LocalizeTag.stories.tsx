@@ -101,7 +101,6 @@ TagsStorieSizes.args = {
   disabled: false,
 };
 
-
 const IntentTags: Story<LocalizeTagProps> = (args) => {
   const children = args.children;
   const localize = {

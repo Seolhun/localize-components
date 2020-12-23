@@ -83,7 +83,6 @@ Default.args = {
   disabled: false,
 };
 
-
 const SizeButtons: Story<LocalizeButtonProps> = (args) => {
   const children = args.children;
   const localize = {
@@ -133,7 +132,6 @@ SizeButtonsStories.args = {
   rounded: false,
   disabled: false,
 };
-
 
 const IntentButtons: Story<LocalizeButtonProps> = (args) => {
   const children = args.children;

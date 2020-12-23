@@ -95,7 +95,6 @@ BoxSizesStories.args = {
   disabled: false,
 };
 
-
 const IntentBoxes: Story<LocalizeBoxProps> = (args) => {
   const children = args.children;
   const localize = {

@@ -43,11 +43,7 @@ export default {
 
 const Checkbox: Story<LocalizeCheckboxProps> = (args) => {
   const children = args.children;
-  return (
-    <LocalizeCheckbox {...args}>
-      {children}
-    </LocalizeCheckbox>
-  );
+  return <LocalizeCheckbox {...args}>{children}</LocalizeCheckbox>;
 };
 
 export const Default = Checkbox.bind({});
@@ -58,7 +54,6 @@ Default.args = {
   rounded: true,
   disabled: false,
 };
-
 
 const SizeCheckboxs: Story<LocalizeCheckboxProps> = (args) => {
   const children = args.children;
@@ -111,7 +106,6 @@ SizeCheckboxsStories.args = {
   rounded: true,
   disabled: false,
 };
-
 
 const IntentCheckboxes: Story<LocalizeCheckboxProps> = (args) => {
   const children = args.children;
