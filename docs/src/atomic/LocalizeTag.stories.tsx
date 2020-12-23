@@ -10,32 +10,39 @@ export default {
   title: 'Atmoic | LocalizeTag',
   component: LocalizeTag,
   argTypes: {
-    fontColor: {
-      defaultValue: 'neutral1',
+    size: {
+      defaultValue: 'md',
       control: {
         type: 'select',
-        options: storiesColorOptions,
+        options: storiesSizeOptions,
       },
     },
     bgColor: {
-      defaultValue: 'primary',
+      defaultValue: 'default',
       control: {
         type: 'select',
         options: storiesColorOptions,
       },
     },
     bdColor: {
-      defaultValue: 'primary',
+      defaultValue: 'conversion1',
       control: {
         type: 'select',
         options: storiesColorOptions,
       },
     },
-    size: {
-      defaultValue: 'md',
+    innerFontColor: {
+      defaultValue: 'conversion1',
       control: {
         type: 'select',
-        options: storiesSizeOptions,
+        options: storiesColorOptions,
+      },
+    },
+    fontColor: {
+      defaultValue: 'conversion10',
+      control: {
+        type: 'select',
+        options: storiesColorOptions,
       },
     },
   },

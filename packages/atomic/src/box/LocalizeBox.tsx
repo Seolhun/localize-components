@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 import {
   getLocalizeIntentColor,
-  getLocalizeSizeBy,
+  getLocalizePaddingSizeBy,
   LocalizeIntentThemeType,
   LocalizeProps,
   LocalizeSize,
@@ -41,16 +41,17 @@ const LocalizeBoxWrapper = styled.div<LocalizeBoxProps, LocalizeThemeProps>(
     theme,
     intent = 'default',
     localize = {
-      bgColor: 'primary',
-      bdColor: 'transparent',
-      fontColor: 'conversion1',
+      bgColor: 'default',
+      bdColor: 'conversion1',
+      innerFontColor: 'conversion1',
+      fontColor: 'conversion10',
     },
   }) => {
     const localizeColor = getLocalizeIntentColor(theme, intent, localize);
-    const { backgroundColor, borderColor, color } = localizeColor;
+    const { backgroundColor, borderColor, innerColor } = localizeColor;
     return {
       position: 'relative',
-      color,
+      color: innerColor,
       backgroundColor,
       borderColor,
       borderRadius: '8px',
@@ -81,7 +82,7 @@ const LocalizeBoxCloser = styled.span<LocalizeProps, LocalizeThemeProps>(() => {
 const LocalizeBoxContainer = styled.div<LocalizeBoxContainerProps, LocalizeThemeProps>(
   ({ size, closable }) => {
     return {
-      padding: getLocalizeSizeBy(size),
+      padding: getLocalizePaddingSizeBy(size),
       ...(closable && {
         paddingRight: '52px',
       }),

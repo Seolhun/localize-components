@@ -18,21 +18,28 @@ export default {
       },
     },
     bgColor: {
-      defaultValue: 'primary',
+      defaultValue: 'default',
       control: {
         type: 'select',
         options: storiesColorOptions,
       },
     },
     bdColor: {
-      defaultValue: 'neutral3',
+      defaultValue: 'conversion1',
+      control: {
+        type: 'select',
+        options: storiesColorOptions,
+      },
+    },
+    innerFontColor: {
+      defaultValue: 'conversion1',
       control: {
         type: 'select',
         options: storiesColorOptions,
       },
     },
     fontColor: {
-      defaultValue: 'conversion1',
+      defaultValue: 'conversion10',
       control: {
         type: 'select',
         options: storiesColorOptions,

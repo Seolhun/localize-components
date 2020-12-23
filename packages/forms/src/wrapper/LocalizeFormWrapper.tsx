@@ -27,11 +27,15 @@ const LocalizeFormWrapper: React.FC<LocalizeFormWrapperProps> = ({
   error,
   ...props
 }) => {
+  const hasHelpOrError = !!help || !!error;
+
   return (
     <LocalizeFormWrapperWrapper {...props} className={classnames(CLASSNAME, className)}>
       {label && <LocalizeFormLabel>{label}</LocalizeFormLabel>}
       {children}
-      {help && <LocalizeFormDescription error={error}>{help}</LocalizeFormDescription>}
+      {hasHelpOrError && (
+        <LocalizeFormDescription error={error}>{error || help}</LocalizeFormDescription>
+      )}
     </LocalizeFormWrapperWrapper>
   );
 };

@@ -53,22 +53,22 @@ const LocalizeButtonGroupWrapper = styled.div<LocalizeButtonGroupProps>(
             },
           }
         : {
-          [`.${CLASSNAME}`]: {
-            borderRadius: '0',
-          },
-          [`.${CLASSNAME} + .${CLASSNAME}`]: {
-            marginLeft: `${gutter}px`,
-          },
-          [`.${CLASSNAME}:first-of-type`]: {
-            borderRadius: `${radiusByRounded} 0 0 ${radiusByRounded}`,
-          },
-          [`.${CLASSNAME}:last-of-type`]: {
-            borderRadius: `0 ${radiusByRounded} ${radiusByRounded} 0`,
-          },
-          [`.${CLASSNAME}:not(:last-of-type)`]: {
-            borderRightWidth: gutter > 0 ? 1 : 0,
-          },
-        }),
+            [`.${CLASSNAME}`]: {
+              borderRadius: '0',
+            },
+            [`.${CLASSNAME} + .${CLASSNAME}`]: {
+              marginLeft: `${gutter}px`,
+            },
+            [`.${CLASSNAME}:first-of-type`]: {
+              borderRadius: `${radiusByRounded} 0 0 ${radiusByRounded}`,
+            },
+            [`.${CLASSNAME}:last-of-type`]: {
+              borderRadius: `0 ${radiusByRounded} ${radiusByRounded} 0`,
+            },
+            [`.${CLASSNAME}:not(:last-of-type)`]: {
+              borderRightWidth: gutter > 0 ? 1 : 0,
+            },
+          }),
     };
   },
 );

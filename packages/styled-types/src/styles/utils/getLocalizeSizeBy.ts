@@ -3,23 +3,23 @@ import { LocalizeSize } from '../LocalizeSize';
 export const getLocalizeSizeBy = (size?: LocalizeSize) => {
   switch (size) {
     case 'xl': {
-      return '1.4rem 1.6rem';
+      return '1.8rem';
     }
     case 'lg': {
-      return '1.2rem 1.4rem';
+      return '1.6rem';
     }
     case 'md': {
-      return '0.8rem 1rem';
+      return '1.2rem';
     }
     case 'sm': {
-      return '0.6rem 0.8rem';
+      return '1rem';
     }
     case 'xs': {
-      return '0.5rem 0.6rem';
+      return '0.8rem';
     }
     // MD
     default: {
-      return '0.8rem 1rem';
+      return '1.2rem';
     }
   }
 };

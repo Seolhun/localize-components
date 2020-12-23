@@ -5,7 +5,7 @@ import { darken } from 'polished';
 
 import {
   getLocalizeIntentColor,
-  getLocalizeSizeBy,
+  getLocalizePaddingSizeBy,
   LocalizeIntentThemeType,
   LocalizeProps,
   LocalizeSize,
@@ -38,21 +38,21 @@ export interface LocalizeTagProps extends ExtentionProps {
   intent?: LocalizeIntentThemeType;
 }
 
-function getLocalizeButtonStyle(
+function getLocalizeTagStyle(
   theme: LocalizeThemeProps,
   variant: LocalizeButtonVariantType,
   localizeColors: LocalizeStyleResponseType,
 ) {
-  const { backgroundColor, borderColor, color } = localizeColors;
+  const { backgroundColor, borderColor, innerColor } = localizeColors;
   switch (variant) {
     case 'outline': {
       return {
-        color,
+        color: innerColor,
         backgroundColor: theme.colors.conversion1,
         border: `1px solid ${backgroundColor}`,
 
         '&:hover, &:active': {
-          color,
+          color: innerColor,
           backgroundColor,
           border: `1px solid ${borderColor}`,
         },
@@ -60,12 +60,12 @@ function getLocalizeButtonStyle(
     }
     default: {
       return {
-        color,
+        color: innerColor,
         backgroundColor,
         border: `1px solid ${borderColor}`,
 
         '&:hover, &:active': {
-          color,
+          color: innerColor,
           backgroundColor: darken(0.1, backgroundColor),
           border: `1px solid ${darken(0.1, borderColor)}`,
         },
@@ -81,20 +81,21 @@ const StyledLocalizeTagWrapper = styled.div<LocalizeTagProps, LocalizeThemeProps
     variant = 'solid',
     intent = 'default',
     localize = {
-      bgColor: 'primary',
-      bdColor: 'transparent',
+      bgColor: 'default',
+      bdColor: 'conversion1',
+      innerFontColor: 'conversion1',
       fontColor: 'conversion10',
     },
   }) => {
     const localizeColor = getLocalizeIntentColor(theme, intent, localize);
     const { backgroundColor, borderColor } = localizeColor;
     return {
-      ...getLocalizeButtonStyle(theme, variant, localizeColor),
+      ...getLocalizeTagStyle(theme, variant, localizeColor),
       display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',
       backgroundColor,
-      padding: getLocalizeSizeBy(size),
+      padding: getLocalizePaddingSizeBy(size),
       borderRadius: '24px',
       textDecoration: 'none',
       whiteSpace: 'nowrap',

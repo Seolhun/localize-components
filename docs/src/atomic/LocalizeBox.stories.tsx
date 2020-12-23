@@ -4,38 +4,38 @@ import { Story } from '@storybook/react/types-6-0';
 import { LocalizeBox, LocalizeBoxProps } from '../../../packages/atomic/dist';
 import { LocalizeRow, LocalizeCol } from '../../../packages/grid/dist';
 
-import { storiesSizeOptions, storiesColorOptions } from '../controls';
+import { storiesSizeOptions, storiesColorOptions, storiesIntentOptions } from '../controls';
 
 export default {
   title: 'Atmoic | LocalizeBox',
   component: LocalizeBox,
   argTypes: {
-    fontColor: {
-      defaultValue: 'neutral1',
-      control: {
-        type: 'select',
-        options: storiesColorOptions,
-      },
-    },
     bgColor: {
-      defaultValue: 'primary',
+      defaultValue: 'default',
       control: {
         type: 'select',
         options: storiesColorOptions,
       },
     },
     bdColor: {
-      defaultValue: 'primary',
+      defaultValue: 'conversion1',
       control: {
         type: 'select',
         options: storiesColorOptions,
       },
     },
-    size: {
-      defaultValue: 'md',
+    innerFontColor: {
+      defaultValue: 'conversion1',
       control: {
         type: 'select',
-        options: storiesSizeOptions,
+        options: storiesColorOptions,
+      },
+    },
+    fontColor: {
+      defaultValue: 'conversion10',
+      control: {
+        type: 'select',
+        options: storiesColorOptions,
       },
     },
   },
@@ -90,6 +90,35 @@ const BoxSizes: Story<LocalizeBoxProps> = (args) => {
 };
 export const BoxSizesStories = BoxSizes.bind({});
 BoxSizesStories.args = {
+  children: 'LocalizeBox',
+  borderRadius: '12px',
+  disabled: false,
+};
+
+
+const IntentBoxes: Story<LocalizeBoxProps> = (args) => {
+  const children = args.children;
+  const localize = {
+    bgColor: args.bgColor,
+    bdColor: args.bdColor,
+    color: args.color,
+  };
+  return (
+    <LocalizeRow>
+      {storiesIntentOptions.map((intent) => (
+        <LocalizeCol md={8} key={intent}>
+          <h3>{intent}</h3>
+          <LocalizeBox {...args} intent={intent} localize={localize}>
+            {children}
+          </LocalizeBox>
+        </LocalizeCol>
+      ))}
+    </LocalizeRow>
+  );
+};
+
+export const IntentBoxesStories = IntentBoxes.bind({});
+IntentBoxesStories.args = {
   children: 'LocalizeBox',
   borderRadius: '12px',
   disabled: false,

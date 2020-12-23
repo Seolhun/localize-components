@@ -110,9 +110,10 @@ const LocalizeStyledTableWrapper = styled.div<LocalizeTableThemeProps, LocalizeT
     theme,
     intent = 'default',
     localize = {
-      bgColor: 'primary',
-      bdColor: 'neutral3',
-      fontColor: 'conversion1',
+      bgColor: 'default',
+      bdColor: 'conversion1',
+      innerFontColor: 'conversion1',
+      fontColor: 'conversion10',
     },
   }) => {
     const localizeColor = getLocalizeIntentColor(theme, intent, localize);
@@ -132,13 +133,14 @@ const LocalizeStyledTable = styled.table<LocalizeTableThemeProps, LocalizeThemeP
     theme,
     intent = 'default',
     localize = {
-      bgColor: 'primary',
-      bdColor: 'neutral3',
-      fontColor: 'conversion1',
+      bgColor: 'default',
+      bdColor: 'conversion1',
+      innerFontColor: 'conversion1',
+      fontColor: 'conversion10',
     },
   }) => {
     const localizeColor = getLocalizeIntentColor(theme, intent, localize);
-    const { backgroundColor, color, borderColor } = localizeColor;
+    const { backgroundColor, borderColor, innerColor, color } = localizeColor;
     return {
       width: '100%',
       height: '100%',
@@ -146,10 +148,11 @@ const LocalizeStyledTable = styled.table<LocalizeTableThemeProps, LocalizeThemeP
       th: {
         backgroundColor,
         borderColor,
-        color,
+        color: innerColor,
       },
       td: {
         borderColor,
+        color,
       },
     };
   },
