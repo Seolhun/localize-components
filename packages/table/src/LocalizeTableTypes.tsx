@@ -57,6 +57,6 @@ export interface LocalizeTableColumnProps<T = any> {
   width?: Property.Width;
 }
 
-export interface LocalizeVirtualTableColumnProps<T = any> extends LocalizeTableColumnProps<T>{
+export interface LocalizeVirtualTableColumnProps<T = any> extends LocalizeTableColumnProps<T> {
   freezing?: boolean;
 }

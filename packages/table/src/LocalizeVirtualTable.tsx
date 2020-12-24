@@ -122,7 +122,6 @@ const LocalizeVirtualTableBody = styled.div<LocalizeTableBodyProps, LocalizeThem
       // this is differences LocalzeTable
       paddingTop: fixedHeader ? rowHeight : 0,
       height: fixedHeader ? fixedTableHeight : '100%',
-
     };
   },
 );
@@ -148,7 +147,7 @@ function LocalizeVirtualTableDataRow<T>({
           >
             {colum.render(data, index)}
           </LocalizeTableDataCell>
-        )
+        );
       })}
     </LocalizeTableRow>
   );
@@ -177,7 +176,7 @@ function LocalizeVirtualTable<T>({
     // setScrollX(x);
     // setScrollY(y);
 
-  console.log('@@', props)
+    console.log('@@', props);
   }, []);
 
   const memoizedFixedTableHeight = React.useMemo(() => {
@@ -190,7 +189,7 @@ function LocalizeVirtualTable<T>({
       const prev: any = !!a.freezing;
       const next: any = !!b.freezing;
       return next - prev;
-    })
+    });
   }, [JSON.stringify(columns)]);
 
   const handleRenderHeader = React.useCallback((header: LocalizeHeaderRenderType) => {
@@ -220,7 +219,6 @@ function LocalizeVirtualTable<T>({
     },
     [selectedRowClassName],
   );
-
 
   return (
     <LocalizeStyledVirtualTable
@@ -256,7 +254,7 @@ function LocalizeVirtualTable<T>({
       >
         <FixedSizeList
           height={fixedTableHeight}
-          width='auto'
+          width="auto"
           itemCount={datasources.length}
           itemSize={rowHeight}
           onScroll={handleScroll}

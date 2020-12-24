@@ -2,7 +2,10 @@ import { PropertiesFallback, Property } from 'csstype';
 
 import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
-import { LocalizeCellHorizontalAlignType, LocalizeCellVerticalAlignType } from '../LocalizeTableTypes';
+import {
+  LocalizeCellHorizontalAlignType,
+  LocalizeCellVerticalAlignType,
+} from '../LocalizeTableTypes';
 
 export interface LocalizeCellProps {
   /**

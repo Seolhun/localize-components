@@ -14,7 +14,14 @@ type ExtensionProps = DivProps & LocalizeCellProps;
 export interface LocalizeTableDataCellProps extends ExtensionProps {}
 
 const LocalizeTableDataCellWrapper = styled.div<LocalizeTableDataCellProps, LocalizeThemeProps>(
-  ({ theme, width, height, verticalAlign = 'center', horizontalAlign = 'flex-start', freezing }) => {
+  ({
+    theme,
+    width,
+    height,
+    verticalAlign = 'center',
+    horizontalAlign = 'flex-start',
+    freezing,
+  }) => {
     return {
       ...LocalizeCellStyle(theme),
       position: freezing ? 'fixed' : 'unset',
