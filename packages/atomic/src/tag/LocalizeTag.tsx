@@ -43,16 +43,16 @@ function getLocalizeTagStyle(
   variant: LocalizeButtonVariantType,
   localizedColor: LocalizeStyleResponseType,
 ) {
-  const { backgroundColor, borderColor, innerColor } = localizedColor;
+  const { backgroundColor, borderColor, inversedColor } = localizedColor;
   switch (variant) {
     case 'outline': {
       return {
-        color: innerColor,
-        backgroundColor: theme.colors.conversion1,
+        color: inversedColor,
+        backgroundColor: theme.colors.inversed1,
         border: `1px solid ${backgroundColor}`,
 
         '&:hover, &:active': {
-          color: innerColor,
+          color: inversedColor,
           backgroundColor,
           border: `1px solid ${borderColor}`,
         },
@@ -60,12 +60,12 @@ function getLocalizeTagStyle(
     }
     default: {
       return {
-        color: innerColor,
+        color: inversedColor,
         backgroundColor,
         border: `1px solid ${borderColor}`,
 
         '&:hover, &:active': {
-          color: innerColor,
+          color: inversedColor,
           backgroundColor: darken(0.1, backgroundColor),
           border: `1px solid ${darken(0.1, borderColor)}`,
         },
@@ -82,9 +82,9 @@ const StyledLocalizeTagWrapper = styled.div<LocalizeTagProps, LocalizeThemeProps
     intent = 'default',
     localize = {
       bgColor: 'default',
-      bdColor: 'conversion1',
-      innerFontColor: 'conversion1',
-      fontColor: 'conversion10',
+      bdColor: 'transparent',
+      fontColor: 'inversed1',
+      inversedColor: 'inversed10',
     },
   }) => {
     const localizedColor = getLocalizeIntentColor(theme, intent, localize);

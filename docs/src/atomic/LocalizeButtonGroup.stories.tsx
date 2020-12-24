@@ -9,8 +9,6 @@ import {
 
 import {
   storiesSizeOptions,
-  storiesAlignItemsOptions,
-  storiesJustifyContentOptions,
 } from '../controls';
 
 export default {
@@ -39,6 +37,9 @@ const ButtonGroup: Story<LocalizeButtonGroupProps> = (args) => {
   return (
     <LocalizeButtonGroup {...args} gutter={args.gutter}>
       <LocalizeButton {...args} intent="default" variant="outline">
+        {children}
+      </LocalizeButton>
+      <LocalizeButton {...args} intent="primary" variant='outline'>
         {children}
       </LocalizeButton>
       <LocalizeButton {...args} intent="default">

@@ -5,11 +5,11 @@
 ![./resources/anatomy/theme.anatomy.png](./resources/anatomy/theme.anatomy.png)
 
 intent는 `localize` | `default` | `primary` | `secondary` | `success` | `info` | `warning` | `error` 총 7가지 입니다.
-그 외 component를 구성하기 위한 중립적인 컬러 `neutral`과 테마 간의 전환이 필요한 `conversion` 2개를 추가하여 사용합니다.
+그 외 component를 구성하기 위한 중립적인 컬러 `neutral`과 테마 간의 전환이 필요한 `inversed` 2개를 추가하여 사용합니다.
 Element의 `readonly`, `disabled`의 비사용 상태를 표현하기 위해 추가하여 사용합니다.
 
 일반적인 Component의 색상은 intent를 기준으로 Hierarych를 표현/강조하는데 사용됩니다.
-그 외 기본적인 색상은 neutral로 나타내며, 테마 간의 전환이 필요한 경우에는 conversion으로 표현합니다.
+그 외 기본적인 색상은 neutral로 나타내며, 테마 간의 전환이 필요한 경우에는 inversed으로 표현합니다.
 
 색상의 variant는 1~10까지 사용합니다. intent의 main은 일반적으로 variant6번 색을 사용합니다.(default, readonly, disabled 제외)
 
@@ -47,7 +47,7 @@ Element의 `readonly`, `disabled`의 비사용 상태를 표현하기 위해 추
 
   /**
    * Set this to change font color
-   * @default conversion1
+   * @default inversed1
    */
   fontColor?: keyof LocalizeThemeProps['colors'];
 

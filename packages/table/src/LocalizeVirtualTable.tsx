@@ -70,7 +70,7 @@ const LocalizeStyledVirtualTable = styled.div<
     localize = {
       bgColor: 'primary',
       bdColor: 'neutral3',
-      fontColor: 'conversion1',
+      fontColor: 'inversed1',
     },
     fixedTableHeight,
   }) => {

@@ -20,9 +20,9 @@ const LocalizeSomethingWrapper = styled.div<LocalizeProps, LocalizeThemeProps>(
   ({
     theme,
     localize = {
-      bgColor: 'conversion8',
+      bgColor: 'inversed8',
       bdColor: 'transparent',
-      fontColor: 'conversion1',
+      fontColor: 'inversed1',
     },
   }) => {
     const localizeColor = getLocalizeColor(theme, localize);
