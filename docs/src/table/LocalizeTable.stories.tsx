@@ -11,7 +11,7 @@ import { storiesColorOptions, storiesIntentOptions } from '../controls';
 import { datasources, TableDummyProps } from './table.dummy';
 
 export default {
-  title: 'Table | LocalizeTable',
+  title: 'Table/LocalizeTable',
   component: LocalizeTable,
   argTypes: {
     intent: {
@@ -52,55 +52,38 @@ export default {
   },
 };
 
-const columns: LocalizeTableColumnProps<TableDummyProps>[] = [{
-  header: 'id',
-  width: '10%',
-  render: (data) => (
-    <div>
-      {data.id}
-    </div>
-  )
-},{
-  header: 'first_name',
-  width: '20%',
-  render: (data) => (
-    <div>
-      {data.first_name}
-    </div>
-  )
-},{
-  header: 'last_name',
-  width: '20%',
-  render: (data) => (
-    <div>
-      {data.last_name}
-    </div>
-  )
-},{
-  header: 'email',
-  width: '20%',
-  render: (data) => (
-    <div>
-      {data.email}
-    </div>
-  )
-},{
-  header: 'gender',
-  width: '10%',
-  render: (data) => (
-    <div>
-      {data.gender}
-    </div>
-  )
-},{
-  header: 'ip_address',
-  width: '20%',
-  render: (data) => (
-    <div>
-      {data.ip_address}
-    </div>
-  )
-}];
+const columns: LocalizeTableColumnProps<TableDummyProps>[] = [
+  {
+    header: 'id',
+    width: '10%',
+    render: (data) => <div>{data.id}</div>,
+  },
+  {
+    header: 'first_name',
+    width: '20%',
+    render: (data) => <div>{data.first_name}</div>,
+  },
+  {
+    header: 'last_name',
+    width: '20%',
+    render: (data) => <div>{data.last_name}</div>,
+  },
+  {
+    header: 'email',
+    width: '20%',
+    render: (data) => <div>{data.email}</div>,
+  },
+  {
+    header: 'gender',
+    width: '10%',
+    render: (data) => <div>{data.gender}</div>,
+  },
+  {
+    header: 'ip_address',
+    width: '20%',
+    render: (data) => <div>{data.ip_address}</div>,
+  },
+];
 
 const renderEmptyData = () => {
   return <div>There are no data</div>;
@@ -139,7 +122,6 @@ TableStories.args = {
   rowHeight: 50,
 };
 
-
 const FixedTable: Story<LocalizeTableProps<TableDummyProps>> = (args) => {
   const localize = {
     primaryColor: args.primaryColor,
@@ -151,7 +133,7 @@ const FixedTable: Story<LocalizeTableProps<TableDummyProps>> = (args) => {
     console.log({
       data,
       rowIndex,
-    })
+    });
   }, []);
 
   return (

@@ -7,12 +7,10 @@ import {
   LocalizeButtonGroupProps,
 } from '../../../packages/atomic/dist';
 
-import {
-  storiesSizeOptions,
-} from '../controls';
+import { storiesSizeOptions } from '../controls';
 
 export default {
-  title: 'Atmoic | LocalizeButtonGroup',
+  title: 'Atomic/LocalizeButtonGroup',
   component: LocalizeButton,
   argTypes: {
     direction: {
@@ -39,7 +37,7 @@ const ButtonGroup: Story<LocalizeButtonGroupProps> = (args) => {
       <LocalizeButton {...args} intent="default" variant="outline">
         {children}
       </LocalizeButton>
-      <LocalizeButton {...args} intent="primary" variant='outline'>
+      <LocalizeButton {...args} intent="primary" variant="outline">
         {children}
       </LocalizeButton>
       <LocalizeButton {...args} intent="default">

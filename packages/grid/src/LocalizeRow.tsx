@@ -5,8 +5,11 @@ import classnames from 'classnames';
 
 import { LocalizeMediaQueries } from './LocalizeGrid.Helpers';
 
+const CLASSNAME = '__Localize__Row';
+
 type DivProps = React.HTMLAttributes<HTMLDivElement>;
-export interface LocalizeRowProps extends DivProps {
+type ExtentionProps = DivProps;
+export interface LocalizeRowProps extends ExtentionProps {
   noWrap?: boolean;
 
   flexDirection?: Property.FlexDirection;
@@ -93,7 +96,7 @@ const LocalizeRowContainer = styled.div<LocalizeRowProps>(
 
 const LocalizeRow: React.FC<LocalizeRowProps> = ({ children, className, ...props }) => {
   return (
-    <LocalizeRowWrapper {...props} className={classnames(className, 'LocalizeRow')}>
+    <LocalizeRowWrapper {...props} className={classnames(CLASSNAME, className)}>
       <LocalizeRowContainer>{children}</LocalizeRowContainer>
     </LocalizeRowWrapper>
   );

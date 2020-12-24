@@ -6,7 +6,7 @@ import { LocalizeSwitch, LocalizeSwitchProps } from '../../../packages/forms/dis
 import { storiesColorOptions, storiesIntentOptions, storiesSizeOptions } from '../controls';
 
 export default {
-  title: 'Forms | LocalizeSwitch',
+  title: 'Forms/LocalizeSwitch',
   component: LocalizeSwitch,
   argTypes: {
     size: {

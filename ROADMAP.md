@@ -42,7 +42,7 @@ See [TODOLIST.md](https://github.com/Seolhun/localize-components/blob/develop/TO
 
 > These list are versioning alpha.
 
-- **Atmoic**
+- **Atomic**
   - Anchor
   - Audio
   - Box
@@ -77,7 +77,7 @@ See [TODOLIST.md](https://github.com/Seolhun/localize-components/blob/develop/TO
 
 ---
 
-- **Atmoic**
+- **Atomic**
   - Skeleton
 
 - **Forms**
