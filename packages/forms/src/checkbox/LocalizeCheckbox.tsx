@@ -13,7 +13,8 @@ import {
 
 const CLASSNAME = '__Localize__Checkbox';
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
-type ExtentionProps = LocalizeProps & Omit<InputProps, 'size'>;
+type ExcludedInputProps = Omit<InputProps, 'size'>;
+type ExtentionProps = LocalizeProps & ExcludedInputProps;
 
 export interface LocalizeCheckboxProps extends ExtentionProps {
   /**
@@ -44,23 +45,23 @@ const LocalizeCheckboxWrapper = styled.div<LocalizeCheckboxProps, LocalizeThemeP
     size = 'md',
     intent = 'default',
     localize = {
-      bgColor: 'default',
-      bdColor: 'transparent',
+      primaryColor: 'default',
+      neutralColor: 'transparent',
       fontColor: 'inversed1',
       inversedColor: 'inversed10',
     },
     rounded,
   }) => {
     const localizedColor = getLocalizeIntentColor(theme, intent, localize);
-    const { backgroundColor, borderColor, color } = localizedColor;
+    const { primaryColor, neutralColor, fontColor } = localizedColor;
     const scale = getLocalizeSizeBy(size);
 
     return {
       display: 'inline-flex',
       alignItems: 'center',
       cursor: 'pointer',
-      color,
-      
+      color: fontColor,
+
       [`.${CLASSNAME}__Checker`]: {
         width: scale,
         height: scale,
@@ -75,24 +76,24 @@ const LocalizeCheckboxWrapper = styled.div<LocalizeCheckboxProps, LocalizeThemeP
       // Hover
       '&:hover': {
         [`${HidingInput}:not(:disabled):not(:read-only):not(:checked) + .${CLASSNAME}__Checker`]: {
-          backgroundColor,
-          border: `1px solid ${backgroundColor}`,
+          backgroundColor: primaryColor,
+          border: `2px solid ${neutralColor}`,
         },
       },
 
       // Active
       [`${HidingInput}:not(:disabled):active + .${CLASSNAME}__Checker`]: {
-        backgroundColor,
-        border: `1px solid ${borderColor}`,
+        backgroundColor: primaryColor,
+        border: `2px solid ${neutralColor}`,
       },
 
       // Checked
       [`${HidingInput}:checked + .${CLASSNAME}__Checker`]: {
-        backgroundColor,
-        border: `1px solid ${borderColor}`,
+        backgroundColor: primaryColor,
+        border: `2px solid ${neutralColor}`,
 
         [`.${CLASSNAME}__CheckerIcon`]: {
-          stroke: borderColor,
+          stroke: neutralColor,
         },
       },
 

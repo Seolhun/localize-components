@@ -15,10 +15,9 @@ import {
 
 const CLASSNAME = '__Localize__Tag';
 type SpanProps = React.HTMLAttributes<HTMLSpanElement>;
-type ExtentionProps = LocalizeProps & SpanProps;
-type LocalizeButtonVariantType = 'solid' | 'outline';
+type LocalizeTagVariantType = 'solid' | 'outline';
 
-export interface LocalizeTagProps extends ExtentionProps {
+interface LocalizeLocalProps extends LocalizeProps {
   /**
    * Set this to change font color
    * @default md
@@ -29,7 +28,7 @@ export interface LocalizeTagProps extends ExtentionProps {
    * Set this to change variant
    * @default solid
    */
-  variant?: LocalizeButtonVariantType;
+  variant?: LocalizeTagVariantType;
 
   /**
    * Set this to change intent color
@@ -38,36 +37,46 @@ export interface LocalizeTagProps extends ExtentionProps {
   intent?: LocalizeIntentThemeType;
 }
 
+type ExtentionProps = SpanProps & LocalizeLocalProps;
+
+export interface LocalizeTagProps extends ExtentionProps {
+  /**
+   * Set this to change rounded border-radius
+   * @default true
+   */
+  rounded?: boolean;
+}
+
 function getLocalizeTagStyle(
   theme: LocalizeThemeProps,
-  variant: LocalizeButtonVariantType,
+  variant: LocalizeTagVariantType,
   localizedColor: LocalizeStyleResponseType,
 ) {
-  const { backgroundColor, borderColor, inversedColor } = localizedColor;
+  const { primaryColor, neutralColor, fontColor } = localizedColor;
   switch (variant) {
     case 'outline': {
       return {
-        color: inversedColor,
-        backgroundColor: theme.colors.inversed1,
-        border: `1px solid ${backgroundColor}`,
+        color: primaryColor,
+        backgroundColor: theme.colors.transparent,
+        border: `1px solid ${primaryColor}`,
 
         '&:hover, &:active': {
-          color: inversedColor,
-          backgroundColor,
-          border: `1px solid ${borderColor}`,
+          color: fontColor,
+          backgroundColor: primaryColor,
+          border: `1px solid ${neutralColor}`,
         },
       };
     }
     default: {
       return {
-        color: inversedColor,
-        backgroundColor,
-        border: `1px solid ${borderColor}`,
+        color: fontColor,
+        backgroundColor: primaryColor,
+        border: `1px solid ${neutralColor}`,
 
         '&:hover, &:active': {
-          color: inversedColor,
-          backgroundColor: darken(0.1, backgroundColor),
-          border: `1px solid ${darken(0.1, borderColor)}`,
+          color: fontColor,
+          backgroundColor: darken(0.1, primaryColor),
+          border: `1px solid ${darken(0.1, neutralColor)}`,
         },
       };
     }
@@ -81,32 +90,35 @@ const StyledLocalizeTagWrapper = styled.div<LocalizeTagProps, LocalizeThemeProps
     variant = 'solid',
     intent = 'default',
     localize = {
-      bgColor: 'default',
-      bdColor: 'transparent',
+      primaryColor: 'default',
+      neutralColor: 'transparent',
       fontColor: 'inversed1',
       inversedColor: 'inversed10',
     },
+    rounded = true,
   }) => {
     const localizedColor = getLocalizeIntentColor(theme, intent, localize);
-    const { backgroundColor, borderColor } = localizedColor;
+    const { primaryColor, neutralColor } = localizedColor;
     return {
       ...getLocalizeTagStyle(theme, variant, localizedColor),
       display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor,
+      flexDirection: theme.rtl ? 'row-reverse' : 'row',
+
       padding: getLocalizePaddingSizeBy(size),
-      borderRadius: '24px',
+      borderRadius: rounded ? '24px' : '0',
       textDecoration: 'none',
-      whiteSpace: 'nowrap',
       outline: 'none',
       transition: 'background-color 0.3s, border-color 0.3s, color 0.3s',
       userSelect: 'none',
       cursor: 'pointer',
+      wordBreak: 'break-word',
+      whiteSpace: 'nowrap',
 
       '&:not(:disabled):not(:read-only):active, &:not(:disabled):not(:read-only):hover': {
-        backgroundColor: darken(0.1, backgroundColor),
-        borderColor: darken(0.1, borderColor),
+        backgroundColor: darken(0.1, primaryColor),
+        borderColor: darken(0.1, neutralColor),
       },
     };
   },

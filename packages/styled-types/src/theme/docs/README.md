@@ -44,24 +44,6 @@ Element의 `readonly`, `disabled`의 비사용 상태를 표현하기 위해 추
    * @default default
    */
   intent?: LocalizeIntentThemeType;
-
-  /**
-   * Set this to change font color
-   * @default inversed1
-   */
-  fontColor?: keyof LocalizeThemeProps['colors'];
-
-  /**
-   * Set this to change background color
-   * @default primary
-   */
-  bgColor?: keyof LocalizeThemeProps['colors'];
-
-  /**
-   * Set this to change border color
-   * @default transparent
-   */
-  bdColor?: keyof LocalizeThemeProps['colors'];
 ```
 
 ---

@@ -4,9 +4,11 @@ import classnames from 'classnames';
 import { lighten } from 'polished';
 
 import {
+  getLocalizeIntentColor,
+  LocalizeIntentThemeType,
   LocalizeProps,
+  LocalizeSize,
   LocalizeThemeProps,
-  getLocalizeColor,
 } from '@seolhun/localize-components-styled-types';
 
 import { LocalizeFormWrapper } from '../wrapper';
@@ -14,9 +16,23 @@ import { LocalizeFormStateProps } from '../LocalizeFormStateProps';
 
 const CLASSNAME = '__Localize__Textarea';
 type TextAreaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
-type Props = TextAreaProps & LocalizeProps & LocalizeFormStateProps;
+interface LocalizeLocalProps extends LocalizeProps, LocalizeFormStateProps {
+  /**
+   * Set this to change font color
+   * @default md
+   */
+  size?: LocalizeSize;
 
-export interface LocalizeTextAreaProps extends Props {}
+  /**
+   * Set this to change intent color
+   * @default default
+   */
+  intent?: LocalizeIntentThemeType;
+}
+
+type ExtentionProps = TextAreaProps & LocalizeLocalProps;
+
+export interface LocalizeTextAreaProps extends ExtentionProps {}
 
 const LocalizeTextAreaContainer = styled.div<{}, LocalizeThemeProps>(() => {
   return {
@@ -30,24 +46,26 @@ const StyledTextArea = styled.textarea<LocalizeTextAreaProps, LocalizeThemeProps
   ({
     theme,
     error,
+    intent = 'default',
     localize = {
-      bgColor: 'inversed8',
-      bdColor: 'transparent',
+      primaryColor: 'default',
+      neutralColor: 'transparent',
       fontColor: 'inversed1',
+      inversedColor: 'inversed10',
     },
   }) => {
-    const localizeColor = getLocalizeColor(theme, localize);
-    const { backgroundColor, borderColor, color } = localizeColor;
+    const localizedColor = getLocalizeIntentColor(theme, intent, localize);
+    const { primaryColor, neutralColor, fontColor } = localizedColor;
 
     return {
-      color,
       width: '100%',
       height: '100%',
+      backgroundColor: primaryColor,
+      border: `1px solid ${neutralColor}`,
+      color: fontColor,
       boxSizing: 'border-box',
       padding: '10px 12px',
       outline: 'none',
-      backgroundColor,
-      border: `1px solid ${borderColor}`,
       resize: 'both',
       overflow: 'auto',
 
@@ -57,18 +75,18 @@ const StyledTextArea = styled.textarea<LocalizeTextAreaProps, LocalizeThemeProps
       boxShadow: 'none !important',
       WebkitAppearance: 'none',
 
+      '&::placeholder': {
+        color: theme.colors.neutral8,
+      },
       '&:focus': {
         border: `1px solid ${error ? theme.colors.error : theme.colors.info}`,
       },
       '&:not(:disabled):not(:read-only):active, &:not(:disabled):not(:read-only):hover': {
-        borderColor: lighten(0.1, borderColor),
+        borderColor: lighten(0.1, neutralColor),
       },
-      '&:read-only, &:disabled': {
-        backgroundColor: theme.colors.neutral4,
-        borderColor: theme.colors.neutral5,
-        color: theme.colors.neutral8,
-      },
-      '&::placeholder': {
+      '&:disabled': {
+        backgroundColor: theme.colors.disabled,
+        borderColor: theme.colors.disabled,
         color: theme.colors.neutral8,
       },
     };

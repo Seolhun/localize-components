@@ -50,16 +50,16 @@ const StyledInput = styled.input<LocalizeInputProps, LocalizeThemeProps>(
     error,
     visibleIcon,
     localize = {
-      bgColor: 'inversed8',
-      bdColor: 'transparent',
+      primaryColor: 'inversed8',
+      neutralColor: 'transparent',
       fontColor: 'inversed1',
     },
   }) => {
-    const localizeColor = getLocalizeColor(theme, localize);
-    const { backgroundColor, borderColor, color } = localizeColor;
+    const localizedColor = getLocalizeColor(theme, localize);
+    const { primaryColor, neutralColor, fontColor } = localizedColor;
 
     return {
-      color,
+      color: fontColor,
       width: '100%',
       height: '100%',
       ...(visibleIcon
@@ -69,7 +69,7 @@ const StyledInput = styled.input<LocalizeInputProps, LocalizeThemeProps>(
         : {
             padding: '10px 12px',
           }),
-      backgroundColor,
+      backgroundColor: primaryColor,
       border: `1px solid ${error ? theme.colors.error : theme.colors.neutral5}`,
       borderRadius: '2px',
       outline: 'none',
@@ -80,10 +80,10 @@ const StyledInput = styled.input<LocalizeInputProps, LocalizeThemeProps>(
       WebkitAppearance: 'none',
 
       '&:not(:disabled):not(:read-only):active, &:not(:disabled):not(:read-only):hover': {
-        borderColor,
+        borderColor: neutralColor,
       },
       '&:focus': {
-        border: `1px solid ${error ? theme.colors.error : lighten(0.1, borderColor)}`,
+        border: `1px solid ${error ? theme.colors.error : lighten(0.1, neutralColor)}`,
       },
       '&:disabled': {
         backgroundColor: theme.colors.neutral4,

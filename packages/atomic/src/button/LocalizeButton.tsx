@@ -14,11 +14,10 @@ import {
 } from '@seolhun/localize-components-styled-types';
 
 const CLASSNAME = '__Localize__Button';
-type ButtonProps = React.HTMLAttributes<HTMLButtonElement>;
-type ExtentionProps = LocalizeProps & ButtonProps;
-type LocalizeButtonVariantType = 'solid' | 'outline';
 
-export interface LocalizeButtonProps extends ExtentionProps {
+type ButtonProps = React.HTMLAttributes<HTMLButtonElement>;
+type LocalizeButtonVariantType = 'solid' | 'outline';
+interface LocalizeLocalProps extends LocalizeProps {
   /**
    * Set this to change font color
    * @default md
@@ -36,43 +35,48 @@ export interface LocalizeButtonProps extends ExtentionProps {
    * @default default
    */
   intent?: LocalizeIntentThemeType;
+}
 
+type ExtentionProps = ButtonProps & LocalizeLocalProps;
+
+export interface LocalizeButtonProps extends ExtentionProps {
   /**
    * Set this to change rounded border-radius
+   * @default true
    */
   rounded?: boolean;
 }
 
 function getLocalizeButtonVariantStyle(
-  _theme: LocalizeThemeProps,
+  theme: LocalizeThemeProps,
   variant: LocalizeButtonVariantType,
   localizedColor: LocalizeStyleResponseType,
 ) {
-  const { backgroundColor, borderColor, inversedColor } = localizedColor;
+  const { primaryColor, neutralColor, fontColor } = localizedColor;
   switch (variant) {
     case 'outline': {
       return {
-        color: backgroundColor,
-        backgroundColor: borderColor,
-        border: `1px solid ${backgroundColor}`,
+        color: primaryColor,
+        backgroundColor: theme.colors.transparent,
+        border: `1px solid ${primaryColor}`,
 
         '&:hover, &:active': {
-          color: inversedColor,
-          backgroundColor,
-          border: `1px solid ${borderColor}`,
+          color: fontColor,
+          backgroundColor: primaryColor,
+          border: `1px solid ${neutralColor}`,
         },
       };
     }
     default: {
       return {
-        color: inversedColor,
-        backgroundColor,
-        border: `1px solid ${borderColor}`,
+        color: fontColor,
+        backgroundColor: primaryColor,
+        border: `1px solid ${neutralColor}`,
 
         '&:hover, &:active': {
-          color: inversedColor,
-          backgroundColor: darken(0.1, backgroundColor),
-          border: `1px solid ${darken(0.1, borderColor)}`,
+          color: fontColor,
+          backgroundColor: darken(0.1, primaryColor),
+          border: `1px solid ${darken(0.1, neutralColor)}`,
         },
       };
     }
@@ -86,24 +90,22 @@ const StyledLocalizeButton = styled.button<LocalizeButtonProps, LocalizeThemePro
     variant = 'solid',
     intent = 'default',
     localize = {
-      bgColor: 'default',
-      bdColor: 'transparent',
+      primaryColor: 'default',
+      neutralColor: 'transparent',
       fontColor: 'inversed1',
       inversedColor: 'inversed10',
     },
-    rounded,
+    rounded = true,
   }) => {
     const localizedColor = getLocalizeIntentColor(theme, intent, localize);
-    const { backgroundColor, borderColor } = localizedColor;
+    const { primaryColor, neutralColor } = localizedColor;
     return {
       ...getLocalizeButtonVariantStyle(theme, variant, localizedColor),
       display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',
-      flexDirection: theme.rtl ? 'row' : 'row-reverse',
-      height: 'auto',
-      maxWidth: '12rem',
-      minWidth: '5rem',
+      flexDirection: theme.rtl ? 'row-reverse' : 'row',
+
       padding: getLocalizePaddingSizeBy(size),
       borderRadius: rounded ? '6px' : '0',
       textDecoration: 'none',
@@ -114,8 +116,8 @@ const StyledLocalizeButton = styled.button<LocalizeButtonProps, LocalizeThemePro
       wordBreak: 'break-word',
 
       '&:not(:disabled):not(:read-only):active, &:not(:disabled):not(:read-only):hover': {
-        backgroundColor: darken(0.1, backgroundColor),
-        borderColor: darken(0.1, borderColor),
+        backgroundColor: darken(0.1, primaryColor),
+        borderColor: darken(0.1, neutralColor),
       },
       '&:disabled': {
         backgroundColor: theme.colors.disabled,

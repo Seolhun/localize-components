@@ -10,14 +10,14 @@ export default {
   title: 'Atmoic | LocalizeBox',
   component: LocalizeBox,
   argTypes: {
-    bgColor: {
+    primaryColor: {
       defaultValue: 'default',
       control: {
         type: 'select',
         options: storiesColorOptions,
       },
     },
-    bdColor: {
+    neutralColor: {
       defaultValue: 'transparent',
       control: {
         type: 'select',
@@ -98,8 +98,8 @@ BoxSizesStories.args = {
 const IntentBoxes: Story<LocalizeBoxProps> = (args) => {
   const children = args.children;
   const localize = {
-    bgColor: args.bgColor,
-    bdColor: args.bdColor,
+    primaryColor: args.primaryColor,
+    neutralColor: args.neutralColor,
     color: args.color,
   };
   return (

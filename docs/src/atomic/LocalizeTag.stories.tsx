@@ -17,14 +17,14 @@ export default {
         options: storiesSizeOptions,
       },
     },
-    bgColor: {
+    primaryColor: {
       defaultValue: 'default',
       control: {
         type: 'select',
         options: storiesColorOptions,
       },
     },
-    bdColor: {
+    neutralColor: {
       defaultValue: 'transparent',
       control: {
         type: 'select',
@@ -53,7 +53,7 @@ const Tag: Story<LocalizeTagProps> = (args) => <LocalizeTag {...args} />;
 export const Default = Tag.bind({});
 Default.args = {
   children: 'LocalizeTag',
-  disabled: false,
+  rounded: true,
 };
 
 const TagSizes: Story<LocalizeTagProps> = (args) => {
@@ -98,14 +98,14 @@ const TagSizes: Story<LocalizeTagProps> = (args) => {
 export const TagsStorieSizes = TagSizes.bind({});
 TagsStorieSizes.args = {
   children: 'LocalizeTag',
-  disabled: false,
+  rounded: true,
 };
 
 const IntentTags: Story<LocalizeTagProps> = (args) => {
   const children = args.children;
   const localize = {
-    bgColor: args.bgColor,
-    bdColor: args.bdColor,
+    primaryColor: args.primaryColor,
+    neutralColor: args.neutralColor,
     color: args.color,
   };
   return (

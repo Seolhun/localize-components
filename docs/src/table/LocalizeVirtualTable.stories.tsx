@@ -17,14 +17,14 @@ export default {
         options: storiesIntentOptions,
       },
     },
-    bgColor: {
+    primaryColor: {
       defaultValue: 'primary',
       control: {
         type: 'select',
         options: storiesColorOptions,
       },
     },
-    bdColor: {
+    neutralColor: {
       defaultValue: 'neutral3',
       control: {
         type: 'select',
@@ -111,8 +111,8 @@ const renderEmptyData = () => {
 
 const VirtualTable: Story<LocalizeVirtualTableProps<TableDummyProps>> = (args) => {
   const localize = {
-    bgColor: args.bgColor,
-    bdColor: args.bdColor,
+    primaryColor: args.primaryColor,
+    neutralColor: args.neutralColor,
     color: args.color,
   };
 
