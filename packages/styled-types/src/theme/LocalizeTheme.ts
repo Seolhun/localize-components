@@ -21,25 +21,25 @@ export interface LocalizeStyleProps {
    * Set this to change background color
    * @default primary
    */
-  bgColor?: keyof LocalizeThemeProps['colors'];
+  primaryColor?: keyof LocalizeThemeProps['colors'];
 
   /**
    * Set this to change border color
    * @default transparent
    */
-  bdColor?: keyof LocalizeThemeProps['colors'];
-
-  /**
-   * Set this to change Inner font color
-   * @default inversed10
-   */
-  inversedColor?: keyof LocalizeThemeProps['colors'];
+  neutralColor?: keyof LocalizeThemeProps['colors'];
 
   /**
    * Set this to change font color
    * @default inversed1
    */
   fontColor?: keyof LocalizeThemeProps['colors'];
+
+  /**
+   * Set this to change Inner font color
+   * @default inversed10
+   */
+  inversedColor?: keyof LocalizeThemeProps['colors'];
 }
 
 export interface LocalizeProps {

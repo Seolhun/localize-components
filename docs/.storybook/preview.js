@@ -1,7 +1,6 @@
 // .storybook/preview.js
 import React from 'react';
 import { Global, css } from '@emotion/core';
-import { themes } from '@storybook/theming';
 
 import { LocalizeThemeProvider } from '../../packages/localize-components';
 import { localizeDarkTheme, localizeLightTheme } from '../../packages/styled-types';
@@ -27,12 +26,6 @@ export const parameters = {
    */
   backgrounds: {
     disable: true,
-  },
-  /**
-   * @see https://storybook.js.org/docs/react/configure/theming#theming-docs
-   */
-  docs: {
-    theme: themes.dark,
   },
   /**
    * @see https://storybook.js.org/docs/react/essentials/toolbars-and-globals#advanced-usage
@@ -62,9 +55,13 @@ export const parameters = {
   actions: {
     argTypesRegex: '^on[A-Z].*',
   },
+  themeMode: {
+    LIGHT: localizeLightTheme,
+    DARK: localizeDarkTheme,
+  },
 };
 
-const globalStyle = `
+const globalStyle = css`
 	html, body {
 		height: 100%;
 		width: 100%;
@@ -76,11 +73,10 @@ const globalStyle = `
 `;
 
 const withThemeProvider = (Story, context) => {
-  const themeKey = context.globals.theme;
+  const [themeKey] = React.useState(context.globals.theme);
 
   const memoizedTheme = React.useMemo(() => {
-    const theme = themeKey === 'LIGHT' ? localizeLightTheme : localizeDarkTheme;
-    return theme;
+    return context.parameters.themeMode[themeKey];
   }, [themeKey])
 
   const memoizedStorybookTheme = React.useMemo(() => {
@@ -105,11 +101,7 @@ const withThemeProvider = (Story, context) => {
 
   return (
     <LocalizeThemeProvider theme={memoizedTheme}>
-      <Global
-        styles={css`
-          ${globalStyle}
-        `}
-      />
+      <Global styles={globalStyle} />
       <Story {...context} />
     </LocalizeThemeProvider>
   );

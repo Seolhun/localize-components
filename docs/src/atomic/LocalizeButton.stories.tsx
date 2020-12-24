@@ -31,14 +31,14 @@ export default {
         options: storiesIntentOptions,
       },
     },
-    bgColor: {
+    primaryColor: {
       defaultValue: 'default',
       control: {
         type: 'select',
         options: storiesColorOptions,
       },
     },
-    bdColor: {
+    neutralColor: {
       defaultValue: 'transparent',
       control: {
         type: 'select',
@@ -65,8 +65,8 @@ export default {
 const Button: Story<LocalizeButtonProps> = (args) => {
   const children = args.children;
   const localize = {
-    bgColor: args.bgColor,
-    bdColor: args.bdColor,
+    primaryColor: args.primaryColor,
+    neutralColor: args.neutralColor,
     color: args.color,
   };
   return (
@@ -79,15 +79,15 @@ const Button: Story<LocalizeButtonProps> = (args) => {
 export const Default = Button.bind({});
 Default.args = {
   children: 'LocalizeButton',
-  rounded: false,
+  rounded: true,
   disabled: false,
 };
 
 const SizeButtons: Story<LocalizeButtonProps> = (args) => {
   const children = args.children;
   const localize = {
-    bgColor: args.bgColor,
-    bdColor: args.bdColor,
+    primaryColor: args.primaryColor,
+    neutralColor: args.neutralColor,
     color: args.color,
   };
   return (
@@ -129,15 +129,15 @@ const SizeButtons: Story<LocalizeButtonProps> = (args) => {
 export const SizeButtonsStories = SizeButtons.bind({});
 SizeButtonsStories.args = {
   children: 'LocalizeButton',
-  rounded: false,
+  rounded: true,
   disabled: false,
 };
 
 const IntentButtons: Story<LocalizeButtonProps> = (args) => {
   const children = args.children;
   const localize = {
-    bgColor: args.bgColor,
-    bdColor: args.bdColor,
+    primaryColor: args.primaryColor,
+    neutralColor: args.neutralColor,
     color: args.color,
   };
   return (
@@ -157,6 +157,6 @@ const IntentButtons: Story<LocalizeButtonProps> = (args) => {
 export const IntentButtonsStories = IntentButtons.bind({});
 IntentButtonsStories.args = {
   children: 'LocalizeButton',
-  rounded: false,
+  rounded: true,
   disabled: false,
 };

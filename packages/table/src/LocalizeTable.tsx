@@ -105,8 +105,8 @@ const LocalizeStyledTable = styled.div<LocalizeStyledTableProps, LocalizeThemePr
     theme,
     intent = 'default',
     localize = {
-      bgColor: 'default',
-      bdColor: 'transparent',
+      primaryColor: 'default',
+      neutralColor: 'transparent',
       fontColor: 'inversed1',
       inversedColor: 'inversed10',
     },
@@ -114,27 +114,28 @@ const LocalizeStyledTable = styled.div<LocalizeStyledTableProps, LocalizeThemePr
     fixedTableHeight,
   }) => {
     const localizedColor = getLocalizeIntentColor(theme, intent, localize);
-    const { backgroundColor, borderColor, inversedColor, color } = localizedColor;
+    const { primaryColor, neutralColor, fontColor, inversedFontColor } = localizedColor;
+
     return {
       position: 'relative',
       width: fixedHeader ? 'auto' : '100%',
       height: fixedHeader ? fixedTableHeight : '100%',
       borderSpacing: 0,
-      borderColor,
+      borderColor: neutralColor,
       overflowY: 'auto',
       overflowX: 'hidden',
 
       '.__Localize__Table__Row': {
-        borderColor,
+        borderColor: neutralColor,
       },
       '.__Localize__Table__HeaderCell': {
-        backgroundColor,
-        borderColor,
-        color: inversedColor,
+        backgroundColor: primaryColor,
+        borderColor: neutralColor,
+        color: inversedFontColor,
       },
       '.__Localize__Table__DataCell': {
-        borderColor,
-        color,
+        borderColor: neutralColor,
+        color: fontColor,
       },
     };
   },

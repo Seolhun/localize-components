@@ -23,12 +23,12 @@ export interface LocalizeSwitchProps extends Props {
   //  * Set this to change backgroundColor
   //  * @default primary
   //  */
-  // bgColor?: Props['bgColor'];
+  // primaryColor?: Props['primaryColor'];
   // /**
   //  * Set this to change borderColor
   //  * @default undefined
   //  */
-  // bdColor?: Props['bdColor'];
+  // neutralColor?: Props['neutralColor'];
 }
 
 const StyledSwitchLabel = styled.label<LocalizeProps, LocalizeThemeProps>(({ theme }) => {

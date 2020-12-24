@@ -10,14 +10,14 @@ export default {
   title: 'Forms | LocalizeCheckbox',
   component: LocalizeCheckbox,
   argTypes: {
-    bgColor: {
+    primaryColor: {
       defaultValue: 'default',
       control: {
         type: 'select',
         options: storiesColorOptions,
       },
     },
-    bdColor: {
+    neutralColor: {
       defaultValue: 'transparent',
       control: {
         type: 'select',
@@ -58,8 +58,8 @@ Default.args = {
 const SizeCheckboxs: Story<LocalizeCheckboxProps> = (args) => {
   const children = args.children;
   const localize = {
-    bgColor: args.bgColor,
-    bdColor: args.bdColor,
+    primaryColor: args.primaryColor,
+    neutralColor: args.neutralColor,
     color: args.color,
   };
   return (
@@ -110,8 +110,8 @@ SizeCheckboxsStories.args = {
 const IntentCheckboxes: Story<LocalizeCheckboxProps> = (args) => {
   const children = args.children;
   const localize = {
-    bgColor: args.bgColor,
-    bdColor: args.bdColor,
+    primaryColor: args.primaryColor,
+    neutralColor: args.neutralColor,
     color: args.color,
   };
   return (

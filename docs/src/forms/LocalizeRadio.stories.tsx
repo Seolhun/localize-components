@@ -9,14 +9,14 @@ export default {
   title: 'Forms | LocalizeRadio',
   component: LocalizeRadio,
   argTypes: {
-    bgColor: {
+    primaryColor: {
       defaultValue: 'inversed1',
       control: {
         type: 'select',
         options: storiesColorOptions,
       },
     },
-    bdColor: {
+    neutralColor: {
       defaultValue: 'primary',
       control: {
         type: 'select',
