@@ -7,7 +7,7 @@ import { LocalizeRow, LocalizeCol } from '../../../packages/grid/dist';
 import { storiesSizeOptions, storiesColorOptions, storiesIntentOptions } from '../controls';
 
 export default {
-  title: 'Atmoic | LocalizeTag',
+  title: 'Atomic/LocalizeTag',
   component: LocalizeTag,
   argTypes: {
     size: {
@@ -62,31 +62,31 @@ const TagSizes: Story<LocalizeTagProps> = (args) => {
     <>
       <LocalizeRow>
         <LocalizeCol md={8}>
-          <h4>xl</h4>
+          <h2>xl</h2>
           <LocalizeTag {...args} size="xl">
             {children}
           </LocalizeTag>
         </LocalizeCol>
         <LocalizeCol md={8}>
-          <h4>lg</h4>
+          <h2>lg</h2>
           <LocalizeTag {...args} size="lg">
             {children}
           </LocalizeTag>
         </LocalizeCol>
         <LocalizeCol md={8}>
-          <h4>md</h4>
+          <h2>md</h2>
           <LocalizeTag {...args} size="md">
             {children}
           </LocalizeTag>
         </LocalizeCol>
         <LocalizeCol md={8}>
-          <h4>sm</h4>
+          <h2>sm</h2>
           <LocalizeTag {...args} size="sm">
             {children}
           </LocalizeTag>
         </LocalizeCol>
         <LocalizeCol md={8}>
-          <h4>xs</h4>
+          <h2>xs</h2>
           <LocalizeTag {...args} size="xs">
             {children}
           </LocalizeTag>
@@ -112,7 +112,7 @@ const IntentTags: Story<LocalizeTagProps> = (args) => {
     <LocalizeRow>
       {storiesIntentOptions.map((intent) => (
         <LocalizeCol md={8} key={intent}>
-          <h3>{intent}</h3>
+          <h2>{intent}</h2>
           <LocalizeTag {...args} intent={intent} localize={localize}>
             {children}
           </LocalizeTag>

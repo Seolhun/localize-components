@@ -7,7 +7,7 @@ import { LocalizeRow, LocalizeCol } from '../../../packages/grid/dist';
 import { storiesSizeOptions, storiesColorOptions, storiesIntentOptions } from '../controls';
 
 export default {
-  title: 'Atmoic | LocalizeButton',
+  title: 'Atomic/LocalizeButton',
   component: LocalizeButton,
   argTypes: {
     size: {
@@ -93,31 +93,31 @@ const SizeButtons: Story<LocalizeButtonProps> = (args) => {
   return (
     <LocalizeRow>
       <LocalizeCol md={8}>
-        <h3>xl</h3>
+        <h2>xl</h2>
         <LocalizeButton {...args} localize={localize} size="xl">
           {children}
         </LocalizeButton>
       </LocalizeCol>
       <LocalizeCol md={8}>
-        <h3>lg</h3>
+        <h2>lg</h2>
         <LocalizeButton {...args} localize={localize} size="lg">
           {children}
         </LocalizeButton>
       </LocalizeCol>
       <LocalizeCol md={8}>
-        <h3>md</h3>
+        <h2>md</h2>
         <LocalizeButton {...args} localize={localize} size="md">
           {children}
         </LocalizeButton>
       </LocalizeCol>
       <LocalizeCol md={8}>
-        <h3>sm</h3>
+        <h2>sm</h2>
         <LocalizeButton {...args} localize={localize} size="sm">
           {children}
         </LocalizeButton>
       </LocalizeCol>
       <LocalizeCol md={8}>
-        <h3>xs</h3>
+        <h2>xs</h2>
         <LocalizeButton {...args} localize={localize} size="xs">
           {children}
         </LocalizeButton>
@@ -144,7 +144,7 @@ const IntentButtons: Story<LocalizeButtonProps> = (args) => {
     <LocalizeRow>
       {storiesIntentOptions.map((intent) => (
         <LocalizeCol md={8} key={intent}>
-          <h3>{intent}</h3>
+          <h2>{intent}</h2>
           <LocalizeButton {...args} intent={intent} localize={localize}>
             {children}
           </LocalizeButton>

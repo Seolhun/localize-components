@@ -42,7 +42,7 @@ const LocalizeSwitchContainer = styled.div<LocalizeSwitchProps, LocalizeThemePro
     intent = 'default',
     localize = {
       primaryColor: 'default',
-      neutralColor: 'neutral6',
+      neutralColor: 'neutral3',
       fontColor: 'inversed1',
       inversedColor: 'inversed10',
     },

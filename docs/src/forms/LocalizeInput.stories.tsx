@@ -6,7 +6,7 @@ import { LocalizeInput, LocalizeInputProps } from '../../../packages/forms/dist'
 import { storiesColorOptions } from '../controls';
 
 export default {
-  title: 'Forms | LocalizeInput',
+  title: 'Forms/LocalizeInput',
   component: LocalizeInput,
   argTypes: {
     primaryColor: {

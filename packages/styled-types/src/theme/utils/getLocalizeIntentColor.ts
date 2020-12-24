@@ -7,66 +7,69 @@ export function getLocalizeIntentColor(
   intent: LocalizeIntentThemeType,
   localize: LocalizeStyleProps,
 ): LocalizeStyleResponseType {
-  const localizeColor = getLocalizeColor(theme, localize);
+  const localizedColor = getLocalizeColor(theme, localize);
   if (intent === 'localize' && localize) {
-    return localizeColor;
+    return localizedColor;
   }
-  const { primaryColor, neutralColor, fontColor, inversedFontColor } = localizeColor;
+  const isLightMode = theme.type === 'LIGHT';
+  const fontColor = isLightMode ? theme.colors.inversed1 : theme.colors.inversed10;
+  const inversedColor = isLightMode ? theme.colors.inversed10 : theme.colors.inversed1;
+
   switch (intent) {
     case 'primary': {
       return {
         primaryColor: theme.colors.primary,
         neutralColor: theme.colors.transparent,
-        fontColor: theme.colors.inversed1,
-        inversedFontColor: theme.colors.inversed10,
+        fontColor: fontColor,
+        inversedFontColor: inversedColor,
       };
     }
     case 'secondary': {
       return {
         primaryColor: theme.colors.secondary,
         neutralColor: theme.colors.transparent,
-        fontColor: theme.colors.inversed1,
-        inversedFontColor: theme.colors.inversed10,
+        fontColor: fontColor,
+        inversedFontColor: inversedColor,
       };
     }
     case 'info': {
       return {
         primaryColor: theme.colors.info,
         neutralColor: theme.colors.transparent,
-        fontColor: theme.colors.inversed1,
-        inversedFontColor: theme.colors.inversed10,
+        fontColor: fontColor,
+        inversedFontColor: inversedColor,
       };
     }
     case 'success': {
       return {
         primaryColor: theme.colors.success,
         neutralColor: theme.colors.transparent,
-        fontColor: theme.colors.inversed1,
-        inversedFontColor: theme.colors.inversed10,
+        fontColor: fontColor,
+        inversedFontColor: inversedColor,
       };
     }
     case 'warning': {
       return {
         primaryColor: theme.colors.warning,
         neutralColor: theme.colors.transparent,
-        fontColor: theme.colors.inversed1,
-        inversedFontColor: theme.colors.inversed10,
+        fontColor: fontColor,
+        inversedFontColor: inversedColor,
       };
     }
     case 'error': {
       return {
         primaryColor: theme.colors.error,
         neutralColor: theme.colors.transparent,
-        fontColor: theme.colors.inversed1,
-        inversedFontColor: theme.colors.inversed10,
+        fontColor: fontColor,
+        inversedFontColor: inversedColor,
       };
     }
     default: {
       return {
-        primaryColor,
-        neutralColor,
-        fontColor,
-        inversedFontColor,
+        primaryColor: localizedColor.primaryColor,
+        neutralColor: localizedColor.neutralColor,
+        fontColor: localizedColor.fontColor,
+        inversedFontColor: localizedColor.inversedFontColor,
       };
     }
   }

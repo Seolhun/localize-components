@@ -1,12 +1,19 @@
+import React from 'react';
 import styled from '@emotion/styled';
+import classnames from 'classnames';
 
 import { LocalizeMediaQueryEnum } from './LocalizeGrid.Helpers';
 
-export interface LocalizeContainerProps {
+const CLASSNAME = '__Localize__Container';
+
+type DivProps = React.HTMLAttributes<HTMLDivElement>;
+type ExtentionProps = DivProps;
+
+export interface LocalizeContainerProps extends ExtentionProps {
   isFull?: boolean;
 }
 
-const LocalizeContainer = styled.div<LocalizeContainerProps>(({ isFull }) => () => ({
+const LocalizeStyledContainer = styled.div<LocalizeContainerProps>(({ isFull }) => () => ({
   maxWidth: isFull ? '100%' : LocalizeMediaQueryEnum.LG,
   width: '100%',
   flexGrow: 1,
@@ -15,6 +22,14 @@ const LocalizeContainer = styled.div<LocalizeContainerProps>(({ isFull }) => () 
   paddingLeft: 0,
   margin: 'auto',
 }));
+
+const LocalizeContainer: React.FC<LocalizeContainerProps> = ({ children, className, ...props }) => {
+  return (
+    <LocalizeStyledContainer {...props} className={classnames(CLASSNAME, className)}>
+      {children}
+    </LocalizeStyledContainer>
+  );
+};
 
 export { LocalizeContainer };
 export default LocalizeContainer;
