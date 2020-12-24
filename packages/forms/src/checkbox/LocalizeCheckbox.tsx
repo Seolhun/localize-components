@@ -14,7 +14,21 @@ import {
 const CLASSNAME = '__Localize__Checkbox';
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
 type ExcludedInputProps = Omit<InputProps, 'size'>;
-type ExtentionProps = LocalizeProps & ExcludedInputProps;
+interface LocalizeLocalProps extends LocalizeProps {
+  /**
+   * Set this to change font color
+   * @default md
+   */
+  size?: LocalizeSize;
+
+  /**
+   * Set this to change intent color
+   * @default default
+   */
+  intent?: LocalizeIntentThemeType;
+}
+
+type ExtentionProps = ExcludedInputProps & LocalizeLocalProps;
 
 export interface LocalizeCheckboxProps extends ExtentionProps {
   /**
@@ -63,14 +77,14 @@ const LocalizeCheckboxWrapper = styled.div<LocalizeCheckboxProps, LocalizeThemeP
       color: fontColor,
 
       [`.${CLASSNAME}__Checker`]: {
-        width: scale,
-        height: scale,
+        width: `${scale}rem`,
+        height: `${scale}rem`,
         borderRadius: rounded ? '6px' : '0',
       },
 
       [`.${CLASSNAME}__CheckerIcon`]: {
-        width: scale,
-        height: scale,
+        width: `${scale}rem`,
+        height: `${scale}rem`,
       },
 
       // Hover

@@ -36,7 +36,6 @@ interface LocalizeLocalProps extends LocalizeProps, LocalizeFormStateProps {
 }
 
 type ExtentionProps = InputProps & LocalizeLocalProps;
-
 export interface LocalizeSelectProps extends ExtentionProps {
   /**
    * @description 선택할 수 있는 아이템 리스트
