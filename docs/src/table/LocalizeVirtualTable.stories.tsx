@@ -32,7 +32,14 @@ export default {
       },
     },
     fontColor: {
-      defaultValue: 'conversion1',
+      defaultValue: 'inversed1',
+      control: {
+        type: 'select',
+        options: storiesColorOptions,
+      },
+    },
+    inversedColor: {
+      defaultValue: 'inversed10',
       control: {
         type: 'select',
         options: storiesColorOptions,

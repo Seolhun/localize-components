@@ -50,9 +50,9 @@ const StyledInput = styled.input<LocalizeInputProps, LocalizeThemeProps>(
     error,
     visibleIcon,
     localize = {
-      bgColor: 'conversion8',
+      bgColor: 'inversed8',
       bdColor: 'transparent',
-      fontColor: 'conversion1',
+      fontColor: 'inversed1',
     },
   }) => {
     const localizeColor = getLocalizeColor(theme, localize);

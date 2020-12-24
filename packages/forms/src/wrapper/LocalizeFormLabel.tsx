@@ -10,7 +10,7 @@ const StyledLocalizeFormLabel = styled.label<{}, LocalizeThemeProps>(({ theme })
   return {
     display: 'block',
     width: '100%',
-    color: theme.colors.conversion10,
+    color: theme.colors.inversed10,
     marginBottom: '8px',
   };
 });

@@ -9,15 +9,8 @@ export default {
   title: 'Forms | LocalizeInput',
   component: LocalizeInput,
   argTypes: {
-    fontColor: {
-      defaultValue: 'conversion10',
-      control: {
-        type: 'select',
-        options: storiesColorOptions,
-      },
-    },
     bgColor: {
-      defaultValue: 'conversion1',
+      defaultValue: 'inversed1',
       control: {
         type: 'select',
         options: storiesColorOptions,
@@ -25,6 +18,20 @@ export default {
     },
     bdColor: {
       defaultValue: 'primary',
+      control: {
+        type: 'select',
+        options: storiesColorOptions,
+      },
+    },
+    fontColor: {
+      defaultValue: 'inversed1',
+      control: {
+        type: 'select',
+        options: storiesColorOptions,
+      },
+    },
+    inversedColor: {
+      defaultValue: 'inversed10',
       control: {
         type: 'select',
         options: storiesColorOptions,

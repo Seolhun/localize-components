@@ -106,15 +106,15 @@ const LocalizeStyledTable = styled.div<LocalizeStyledTableProps, LocalizeThemePr
     intent = 'default',
     localize = {
       bgColor: 'default',
-      bdColor: 'conversion1',
-      innerFontColor: 'conversion1',
-      fontColor: 'conversion10',
+      bdColor: 'transparent',
+      fontColor: 'inversed1',
+      inversedColor: 'inversed10',
     },
     fixedHeader,
     fixedTableHeight,
   }) => {
     const localizedColor = getLocalizeIntentColor(theme, intent, localize);
-    const { backgroundColor, borderColor, innerColor, color } = localizedColor;
+    const { backgroundColor, borderColor, inversedColor, color } = localizedColor;
     return {
       position: 'relative',
       width: fixedHeader ? 'auto' : '100%',
@@ -130,7 +130,7 @@ const LocalizeStyledTable = styled.div<LocalizeStyledTableProps, LocalizeThemePr
       '.__Localize__Table__HeaderCell': {
         backgroundColor,
         borderColor,
-        color: innerColor,
+        color: inversedColor,
       },
       '.__Localize__Table__DataCell': {
         borderColor,

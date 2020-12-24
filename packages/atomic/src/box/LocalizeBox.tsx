@@ -42,16 +42,16 @@ const LocalizeBoxWrapper = styled.div<LocalizeBoxProps, LocalizeThemeProps>(
     intent = 'default',
     localize = {
       bgColor: 'default',
-      bdColor: 'conversion1',
-      innerFontColor: 'conversion1',
-      fontColor: 'conversion10',
+      bdColor: 'transparent',
+      fontColor: 'inversed1',
+      inversedColor: 'inversed10',
     },
   }) => {
     const localizedColor = getLocalizeIntentColor(theme, intent, localize);
-    const { backgroundColor, borderColor, innerColor } = localizedColor;
+    const { backgroundColor, borderColor, inversedColor } = localizedColor;
     return {
       position: 'relative',
-      color: innerColor,
+      color: inversedColor,
       backgroundColor,
       borderColor,
       borderRadius: '8px',

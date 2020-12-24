@@ -31,9 +31,9 @@ const StyledTextArea = styled.textarea<LocalizeTextAreaProps, LocalizeThemeProps
     theme,
     error,
     localize = {
-      bgColor: 'conversion8',
+      bgColor: 'inversed8',
       bdColor: 'transparent',
-      fontColor: 'conversion1',
+      fontColor: 'inversed1',
     },
   }) => {
     const localizeColor = getLocalizeColor(theme, localize);

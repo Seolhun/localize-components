@@ -73,9 +73,9 @@ const LocalizeSelectInputWrapper = styled.div<
     theme,
     error,
     localize = {
-      bgColor: 'conversion8',
+      bgColor: 'inversed8',
       bdColor: 'transparent',
-      fontColor: 'conversion1',
+      fontColor: 'inversed1',
     },
   }) => {
     const localizeColor = getLocalizeColor(theme, localize);
@@ -116,7 +116,7 @@ const LocalizeSelectInputWrapper = styled.div<
 
 const LocalizeSelectPlaceholder = styled.div<{}, LocalizeThemeProps>(({ theme }) => {
   return {
-    color: theme.colors.conversion9,
+    color: theme.colors.inversed9,
   };
 });
 
@@ -151,7 +151,7 @@ const LocalizeSelectDropdownWrapper = styled.div<{}, LocalizeThemeProps>(({ them
     height: '100%',
     width: '400px',
     padding: '32px 0 0',
-    backgroundColor: theme.colors.conversion9,
+    backgroundColor: theme.colors.inversed9,
 
     [LocalizeMediaQueries.MD]: {
       position: 'fixed',
@@ -202,7 +202,7 @@ const LocalizeSelectDropdownTitle = styled.p<{}, LocalizeThemeProps>(({ theme })
     justifyContent: 'center',
     padding: '0 24px',
     marginBottom: '24px',
-    color: theme.colors.conversion9,
+    color: theme.colors.inversed9,
 
     [LocalizeMediaQueries.MD]: {
       justifyContent: 'flex-start',
@@ -223,7 +223,7 @@ const LocalizeSelectDropdownSubmitWrapper = styled.div<{}, LocalizeThemeProps>((
     right: 0,
     left: 0,
     padding: '44px 24px',
-    backgroundColor: theme.colors.conversion9,
+    backgroundColor: theme.colors.inversed9,
   };
 });
 

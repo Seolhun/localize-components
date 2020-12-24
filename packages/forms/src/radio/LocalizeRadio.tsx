@@ -45,9 +45,9 @@ const LocalizeRadioWrapper = styled.div<LocalizeProps, LocalizeThemeProps>(
   ({
     theme,
     localize = {
-      bgColor: 'conversion8',
+      bgColor: 'inversed8',
       bdColor: 'transparent',
-      fontColor: 'conversion1',
+      fontColor: 'inversed1',
     },
   }) => {
     const localizeColor = getLocalizeColor(theme, localize);
@@ -117,7 +117,7 @@ const LocalizeRadioLabel = styled.label<LocalizeFormStateProps, LocalizeThemePro
     alignItems: 'center',
     width: '100%',
     outline: 0,
-    color: theme.colors.conversion10,
+    color: theme.colors.inversed10,
     transition: 'color 0.3s',
     cursor: 'pointer',
     userSelect: 'none',

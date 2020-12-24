@@ -45,9 +45,9 @@ const LocalizeCheckboxWrapper = styled.div<LocalizeCheckboxProps, LocalizeThemeP
     intent = 'default',
     localize = {
       bgColor: 'default',
-      bdColor: 'conversion1',
-      innerFontColor: 'conversion1',
-      fontColor: 'conversion10',
+      bdColor: 'transparent',
+      fontColor: 'inversed1',
+      inversedColor: 'inversed10',
     },
     rounded,
   }) => {

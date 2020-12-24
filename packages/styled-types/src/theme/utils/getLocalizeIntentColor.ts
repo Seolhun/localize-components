@@ -11,62 +11,62 @@ export function getLocalizeIntentColor(
   if (intent === 'localize' && localize) {
     return localizeColor;
   }
-  const { backgroundColor, borderColor, innerColor, color } = localizeColor;
+  const { backgroundColor, borderColor, color, inversedColor } = localizeColor;
   switch (intent) {
     case 'primary': {
       return {
         backgroundColor: theme.colors.primary,
-        borderColor: theme.colors.conversion1,
-        innerColor: theme.colors.conversion1,
-        color: theme.colors.conversion10,
+        borderColor: theme.colors.transparent,
+        color: theme.colors.inversed1,
+        inversedColor: theme.colors.inversed10,
       };
     }
     case 'secondary': {
       return {
         backgroundColor: theme.colors.secondary,
-        borderColor: theme.colors.conversion1,
-        innerColor: theme.colors.conversion1,
-        color: theme.colors.conversion10,
+        borderColor: theme.colors.transparent,
+        color: theme.colors.inversed1,
+        inversedColor: theme.colors.inversed10,
       };
     }
     case 'info': {
       return {
         backgroundColor: theme.colors.info,
-        borderColor: theme.colors.conversion1,
-        innerColor: theme.colors.conversion1,
-        color: theme.colors.conversion10,
+        borderColor: theme.colors.transparent,
+        color: theme.colors.inversed1,
+        inversedColor: theme.colors.inversed10,
       };
     }
     case 'success': {
       return {
         backgroundColor: theme.colors.success,
-        borderColor: theme.colors.conversion1,
-        innerColor: theme.colors.conversion1,
-        color: theme.colors.conversion10,
+        borderColor: theme.colors.transparent,
+        color: theme.colors.inversed1,
+        inversedColor: theme.colors.inversed10,
       };
     }
     case 'warning': {
       return {
         backgroundColor: theme.colors.warning,
-        borderColor: theme.colors.conversion1,
-        innerColor: theme.colors.conversion1,
-        color: theme.colors.conversion10,
+        borderColor: theme.colors.transparent,
+        color: theme.colors.inversed1,
+        inversedColor: theme.colors.inversed10,
       };
     }
     case 'error': {
       return {
         backgroundColor: theme.colors.error,
-        borderColor: theme.colors.conversion1,
-        innerColor: theme.colors.conversion1,
-        color: theme.colors.conversion10,
+        borderColor: theme.colors.transparent,
+        color: theme.colors.inversed1,
+        inversedColor: theme.colors.inversed10,
       };
     }
     default: {
       return {
-        backgroundColor: backgroundColor || theme.colors.default,
-        borderColor: borderColor || theme.colors.conversion1,
-        innerColor: innerColor || theme.colors.conversion1,
-        color: color || theme.colors.conversion10,
+        backgroundColor,
+        borderColor,
+        color,
+        inversedColor,
       };
     }
   }

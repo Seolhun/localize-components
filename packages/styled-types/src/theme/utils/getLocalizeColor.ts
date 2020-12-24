@@ -3,8 +3,8 @@ import { LocalizeStyleProps, LocalizeThemeProps } from '../LocalizeTheme';
 export type LocalizeStyleResponseType = {
   backgroundColor: string;
   borderColor: string;
-  innerColor: string;
   color: string;
+  inversedColor: string;
 };
 
 export const getLocalizeColor = (
@@ -13,18 +13,14 @@ export const getLocalizeColor = (
 ): LocalizeStyleResponseType => {
   const {
     bgColor = 'default',
-    bdColor = 'conversion1',
-    innerFontColor = 'conversion1',
-    fontColor = 'conversion10',
+    bdColor = 'transparent',
+    fontColor = 'inversed1',
+    inversedColor = 'inversed10',
   } = localize;
-  const backgroundColor = theme.colors[bgColor];
-  const borderColor = theme.colors[bdColor || bgColor];
-  const innerColor = theme.colors[innerFontColor];
-  const color = theme.colors[fontColor];
   return {
-    backgroundColor,
-    borderColor,
-    innerColor,
-    color,
+    backgroundColor: theme.colors[bgColor],
+    borderColor: theme.colors[bdColor || bgColor],
+    color: theme.colors[fontColor],
+    inversedColor: theme.colors[inversedColor],
   };
 };
