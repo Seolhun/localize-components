@@ -3,48 +3,86 @@ import React from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
 
-import { LocalizeThemeProps, LocalizeProps } from '@seolhun/localize-components-styled-types';
+import {
+  getLocalizeIntentColor,
+  getLocalizeSizeBy,
+  LocalizeIntentThemeType,
+  LocalizeProps,
+  LocalizeSize,
+  LocalizeThemeProps,
+} from '@seolhun/localize-components-styled-types';
 
-const SWITCH_CIRCLE = 25;
-const SWITCH_CONTAINER_WIDTH = SWITCH_CIRCLE * 2 + 2;
-const SWITCH_CONTAINER_HEIGHT = SWITCH_CIRCLE + 2;
+import { LocalizeFormWrapper } from '../wrapper';
+import { LocalizeFormStateProps } from '../LocalizeFormStateProps';
 
 const CLASSNAME = '__Localize__Switch';
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
-type Props = LocalizeProps & InputProps;
+type ExcludedInputProps = Omit<InputProps, 'size'>;
+interface LocalizeLocalProps extends LocalizeProps, LocalizeFormStateProps {
+  /**
+   * Set this to change font color
+   * @default md
+   */
+  size?: LocalizeSize;
 
-export interface LocalizeSwitchProps extends Props {
-  // /**
-  //  * Set this to change font Color
-  //  * @default neutral1
-  //  */
-  // fontColor?: Props['fontColor'];
-  // /**
-  //  * Set this to change backgroundColor
-  //  * @default primary
-  //  */
-  // primaryColor?: Props['primaryColor'];
-  // /**
-  //  * Set this to change borderColor
-  //  * @default undefined
-  //  */
-  // neutralColor?: Props['neutralColor'];
+  /**
+   * Set this to change intent color
+   * @default default
+   */
+  intent?: LocalizeIntentThemeType;
 }
 
-const StyledSwitchLabel = styled.label<LocalizeProps, LocalizeThemeProps>(({ theme }) => {
-  return {
-    position: 'relative',
-    display: 'inline-block',
-    width: `${SWITCH_CONTAINER_WIDTH}px`,
-    height: `${SWITCH_CONTAINER_HEIGHT}px`,
-    userSelect: 'none',
+type ExtentionProps = ExcludedInputProps & LocalizeLocalProps;
+export interface LocalizeSwitchProps extends ExtentionProps {}
 
-    [`input:checked + .${CLASSNAME}__Slider:before`]: {
-      boxShadow: `0 0 1px 2px ${theme.colors.neutral4}`,
-      transform: `translateX(${SWITCH_CIRCLE}px)`,
+const LocalizeSwitchContainer = styled.div<LocalizeSwitchProps, LocalizeThemeProps>(
+  ({
+    theme,
+    size = 'md',
+    intent = 'default',
+    localize = {
+      primaryColor: 'default',
+      neutralColor: 'neutral6',
+      fontColor: 'inversed1',
+      inversedColor: 'inversed10',
     },
-  };
-});
+  }) => {
+    const localizedColor = getLocalizeIntentColor(theme, intent, localize);
+    const { primaryColor, neutralColor, fontColor } = localizedColor;
+    const scale = getLocalizeSizeBy(size);
+
+    return {
+      position: 'relative',
+      display: 'inline-flex',
+      alignItems: 'center',
+      width: `calc(${scale * 2}rem + 2px)`,
+      height: `calc(${scale}rem + 2px)`,
+      color: fontColor,
+      cursor: 'pointer',
+      userSelect: 'none',
+
+      [`.${CLASSNAME}__Slider`]: {
+        backgroundColor: theme.colors.inversed1,
+      },
+      [`.${CLASSNAME}__Slider:before`]: {
+        content: '""',
+        position: 'absolute',
+        left: '1px',
+        top: '1px',
+        height: `${scale}rem`,
+        width: `${scale}rem`,
+        backgroundColor: neutralColor,
+        borderRadius: '50%',
+        transition: 'all 0.4s',
+      },
+      [`input:checked + .${CLASSNAME}__Slider:before`]: {
+        backgroundColor: primaryColor,
+        boxShadow: `0 0 1px 2px ${neutralColor}`,
+        transform: `translateX(${scale}rem)`,
+      },
+    };
+  },
+);
 
 const HidingInput = styled.input({
   position: 'absolute',
@@ -53,29 +91,16 @@ const HidingInput = styled.input({
   height: 0,
 });
 
-const StyledSlider = styled.span<LocalizeProps, LocalizeThemeProps>(({ theme }) => {
+const StyledSlider = styled.span<LocalizeProps, LocalizeThemeProps>(() => {
   return {
     position: 'absolute',
     top: 0,
     right: 0,
     bottom: 0,
     left: 0,
-    backgroundColor: theme.colors.neutral1,
     borderRadius: '35px',
     cursor: 'pointer',
     transition: 'all 0.4s',
-
-    ['&:before']: {
-      content: '""',
-      position: 'absolute',
-      left: '1px',
-      top: '1px',
-      height: `${SWITCH_CIRCLE}px`,
-      width: `${SWITCH_CIRCLE}px`,
-      backgroundColor: theme.colors.primary,
-      borderRadius: '50%',
-      transition: 'all 0.4s',
-    },
   };
 });
 
@@ -83,29 +108,24 @@ const StyledSlider = styled.span<LocalizeProps, LocalizeThemeProps>(({ theme }) 
  * TODO: Change theme key and values
  */
 const LocalizeSwitch = React.forwardRef<HTMLInputElement, LocalizeSwitchProps>(
-  ({ className, ...props }, ref) => {
-    const { onChange } = props;
-
-    const handleChecked = (event: React.ChangeEvent<HTMLInputElement>) => {
-      event.stopPropagation();
-
-      if (onChange) {
-        onChange(event);
-      }
-    };
-
+  ({ className, label, help, error, size = 'md', intent = 'default', ...props }, ref) => {
     return (
-      <StyledSwitchLabel key={name} htmlFor={name} className={classnames(CLASSNAME, className)}>
-        <HidingInput
-          {...props}
+      <LocalizeFormWrapper
+        className={classnames(CLASSNAME, className)}
+        label={label}
+        help={help}
+        error={error}
+      >
+        <LocalizeSwitchContainer
           ref={ref}
-          id={name}
-          type="checkbox"
-          className={`${CLASSNAME}__Input`}
-          onChange={handleChecked}
-        />
-        <StyledSlider className={`${CLASSNAME}__Slider`} />
-      </StyledSwitchLabel>
+          className={`${CLASSNAME}__Container`}
+          intent={intent}
+          size={size}
+        >
+          <HidingInput {...props} ref={ref} type="checkbox" />
+          <StyledSlider className={`${CLASSNAME}__Slider`} />
+        </LocalizeSwitchContainer>
+      </LocalizeFormWrapper>
     );
   },
 );

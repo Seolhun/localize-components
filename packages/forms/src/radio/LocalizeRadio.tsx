@@ -65,14 +65,14 @@ const LocalizeRadioWrapper = styled.div<LocalizeRadioProps, LocalizeThemeProps>(
       color: fontColor,
 
       [`.${CLASSNAME}__Checker`]: {
-        width: scale,
-        height: scale,
+        width: `${scale}rem`,
+        height: `${scale}rem`,
         borderRadius: rounded ? '6px' : '0',
       },
 
       [`.${CLASSNAME}__CheckerIcon`]: {
-        width: scale,
-        height: scale,
+        width: `${scale}rem`,
+        height: `${scale}rem`,
       },
 
       // Hover

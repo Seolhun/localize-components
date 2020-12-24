@@ -3,21 +3,35 @@ import { Story } from '@storybook/react/types-6-0';
 
 import { LocalizeSwitch, LocalizeSwitchProps } from '../../../packages/forms/dist';
 
-import { storiesColorOptions } from '../controls';
+import { storiesColorOptions, storiesIntentOptions, storiesSizeOptions } from '../controls';
 
 export default {
   title: 'Forms | LocalizeSwitch',
   component: LocalizeSwitch,
   argTypes: {
+    size: {
+      defaultValue: 'md',
+      control: {
+        type: 'select',
+        options: storiesSizeOptions,
+      },
+    },
+    intent: {
+      defaultValue: 'default',
+      control: {
+        type: 'select',
+        options: storiesIntentOptions,
+      },
+    },
     primaryColor: {
-      defaultValue: 'inversed1',
+      defaultValue: 'default',
       control: {
         type: 'select',
         options: storiesColorOptions,
       },
     },
     neutralColor: {
-      defaultValue: 'primary',
+      defaultValue: 'neutral6',
       control: {
         type: 'select',
         options: storiesColorOptions,
