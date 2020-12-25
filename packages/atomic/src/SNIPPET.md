@@ -11,11 +11,6 @@ import {
   LocalizeThemeProps,
 } from '@seolhun/localize-components-styled-types';
 
-import {
-  LocalizeThemeProps,
-  LocalizeProps,
-} from '@seolhun/localize-components-styled-types';
-
 const CLASSNAME = '__Localize__Something';
 type DivProps = React.HTMLAttributes<HTMLDivElement>;
 type ExtentionProps = LocalizeProps & DivProps;
@@ -37,20 +32,16 @@ const LocalizeSomethingWrapper = styled.div<LocalizeProps, LocalizeThemeProps>((
   },
 }) => {
   const localizedColor = getLocalizeIntentColor(theme, intent, localize);
-  const { primaryColor, neutralColor, color, inversedColor } = localizedColor;
+  const { primaryColor, neutralColor, fontColor } = localizedColor;
 
   return {
     backgroundColor: primaryColor,
     borderColor: neutralColor,
-    color,
+    color: fontColor,
   }
 });
 
 const LocalizeSomethingContainer = styled.div<LocalizeProps, LocalizeThemeProps>(() =>{
-  return {}
-})
-
-const LocalizeSomethingContainer = styled.div<{}, LocalizeThemeProps>(() => {
   return {}
 })
 
