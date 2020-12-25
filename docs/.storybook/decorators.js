@@ -1,6 +1,5 @@
 import React from 'react';
 import { Global, css } from '@emotion/core';
-import { themes } from '@storybook/theming';
 
 import {
   LocalizeContainer,
@@ -14,7 +13,8 @@ import {
 const globalStyle = (theme) => css`
 	html, body {
 		font-size: 14px;
-	}
+  }
+
 	.__Localize__Window__LockScroll {
 		overflow: hidden !important;
   }
@@ -30,8 +30,21 @@ export const withThemeProvider = (Story, context) => {
   const themeKey = context.globals.theme;
 
   const memoizedTheme = React.useMemo(() => {
-    return context.parameters.themeMode[themeKey];
-  }, [themeKey])
+    const theme = context.parameters.themeMode[themeKey];;
+    return theme;
+  }, [context, themeKey])
+
+  const memoizedContext = React.useMemo(() => {
+    const docsTheme = context.parameters.docsTheme[themeKey];
+    const newContext = {
+      ...context,
+    }
+    newContext.parameters.docs.theme = docsTheme;
+    newContext.globals.backgrounds = {
+      value: memoizedTheme.layout.backgroundColor,
+    }
+    return newContext;
+  }, [context, themeKey])
 
   return (
     <LocalizeThemeProvider theme={memoizedTheme}>
@@ -39,7 +52,7 @@ export const withThemeProvider = (Story, context) => {
       <LocalizeContainer isFull>
         <LocalizeRow>
           <LocalizeCol>
-            <Story {...context} />
+            <Story {...memoizedContext} />
           </LocalizeCol>
         </LocalizeRow>
       </LocalizeContainer>
@@ -47,21 +60,3 @@ export const withThemeProvider = (Story, context) => {
   );
 };
 
-
-export const withStorybookTheme = (theme) => {
-  const isLightMode = theme.type === 'LIGHT';
-  return {
-    ...(isLightMode ? themes.light : themes.dark),
-    colorPrimary: theme.colors.primary,
-    colorSecondary: theme.colors.secondary,
-    appBg: theme.layout.backgroundColor,
-    appContentBg: theme.layout.backgroundColor,
-    textColor: theme.layout.textColor,
-    textInverseColor: theme.colors.primary,
-    barTextColor: theme.layout.textColor,
-    barSelectedColor: theme.colors.primary,
-    barBg: theme.layout.backgroundColor,
-    inputBg: theme.layout.backgroundColor,
-    inputTextColor: theme.layout.textColor,
-  };
-};
