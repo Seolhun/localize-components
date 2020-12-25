@@ -1,7 +1,7 @@
-import { themes } from '@storybook/theming';
+import { localizeLightTheme, localizeDarkTheme } from '../../packages/styled-types';
 
 import { withThemeProvider } from './decorators';
-import { localizeDarkTheme, localizeLightTheme } from '../../packages/styled-types';
+import { createThemeFormLocalizeTheme } from './theme';
 
 /**
  * @see https://storybook.js.org/docs/react/essentials/toolbars-and-globals
@@ -28,7 +28,17 @@ export const parameters = {
    * @see https://storybook.js.org/docs/react/essentials/backgrounds
    */
   backgrounds: {
-    disable: true,
+    default: 'LIGHT',
+    values: [
+      {
+        name: 'LIGHT',
+        value: localizeLightTheme.layout.backgroundColor,
+      },
+      {
+        name: 'DARK',
+        value: localizeDarkTheme.layout.backgroundColor,
+      },
+    ],
   },
   /**
    * @see https://storybook.js.org/docs/react/essentials/viewport
@@ -52,20 +62,28 @@ export const parameters = {
       ],
     },
   },
-  docs: {
-    theme: themes.light,
-  },
   /**
    * @default padded
    * fullscreen | padded | center
    */
   layout: 'padded',
+
   /**
    * Custom Configurations
    */
   themeMode: {
     LIGHT: localizeLightTheme,
     DARK: localizeDarkTheme,
+  },
+  docsTheme: {
+    LIGHT: createThemeFormLocalizeTheme({
+      theme: localizeLightTheme,
+      asStorybookTheme: false
+    }),
+    DARK: createThemeFormLocalizeTheme({
+      theme: localizeDarkTheme,
+      asStorybookTheme: false
+    }),
   },
 };
 
