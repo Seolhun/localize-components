@@ -1,10 +1,10 @@
 import { addons } from '@storybook/addons';
-import { create } from '@storybook/theming';
+import { create, themes } from '@storybook/theming';
 
 import logo from './logo.png';
 
 const theme = create({
-  base: 'light',
+  ...themes.dark,
   brandTitle: 'Localize-Components UI',
   brandUrl: 'https://localize-component.sh',
   brandImage: logo,
@@ -12,4 +12,5 @@ const theme = create({
 
 addons.setConfig({
   theme,
+  panelPosition: 'bottom',
 });

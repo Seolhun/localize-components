@@ -12,7 +12,7 @@ const PAGINATION = {
 };
 const DEFAULT_RATIO = 0.5;
 
-const DEFAULT_CLASSNAME = '__Localize__Carousel';
+const CLASSNAME = '__Localize__Carousel';
 type DivProps = React.HTMLAttributes<HTMLDivElement>;
 
 export interface LocalizeCarouselProps extends LocalizeProps, DivProps {
@@ -118,7 +118,7 @@ const LocalizeCarousel: React.FC<LocalizeCarouselProps> = ({
   }, [displayedImageCount]);
 
   return (
-    <CarouselWrapper className={classnames(DEFAULT_CLASSNAME, className)} zIndex={zIndex}>
+    <CarouselWrapper className={classnames(CLASSNAME, className)} zIndex={zIndex}>
       <CarouselContainer ref={wrapperRef}>
         <PrevPaginationContainer onClick={handlePageIndex(PAGINATION.PREV)} />
         <NextPaginationContainer onClick={handlePageIndex(PAGINATION.NEXT)} />

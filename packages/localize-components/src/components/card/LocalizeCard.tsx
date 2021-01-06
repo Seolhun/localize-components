@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import styled from '@emotion/styled';
 import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
-const DEFAULT_CLASSNAME = '__Localize__Card';
+const CLASSNAME = '__Localize__Card';
 type DivProps = React.HTMLAttributes<HTMLDivElement>;
 
 export interface LocalizeCardProps extends LocalizeProps, DivProps {
@@ -31,8 +31,8 @@ const StyledLocalizeCardContainer = styled.div<LocalizeCardProps, LocalizeThemeP
 );
 
 const LocalizeCard: React.FC<LocalizeCardProps> = ({ className, children, ...props }) => (
-  <StyledLocalizeCardWrapper className={classnames(DEFAULT_CLASSNAME, className)}>
-    <StyledLocalizeCardContainer {...props} className={`${DEFAULT_CLASSNAME}__Container`}>
+  <StyledLocalizeCardWrapper className={classnames(CLASSNAME, className)}>
+    <StyledLocalizeCardContainer {...props} className={`${CLASSNAME}__Container`}>
       {children}
     </StyledLocalizeCardContainer>
   </StyledLocalizeCardWrapper>

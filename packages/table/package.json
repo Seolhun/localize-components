@@ -31,13 +31,20 @@
     "classnames": "^2.2.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "polished": "^3.6.5"
+    "polished": "^3.6.5",
+    "react-virtualized-auto-sizer": "^1.0.2",
+    "react-window": "^1.8.6"
   },
   "dependencies": {
     "@seolhun/localize-components-styled-types": "^0.5.2",
-    "polished": "^3.6.7"
+    "polished": "^3.6.7",
+    "react-virtualized-auto-sizer": "^1.0.2",
+    "react-window": "^1.8.6"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/react-virtualized-auto-sizer": "^1.0.0",
+    "@types/react-window": "^1.8.2"
+  },
   "engines": {
     "node": ">= 6.0.0",
     "npm": ">= 3.0.0"

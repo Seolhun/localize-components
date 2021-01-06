@@ -1,18 +1,43 @@
-import { PropertiesFallback } from 'csstype';
+import { PropertiesFallback, Property } from 'csstype';
 
 import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
+
+import {
+  LocalizeCellHorizontalAlignType,
+  LocalizeCellVerticalAlignType,
+} from '../LocalizeTableTypes';
+
+export interface LocalizeCellProps {
+  /**
+   * Set this to change cell width
+   */
+  width?: Property.Width;
+
+  /**
+   * Set this to change cell height
+   */
+  height?: number;
+
+  /**
+   * Set this to change cell vertical align
+   */
+  verticalAlign?: LocalizeCellVerticalAlignType;
+
+  /**
+   * Set this to change cell horizontal align
+   */
+  horizontalAlign?: LocalizeCellHorizontalAlignType;
+
+  /**
+   * Set this to change cell freezing
+   */
+  freezing?: boolean;
+}
 
 const LocalizeCellStyle = (theme: LocalizeThemeProps): any => {
   return {
     color: theme.colors['conversion10'],
     padding: '0 10px',
-
-    borderRight: `1px solid ${theme.colors.neutral4}`,
-    borderBottom: `1px solid ${theme.colors.neutral4}`,
-
-    '&:first-child': {
-      borderLeft: `1px solid ${theme.colors.neutral4}`,
-    },
   } as PropertiesFallback<HTMLTableCellElement>;
 };
 

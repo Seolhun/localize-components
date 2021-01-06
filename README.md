@@ -1,30 +1,32 @@
-<div style='text-align: center; margin-top: 40px'>
+<div style='text-align: center; margin-top: 40px; width: 100%;'>
   <img src='./.github/logo.png' />
 </div>
 
-![Dev Build](https://github.com/Seolhun/localize-components/workflows/Dev%20Build/badge.svg?branch=develop)
-
 ## Production
 
+![Github Build](https://github.com/Seolhun/localize-components/workflows/Github%20Build/badge.svg?branch=master)
 [![Build Status](https://travis-ci.com/Seolhun/localize-components.svg?branch=master)](https://travis-ci.com/Seolhun/localize-components)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/87c0d9f96fc74d94b60c0c397a6b30c6)](https://www.codacy.com/app/shun10114/localize-components?utm_source=github.com&utm_medium=referral&utm_content=Seolhun/localize-components&utm_campaign=Badge_Grade)
 [![codebeat badge](https://codebeat.co/badges/2ab413e3-946a-4719-bb75-07e76851cbba)](https://codebeat.co/projects/github-com-seolhun-localize-components-master)
 
 ## Development
 
+![Github Build](https://github.com/Seolhun/localize-components/workflows/Github%20Build/badge.svg?branch=develop)
 [![Build Status](https://travis-ci.com/Seolhun/localize-components.svg?branch=develop)](https://travis-ci.com/Seolhun/localize-components)
 
 ## Why
 
-- I just want to build react components without third party css side-effect.
-  - All components have global stylesheet affecting origin product css.
+As a front-end developer, I found that very difficult to create a UI that considers various variables, inconsistent styles. Sometimes, unexpectable component design made exhausts me.
+
+With this experience in the background, I created `localize-component`.
+The advantage of localize-component is that you can make new style UI by overriding `localize` props. But, All colors come from theme context. So localize UI is changed by key and value of theme. 
+
+If you use this, can customize and experience UI extensively by chaning theme you want.
 
 ## Goal
 
-- Localized-style
-- All components be changed for Theme by React Context.
-  - All core variables is controlled by context
-- Processing all most colors
+- A theme based styling.
+- Overriding localize props styling.
 
 ## Used stacks
 
@@ -46,7 +48,9 @@
 
 - @seolhun/localize-components
 - @seolhun/localize-components-atomic
+- @seolhun/localize-components-icon
 - @seolhun/localize-components-grid
+- @seolhun/localize-components-table
 
 #### Utils
 
@@ -74,16 +78,20 @@ $ yarn add @seolhun/localize-components @seolhun/localize-components-atomic
 #### import
 
 ```js
-import { Alert } from '@seolhun/localize-components';
-import { Button } from '@seolhun/localize-components-atomic';
+import { LocalizeAlert } from '@seolhun/localize-components';
+import { LocalizeButton } from '@seolhun/localize-components-atomic';
+import { LocalizeInput } from '@seolhun/localize-components-forms';
+import { LocalizeIcon } from '@seolhun/localize-components-icon';
+import { LocalizeTable } from '@seolhun/localize-components-table';
+import { LocalizeRow, LocalizeCol } from '@seolhun/localize-components-grid';
 ```
 
-## Examples
+## Docs
 
-### PROD
+#### PROD
 
 - Docs - Storybook : [localize-components-docs.surge.sh](http://localize-components-docs.surge.sh/#/)
 
-### DEV
+#### DEV
 
 - Docs - Storybook : [dev.localize-components-docs.surge.sh](http://dev.localize-components-docs.surge.sh/#/)

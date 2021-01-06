@@ -3,13 +3,14 @@ import styled from '@emotion/styled';
 import classnames from 'classnames';
 
 import {
-  getLocalizeSizeBy,
+  getLocalizeIntentColor,
+  getLocalizePaddingSizeBy,
+  LocalizeIntentThemeType,
   LocalizeProps,
   LocalizeSize,
   LocalizeThemeProps,
 } from '@seolhun/localize-components-styled-types';
-
-import { LocalizeIcon } from '../icons';
+import { LocalizeIcon } from '@seolhun/localize-components-icon';
 
 const CLASSNAME = '__Localize__Box';
 type DivProps = React.HTMLAttributes<HTMLDivElement>;
@@ -17,24 +18,10 @@ type Props = LocalizeProps & DivProps & LocalizeBoxContainerProps;
 
 export interface LocalizeBoxProps extends Props {
   /**
-   * @default conversion10
+   * Set this to change intent color
+   * @default default
    */
-  fontColor?: Props['fontColor'];
-
-  /**
-   * @default primary
-   */
-  bgColor?: Props['bgColor'];
-
-  /**
-   * @default undefined
-   */
-  bdColor?: Props['bdColor'];
-
-  /**
-   * @default 8px
-   */
-  borderRadius?: string;
+  intent?: LocalizeIntentThemeType;
 }
 
 interface LocalizeBoxContainerProps {
@@ -50,17 +37,29 @@ interface LocalizeBoxContainerProps {
 }
 
 const LocalizeBoxWrapper = styled.div<LocalizeBoxProps, LocalizeThemeProps>(
-  ({ theme, fontColor = 'conversion10', bgColor = 'primary', borderRadius = '8px', bdColor }) => {
-    const color = theme.colors[fontColor];
-    const backgroundColor = theme.colors[bgColor];
-    const borderColor = theme.colors[bdColor || bgColor];
-
+  ({
+    theme,
+    intent = 'default',
+    localize = {
+      bgColor: 'default',
+      bdColor: 'conversion1',
+      innerFontColor: 'conversion1',
+      fontColor: 'conversion10',
+    },
+  }) => {
+    const localizedColor = getLocalizeIntentColor(theme, intent, localize);
+    const { backgroundColor, borderColor, innerColor } = localizedColor;
     return {
       position: 'relative',
-      color,
+      color: innerColor,
       backgroundColor,
       borderColor,
-      borderRadius,
+      borderRadius: '8px',
+      textDecoration: 'none',
+      whiteSpace: 'nowrap',
+      outline: 'none',
+      transition: 'background-color 0.3s, border-color 0.3s, color 0.3s',
+      userSelect: 'none',
     };
   },
 );
@@ -83,7 +82,7 @@ const LocalizeBoxCloser = styled.span<LocalizeProps, LocalizeThemeProps>(() => {
 const LocalizeBoxContainer = styled.div<LocalizeBoxContainerProps, LocalizeThemeProps>(
   ({ size, closable }) => {
     return {
-      padding: getLocalizeSizeBy(size),
+      padding: getLocalizePaddingSizeBy(size),
       ...(closable && {
         paddingRight: '52px',
       }),

@@ -1,43 +1,102 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
-import { lighten } from 'polished';
+import { darken } from 'polished';
 
 import {
-  LocalizeThemeProps,
+  getLocalizeIntentColor,
+  getLocalizePaddingSizeBy,
+  LocalizeIntentThemeType,
   LocalizeProps,
   LocalizeSize,
-  getLocalizeSizeBy,
+  LocalizeStyleResponseType,
+  LocalizeThemeProps,
 } from '@seolhun/localize-components-styled-types';
 
 const CLASSNAME = '__Localize__Tag';
 type SpanProps = React.HTMLAttributes<HTMLSpanElement>;
 type ExtentionProps = LocalizeProps & SpanProps;
+type LocalizeButtonVariantType = 'solid' | 'outline';
 
 export interface LocalizeTagProps extends ExtentionProps {
+  /**
+   * Set this to change font color
+   * @default md
+   */
   size?: LocalizeSize;
 
   /**
-   * Set this to change border radius
-   * @default undefined
+   * Set this to change variant
+   * @default solid
    */
-  borderRadius?: string;
+  variant?: LocalizeButtonVariantType;
+
+  /**
+   * Set this to change intent color
+   * @default default
+   */
+  intent?: LocalizeIntentThemeType;
+}
+
+function getLocalizeTagStyle(
+  theme: LocalizeThemeProps,
+  variant: LocalizeButtonVariantType,
+  localizedColor: LocalizeStyleResponseType,
+) {
+  const { backgroundColor, borderColor, innerColor } = localizedColor;
+  switch (variant) {
+    case 'outline': {
+      return {
+        color: innerColor,
+        backgroundColor: theme.colors.conversion1,
+        border: `1px solid ${backgroundColor}`,
+
+        '&:hover, &:active': {
+          color: innerColor,
+          backgroundColor,
+          border: `1px solid ${borderColor}`,
+        },
+      };
+    }
+    default: {
+      return {
+        color: innerColor,
+        backgroundColor,
+        border: `1px solid ${borderColor}`,
+
+        '&:hover, &:active': {
+          color: innerColor,
+          backgroundColor: darken(0.1, backgroundColor),
+          border: `1px solid ${darken(0.1, borderColor)}`,
+        },
+      };
+    }
+  }
 }
 
 const StyledLocalizeTagWrapper = styled.div<LocalizeTagProps, LocalizeThemeProps>(
-  ({ theme, bgColor = 'primary', bdColor, borderRadius = '24px' }) => {
-    const color = theme.colors.neutral1;
-    const backgroundColor = theme.colors[bgColor];
-    const borderColor = theme.colors[bdColor || bgColor];
-
+  ({
+    theme,
+    size = 'md',
+    variant = 'solid',
+    intent = 'default',
+    localize = {
+      bgColor: 'default',
+      bdColor: 'conversion1',
+      innerFontColor: 'conversion1',
+      fontColor: 'conversion10',
+    },
+  }) => {
+    const localizedColor = getLocalizeIntentColor(theme, intent, localize);
+    const { backgroundColor, borderColor } = localizedColor;
     return {
-      position: 'relative',
-      display: 'inline-block',
-      color,
+      ...getLocalizeTagStyle(theme, variant, localizedColor),
+      display: 'inline-flex',
+      alignItems: 'center',
+      justifyContent: 'center',
       backgroundColor,
-      border: `1px solid ${borderColor}`,
-      borderRadius,
-
+      padding: getLocalizePaddingSizeBy(size),
+      borderRadius: '24px',
       textDecoration: 'none',
       whiteSpace: 'nowrap',
       outline: 'none',
@@ -46,25 +105,18 @@ const StyledLocalizeTagWrapper = styled.div<LocalizeTagProps, LocalizeThemeProps
       cursor: 'pointer',
 
       '&:not(:disabled):not(:read-only):active, &:not(:disabled):not(:read-only):hover': {
-        backgroundColor: lighten(0.1, backgroundColor),
-        borderColor: lighten(0.1, borderColor),
-      },
-      '&:disabled': {
-        backgroundColor: theme.colors.neutral4,
-        borderColor: theme.colors.neutral5,
-        color: theme.colors.neutral8,
-        cursor: 'not-allowed',
+        backgroundColor: darken(0.1, backgroundColor),
+        borderColor: darken(0.1, borderColor),
       },
     };
   },
 );
 
-const StyledLocalizeTagContainer = styled.span<LocalizeTagProps, LocalizeThemeProps>(({ size }) => {
+const StyledLocalizeTagContainer = styled.span<LocalizeTagProps, LocalizeThemeProps>(() => {
   return {
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: getLocalizeSizeBy(size),
   };
 });
 

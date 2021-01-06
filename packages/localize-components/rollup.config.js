@@ -8,13 +8,13 @@ import postcssFlexboxfixer from 'postcss-flexboxfixer';
 import autoprefixer from 'autoprefixer';
 
 import pkg from './package.json';
-
 const externals = Object.keys(pkg.peerDependencies);
+const isProd = process.env.NODE_ENV === 'production';
 
 export default {
   input: './src/index.ts',
   output: {
-    sourcemap: true,
+    sourcemap: isProd,
     format: 'es',
     dir: 'dist',
     plugins: [terser()],

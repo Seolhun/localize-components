@@ -1,41 +1,39 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import classnames from 'classnames';
 
 import { LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 
-import { LocalizeTableProps } from '../LocalizeTable';
+const CLASSNAME = '__Localize__Table__Row';
 
-type TrProps = React.TableHTMLAttributes<HTMLTableRowElement>;
-type ExtensionProps = TrProps;
-export interface LocalizeTableRowProps extends ExtensionProps {
-  height: string;
+type DivProps = React.HTMLAttributes<HTMLDivElement>;
+type ExtensionProps = DivProps;
+export interface LocalizeTableRowProps extends ExtensionProps {}
 
-  responsive: LocalizeTableProps['responsive'];
-}
-
-const LocalizeStyledTableRow = styled.tr<LocalizeTableRowProps, LocalizeThemeProps>(
-  ({ theme, height, responsive }) => {
+const LocalizeStyledTableRow = styled.div<LocalizeTableRowProps, LocalizeThemeProps>(
+  ({ theme, onClick }) => {
     return {
-      ...(responsive
-        ? {
-            minHeight: height,
-          }
-        : {
-            height,
-          }),
+      display: 'flex',
+      flex: 1,
+      flexWrap: 'nowrap',
+      cursor: onClick ? 'pointer' : 'auto',
 
-      '&:first-child': {
-        borderLeft: `1px solid ${theme.colors.neutral4}`,
+      '&:first-of-type': {
+        borderTop: `1px solid ${theme.colors.neutral4}`,
       },
-      '&:last-child': {
+      '&:last-of-type': {
         borderBottom: `1px solid ${theme.colors.neutral4}`,
       },
     };
   },
 );
 
-const LocalizeTableRow: React.FC<LocalizeTableRowProps> = ({ children, ...props }) => {
-  return <LocalizeStyledTableRow {...props}>{children}</LocalizeStyledTableRow>;
+const LocalizeTableRow: React.FC<LocalizeTableRowProps> = ({ children, className, ...props }) => {
+  return (
+    <LocalizeStyledTableRow {...props} className={classnames(CLASSNAME, className)}>
+      {children}
+    </LocalizeStyledTableRow>
+  );
 };
 
 export { LocalizeTableRow };

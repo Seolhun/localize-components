@@ -36,7 +36,9 @@
   },
   "dependencies": {
     "@seolhun/localize-components-atomic": "^0.5.2",
+    "@seolhun/localize-components-forms": "^0.5.2",
     "@seolhun/localize-components-grid": "^0.5.2",
+    "@seolhun/localize-components-icon": "^0.5.2",
     "@seolhun/localize-components-table": "^0.5.2",
     "@seolhun/localize-components-hooks": "^0.5.2",
     "@seolhun/localize-components-styled-types": "^0.5.2"

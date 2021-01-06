@@ -5,9 +5,9 @@ export interface LocalizeResponsiveValue {
 export type LocalizeColumnValue = number | LocalizeResponsiveValue;
 
 export enum LocalizeMediaQueryEnum {
-  XL = 1140, // 1140 ~
-  LG = 960, // 960 ~ 1139
-  MD = 720, // 720 ~ 899
+  XL = 1200, // 1200 ~
+  LG = 960, // 960 ~ 1199
+  MD = 720, // 720 ~ 959
   SM = 540, // 540 ~ 719
   XS = 0, // 0 ~ 539
 }

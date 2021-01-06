@@ -4,7 +4,8 @@ import { animated, useTransition } from 'react-spring';
 
 import { LocalizeProps, LocalizeThemeProps } from '@seolhun/localize-components-styled-types';
 import { LocalizeMediaQueries } from '@seolhun/localize-components-grid';
-import { LocalizeIcon, LocalizeText } from '@seolhun/localize-components-atomic';
+import { LocalizeText } from '@seolhun/localize-components-atomic';
+import { LocalizeIcon } from '@seolhun/localize-components-icon';
 
 import { LocalizeToastContext, LocalizeToastMessageUKProps } from './LocalizeToastContext';
 

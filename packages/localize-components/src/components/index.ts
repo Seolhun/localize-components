@@ -2,7 +2,6 @@ export * from './alert';
 export * from './box';
 export * from './card';
 export * from './carousel';
-export * from './jumbotron';
 export * from './dropdown';
 export * from './modal';
 export * from './shadow-box';
