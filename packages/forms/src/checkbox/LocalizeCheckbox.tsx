@@ -60,7 +60,7 @@ const LocalizeCheckboxWrapper = styled.div<LocalizeCheckboxProps, LocalizeThemeP
       alignItems: 'center',
       cursor: 'pointer',
       color,
-
+      
       [`.${CLASSNAME}__Checker`]: {
         width: scale,
         height: scale,
@@ -156,13 +156,14 @@ const LocalizeCheckboxCheckerIcon = styled.svg<{}, LocalizeThemeProps>(({ theme 
 });
 
 const LocalizeCheckbox = React.forwardRef<HTMLInputElement, LocalizeCheckboxProps>(
-  ({ children, className, size = 'md', intent = 'default', ...props }, ref) => {
+  ({ children, className, size = 'md', intent = 'default', rounded, ...props }, ref) => {
     return (
       <LocalizeCheckboxWrapper
         ref={ref}
         className={classnames(CLASSNAME, className)}
         intent={intent}
         size={size}
+        rounded={rounded}
       >
         <LocalizeCheckboxLabel className={`${CLASSNAME}__Label`}>
           <HidingInput {...props} ref={ref} type="checkbox" />
