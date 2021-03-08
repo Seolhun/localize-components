@@ -26,25 +26,30 @@ const globalStyle = (theme) => css`
   }
 `;
 
-export const withThemeProvider = (Story, context) => {
-  const themeKey = context.globals.theme;
+const withThemeProvider = (Story, context) => {
+  const [themeKey, setThemeKey] = React.useState(context.globals.theme)
+
+  React.useEffect(() => {
+    console.log('context.globals.theme : ', context.globals.theme)
+    setThemeKey(context.globals.theme);
+  }, [context.globals?.theme]);
 
   const memoizedTheme = React.useMemo(() => {
-    const theme = context.parameters.themeMode[themeKey];;
-    return theme;
-  }, [context, themeKey])
+    const themeMode = context.parameters.themeMode[themeKey];;
+    return themeMode;
+  }, [themeKey, context])
 
   const memoizedContext = React.useMemo(() => {
     const docsTheme = context.parameters.docsTheme[themeKey];
     const newContext = {
       ...context,
     }
-    newContext.parameters.docs.theme = docsTheme;
     newContext.globals.backgrounds = {
       value: memoizedTheme.layout.backgroundColor,
     }
+    newContext.parameters.docs.theme = docsTheme;
     return newContext;
-  }, [context, themeKey])
+  }, [memoizedTheme, themeKey, context])
 
   return (
     <LocalizeThemeProvider theme={memoizedTheme}>
@@ -59,4 +64,7 @@ export const withThemeProvider = (Story, context) => {
     </LocalizeThemeProvider>
   );
 };
+
+export const decorators = [withThemeProvider];
+
 
