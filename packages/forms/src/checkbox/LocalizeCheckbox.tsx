@@ -76,20 +76,20 @@ const LocalizeCheckboxWrapper = styled.div<LocalizeCheckboxProps, LocalizeThemeP
       '&:hover': {
         [`${HidingInput}:not(:disabled):not(:read-only):not(:checked) + .${CLASSNAME}__Checker`]: {
           backgroundColor,
-          border: `2px solid ${backgroundColor}`,
+          border: `1px solid ${backgroundColor}`,
         },
       },
 
       // Active
       [`${HidingInput}:not(:disabled):active + .${CLASSNAME}__Checker`]: {
         backgroundColor,
-        border: `2px solid ${borderColor}`,
+        border: `1px solid ${borderColor}`,
       },
 
       // Checked
       [`${HidingInput}:checked + .${CLASSNAME}__Checker`]: {
         backgroundColor,
-        border: `2px solid ${borderColor}`,
+        border: `1px solid ${borderColor}`,
 
         [`.${CLASSNAME}__CheckerIcon`]: {
           stroke: borderColor,
@@ -99,7 +99,7 @@ const LocalizeCheckboxWrapper = styled.div<LocalizeCheckboxProps, LocalizeThemeP
       // Readonly - Disabled
       [`${HidingInput}:read-only, ${HidingInput}:disabled`]: {
         backgroundColor: theme.colors.disabled,
-        border: `2px solid ${theme.colors.disabled}`,
+        border: `1px solid ${theme.colors.disabled}`,
 
         [`.${CLASSNAME}__CheckerIcon`]: {
           color: theme.colors.neutral8,
@@ -109,7 +109,7 @@ const LocalizeCheckboxWrapper = styled.div<LocalizeCheckboxProps, LocalizeThemeP
       // Disabled and Checked
       [`${HidingInput}:disabled:checked + .${CLASSNAME}__Checker`]: {
         backgroundColor: theme.colors.disabled,
-        border: `2px solid ${theme.colors.disabled}`,
+        border: `1px solid ${theme.colors.disabled}`,
 
         [`.${CLASSNAME}__CheckerIcon`]: {
           color: theme.colors.neutral8,
@@ -139,7 +139,7 @@ const LocalizeCheckboxChecker = styled.div<{}, LocalizeThemeProps>(({ theme }) =
     justifyContent: 'center',
     width: '22px',
     height: '22px',
-    border: `2px solid ${theme.colors.neutral6}`,
+    border: `1px solid ${theme.colors.neutral6}`,
     marginRight: '8px',
     transition: 'background-color 0.3s',
   };
