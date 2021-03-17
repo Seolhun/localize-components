@@ -15,14 +15,14 @@ export default {
   component: LocalizeTable,
   argTypes: {
     intent: {
-      defaultValue: 'default',
+      defaultValue: 'primary',
       control: {
         type: 'select',
         options: storiesIntentOptions,
       },
     },
     primaryColor: {
-      defaultValue: 'default',
+      defaultValue: 'primary',
       control: {
         type: 'select',
         options: storiesColorOptions,
@@ -93,7 +93,8 @@ const Table: Story<LocalizeTableProps<TableDummyProps>> = (args) => {
   const localize = {
     primaryColor: args.primaryColor,
     neutralColor: args.neutralColor,
-    color: args.color,
+    fontColor: args.fontColor,
+    inversedColor: args.inversedColor,
   };
 
   const onClick = React.useCallback((data: TableDummyProps, rowIndex: number) => {
@@ -126,7 +127,8 @@ const FixedTable: Story<LocalizeTableProps<TableDummyProps>> = (args) => {
   const localize = {
     primaryColor: args.primaryColor,
     neutralColor: args.neutralColor,
-    color: args.color,
+    fontColor: args.fontColor,
+    inversedColor: args.inversedColor,
   };
 
   const onClick = React.useCallback((data: TableDummyProps, rowIndex: number) => {

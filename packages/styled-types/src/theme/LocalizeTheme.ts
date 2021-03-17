@@ -2,7 +2,6 @@ import { localizeFonts, LocalizeThemeFontsProps } from './LocalizeFonts';
 
 export type LocalizeIntentThemeType =
   | 'localize'
-  | 'default'
   | 'primary'
   | 'secondary'
   | 'success'
@@ -180,7 +179,6 @@ export interface LocalizeThemeProps<K = keyof typeof LocalizeThemeEnum> {
     /**
      * @name Theme
      */
-    default: string;
     primary: string;
     secondary: string;
     success: string;
@@ -323,7 +321,6 @@ const localizeLightThemeColors: LocalizeThemeProps['colors'] = {
   /**
    * @name Theme
    */
-  default: '#262626',
   primary: '#2f54eb',
   secondary: '#2A3E73',
   success: '#52c41a',
@@ -461,7 +458,6 @@ const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
   /**
    * @name Theme
    */
-  default: '#21262D',
   primary: '#2f54eb',
   secondary: '#2A3E73',
   success: '#52c41a',

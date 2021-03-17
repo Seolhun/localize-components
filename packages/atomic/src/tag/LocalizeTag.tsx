@@ -88,9 +88,9 @@ const StyledLocalizeTagWrapper = styled.div<LocalizeTagProps, LocalizeThemeProps
     theme,
     size = 'md',
     variant = 'solid',
-    intent = 'default',
+    intent = 'primary',
     localize = {
-      primaryColor: 'default',
+      primaryColor: 'primary',
       neutralColor: 'transparent',
       fontColor: 'inversed1',
       inversedColor: 'inversed10',

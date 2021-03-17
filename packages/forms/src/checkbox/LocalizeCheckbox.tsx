@@ -57,74 +57,77 @@ const LocalizeCheckboxWrapper = styled.div<LocalizeCheckboxProps, LocalizeThemeP
   ({
     theme,
     size = 'md',
-    intent = 'default',
+    intent = 'primary',
     localize = {
-      primaryColor: 'default',
-      neutralColor: 'transparent',
+      primaryColor: 'primary',
+      neutralColor: 'inversed9',
       fontColor: 'inversed1',
       inversedColor: 'inversed10',
     },
     rounded,
   }) => {
     const localizedColor = getLocalizeIntentColor(theme, intent, localize);
-    const { primaryColor, neutralColor, fontColor } = localizedColor;
+    const { primaryColor, neutralColor, inversedFontColor } = localizedColor;
     const scale = getLocalizeSizeBy(size);
 
     return {
       display: 'inline-flex',
       alignItems: 'center',
       cursor: 'pointer',
-      color: fontColor,
+      color: inversedFontColor,
 
       [`.${CLASSNAME}__Checker`]: {
         width: `${scale}rem`,
         height: `${scale}rem`,
         borderRadius: rounded ? '6px' : '0',
+        border: `1px solid ${theme.colors.neutral6}`,
+        backgroundColor: theme.colors.inversed1,
       },
 
       [`.${CLASSNAME}__CheckerIcon`]: {
         width: `${scale}rem`,
         height: `${scale}rem`,
+        stroke: theme.colors.transparent,
       },
 
       // Hover
       '&:hover': {
         [`${HidingInput}:not(:disabled):not(:read-only):not(:checked) + .${CLASSNAME}__Checker`]: {
           backgroundColor: primaryColor,
-          border: `2px solid ${neutralColor}`,
+          borderColor: neutralColor,
         },
       },
 
       // Active
       [`${HidingInput}:not(:disabled):active + .${CLASSNAME}__Checker`]: {
-        backgroundColor: primaryColor,
-        border: `2px solid ${neutralColor}`,
+        backgroundColor: theme.colors.inversed1,
+        borderColor: primaryColor,
       },
 
       // Checked
       [`${HidingInput}:checked + .${CLASSNAME}__Checker`]: {
-        backgroundColor: primaryColor,
-        border: `2px solid ${neutralColor}`,
+        backgroundColor: theme.colors.inversed1,
+        borderColor: primaryColor,
 
         [`.${CLASSNAME}__CheckerIcon`]: {
-          stroke: neutralColor,
-        },
-      },
-
-      // Readonly - Disabled
-      [`${HidingInput}:read-only, ${HidingInput}:disabled`]: {
-        backgroundColor: theme.colors.disabled,
-        border: `1px solid ${theme.colors.disabled}`,
-
-        [`.${CLASSNAME}__CheckerIcon`]: {
-          color: theme.colors.neutral8,
+          stroke: primaryColor,
         },
       },
 
       // Disabled and Checked
       [`${HidingInput}:disabled:checked + .${CLASSNAME}__Checker`]: {
         backgroundColor: theme.colors.disabled,
-        border: `1px solid ${theme.colors.disabled}`,
+        borderColor: theme.colors.neutral5,
+
+        [`.${CLASSNAME}__CheckerIcon`]: {
+          color: theme.colors.neutral8,
+        },
+      },
+
+      // Readonly - Disabled
+      [`${HidingInput}:read-only, ${HidingInput}:disabled`]: {
+        backgroundColor: theme.colors.disabled,
+        borderColor: theme.colors.neutral5,
 
         [`.${CLASSNAME}__CheckerIcon`]: {
           color: theme.colors.neutral8,
@@ -147,31 +150,27 @@ const LocalizeCheckboxLabel = styled.label<{}, LocalizeThemeProps>(() => {
   };
 });
 
-const LocalizeCheckboxChecker = styled.div<{}, LocalizeThemeProps>(({ theme }) => {
+const LocalizeCheckboxChecker = styled.div<{}, LocalizeThemeProps>(() => {
   return {
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
     width: '22px',
     height: '22px',
-    border: `1px solid ${theme.colors.neutral6}`,
     marginRight: '8px',
     transition: 'background-color 0.3s',
   };
 });
 
-const LocalizeCheckboxCheckerIcon = styled.svg<{}, LocalizeThemeProps>(({ theme }) => {
+const LocalizeCheckboxCheckerIcon = styled.svg<{}, LocalizeThemeProps>(() => {
   return {
-    width: '22px',
-    height: '22px',
     fill: 'none',
-    stroke: theme.colors.transparent,
     strokeWidth: '3px',
   };
 });
 
 const LocalizeCheckbox = React.forwardRef<HTMLInputElement, LocalizeCheckboxProps>(
-  ({ children, className, size = 'md', intent = 'default', rounded, ...props }, ref) => {
+  ({ children, className, size = 'md', intent = 'primary', rounded, ...props }, ref) => {
     return (
       <LocalizeCheckboxWrapper
         ref={ref}

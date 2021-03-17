@@ -13,7 +13,7 @@ export const getLocalizeColor = (
 ): LocalizeStyleResponseType => {
   const isLightMode = theme.type === 'LIGHT';
   const {
-    primaryColor = 'default',
+    primaryColor = 'primary',
     neutralColor = 'transparent',
     fontColor = 'inversed1',
     inversedColor = 'inversed10',

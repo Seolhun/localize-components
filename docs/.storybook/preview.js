@@ -1,7 +1,6 @@
 import { decorators } from './decorators';
 import { parameters } from './parameters';
 
-
 /**
  * @see https://storybook.js.org/docs/react/essentials/toolbars-and-globals
  */
@@ -16,4 +15,4 @@ export const globalTypes = {
   },
 };
 
-export { decorators, parameters }
+export { decorators, parameters };

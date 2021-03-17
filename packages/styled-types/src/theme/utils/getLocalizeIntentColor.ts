@@ -11,6 +11,7 @@ export function getLocalizeIntentColor(
   if (intent === 'localize' && localize) {
     return localizedColor;
   }
+
   const isLightMode = theme.type === 'LIGHT';
   const fontColor = isLightMode ? theme.colors.inversed1 : theme.colors.inversed10;
   const inversedColor = isLightMode ? theme.colors.inversed10 : theme.colors.inversed1;
@@ -67,9 +68,9 @@ export function getLocalizeIntentColor(
     default: {
       return {
         primaryColor: localizedColor.primaryColor,
-        neutralColor: localizedColor.neutralColor,
-        fontColor: localizedColor.fontColor,
-        inversedFontColor: localizedColor.inversedFontColor,
+        neutralColor: theme.colors.transparent,
+        fontColor: fontColor,
+        inversedFontColor: inversedColor,
       };
     }
   }

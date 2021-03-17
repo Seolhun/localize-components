@@ -66,7 +66,7 @@ const LocalizeStyledVirtualTable = styled.div<
 >(
   ({
     theme,
-    intent = 'default',
+    intent = 'primary',
     localize = {
       primaryColor: 'primary',
       neutralColor: 'neutral3',

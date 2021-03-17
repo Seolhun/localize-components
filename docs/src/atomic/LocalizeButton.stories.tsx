@@ -25,14 +25,14 @@ export default {
       },
     },
     intent: {
-      defaultValue: 'default',
+      defaultValue: 'primary',
       control: {
         type: 'select',
         options: storiesIntentOptions,
       },
     },
     primaryColor: {
-      defaultValue: 'default',
+      defaultValue: 'primary',
       control: {
         type: 'select',
         options: storiesColorOptions,
@@ -67,7 +67,8 @@ const Button: Story<LocalizeButtonProps> = (args) => {
   const localize = {
     primaryColor: args.primaryColor,
     neutralColor: args.neutralColor,
-    color: args.color,
+    fontColor: args.fontColor,
+    inversedColor: args.inversedColor,
   };
   return (
     <LocalizeButton {...args} localize={localize}>
@@ -88,7 +89,8 @@ const SizeButtons: Story<LocalizeButtonProps> = (args) => {
   const localize = {
     primaryColor: args.primaryColor,
     neutralColor: args.neutralColor,
-    color: args.color,
+    fontColor: args.fontColor,
+    inversedColor: args.inversedColor,
   };
   return (
     <LocalizeRow>
@@ -138,7 +140,8 @@ const IntentButtons: Story<LocalizeButtonProps> = (args) => {
   const localize = {
     primaryColor: args.primaryColor,
     neutralColor: args.neutralColor,
-    color: args.color,
+    fontColor: args.fontColor,
+    inversedColor: args.inversedColor,
   };
   return (
     <LocalizeRow>

@@ -39,9 +39,9 @@ const LocalizeSwitchContainer = styled.div<LocalizeSwitchProps, LocalizeThemePro
   ({
     theme,
     size = 'md',
-    intent = 'default',
+    intent = 'primary',
     localize = {
-      primaryColor: 'default',
+      primaryColor: 'primary',
       neutralColor: 'neutral3',
       fontColor: 'inversed1',
       inversedColor: 'inversed10',
@@ -108,7 +108,7 @@ const StyledSlider = styled.span<LocalizeProps, LocalizeThemeProps>(() => {
  * TODO: Change theme key and values
  */
 const LocalizeSwitch = React.forwardRef<HTMLInputElement, LocalizeSwitchProps>(
-  ({ className, label, help, error, size = 'md', intent = 'default', ...props }, ref) => {
+  ({ className, label, help, error, size = 'md', intent = 'primary', ...props }, ref) => {
     return (
       <LocalizeFormWrapper
         className={classnames(CLASSNAME, className)}

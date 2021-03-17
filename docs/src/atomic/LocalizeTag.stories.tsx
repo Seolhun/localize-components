@@ -18,7 +18,7 @@ export default {
       },
     },
     primaryColor: {
-      defaultValue: 'default',
+      defaultValue: 'primary',
       control: {
         type: 'select',
         options: storiesColorOptions,
@@ -106,7 +106,8 @@ const IntentTags: Story<LocalizeTagProps> = (args) => {
   const localize = {
     primaryColor: args.primaryColor,
     neutralColor: args.neutralColor,
-    color: args.color,
+    fontColor: args.fontColor,
+    inversedColor: args.inversedColor,
   };
   return (
     <LocalizeRow>

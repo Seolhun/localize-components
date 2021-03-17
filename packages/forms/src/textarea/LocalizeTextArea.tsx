@@ -46,9 +46,9 @@ const StyledTextArea = styled.textarea<LocalizeTextAreaProps, LocalizeThemeProps
   ({
     theme,
     error,
-    intent = 'default',
+    intent = 'primary',
     localize = {
-      primaryColor: 'default',
+      primaryColor: 'primary',
       neutralColor: 'transparent',
       fontColor: 'inversed1',
       inversedColor: 'inversed10',

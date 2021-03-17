@@ -11,7 +11,7 @@ export default {
   component: LocalizeBox,
   argTypes: {
     primaryColor: {
-      defaultValue: 'default',
+      defaultValue: 'primary',
       control: {
         type: 'select',
         options: storiesColorOptions,
@@ -100,7 +100,8 @@ const IntentBoxes: Story<LocalizeBoxProps> = (args) => {
   const localize = {
     primaryColor: args.primaryColor,
     neutralColor: args.neutralColor,
-    color: args.color,
+    fontColor: args.fontColor,
+    inversedColor: args.inversedColor,
   };
   return (
     <LocalizeRow>

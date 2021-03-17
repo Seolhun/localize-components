@@ -103,9 +103,9 @@ export interface LocalizeTableBodyProps {
 const LocalizeStyledTable = styled.div<LocalizeStyledTableProps, LocalizeThemeProps>(
   ({
     theme,
-    intent = 'default',
+    intent = 'primary',
     localize = {
-      primaryColor: 'default',
+      primaryColor: 'primary',
       neutralColor: 'transparent',
       fontColor: 'inversed1',
       inversedColor: 'inversed10',
