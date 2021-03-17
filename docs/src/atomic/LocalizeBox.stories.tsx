@@ -10,8 +10,15 @@ export default {
   title: 'Atomic/LocalizeBox',
   component: LocalizeBox,
   argTypes: {
-    primaryColor: {
+    intent: {
       defaultValue: 'primary',
+      control: {
+        type: 'select',
+        options: storiesIntentOptions,
+      },
+    },
+    primaryColor: {
+      defaultValue: 'kakao',
       control: {
         type: 'select',
         options: storiesColorOptions,

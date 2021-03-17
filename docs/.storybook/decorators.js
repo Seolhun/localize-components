@@ -25,7 +25,6 @@ const withThemeProvider = (Story, context) => {
   const [themeKey, setThemeKey] = React.useState(context.globals.theme);
 
   React.useEffect(() => {
-    console.log('context.globals.theme : ', context.globals.theme);
     setThemeKey(context.globals.theme);
   }, [context.globals?.theme]);
 

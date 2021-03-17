@@ -18,14 +18,14 @@ export default {
       },
     },
     primaryColor: {
-      defaultValue: 'primary',
+      defaultValue: 'kakao',
       control: {
         type: 'select',
         options: storiesColorOptions,
       },
     },
     neutralColor: {
-      defaultValue: 'inversed9',
+      defaultValue: 'transparent',
       control: {
         type: 'select',
         options: storiesColorOptions,

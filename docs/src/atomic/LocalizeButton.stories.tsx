@@ -32,7 +32,7 @@ export default {
       },
     },
     primaryColor: {
-      defaultValue: 'primary',
+      defaultValue: 'kakao',
       control: {
         type: 'select',
         options: storiesColorOptions,

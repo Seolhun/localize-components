@@ -173,6 +173,7 @@ const LocalizeCheckbox = React.forwardRef<HTMLInputElement, LocalizeCheckboxProp
   ({ children, className, size = 'md', intent = 'primary', rounded, ...props }, ref) => {
     return (
       <LocalizeCheckboxWrapper
+        {...props}
         ref={ref}
         className={classnames(CLASSNAME, className)}
         intent={intent}
