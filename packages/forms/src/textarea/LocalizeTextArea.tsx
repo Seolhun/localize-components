@@ -86,7 +86,7 @@ const StyledTextArea = styled.textarea<LocalizeTextAreaProps, LocalizeThemeProps
       },
       '&:disabled': {
         backgroundColor: theme.colors.disabled,
-        borderColor: theme.colors.disabled,
+        borderColor: theme.colors.neutral5,
         color: theme.colors.neutral8,
       },
     };

@@ -121,7 +121,7 @@ const StyledLocalizeButton = styled.button<LocalizeButtonProps, LocalizeThemePro
       },
       '&:disabled': {
         backgroundColor: theme.colors.disabled,
-        borderColor: theme.colors.disabled,
+        borderColor: theme.colors.neutral5,
         color: theme.colors.neutral8,
         cursor: 'auto',
       },
