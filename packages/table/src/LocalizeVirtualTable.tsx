@@ -68,33 +68,34 @@ const LocalizeStyledVirtualTable = styled.div<
     theme,
     intent = 'default',
     localize = {
-      bgColor: 'primary',
-      bdColor: 'neutral3',
-      fontColor: 'conversion1',
+      primaryColor: 'primary',
+      neutralColor: 'neutral3',
+      fontColor: 'inversed1',
     },
     fixedTableHeight,
   }) => {
     const localizedColor = getLocalizeIntentColor(theme, intent, localize);
-    const { backgroundColor, color, borderColor } = localizedColor;
+    const { primaryColor, neutralColor, fontColor } = localizedColor;
+
     return {
       position: 'relative',
       width: 'auto',
       height: fixedTableHeight,
       borderSpacing: 0,
-      borderColor,
+      borderColor: neutralColor,
       overflowY: 'auto',
       overflowX: 'hidden',
 
       '.__Localize__Table__Row': {
-        borderColor,
+        borderColor: neutralColor,
       },
       '.__Localize__Table__HeaderCell': {
-        backgroundColor,
-        borderColor,
-        color,
+        backgroundColor: primaryColor,
+        borderColor: neutralColor,
+        color: fontColor,
       },
       '.__Localize__Table__DataCell': {
-        borderColor,
+        borderColor: neutralColor,
       },
     };
   },

@@ -1,13 +1,17 @@
 import React from 'react';
 import { Story } from '@storybook/react/types-6-0';
 
-import { LocalizeVirtualTable, LocalizeVirtualTableProps, LocalizeVirtualTableColumnProps } from '../../../packages/table/dist';
+import {
+  LocalizeVirtualTable,
+  LocalizeVirtualTableProps,
+  LocalizeVirtualTableColumnProps,
+} from '../../../packages/table/dist';
 
 import { storiesColorOptions, storiesIntentOptions } from '../controls';
 import { datasources, TableDummyProps } from './table.dummy';
 
 export default {
-  title: 'Table | LocalizeVirtualTable',
+  title: 'Table/LocalizeVirtualTable',
   component: LocalizeVirtualTable,
   argTypes: {
     intent: {
@@ -17,14 +21,14 @@ export default {
         options: storiesIntentOptions,
       },
     },
-    bgColor: {
+    primaryColor: {
       defaultValue: 'primary',
       control: {
         type: 'select',
         options: storiesColorOptions,
       },
     },
-    bdColor: {
+    neutralColor: {
       defaultValue: 'neutral3',
       control: {
         type: 'select',
@@ -32,7 +36,14 @@ export default {
       },
     },
     fontColor: {
-      defaultValue: 'conversion1',
+      defaultValue: 'inversed1',
+      control: {
+        type: 'select',
+        options: storiesColorOptions,
+      },
+    },
+    inversedColor: {
+      defaultValue: 'inversed10',
       control: {
         type: 'select',
         options: storiesColorOptions,
@@ -41,71 +52,49 @@ export default {
   },
 };
 
-const columns: LocalizeVirtualTableColumnProps<TableDummyProps>[] = [{
-  header: 'id',
-  width: '10%',
-  render: (data) => (
-    <div>
-      {data.id}
-    </div>
-  )
-},{
-  header: 'first_name',
-  width: '20%',
-  render: (data) => (
-    <div>
-      {data.first_name}
-    </div>
-  )
-},{
-  header: 'last_name',
-  width: '20%',
-  render: (data) => (
-    <div>
-      {data.last_name}
-    </div>
-  )
-},{
-  header: 'email',
-  width: '20%',
-  freezing: true,
-  render: (data) => (
-    <div>
-      {data.email}
-    </div>
-  )
-},{
-  header: 'gender',
-  width: '10%',
-  freezing: true,
-  render: (data) => (
-    <div>
-      {data.gender}
-    </div>
-  )
-},{
-  header: 'ip_address',
-  width: '20%',
-  render: (data) => (
-    <div>
-      {data.ip_address}
-    </div>
-  )
-}];
+const columns: LocalizeVirtualTableColumnProps<TableDummyProps>[] = [
+  {
+    header: 'id',
+    width: '10%',
+    render: (data) => <div>{data.id}</div>,
+  },
+  {
+    header: 'first_name',
+    width: '20%',
+    render: (data) => <div>{data.first_name}</div>,
+  },
+  {
+    header: 'last_name',
+    width: '20%',
+    render: (data) => <div>{data.last_name}</div>,
+  },
+  {
+    header: 'email',
+    width: '20%',
+    freezing: true,
+    render: (data) => <div>{data.email}</div>,
+  },
+  {
+    header: 'gender',
+    width: '10%',
+    freezing: true,
+    render: (data) => <div>{data.gender}</div>,
+  },
+  {
+    header: 'ip_address',
+    width: '20%',
+    render: (data) => <div>{data.ip_address}</div>,
+  },
+];
 
 const renderEmptyData = () => {
-  return (
-    <div>
-      There are no data
-    </div>
-  )
-}
-
+  return <div>There are no data</div>;
+};
 
 const VirtualTable: Story<LocalizeVirtualTableProps<TableDummyProps>> = (args) => {
   const localize = {
-    bgColor: args.bgColor,
-    bdColor: args.bdColor,
+    primaryColor: args.primaryColor,
+    neutralColor: args.neutralColor,
     color: args.color,
   };
 
@@ -113,7 +102,7 @@ const VirtualTable: Story<LocalizeVirtualTableProps<TableDummyProps>> = (args) =
     console.log({
       data,
       rowIndex,
-    })
+    });
   }, []);
 
   return (

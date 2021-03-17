@@ -1,7 +1,7 @@
 
 # Component TODO List
 
-- **Atmoic**
+- **Atomic**
   - Anchor
   - Audio
   - Box

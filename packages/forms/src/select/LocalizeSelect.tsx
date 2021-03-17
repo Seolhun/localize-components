@@ -6,9 +6,11 @@ import { lighten } from 'polished';
 
 import { LocalizeButton } from '@seolhun/localize-components-atomic';
 import {
+  getLocalizeIntentColor,
+  LocalizeIntentThemeType,
   LocalizeProps,
+  LocalizeSize,
   LocalizeThemeProps,
-  getLocalizeColor,
 } from '@seolhun/localize-components-styled-types';
 import { LocalizeMediaQueries } from '@seolhun/localize-components-grid';
 import { LocalizeIcon } from '@seolhun/localize-components-icon';
@@ -18,17 +20,22 @@ import { LocalizeRadio, LocalizeRadioGroup } from '../radio';
 import { LocalizeFormStateProps } from '../LocalizeFormStateProps';
 
 const CLASSNAME = '__Localize__Input';
-type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
-type ExtentionProps = LocalizeProps & InputProps & LocalizeFormStateProps;
+type InputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>;
+interface LocalizeLocalProps extends LocalizeProps, LocalizeFormStateProps {
+  /**
+   * Set this to change font color
+   * @default md
+   */
+  size?: LocalizeSize;
 
-export interface LocalizeSelectItemProps {
-  key: string;
-
-  label?: string;
-
-  value?: string;
+  /**
+   * Set this to change intent color
+   * @default default
+   */
+  intent?: LocalizeIntentThemeType;
 }
 
+type ExtentionProps = InputProps & LocalizeLocalProps;
 export interface LocalizeSelectProps extends ExtentionProps {
   /**
    * @description 선택할 수 있는 아이템 리스트
@@ -57,6 +64,26 @@ export interface LocalizeSelectProps extends ExtentionProps {
    * @default 'No Data'
    */
   noData?: React.ReactNode;
+
+  /**
+   * Set this to change font color
+   * @default md
+   */
+  size?: LocalizeSize;
+
+  /**
+   * Set this to change intent color
+   * @default default
+   */
+  intent?: LocalizeIntentThemeType;
+}
+
+export interface LocalizeSelectItemProps {
+  key: string;
+
+  label?: string;
+
+  value?: string;
 }
 
 const LocalizeSelectContainer = styled.div<{}, LocalizeThemeProps>({
@@ -65,21 +92,20 @@ const LocalizeSelectContainer = styled.div<{}, LocalizeThemeProps>({
   height: '100%',
 });
 
-const LocalizeSelectInputWrapper = styled.div<
-  LocalizeProps & LocalizeFormStateProps,
-  LocalizeThemeProps
->(
+const LocalizeSelectInputWrapper = styled.div<LocalizeLocalProps, LocalizeThemeProps>(
   ({
     theme,
     error,
+    intent = 'default',
     localize = {
-      bgColor: 'conversion8',
-      bdColor: 'transparent',
-      fontColor: 'conversion1',
+      primaryColor: 'default',
+      neutralColor: 'transparent',
+      fontColor: 'inversed1',
+      inversedColor: 'inversed10',
     },
   }) => {
-    const localizeColor = getLocalizeColor(theme, localize);
-    const { backgroundColor, borderColor, color } = localizeColor;
+    const localizedColor = getLocalizeIntentColor(theme, intent, localize);
+    const { primaryColor, neutralColor, fontColor } = localizedColor;
 
     return {
       position: 'relative',
@@ -87,24 +113,24 @@ const LocalizeSelectInputWrapper = styled.div<
       alignItems: 'center',
       width: '100%',
       height: '40px',
-      color,
+      color: fontColor,
       padding: '10px 32px 10px 12px',
       outline: 'none',
 
-      backgroundColor,
+      backgroundColor: primaryColor,
       border: `1px solid ${error ? theme.colors.error : theme.colors.neutral5}`,
       // WARNING: Not support IE
       caretColor: theme.colors.primary,
 
       '&:focus': {
-        border: `1px solid ${error ? theme.colors.error : borderColor}`,
+        border: `1px solid ${error ? theme.colors.error : neutralColor}`,
       },
       '&:not(:disabled):not(:read-only):active, &:not(:disabled):not(:read-only):hover': {
-        borderColor: lighten(0.1, borderColor),
+        borderColor: lighten(0.1, neutralColor),
       },
       '&:read-only, &:disabled': {
-        backgroundColor: theme.colors.neutral4,
-        borderColor: theme.colors.neutral5,
+        backgroundColor: theme.colors.disabled,
+        borderColor: theme.colors.disabled,
         color: theme.colors.neutral8,
       },
       '&::placeholder': {
@@ -116,7 +142,7 @@ const LocalizeSelectInputWrapper = styled.div<
 
 const LocalizeSelectPlaceholder = styled.div<{}, LocalizeThemeProps>(({ theme }) => {
   return {
-    color: theme.colors.conversion9,
+    color: theme.colors.inversed9,
   };
 });
 
@@ -151,7 +177,7 @@ const LocalizeSelectDropdownWrapper = styled.div<{}, LocalizeThemeProps>(({ them
     height: '100%',
     width: '400px',
     padding: '32px 0 0',
-    backgroundColor: theme.colors.conversion9,
+    backgroundColor: theme.colors.inversed9,
 
     [LocalizeMediaQueries.MD]: {
       position: 'fixed',
@@ -202,7 +228,7 @@ const LocalizeSelectDropdownTitle = styled.p<{}, LocalizeThemeProps>(({ theme })
     justifyContent: 'center',
     padding: '0 24px',
     marginBottom: '24px',
-    color: theme.colors.conversion9,
+    color: theme.colors.inversed9,
 
     [LocalizeMediaQueries.MD]: {
       justifyContent: 'flex-start',
@@ -223,7 +249,7 @@ const LocalizeSelectDropdownSubmitWrapper = styled.div<{}, LocalizeThemeProps>((
     right: 0,
     left: 0,
     padding: '44px 24px',
-    backgroundColor: theme.colors.conversion9,
+    backgroundColor: theme.colors.inversed9,
   };
 });
 

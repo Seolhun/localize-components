@@ -80,18 +80,18 @@ const VisibleValueContainer = styled.div<LocalizeRangeProps, LocalizeThemeProps>
     theme,
     disabled,
     localize = {
-      bgColor: 'conversion8',
-      bdColor: 'transparent',
-      fontColor: 'conversion1',
+      primaryColor: 'inversed8',
+      neutralColor: 'transparent',
+      fontColor: 'inversed1',
     },
   }) => {
     const localizeColor = getLocalizeColor(theme, localize);
-    const { color } = localizeColor;
+    const { fontColor } = localizeColor;
 
     return {
       display: 'flex',
       justifyContent: 'space-between',
-      color,
+      color: fontColor,
 
       ...(disabled && {
         color: theme.colors.neutral5,

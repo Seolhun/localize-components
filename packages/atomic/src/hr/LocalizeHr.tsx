@@ -18,16 +18,16 @@ const LocalizeStyledHr = styled.hr<LocalizeHrProps, LocalizeThemeProps>(
   ({
     theme,
     localize = {
-      bgColor: 'transparent',
-      bdColor: 'neutral4',
+      primaryColor: 'transparent',
+      neutralColor: 'neutral4',
       fontColor: 'transparent',
     },
   }) => {
-    const { borderColor } = getLocalizeColor(theme, localize);
+    const { neutralColor } = getLocalizeColor(theme, localize);
     return {
       width: '100%',
       border: 0,
-      borderTop: `1px solid ${borderColor}`,
+      borderTop: `1px solid ${neutralColor}`,
     };
   },
 );

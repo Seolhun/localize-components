@@ -14,31 +14,32 @@ export enum LocalizeThemeEnum {
   LIGHT = 'LIGHT',
   DARK = 'DARK',
 }
+export type LocalizeThemeType = keyof typeof LocalizeThemeEnum;
 
 export interface LocalizeStyleProps {
   /**
    * Set this to change background color
    * @default primary
    */
-  bgColor?: keyof LocalizeThemeProps['colors'];
+  primaryColor?: keyof LocalizeThemeProps['colors'];
 
   /**
    * Set this to change border color
    * @default transparent
    */
-  bdColor?: keyof LocalizeThemeProps['colors'];
-
-  /**
-   * Set this to change Inner font color
-   * @default conversion10
-   */
-  innerFontColor?: keyof LocalizeThemeProps['colors'];
+  neutralColor?: keyof LocalizeThemeProps['colors'];
 
   /**
    * Set this to change font color
-   * @default conversion1
+   * @default inversed1
    */
   fontColor?: keyof LocalizeThemeProps['colors'];
+
+  /**
+   * Set this to change Inner font color
+   * @default inversed10
+   */
+  inversedColor?: keyof LocalizeThemeProps['colors'];
 }
 
 export interface LocalizeProps {
@@ -70,19 +71,19 @@ export interface LocalizeThemeProps<K = keyof typeof LocalizeThemeEnum> {
      */
     transparent: string;
     /**
-     * @name Conversion
+     * @name Inversed
      * To change color based on theme type
      */
-    conversion1: string;
-    conversion2: string;
-    conversion3: string;
-    conversion4: string;
-    conversion5: string;
-    conversion6: string;
-    conversion7: string;
-    conversion8: string;
-    conversion9: string;
-    conversion10: string;
+    inversed1: string;
+    inversed2: string;
+    inversed3: string;
+    inversed4: string;
+    inversed5: string;
+    inversed6: string;
+    inversed7: string;
+    inversed8: string;
+    inversed9: string;
+    inversed10: string;
     /**
      * @name Neutral
      */
@@ -213,19 +214,19 @@ const localizeLightThemeColors: LocalizeThemeProps['colors'] = {
    */
   transparent: 'transparent',
   /**
-   * @name Conversion
+   * @name Inversed
    * To change color based on theme type
    */
-  conversion1: '#FFFFFF',
-  conversion2: '#F5F5F5',
-  conversion3: '#D9D9D9',
-  conversion4: '#BFBFBF',
-  conversion5: '#595959',
-  conversion6: '#434343',
-  conversion7: '#262626',
-  conversion8: '#1F1F1F',
-  conversion9: '#141414',
-  conversion10: '#000000',
+  inversed1: '#FFFFFF',
+  inversed2: '#F5F5F5',
+  inversed3: '#D9D9D9',
+  inversed4: '#BFBFBF',
+  inversed5: '#595959',
+  inversed6: '#434343',
+  inversed7: '#262626',
+  inversed8: '#1F1F1F',
+  inversed9: '#141414',
+  inversed10: '#000000',
   /**
    * @name Neutral
    */
@@ -351,19 +352,19 @@ const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
    */
   transparent: 'transparent',
   /**
-   * @name Conversion
+   * @name Inversed
    * To change color based on theme type
    */
-  conversion1: '#FFFFFF',
-  conversion2: '#F5F5F5',
-  conversion3: '#D9D9D9',
-  conversion4: '#BFBFBF',
-  conversion5: '#595959',
-  conversion6: '#434343',
-  conversion7: '#262626',
-  conversion8: '#1F1F1F',
-  conversion9: '#141414',
-  conversion10: '#000000',
+  inversed1: '#000000',
+  inversed2: '#141414',
+  inversed3: '#1F1F1F',
+  inversed4: '#262626',
+  inversed5: '#434343',
+  inversed6: '#595959',
+  inversed7: '#BFBFBF',
+  inversed8: '#D9D9D9',
+  inversed9: '#F5F5F5',
+  inversed10: '#FFFFFF',
   /**
    * @name Neutral
    */
@@ -485,22 +486,22 @@ const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
 
 export const localizeLightTheme: LocalizeThemeProps = {
   type: 'LIGHT',
-  rtl: true,
+  rtl: false,
   fonts: localizeFonts,
   colors: localizeLightThemeColors,
   layout: {
     backgroundColor: '#ffffff',
-    textColor: localizeDarkThemeColors.neutral1,
+    textColor: localizeLightThemeColors.inversed10,
   },
 };
 
 export const localizeDarkTheme: LocalizeThemeProps = {
   type: 'DARK',
-  rtl: true,
+  rtl: false,
   fonts: localizeFonts,
   colors: localizeDarkThemeColors,
   layout: {
     backgroundColor: '#13161F',
-    textColor: localizeDarkThemeColors.neutral12,
+    textColor: localizeDarkThemeColors.inversed10,
   },
 };

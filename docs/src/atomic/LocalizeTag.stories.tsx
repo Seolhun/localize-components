@@ -7,7 +7,7 @@ import { LocalizeRow, LocalizeCol } from '../../../packages/grid/dist';
 import { storiesSizeOptions, storiesColorOptions, storiesIntentOptions } from '../controls';
 
 export default {
-  title: 'Atmoic | LocalizeTag',
+  title: 'Atomic/LocalizeTag',
   component: LocalizeTag,
   argTypes: {
     size: {
@@ -17,29 +17,29 @@ export default {
         options: storiesSizeOptions,
       },
     },
-    bgColor: {
+    primaryColor: {
       defaultValue: 'default',
       control: {
         type: 'select',
         options: storiesColorOptions,
       },
     },
-    bdColor: {
-      defaultValue: 'conversion1',
-      control: {
-        type: 'select',
-        options: storiesColorOptions,
-      },
-    },
-    innerFontColor: {
-      defaultValue: 'conversion1',
+    neutralColor: {
+      defaultValue: 'transparent',
       control: {
         type: 'select',
         options: storiesColorOptions,
       },
     },
     fontColor: {
-      defaultValue: 'conversion10',
+      defaultValue: 'inversed1',
+      control: {
+        type: 'select',
+        options: storiesColorOptions,
+      },
+    },
+    inversedColor: {
+      defaultValue: 'inversed10',
       control: {
         type: 'select',
         options: storiesColorOptions,
@@ -53,7 +53,7 @@ const Tag: Story<LocalizeTagProps> = (args) => <LocalizeTag {...args} />;
 export const Default = Tag.bind({});
 Default.args = {
   children: 'LocalizeTag',
-  disabled: false,
+  rounded: true,
 };
 
 const TagSizes: Story<LocalizeTagProps> = (args) => {
@@ -62,31 +62,31 @@ const TagSizes: Story<LocalizeTagProps> = (args) => {
     <>
       <LocalizeRow>
         <LocalizeCol md={8}>
-          <h4>xl</h4>
+          <h2>xl</h2>
           <LocalizeTag {...args} size="xl">
             {children}
           </LocalizeTag>
         </LocalizeCol>
         <LocalizeCol md={8}>
-          <h4>lg</h4>
+          <h2>lg</h2>
           <LocalizeTag {...args} size="lg">
             {children}
           </LocalizeTag>
         </LocalizeCol>
         <LocalizeCol md={8}>
-          <h4>md</h4>
+          <h2>md</h2>
           <LocalizeTag {...args} size="md">
             {children}
           </LocalizeTag>
         </LocalizeCol>
         <LocalizeCol md={8}>
-          <h4>sm</h4>
+          <h2>sm</h2>
           <LocalizeTag {...args} size="sm">
             {children}
           </LocalizeTag>
         </LocalizeCol>
         <LocalizeCol md={8}>
-          <h4>xs</h4>
+          <h2>xs</h2>
           <LocalizeTag {...args} size="xs">
             {children}
           </LocalizeTag>
@@ -98,21 +98,21 @@ const TagSizes: Story<LocalizeTagProps> = (args) => {
 export const TagsStorieSizes = TagSizes.bind({});
 TagsStorieSizes.args = {
   children: 'LocalizeTag',
-  disabled: false,
+  rounded: true,
 };
 
 const IntentTags: Story<LocalizeTagProps> = (args) => {
   const children = args.children;
   const localize = {
-    bgColor: args.bgColor,
-    bdColor: args.bdColor,
+    primaryColor: args.primaryColor,
+    neutralColor: args.neutralColor,
     color: args.color,
   };
   return (
     <LocalizeRow>
       {storiesIntentOptions.map((intent) => (
         <LocalizeCol md={8} key={intent}>
-          <h3>{intent}</h3>
+          <h2>{intent}</h2>
           <LocalizeTag {...args} intent={intent} localize={localize}>
             {children}
           </LocalizeTag>

@@ -4,35 +4,35 @@ import { Story } from '@storybook/react/types-6-0';
 import { LocalizeBox, LocalizeBoxProps } from '../../../packages/atomic/dist';
 import { LocalizeRow, LocalizeCol } from '../../../packages/grid/dist';
 
-import { storiesSizeOptions, storiesColorOptions, storiesIntentOptions } from '../controls';
+import { storiesColorOptions, storiesIntentOptions } from '../controls';
 
 export default {
-  title: 'Atmoic | LocalizeBox',
+  title: 'Atomic/LocalizeBox',
   component: LocalizeBox,
   argTypes: {
-    bgColor: {
+    primaryColor: {
       defaultValue: 'default',
       control: {
         type: 'select',
         options: storiesColorOptions,
       },
     },
-    bdColor: {
-      defaultValue: 'conversion1',
-      control: {
-        type: 'select',
-        options: storiesColorOptions,
-      },
-    },
-    innerFontColor: {
-      defaultValue: 'conversion1',
+    neutralColor: {
+      defaultValue: 'transparent',
       control: {
         type: 'select',
         options: storiesColorOptions,
       },
     },
     fontColor: {
-      defaultValue: 'conversion10',
+      defaultValue: 'inversed1',
+      control: {
+        type: 'select',
+        options: storiesColorOptions,
+      },
+    },
+    inversedColor: {
+      defaultValue: 'inversed10',
       control: {
         type: 'select',
         options: storiesColorOptions,
@@ -55,31 +55,31 @@ const BoxSizes: Story<LocalizeBoxProps> = (args) => {
     <>
       <LocalizeRow>
         <LocalizeCol>
-          <h4>xl</h4>
+          <h2>xl</h2>
           <LocalizeBox {...args} size="xl">
             {children}
           </LocalizeBox>
         </LocalizeCol>
         <LocalizeCol>
-          <h4>lg</h4>
+          <h2>lg</h2>
           <LocalizeBox {...args} size="lg">
             {children}
           </LocalizeBox>
         </LocalizeCol>
         <LocalizeCol>
-          <h4>md</h4>
+          <h2>md</h2>
           <LocalizeBox {...args} size="md">
             {children}
           </LocalizeBox>
         </LocalizeCol>
         <LocalizeCol>
-          <h4>sm</h4>
+          <h2>sm</h2>
           <LocalizeBox {...args} size="sm">
             {children}
           </LocalizeBox>
         </LocalizeCol>
         <LocalizeCol>
-          <h4>xs</h4>
+          <h2>xs</h2>
           <LocalizeBox {...args} size="xs">
             {children}
           </LocalizeBox>
@@ -98,15 +98,15 @@ BoxSizesStories.args = {
 const IntentBoxes: Story<LocalizeBoxProps> = (args) => {
   const children = args.children;
   const localize = {
-    bgColor: args.bgColor,
-    bdColor: args.bdColor,
+    primaryColor: args.primaryColor,
+    neutralColor: args.neutralColor,
     color: args.color,
   };
   return (
     <LocalizeRow>
       {storiesIntentOptions.map((intent) => (
         <LocalizeCol md={8} key={intent}>
-          <h3>{intent}</h3>
+          <h2>{intent}</h2>
           <LocalizeBox {...args} intent={intent} localize={localize}>
             {children}
           </LocalizeBox>

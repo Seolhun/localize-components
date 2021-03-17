@@ -1,16 +1,17 @@
 import { addons } from '@storybook/addons';
-import { create, themes } from '@storybook/theming';
 
-import logo from './logo.png';
-
-const theme = create({
-  ...themes.dark,
-  brandTitle: 'Localize-Components UI',
-  brandUrl: 'https://localize-component.sh',
-  brandImage: logo,
-});
-
+/**
+ * @see https://storybook.js.org/docs/react/configure/features-and-behavior
+ */
 addons.setConfig({
-  theme,
-  panelPosition: 'bottom',
+  isFullscreen: false,
+  showNav: true,
+  showPanel: true,
+  panelPosition: 'right',
+  sidebarAnimations: true,
+  enableShortcuts: true,
+  isToolshown: true,
+  selectedPanel: undefined,
+  initialActive: 'sidebar',
+  showRoots: true,
 });

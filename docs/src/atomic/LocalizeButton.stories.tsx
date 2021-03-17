@@ -7,7 +7,7 @@ import { LocalizeRow, LocalizeCol } from '../../../packages/grid/dist';
 import { storiesSizeOptions, storiesColorOptions, storiesIntentOptions } from '../controls';
 
 export default {
-  title: 'Atmoic | LocalizeButton',
+  title: 'Atomic/LocalizeButton',
   component: LocalizeButton,
   argTypes: {
     size: {
@@ -31,29 +31,29 @@ export default {
         options: storiesIntentOptions,
       },
     },
-    bgColor: {
+    primaryColor: {
       defaultValue: 'default',
       control: {
         type: 'select',
         options: storiesColorOptions,
       },
     },
-    bdColor: {
-      defaultValue: 'conversion1',
-      control: {
-        type: 'select',
-        options: storiesColorOptions,
-      },
-    },
-    innerFontColor: {
-      defaultValue: 'conversion1',
+    neutralColor: {
+      defaultValue: 'transparent',
       control: {
         type: 'select',
         options: storiesColorOptions,
       },
     },
     fontColor: {
-      defaultValue: 'conversion10',
+      defaultValue: 'inversed1',
+      control: {
+        type: 'select',
+        options: storiesColorOptions,
+      },
+    },
+    inversedColor: {
+      defaultValue: 'inversed10',
       control: {
         type: 'select',
         options: storiesColorOptions,
@@ -65,8 +65,8 @@ export default {
 const Button: Story<LocalizeButtonProps> = (args) => {
   const children = args.children;
   const localize = {
-    bgColor: args.bgColor,
-    bdColor: args.bdColor,
+    primaryColor: args.primaryColor,
+    neutralColor: args.neutralColor,
     color: args.color,
   };
   return (
@@ -79,45 +79,45 @@ const Button: Story<LocalizeButtonProps> = (args) => {
 export const Default = Button.bind({});
 Default.args = {
   children: 'LocalizeButton',
-  rounded: false,
+  rounded: true,
   disabled: false,
 };
 
 const SizeButtons: Story<LocalizeButtonProps> = (args) => {
   const children = args.children;
   const localize = {
-    bgColor: args.bgColor,
-    bdColor: args.bdColor,
+    primaryColor: args.primaryColor,
+    neutralColor: args.neutralColor,
     color: args.color,
   };
   return (
     <LocalizeRow>
       <LocalizeCol md={8}>
-        <h3>xl</h3>
+        <h2>xl</h2>
         <LocalizeButton {...args} localize={localize} size="xl">
           {children}
         </LocalizeButton>
       </LocalizeCol>
       <LocalizeCol md={8}>
-        <h3>lg</h3>
+        <h2>lg</h2>
         <LocalizeButton {...args} localize={localize} size="lg">
           {children}
         </LocalizeButton>
       </LocalizeCol>
       <LocalizeCol md={8}>
-        <h3>md</h3>
+        <h2>md</h2>
         <LocalizeButton {...args} localize={localize} size="md">
           {children}
         </LocalizeButton>
       </LocalizeCol>
       <LocalizeCol md={8}>
-        <h3>sm</h3>
+        <h2>sm</h2>
         <LocalizeButton {...args} localize={localize} size="sm">
           {children}
         </LocalizeButton>
       </LocalizeCol>
       <LocalizeCol md={8}>
-        <h3>xs</h3>
+        <h2>xs</h2>
         <LocalizeButton {...args} localize={localize} size="xs">
           {children}
         </LocalizeButton>
@@ -129,22 +129,22 @@ const SizeButtons: Story<LocalizeButtonProps> = (args) => {
 export const SizeButtonsStories = SizeButtons.bind({});
 SizeButtonsStories.args = {
   children: 'LocalizeButton',
-  rounded: false,
+  rounded: true,
   disabled: false,
 };
 
 const IntentButtons: Story<LocalizeButtonProps> = (args) => {
   const children = args.children;
   const localize = {
-    bgColor: args.bgColor,
-    bdColor: args.bdColor,
+    primaryColor: args.primaryColor,
+    neutralColor: args.neutralColor,
     color: args.color,
   };
   return (
     <LocalizeRow>
       {storiesIntentOptions.map((intent) => (
         <LocalizeCol md={8} key={intent}>
-          <h3>{intent}</h3>
+          <h2>{intent}</h2>
           <LocalizeButton {...args} intent={intent} localize={localize}>
             {children}
           </LocalizeButton>
@@ -157,6 +157,6 @@ const IntentButtons: Story<LocalizeButtonProps> = (args) => {
 export const IntentButtonsStories = IntentButtons.bind({});
 IntentButtonsStories.args = {
   children: 'LocalizeButton',
-  rounded: false,
+  rounded: true,
   disabled: false,
 };

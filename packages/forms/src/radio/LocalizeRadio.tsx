@@ -3,107 +3,119 @@ import styled from '@emotion/styled';
 import classnames from 'classnames';
 
 import {
+  getLocalizeIntentColor,
+  getLocalizeSizeBy,
+  LocalizeIntentThemeType,
   LocalizeProps,
+  LocalizeSize,
   LocalizeThemeProps,
-  getLocalizeColor,
 } from '@seolhun/localize-components-styled-types';
 
 import { LocalizeFormStateProps } from '../LocalizeFormStateProps';
 
 const CLASSNAME = '__Localize__Radio';
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
-type ExtentionProps = LocalizeProps & InputProps;
+type ExcludedInputProps = Omit<InputProps, 'size'>;
+type ExtentionProps = LocalizeProps & ExcludedInputProps;
 
-export interface LocalizeRadioProps extends ExtentionProps {}
+export interface LocalizeRadioProps extends ExtentionProps {
+  /**
+   * Set this to change font color
+   * @default md
+   */
+  size?: LocalizeSize;
+
+  /**
+   * Set this to change intent color
+   * @default default
+   */
+  intent?: LocalizeIntentThemeType;
+
+  /**
+   * Set this to change rounded border-radius
+   */
+  rounded?: boolean;
+}
 
 const HidingInput = styled.input<{}>({
   display: 'none',
 });
 
-const LocalizeRadioCheckerContainer = styled.div<{}, LocalizeThemeProps>(({ theme }) => ({
-  display: 'inline-flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  width: '22px',
-  height: '22px',
-  border: `2px solid ${theme.colors.neutral5}`,
-  borderRadius: '50%',
-  marginRight: '8px',
-  transition: 'background-color 0.3s',
-}));
-
-const LocalizeRadioCheckerCircle = styled.div<{}, LocalizeThemeProps>(() => ({
-  display: 'block',
-  width: '10px',
-  height: '10px',
-  backgroundColor: 'transparent',
-  borderRadius: '50%',
-  transition: 'background-color 0.3s',
-}));
-
-const LocalizeRadioWrapper = styled.div<LocalizeProps, LocalizeThemeProps>(
+const LocalizeRadioWrapper = styled.div<LocalizeRadioProps, LocalizeThemeProps>(
   ({
     theme,
+    size = 'md',
+    intent = 'default',
     localize = {
-      bgColor: 'conversion8',
-      bdColor: 'transparent',
-      fontColor: 'conversion1',
+      primaryColor: 'default',
+      neutralColor: 'transparent',
+      fontColor: 'inversed1',
+      inversedColor: 'inversed10',
     },
+    rounded,
   }) => {
-    const localizeColor = getLocalizeColor(theme, localize);
-    const { backgroundColor, borderColor, color } = localizeColor;
+    const localizedColor = getLocalizeIntentColor(theme, intent, localize);
+    const { primaryColor, neutralColor, fontColor } = localizedColor;
+    const scale = getLocalizeSizeBy(size);
 
     return {
-      display: 'block',
+      display: 'inline-flex',
+      alignItems: 'center',
       cursor: 'pointer',
+      color: fontColor,
+
+      [`.${CLASSNAME}__Checker`]: {
+        width: `${scale}rem`,
+        height: `${scale}rem`,
+        borderRadius: rounded ? '6px' : '0',
+      },
+
+      [`.${CLASSNAME}__CheckerIcon`]: {
+        width: `${scale}rem`,
+        height: `${scale}rem`,
+      },
 
       // Hover
       '&:hover': {
-        color,
-
-        [`input:not(:disabled):not(:read-only) + ${LocalizeRadioCheckerContainer}`]: {
-          backgroundColor,
-          border: `2px solid ${borderColor}`,
+        [`${HidingInput}:not(:disabled):not(:read-only):not(:checked) + .${CLASSNAME}__Checker`]: {
+          backgroundColor: primaryColor,
+          border: `2px solid ${neutralColor}`,
         },
       },
 
       // Active
-      [`input:active + ${LocalizeRadioCheckerContainer}`]: {
-        backgroundColor,
-        border: `2px solid ${borderColor}`,
-
-        [`${LocalizeRadioCheckerCircle}`]: {
-          backgroundColor: borderColor,
-        },
+      [`${HidingInput}:not(:disabled):active + .${CLASSNAME}__Checker`]: {
+        backgroundColor: primaryColor,
+        border: `2px solid ${neutralColor}`,
       },
 
       // Checked
-      [`input:checked + ${LocalizeRadioCheckerContainer}`]: {
-        backgroundColor,
-        border: `2px solid ${borderColor}`,
+      [`${HidingInput}:checked + .${CLASSNAME}__Checker`]: {
+        backgroundColor: primaryColor,
+        border: `2px solid ${neutralColor}`,
 
-        [`${LocalizeRadioCheckerCircle}`]: {
-          backgroundColor: borderColor,
+        [`.${CLASSNAME}__CheckerIcon`]: {
+          stroke: neutralColor,
         },
       },
 
       // Readonly - Disabled
-      [`input:read-only, input:disabled`]: {
-        backgroundColor: theme.colors.neutral4,
-        border: `2px solid ${theme.colors.neutral5}`,
+      [`${HidingInput}:read-only, ${HidingInput}:disabled`]: {
+        backgroundColor: theme.colors.disabled,
+        border: `2px solid ${theme.colors.disabled}`,
 
-        [`${LocalizeRadioCheckerCircle}`]: {
-          backgroundColor: theme.colors.neutral5,
+        [`.${CLASSNAME}__CheckerIcon`]: {
+          color: theme.colors.neutral8,
         },
       },
 
       // Disabled and Checked
-      [`input:disabled:checked + ${LocalizeRadioCheckerContainer}`]: {
-        backgroundColor: theme.colors.neutral4,
-        border: `2px solid ${theme.colors.neutral5}`,
+      [`${HidingInput}:disabled:checked + .${CLASSNAME}__Checker`]: {
+        backgroundColor: theme.colors.disabled,
+        border: `2px solid ${theme.colors.disabled}`,
 
-        [`${LocalizeRadioCheckerCircle}`]: {
-          backgroundColor: theme.colors.neutral5,
+        [`.${CLASSNAME}__CheckerIcon`]: {
+          color: theme.colors.neutral8,
         },
       },
     };
@@ -117,24 +129,48 @@ const LocalizeRadioLabel = styled.label<LocalizeFormStateProps, LocalizeThemePro
     alignItems: 'center',
     width: '100%',
     outline: 0,
-    color: theme.colors.conversion10,
+    color: theme.colors.inversed10,
     transition: 'color 0.3s',
     cursor: 'pointer',
     userSelect: 'none',
   };
 });
 
-const LocalizeRadio = React.forwardRef<HTMLInputElement, LocalizeRadioProps>(
-  ({ children, className, ...props }, ref) => {
-    const { disabled, checked } = props;
+const LocalizeRadioChecker = styled.div<{}, LocalizeThemeProps>(({ theme }) => ({
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  width: '22px',
+  height: '22px',
+  border: `2px solid ${theme.colors.neutral5}`,
+  borderRadius: '50%',
+  marginRight: '8px',
+  transition: 'background-color 0.3s',
+}));
 
+const LocalizeRadioCheckerIcon = styled.div<{}, LocalizeThemeProps>(() => ({
+  display: 'block',
+  width: '10px',
+  height: '10px',
+  backgroundColor: 'transparent',
+  borderRadius: '50%',
+  transition: 'background-color 0.3s',
+}));
+
+const LocalizeRadio = React.forwardRef<HTMLInputElement, LocalizeRadioProps>(
+  ({ children, className, size = 'md', intent = 'default', ...props }, ref) => {
     return (
-      <LocalizeRadioWrapper className={classnames(CLASSNAME, className)}>
-        <LocalizeRadioLabel disabled={disabled} checked={checked}>
+      <LocalizeRadioWrapper
+        ref={ref}
+        className={classnames(CLASSNAME, className)}
+        intent={intent}
+        size={size}
+      >
+        <LocalizeRadioLabel className={`${CLASSNAME}__Label`}>
           <HidingInput {...props} ref={ref} type="radio" />
-          <LocalizeRadioCheckerContainer>
-            <LocalizeRadioCheckerCircle />
-          </LocalizeRadioCheckerContainer>
+          <LocalizeRadioChecker className={`${CLASSNAME}__Checker`}>
+            <LocalizeRadioCheckerIcon />
+          </LocalizeRadioChecker>
           {children}
         </LocalizeRadioLabel>
       </LocalizeRadioWrapper>
