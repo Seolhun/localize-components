@@ -15,7 +15,7 @@ export default {
   component: LocalizeVirtualTable,
   argTypes: {
     intent: {
-      defaultValue: 'default',
+      defaultValue: 'primary',
       control: {
         type: 'select',
         options: storiesIntentOptions,
@@ -95,7 +95,8 @@ const VirtualTable: Story<LocalizeVirtualTableProps<TableDummyProps>> = (args) =
   const localize = {
     primaryColor: args.primaryColor,
     neutralColor: args.neutralColor,
-    color: args.color,
+    fontColor: args.fontColor,
+    inversedColor: args.inversedColor,
   };
 
   const onClick = React.useCallback((data: TableDummyProps, rowIndex: number) => {

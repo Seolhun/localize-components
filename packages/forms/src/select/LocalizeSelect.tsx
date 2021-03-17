@@ -96,9 +96,9 @@ const LocalizeSelectInputWrapper = styled.div<LocalizeLocalProps, LocalizeThemeP
   ({
     theme,
     error,
-    intent = 'default',
+    intent = 'primary',
     localize = {
-      primaryColor: 'default',
+      primaryColor: 'primary',
       neutralColor: 'transparent',
       fontColor: 'inversed1',
       inversedColor: 'inversed10',
@@ -130,7 +130,7 @@ const LocalizeSelectInputWrapper = styled.div<LocalizeLocalProps, LocalizeThemeP
       },
       '&:read-only, &:disabled': {
         backgroundColor: theme.colors.disabled,
-        borderColor: theme.colors.disabled,
+        borderColor: theme.colors.neutral5,
         color: theme.colors.neutral8,
       },
       '&::placeholder': {

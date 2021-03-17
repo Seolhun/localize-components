@@ -88,9 +88,9 @@ const StyledLocalizeButton = styled.button<LocalizeButtonProps, LocalizeThemePro
     theme,
     size = 'md',
     variant = 'solid',
-    intent = 'default',
+    intent = 'primary',
     localize = {
-      primaryColor: 'default',
+      primaryColor: 'primary',
       neutralColor: 'transparent',
       fontColor: 'inversed1',
       inversedColor: 'inversed10',
@@ -121,7 +121,7 @@ const StyledLocalizeButton = styled.button<LocalizeButtonProps, LocalizeThemePro
       },
       '&:disabled': {
         backgroundColor: theme.colors.disabled,
-        borderColor: theme.colors.disabled,
+        borderColor: theme.colors.neutral5,
         color: theme.colors.neutral8,
         cursor: 'auto',
       },
@@ -130,7 +130,7 @@ const StyledLocalizeButton = styled.button<LocalizeButtonProps, LocalizeThemePro
 );
 
 const LocalizeButton = React.forwardRef<HTMLButtonElement, LocalizeButtonProps>(
-  ({ children, className, size = 'md', variant = 'solid', intent = 'default', ...props }, ref) => {
+  ({ children, className, size = 'md', variant = 'solid', intent = 'primary', ...props }, ref) => {
     return (
       <StyledLocalizeButton
         {...props}

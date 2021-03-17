@@ -17,14 +17,14 @@ export default {
       },
     },
     intent: {
-      defaultValue: 'default',
+      defaultValue: 'primary',
       control: {
         type: 'select',
         options: storiesIntentOptions,
       },
     },
     primaryColor: {
-      defaultValue: 'default',
+      defaultValue: 'primary',
       control: {
         type: 'select',
         options: storiesColorOptions,

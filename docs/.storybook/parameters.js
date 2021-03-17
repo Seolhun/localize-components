@@ -72,7 +72,7 @@ export const parameters = {
         brandUrl: 'http://localize-components-docs.surge.sh/#/',
         brandImage: logo,
       },
-      asStorybookTheme: false
+      asStorybookTheme: false,
     }),
     DARK: createStorybookLocalizeTheme({
       theme: localizeDarkTheme,

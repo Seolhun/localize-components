@@ -58,7 +58,7 @@
    * Set this to change intent
    * @default default
    */
-  intent?: 'localize' | 'default' | 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'error';
+  intent?: 'localize' | 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'error';
 
   /**
    * Set this to change variant

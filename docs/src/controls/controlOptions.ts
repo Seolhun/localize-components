@@ -7,7 +7,6 @@ export const storiesSizeOptions: LocalizeSize[] = ['xl', 'lg', 'md', 'sm', 'xs']
 
 export const storiesIntentOptions: LocalizeIntentThemeType[] = [
   'localize',
-  'default',
   'primary',
   'secondary',
   'info',

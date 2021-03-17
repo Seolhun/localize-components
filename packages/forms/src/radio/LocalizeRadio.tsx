@@ -45,9 +45,9 @@ const LocalizeRadioWrapper = styled.div<LocalizeRadioProps, LocalizeThemeProps>(
   ({
     theme,
     size = 'md',
-    intent = 'default',
+    intent = 'primary',
     localize = {
-      primaryColor: 'default',
+      primaryColor: 'primary',
       neutralColor: 'transparent',
       fontColor: 'inversed1',
       inversedColor: 'inversed10',
@@ -158,7 +158,7 @@ const LocalizeRadioCheckerIcon = styled.div<{}, LocalizeThemeProps>(() => ({
 }));
 
 const LocalizeRadio = React.forwardRef<HTMLInputElement, LocalizeRadioProps>(
-  ({ children, className, size = 'md', intent = 'default', ...props }, ref) => {
+  ({ children, className, size = 'md', intent = 'primary', ...props }, ref) => {
     return (
       <LocalizeRadioWrapper
         ref={ref}
