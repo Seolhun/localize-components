@@ -40,27 +40,16 @@ const withThemeProvider = (Story, context) => {
   }, [themeKey, context])
 
   const memoizedContext = React.useMemo(() => {
-    const docsTheme = context.parameters.docsTheme[themeKey];
-    const newContext = {
-      ...context,
-    }
-    newContext.globals.backgrounds = {
-      value: memoizedTheme.layout.backgroundColor,
-    }
-    newContext.parameters.docs.theme = docsTheme;
-    return newContext;
+    const docsTheme = context.parameters.themeDocsMode[themeKey];
+    context.parameters.backgrounds.default = themeKey;
+    context.parameters.docs.theme = docsTheme;
+    return context;
   }, [memoizedTheme, themeKey, context])
 
   return (
     <LocalizeThemeProvider theme={memoizedTheme}>
       <Global styles={globalStyle} />
-      <LocalizeContainer isFull>
-        <LocalizeRow>
-          <LocalizeCol>
-            <Story {...memoizedContext} />
-          </LocalizeCol>
-        </LocalizeRow>
-      </LocalizeContainer>
+      <Story {...memoizedContext} />
     </LocalizeThemeProvider>
   );
 };

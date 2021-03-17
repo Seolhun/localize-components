@@ -1,10 +1,13 @@
 import { themes } from '@storybook/theming';
 import { localizeLightTheme, localizeDarkTheme } from '../../packages/styled-types';
 
-import { createThemeFormLocalizeTheme } from './theme';
+import { createStorybookLocalizeTheme } from './theme';
 import logo from './logo.png';
 
 export const parameters = {
+  actions: {
+    argTypesRegex: '^on[A-Z].*',
+  },
   /**
    * @see https://storybook.js.org/docs/react/essentials/controls
    */
@@ -32,9 +35,6 @@ export const parameters = {
    * @see https://storybook.js.org/docs/react/essentials/viewport
    */
   viewport: {},
-  actions: {
-    argTypesRegex: '^on[A-Z].*',
-  },
   /**
    * @see https://storybook.js.org/docs/react/essentials/toolbars-and-globals#advanced-usage
    */
@@ -63,8 +63,8 @@ export const parameters = {
     LIGHT: localizeLightTheme,
     DARK: localizeDarkTheme,
   },
-  docsTheme: {
-    LIGHT: createThemeFormLocalizeTheme({
+  themeDocsMode: {
+    LIGHT: createStorybookLocalizeTheme({
       theme: localizeLightTheme,
       options: {
         ...themes.light,
@@ -74,7 +74,7 @@ export const parameters = {
       },
       asStorybookTheme: false
     }),
-    DARK: createThemeFormLocalizeTheme({
+    DARK: createStorybookLocalizeTheme({
       theme: localizeDarkTheme,
       options: {
         ...themes.dark,

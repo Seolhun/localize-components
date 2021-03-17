@@ -1,6 +1,6 @@
 import { create } from '@storybook/theming/create';
 
-import { LocalizeThemeProps, localizeLightTheme } from '../../packages/styled-types';
+import { LocalizeThemeProps,  } from '../../packages/styled-types';
 
 interface Props {
   theme: LocalizeThemeProps;
@@ -24,15 +24,14 @@ const getStorybookThemeFromLocalize = (theme: LocalizeThemeProps) => {
   };
 };
 
-export const createThemeFormLocalizeTheme = ({
+export const createStorybookLocalizeTheme = ({
   theme,
   options = {},
-  isStorybookTheme = true,
 }: Props) => {
   const docsTheme = getStorybookThemeFromLocalize(theme);
   const themeObject = {
     ...options,
     ...docsTheme,
   }
-  return isStorybookTheme ? create(themeObject) : themeObject
+  return create(themeObject);
 }
