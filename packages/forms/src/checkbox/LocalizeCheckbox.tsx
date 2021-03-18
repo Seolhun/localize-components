@@ -67,7 +67,7 @@ const LocalizeCheckboxWrapper = styled.div<LocalizeCheckboxProps, LocalizeThemeP
     rounded,
   }) => {
     const localizedColor = getLocalizeIntentColor(theme, intent, localize);
-    const { primaryColor, neutralColor, inversedFontColor } = localizedColor;
+    const { primaryColor, inversedFontColor } = localizedColor;
     const scale = getLocalizeSizeBy(size);
 
     return {
@@ -93,8 +93,7 @@ const LocalizeCheckboxWrapper = styled.div<LocalizeCheckboxProps, LocalizeThemeP
       // Hover
       '&:hover': {
         [`${HidingInput}:not(:disabled):not(:read-only):not(:checked) + .${CLASSNAME}__Checker`]: {
-          backgroundColor: primaryColor,
-          borderColor: neutralColor,
+          borderColor: primaryColor,
         },
       },
 

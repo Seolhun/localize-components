@@ -4,12 +4,19 @@ import { Story } from '@storybook/react/types-6-0';
 import { LocalizeCheckbox, LocalizeCheckboxProps } from '../../../packages/forms/dist';
 import { LocalizeRow, LocalizeCol } from '../../../packages/grid/dist';
 
-import { storiesColorOptions, storiesIntentOptions } from '../controls';
+import { storiesColorOptions, storiesIntentOptions, storiesSizeOptions } from '../controls';
 
 export default {
   title: 'Forms/LocalizeCheckbox',
   component: LocalizeCheckbox,
   argTypes: {
+    size: {
+      defaultValue: 'md',
+      control: {
+        type: 'select',
+        options: storiesSizeOptions,
+      },
+    },
     intent: {
       defaultValue: 'primary',
       control: {
@@ -50,9 +57,14 @@ export default {
 
 const Checkbox: Story<LocalizeCheckboxProps> = (args) => {
   const children = args.children;
-  return <LocalizeCheckbox {...args}>{children}</LocalizeCheckbox>;
+  const localize = {
+    primaryColor: args.primaryColor,
+    neutralColor: args.neutralColor,
+    fontColor: args.fontColor,
+    inversedColor: args.inversedColor,
+  };
+  return <LocalizeCheckbox {...args} localize={localize}>{children}</LocalizeCheckbox>;
 };
-
 export const Default = Checkbox.bind({});
 Default.args = {
   children: 'LocalizeCheckbox',
