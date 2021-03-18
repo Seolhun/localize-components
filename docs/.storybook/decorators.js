@@ -7,7 +7,7 @@ import { LocalizeThemeProvider } from '../../packages/localize-components';
 const globalStyle = (theme) => css`
   html,
   body {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .__Localize__Window__LockScroll {
