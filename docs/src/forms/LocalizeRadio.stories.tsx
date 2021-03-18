@@ -63,7 +63,11 @@ const Radio: Story<LocalizeRadioProps> = (args) => {
     fontColor: args.fontColor,
     inversedColor: args.inversedColor,
   };
-  return <LocalizeRadio {...args} localize={localize}>{children}</LocalizeRadio>;
+  return (
+    <LocalizeRadio {...args} localize={localize}>
+      {children}
+    </LocalizeRadio>
+  );
 };
 export const Default = Radio.bind({});
 Default.args = {

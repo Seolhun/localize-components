@@ -63,7 +63,11 @@ const Checkbox: Story<LocalizeCheckboxProps> = (args) => {
     fontColor: args.fontColor,
     inversedColor: args.inversedColor,
   };
-  return <LocalizeCheckbox {...args} localize={localize}>{children}</LocalizeCheckbox>;
+  return (
+    <LocalizeCheckbox {...args} localize={localize}>
+      {children}
+    </LocalizeCheckbox>
+  );
 };
 export const Default = Checkbox.bind({});
 Default.args = {
