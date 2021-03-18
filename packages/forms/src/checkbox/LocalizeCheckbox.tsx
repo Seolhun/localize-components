@@ -14,21 +14,7 @@ import {
 const CLASSNAME = '__Localize__Checkbox';
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
 type ExcludedInputProps = Omit<InputProps, 'size'>;
-interface LocalizeLocalProps extends LocalizeProps {
-  /**
-   * Set this to change font color
-   * @default md
-   */
-  size?: LocalizeSize;
-
-  /**
-   * Set this to change intent color
-   * @default default
-   */
-  intent?: LocalizeIntentThemeType;
-}
-
-type ExtentionProps = ExcludedInputProps & LocalizeLocalProps;
+type ExtentionProps = LocalizeProps & ExcludedInputProps;
 
 export interface LocalizeCheckboxProps extends ExtentionProps {
   /**
