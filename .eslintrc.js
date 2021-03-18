@@ -1,10 +1,9 @@
 module.exports = {
   env: {
-    jest: true,
     browser: true,
+    es6: true,
+    node: true,
   },
-  extends: ['plugin:@typescript-eslint/eslint-recommended', 'plugin:prettier/recommended'],
-  plugins: ['@typescript-eslint', 'eslint-plugin', 'jest'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: './tsconfig.json',
@@ -14,6 +13,12 @@ module.exports = {
       jsx: true,
     },
   },
+  extends: [
+    'plugin:@typescript-eslint/eslint-recommended',
+    'prettier/@typescript-eslint',
+    'plugin:prettier/recommended',
+  ],
+  plugins: ['@typescript-eslint', 'eslint-plugin', 'jest'],
   rules: {
     // TODO: Will be Removed
     'import/no-cycle': 0,
