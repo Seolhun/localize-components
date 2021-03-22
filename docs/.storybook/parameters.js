@@ -72,7 +72,6 @@ export const parameters = {
         brandUrl: 'http://localize-components-docs.surge.sh/#/',
         brandImage: logo,
       },
-      asStorybookTheme: false,
     }),
     DARK: createStorybookLocalizeTheme({
       theme: localizeDarkTheme,
@@ -82,7 +81,6 @@ export const parameters = {
         brandUrl: 'http://localize-components-docs.surge.sh/#/',
         brandImage: logo,
       },
-      asStorybookTheme: false,
     }),
   },
 };
