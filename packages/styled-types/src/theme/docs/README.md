@@ -35,7 +35,7 @@ Element의 `readonly`, `disabled`의 비사용 상태를 표현하기 위해 추
 ```tsx
   /**
    * Set this to change intent color
-   * @default default
+   * @default primary
    */
   intent?: LocalizeIntentThemeType;
 ```

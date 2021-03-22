@@ -1,7 +1,7 @@
-import { LocalizeSize } from '../LocalizeSize';
+import { LocalizeScale } from '../LocalizeScale';
 
-export const getLocalizeSizeBy = (size?: LocalizeSize): number => {
-  switch (size) {
+export const getLocalizeScaleBy = (scale?: LocalizeScale): number => {
+  switch (scale) {
     case 'xl': {
       return 1.8;
     }

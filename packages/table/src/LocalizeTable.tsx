@@ -75,7 +75,7 @@ export interface LocalizeTableProps<T = any> extends ExtentionProps {
 export interface LocalizeTableThemeProps extends LocalizeProps {
   /**
    * Set this to change variant
-   * @default default
+   * @default primary
    */
   intent?: LocalizeIntentThemeType;
 }

@@ -1,77 +1,62 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
-import { lighten } from 'polished';
 
 import {
   LocalizeProps,
   LocalizeThemeProps,
-  getLocalizeColor,
+  getLocalizeIntentColor,
+  LocalizeScale,
+  LocalizeIntentThemeType,
+  getLocalizeHeightScaleBy,
 } from '@seolhun/localize-components-styled-types';
-import { LocalizeIcon, LocalizeIconProps } from '@seolhun/localize-components-icon';
-
-import { LocalizeFormWrapper } from '../wrapper';
-import { LocalizeFormStateProps } from '../LocalizeFormStateProps';
 
 const CLASSNAME = '__Localize__Input';
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
-type ExtentionProps = LocalizeProps & InputProps & LocalizeFormStateProps;
+type ExtentionProps = InputProps & LocalizeProps;
 
 export interface LocalizeInputProps extends ExtentionProps {
   /**
-   * To change icon by font-awesome
+   * Set this to change scale
+   * @default md
    */
-  icon?: LocalizeIconProps['icon'];
+  scale?: LocalizeScale;
 
   /**
-   * To change icon color
+   * Set this to change intent color
+   * @default primary
    */
-  iconColor?: LocalizeIconProps['color'];
+  intent?: LocalizeIntentThemeType;
+
+  /**
+   * Set this to change rounded border-radius
+   */
+  rounded?: boolean;
 }
 
-const LocalizeInputContainer = styled.div<LocalizeFormStateProps, LocalizeThemeProps>(() => {
-  return {
-    position: 'relative',
-    display: 'flex',
-    alignItems: 'center',
-    width: '100%',
-
-    [`${LocalizeIcon}`]: {
-      position: 'absolute',
-      top: '14px',
-      right: '10px',
-    },
-  };
-});
-
-const StyledInput = styled.input<LocalizeInputProps, LocalizeThemeProps>(
+const LocalizeInputWrapper = styled.div<LocalizeInputProps, LocalizeThemeProps>(
   ({
     theme,
-    error,
-    visibleIcon,
+    scale = 'md',
+    intent = 'primary',
     localize = {
-      primaryColor: 'inversed8',
-      neutralColor: 'transparent',
+      primaryColor: 'primary',
+      neutralColor: 'inversed9',
       fontColor: 'inversed1',
+      inversedColor: 'inversed10',
     },
+    rounded,
   }) => {
-    const localizedColor = getLocalizeColor(theme, localize);
-    const { primaryColor, neutralColor, fontColor } = localizedColor;
+    const localizedColor = getLocalizeIntentColor(theme, intent, localize);
+    const { primaryColor, neutralColor, fontColor, inversedFontColor } = localizedColor;
+    const localizeScale = getLocalizeHeightScaleBy(scale);
 
     return {
       color: fontColor,
-      width: '100%',
-      height: '100%',
-      ...(visibleIcon
-        ? {
-            padding: '10px 32px 10px 12px',
-          }
-        : {
-            padding: '10px 12px',
-          }),
-      backgroundColor: primaryColor,
-      border: `1px solid ${error ? theme.colors.error : theme.colors.neutral5}`,
-      borderRadius: '2px',
+      backgroundColor: neutralColor,
+      border: `1px solid ${inversedFontColor}`,
+      borderRadius: rounded ? '6px' : '0',
+      padding: '0 10px',
       outline: 'none',
       // WARNING: Not support IE
       caretColor: theme.colors.primary,
@@ -79,46 +64,74 @@ const StyledInput = styled.input<LocalizeInputProps, LocalizeThemeProps>(
       boxShadow: 'none !important',
       WebkitAppearance: 'none',
 
-      '&:not(:disabled):not(:read-only):active, &:not(:disabled):not(:read-only):hover': {
-        borderColor: neutralColor,
+      [`.${CLASSNAME}__Container`]: {
+        width: '100%',
+        height: `${localizeScale}rem`,
       },
-      '&:focus': {
-        border: `1px solid ${error ? theme.colors.error : lighten(0.1, neutralColor)}`,
+
+      [`.${CLASSNAME}::placeholder`]: {
+        color: neutralColor,
       },
-      '&:disabled': {
-        backgroundColor: theme.colors.neutral4,
+
+      // Hover
+      [`&:hover`]: {
+        borderColor: primaryColor,
+      },
+
+      // Focus
+      [`&:focus-within`]: {
+        borderColor: primaryColor,
+      },
+
+      // Active
+      [`.${CLASSNAME}:not(:disabled):active`]: {
+        borderColor: primaryColor,
+      },
+
+      // Readonly - Disabled
+      [`.${CLASSNAME}:read-only, ${CLASSNAME}:disabled`]: {
+        backgroundColor: theme.colors.disabled,
         borderColor: theme.colors.neutral5,
-        color: theme.colors.neutral8,
-      },
-      '&::placeholder': {
-        color: theme.colors.neutral5,
       },
     };
   },
 );
 
-const LocalizeInput = React.forwardRef<HTMLInputElement, LocalizeInputProps>(
-  ({ className, label, help, error, visibleIcon = true, icon, iconColor, ...props }, ref) => {
-    const isSelectable = !props.disabled && !props.readOnly;
+const LocalizeInputContainer = styled.div(() => {
+  return {};
+});
 
+const StyledInput = styled.input<InputProps, LocalizeThemeProps>(({ theme }) => {
+  return {
+    width: '100%',
+    height: '100%',
+    backgroundColor: 'transparent',
+    margin: 0,
+    padding: 0,
+    border: 0,
+    outline: 'none',
+    // WARNING: Not support IE
+    caretColor: theme.colors.primary,
+    // for Safari boxShadow
+    boxShadow: 'none !important',
+    WebkitAppearance: 'none',
+  };
+});
+
+const LocalizeInput = React.forwardRef<HTMLInputElement, LocalizeInputProps>(
+  ({ className, scale = 'md', intent = 'primary', rounded, ...props }, ref) => {
     return (
-      <LocalizeFormWrapper
-        className={classnames(CLASSNAME, className)}
-        label={label}
-        help={help}
-        error={error}
+      <LocalizeInputWrapper
+        {...props}
+        className={`${CLASSNAME}__Wrapper`}
+        intent={intent}
+        scale={scale}
+        rounded={rounded}
       >
-        <LocalizeInputContainer>
-          <StyledInput
-            {...props}
-            ref={ref}
-            error={error}
-            visibleIcon={visibleIcon}
-            autoComplete="false"
-          />
-          {isSelectable && icon && <LocalizeIcon iconSize="16px" icon={icon} color={iconColor} />}
+        <LocalizeInputContainer className={`${CLASSNAME}__Container`}>
+          <StyledInput {...props} ref={ref} className={classnames(CLASSNAME, className)} />
         </LocalizeInputContainer>
-      </LocalizeFormWrapper>
+      </LocalizeInputWrapper>
     );
   },
 );

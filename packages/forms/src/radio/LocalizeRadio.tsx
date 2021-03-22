@@ -4,10 +4,10 @@ import classnames from 'classnames';
 
 import {
   getLocalizeIntentColor,
-  getLocalizeSizeBy,
+  getLocalizeScaleBy,
   LocalizeIntentThemeType,
   LocalizeProps,
-  LocalizeSize,
+  LocalizeScale,
   LocalizeThemeProps,
 } from '@seolhun/localize-components-styled-types';
 
@@ -15,19 +15,18 @@ import { LocalizeFormStateProps } from '../LocalizeFormStateProps';
 
 const CLASSNAME = '__Localize__Radio';
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
-type ExcludedInputProps = Omit<InputProps, 'size'>;
-type ExtentionProps = LocalizeProps & ExcludedInputProps;
+type ExtentionProps = LocalizeProps & InputProps;
 
 export interface LocalizeRadioProps extends ExtentionProps {
   /**
-   * Set this to change font color
+   * Set this to change scale
    * @default md
    */
-  size?: LocalizeSize;
+  scale?: LocalizeScale;
 
   /**
    * Set this to change intent color
-   * @default default
+   * @default primary
    */
   intent?: LocalizeIntentThemeType;
 
@@ -44,7 +43,7 @@ const HidingInput = styled.input<{}>({
 const LocalizeRadioWrapper = styled.div<LocalizeRadioProps, LocalizeThemeProps>(
   ({
     theme,
-    size = 'md',
+    scale = 'md',
     intent = 'primary',
     localize = {
       primaryColor: 'primary',
@@ -56,7 +55,7 @@ const LocalizeRadioWrapper = styled.div<LocalizeRadioProps, LocalizeThemeProps>(
   }) => {
     const localizedColor = getLocalizeIntentColor(theme, intent, localize);
     const { primaryColor, inversedFontColor } = localizedColor;
-    const scale = getLocalizeSizeBy(size);
+    const localizeScale = getLocalizeScaleBy(scale);
 
     return {
       display: 'inline-flex',
@@ -65,16 +64,16 @@ const LocalizeRadioWrapper = styled.div<LocalizeRadioProps, LocalizeThemeProps>(
       color: inversedFontColor,
 
       [`.${CLASSNAME}__Checker`]: {
-        width: `${scale}rem`,
-        height: `${scale}rem`,
+        width: `${localizeScale}rem`,
+        height: `${localizeScale}rem`,
         borderRadius: rounded ? '50%' : '6px',
         border: `1px solid ${theme.colors.neutral6}`,
         backgroundColor: theme.colors.inversed1,
       },
 
       [`.${CLASSNAME}__CheckerIcon`]: {
-        width: `${scale / 2}rem`,
-        height: `${scale / 2}rem`,
+        width: `${localizeScale / 2}rem`,
+        height: `${localizeScale / 2}rem`,
         borderRadius: rounded ? '50%' : '6px',
       },
 
@@ -152,14 +151,14 @@ const LocalizeRadioCheckerIcon = styled.div<{}, LocalizeThemeProps>(() => ({
 }));
 
 const LocalizeRadio = React.forwardRef<HTMLInputElement, LocalizeRadioProps>(
-  ({ children, className, size = 'md', intent = 'primary', rounded, ...props }, ref) => {
+  ({ children, className, scale = 'md', intent = 'primary', rounded, ...props }, ref) => {
     return (
       <LocalizeRadioWrapper
         {...props}
         ref={ref}
         className={classnames(CLASSNAME, className)}
         intent={intent}
-        size={size}
+        scale={scale}
         rounded={rounded}
       >
         <LocalizeRadioLabel className={`${CLASSNAME}__Label`}>

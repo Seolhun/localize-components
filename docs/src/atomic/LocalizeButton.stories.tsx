@@ -4,17 +4,17 @@ import { Story } from '@storybook/react/types-6-0';
 import { LocalizeButton, LocalizeButtonProps } from '../../../packages/atomic/dist';
 import { LocalizeRow, LocalizeCol } from '../../../packages/grid/dist';
 
-import { storiesSizeOptions, storiesColorOptions, storiesIntentOptions } from '../controls';
+import { storiesScaleOptions, storiesColorOptions, storiesIntentOptions } from '../controls';
 
 export default {
   title: 'Atomic/LocalizeButton',
   component: LocalizeButton,
   argTypes: {
-    size: {
+    scale: {
       defaultValue: 'md',
       control: {
         type: 'select',
-        options: storiesSizeOptions,
+        options: storiesScaleOptions,
       },
     },
     variant: {
@@ -84,7 +84,7 @@ Default.args = {
   disabled: false,
 };
 
-const SizeButtons: Story<LocalizeButtonProps> = (args) => {
+const ScaleButtons: Story<LocalizeButtonProps> = (args) => {
   const children = args.children;
   const localize = {
     primaryColor: args.primaryColor,
@@ -96,31 +96,31 @@ const SizeButtons: Story<LocalizeButtonProps> = (args) => {
     <LocalizeRow>
       <LocalizeCol md={8}>
         <h2>xl</h2>
-        <LocalizeButton {...args} localize={localize} size="xl">
+        <LocalizeButton {...args} localize={localize} scale="xl">
           {children}
         </LocalizeButton>
       </LocalizeCol>
       <LocalizeCol md={8}>
         <h2>lg</h2>
-        <LocalizeButton {...args} localize={localize} size="lg">
+        <LocalizeButton {...args} localize={localize} scale="lg">
           {children}
         </LocalizeButton>
       </LocalizeCol>
       <LocalizeCol md={8}>
         <h2>md</h2>
-        <LocalizeButton {...args} localize={localize} size="md">
+        <LocalizeButton {...args} localize={localize} scale="md">
           {children}
         </LocalizeButton>
       </LocalizeCol>
       <LocalizeCol md={8}>
         <h2>sm</h2>
-        <LocalizeButton {...args} localize={localize} size="sm">
+        <LocalizeButton {...args} localize={localize} scale="sm">
           {children}
         </LocalizeButton>
       </LocalizeCol>
       <LocalizeCol md={8}>
         <h2>xs</h2>
-        <LocalizeButton {...args} localize={localize} size="xs">
+        <LocalizeButton {...args} localize={localize} scale="xs">
           {children}
         </LocalizeButton>
       </LocalizeCol>
@@ -128,8 +128,8 @@ const SizeButtons: Story<LocalizeButtonProps> = (args) => {
   );
 };
 
-export const SizeButtonsStories = SizeButtons.bind({});
-SizeButtonsStories.args = {
+export const ScaleButtonsStories = ScaleButtons.bind({});
+ScaleButtonsStories.args = {
   children: 'LocalizeButton',
   rounded: true,
   disabled: false,

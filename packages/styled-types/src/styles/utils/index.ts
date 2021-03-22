@@ -1,2 +1,3 @@
-export * from './getLocalizePaddingSizeBy';
-export * from './getLocalizeSizeBy';
+export * from './getLocalizeHeightScaleBy';
+export * from './getLocalizePaddingScaleBy';
+export * from './getLocalizeScaleBy';

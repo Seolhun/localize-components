@@ -17,7 +17,7 @@
 ### Size
 
 - 버튼 사이즈는 'xs' | 'sm' | 'md' | 'lg' | 'xl' 존재합니다.
-- 자주 사용되는 size는 md이며, 이를 기본 값으로 사용합니다.
+- 자주 사용되는 scale는 md이며, 이를 기본 값으로 사용합니다.
 - 버튼 간의 다른 크기는 조금만 사용하세요. 페이지 내에서 중요한 계층을 만드는 데 사용해야합니다.
 
 ### Variant
@@ -43,10 +43,10 @@
 
 ```tsx
   /**
-   * Set this to change size
+   * Set this to change scale
    * @default md
    */
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  scale?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
   /**
    * Set this to change variant
@@ -56,7 +56,7 @@
 
   /**
    * Set this to change intent
-   * @default default
+   * @default primary
    */
   intent?: 'localize' | 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'error';
 

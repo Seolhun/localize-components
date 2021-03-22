@@ -5,10 +5,10 @@ import classnames from 'classnames';
 
 import {
   getLocalizeIntentColor,
-  getLocalizeSizeBy,
+  getLocalizeScaleBy,
   LocalizeIntentThemeType,
   LocalizeProps,
-  LocalizeSize,
+  LocalizeScale,
   LocalizeThemeProps,
 } from '@seolhun/localize-components-styled-types';
 
@@ -23,11 +23,11 @@ interface LocalizeLocalProps extends LocalizeProps, LocalizeFormStateProps {
    * Set this to change font color
    * @default md
    */
-  size?: LocalizeSize;
+  scale?: LocalizeScale;
 
   /**
    * Set this to change intent color
-   * @default default
+   * @default primary
    */
   intent?: LocalizeIntentThemeType;
 }
@@ -38,7 +38,7 @@ export interface LocalizeSwitchProps extends ExtentionProps {}
 const LocalizeSwitchContainer = styled.div<LocalizeSwitchProps, LocalizeThemeProps>(
   ({
     theme,
-    size = 'md',
+    scale = 'md',
     intent = 'primary',
     localize = {
       primaryColor: 'primary',
@@ -49,14 +49,14 @@ const LocalizeSwitchContainer = styled.div<LocalizeSwitchProps, LocalizeThemePro
   }) => {
     const localizedColor = getLocalizeIntentColor(theme, intent, localize);
     const { primaryColor, neutralColor, fontColor } = localizedColor;
-    const scale = getLocalizeSizeBy(size);
+    const localizeScale = getLocalizeScaleBy(scale);
 
     return {
       position: 'relative',
       display: 'inline-flex',
       alignItems: 'center',
-      width: `calc(${scale * 2}rem + 2px)`,
-      height: `calc(${scale}rem + 2px)`,
+      width: `calc(${localizeScale * 2}rem + 2px)`,
+      height: `calc(${localizeScale}rem + 2px)`,
       color: fontColor,
       cursor: 'pointer',
       userSelect: 'none',
@@ -69,8 +69,8 @@ const LocalizeSwitchContainer = styled.div<LocalizeSwitchProps, LocalizeThemePro
         position: 'absolute',
         left: '1px',
         top: '1px',
-        height: `${scale}rem`,
-        width: `${scale}rem`,
+        height: `${localizeScale}rem`,
+        width: `${localizeScale}rem`,
         backgroundColor: neutralColor,
         borderRadius: '50%',
         transition: 'all 0.4s',
@@ -108,7 +108,7 @@ const StyledSlider = styled.span<LocalizeProps, LocalizeThemeProps>(() => {
  * TODO: Change theme key and values
  */
 const LocalizeSwitch = React.forwardRef<HTMLInputElement, LocalizeSwitchProps>(
-  ({ className, label, help, error, size = 'md', intent = 'primary', ...props }, ref) => {
+  ({ className, label, help, error, scale = 'md', intent = 'primary', ...props }, ref) => {
     return (
       <LocalizeFormWrapper
         className={classnames(CLASSNAME, className)}
@@ -120,7 +120,7 @@ const LocalizeSwitch = React.forwardRef<HTMLInputElement, LocalizeSwitchProps>(
           ref={ref}
           className={`${CLASSNAME}__Container`}
           intent={intent}
-          size={size}
+          scale={scale}
         >
           <HidingInput {...props} ref={ref} type="checkbox" />
           <StyledSlider className={`${CLASSNAME}__Slider`} />

@@ -16,6 +16,13 @@ export function getLocalizeIntentColor(
   const fontColor = isLightMode ? theme.colors.inversed1 : theme.colors.inversed10;
   const inversedColor = isLightMode ? theme.colors.inversed10 : theme.colors.inversed1;
 
+  console.log({
+    theme,
+    isLightMode,
+    fontColor: fontColor,
+    inversedFontColor: inversedColor,
+  });
+
   switch (intent) {
     case 'primary': {
       return {

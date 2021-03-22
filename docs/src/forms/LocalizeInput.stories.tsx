@@ -3,21 +3,35 @@ import { Story } from '@storybook/react/types-6-0';
 
 import { LocalizeInput, LocalizeInputProps } from '../../../packages/forms/dist';
 
-import { storiesColorOptions } from '../controls';
+import { storiesColorOptions, storiesIntentOptions, storiesScaleOptions } from '../controls';
 
 export default {
   title: 'Forms/LocalizeInput',
   component: LocalizeInput,
   argTypes: {
+    size: {
+      defaultValue: 'md',
+      control: {
+        type: 'select',
+        options: storiesScaleOptions,
+      },
+    },
+    intent: {
+      defaultValue: 'primary',
+      control: {
+        type: 'select',
+        options: storiesIntentOptions,
+      },
+    },
     primaryColor: {
-      defaultValue: 'inversed1',
+      defaultValue: 'kakao',
       control: {
         type: 'select',
         options: storiesColorOptions,
       },
     },
     neutralColor: {
-      defaultValue: 'primary',
+      defaultValue: 'inversed9',
       control: {
         type: 'select',
         options: storiesColorOptions,
@@ -42,19 +56,23 @@ export default {
 
 const Input: Story<LocalizeInputProps> = (args) => {
   const [value, setValue] = React.useState(args.value);
+  const localize = {
+    primaryColor: args.primaryColor,
+    neutralColor: args.neutralColor,
+    fontColor: args.fontColor,
+    inversedColor: args.inversedColor,
+  };
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };
 
-  return <LocalizeInput {...args} onChange={onChange} value={value} />;
+  return <LocalizeInput {...args} onChange={onChange} value={value} localize={localize} />;
 };
 
 export const Default = Input.bind({});
 Default.args = {
-  label: 'Label',
-  help: 'Help',
   value: 'LocalizeInput',
-  error: false,
+  rounded: true,
   disabled: false,
 };

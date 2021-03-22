@@ -4,17 +4,17 @@ import { Story } from '@storybook/react/types-6-0';
 import { LocalizeRadio, LocalizeRadioProps } from '../../../packages/forms/dist';
 import { LocalizeRow, LocalizeCol } from '../../../packages/grid/dist';
 
-import { storiesColorOptions, storiesIntentOptions, storiesSizeOptions } from '../controls';
+import { storiesColorOptions, storiesIntentOptions, storiesScaleOptions } from '../controls';
 
 export default {
   title: 'Forms/LocalizeRadio',
   component: LocalizeRadio,
   argTypes: {
-    size: {
+    scale: {
       defaultValue: 'md',
       control: {
         type: 'select',
-        options: storiesSizeOptions,
+        options: storiesScaleOptions,
       },
     },
     intent: {
@@ -32,7 +32,7 @@ export default {
       },
     },
     neutralColor: {
-      defaultValue: 'transparent',
+      defaultValue: 'inversed9',
       control: {
         type: 'select',
         options: storiesColorOptions,
@@ -78,7 +78,7 @@ Default.args = {
   disabled: false,
 };
 
-const SizeRadios: Story<LocalizeRadioProps> = (args) => {
+const ScaleRadios: Story<LocalizeRadioProps> = (args) => {
   const children = args.children;
   const localize = {
     primaryColor: args.primaryColor,
@@ -90,31 +90,31 @@ const SizeRadios: Story<LocalizeRadioProps> = (args) => {
     <LocalizeRow>
       <LocalizeCol md={8}>
         <h2>xl</h2>
-        <LocalizeRadio {...args} localize={localize} size="xl">
+        <LocalizeRadio {...args} localize={localize} scale="xl">
           {children}
         </LocalizeRadio>
       </LocalizeCol>
       <LocalizeCol md={8}>
         <h2>lg</h2>
-        <LocalizeRadio {...args} localize={localize} size="lg">
+        <LocalizeRadio {...args} localize={localize} scale="lg">
           {children}
         </LocalizeRadio>
       </LocalizeCol>
       <LocalizeCol md={8}>
         <h2>md</h2>
-        <LocalizeRadio {...args} localize={localize} size="md">
+        <LocalizeRadio {...args} localize={localize} scale="md">
           {children}
         </LocalizeRadio>
       </LocalizeCol>
       <LocalizeCol md={8}>
         <h2>sm</h2>
-        <LocalizeRadio {...args} localize={localize} size="sm">
+        <LocalizeRadio {...args} localize={localize} scale="sm">
           {children}
         </LocalizeRadio>
       </LocalizeCol>
       <LocalizeCol md={8}>
         <h2>xs</h2>
-        <LocalizeRadio {...args} localize={localize} size="xs">
+        <LocalizeRadio {...args} localize={localize} scale="xs">
           {children}
         </LocalizeRadio>
       </LocalizeCol>
@@ -122,8 +122,8 @@ const SizeRadios: Story<LocalizeRadioProps> = (args) => {
   );
 };
 
-export const SizeRadiosStories = SizeRadios.bind({});
-SizeRadiosStories.args = {
+export const ScaleRadiosStories = ScaleRadios.bind({});
+ScaleRadiosStories.args = {
   children: 'LocalizeRadio',
   value: 'LocalizeRadio',
   checked: true,

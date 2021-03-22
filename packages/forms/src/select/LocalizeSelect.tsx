@@ -9,7 +9,7 @@ import {
   getLocalizeIntentColor,
   LocalizeIntentThemeType,
   LocalizeProps,
-  LocalizeSize,
+  LocalizeScale,
   LocalizeThemeProps,
 } from '@seolhun/localize-components-styled-types';
 import { LocalizeMediaQueries } from '@seolhun/localize-components-grid';
@@ -23,14 +23,14 @@ const CLASSNAME = '__Localize__Input';
 type InputProps = Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>;
 interface LocalizeLocalProps extends LocalizeProps, LocalizeFormStateProps {
   /**
-   * Set this to change font color
+   * Set this to change scale
    * @default md
    */
-  size?: LocalizeSize;
+  scale?: LocalizeScale;
 
   /**
    * Set this to change intent color
-   * @default default
+   * @default primary
    */
   intent?: LocalizeIntentThemeType;
 }
@@ -69,11 +69,11 @@ export interface LocalizeSelectProps extends ExtentionProps {
    * Set this to change font color
    * @default md
    */
-  size?: LocalizeSize;
+  scale?: LocalizeScale;
 
   /**
    * Set this to change intent color
-   * @default default
+   * @default primary
    */
   intent?: LocalizeIntentThemeType;
 }
@@ -431,7 +431,7 @@ const LocalizeSelect = React.forwardRef<HTMLInputElement, LocalizeSelectProps>(
                         )}
                       </LocalizeRadioGroup>
                       <LocalizeSelectDropdownSubmitWrapper>
-                        <LocalizeButton size="lg" onClick={onSubmitSelectedItem}>
+                        <LocalizeButton scale="lg" onClick={onSubmitSelectedItem}>
                           {submitLabel}
                         </LocalizeButton>
                       </LocalizeSelectDropdownSubmitWrapper>

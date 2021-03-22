@@ -497,7 +497,7 @@ export const localizeDarkTheme: LocalizeThemeProps = {
   fonts: localizeFonts,
   colors: localizeDarkThemeColors,
   layout: {
-    backgroundColor: '#13161F',
+    backgroundColor: '#0d1117',
     textColor: localizeDarkThemeColors.inversed10,
   },
 };

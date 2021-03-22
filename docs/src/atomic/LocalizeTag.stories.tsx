@@ -4,17 +4,17 @@ import { Story } from '@storybook/react/types-6-0';
 import { LocalizeTag, LocalizeTagProps } from '../../../packages/atomic/dist';
 import { LocalizeRow, LocalizeCol } from '../../../packages/grid/dist';
 
-import { storiesSizeOptions, storiesColorOptions, storiesIntentOptions } from '../controls';
+import { storiesScaleOptions, storiesColorOptions, storiesIntentOptions } from '../controls';
 
 export default {
   title: 'Atomic/LocalizeTag',
   component: LocalizeTag,
   argTypes: {
-    size: {
+    scale: {
       defaultValue: 'md',
       control: {
         type: 'select',
-        options: storiesSizeOptions,
+        options: storiesScaleOptions,
       },
     },
     intent: {
@@ -70,31 +70,31 @@ const TagSizes: Story<LocalizeTagProps> = (args) => {
       <LocalizeRow>
         <LocalizeCol md={8}>
           <h2>xl</h2>
-          <LocalizeTag {...args} size="xl">
+          <LocalizeTag {...args} scale="xl">
             {children}
           </LocalizeTag>
         </LocalizeCol>
         <LocalizeCol md={8}>
           <h2>lg</h2>
-          <LocalizeTag {...args} size="lg">
+          <LocalizeTag {...args} scale="lg">
             {children}
           </LocalizeTag>
         </LocalizeCol>
         <LocalizeCol md={8}>
           <h2>md</h2>
-          <LocalizeTag {...args} size="md">
+          <LocalizeTag {...args} scale="md">
             {children}
           </LocalizeTag>
         </LocalizeCol>
         <LocalizeCol md={8}>
           <h2>sm</h2>
-          <LocalizeTag {...args} size="sm">
+          <LocalizeTag {...args} scale="sm">
             {children}
           </LocalizeTag>
         </LocalizeCol>
         <LocalizeCol md={8}>
           <h2>xs</h2>
-          <LocalizeTag {...args} size="xs">
+          <LocalizeTag {...args} scale="xs">
             {children}
           </LocalizeTag>
         </LocalizeCol>

@@ -4,10 +4,10 @@ import classnames from 'classnames';
 
 import {
   getLocalizeIntentColor,
-  getLocalizePaddingSizeBy,
+  getLocalizePaddingScaleBy,
   LocalizeIntentThemeType,
   LocalizeProps,
-  LocalizeSize,
+  LocalizeScale,
   LocalizeThemeProps,
 } from '@seolhun/localize-components-styled-types';
 import { LocalizeIcon } from '@seolhun/localize-components-icon';
@@ -19,7 +19,7 @@ type Props = LocalizeProps & DivProps & LocalizeBoxContainerProps;
 export interface LocalizeBoxProps extends Props {
   /**
    * Set this to change intent color
-   * @default default
+   * @default primary
    */
   intent?: LocalizeIntentThemeType;
 }
@@ -29,7 +29,7 @@ interface LocalizeBoxContainerProps {
    * Set this to change font color
    * @default sm
    */
-  size?: LocalizeSize;
+  scale?: LocalizeScale;
 
   closable?: boolean;
 
@@ -81,9 +81,9 @@ const LocalizeBoxCloser = styled.span<LocalizeProps, LocalizeThemeProps>(() => {
 });
 
 const LocalizeBoxContainer = styled.div<LocalizeBoxContainerProps, LocalizeThemeProps>(
-  ({ size, closable }) => {
+  ({ scale, closable }) => {
     return {
-      padding: getLocalizePaddingSizeBy(size),
+      padding: getLocalizePaddingScaleBy(scale),
       ...(closable && {
         paddingRight: '52px',
       }),
@@ -94,7 +94,7 @@ const LocalizeBoxContainer = styled.div<LocalizeBoxContainerProps, LocalizeTheme
 const LocalizeBox: React.FC<LocalizeBoxProps> = ({
   children,
   className,
-  size,
+  scale,
   closable,
   onClose,
   ...props
@@ -105,7 +105,7 @@ const LocalizeBox: React.FC<LocalizeBoxProps> = ({
         <LocalizeIcon icon={['fal', 'times']} color="info" iconSize="16px" />
       </LocalizeBoxCloser>
     )}
-    <LocalizeBoxContainer size={size} closable={closable}>
+    <LocalizeBoxContainer scale={scale} closable={closable}>
       {children}
     </LocalizeBoxContainer>
   </LocalizeBoxWrapper>

@@ -1,9 +1,9 @@
 import { Property } from 'csstype';
 
-import { LocalizeIntentThemeType, LocalizeSize } from '../../../packages/styled-types';
+import { LocalizeIntentThemeType, LocalizeScale } from '../../../packages/styled-types';
 import { localizeLightTheme } from '../../../packages/styled-types';
 
-export const storiesSizeOptions: LocalizeSize[] = ['xl', 'lg', 'md', 'sm', 'xs'];
+export const storiesScaleOptions: LocalizeScale[] = ['xl', 'lg', 'md', 'sm', 'xs'];
 
 export const storiesIntentOptions: LocalizeIntentThemeType[] = [
   'localize',
