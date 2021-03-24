@@ -326,7 +326,7 @@ const localizeLightThemeColors: LocalizeThemeProps['colors'] = {
   /**
    * @name State
    */
-  disabled: '#F0F0F0',
+  disabled: '#D9D9D9',
   /**
    * @name Socials
    */
@@ -463,7 +463,7 @@ const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
   /**
    * @name State
    */
-  disabled: '#F0F0F0',
+  disabled: '#1F1F1F',
   /**
    * @name Socials
    */

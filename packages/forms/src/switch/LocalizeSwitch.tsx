@@ -103,7 +103,6 @@ const StyledSlider = styled.span<LocalizeProps, LocalizeThemeProps>(() => {
     bottom: 0,
     left: 0,
     borderRadius: '35px',
-    cursor: 'pointer',
     transition: 'all 0.4s',
   };
 });

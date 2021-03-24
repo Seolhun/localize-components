@@ -8,9 +8,6 @@ export const getLocalizeHeightScaleBy = (scale?: LocalizeScale): number => {
     case 'lg': {
       return 2.5;
     }
-    case 'md': {
-      return 2.25;
-    }
     case 'sm': {
       return 2;
     }

@@ -20,7 +20,7 @@ export default {
         options: ['row', 'column'],
       },
     },
-    size: {
+    scale: {
       defaultValue: 'md',
       control: {
         type: 'select',

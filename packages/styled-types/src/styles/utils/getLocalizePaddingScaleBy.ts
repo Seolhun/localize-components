@@ -8,9 +8,6 @@ export const getLocalizePaddingScaleBy = (scale?: LocalizeScale) => {
     case 'lg': {
       return '1.2rem 1.4rem';
     }
-    case 'md': {
-      return '0.8rem 1rem';
-    }
     case 'sm': {
       return '0.6rem 0.8rem';
     }

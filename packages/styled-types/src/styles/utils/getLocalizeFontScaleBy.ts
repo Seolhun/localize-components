@@ -1,22 +1,22 @@
 import { LocalizeScale } from '../LocalizeScale';
 
-export const getLocalizeScaleBy = (scale?: LocalizeScale): number => {
+export const getLocalizeFontScaleBy = (scale?: LocalizeScale): number => {
   switch (scale) {
     case 'xl': {
-      return 1.8;
+      return 1.1;
     }
     case 'lg': {
-      return 1.6;
-    }
-    case 'sm': {
       return 1;
     }
-    case 'xs': {
+    case 'sm': {
       return 0.8;
+    }
+    case 'xs': {
+      return 0.7;
     }
     // MD
     default: {
-      return 1.2;
+      return 0.9;
     }
   }
 };

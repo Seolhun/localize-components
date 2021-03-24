@@ -5,15 +5,17 @@ import classnames from 'classnames';
 import {
   LocalizeProps,
   LocalizeThemeProps,
-  getLocalizeIntentColor,
   LocalizeScale,
   LocalizeIntentThemeType,
   getLocalizeHeightScaleBy,
+  getLocalizeFontScaleBy,
 } from '@seolhun/localize-components-styled-types';
 
-const CLASSNAME = '__Localize__Textarea';
+import { getLocalizeIntentColor } from './getLocalizeIntentColor';
+
+const CLASSNAME = '__Localize__TextArea';
 type TextAreaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
-type ExtentionProps = LocalizeProps & TextAreaProps;
+type ExtentionProps = TextAreaProps & LocalizeProps;
 
 export interface LocalizeTextAreaProps extends ExtentionProps {
   /**
@@ -34,33 +36,14 @@ export interface LocalizeTextAreaProps extends ExtentionProps {
   rounded?: boolean;
 }
 
-interface LocalizeTextAreaWrapperProps extends LocalizeProps {
-  /**
-   * Set this to change scale
-   * @default md
-   */
-  scale?: LocalizeScale;
-
-  /**
-   * Set this to change intent color
-   * @default primary
-   */
-  intent?: LocalizeIntentThemeType;
-
-  /**
-   * Set this to change rounded border-radius
-   */
-  rounded?: boolean;
-}
-
-const LocalizeTextAreaWrapper = styled.div<LocalizeTextAreaWrapperProps, LocalizeThemeProps>(
+const StyledTextArea = styled.textarea<LocalizeTextAreaProps, LocalizeThemeProps>(
   ({
     theme,
     scale = 'md',
     intent = 'primary',
     localize = {
       primaryColor: 'primary',
-      neutralColor: 'inversed9',
+      neutralColor: 'inversed3',
       fontColor: 'inversed1',
       inversedFontColor: 'inversed10',
     },
@@ -69,26 +52,26 @@ const LocalizeTextAreaWrapper = styled.div<LocalizeTextAreaWrapperProps, Localiz
     const localizedColor = getLocalizeIntentColor(theme, intent, localize);
     const { primaryColor, neutralColor, fontColor, inversedFontColor } = localizedColor;
     const localizeScale = getLocalizeHeightScaleBy(scale);
+    const localizeFontScale = getLocalizeFontScaleBy(scale);
 
     return {
-      color: fontColor,
-      backgroundColor: neutralColor,
-      border: `1px solid ${inversedFontColor}`,
+      height: `${localizeScale}rem`,
+      margin: 0,
+      padding: '10px',
+      fontSize: `${localizeFontScale}rem`,
+      lineHeight: `${localizeFontScale}rem`,
+      color: inversedFontColor,
+      backgroundColor: fontColor,
       borderRadius: rounded ? '6px' : '0',
-      padding: '0 10px',
-      outline: 'none',
+      border: `1px solid ${neutralColor}`,
       // WARNING: Not support IE
-      caretColor: theme.colors.primary,
+      caretColor: primaryColor,
       // for Safari boxShadow
-      boxShadow: 'none !important',
+      boxShadow: 'none',
       WebkitAppearance: 'none',
+      outline: 'none',
 
-      [`.${CLASSNAME}__Container`]: {
-        width: '100%',
-        height: `${localizeScale}rem`,
-      },
-
-      [`.${CLASSNAME}::placeholder`]: {
+      [`&::placeholder`]: {
         color: neutralColor,
       },
 
@@ -98,59 +81,40 @@ const LocalizeTextAreaWrapper = styled.div<LocalizeTextAreaWrapperProps, Localiz
       },
 
       // Focus
-      [`&:focus-within`]: {
+      [`&:focus`]: {
         borderColor: primaryColor,
       },
 
       // Active
-      [`.${CLASSNAME}:not(:disabled):active`]: {
+      [`&:not(:disabled):active`]: {
         borderColor: primaryColor,
       },
 
       // Readonly - Disabled
-      [`.${CLASSNAME}:read-only, ${CLASSNAME}:disabled`]: {
+      [`&:read-only, &:disabled`]: {
         backgroundColor: theme.colors.disabled,
-        borderColor: theme.colors.neutral5,
+        borderColor: theme.colors.disabled,
+        color: theme.colors.inversed7,
+      },
+
+      [`&:disabled`]: {
+        cursor: 'not-allowed',
       },
     };
   },
 );
 
-const LocalizeTextAreaContainer = styled.div(() => {
-  return {};
-});
-
-const StyledTextArea = styled.textarea<LocalizeTextAreaProps, LocalizeThemeProps>(({ theme }) => {
-  return {
-    width: '100%',
-    height: '100%',
-    backgroundColor: 'transparent',
-    margin: 0,
-    padding: 0,
-    border: 0,
-    outline: 'none',
-    // WARNING: Not support IE
-    caretColor: theme.colors.primary,
-    // for Safari boxShadow
-    boxShadow: 'none !important',
-    WebkitAppearance: 'none',
-  };
-});
-
 const LocalizeTextArea = React.forwardRef<HTMLTextAreaElement, LocalizeTextAreaProps>(
-  ({ className, scale = 'md', intent = 'primary', rounded, localize, ...props }, ref) => {
+  ({ className, scale = 'md', intent = 'primary', rounded, ...props }, ref) => {
     return (
-      <LocalizeTextAreaWrapper
-        className={`${CLASSNAME}__Wrapper`}
-        scale={scale}
+      <StyledTextArea
+        {...props}
+        ref={ref}
+        className={classnames(CLASSNAME, className)}
         intent={intent}
-        localize={localize}
+        scale={scale}
         rounded={rounded}
-      >
-        <LocalizeTextAreaContainer className={`${CLASSNAME}__Container`}>
-          <StyledTextArea {...props} ref={ref} className={classnames(CLASSNAME, className)} />
-        </LocalizeTextAreaContainer>
-      </LocalizeTextAreaWrapper>
+      />
     );
   },
 );

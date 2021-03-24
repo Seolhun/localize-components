@@ -1,14 +1,14 @@
 import React from 'react';
 import { Story } from '@storybook/react/types-6-0';
 
-import { LocalizeInput, LocalizeInputProps } from '../../../packages/forms/dist';
+import { LocalizeTextArea, LocalizeTextAreaProps } from '../../../packages/forms/dist';
 import { LocalizeRow, LocalizeCol } from '../../../packages/grid/dist';
 
 import { storiesColorOptions, storiesIntentOptions, storiesScaleOptions } from '../controls';
 
 export default {
-  title: 'Forms/LocalizeInput',
-  component: LocalizeInput,
+  title: 'Forms/LocalizeTextArea',
+  component: LocalizeTextArea,
   argTypes: {
     scale: {
       defaultValue: 'md',
@@ -55,7 +55,8 @@ export default {
   },
 };
 
-const Input: Story<LocalizeInputProps> = (args) => {
+const TextArea: Story<LocalizeTextAreaProps> = (args) => {
+  const [value, setValue] = React.useState(args.value);
   const localize = {
     primaryColor: args.primaryColor,
     neutralColor: args.neutralColor,
@@ -63,12 +64,16 @@ const Input: Story<LocalizeInputProps> = (args) => {
     inversedFontColor: args.inversedFontColor,
   };
 
-  return <LocalizeInput {...args} localize={localize} />;
+  const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setValue(e.target.value);
+  };
+
+  return <LocalizeTextArea {...args} onChange={onChange} value={value} localize={localize} />;
 };
 
-export const Default = Input.bind({});
+export const Default = TextArea.bind({});
 Default.args = {
-  defaultValue: 'LocalizeInput',
+  defaultValue: 'LocalizeTextArea',
   rounded: true,
   disabled: false,
   placeholder: 'Placeholder'
@@ -76,7 +81,7 @@ Default.args = {
 
 
 
-const ScaleInputs: Story<LocalizeInputProps> = (args) => {
+const ScaleTextAreas: Story<LocalizeTextAreaProps> = (args) => {
   const children = args.children;
   const localize = {
     primaryColor: args.primaryColor,
@@ -88,47 +93,47 @@ const ScaleInputs: Story<LocalizeInputProps> = (args) => {
     <LocalizeRow>
       <LocalizeCol md={8}>
         <h2>xl</h2>
-        <LocalizeInput {...args} localize={localize} scale="xl">
+        <LocalizeTextArea {...args} localize={localize} scale="xl">
           {children}
-        </LocalizeInput>
+        </LocalizeTextArea>
       </LocalizeCol>
       <LocalizeCol md={8}>
         <h2>lg</h2>
-        <LocalizeInput {...args} localize={localize} scale="lg">
+        <LocalizeTextArea {...args} localize={localize} scale="lg">
           {children}
-        </LocalizeInput>
+        </LocalizeTextArea>
       </LocalizeCol>
       <LocalizeCol md={8}>
         <h2>md</h2>
-        <LocalizeInput {...args} localize={localize} scale="md">
+        <LocalizeTextArea {...args} localize={localize} scale="md">
           {children}
-        </LocalizeInput>
+        </LocalizeTextArea>
       </LocalizeCol>
       <LocalizeCol md={8}>
         <h2>sm</h2>
-        <LocalizeInput {...args} localize={localize} scale="sm">
+        <LocalizeTextArea {...args} localize={localize} scale="sm">
           {children}
-        </LocalizeInput>
+        </LocalizeTextArea>
       </LocalizeCol>
       <LocalizeCol md={8}>
         <h2>xs</h2>
-        <LocalizeInput {...args} localize={localize} scale="xs">
+        <LocalizeTextArea {...args} localize={localize} scale="xs">
           {children}
-        </LocalizeInput>
+        </LocalizeTextArea>
       </LocalizeCol>
     </LocalizeRow>
   );
 };
 
-export const ScaleInputsStories = ScaleInputs.bind({});
-ScaleInputsStories.args = {
-  defaultValue: 'LocalizeInput',
+export const ScaleTextAreasStories = ScaleTextAreas.bind({});
+ScaleTextAreasStories.args = {
+  defaultValue: 'LocalizeTextArea',
   rounded: true,
   disabled: false,
   placeholder: 'Placeholder'
 };
 
-const IntentInputes: Story<LocalizeInputProps> = (args) => {
+const IntentTextAreaes: Story<LocalizeTextAreaProps> = (args) => {
   const children = args.children;
   const localize = {
     primaryColor: args.primaryColor,
@@ -141,18 +146,18 @@ const IntentInputes: Story<LocalizeInputProps> = (args) => {
       {storiesIntentOptions.map((intent) => (
         <LocalizeCol md={8} key={intent}>
           <h2>{intent}</h2>
-          <LocalizeInput {...args} intent={intent} localize={localize}>
+          <LocalizeTextArea {...args} intent={intent} localize={localize}>
             {children}
-          </LocalizeInput>
+          </LocalizeTextArea>
         </LocalizeCol>
       ))}
     </LocalizeRow>
   );
 };
 
-export const IntentInputesStories = IntentInputes.bind({});
-IntentInputesStories.args = {
-  defaultValue: 'LocalizeInput',
+export const IntentTextAreaesStories = IntentTextAreaes.bind({});
+IntentTextAreaesStories.args = {
+  defaultValue: 'LocalizeTextArea',
   rounded: true,
   disabled: false,
   placeholder: 'Placeholder'

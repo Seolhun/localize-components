@@ -8,6 +8,7 @@ import {
   LocalizeScale,
   LocalizeIntentThemeType,
   getLocalizeHeightScaleBy,
+  getLocalizeFontScaleBy,
 } from '@seolhun/localize-components-styled-types';
 
 import { getLocalizeIntentColor } from './getLocalizeIntentColor';
@@ -35,7 +36,7 @@ export interface LocalizeInputProps extends ExtentionProps {
   rounded?: boolean;
 }
 
-const LocalizeInputWrapper = styled.div<LocalizeInputProps, LocalizeThemeProps>(
+const StyledInput = styled.input<LocalizeInputProps, LocalizeThemeProps>(
   ({
     theme,
     scale = 'md',
@@ -51,29 +52,26 @@ const LocalizeInputWrapper = styled.div<LocalizeInputProps, LocalizeThemeProps>(
     const localizedColor = getLocalizeIntentColor(theme, intent, localize);
     const { primaryColor, neutralColor, fontColor, inversedFontColor } = localizedColor;
     const localizeScale = getLocalizeHeightScaleBy(scale);
+    const localizeFontScale = getLocalizeFontScaleBy(scale);
 
     return {
-      backgroundColor: fontColor,
-      border: `1px solid ${neutralColor}`,
-      borderRadius: rounded ? '6px' : '0',
+      height: `${localizeScale}rem`,
+      margin: 0,
       padding: '0 10px',
-      outline: 'none',
+      fontSize: `${localizeFontScale}rem`,
+      lineHeight: `${localizeFontScale}rem`,
+      color: inversedFontColor,
+      backgroundColor: fontColor,
+      borderRadius: rounded ? '6px' : '0',
+      border: `1px solid ${neutralColor}`,
       // WARNING: Not support IE
-      caretColor: theme.colors.primary,
+      caretColor: primaryColor,
       // for Safari boxShadow
-      boxShadow: 'none !important',
+      boxShadow: 'none',
       WebkitAppearance: 'none',
+      outline: 'none',
 
-      [`.${CLASSNAME}__Container`]: {
-        width: '100%',
-        height: `${localizeScale}rem`,
-      },
-
-      [`.${CLASSNAME}`]: {
-        color: inversedFontColor,
-      },
-
-      [`.${CLASSNAME}::placeholder`]: {
+      [`&::placeholder`]: {
         color: neutralColor,
       },
 
@@ -83,59 +81,40 @@ const LocalizeInputWrapper = styled.div<LocalizeInputProps, LocalizeThemeProps>(
       },
 
       // Focus
-      [`&:focus-within`]: {
+      [`&:focus`]: {
         borderColor: primaryColor,
       },
 
       // Active
-      [`.${CLASSNAME}:not(:disabled):active`]: {
+      [`&:not(:disabled):active`]: {
         borderColor: primaryColor,
       },
 
       // Readonly - Disabled
-      [`.${CLASSNAME}:read-only, ${CLASSNAME}:disabled`]: {
+      [`&:read-only, &:disabled`]: {
         backgroundColor: theme.colors.disabled,
-        borderColor: theme.colors.neutral5,
+        borderColor: theme.colors.disabled,
+        color: theme.colors.inversed7,
+      },
+
+      [`&:disabled`]: {
+        cursor: 'not-allowed',
       },
     };
   },
 );
 
-const LocalizeInputContainer = styled.div(() => {
-  return {};
-});
-
-const StyledInput = styled.input<InputProps, LocalizeThemeProps>(({ theme }) => {
-  return {
-    width: '100%',
-    height: '100%',
-    backgroundColor: 'transparent',
-    margin: 0,
-    padding: 0,
-    border: 0,
-    outline: 'none',
-    // WARNING: Not support IE
-    caretColor: theme.colors.primary,
-    // for Safari boxShadow
-    boxShadow: 'none !important',
-    WebkitAppearance: 'none',
-  };
-});
-
 const LocalizeInput = React.forwardRef<HTMLInputElement, LocalizeInputProps>(
   ({ className, scale = 'md', intent = 'primary', rounded, ...props }, ref) => {
     return (
-      <LocalizeInputWrapper
+      <StyledInput
         {...props}
-        className={`${CLASSNAME}__Wrapper`}
+        ref={ref}
+        className={classnames(CLASSNAME, className)}
         intent={intent}
         scale={scale}
         rounded={rounded}
-      >
-        <LocalizeInputContainer className={`${CLASSNAME}__Container`}>
-          <StyledInput {...props} ref={ref} className={classnames(CLASSNAME, className)} />
-        </LocalizeInputContainer>
-      </LocalizeInputWrapper>
+      />
     );
   },
 );

@@ -9,7 +9,7 @@ export default {
   title: 'Forms/LocalizeSwitch',
   component: LocalizeSwitch,
   argTypes: {
-    size: {
+    scale: {
       defaultValue: 'md',
       control: {
         type: 'select',
@@ -31,7 +31,7 @@ export default {
       },
     },
     neutralColor: {
-      defaultValue: 'neutral6',
+      defaultValue: 'inversed3',
       control: {
         type: 'select',
         options: storiesColorOptions,
