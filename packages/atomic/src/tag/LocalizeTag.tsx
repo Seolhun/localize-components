@@ -5,10 +5,10 @@ import { darken } from 'polished';
 
 import {
   getLocalizeIntentColor,
-  getLocalizePaddingSizeBy,
+  getLocalizePaddingScaleBy,
   LocalizeIntentThemeType,
   LocalizeProps,
-  LocalizeSize,
+  LocalizeScale,
   LocalizeStyleResponseType,
   LocalizeThemeProps,
 } from '@seolhun/localize-components-styled-types';
@@ -22,7 +22,7 @@ interface LocalizeLocalProps extends LocalizeProps {
    * Set this to change font color
    * @default md
    */
-  size?: LocalizeSize;
+  scale?: LocalizeScale;
 
   /**
    * Set this to change variant
@@ -32,7 +32,7 @@ interface LocalizeLocalProps extends LocalizeProps {
 
   /**
    * Set this to change intent color
-   * @default default
+   * @default primary
    */
   intent?: LocalizeIntentThemeType;
 }
@@ -86,19 +86,20 @@ function getLocalizeTagStyle(
 const StyledLocalizeTagWrapper = styled.div<LocalizeTagProps, LocalizeThemeProps>(
   ({
     theme,
-    size = 'md',
+    scale = 'md',
     variant = 'solid',
     intent = 'primary',
     localize = {
       primaryColor: 'primary',
       neutralColor: 'transparent',
       fontColor: 'inversed1',
-      inversedColor: 'inversed10',
+      inversedFontColor: 'inversed10',
     },
     rounded = true,
   }) => {
     const localizedColor = getLocalizeIntentColor(theme, intent, localize);
     const { primaryColor, neutralColor } = localizedColor;
+
     return {
       ...getLocalizeTagStyle(theme, variant, localizedColor),
       display: 'inline-flex',
@@ -106,7 +107,7 @@ const StyledLocalizeTagWrapper = styled.div<LocalizeTagProps, LocalizeThemeProps
       justifyContent: 'center',
       flexDirection: theme.rtl ? 'row-reverse' : 'row',
 
-      padding: getLocalizePaddingSizeBy(size),
+      padding: getLocalizePaddingScaleBy(scale),
       borderRadius: rounded ? '24px' : '0',
       textDecoration: 'none',
       outline: 'none',
@@ -132,10 +133,10 @@ const StyledLocalizeTagContainer = styled.span<LocalizeTagProps, LocalizeThemePr
   };
 });
 
-const LocalizeTag: React.FC<LocalizeTagProps> = ({ children, className, size, ...props }) => {
+const LocalizeTag: React.FC<LocalizeTagProps> = ({ children, className, scale, ...props }) => {
   return (
     <StyledLocalizeTagWrapper {...props} className={classnames(CLASSNAME, className)}>
-      <StyledLocalizeTagContainer size={size}>{children}</StyledLocalizeTagContainer>
+      <StyledLocalizeTagContainer scale={scale}>{children}</StyledLocalizeTagContainer>
     </StyledLocalizeTagWrapper>
   );
 };

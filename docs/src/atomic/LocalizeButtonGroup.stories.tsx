@@ -7,7 +7,7 @@ import {
   LocalizeButtonGroupProps,
 } from '../../../packages/atomic/dist';
 
-import { storiesSizeOptions } from '../controls';
+import { storiesScaleOptions } from '../controls';
 
 export default {
   title: 'Atomic/LocalizeButtonGroup',
@@ -20,11 +20,11 @@ export default {
         options: ['row', 'column'],
       },
     },
-    size: {
+    scale: {
       defaultValue: 'md',
       control: {
         type: 'select',
-        options: storiesSizeOptions,
+        options: storiesScaleOptions,
       },
     },
   },

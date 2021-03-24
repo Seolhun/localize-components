@@ -16,12 +16,12 @@ export const getLocalizeColor = (
     primaryColor = 'primary',
     neutralColor = 'transparent',
     fontColor = 'inversed1',
-    inversedColor = 'inversed10',
+    inversedFontColor = 'inversed10',
   } = localize;
   return {
     primaryColor: theme.colors[primaryColor],
-    neutralColor: theme.colors[neutralColor || neutralColor],
-    fontColor: isLightMode ? theme.colors[fontColor] : theme.colors[inversedColor],
-    inversedFontColor: isLightMode ? theme.colors[inversedColor] : theme.colors[fontColor],
+    neutralColor: theme.colors[neutralColor],
+    fontColor: isLightMode ? theme.colors[fontColor] : theme.colors[inversedFontColor],
+    inversedFontColor: isLightMode ? theme.colors[inversedFontColor] : theme.colors[fontColor],
   };
 };

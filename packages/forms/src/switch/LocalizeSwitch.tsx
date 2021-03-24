@@ -4,85 +4,110 @@ import styled from '@emotion/styled';
 import classnames from 'classnames';
 
 import {
-  getLocalizeIntentColor,
-  getLocalizeSizeBy,
+  getLocalizeScaleBy,
   LocalizeIntentThemeType,
   LocalizeProps,
-  LocalizeSize,
+  LocalizeScale,
   LocalizeThemeProps,
 } from '@seolhun/localize-components-styled-types';
 
-import { LocalizeFormWrapper } from '../wrapper';
-import { LocalizeFormStateProps } from '../LocalizeFormStateProps';
+import { getLocalizeIntentColor } from './getLocalizeIntentColor';
+import { transparentize } from 'polished';
 
 const CLASSNAME = '__Localize__Switch';
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
-type ExcludedInputProps = Omit<InputProps, 'size'>;
-interface LocalizeLocalProps extends LocalizeProps, LocalizeFormStateProps {
+type ExtentionProps = InputProps & LocalizeProps;
+
+export interface LocalizeSwitchProps extends ExtentionProps {
   /**
-   * Set this to change font color
+   * Set this to change scale
    * @default md
    */
-  size?: LocalizeSize;
+  scale?: LocalizeScale;
 
   /**
    * Set this to change intent color
-   * @default default
+   * @default primary
    */
   intent?: LocalizeIntentThemeType;
+
+  /**
+   * Set this to change rounded border-radius
+   */
+  rounded?: boolean;
 }
 
-type ExtentionProps = ExcludedInputProps & LocalizeLocalProps;
-export interface LocalizeSwitchProps extends ExtentionProps {}
-
-const LocalizeSwitchContainer = styled.div<LocalizeSwitchProps, LocalizeThemeProps>(
+const LocalizeSwitchWrapper = styled.div<LocalizeSwitchProps, LocalizeThemeProps>(
   ({
     theme,
-    size = 'md',
+    scale = 'md',
     intent = 'primary',
     localize = {
       primaryColor: 'primary',
-      neutralColor: 'neutral3',
+      neutralColor: 'inversed4',
       fontColor: 'inversed1',
-      inversedColor: 'inversed10',
+      inversedFontColor: 'inversed10',
     },
   }) => {
     const localizedColor = getLocalizeIntentColor(theme, intent, localize);
-    const { primaryColor, neutralColor, fontColor } = localizedColor;
-    const scale = getLocalizeSizeBy(size);
+    const { primaryColor, neutralColor } = localizedColor;
+    const localizeScale = getLocalizeScaleBy(scale);
 
     return {
       position: 'relative',
       display: 'inline-flex',
       alignItems: 'center',
-      width: `calc(${scale * 2}rem + 2px)`,
-      height: `calc(${scale}rem + 2px)`,
-      color: fontColor,
+      width: `${localizeScale * 2}rem`,
+      height: `${localizeScale}rem`,
       cursor: 'pointer',
       userSelect: 'none',
+      transition: 'all 0.4s',
 
       [`.${CLASSNAME}__Slider`]: {
-        backgroundColor: theme.colors.inversed1,
+        backgroundColor: neutralColor,
       },
       [`.${CLASSNAME}__Slider:before`]: {
-        content: '""',
-        position: 'absolute',
-        left: '1px',
-        top: '1px',
-        height: `${scale}rem`,
-        width: `${scale}rem`,
-        backgroundColor: neutralColor,
-        borderRadius: '50%',
-        transition: 'all 0.4s',
+        height: `calc(${localizeScale}rem - 6px)`,
+        width: `calc(${localizeScale}rem - 6px)`,
+        backgroundColor: theme.colors.neutral1,
+        border: `1px solid ${theme.colors.neutral3}`,
+      },
+
+      // Checked
+      [`input:checked + .${CLASSNAME}__Slider`]: {
+        backgroundColor: primaryColor,
       },
       [`input:checked + .${CLASSNAME}__Slider:before`]: {
-        backgroundColor: primaryColor,
-        boxShadow: `0 0 1px 2px ${neutralColor}`,
-        transform: `translateX(${scale}rem)`,
+        backgroundColor: theme.colors.neutral1,
+        borderColor: theme.colors.neutral3,
+        transform: `translateX(${localizeScale}rem)`,
+      },
+
+      // Disabled
+      [`input:not(:checked):disabled + .${CLASSNAME}__Slider`]: {
+        backgroundColor: transparentize(0.3, neutralColor),
+        cursor: 'not-allowed',
+      },
+      [`input:not(:checked):disabled + .${CLASSNAME}__Slider:before`]: {
+        backgroundColor: transparentize(0.3, theme.colors.neutral1),
+        borderColor: transparentize(0.3, theme.colors.neutral3),
+      },
+      // Checked Disable
+      [`input:disabled + .${CLASSNAME}__Slider`]: {
+        backgroundColor: transparentize(0.4, primaryColor),
+        cursor: 'not-allowed',
+      },
+      [`input:disabled + .${CLASSNAME}__Slider:before`]: {
+        backgroundColor: transparentize(0.4, theme.colors.neutral1),
+        borderColor: transparentize(0.4, theme.colors.neutral3),
       },
     };
   },
 );
+
+const LocalizeSwitchContainer = styled.div(() => {
+  return {};
+});
 
 const HidingInput = styled.input({
   position: 'absolute',
@@ -99,8 +124,14 @@ const StyledSlider = styled.span<LocalizeProps, LocalizeThemeProps>(() => {
     bottom: 0,
     left: 0,
     borderRadius: '35px',
-    cursor: 'pointer',
-    transition: 'all 0.4s',
+
+    '&:before': {
+      content: '""',
+      position: 'absolute',
+      left: '2px',
+      top: '2px',
+      borderRadius: '50%',
+    },
   };
 });
 
@@ -108,24 +139,19 @@ const StyledSlider = styled.span<LocalizeProps, LocalizeThemeProps>(() => {
  * TODO: Change theme key and values
  */
 const LocalizeSwitch = React.forwardRef<HTMLInputElement, LocalizeSwitchProps>(
-  ({ className, label, help, error, size = 'md', intent = 'primary', ...props }, ref) => {
+  ({ className, scale = 'md', intent = 'primary', ...props }, ref) => {
     return (
-      <LocalizeFormWrapper
+      <LocalizeSwitchWrapper
+        {...props}
         className={classnames(CLASSNAME, className)}
-        label={label}
-        help={help}
-        error={error}
+        intent={intent}
+        scale={scale}
       >
-        <LocalizeSwitchContainer
-          ref={ref}
-          className={`${CLASSNAME}__Container`}
-          intent={intent}
-          size={size}
-        >
+        <LocalizeSwitchContainer className={`${CLASSNAME}__Container`}>
           <HidingInput {...props} ref={ref} type="checkbox" />
           <StyledSlider className={`${CLASSNAME}__Slider`} />
         </LocalizeSwitchContainer>
-      </LocalizeFormWrapper>
+      </LocalizeSwitchWrapper>
     );
   },
 );

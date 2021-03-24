@@ -1,23 +1,16 @@
 import React from 'react';
 import { Global, css } from '@emotion/core';
 
-import { LocalizeContainer, LocalizeRow, LocalizeCol } from '../../packages/grid';
 import { LocalizeThemeProvider } from '../../packages/localize-components';
 
 const globalStyle = (theme) => css`
   html,
   body {
-    font-size: 14px;
+    font-size: 16px;
   }
 
-  .__Localize__Window__LockScroll {
-    overflow: hidden !important;
-  }
-
-  .__Localize__Container {
-    h2 {
-      color: ${theme.colors.inversed10};
-    }
+  h2 {
+    color: ${theme.colors.inversed10};
   }
 `;
 

@@ -75,7 +75,7 @@ export interface LocalizeTableProps<T = any> extends ExtentionProps {
 export interface LocalizeTableThemeProps extends LocalizeProps {
   /**
    * Set this to change variant
-   * @default default
+   * @default primary
    */
   intent?: LocalizeIntentThemeType;
 }
@@ -108,7 +108,7 @@ const LocalizeStyledTable = styled.div<LocalizeStyledTableProps, LocalizeThemePr
       primaryColor: 'primary',
       neutralColor: 'transparent',
       fontColor: 'inversed1',
-      inversedColor: 'inversed10',
+      inversedFontColor: 'inversed10',
     },
     fixedHeader,
     fixedTableHeight,

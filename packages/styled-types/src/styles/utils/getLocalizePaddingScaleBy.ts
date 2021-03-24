@@ -1,15 +1,12 @@
-import { LocalizeSize } from '../LocalizeSize';
+import { LocalizeScale } from '../LocalizeScale';
 
-export const getLocalizePaddingSizeBy = (size?: LocalizeSize) => {
-  switch (size) {
+export const getLocalizePaddingScaleBy = (scale?: LocalizeScale) => {
+  switch (scale) {
     case 'xl': {
       return '1.4rem 1.6rem';
     }
     case 'lg': {
       return '1.2rem 1.4rem';
-    }
-    case 'md': {
-      return '0.8rem 1rem';
     }
     case 'sm': {
       return '0.6rem 0.8rem';

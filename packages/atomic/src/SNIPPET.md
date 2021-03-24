@@ -6,8 +6,10 @@ import styled from '@emotion/styled';
 import classnames from 'classnames';
 import {
   getLocalizeIntentColor,
+  getLocalizeScaleBy,
   LocalizeIntentThemeType,
   LocalizeProps,
+  LocalizeScale,
   LocalizeThemeProps,
 } from '@seolhun/localize-components-styled-types';
 
@@ -17,22 +19,37 @@ type ExtentionProps = LocalizeProps & DivProps;
 
 export interface LocalizeSomethingProps extends ExtentionProps {
   /**
+   * Set this to change scale
+   * @default md
+   */
+  scale?: LocalizeScale;
+
+  /**
    * Set this to change intent color
-   * @default default
+   * @default primary
    */
   intent?: LocalizeIntentThemeType;
+
+  /**
+   * Set this to change rounded border-radius
+   */
+  rounded?: boolean;
 }
 
 const LocalizeSomethingWrapper = styled.div<LocalizeProps, LocalizeThemeProps>(({
   theme,
+  scale = 'md',
+  intent = 'primary',
   localize = {
     primaryColor: 'primary',
-    neutralColor: 'transparent',
+    neutralColor: 'inversed9',
     fontColor: 'inversed1',
+    inversedFontColor: 'inversed10',
   },
 }) => {
   const localizedColor = getLocalizeIntentColor(theme, intent, localize);
-  const { primaryColor, neutralColor, fontColor } = localizedColor;
+  const { primaryColor, inversedFontColor } = localizedColor;
+  const localizeScale = getLocalizeScaleBy(scale);
 
   return {
     backgroundColor: primaryColor,

@@ -5,7 +5,6 @@ import { LocalizeThemeProps } from '../../packages/styled-types';
 interface Props {
   theme: LocalizeThemeProps;
   options?: any;
-  isStorybookTheme?: boolean;
 }
 
 const getStorybookThemeFromLocalize = (theme: LocalizeThemeProps) => {

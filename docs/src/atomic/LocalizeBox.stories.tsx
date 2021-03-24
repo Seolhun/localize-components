@@ -38,7 +38,7 @@ export default {
         options: storiesColorOptions,
       },
     },
-    inversedColor: {
+    inversedFontColor: {
       defaultValue: 'inversed10',
       control: {
         type: 'select',
@@ -63,31 +63,31 @@ const BoxSizes: Story<LocalizeBoxProps> = (args) => {
       <LocalizeRow>
         <LocalizeCol>
           <h2>xl</h2>
-          <LocalizeBox {...args} size="xl">
+          <LocalizeBox {...args} scale="xl">
             {children}
           </LocalizeBox>
         </LocalizeCol>
         <LocalizeCol>
           <h2>lg</h2>
-          <LocalizeBox {...args} size="lg">
+          <LocalizeBox {...args} scale="lg">
             {children}
           </LocalizeBox>
         </LocalizeCol>
         <LocalizeCol>
           <h2>md</h2>
-          <LocalizeBox {...args} size="md">
+          <LocalizeBox {...args} scale="md">
             {children}
           </LocalizeBox>
         </LocalizeCol>
         <LocalizeCol>
           <h2>sm</h2>
-          <LocalizeBox {...args} size="sm">
+          <LocalizeBox {...args} scale="sm">
             {children}
           </LocalizeBox>
         </LocalizeCol>
         <LocalizeCol>
           <h2>xs</h2>
-          <LocalizeBox {...args} size="xs">
+          <LocalizeBox {...args} scale="xs">
             {children}
           </LocalizeBox>
         </LocalizeCol>
@@ -108,7 +108,7 @@ const IntentBoxes: Story<LocalizeBoxProps> = (args) => {
     primaryColor: args.primaryColor,
     neutralColor: args.neutralColor,
     fontColor: args.fontColor,
-    inversedColor: args.inversedColor,
+    inversedFontColor: args.inversedFontColor,
   };
   return (
     <LocalizeRow>

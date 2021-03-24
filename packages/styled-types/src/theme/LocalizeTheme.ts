@@ -17,28 +17,24 @@ export type LocalizeThemeType = keyof typeof LocalizeThemeEnum;
 
 export interface LocalizeStyleProps {
   /**
-   * Set this to change background color
-   * @default primary
+   * Set this to change primary color
    */
   primaryColor?: keyof LocalizeThemeProps['colors'];
 
   /**
-   * Set this to change border color
-   * @default transparent
+   * Set this to change neutral color
    */
   neutralColor?: keyof LocalizeThemeProps['colors'];
 
   /**
    * Set this to change font color
-   * @default inversed1
    */
   fontColor?: keyof LocalizeThemeProps['colors'];
 
   /**
-   * Set this to change Inner font color
-   * @default inversed10
+   * Set this to change Inner inversed font color
    */
-  inversedColor?: keyof LocalizeThemeProps['colors'];
+  inversedFontColor?: keyof LocalizeThemeProps['colors'];
 }
 
 export interface LocalizeProps {
@@ -330,7 +326,7 @@ const localizeLightThemeColors: LocalizeThemeProps['colors'] = {
   /**
    * @name State
    */
-  disabled: '#F0F0F0',
+  disabled: '#D9D9D9',
   /**
    * @name Socials
    */
@@ -467,7 +463,7 @@ const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
   /**
    * @name State
    */
-  disabled: '#F0F0F0',
+  disabled: '#1F1F1F',
   /**
    * @name Socials
    */
@@ -497,7 +493,7 @@ export const localizeDarkTheme: LocalizeThemeProps = {
   fonts: localizeFonts,
   colors: localizeDarkThemeColors,
   layout: {
-    backgroundColor: '#13161F',
+    backgroundColor: '#0d1117',
     textColor: localizeDarkThemeColors.inversed10,
   },
 };

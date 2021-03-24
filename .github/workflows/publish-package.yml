@@ -37,7 +37,7 @@ jobs:
         run: npm run build --if-present
 
       - name: Publish package
-        run: npm run release
+        run: npm run release -y
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN }}
 
