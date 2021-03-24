@@ -3,13 +3,14 @@ import classnames from 'classnames';
 import styled from '@emotion/styled';
 
 import {
-  getLocalizeIntentColor,
   getLocalizeScaleBy,
   LocalizeIntentThemeType,
   LocalizeProps,
   LocalizeScale,
   LocalizeThemeProps,
 } from '@seolhun/localize-components-styled-types';
+
+import { getLocalizeIntentColor } from './getLocalizeIntentColor';
 
 const CLASSNAME = '__Localize__Checkbox';
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
@@ -45,7 +46,7 @@ const LocalizeCheckboxWrapper = styled.div<LocalizeCheckboxProps, LocalizeThemeP
     intent = 'primary',
     localize = {
       primaryColor: 'primary',
-      neutralColor: 'inversed9',
+      neutralColor: 'transparent',
       fontColor: 'inversed1',
       inversedColor: 'inversed10',
     },

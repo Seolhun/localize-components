@@ -52,9 +52,8 @@ const LocalizeInputWrapper = styled.div<LocalizeInputProps, LocalizeThemeProps>(
     const localizeScale = getLocalizeHeightScaleBy(scale);
 
     return {
-      color: fontColor,
-      backgroundColor: neutralColor,
-      border: `1px solid ${inversedFontColor}`,
+      backgroundColor: fontColor,
+      border: `1px solid ${neutralColor}`,
       borderRadius: rounded ? '6px' : '0',
       padding: '0 10px',
       outline: 'none',
@@ -67,6 +66,10 @@ const LocalizeInputWrapper = styled.div<LocalizeInputProps, LocalizeThemeProps>(
       [`.${CLASSNAME}__Container`]: {
         width: '100%',
         height: `${localizeScale}rem`,
+      },
+
+      [`.${CLASSNAME}`]: {
+        color: inversedFontColor,
       },
 
       [`.${CLASSNAME}::placeholder`]: {
