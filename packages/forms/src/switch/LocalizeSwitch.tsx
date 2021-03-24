@@ -4,13 +4,15 @@ import styled from '@emotion/styled';
 import classnames from 'classnames';
 
 import {
-  getLocalizeIntentColor,
   getLocalizeScaleBy,
   LocalizeIntentThemeType,
   LocalizeProps,
   LocalizeScale,
   LocalizeThemeProps,
 } from '@seolhun/localize-components-styled-types';
+
+import { getLocalizeIntentColor } from './getLocalizeIntentColor';
+import { transparentize } from 'polished';
 
 const CLASSNAME = '__Localize__Switch';
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
@@ -42,43 +44,62 @@ const LocalizeSwitchWrapper = styled.div<LocalizeSwitchProps, LocalizeThemeProps
     intent = 'primary',
     localize = {
       primaryColor: 'primary',
-      neutralColor: 'inversed3',
+      neutralColor: 'inversed4',
       fontColor: 'inversed1',
       inversedFontColor: 'inversed10',
     },
   }) => {
     const localizedColor = getLocalizeIntentColor(theme, intent, localize);
-    const { primaryColor, neutralColor, fontColor } = localizedColor;
+    const { primaryColor, neutralColor } = localizedColor;
     const localizeScale = getLocalizeScaleBy(scale);
 
     return {
       position: 'relative',
       display: 'inline-flex',
       alignItems: 'center',
-      width: `calc(${localizeScale * 2}rem + 2px)`,
-      height: `calc(${localizeScale}rem + 2px)`,
-      color: fontColor,
+      width: `${localizeScale * 2}rem`,
+      height: `${localizeScale}rem`,
       cursor: 'pointer',
       userSelect: 'none',
+      transition: 'all 0.4s',
 
       [`.${CLASSNAME}__Slider`]: {
-        backgroundColor: theme.colors.inversed1,
+        backgroundColor: neutralColor,
       },
       [`.${CLASSNAME}__Slider:before`]: {
-        content: '""',
-        position: 'absolute',
-        left: '1px',
-        top: '1px',
-        height: `${localizeScale}rem`,
-        width: `${localizeScale}rem`,
-        backgroundColor: neutralColor,
-        borderRadius: '50%',
-        transition: 'all 0.4s',
+        height: `calc(${localizeScale}rem - 6px)`,
+        width: `calc(${localizeScale}rem - 6px)`,
+        backgroundColor: theme.colors.neutral1,
+        border: `1px solid ${theme.colors.neutral3}`,
+      },
+
+      // Checked
+      [`input:checked + .${CLASSNAME}__Slider`]: {
+        backgroundColor: primaryColor,
       },
       [`input:checked + .${CLASSNAME}__Slider:before`]: {
-        backgroundColor: primaryColor,
-        boxShadow: `0 0 1px 2px ${neutralColor}`,
+        backgroundColor: theme.colors.neutral1,
+        borderColor: theme.colors.neutral3,
         transform: `translateX(${localizeScale}rem)`,
+      },
+
+      // Disabled
+      [`input:not(:checked):disabled + .${CLASSNAME}__Slider`]: {
+        backgroundColor: transparentize(0.3, neutralColor),
+        cursor: 'not-allowed',
+      },
+      [`input:not(:checked):disabled + .${CLASSNAME}__Slider:before`]: {
+        backgroundColor: transparentize(0.3, theme.colors.neutral1),
+        borderColor: transparentize(0.3, theme.colors.neutral3),
+      },
+      // Checked Disable
+      [`input:disabled + .${CLASSNAME}__Slider`]: {
+        backgroundColor: transparentize(0.4, primaryColor),
+        cursor: 'not-allowed',
+      },
+      [`input:disabled + .${CLASSNAME}__Slider:before`]: {
+        backgroundColor: transparentize(0.4, theme.colors.neutral1),
+        borderColor: transparentize(0.4, theme.colors.neutral3),
       },
     };
   },
@@ -103,7 +124,14 @@ const StyledSlider = styled.span<LocalizeProps, LocalizeThemeProps>(() => {
     bottom: 0,
     left: 0,
     borderRadius: '35px',
-    transition: 'all 0.4s',
+
+    '&:before': {
+      content: '""',
+      position: 'absolute',
+      left: '2px',
+      top: '2px',
+      borderRadius: '50%',
+    },
   };
 });
 
