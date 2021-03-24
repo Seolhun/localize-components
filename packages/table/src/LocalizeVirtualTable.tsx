@@ -176,8 +176,6 @@ function LocalizeVirtualTable<T>({
   const handleScroll = React.useCallback((props: ListOnScrollProps) => {
     // setScrollX(x);
     // setScrollY(y);
-
-    console.log('@@', props);
   }, []);
 
   const memoizedFixedTableHeight = React.useMemo(() => {

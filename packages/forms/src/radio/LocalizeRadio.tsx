@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 import classnames from 'classnames';
 
 import {
-  getLocalizeIntentColor,
   getLocalizeScaleBy,
   LocalizeIntentThemeType,
   LocalizeProps,
@@ -11,7 +10,7 @@ import {
   LocalizeThemeProps,
 } from '@seolhun/localize-components-styled-types';
 
-import { LocalizeFormStateProps } from '../LocalizeFormStateProps';
+import { getLocalizeIntentColor } from './getLocalizeIntentColor';
 
 const CLASSNAME = '__Localize__Radio';
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
@@ -47,7 +46,7 @@ const LocalizeRadioWrapper = styled.div<LocalizeRadioProps, LocalizeThemeProps>(
     intent = 'primary',
     localize = {
       primaryColor: 'primary',
-      neutralColor: 'inversed9',
+      neutralColor: 'transparent',
       fontColor: 'inversed1',
       inversedColor: 'inversed10',
     },
@@ -61,7 +60,10 @@ const LocalizeRadioWrapper = styled.div<LocalizeRadioProps, LocalizeThemeProps>(
       display: 'inline-flex',
       alignItems: 'center',
       cursor: 'pointer',
-      color: inversedFontColor,
+
+      [`.${CLASSNAME}__Label`]: {
+        color: inversedFontColor,
+      },
 
       [`.${CLASSNAME}__Checker`]: {
         width: `${localizeScale}rem`,
@@ -123,7 +125,7 @@ const LocalizeRadioWrapper = styled.div<LocalizeRadioProps, LocalizeThemeProps>(
   },
 );
 
-const LocalizeRadioLabel = styled.label<LocalizeFormStateProps, LocalizeThemeProps>(() => {
+const LocalizeRadioLabel = styled.label<{}, LocalizeThemeProps>(() => {
   return {
     position: 'relative',
     display: 'inline-flex',

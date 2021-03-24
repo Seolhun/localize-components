@@ -4,7 +4,6 @@ import {
   LocalizeThemeProps,
 } from '@seolhun/localize-components-styled-types';
 
-
 export function getLocalizeIntentColor(
   theme: LocalizeThemeProps,
   intent: LocalizeIntentThemeType,

@@ -20,7 +20,7 @@ export const getLocalizeColor = (
   } = localize;
   return {
     primaryColor: theme.colors[primaryColor],
-    neutralColor: theme.colors[neutralColor || neutralColor],
+    neutralColor: theme.colors[neutralColor],
     fontColor: isLightMode ? theme.colors[fontColor] : theme.colors[inversedColor],
     inversedFontColor: isLightMode ? theme.colors[inversedColor] : theme.colors[fontColor],
   };

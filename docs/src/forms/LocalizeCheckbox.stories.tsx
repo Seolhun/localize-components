@@ -25,14 +25,14 @@ export default {
       },
     },
     primaryColor: {
-      defaultValue: 'kakao',
+      defaultValue: 'primary',
       control: {
         type: 'select',
         options: storiesColorOptions,
       },
     },
     neutralColor: {
-      defaultValue: 'inversed9',
+      defaultValue: 'transparent',
       control: {
         type: 'select',
         options: storiesColorOptions,
