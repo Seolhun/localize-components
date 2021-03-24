@@ -12,15 +12,13 @@ import {
   LocalizeThemeProps,
 } from '@seolhun/localize-components-styled-types';
 
-import { LocalizeFormWrapper } from '../wrapper';
-import { LocalizeFormStateProps } from '../LocalizeFormStateProps';
-
 const CLASSNAME = '__Localize__Switch';
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
-type ExcludedInputProps = Omit<InputProps, 'size'>;
-interface LocalizeLocalProps extends LocalizeProps, LocalizeFormStateProps {
+type ExtentionProps = InputProps & LocalizeProps;
+
+export interface LocalizeSwitchProps extends ExtentionProps {
   /**
-   * Set this to change font color
+   * Set this to change scale
    * @default md
    */
   scale?: LocalizeScale;
@@ -30,19 +28,21 @@ interface LocalizeLocalProps extends LocalizeProps, LocalizeFormStateProps {
    * @default primary
    */
   intent?: LocalizeIntentThemeType;
+
+  /**
+   * Set this to change rounded border-radius
+   */
+  rounded?: boolean;
 }
 
-type ExtentionProps = ExcludedInputProps & LocalizeLocalProps;
-export interface LocalizeSwitchProps extends ExtentionProps {}
-
-const LocalizeSwitchContainer = styled.div<LocalizeSwitchProps, LocalizeThemeProps>(
+const LocalizeSwitchWrapper = styled.div<LocalizeSwitchProps, LocalizeThemeProps>(
   ({
     theme,
     scale = 'md',
     intent = 'primary',
     localize = {
       primaryColor: 'primary',
-      neutralColor: 'neutral3',
+      neutralColor: 'inversed3',
       fontColor: 'inversed1',
       inversedFontColor: 'inversed10',
     },
@@ -78,11 +78,15 @@ const LocalizeSwitchContainer = styled.div<LocalizeSwitchProps, LocalizeThemePro
       [`input:checked + .${CLASSNAME}__Slider:before`]: {
         backgroundColor: primaryColor,
         boxShadow: `0 0 1px 2px ${neutralColor}`,
-        transform: `translateX(${scale}rem)`,
+        transform: `translateX(${localizeScale}rem)`,
       },
     };
   },
 );
+
+const LocalizeSwitchContainer = styled.div(() => {
+  return {};
+});
 
 const HidingInput = styled.input({
   position: 'absolute',
@@ -108,24 +112,19 @@ const StyledSlider = styled.span<LocalizeProps, LocalizeThemeProps>(() => {
  * TODO: Change theme key and values
  */
 const LocalizeSwitch = React.forwardRef<HTMLInputElement, LocalizeSwitchProps>(
-  ({ className, label, help, error, scale = 'md', intent = 'primary', ...props }, ref) => {
+  ({ className, scale = 'md', intent = 'primary', ...props }, ref) => {
     return (
-      <LocalizeFormWrapper
+      <LocalizeSwitchWrapper
+        {...props}
         className={classnames(CLASSNAME, className)}
-        label={label}
-        help={help}
-        error={error}
+        intent={intent}
+        scale={scale}
       >
-        <LocalizeSwitchContainer
-          ref={ref}
-          className={`${CLASSNAME}__Container`}
-          intent={intent}
-          scale={scale}
-        >
+        <LocalizeSwitchContainer className={`${CLASSNAME}__Container`}>
           <HidingInput {...props} ref={ref} type="checkbox" />
           <StyledSlider className={`${CLASSNAME}__Slider`} />
         </LocalizeSwitchContainer>
-      </LocalizeFormWrapper>
+      </LocalizeSwitchWrapper>
     );
   },
 );
