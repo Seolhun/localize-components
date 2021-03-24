@@ -5,11 +5,12 @@ import classnames from 'classnames';
 import {
   LocalizeProps,
   LocalizeThemeProps,
-  getLocalizeIntentColor,
   LocalizeScale,
   LocalizeIntentThemeType,
   getLocalizeHeightScaleBy,
 } from '@seolhun/localize-components-styled-types';
+
+import { getLocalizeIntentColor } from './getLocalizeIntentColor';
 
 const CLASSNAME = '__Localize__Input';
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
@@ -41,9 +42,9 @@ const LocalizeInputWrapper = styled.div<LocalizeInputProps, LocalizeThemeProps>(
     intent = 'primary',
     localize = {
       primaryColor: 'primary',
-      neutralColor: 'inversed9',
+      neutralColor: 'inversed3',
       fontColor: 'inversed1',
-      inversedColor: 'inversed10',
+      inversedFontColor: 'inversed10',
     },
     rounded,
   }) => {

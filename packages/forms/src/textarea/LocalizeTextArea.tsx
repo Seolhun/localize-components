@@ -62,7 +62,7 @@ const LocalizeTextAreaWrapper = styled.div<LocalizeTextAreaWrapperProps, Localiz
       primaryColor: 'primary',
       neutralColor: 'inversed9',
       fontColor: 'inversed1',
-      inversedColor: 'inversed10',
+      inversedFontColor: 'inversed10',
     },
     rounded,
   }) => {

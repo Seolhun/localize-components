@@ -45,7 +45,7 @@ export default {
         options: storiesColorOptions,
       },
     },
-    inversedColor: {
+    inversedFontColor: {
       defaultValue: 'inversed10',
       control: {
         type: 'select',
@@ -114,7 +114,7 @@ const IntentTags: Story<LocalizeTagProps> = (args) => {
     primaryColor: args.primaryColor,
     neutralColor: args.neutralColor,
     fontColor: args.fontColor,
-    inversedColor: args.inversedColor,
+    inversedFontColor: args.inversedFontColor,
   };
   return (
     <LocalizeRow>

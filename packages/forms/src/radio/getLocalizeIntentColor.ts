@@ -14,13 +14,13 @@ export function getLocalizeIntentColor(
       primaryColor = 'primary',
       neutralColor = 'transparent',
       fontColor = 'inversed1',
-      inversedColor = 'inversed10',
+      inversedFontColor = 'inversed10',
     } = localize;
     return {
       primaryColor: theme.colors[primaryColor],
       neutralColor: theme.colors[neutralColor],
       fontColor: theme.colors[fontColor],
-      inversedFontColor: theme.colors[inversedColor],
+      inversedFontColor: theme.colors[inversedFontColor],
     };
   }
 

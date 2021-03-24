@@ -93,7 +93,7 @@ const StyledLocalizeButton = styled.button<LocalizeButtonProps, LocalizeThemePro
       primaryColor: 'primary',
       neutralColor: 'transparent',
       fontColor: 'inversed1',
-      inversedColor: 'inversed10',
+      inversedFontColor: 'inversed10',
     },
     rounded = true,
   }) => {

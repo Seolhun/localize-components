@@ -44,7 +44,7 @@ const LocalizeSomethingWrapper = styled.div<LocalizeProps, LocalizeThemeProps>((
     primaryColor: 'primary',
     neutralColor: 'inversed9',
     fontColor: 'inversed1',
-    inversedColor: 'inversed10',
+    inversedFontColor: 'inversed10',
   },
 }) => {
   const localizedColor = getLocalizeIntentColor(theme, intent, localize);

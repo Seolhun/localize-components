@@ -45,7 +45,7 @@ export default {
         options: storiesColorOptions,
       },
     },
-    inversedColor: {
+    inversedFontColor: {
       defaultValue: 'inversed10',
       control: {
         type: 'select',
@@ -61,7 +61,7 @@ const Checkbox: Story<LocalizeCheckboxProps> = (args) => {
     primaryColor: args.primaryColor,
     neutralColor: args.neutralColor,
     fontColor: args.fontColor,
-    inversedColor: args.inversedColor,
+    inversedFontColor: args.inversedFontColor,
   };
   return (
     <LocalizeCheckbox {...args} localize={localize}>
@@ -84,7 +84,7 @@ const ScaleCheckboxs: Story<LocalizeCheckboxProps> = (args) => {
     primaryColor: args.primaryColor,
     neutralColor: args.neutralColor,
     fontColor: args.fontColor,
-    inversedColor: args.inversedColor,
+    inversedFontColor: args.inversedFontColor,
   };
   return (
     <LocalizeRow>
@@ -137,7 +137,7 @@ const IntentCheckboxes: Story<LocalizeCheckboxProps> = (args) => {
     primaryColor: args.primaryColor,
     neutralColor: args.neutralColor,
     fontColor: args.fontColor,
-    inversedColor: args.inversedColor,
+    inversedFontColor: args.inversedFontColor,
   };
   return (
     <LocalizeRow>

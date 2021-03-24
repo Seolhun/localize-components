@@ -42,7 +42,7 @@ export default {
         options: storiesColorOptions,
       },
     },
-    inversedColor: {
+    inversedFontColor: {
       defaultValue: 'inversed10',
       control: {
         type: 'select',
@@ -96,7 +96,7 @@ const VirtualTable: Story<LocalizeVirtualTableProps<TableDummyProps>> = (args) =
     primaryColor: args.primaryColor,
     neutralColor: args.neutralColor,
     fontColor: args.fontColor,
-    inversedColor: args.inversedColor,
+    inversedFontColor: args.inversedFontColor,
   };
 
   const onClick = React.useCallback((data: TableDummyProps, rowIndex: number) => {

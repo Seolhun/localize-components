@@ -24,14 +24,14 @@ export default {
       },
     },
     primaryColor: {
-      defaultValue: 'kakao',
+      defaultValue: 'primary',
       control: {
         type: 'select',
         options: storiesColorOptions,
       },
     },
     neutralColor: {
-      defaultValue: 'inversed9',
+      defaultValue: 'inversed3',
       control: {
         type: 'select',
         options: storiesColorOptions,
@@ -44,7 +44,7 @@ export default {
         options: storiesColorOptions,
       },
     },
-    inversedColor: {
+    inversedFontColor: {
       defaultValue: 'inversed10',
       control: {
         type: 'select',
@@ -60,7 +60,7 @@ const Input: Story<LocalizeInputProps> = (args) => {
     primaryColor: args.primaryColor,
     neutralColor: args.neutralColor,
     fontColor: args.fontColor,
-    inversedColor: args.inversedColor,
+    inversedFontColor: args.inversedFontColor,
   };
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {

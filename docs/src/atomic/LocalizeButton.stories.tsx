@@ -52,7 +52,7 @@ export default {
         options: storiesColorOptions,
       },
     },
-    inversedColor: {
+    inversedFontColor: {
       defaultValue: 'inversed10',
       control: {
         type: 'select',
@@ -68,7 +68,7 @@ const Button: Story<LocalizeButtonProps> = (args) => {
     primaryColor: args.primaryColor,
     neutralColor: args.neutralColor,
     fontColor: args.fontColor,
-    inversedColor: args.inversedColor,
+    inversedFontColor: args.inversedFontColor,
   };
   return (
     <LocalizeButton {...args} localize={localize}>
@@ -90,7 +90,7 @@ const ScaleButtons: Story<LocalizeButtonProps> = (args) => {
     primaryColor: args.primaryColor,
     neutralColor: args.neutralColor,
     fontColor: args.fontColor,
-    inversedColor: args.inversedColor,
+    inversedFontColor: args.inversedFontColor,
   };
   return (
     <LocalizeRow>
@@ -141,7 +141,7 @@ const IntentButtons: Story<LocalizeButtonProps> = (args) => {
     primaryColor: args.primaryColor,
     neutralColor: args.neutralColor,
     fontColor: args.fontColor,
-    inversedColor: args.inversedColor,
+    inversedFontColor: args.inversedFontColor,
   };
   return (
     <LocalizeRow>

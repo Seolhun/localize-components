@@ -48,7 +48,7 @@ const LocalizeRadioWrapper = styled.div<LocalizeRadioProps, LocalizeThemeProps>(
       primaryColor: 'primary',
       neutralColor: 'transparent',
       fontColor: 'inversed1',
-      inversedColor: 'inversed10',
+      inversedFontColor: 'inversed10',
     },
     rounded,
   }) => {

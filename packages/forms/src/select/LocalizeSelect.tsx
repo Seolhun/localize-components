@@ -101,7 +101,7 @@ const LocalizeSelectInputWrapper = styled.div<LocalizeLocalProps, LocalizeThemeP
       primaryColor: 'primary',
       neutralColor: 'transparent',
       fontColor: 'inversed1',
-      inversedColor: 'inversed10',
+      inversedFontColor: 'inversed10',
     },
   }) => {
     const localizedColor = getLocalizeIntentColor(theme, intent, localize);

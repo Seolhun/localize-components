@@ -108,7 +108,7 @@ const LocalizeStyledTable = styled.div<LocalizeStyledTableProps, LocalizeThemePr
       primaryColor: 'primary',
       neutralColor: 'transparent',
       fontColor: 'inversed1',
-      inversedColor: 'inversed10',
+      inversedFontColor: 'inversed10',
     },
     fixedHeader,
     fixedTableHeight,

@@ -44,7 +44,7 @@ const LocalizeSwitchContainer = styled.div<LocalizeSwitchProps, LocalizeThemePro
       primaryColor: 'primary',
       neutralColor: 'neutral3',
       fontColor: 'inversed1',
-      inversedColor: 'inversed10',
+      inversedFontColor: 'inversed10',
     },
   }) => {
     const localizedColor = getLocalizeIntentColor(theme, intent, localize);
