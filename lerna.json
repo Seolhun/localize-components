@@ -8,6 +8,11 @@
     "directory": "dist"
   },
   "command": {
+    "version": {
+      "allowBranch": [
+        "master"
+      ]
+    },
     "publish": {
       "allowBranch": [
         "master",

@@ -76,10 +76,8 @@ Default.args = {
   defaultValue: 'LocalizeTextArea',
   rounded: true,
   disabled: false,
-  placeholder: 'Placeholder'
+  placeholder: 'Placeholder',
 };
-
-
 
 const ScaleTextAreas: Story<LocalizeTextAreaProps> = (args) => {
   const children = args.children;
@@ -130,7 +128,7 @@ ScaleTextAreasStories.args = {
   defaultValue: 'LocalizeTextArea',
   rounded: true,
   disabled: false,
-  placeholder: 'Placeholder'
+  placeholder: 'Placeholder',
 };
 
 const IntentTextAreaes: Story<LocalizeTextAreaProps> = (args) => {
@@ -160,5 +158,5 @@ IntentTextAreaesStories.args = {
   defaultValue: 'LocalizeTextArea',
   rounded: true,
   disabled: false,
-  placeholder: 'Placeholder'
+  placeholder: 'Placeholder',
 };

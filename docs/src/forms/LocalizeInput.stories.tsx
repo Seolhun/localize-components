@@ -71,10 +71,8 @@ Default.args = {
   defaultValue: 'LocalizeInput',
   rounded: true,
   disabled: false,
-  placeholder: 'Placeholder'
+  placeholder: 'Placeholder',
 };
-
-
 
 const ScaleInputs: Story<LocalizeInputProps> = (args) => {
   const children = args.children;
@@ -125,7 +123,7 @@ ScaleInputsStories.args = {
   defaultValue: 'LocalizeInput',
   rounded: true,
   disabled: false,
-  placeholder: 'Placeholder'
+  placeholder: 'Placeholder',
 };
 
 const IntentInputes: Story<LocalizeInputProps> = (args) => {
@@ -155,5 +153,5 @@ IntentInputesStories.args = {
   defaultValue: 'LocalizeInput',
   rounded: true,
   disabled: false,
-  placeholder: 'Placeholder'
+  placeholder: 'Placeholder',
 };
