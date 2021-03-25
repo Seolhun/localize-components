@@ -1,8 +1,10 @@
 name: Github Build
 
 on:
-  pull_request:
-    branches: [/^release/.*$/, /^feature/.*$/, /^hotfix/.*$/, /^synk/.*$/]
+  push:
+    branches: [master, develop]
+    paths-ignore:
+      - '**/*.md'
 env:
   CI: true
 jobs:
@@ -34,6 +36,12 @@ jobs:
 
       - name: Test
         run: npm run test
+
+      - name: Build
+        run: npm run build --if-present
+
+      - name: Docs Deploy
+        run: ./bin/docs-ci.sh
 
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
