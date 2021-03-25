@@ -39,7 +39,14 @@ jobs:
       - name: Publish package
         run: npm run release -y
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: "Build Changelog"
+        uses: mikepenz/release-changelog-builder-action@{latest-release}
+        with:
+          configuration: "configuration.json"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
