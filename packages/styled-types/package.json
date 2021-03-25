@@ -28,8 +28,6 @@
   "peerDependencies": {
     "react": "^16.13.1"
   },
-  "dependencies": {},
-  "devDependencies": {},
   "engines": {
     "node": ">= 6.0.0",
     "npm": ">= 3.0.0"
