@@ -7,7 +7,7 @@
 	},
 	"name": "@seolhun/localize-components-hooks",
 	"description": "Localizing React components hooks",
-	"version": "0.6.2-alpha.0",
+	"version": "0.6.5",
 	"main": "dist/index.js",
 	"module": "dist/index.esm.js",
 	"files": [
