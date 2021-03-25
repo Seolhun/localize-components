@@ -7,7 +7,7 @@
   },
   "name": "@seolhun/localize-components-grid",
   "description": "Localizing React components to render Grid for arragement",
-  "version": "0.6.1-alpha.0",
+  "version": "0.6.2-alpha.0",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "files": [
@@ -33,7 +33,7 @@
     "react-dom": "^16.14.0"
   },
   "dependencies": {
-    "@seolhun/localize-components-styled-types": "^0.6.1-alpha.0",
+    "@seolhun/localize-components-styled-types": "^0.6.2-alpha.0",
     "polished": "^3.6.7"
   },
   "engines": {

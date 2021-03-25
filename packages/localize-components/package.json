@@ -7,7 +7,7 @@
   },
   "name": "@seolhun/localize-components",
   "description": "Localizing React components is rendered by stand-alone not affect other styles.",
-  "version": "0.6.1-alpha.0",
+  "version": "0.6.2-alpha.0",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "files": [
@@ -35,13 +35,13 @@
     "react-spring": "^8.0.27"
   },
   "dependencies": {
-    "@seolhun/localize-components-atomic": "^0.6.1-alpha.0",
-    "@seolhun/localize-components-forms": "^0.6.1-alpha.0",
-    "@seolhun/localize-components-grid": "^0.6.1-alpha.0",
-    "@seolhun/localize-components-hooks": "^0.6.1-alpha.0",
-    "@seolhun/localize-components-icon": "^0.6.1-alpha.0",
-    "@seolhun/localize-components-styled-types": "^0.6.1-alpha.0",
-    "@seolhun/localize-components-table": "^0.6.1-alpha.0"
+    "@seolhun/localize-components-atomic": "^0.6.2-alpha.0",
+    "@seolhun/localize-components-forms": "^0.6.2-alpha.0",
+    "@seolhun/localize-components-grid": "^0.6.2-alpha.0",
+    "@seolhun/localize-components-hooks": "^0.6.2-alpha.0",
+    "@seolhun/localize-components-icon": "^0.6.2-alpha.0",
+    "@seolhun/localize-components-styled-types": "^0.6.2-alpha.0",
+    "@seolhun/localize-components-table": "^0.6.2-alpha.0"
   },
   "engines": {
     "node": ">= 6.0.0",
