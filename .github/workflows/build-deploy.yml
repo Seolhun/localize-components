@@ -42,7 +42,7 @@ jobs:
         run: npm run build --if-present
 
       - name: Docs Deploy
-        run: ./bin/docs-ci.sh
+        run: ./bin/docs-deploy.sh
 
       - name: Slack Notification
         uses: rtCamp/action-slack-notify@v2
