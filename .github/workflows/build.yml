@@ -3,8 +3,7 @@ name: Github Build
 on:
   pull_request:
     branches: [/^release/.*$/, /^feature/.*$/, /^hotfix/.*$/, /^synk/.*$/]
-env:
-  CI: true
+
 jobs:
   build:
     runs-on: ubuntu-latest
