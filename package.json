@@ -35,7 +35,7 @@
     "test": "lerna run test",
     "bs": "lerna bootstrap --force-local",
     "version": "lerna version --yes",
-    "release": "lerna publish --yes",
+    "release": "lerna publish from-package --yes",
     "lint": "lerna run lint",
     "lint:fix": "lerna run lint:fix",
     "prettier": "prettier --write '**/*.{ts,tsx,js,jsx}'",
@@ -117,6 +117,7 @@
     "packages/*"
   ],
   "publishConfig": {
+    "registry":"https://npm.pkg.github.com",
     "access": "public",
     "directory": "dist"
   },

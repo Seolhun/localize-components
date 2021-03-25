@@ -7,7 +7,7 @@
   },
   "name": "@seolhun/localize-components-icon",
   "description": "Localizing React components to render Grid for arragement",
-  "version": "0.6.0-alpha.0",
+  "version": "0.6.1-alpha.0",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "files": [
@@ -36,7 +36,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/react-fontawesome": "^0.1.12",
-    "@seolhun/localize-components-styled-types": "^0.6.0-alpha.0",
+    "@seolhun/localize-components-styled-types": "^0.6.1-alpha.0",
     "polished": "^3.6.7"
   },
   "engines": {
@@ -46,5 +46,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "e141282ad4d71ac85356a036a423576276d88841"
+  "gitHead": "d62af4124a68b57f743888610fa421e8ae2a7823"
 }
