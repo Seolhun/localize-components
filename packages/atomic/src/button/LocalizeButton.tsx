@@ -5,25 +5,24 @@ import { darken } from 'polished';
 
 import {
   getLocalizeIntentColor,
-  getLocalizePaddingSizeBy,
+  getLocalizePaddingScaleBy,
   LocalizeIntentThemeType,
   LocalizeProps,
-  LocalizeSize,
+  LocalizeScale,
   LocalizeStyleResponseType,
   LocalizeThemeProps,
 } from '@seolhun/localize-components-styled-types';
 
 const CLASSNAME = '__Localize__Button';
-type ButtonProps = React.HTMLAttributes<HTMLButtonElement>;
-type ExtentionProps = LocalizeProps & ButtonProps;
-type LocalizeButtonVariantType = 'solid' | 'outline';
 
-export interface LocalizeButtonProps extends ExtentionProps {
+type ButtonProps = React.HTMLAttributes<HTMLButtonElement>;
+type LocalizeButtonVariantType = 'solid' | 'outline';
+interface LocalizeLocalProps extends LocalizeProps {
   /**
-   * Set this to change font color
+   * Set this to change scale
    * @default md
    */
-  size?: LocalizeSize;
+  scale?: LocalizeScale;
 
   /**
    * Set this to change variant
@@ -33,46 +32,51 @@ export interface LocalizeButtonProps extends ExtentionProps {
 
   /**
    * Set this to change intent color
-   * @default default
+   * @default primary
    */
   intent?: LocalizeIntentThemeType;
+}
 
+type ExtentionProps = ButtonProps & LocalizeLocalProps;
+
+export interface LocalizeButtonProps extends ExtentionProps {
   /**
    * Set this to change rounded border-radius
+   * @default true
    */
   rounded?: boolean;
 }
 
 function getLocalizeButtonVariantStyle(
-  _theme: LocalizeThemeProps,
+  theme: LocalizeThemeProps,
   variant: LocalizeButtonVariantType,
   localizedColor: LocalizeStyleResponseType,
 ) {
-  const { backgroundColor, borderColor, innerColor } = localizedColor;
+  const { primaryColor, neutralColor, fontColor } = localizedColor;
   switch (variant) {
     case 'outline': {
       return {
-        color: backgroundColor,
-        backgroundColor: borderColor,
-        border: `1px solid ${backgroundColor}`,
+        color: primaryColor,
+        backgroundColor: theme.colors.transparent,
+        border: `1px solid ${primaryColor}`,
 
         '&:hover, &:active': {
-          color: innerColor,
-          backgroundColor,
-          border: `1px solid ${borderColor}`,
+          color: fontColor,
+          backgroundColor: primaryColor,
+          border: `1px solid ${neutralColor}`,
         },
       };
     }
     default: {
       return {
-        color: innerColor,
-        backgroundColor,
-        border: `1px solid ${borderColor}`,
+        color: fontColor,
+        backgroundColor: primaryColor,
+        border: `1px solid ${neutralColor}`,
 
         '&:hover, &:active': {
-          color: innerColor,
-          backgroundColor: darken(0.1, backgroundColor),
-          border: `1px solid ${darken(0.1, borderColor)}`,
+          color: fontColor,
+          backgroundColor: darken(0.1, primaryColor),
+          border: `1px solid ${darken(0.1, neutralColor)}`,
         },
       };
     }
@@ -82,29 +86,28 @@ function getLocalizeButtonVariantStyle(
 const StyledLocalizeButton = styled.button<LocalizeButtonProps, LocalizeThemeProps>(
   ({
     theme,
-    size = 'md',
+    scale = 'md',
     variant = 'solid',
-    intent = 'default',
+    intent = 'primary',
     localize = {
-      bgColor: 'default',
-      bdColor: 'conversion1',
-      innerFontColor: 'conversion1',
-      fontColor: 'conversion10',
+      primaryColor: 'primary',
+      neutralColor: 'transparent',
+      fontColor: 'inversed1',
+      inversedFontColor: 'inversed10',
     },
-    rounded,
+    rounded = true,
   }) => {
     const localizedColor = getLocalizeIntentColor(theme, intent, localize);
-    const { backgroundColor, borderColor } = localizedColor;
+    const { primaryColor, neutralColor } = localizedColor;
+
     return {
       ...getLocalizeButtonVariantStyle(theme, variant, localizedColor),
       display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',
-      flexDirection: theme.rtl ? 'row' : 'row-reverse',
-      height: 'auto',
-      maxWidth: '12rem',
-      minWidth: '5rem',
-      padding: getLocalizePaddingSizeBy(size),
+      flexDirection: theme.rtl ? 'row-reverse' : 'row',
+
+      padding: getLocalizePaddingScaleBy(scale),
       borderRadius: rounded ? '6px' : '0',
       textDecoration: 'none',
       outline: 'none',
@@ -114,12 +117,12 @@ const StyledLocalizeButton = styled.button<LocalizeButtonProps, LocalizeThemePro
       wordBreak: 'break-word',
 
       '&:not(:disabled):not(:read-only):active, &:not(:disabled):not(:read-only):hover': {
-        backgroundColor: darken(0.1, backgroundColor),
-        borderColor: darken(0.1, borderColor),
+        backgroundColor: darken(0.1, primaryColor),
+        borderColor: darken(0.1, neutralColor),
       },
       '&:disabled': {
         backgroundColor: theme.colors.disabled,
-        borderColor: theme.colors.disabled,
+        borderColor: theme.colors.neutral5,
         color: theme.colors.neutral8,
         cursor: 'auto',
       },
@@ -128,13 +131,13 @@ const StyledLocalizeButton = styled.button<LocalizeButtonProps, LocalizeThemePro
 );
 
 const LocalizeButton = React.forwardRef<HTMLButtonElement, LocalizeButtonProps>(
-  ({ children, className, size = 'md', variant = 'solid', intent = 'default', ...props }, ref) => {
+  ({ children, className, scale = 'md', variant = 'solid', intent = 'primary', ...props }, ref) => {
     return (
       <StyledLocalizeButton
         {...props}
         ref={ref}
         className={classnames(CLASSNAME, className)}
-        size={size}
+        scale={scale}
         variant={variant}
         intent={intent}
       >

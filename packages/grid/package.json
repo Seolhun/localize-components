@@ -36,6 +36,7 @@
     "@seolhun/localize-components-styled-types": "^0.5.2",
     "polished": "^3.6.7"
   },
+  "devDependencies": {},
   "engines": {
     "node": ">= 6.0.0",
     "npm": ">= 3.0.0"

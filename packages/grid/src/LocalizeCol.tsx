@@ -8,9 +8,12 @@ import {
   LOCALIZE_COLUM_COTUNT,
 } from './LocalizeGrid.Helpers';
 
-type DivProps = React.HTMLAttributes<HTMLDivElement>;
+const CLASSNAME = '__Localize__Col';
 
-export interface LocalizeColProps extends DivProps {
+type DivProps = React.HTMLAttributes<HTMLDivElement>;
+type ExtentionProps = DivProps;
+
+export interface LocalizeColProps extends ExtentionProps {
   xl?: LocalizeColumnValue;
   lg?: LocalizeColumnValue;
   md?: LocalizeColumnValue;
@@ -44,7 +47,7 @@ const LocalizeCol: React.FC<LocalizeColProps> = ({ children, className, ...props
   return (
     <StyledLocalizeCol
       {...props}
-      className={classnames(className, {
+      className={classnames(CLASSNAME, className, {
         [`col-xs-${defaultXS}`]: defaultXS,
         [`col-sm-${defaultSM}`]: defaultSM,
         [`col-md-${defaultMD}`]: defaultMD,

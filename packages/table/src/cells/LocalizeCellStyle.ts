@@ -36,7 +36,7 @@ export interface LocalizeCellProps {
 
 const LocalizeCellStyle = (theme: LocalizeThemeProps): any => {
   return {
-    color: theme.colors['conversion10'],
+    color: theme.colors['inversed10'],
     padding: '0 10px',
   } as PropertiesFallback<HTMLTableCellElement>;
 };

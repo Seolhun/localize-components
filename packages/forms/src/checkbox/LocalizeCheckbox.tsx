@@ -3,28 +3,29 @@ import classnames from 'classnames';
 import styled from '@emotion/styled';
 
 import {
-  getLocalizeIntentColor,
-  getLocalizeSizeBy,
+  getLocalizeScaleBy,
   LocalizeIntentThemeType,
   LocalizeProps,
-  LocalizeSize,
+  LocalizeScale,
   LocalizeThemeProps,
 } from '@seolhun/localize-components-styled-types';
 
+import { getLocalizeIntentColor } from './getLocalizeIntentColor';
+
 const CLASSNAME = '__Localize__Checkbox';
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
-type ExtentionProps = LocalizeProps & Omit<InputProps, 'size'>;
+type ExtentionProps = LocalizeProps & InputProps;
 
 export interface LocalizeCheckboxProps extends ExtentionProps {
   /**
    * Set this to change font color
    * @default md
    */
-  size?: LocalizeSize;
+  scale?: LocalizeScale;
 
   /**
    * Set this to change intent color
-   * @default default
+   * @default primary
    */
   intent?: LocalizeIntentThemeType;
 
@@ -41,75 +42,80 @@ const HidingInput = styled.input<{}>({
 const LocalizeCheckboxWrapper = styled.div<LocalizeCheckboxProps, LocalizeThemeProps>(
   ({
     theme,
-    size = 'md',
-    intent = 'default',
+    scale = 'md',
+    intent = 'primary',
     localize = {
-      bgColor: 'default',
-      bdColor: 'conversion1',
-      innerFontColor: 'conversion1',
-      fontColor: 'conversion10',
+      primaryColor: 'primary',
+      neutralColor: 'transparent',
+      fontColor: 'inversed1',
+      inversedFontColor: 'inversed10',
     },
     rounded,
   }) => {
     const localizedColor = getLocalizeIntentColor(theme, intent, localize);
-    const { backgroundColor, borderColor, color } = localizedColor;
-    const scale = getLocalizeSizeBy(size);
+    const { primaryColor, inversedFontColor } = localizedColor;
+    const localizeScale = getLocalizeScaleBy(scale);
 
     return {
       display: 'inline-flex',
       alignItems: 'center',
       cursor: 'pointer',
-      color,
+
+      [`.${CLASSNAME}__Label`]: {
+        color: inversedFontColor,
+      },
 
       [`.${CLASSNAME}__Checker`]: {
-        width: scale,
-        height: scale,
+        width: `${localizeScale}rem`,
+        height: `${localizeScale}rem`,
         borderRadius: rounded ? '6px' : '0',
+        border: `1px solid ${theme.colors.neutral6}`,
+        backgroundColor: theme.colors.inversed1,
       },
 
       [`.${CLASSNAME}__CheckerIcon`]: {
-        width: scale,
-        height: scale,
+        width: `${localizeScale}rem`,
+        height: `${localizeScale}rem`,
+        stroke: theme.colors.transparent,
       },
 
       // Hover
       '&:hover': {
         [`${HidingInput}:not(:disabled):not(:read-only):not(:checked) + .${CLASSNAME}__Checker`]: {
-          backgroundColor,
-          border: `2px solid ${borderColor}`,
+          borderColor: primaryColor,
         },
       },
 
       // Active
       [`${HidingInput}:not(:disabled):active + .${CLASSNAME}__Checker`]: {
-        backgroundColor,
-        border: `2px solid ${borderColor}`,
+        backgroundColor: theme.colors.inversed1,
+        borderColor: primaryColor,
       },
 
       // Checked
       [`${HidingInput}:checked + .${CLASSNAME}__Checker`]: {
-        backgroundColor,
-        border: `2px solid ${borderColor}`,
+        backgroundColor: theme.colors.inversed1,
+        borderColor: primaryColor,
 
         [`.${CLASSNAME}__CheckerIcon`]: {
-          stroke: borderColor,
-        },
-      },
-
-      // Readonly - Disabled
-      [`${HidingInput}:read-only, ${HidingInput}:disabled`]: {
-        backgroundColor: theme.colors.disabled,
-        border: `2px solid ${theme.colors.disabled}`,
-
-        [`.${CLASSNAME}__CheckerIcon`]: {
-          color: theme.colors.neutral8,
+          stroke: primaryColor,
         },
       },
 
       // Disabled and Checked
       [`${HidingInput}:disabled:checked + .${CLASSNAME}__Checker`]: {
         backgroundColor: theme.colors.disabled,
-        border: `2px solid ${theme.colors.disabled}`,
+        borderColor: theme.colors.neutral5,
+
+        [`.${CLASSNAME}__CheckerIcon`]: {
+          color: theme.colors.neutral8,
+        },
+      },
+
+      // Readonly - Disabled
+      [`${HidingInput}:read-only, ${HidingInput}:disabled`]: {
+        backgroundColor: theme.colors.disabled,
+        borderColor: theme.colors.neutral5,
 
         [`.${CLASSNAME}__CheckerIcon`]: {
           color: theme.colors.neutral8,
@@ -132,37 +138,35 @@ const LocalizeCheckboxLabel = styled.label<{}, LocalizeThemeProps>(() => {
   };
 });
 
-const LocalizeCheckboxChecker = styled.div<{}, LocalizeThemeProps>(({ theme }) => {
+const LocalizeCheckboxChecker = styled.div<{}, LocalizeThemeProps>(() => {
   return {
     display: 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
     width: '22px',
     height: '22px',
-    border: `2px solid ${theme.colors.neutral6}`,
     marginRight: '8px',
     transition: 'background-color 0.3s',
   };
 });
 
-const LocalizeCheckboxCheckerIcon = styled.svg<{}, LocalizeThemeProps>(({ theme }) => {
+const LocalizeCheckboxCheckerIcon = styled.svg<{}, LocalizeThemeProps>(() => {
   return {
-    width: '22px',
-    height: '22px',
     fill: 'none',
-    stroke: theme.colors.transparent,
     strokeWidth: '3px',
   };
 });
 
 const LocalizeCheckbox = React.forwardRef<HTMLInputElement, LocalizeCheckboxProps>(
-  ({ children, className, size = 'md', intent = 'default', ...props }, ref) => {
+  ({ children, className, scale = 'md', intent = 'primary', rounded, ...props }, ref) => {
     return (
       <LocalizeCheckboxWrapper
+        {...props}
         ref={ref}
         className={classnames(CLASSNAME, className)}
         intent={intent}
-        size={size}
+        scale={scale}
+        rounded={rounded}
       >
         <LocalizeCheckboxLabel className={`${CLASSNAME}__Label`}>
           <HidingInput {...props} ref={ref} type="checkbox" />

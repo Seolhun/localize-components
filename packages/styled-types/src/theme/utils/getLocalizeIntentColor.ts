@@ -7,66 +7,66 @@ export function getLocalizeIntentColor(
   intent: LocalizeIntentThemeType,
   localize: LocalizeStyleProps,
 ): LocalizeStyleResponseType {
-  const localizeColor = getLocalizeColor(theme, localize);
+  const localizedColor = getLocalizeColor(theme, localize);
   if (intent === 'localize' && localize) {
-    return localizeColor;
+    return localizedColor;
   }
-  const { backgroundColor, borderColor, innerColor, color } = localizeColor;
+
   switch (intent) {
     case 'primary': {
       return {
-        backgroundColor: theme.colors.primary,
-        borderColor: theme.colors.conversion1,
-        innerColor: theme.colors.conversion1,
-        color: theme.colors.conversion10,
+        primaryColor: theme.colors.primary,
+        neutralColor: localizedColor.neutralColor,
+        fontColor: localizedColor.fontColor,
+        inversedFontColor: localizedColor.inversedFontColor,
       };
     }
     case 'secondary': {
       return {
-        backgroundColor: theme.colors.secondary,
-        borderColor: theme.colors.conversion1,
-        innerColor: theme.colors.conversion1,
-        color: theme.colors.conversion10,
+        primaryColor: theme.colors.secondary,
+        neutralColor: localizedColor.neutralColor,
+        fontColor: localizedColor.fontColor,
+        inversedFontColor: localizedColor.inversedFontColor,
       };
     }
     case 'info': {
       return {
-        backgroundColor: theme.colors.info,
-        borderColor: theme.colors.conversion1,
-        innerColor: theme.colors.conversion1,
-        color: theme.colors.conversion10,
+        primaryColor: theme.colors.info,
+        neutralColor: localizedColor.neutralColor,
+        fontColor: localizedColor.fontColor,
+        inversedFontColor: localizedColor.inversedFontColor,
       };
     }
     case 'success': {
       return {
-        backgroundColor: theme.colors.success,
-        borderColor: theme.colors.conversion1,
-        innerColor: theme.colors.conversion1,
-        color: theme.colors.conversion10,
+        primaryColor: theme.colors.success,
+        neutralColor: localizedColor.neutralColor,
+        fontColor: localizedColor.fontColor,
+        inversedFontColor: localizedColor.inversedFontColor,
       };
     }
     case 'warning': {
       return {
-        backgroundColor: theme.colors.warning,
-        borderColor: theme.colors.conversion1,
-        innerColor: theme.colors.conversion1,
-        color: theme.colors.conversion10,
+        primaryColor: theme.colors.warning,
+        neutralColor: localizedColor.neutralColor,
+        fontColor: localizedColor.fontColor,
+        inversedFontColor: localizedColor.inversedFontColor,
       };
     }
     case 'error': {
       return {
-        backgroundColor: theme.colors.error,
-        borderColor: theme.colors.conversion1,
-        innerColor: theme.colors.conversion1,
-        color: theme.colors.conversion10,
+        primaryColor: theme.colors.error,
+        neutralColor: localizedColor.neutralColor,
+        fontColor: localizedColor.fontColor,
+        inversedFontColor: localizedColor.inversedFontColor,
       };
     }
     default: {
       return {
-        backgroundColor: backgroundColor || theme.colors.default,
-        borderColor: borderColor || theme.colors.conversion1,
-        innerColor: innerColor || theme.colors.conversion1,
-        color: color || theme.colors.conversion10,
+        primaryColor: localizedColor.primaryColor,
+        neutralColor: localizedColor.neutralColor,
+        fontColor: localizedColor.fontColor,
+        inversedFontColor: localizedColor.inversedFontColor,
       };
     }
   }

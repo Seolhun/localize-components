@@ -4,35 +4,49 @@ import { Story } from '@storybook/react/types-6-0';
 import { LocalizeCheckbox, LocalizeCheckboxProps } from '../../../packages/forms/dist';
 import { LocalizeRow, LocalizeCol } from '../../../packages/grid/dist';
 
-import { storiesColorOptions, storiesIntentOptions } from '../controls';
+import { storiesColorOptions, storiesIntentOptions, storiesScaleOptions } from '../controls';
 
 export default {
-  title: 'Forms | LocalizeCheckbox',
+  title: 'Forms/LocalizeCheckbox',
   component: LocalizeCheckbox,
   argTypes: {
-    bgColor: {
-      defaultValue: 'default',
+    scale: {
+      defaultValue: 'md',
+      control: {
+        type: 'select',
+        options: storiesScaleOptions,
+      },
+    },
+    intent: {
+      defaultValue: 'primary',
+      control: {
+        type: 'select',
+        options: storiesIntentOptions,
+      },
+    },
+    primaryColor: {
+      defaultValue: 'primary',
       control: {
         type: 'select',
         options: storiesColorOptions,
       },
     },
-    bdColor: {
-      defaultValue: 'conversion1',
-      control: {
-        type: 'select',
-        options: storiesColorOptions,
-      },
-    },
-    innerFontColor: {
-      defaultValue: 'conversion1',
+    neutralColor: {
+      defaultValue: 'transparent',
       control: {
         type: 'select',
         options: storiesColorOptions,
       },
     },
     fontColor: {
-      defaultValue: 'conversion10',
+      defaultValue: 'inversed1',
+      control: {
+        type: 'select',
+        options: storiesColorOptions,
+      },
+    },
+    inversedFontColor: {
+      defaultValue: 'inversed10',
       control: {
         type: 'select',
         options: storiesColorOptions,
@@ -43,9 +57,18 @@ export default {
 
 const Checkbox: Story<LocalizeCheckboxProps> = (args) => {
   const children = args.children;
-  return <LocalizeCheckbox {...args}>{children}</LocalizeCheckbox>;
+  const localize = {
+    primaryColor: args.primaryColor,
+    neutralColor: args.neutralColor,
+    fontColor: args.fontColor,
+    inversedFontColor: args.inversedFontColor,
+  };
+  return (
+    <LocalizeCheckbox {...args} localize={localize}>
+      {children}
+    </LocalizeCheckbox>
+  );
 };
-
 export const Default = Checkbox.bind({});
 Default.args = {
   children: 'LocalizeCheckbox',
@@ -55,42 +78,43 @@ Default.args = {
   disabled: false,
 };
 
-const SizeCheckboxs: Story<LocalizeCheckboxProps> = (args) => {
+const ScaleCheckboxs: Story<LocalizeCheckboxProps> = (args) => {
   const children = args.children;
   const localize = {
-    bgColor: args.bgColor,
-    bdColor: args.bdColor,
-    color: args.color,
+    primaryColor: args.primaryColor,
+    neutralColor: args.neutralColor,
+    fontColor: args.fontColor,
+    inversedFontColor: args.inversedFontColor,
   };
   return (
     <LocalizeRow>
       <LocalizeCol md={8}>
-        <h3>xl</h3>
-        <LocalizeCheckbox {...args} localize={localize} size="xl">
+        <h2>xl</h2>
+        <LocalizeCheckbox {...args} localize={localize} scale="xl">
           {children}
         </LocalizeCheckbox>
       </LocalizeCol>
       <LocalizeCol md={8}>
-        <h3>lg</h3>
-        <LocalizeCheckbox {...args} localize={localize} size="lg">
+        <h2>lg</h2>
+        <LocalizeCheckbox {...args} localize={localize} scale="lg">
           {children}
         </LocalizeCheckbox>
       </LocalizeCol>
       <LocalizeCol md={8}>
-        <h3>md</h3>
-        <LocalizeCheckbox {...args} localize={localize} size="md">
+        <h2>md</h2>
+        <LocalizeCheckbox {...args} localize={localize} scale="md">
           {children}
         </LocalizeCheckbox>
       </LocalizeCol>
       <LocalizeCol md={8}>
-        <h3>sm</h3>
-        <LocalizeCheckbox {...args} localize={localize} size="sm">
+        <h2>sm</h2>
+        <LocalizeCheckbox {...args} localize={localize} scale="sm">
           {children}
         </LocalizeCheckbox>
       </LocalizeCol>
       <LocalizeCol md={8}>
-        <h3>xs</h3>
-        <LocalizeCheckbox {...args} localize={localize} size="xs">
+        <h2>xs</h2>
+        <LocalizeCheckbox {...args} localize={localize} scale="xs">
           {children}
         </LocalizeCheckbox>
       </LocalizeCol>
@@ -98,8 +122,8 @@ const SizeCheckboxs: Story<LocalizeCheckboxProps> = (args) => {
   );
 };
 
-export const SizeCheckboxsStories = SizeCheckboxs.bind({});
-SizeCheckboxsStories.args = {
+export const ScaleCheckboxsStories = ScaleCheckboxs.bind({});
+ScaleCheckboxsStories.args = {
   children: 'LocalizeCheckbox',
   value: 'LocalizeCheckbox',
   checked: true,
@@ -110,15 +134,16 @@ SizeCheckboxsStories.args = {
 const IntentCheckboxes: Story<LocalizeCheckboxProps> = (args) => {
   const children = args.children;
   const localize = {
-    bgColor: args.bgColor,
-    bdColor: args.bdColor,
-    color: args.color,
+    primaryColor: args.primaryColor,
+    neutralColor: args.neutralColor,
+    fontColor: args.fontColor,
+    inversedFontColor: args.inversedFontColor,
   };
   return (
     <LocalizeRow>
       {storiesIntentOptions.map((intent) => (
         <LocalizeCol md={8} key={intent}>
-          <h3>{intent}</h3>
+          <h2>{intent}</h2>
           <LocalizeCheckbox {...args} intent={intent} localize={localize}>
             {children}
           </LocalizeCheckbox>

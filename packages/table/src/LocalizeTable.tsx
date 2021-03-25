@@ -75,7 +75,7 @@ export interface LocalizeTableProps<T = any> extends ExtentionProps {
 export interface LocalizeTableThemeProps extends LocalizeProps {
   /**
    * Set this to change variant
-   * @default default
+   * @default primary
    */
   intent?: LocalizeIntentThemeType;
 }
@@ -103,38 +103,39 @@ export interface LocalizeTableBodyProps {
 const LocalizeStyledTable = styled.div<LocalizeStyledTableProps, LocalizeThemeProps>(
   ({
     theme,
-    intent = 'default',
+    intent = 'primary',
     localize = {
-      bgColor: 'default',
-      bdColor: 'conversion1',
-      innerFontColor: 'conversion1',
-      fontColor: 'conversion10',
+      primaryColor: 'primary',
+      neutralColor: 'transparent',
+      fontColor: 'inversed1',
+      inversedFontColor: 'inversed10',
     },
     fixedHeader,
     fixedTableHeight,
   }) => {
     const localizedColor = getLocalizeIntentColor(theme, intent, localize);
-    const { backgroundColor, borderColor, innerColor, color } = localizedColor;
+    const { primaryColor, neutralColor, fontColor, inversedFontColor } = localizedColor;
+
     return {
       position: 'relative',
       width: fixedHeader ? 'auto' : '100%',
       height: fixedHeader ? fixedTableHeight : '100%',
       borderSpacing: 0,
-      borderColor,
+      borderColor: neutralColor,
       overflowY: 'auto',
       overflowX: 'hidden',
 
       '.__Localize__Table__Row': {
-        borderColor,
+        borderColor: neutralColor,
       },
       '.__Localize__Table__HeaderCell': {
-        backgroundColor,
-        borderColor,
-        color: innerColor,
+        backgroundColor: primaryColor,
+        borderColor: neutralColor,
+        color: inversedFontColor,
       },
       '.__Localize__Table__DataCell': {
-        borderColor,
-        color,
+        borderColor: neutralColor,
+        color: fontColor,
       },
     };
   },

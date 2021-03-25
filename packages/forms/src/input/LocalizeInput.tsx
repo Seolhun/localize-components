@@ -1,124 +1,120 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
-import { lighten } from 'polished';
 
 import {
   LocalizeProps,
   LocalizeThemeProps,
-  getLocalizeColor,
+  LocalizeScale,
+  LocalizeIntentThemeType,
+  getLocalizeHeightScaleBy,
+  getLocalizeFontScaleBy,
 } from '@seolhun/localize-components-styled-types';
-import { LocalizeIcon, LocalizeIconProps } from '@seolhun/localize-components-icon';
 
-import { LocalizeFormWrapper } from '../wrapper';
-import { LocalizeFormStateProps } from '../LocalizeFormStateProps';
+import { getLocalizeIntentColor } from './getLocalizeIntentColor';
 
 const CLASSNAME = '__Localize__Input';
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
-type ExtentionProps = LocalizeProps & InputProps & LocalizeFormStateProps;
+type ExtentionProps = InputProps & LocalizeProps;
 
 export interface LocalizeInputProps extends ExtentionProps {
   /**
-   * To change icon by font-awesome
+   * Set this to change scale
+   * @default md
    */
-  icon?: LocalizeIconProps['icon'];
+  scale?: LocalizeScale;
 
   /**
-   * To change icon color
+   * Set this to change intent color
+   * @default primary
    */
-  iconColor?: LocalizeIconProps['color'];
+  intent?: LocalizeIntentThemeType;
+
+  /**
+   * Set this to change rounded border-radius
+   */
+  rounded?: boolean;
 }
-
-const LocalizeInputContainer = styled.div<LocalizeFormStateProps, LocalizeThemeProps>(() => {
-  return {
-    position: 'relative',
-    display: 'flex',
-    alignItems: 'center',
-    width: '100%',
-
-    [`${LocalizeIcon}`]: {
-      position: 'absolute',
-      top: '14px',
-      right: '10px',
-    },
-  };
-});
 
 const StyledInput = styled.input<LocalizeInputProps, LocalizeThemeProps>(
   ({
     theme,
-    error,
-    visibleIcon,
+    scale = 'md',
+    intent = 'primary',
     localize = {
-      bgColor: 'conversion8',
-      bdColor: 'transparent',
-      fontColor: 'conversion1',
+      primaryColor: 'primary',
+      neutralColor: 'inversed3',
+      fontColor: 'inversed1',
+      inversedFontColor: 'inversed10',
     },
+    rounded,
   }) => {
-    const localizeColor = getLocalizeColor(theme, localize);
-    const { backgroundColor, borderColor, color } = localizeColor;
+    const localizedColor = getLocalizeIntentColor(theme, intent, localize);
+    const { primaryColor, neutralColor, fontColor, inversedFontColor } = localizedColor;
+    const localizeScale = getLocalizeHeightScaleBy(scale);
+    const localizeFontScale = getLocalizeFontScaleBy(scale);
 
     return {
-      color,
-      width: '100%',
-      height: '100%',
-      ...(visibleIcon
-        ? {
-            padding: '10px 32px 10px 12px',
-          }
-        : {
-            padding: '10px 12px',
-          }),
-      backgroundColor,
-      border: `1px solid ${error ? theme.colors.error : theme.colors.neutral5}`,
-      borderRadius: '2px',
-      outline: 'none',
+      height: `${localizeScale}rem`,
+      margin: 0,
+      padding: '0 10px',
+      fontSize: `${localizeFontScale}rem`,
+      lineHeight: `${localizeFontScale}rem`,
+      color: inversedFontColor,
+      backgroundColor: fontColor,
+      borderRadius: rounded ? '6px' : '0',
+      border: `1px solid ${neutralColor}`,
       // WARNING: Not support IE
-      caretColor: theme.colors.primary,
+      caretColor: primaryColor,
       // for Safari boxShadow
-      boxShadow: 'none !important',
+      boxShadow: 'none',
       WebkitAppearance: 'none',
+      outline: 'none',
 
-      '&:not(:disabled):not(:read-only):active, &:not(:disabled):not(:read-only):hover': {
-        borderColor,
+      [`&::placeholder`]: {
+        color: neutralColor,
       },
-      '&:focus': {
-        border: `1px solid ${error ? theme.colors.error : lighten(0.1, borderColor)}`,
+
+      // Hover
+      [`&:hover`]: {
+        borderColor: primaryColor,
       },
-      '&:disabled': {
-        backgroundColor: theme.colors.neutral4,
-        borderColor: theme.colors.neutral5,
-        color: theme.colors.neutral8,
+
+      // Focus
+      [`&:focus`]: {
+        borderColor: primaryColor,
       },
-      '&::placeholder': {
-        color: theme.colors.neutral5,
+
+      // Active
+      [`&:not(:disabled):active`]: {
+        borderColor: primaryColor,
+      },
+
+      // Readonly - Disabled
+      [`&:read-only, &:disabled`]: {
+        backgroundColor: theme.colors.disabled,
+        borderColor: theme.colors.disabled,
+        color: theme.colors.inversed7,
+      },
+
+      [`&:disabled`]: {
+        cursor: 'not-allowed',
       },
     };
   },
 );
 
 const LocalizeInput = React.forwardRef<HTMLInputElement, LocalizeInputProps>(
-  ({ className, label, help, error, visibleIcon = true, icon, iconColor, ...props }, ref) => {
-    const isSelectable = !props.disabled && !props.readOnly;
-
+  ({ className, scale = 'md', intent = 'primary', rounded, ...props }, ref) => {
     return (
-      <LocalizeFormWrapper
+      <StyledInput
+        {...props}
+        ref={ref}
         className={classnames(CLASSNAME, className)}
-        label={label}
-        help={help}
-        error={error}
-      >
-        <LocalizeInputContainer>
-          <StyledInput
-            {...props}
-            ref={ref}
-            error={error}
-            visibleIcon={visibleIcon}
-            autoComplete="false"
-          />
-          {isSelectable && icon && <LocalizeIcon iconSize="16px" icon={icon} color={iconColor} />}
-        </LocalizeInputContainer>
-      </LocalizeFormWrapper>
+        intent={intent}
+        scale={scale}
+        rounded={rounded}
+      />
     );
   },
 );

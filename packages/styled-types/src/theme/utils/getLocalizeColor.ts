@@ -1,30 +1,27 @@
 import { LocalizeStyleProps, LocalizeThemeProps } from '../LocalizeTheme';
 
 export type LocalizeStyleResponseType = {
-  backgroundColor: string;
-  borderColor: string;
-  innerColor: string;
-  color: string;
+  primaryColor: string;
+  neutralColor: string;
+  fontColor: string;
+  inversedFontColor: string;
 };
 
 export const getLocalizeColor = (
   theme: LocalizeThemeProps,
   localize: LocalizeStyleProps,
 ): LocalizeStyleResponseType => {
+  const isLightMode = theme.type === 'LIGHT';
   const {
-    bgColor = 'default',
-    bdColor = 'conversion1',
-    innerFontColor = 'conversion1',
-    fontColor = 'conversion10',
+    primaryColor = 'primary',
+    neutralColor = 'transparent',
+    fontColor = 'inversed1',
+    inversedFontColor = 'inversed10',
   } = localize;
-  const backgroundColor = theme.colors[bgColor];
-  const borderColor = theme.colors[bdColor || bgColor];
-  const innerColor = theme.colors[innerFontColor];
-  const color = theme.colors[fontColor];
   return {
-    backgroundColor,
-    borderColor,
-    innerColor,
-    color,
+    primaryColor: theme.colors[primaryColor],
+    neutralColor: theme.colors[neutralColor],
+    fontColor: isLightMode ? theme.colors[fontColor] : theme.colors[inversedFontColor],
+    inversedFontColor: isLightMode ? theme.colors[inversedFontColor] : theme.colors[fontColor],
   };
 };

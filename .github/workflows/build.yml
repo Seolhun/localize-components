@@ -6,7 +6,7 @@ on:
     paths-ignore:
       - '**/*.md'
   pull_request:
-    branches: [master, develop, /^release/.*$/, /^feature/.*$/]
+    branches: [master, develop, /^release/.*$/, /^feature/.*$/, /^hotfix/.*$/]
 env:
   CI: true
 jobs:
@@ -31,7 +31,7 @@ jobs:
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/$GITHUB_REPOSITORY
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUBTOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install
         run: npm ci

@@ -5,69 +5,78 @@ import { darken } from 'polished';
 
 import {
   getLocalizeIntentColor,
-  getLocalizePaddingSizeBy,
+  getLocalizePaddingScaleBy,
   LocalizeIntentThemeType,
   LocalizeProps,
-  LocalizeSize,
+  LocalizeScale,
   LocalizeStyleResponseType,
   LocalizeThemeProps,
 } from '@seolhun/localize-components-styled-types';
 
 const CLASSNAME = '__Localize__Tag';
 type SpanProps = React.HTMLAttributes<HTMLSpanElement>;
-type ExtentionProps = LocalizeProps & SpanProps;
-type LocalizeButtonVariantType = 'solid' | 'outline';
+type LocalizeTagVariantType = 'solid' | 'outline';
 
-export interface LocalizeTagProps extends ExtentionProps {
+interface LocalizeLocalProps extends LocalizeProps {
   /**
    * Set this to change font color
    * @default md
    */
-  size?: LocalizeSize;
+  scale?: LocalizeScale;
 
   /**
    * Set this to change variant
    * @default solid
    */
-  variant?: LocalizeButtonVariantType;
+  variant?: LocalizeTagVariantType;
 
   /**
    * Set this to change intent color
-   * @default default
+   * @default primary
    */
   intent?: LocalizeIntentThemeType;
 }
 
+type ExtentionProps = SpanProps & LocalizeLocalProps;
+
+export interface LocalizeTagProps extends ExtentionProps {
+  /**
+   * Set this to change rounded border-radius
+   * @default true
+   */
+  rounded?: boolean;
+}
+
 function getLocalizeTagStyle(
   theme: LocalizeThemeProps,
-  variant: LocalizeButtonVariantType,
+  variant: LocalizeTagVariantType,
   localizedColor: LocalizeStyleResponseType,
 ) {
-  const { backgroundColor, borderColor, innerColor } = localizedColor;
+  const { primaryColor, neutralColor, fontColor } = localizedColor;
   switch (variant) {
     case 'outline': {
       return {
-        color: innerColor,
-        backgroundColor: theme.colors.conversion1,
-        border: `1px solid ${backgroundColor}`,
+        color: primaryColor,
+        backgroundColor: theme.colors.transparent,
+        border: `1px solid ${primaryColor}`,
 
         '&:hover, &:active': {
-          color: innerColor,
-          backgroundColor,
-          border: `1px solid ${borderColor}`,
+          color: fontColor,
+          backgroundColor: primaryColor,
+          border: `1px solid ${neutralColor}`,
         },
       };
     }
     default: {
       return {
-        color: innerColor,
-        backgroundColor,
-        border: `1px solid ${borderColor}`,
+        color: fontColor,
+        backgroundColor: primaryColor,
+        border: `1px solid ${neutralColor}`,
 
         '&:hover, &:active': {
-          color: innerColor,
-          backgroundColor: darken(0.1, backgroundColor),
-          border: `1px solid ${darken(0.1, borderColor)}`,
+          color: fontColor,
+          backgroundColor: darken(0.1, primaryColor),
+          border: `1px solid ${darken(0.1, neutralColor)}`,
         },
       };
     }
@@ -77,36 +86,40 @@ function getLocalizeTagStyle(
 const StyledLocalizeTagWrapper = styled.div<LocalizeTagProps, LocalizeThemeProps>(
   ({
     theme,
-    size = 'md',
+    scale = 'md',
     variant = 'solid',
-    intent = 'default',
+    intent = 'primary',
     localize = {
-      bgColor: 'default',
-      bdColor: 'conversion1',
-      innerFontColor: 'conversion1',
-      fontColor: 'conversion10',
+      primaryColor: 'primary',
+      neutralColor: 'transparent',
+      fontColor: 'inversed1',
+      inversedFontColor: 'inversed10',
     },
+    rounded = true,
   }) => {
     const localizedColor = getLocalizeIntentColor(theme, intent, localize);
-    const { backgroundColor, borderColor } = localizedColor;
+    const { primaryColor, neutralColor } = localizedColor;
+
     return {
       ...getLocalizeTagStyle(theme, variant, localizedColor),
       display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',
-      backgroundColor,
-      padding: getLocalizePaddingSizeBy(size),
-      borderRadius: '24px',
+      flexDirection: theme.rtl ? 'row-reverse' : 'row',
+
+      padding: getLocalizePaddingScaleBy(scale),
+      borderRadius: rounded ? '24px' : '0',
       textDecoration: 'none',
-      whiteSpace: 'nowrap',
       outline: 'none',
       transition: 'background-color 0.3s, border-color 0.3s, color 0.3s',
       userSelect: 'none',
       cursor: 'pointer',
+      wordBreak: 'break-word',
+      whiteSpace: 'nowrap',
 
       '&:not(:disabled):not(:read-only):active, &:not(:disabled):not(:read-only):hover': {
-        backgroundColor: darken(0.1, backgroundColor),
-        borderColor: darken(0.1, borderColor),
+        backgroundColor: darken(0.1, primaryColor),
+        borderColor: darken(0.1, neutralColor),
       },
     };
   },
@@ -120,10 +133,10 @@ const StyledLocalizeTagContainer = styled.span<LocalizeTagProps, LocalizeThemePr
   };
 });
 
-const LocalizeTag: React.FC<LocalizeTagProps> = ({ children, className, size, ...props }) => {
+const LocalizeTag: React.FC<LocalizeTagProps> = ({ children, className, scale, ...props }) => {
   return (
     <StyledLocalizeTagWrapper {...props} className={classnames(CLASSNAME, className)}>
-      <StyledLocalizeTagContainer size={size}>{children}</StyledLocalizeTagContainer>
+      <StyledLocalizeTagContainer scale={scale}>{children}</StyledLocalizeTagContainer>
     </StyledLocalizeTagWrapper>
   );
 };

@@ -2,7 +2,6 @@ import { localizeFonts, LocalizeThemeFontsProps } from './LocalizeFonts';
 
 export type LocalizeIntentThemeType =
   | 'localize'
-  | 'default'
   | 'primary'
   | 'secondary'
   | 'success'
@@ -14,31 +13,28 @@ export enum LocalizeThemeEnum {
   LIGHT = 'LIGHT',
   DARK = 'DARK',
 }
+export type LocalizeThemeType = keyof typeof LocalizeThemeEnum;
 
 export interface LocalizeStyleProps {
   /**
-   * Set this to change background color
-   * @default primary
+   * Set this to change primary color
    */
-  bgColor?: keyof LocalizeThemeProps['colors'];
+  primaryColor?: keyof LocalizeThemeProps['colors'];
 
   /**
-   * Set this to change border color
-   * @default transparent
+   * Set this to change neutral color
    */
-  bdColor?: keyof LocalizeThemeProps['colors'];
-
-  /**
-   * Set this to change Inner font color
-   * @default conversion10
-   */
-  innerFontColor?: keyof LocalizeThemeProps['colors'];
+  neutralColor?: keyof LocalizeThemeProps['colors'];
 
   /**
    * Set this to change font color
-   * @default conversion1
    */
   fontColor?: keyof LocalizeThemeProps['colors'];
+
+  /**
+   * Set this to change Inner inversed font color
+   */
+  inversedFontColor?: keyof LocalizeThemeProps['colors'];
 }
 
 export interface LocalizeProps {
@@ -70,19 +66,19 @@ export interface LocalizeThemeProps<K = keyof typeof LocalizeThemeEnum> {
      */
     transparent: string;
     /**
-     * @name Conversion
+     * @name Inversed
      * To change color based on theme type
      */
-    conversion1: string;
-    conversion2: string;
-    conversion3: string;
-    conversion4: string;
-    conversion5: string;
-    conversion6: string;
-    conversion7: string;
-    conversion8: string;
-    conversion9: string;
-    conversion10: string;
+    inversed1: string;
+    inversed2: string;
+    inversed3: string;
+    inversed4: string;
+    inversed5: string;
+    inversed6: string;
+    inversed7: string;
+    inversed8: string;
+    inversed9: string;
+    inversed10: string;
     /**
      * @name Neutral
      */
@@ -179,7 +175,6 @@ export interface LocalizeThemeProps<K = keyof typeof LocalizeThemeEnum> {
     /**
      * @name Theme
      */
-    default: string;
     primary: string;
     secondary: string;
     success: string;
@@ -213,19 +208,19 @@ const localizeLightThemeColors: LocalizeThemeProps['colors'] = {
    */
   transparent: 'transparent',
   /**
-   * @name Conversion
+   * @name Inversed
    * To change color based on theme type
    */
-  conversion1: '#FFFFFF',
-  conversion2: '#F5F5F5',
-  conversion3: '#D9D9D9',
-  conversion4: '#BFBFBF',
-  conversion5: '#595959',
-  conversion6: '#434343',
-  conversion7: '#262626',
-  conversion8: '#1F1F1F',
-  conversion9: '#141414',
-  conversion10: '#000000',
+  inversed1: '#FFFFFF',
+  inversed2: '#F5F5F5',
+  inversed3: '#D9D9D9',
+  inversed4: '#BFBFBF',
+  inversed5: '#595959',
+  inversed6: '#434343',
+  inversed7: '#262626',
+  inversed8: '#1F1F1F',
+  inversed9: '#141414',
+  inversed10: '#000000',
   /**
    * @name Neutral
    */
@@ -322,7 +317,6 @@ const localizeLightThemeColors: LocalizeThemeProps['colors'] = {
   /**
    * @name Theme
    */
-  default: '#262626',
   primary: '#2f54eb',
   secondary: '#2A3E73',
   success: '#52c41a',
@@ -332,7 +326,7 @@ const localizeLightThemeColors: LocalizeThemeProps['colors'] = {
   /**
    * @name State
    */
-  disabled: '#F0F0F0',
+  disabled: '#D9D9D9',
   /**
    * @name Socials
    */
@@ -351,19 +345,19 @@ const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
    */
   transparent: 'transparent',
   /**
-   * @name Conversion
+   * @name Inversed
    * To change color based on theme type
    */
-  conversion1: '#FFFFFF',
-  conversion2: '#F5F5F5',
-  conversion3: '#D9D9D9',
-  conversion4: '#BFBFBF',
-  conversion5: '#595959',
-  conversion6: '#434343',
-  conversion7: '#262626',
-  conversion8: '#1F1F1F',
-  conversion9: '#141414',
-  conversion10: '#000000',
+  inversed1: '#000000',
+  inversed2: '#141414',
+  inversed3: '#1F1F1F',
+  inversed4: '#262626',
+  inversed5: '#434343',
+  inversed6: '#595959',
+  inversed7: '#BFBFBF',
+  inversed8: '#D9D9D9',
+  inversed9: '#F5F5F5',
+  inversed10: '#FFFFFF',
   /**
    * @name Neutral
    */
@@ -460,7 +454,6 @@ const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
   /**
    * @name Theme
    */
-  default: '#21262D',
   primary: '#2f54eb',
   secondary: '#2A3E73',
   success: '#52c41a',
@@ -470,7 +463,7 @@ const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
   /**
    * @name State
    */
-  disabled: '#F0F0F0',
+  disabled: '#1F1F1F',
   /**
    * @name Socials
    */
@@ -485,22 +478,22 @@ const localizeDarkThemeColors: LocalizeThemeProps['colors'] = {
 
 export const localizeLightTheme: LocalizeThemeProps = {
   type: 'LIGHT',
-  rtl: true,
+  rtl: false,
   fonts: localizeFonts,
   colors: localizeLightThemeColors,
   layout: {
     backgroundColor: '#ffffff',
-    textColor: localizeDarkThemeColors.neutral1,
+    textColor: localizeLightThemeColors.inversed10,
   },
 };
 
 export const localizeDarkTheme: LocalizeThemeProps = {
   type: 'DARK',
-  rtl: true,
+  rtl: false,
   fonts: localizeFonts,
   colors: localizeDarkThemeColors,
   layout: {
-    backgroundColor: '#13161F',
-    textColor: localizeDarkThemeColors.neutral12,
+    backgroundColor: '#0d1117',
+    textColor: localizeDarkThemeColors.inversed10,
   },
 };

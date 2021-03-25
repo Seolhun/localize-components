@@ -127,6 +127,6 @@
     "node": ">= 6.0.0",
     "npm": ">= 3.0.0"
   },
-  "version": "0.0.10-beta.0",
+  "version": "0.0.10-beta.1",
   "name": "localize-components"
 }

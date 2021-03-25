@@ -1,0 +1,6 @@
+# Default
+dist
+node_modules
+
+# Typescript
+*.d.ts

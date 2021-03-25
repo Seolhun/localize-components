@@ -1,0 +1,55 @@
+# see: https://help.github.com/actions/language-and-framework-guides/publishing-nodejs-packages
+name: Github Publish Package
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@seolhun'
+
+      - name: Install
+        run: npm ci
+
+      - name: Bootstrap
+        run: npm run bs
+
+      - name: Linting
+        run: npm run lint
+
+      - name: Test
+        run: npm run test
+
+      - name: Build
+        run: npm run build --if-present
+
+      - name: Publish package
+        run: npm run release -y
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: "Build Changelog"
+        uses: mikepenz/release-changelog-builder-action@{latest-release}
+        with:
+          configuration: "configuration.json"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_CHANNEL: dev-travis
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}

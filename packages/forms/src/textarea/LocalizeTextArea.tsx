@@ -1,140 +1,120 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import classnames from 'classnames';
-import { lighten } from 'polished';
 
 import {
   LocalizeProps,
   LocalizeThemeProps,
-  getLocalizeColor,
+  LocalizeScale,
+  LocalizeIntentThemeType,
+  getLocalizeHeightScaleBy,
+  getLocalizeFontScaleBy,
 } from '@seolhun/localize-components-styled-types';
 
-import { LocalizeFormWrapper } from '../wrapper';
-import { LocalizeFormStateProps } from '../LocalizeFormStateProps';
+import { getLocalizeIntentColor } from './getLocalizeIntentColor';
 
-const CLASSNAME = '__Localize__Textarea';
+const CLASSNAME = '__Localize__TextArea';
 type TextAreaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>;
-type Props = TextAreaProps & LocalizeProps & LocalizeFormStateProps;
+type ExtentionProps = TextAreaProps & LocalizeProps;
 
-export interface LocalizeTextAreaProps extends Props {}
+export interface LocalizeTextAreaProps extends ExtentionProps {
+  /**
+   * Set this to change scale
+   * @default md
+   */
+  scale?: LocalizeScale;
 
-const LocalizeTextAreaContainer = styled.div<{}, LocalizeThemeProps>(() => {
-  return {
-    position: 'relative',
-    display: 'flex',
-    alignItems: 'center',
-  };
-});
+  /**
+   * Set this to change intent color
+   * @default primary
+   */
+  intent?: LocalizeIntentThemeType;
+
+  /**
+   * Set this to change rounded border-radius
+   */
+  rounded?: boolean;
+}
 
 const StyledTextArea = styled.textarea<LocalizeTextAreaProps, LocalizeThemeProps>(
   ({
     theme,
-    error,
+    scale = 'md',
+    intent = 'primary',
     localize = {
-      bgColor: 'conversion8',
-      bdColor: 'transparent',
-      fontColor: 'conversion1',
+      primaryColor: 'primary',
+      neutralColor: 'inversed3',
+      fontColor: 'inversed1',
+      inversedFontColor: 'inversed10',
     },
+    rounded,
   }) => {
-    const localizeColor = getLocalizeColor(theme, localize);
-    const { backgroundColor, borderColor, color } = localizeColor;
+    const localizedColor = getLocalizeIntentColor(theme, intent, localize);
+    const { primaryColor, neutralColor, fontColor, inversedFontColor } = localizedColor;
+    const localizeScale = getLocalizeHeightScaleBy(scale);
+    const localizeFontScale = getLocalizeFontScaleBy(scale);
 
     return {
-      color,
-      width: '100%',
-      height: '100%',
-      boxSizing: 'border-box',
-      padding: '10px 12px',
-      outline: 'none',
-      backgroundColor,
-      border: `1px solid ${borderColor}`,
-      resize: 'both',
-      overflow: 'auto',
-
-      // WARNING: IE Didn't support
-      caretColor: theme.colors.info,
+      height: `${localizeScale}rem`,
+      margin: 0,
+      padding: '10px',
+      fontSize: `${localizeFontScale}rem`,
+      lineHeight: `${localizeFontScale}rem`,
+      color: inversedFontColor,
+      backgroundColor: fontColor,
+      borderRadius: rounded ? '6px' : '0',
+      border: `1px solid ${neutralColor}`,
+      // WARNING: Not support IE
+      caretColor: primaryColor,
       // for Safari boxShadow
-      boxShadow: 'none !important',
+      boxShadow: 'none',
       WebkitAppearance: 'none',
+      outline: 'none',
 
-      '&:focus': {
-        border: `1px solid ${error ? theme.colors.error : theme.colors.info}`,
+      [`&::placeholder`]: {
+        color: neutralColor,
       },
-      '&:not(:disabled):not(:read-only):active, &:not(:disabled):not(:read-only):hover': {
-        borderColor: lighten(0.1, borderColor),
+
+      // Hover
+      [`&:hover`]: {
+        borderColor: primaryColor,
       },
-      '&:read-only, &:disabled': {
-        backgroundColor: theme.colors.neutral4,
-        borderColor: theme.colors.neutral5,
-        color: theme.colors.neutral8,
+
+      // Focus
+      [`&:focus`]: {
+        borderColor: primaryColor,
       },
-      '&::placeholder': {
-        color: theme.colors.neutral8,
+
+      // Active
+      [`&:not(:disabled):active`]: {
+        borderColor: primaryColor,
+      },
+
+      // Readonly - Disabled
+      [`&:read-only, &:disabled`]: {
+        backgroundColor: theme.colors.disabled,
+        borderColor: theme.colors.disabled,
+        color: theme.colors.inversed7,
+      },
+
+      [`&:disabled`]: {
+        cursor: 'not-allowed',
       },
     };
   },
 );
 
-const LocalizeTextAreaOptionContainer = styled.span<{}, LocalizeThemeProps>(() => {
-  return {
-    position: 'absolute',
-    right: '16px',
-    bottom: '16px',
-    display: 'flex',
-    alignItems: 'center',
-
-    '& > *': {
-      marginRight: '8px',
-    },
-  };
-});
-
 const LocalizeTextArea = React.forwardRef<HTMLTextAreaElement, LocalizeTextAreaProps>(
-  ({ className, label, help, error, ...props }, ref) => {
-    const { onChange, maxLength } = props;
-    const initialValue = props.defaultValue || props.value;
-    const [currentValue, setCurrentValue] = React.useState<any>(initialValue);
-
-    React.useEffect(() => {
-      setCurrentValue(initialValue);
-    }, [initialValue]);
-
-    const handleCurrentValue = React.useCallback(
-      (value: string) => {
-        setCurrentValue(value);
-      },
-      [currentValue],
-    );
-
-    const onChangeCurrentValue = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-      const { value } = e.target;
-      if (maxLength) {
-        const isOverCount = value.length > maxLength;
-        if (isOverCount) {
-          setCurrentValue(value.slice(0, maxLength));
-          return;
-        }
-      }
-      handleCurrentValue(value);
-      if (onChange) {
-        onChange(e);
-      }
-    };
-
+  ({ className, scale = 'md', intent = 'primary', rounded, ...props }, ref) => {
     return (
-      <LocalizeFormWrapper
+      <StyledTextArea
+        {...props}
+        ref={ref}
         className={classnames(CLASSNAME, className)}
-        label={label}
-        help={help}
-        error={error}
-      >
-        <LocalizeTextAreaContainer>
-          <StyledTextArea {...props} ref={ref} onChange={onChangeCurrentValue} error={error} />
-          <LocalizeTextAreaOptionContainer>
-            {maxLength && <span>{`${currentValue?.length || 0}/${maxLength}`}</span>}
-          </LocalizeTextAreaOptionContainer>
-        </LocalizeTextAreaContainer>
-      </LocalizeFormWrapper>
+        intent={intent}
+        scale={scale}
+        rounded={rounded}
+      />
     );
   },
 );

@@ -1,34 +1,26 @@
 # LocalizeButton
 
-## Anatomy
-
-![./resources/anatomy/button.anatomy.png](./resources/anatomy/button.anatomy.png)
+## 1. Anatomy
 
 분해 설명
 
 ---
 
-## Specs
-
-![./resources/specs/button.specs.png](./resources/specs/button.specs.png)
+## 2. Specs
 
 스펙 설명
 
 ---
 
-## Options
+## 3. Options
 
 ### Size
 
-![./resources/options/button.options.size.png](./resources/options/button.options.size.png)
-
 - 버튼 사이즈는 'xs' | 'sm' | 'md' | 'lg' | 'xl' 존재합니다.
-- 자주 사용되는 size는 md이며, 이를 기본 값으로 사용합니다.
+- 자주 사용되는 scale는 md이며, 이를 기본 값으로 사용합니다.
 - 버튼 간의 다른 크기는 조금만 사용하세요. 페이지 내에서 중요한 계층을 만드는 데 사용해야합니다.
 
 ### Variant
-
-![./resources/options/button.options.variant.png](./resources/options/button.options.variant.png)
 
 - 버튼 intent는 'solid' | 'outline' 존재합니다.
 - 자주 사용되는 variant는 solid이며, 이를 기본 값으로 사용합니다.
@@ -36,29 +28,25 @@
 
 ### Intent
 
-![./resources/options/button.options.intent.png](./resources/options/button.options.intent.png)
-
 - 버튼 intent는 `default` | `primary` | `secondary` | `success` | `info` | `warning` | `error` 존재합니다.
 - 자주 사용되는 intent는 primary이며, 이를 기본 값으로 사용합니다.
 - intent는 주로 계층과 상태를 나타내며, 강조할 떄는 primary를 사용합니다.
 
 ### Disabled
 
-![./resources/options/button.options.disabled.png](./resources/options/button.options.disabled.png)
-
 - 비활성화 된 상태의 버튼은 작업이 존재하지만 해당 상황에서 사용할 수 없음을 나타냅니다.
 - 이 상태는 레이아웃 연속성을 유지하고 나중에 작업을 사용할 수 있음을 알리는 데 사용할 수 있습니다.
 
 ---
 
-## Props
+## 4. Props
 
 ```tsx
   /**
-   * Set this to change size
+   * Set this to change scale
    * @default md
    */
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  scale?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
   /**
    * Set this to change variant
@@ -68,9 +56,9 @@
 
   /**
    * Set this to change intent
-   * @default default
+   * @default primary
    */
-  intent?: 'localize' | 'default' | 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'error';
+  intent?: 'localize' | 'primary' | 'secondary' | 'success' | 'info' | 'warning' | 'error';
 
   /**
    * Set this to change variant
@@ -80,20 +68,20 @@
 
 ---
 
-## Behaviors
+## 5. Behaviors
 
 - All interactive states
   - Includes all interactive states that are applicable (hover, down, focus, keyboard focus, disabled).
 
 ---
 
-## Accessibility
+## 6. Accessibility
 
 접근성
 
 ---
 
-## Design checklist
+## 7. Design checklist
 
 - [ ] All color themes
   - Works properly across all four color themes (light, dark).
@@ -108,13 +96,13 @@
 
 ---
 
-## Internationalization
+## 8. Internationalization
 
 국제화
 
 ---
 
-## Use cases
+## 9. Use cases
 
 유즈 케이스
 
@@ -126,6 +114,5 @@
 - [https://chakra-ui.com/docs/form/button](https://chakra-ui.com/docs/form/button)
 - [https://blueprintjs.com/docs/#core/components/button](https://blueprintjs.com/docs/#core/components/button)
 - [https://material.io/components/buttons](https://material.io/components/buttons)
-- [http://styleguide.co.kr/content/component/component-core.php](http://styleguide.co.kr/content/component/component-core.php)
 - [https://evergreen.segment.com/components/button](https://evergreen.segment.com/components/button)
 - [https://ant.design/components/button/](https://ant.design/components/button/)

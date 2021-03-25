@@ -4,42 +4,49 @@ import { Story } from '@storybook/react/types-6-0';
 import { LocalizeTag, LocalizeTagProps } from '../../../packages/atomic/dist';
 import { LocalizeRow, LocalizeCol } from '../../../packages/grid/dist';
 
-import { storiesSizeOptions, storiesColorOptions, storiesIntentOptions } from '../controls';
+import { storiesScaleOptions, storiesColorOptions, storiesIntentOptions } from '../controls';
 
 export default {
-  title: 'Atmoic | LocalizeTag',
+  title: 'Atomic/LocalizeTag',
   component: LocalizeTag,
   argTypes: {
-    size: {
+    scale: {
       defaultValue: 'md',
       control: {
         type: 'select',
-        options: storiesSizeOptions,
+        options: storiesScaleOptions,
       },
     },
-    bgColor: {
-      defaultValue: 'default',
+    intent: {
+      defaultValue: 'primary',
+      control: {
+        type: 'select',
+        options: storiesIntentOptions,
+      },
+    },
+    primaryColor: {
+      defaultValue: 'kakao',
       control: {
         type: 'select',
         options: storiesColorOptions,
       },
     },
-    bdColor: {
-      defaultValue: 'conversion1',
-      control: {
-        type: 'select',
-        options: storiesColorOptions,
-      },
-    },
-    innerFontColor: {
-      defaultValue: 'conversion1',
+    neutralColor: {
+      defaultValue: 'transparent',
       control: {
         type: 'select',
         options: storiesColorOptions,
       },
     },
     fontColor: {
-      defaultValue: 'conversion10',
+      defaultValue: 'inversed1',
+      control: {
+        type: 'select',
+        options: storiesColorOptions,
+      },
+    },
+    inversedFontColor: {
+      defaultValue: 'inversed10',
       control: {
         type: 'select',
         options: storiesColorOptions,
@@ -53,7 +60,7 @@ const Tag: Story<LocalizeTagProps> = (args) => <LocalizeTag {...args} />;
 export const Default = Tag.bind({});
 Default.args = {
   children: 'LocalizeTag',
-  disabled: false,
+  rounded: true,
 };
 
 const TagSizes: Story<LocalizeTagProps> = (args) => {
@@ -62,32 +69,32 @@ const TagSizes: Story<LocalizeTagProps> = (args) => {
     <>
       <LocalizeRow>
         <LocalizeCol md={8}>
-          <h4>xl</h4>
-          <LocalizeTag {...args} size="xl">
+          <h2>xl</h2>
+          <LocalizeTag {...args} scale="xl">
             {children}
           </LocalizeTag>
         </LocalizeCol>
         <LocalizeCol md={8}>
-          <h4>lg</h4>
-          <LocalizeTag {...args} size="lg">
+          <h2>lg</h2>
+          <LocalizeTag {...args} scale="lg">
             {children}
           </LocalizeTag>
         </LocalizeCol>
         <LocalizeCol md={8}>
-          <h4>md</h4>
-          <LocalizeTag {...args} size="md">
+          <h2>md</h2>
+          <LocalizeTag {...args} scale="md">
             {children}
           </LocalizeTag>
         </LocalizeCol>
         <LocalizeCol md={8}>
-          <h4>sm</h4>
-          <LocalizeTag {...args} size="sm">
+          <h2>sm</h2>
+          <LocalizeTag {...args} scale="sm">
             {children}
           </LocalizeTag>
         </LocalizeCol>
         <LocalizeCol md={8}>
-          <h4>xs</h4>
-          <LocalizeTag {...args} size="xs">
+          <h2>xs</h2>
+          <LocalizeTag {...args} scale="xs">
             {children}
           </LocalizeTag>
         </LocalizeCol>
@@ -98,21 +105,22 @@ const TagSizes: Story<LocalizeTagProps> = (args) => {
 export const TagsStorieSizes = TagSizes.bind({});
 TagsStorieSizes.args = {
   children: 'LocalizeTag',
-  disabled: false,
+  rounded: true,
 };
 
 const IntentTags: Story<LocalizeTagProps> = (args) => {
   const children = args.children;
   const localize = {
-    bgColor: args.bgColor,
-    bdColor: args.bdColor,
-    color: args.color,
+    primaryColor: args.primaryColor,
+    neutralColor: args.neutralColor,
+    fontColor: args.fontColor,
+    inversedFontColor: args.inversedFontColor,
   };
   return (
     <LocalizeRow>
       {storiesIntentOptions.map((intent) => (
         <LocalizeCol md={8} key={intent}>
-          <h3>{intent}</h3>
+          <h2>{intent}</h2>
           <LocalizeTag {...args} intent={intent} localize={localize}>
             {children}
           </LocalizeTag>
