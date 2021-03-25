@@ -35,7 +35,7 @@
     "test": "lerna run test",
     "bs": "lerna bootstrap --force-local",
     "version": "lerna version --yes",
-    "release": "lerna publish from-git --yes",
+    "release": "lerna publish --yes",
     "lint": "lerna run lint",
     "lint:fix": "lerna run lint:fix",
     "prettier": "prettier --write '**/*.{ts,tsx,js,jsx}'",
