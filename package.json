@@ -117,7 +117,7 @@
     "packages/*"
   ],
   "publishConfig": {
-    "registry":"https://npm.pkg.github.com",
+    "registry": "https://npm.pkg.github.com",
     "access": "public",
     "directory": "dist"
   },
