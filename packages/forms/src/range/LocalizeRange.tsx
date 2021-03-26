@@ -5,28 +5,139 @@ import classnames from 'classnames';
 import {
   LocalizeProps,
   LocalizeThemeProps,
-  getLocalizeColor,
+  LocalizeIntentThemeType,
+  LocalizeScale,
+  getLocalizeScaleBy,
 } from '@seolhun/localize-components-styled-types';
 
-import { LocalizeFormStateProps } from '../LocalizeFormStateProps';
-import { LocalizeFormWrapper } from '../wrapper';
+import { getLocalizeIntentColor } from './getLocalizeIntentColor';
 
 const CLASSNAME = '__Localize__Range';
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
-type Props = LocalizeProps & InputProps & LocalizeFormStateProps;
+type ExtentionProps = LocalizeProps & InputProps;
 
-export interface LocalizeRangeProps extends Props {
-  visibleValue?: boolean;
+export interface LocalizeRangeProps extends ExtentionProps {
+  /**
+   * Set this to change scale
+   * @default md
+   */
+  scale?: LocalizeScale;
+
+  /**
+   * Set this to change intent color
+   * @default primary
+   */
+  intent?: LocalizeIntentThemeType;
+
+  /**
+   * Set this to change rounded border-radius
+   */
+  rounded?: boolean;
+
+  /**
+   * Set this to change label node
+   */
+  renderLabel?: (value: any) => React.ReactNode;
+
+  /**
+   * Set this to change handler node
+   */
+  handler?: React.ReactNode;
+
+  /**
+   * Set this to change vertical | horizontal
+   */
+  vertical?: boolean;
 }
 
-const LocalizeRangeContainer = styled.div<LocalizeFormStateProps, LocalizeProps>(() => {
-  return {
-    display: 'flex',
-    alignItems: 'center',
-    width: '100%',
-    height: '44px',
-  };
-});
+const LocalizeRangeWrapper = styled.div<LocalizeRangeProps, LocalizeThemeProps>(
+  ({
+    theme,
+    scale = 'md',
+    intent = 'primary',
+    localize = {
+      primaryColor: 'primary',
+      neutralColor: 'transparent',
+      fontColor: 'inversed1',
+      inversedFontColor: 'inversed10',
+    },
+    rounded,
+    max = 100,
+    value = 0,
+  }) => {
+    const localizedColor = getLocalizeIntentColor(theme, intent, localize);
+    const { primaryColor, neutralColor, inversedFontColor } = localizedColor;
+    const localizeScale = getLocalizeScaleBy(scale);
+
+    return {
+      position: 'relative',
+      display: 'flex',
+      alignItems: 'center',
+      color: inversedFontColor,
+      outline: 'none',
+      cursor: 'pointer',
+      userSelect: 'none',
+
+      [`.${CLASSNAME}__HandlerBar`]: {
+        width: '100%',
+        height: `${localizeScale / 2}rem`,
+        backgroundColor: neutralColor,
+        borderRadius: '4px',
+
+        '&:after': {
+          width: `${value / max}%`,
+          height: `${localizeScale / 2}rem`,
+          backgroundColor: primaryColor,
+          borderRadius: '4px',
+        },
+      },
+
+      /**
+       * @name __Handler
+       */
+      [`.${CLASSNAME}__Handler`]: {
+        width: `${localizeScale}rem`,
+        height: `${localizeScale}rem`,
+        borderRadius: rounded ? '50%' : '6px',
+        border: `1px solid ${theme.colors.neutral6}`,
+        backgroundColor: theme.colors.inversed1,
+      },
+
+      // Hover
+      '&:hover': {
+        [`${HidingInput}:not(:disabled):not(:read-only):not(:checked) + .${CLASSNAME}__Handler`]: {
+          borderColor: primaryColor,
+        },
+      },
+
+      // Active
+      [`${HidingInput}:not(:disabled):active + .${CLASSNAME}__Handler`]: {
+        backgroundColor: theme.colors.inversed1,
+        borderColor: primaryColor,
+      },
+
+      // Readonly - Disabled
+      [`${HidingInput}:read-only, ${HidingInput}:disabled`]: {
+        backgroundColor: theme.colors.disabled,
+        borderColor: theme.colors.neutral5,
+
+        [`.${CLASSNAME}__CheckerIcon`]: {
+          color: theme.colors.neutral8,
+        },
+      },
+
+      // Disabled and Checked
+      [`${HidingInput}:disabled:checked + .${CLASSNAME}__Checker`]: {
+        backgroundColor: theme.colors.disabled,
+        borderColor: theme.colors.neutral5,
+
+        [`.${CLASSNAME}__CheckerIcon`]: {
+          color: theme.colors.neutral8,
+        },
+      },
+    };
+  },
+);
 
 const HidingInput = styled.input<{}, LocalizeThemeProps>(({ theme }) => {
   return {
@@ -75,50 +186,101 @@ const HidingInput = styled.input<{}, LocalizeThemeProps>(({ theme }) => {
   };
 });
 
-const VisibleValueContainer = styled.div<LocalizeRangeProps, LocalizeThemeProps>(
-  ({
-    theme,
-    disabled,
-    localize = {
-      primaryColor: 'inversed8',
-      neutralColor: 'transparent',
-      fontColor: 'inversed1',
-    },
-  }) => {
-    const localizeColor = getLocalizeColor(theme, localize);
-    const { fontColor } = localizeColor;
+const LocalizeRangeHandlerBar = styled.div<{}, LocalizeThemeProps>(() => {
+  return {
+    display: 'flex',
+    alignItems: 'center',
+    width: '100%',
+  };
+});
 
-    return {
-      display: 'flex',
-      justifyContent: 'space-between',
-      color: fontColor,
+const LocalizeHandler = styled.div<{}, LocalizeThemeProps>(() => {
+  return {
+    display: 'inline-block',
+  };
+});
 
-      ...(disabled && {
-        color: theme.colors.neutral5,
-      }),
-    };
-  },
-);
+const LocalizeRangeLabelContainer = styled.div<{}, LocalizeThemeProps>(() => {
+  return {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  };
+});
+
+const LocalizeRangeLabel = styled.div<{}, LocalizeThemeProps>(() => {
+  return {
+    display: 'inline-block',
+  };
+});
 
 const LocalizeRange = React.forwardRef<HTMLInputElement, LocalizeRangeProps>(
-  ({ className, label, help, error, visibleValue, ...props }, ref) => {
+  (
+    {
+      children,
+      className,
+      scale = 'md',
+      intent = 'primary',
+      rounded,
+      renderLabel,
+      handler,
+      vertical,
+      min = 0,
+      max = 100,
+      ...props
+    },
+    ref,
+  ) => {
+    const { value, defaultValue, onChange } = props;
+    const initValue = value || defaultValue || 0;
+    const [curerntValue, setCurrentValue] = React.useState(initValue);
+
+    const handleCurrentValue = React.useCallback((value: any) => {
+      setCurrentValue(value);
+    }, []);
+
+    React.useEffect(() => {
+      handleCurrentValue(initValue);
+    }, [initValue]);
+
+    const onChangeInput = React.useCallback(
+      (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (onChange) {
+          onChange(e);
+        }
+      },
+      [onChange],
+    );
+
     return (
-      <LocalizeFormWrapper
+      <LocalizeRangeWrapper
+        {...props}
+        ref={ref}
         className={classnames(CLASSNAME, className)}
-        label={label}
-        help={help}
-        error={error}
+        intent={intent}
+        scale={scale}
+        rounded={rounded}
+        min={min}
+        max={max}
+        value={curerntValue}
       >
-        <LocalizeRangeContainer>
-          <HidingInput {...props} ref={ref} type="range" />
-        </LocalizeRangeContainer>
-        {visibleValue && (
-          <VisibleValueContainer {...props}>
-            <span>{props.min}</span>
-            <span>{props.max}</span>
-          </VisibleValueContainer>
-        )}
-      </LocalizeFormWrapper>
+        <HidingInput
+          {...props}
+          ref={ref}
+          type="range"
+          min={min}
+          max={max}
+          value={curerntValue}
+          onChange={onChangeInput}
+        />
+        <LocalizeRangeHandlerBar className={`${CLASSNAME}__HandlerBar`}>
+          <LocalizeHandler className={`${CLASSNAME}__Handler`} />
+        </LocalizeRangeHandlerBar>
+        <LocalizeRangeLabelContainer className={`${CLASSNAME}__Label`}>
+          <LocalizeRangeLabel className={`${CLASSNAME}__Label__Min`}>{min}</LocalizeRangeLabel>
+          <LocalizeRangeLabel className={`${CLASSNAME}__Label__Max`}>{max}</LocalizeRangeLabel>
+        </LocalizeRangeLabelContainer>
+      </LocalizeRangeWrapper>
     );
   },
 );
