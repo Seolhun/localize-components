@@ -126,7 +126,7 @@ const StyledSlider = styled.span<LocalizeProps, LocalizeThemeProps>(() => {
     borderRadius: '35px',
 
     '&:before': {
-      content: '""',
+      content: ' ',
       position: 'absolute',
       left: '2px',
       top: '2px',
