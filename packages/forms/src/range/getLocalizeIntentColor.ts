@@ -12,7 +12,7 @@ export function getLocalizeIntentColor(
   if (intent === 'localize' && localize) {
     const {
       primaryColor = 'primary',
-      neutralColor = 'transparent',
+      neutralColor = 'inversed4',
       fontColor = 'inversed1',
       inversedFontColor = 'inversed10',
     } = localize;
@@ -28,7 +28,7 @@ export function getLocalizeIntentColor(
     case 'primary': {
       return {
         primaryColor: theme.colors.primary,
-        neutralColor: theme.colors.transparent,
+        neutralColor: theme.colors.inversed4,
         fontColor: theme.colors.inversed1,
         inversedFontColor: theme.colors.inversed10,
       };
@@ -36,7 +36,7 @@ export function getLocalizeIntentColor(
     case 'secondary': {
       return {
         primaryColor: theme.colors.secondary,
-        neutralColor: theme.colors.transparent,
+        neutralColor: theme.colors.inversed4,
         fontColor: theme.colors.inversed1,
         inversedFontColor: theme.colors.inversed10,
       };
@@ -44,7 +44,7 @@ export function getLocalizeIntentColor(
     case 'info': {
       return {
         primaryColor: theme.colors.info,
-        neutralColor: theme.colors.transparent,
+        neutralColor: theme.colors.inversed4,
         fontColor: theme.colors.inversed1,
         inversedFontColor: theme.colors.inversed10,
       };
@@ -52,7 +52,7 @@ export function getLocalizeIntentColor(
     case 'success': {
       return {
         primaryColor: theme.colors.success,
-        neutralColor: theme.colors.transparent,
+        neutralColor: theme.colors.inversed4,
         fontColor: theme.colors.inversed1,
         inversedFontColor: theme.colors.inversed10,
       };
@@ -60,7 +60,7 @@ export function getLocalizeIntentColor(
     case 'warning': {
       return {
         primaryColor: theme.colors.warning,
-        neutralColor: theme.colors.transparent,
+        neutralColor: theme.colors.inversed4,
         fontColor: theme.colors.inversed1,
         inversedFontColor: theme.colors.inversed10,
       };
@@ -68,7 +68,7 @@ export function getLocalizeIntentColor(
     case 'error': {
       return {
         primaryColor: theme.colors.error,
-        neutralColor: theme.colors.transparent,
+        neutralColor: theme.colors.inversed4,
         fontColor: theme.colors.inversed1,
         inversedFontColor: theme.colors.inversed10,
       };
@@ -76,7 +76,7 @@ export function getLocalizeIntentColor(
     default: {
       return {
         primaryColor: theme.colors.primary,
-        neutralColor: theme.colors.transparent,
+        neutralColor: theme.colors.inversed4,
         fontColor: theme.colors.inversed1,
         inversedFontColor: theme.colors.inversed10,
       };

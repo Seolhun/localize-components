@@ -50,7 +50,19 @@ export interface LocalizeRangeProps extends ExtentionProps {
   vertical?: boolean;
 }
 
-const LocalizeRangeWrapper = styled.div<LocalizeRangeProps, LocalizeThemeProps>(
+interface LocalizeRangeWrapperProps extends LocalizeRangeProps {
+  /**
+   * Set this to change tracker width
+   */
+  trackerWidth: number;
+
+  /**
+   * Set this to change handler width on tracker
+   */
+  handlerWidth: number;
+}
+
+const LocalizeRangeWrapper = styled.div<LocalizeRangeWrapperProps, LocalizeThemeProps>(
   ({
     theme,
     scale = 'md',
@@ -62,8 +74,8 @@ const LocalizeRangeWrapper = styled.div<LocalizeRangeProps, LocalizeThemeProps>(
       inversedFontColor: 'inversed10',
     },
     rounded,
-    max = 100,
-    value = 0,
+    trackerWidth,
+    handlerWidth,
   }) => {
     const localizedColor = getLocalizeIntentColor(theme, intent, localize);
     const { primaryColor, neutralColor, inversedFontColor } = localizedColor;
@@ -78,18 +90,46 @@ const LocalizeRangeWrapper = styled.div<LocalizeRangeProps, LocalizeThemeProps>(
       cursor: 'pointer',
       userSelect: 'none',
 
-      [`.${CLASSNAME}__HandlerBar`]: {
+      // Hover
+      '&:hover': {
+        [`${HidingInput}:not(:disabled):not(:read-only):not(:checked) + .${CLASSNAME}__Tracker`]: {
+          borderColor: primaryColor,
+        },
+      },
+
+      // Readonly - Disabled
+      [`${HidingInput}:read-only, ${HidingInput}:disabled`]: {
+        backgroundColor: theme.colors.disabled,
+        borderColor: theme.colors.neutral5,
+      },
+
+      /**
+       * @name __Tracker
+       */
+      [`.${CLASSNAME}__Tracker`]: {
         width: '100%',
         height: `${localizeScale / 2}rem`,
         backgroundColor: neutralColor,
         borderRadius: '4px',
 
         '&:after': {
-          width: `${value / max}%`,
+          width: `${handlerWidth / trackerWidth}%`,
           height: `${localizeScale / 2}rem`,
           backgroundColor: primaryColor,
           borderRadius: '4px',
         },
+      },
+
+      // Active
+      [`${HidingInput}:not(:disabled):active + .${CLASSNAME}__Tracker`]: {
+        backgroundColor: theme.colors.inversed1,
+        borderColor: primaryColor,
+      },
+
+      // Disabled and Checked
+      [`${HidingInput}:disabled:checked + .${CLASSNAME}__Tracker`]: {
+        backgroundColor: theme.colors.disabled,
+        borderColor: theme.colors.neutral5,
       },
 
       /**
@@ -101,13 +141,7 @@ const LocalizeRangeWrapper = styled.div<LocalizeRangeProps, LocalizeThemeProps>(
         borderRadius: rounded ? '50%' : '6px',
         border: `1px solid ${theme.colors.neutral6}`,
         backgroundColor: theme.colors.inversed1,
-      },
-
-      // Hover
-      '&:hover': {
-        [`${HidingInput}:not(:disabled):not(:read-only):not(:checked) + .${CLASSNAME}__Handler`]: {
-          borderColor: primaryColor,
-        },
+        cursor: 'grabbing',
       },
 
       // Active
@@ -116,24 +150,10 @@ const LocalizeRangeWrapper = styled.div<LocalizeRangeProps, LocalizeThemeProps>(
         borderColor: primaryColor,
       },
 
-      // Readonly - Disabled
-      [`${HidingInput}:read-only, ${HidingInput}:disabled`]: {
-        backgroundColor: theme.colors.disabled,
-        borderColor: theme.colors.neutral5,
-
-        [`.${CLASSNAME}__CheckerIcon`]: {
-          color: theme.colors.neutral8,
-        },
-      },
-
       // Disabled and Checked
-      [`${HidingInput}:disabled:checked + .${CLASSNAME}__Checker`]: {
+      [`${HidingInput}:disabled:checked + .${CLASSNAME}__Handler`]: {
         backgroundColor: theme.colors.disabled,
         borderColor: theme.colors.neutral5,
-
-        [`.${CLASSNAME}__CheckerIcon`]: {
-          color: theme.colors.neutral8,
-        },
       },
     };
   },
@@ -186,7 +206,7 @@ const HidingInput = styled.input<{}, LocalizeThemeProps>(({ theme }) => {
   };
 });
 
-const LocalizeRangeHandlerBar = styled.div<{}, LocalizeThemeProps>(() => {
+const LocalizeRangeTracker = styled.div<{}, LocalizeThemeProps>(() => {
   return {
     display: 'flex',
     alignItems: 'center',
@@ -225,32 +245,59 @@ const LocalizeRange = React.forwardRef<HTMLInputElement, LocalizeRangeProps>(
       renderLabel,
       handler,
       vertical,
-      min = 0,
-      max = 100,
       ...props
     },
     ref,
   ) => {
-    const { value, defaultValue, onChange } = props;
+    const { value, defaultValue, min, max } = props;
     const initValue = value || defaultValue || 0;
-    const [curerntValue, setCurrentValue] = React.useState(initValue);
 
-    const handleCurrentValue = React.useCallback((value: any) => {
-      setCurrentValue(value);
+    const memoizedInitValue = React.useMemo<number>(() => {
+      const parsedValue = Number(value);
+      const parseDefaultdValue = Number(defaultValue);
+      const initValue = parsedValue || parseDefaultdValue || 0;
+      if (Number.isInteger(initValue)) {
+        return initValue;
+      }
+      return 0;
+    }, [initValue]);
+
+    const memoizedMinValue = React.useMemo<number>(() => {
+      const parsedMinValue = Number(min);
+      if (Number.isInteger(parsedMinValue)) {
+        return parsedMinValue;
+      }
+      return 0;
+    }, [min]);
+
+    const memoizedMaxValue = React.useMemo<number>(() => {
+      const parsedMaxValue = Number(max);
+      if (Number.isInteger(parsedMaxValue)) {
+        return parsedMaxValue;
+      }
+      return 100;
+    }, [max]);
+
+    const handlerValue = memoizedInitValue - memoizedMinValue;
+    const maxValue = memoizedMaxValue - memoizedMinValue;
+    const [trackerWidth, setTrackerWidth] = React.useState<number>(handlerValue / maxValue);
+    const [handlerWidth, setHandlerWidth] = React.useState<number>(handlerValue);
+
+    const handleTrackerWidth = React.useCallback((value: number) => {
+      setTrackerWidth(value);
+    }, []);
+
+    const handleHandlerWidth = React.useCallback((value: number) => {
+      setHandlerWidth(value);
     }, []);
 
     React.useEffect(() => {
-      handleCurrentValue(initValue);
-    }, [initValue]);
+      handleTrackerWidth(handlerValue / maxValue);
+    }, [handlerValue, maxValue]);
 
-    const onChangeInput = React.useCallback(
-      (e: React.ChangeEvent<HTMLInputElement>) => {
-        if (onChange) {
-          onChange(e);
-        }
-      },
-      [onChange],
-    );
+    React.useEffect(() => {
+      handleHandlerWidth(handlerValue);
+    }, [handlerValue]);
 
     return (
       <LocalizeRangeWrapper
@@ -260,22 +307,13 @@ const LocalizeRange = React.forwardRef<HTMLInputElement, LocalizeRangeProps>(
         intent={intent}
         scale={scale}
         rounded={rounded}
-        min={min}
-        max={max}
-        value={curerntValue}
+        trackerWidth={trackerWidth}
+        handlerWidth={handlerWidth}
       >
-        <HidingInput
-          {...props}
-          ref={ref}
-          type="range"
-          min={min}
-          max={max}
-          value={curerntValue}
-          onChange={onChangeInput}
-        />
-        <LocalizeRangeHandlerBar className={`${CLASSNAME}__HandlerBar`}>
+        <HidingInput {...props} ref={ref} type="range" />
+        <LocalizeRangeTracker className={`${CLASSNAME}__Tracker`}>
           <LocalizeHandler className={`${CLASSNAME}__Handler`} />
-        </LocalizeRangeHandlerBar>
+        </LocalizeRangeTracker>
         <LocalizeRangeLabelContainer className={`${CLASSNAME}__Label`}>
           <LocalizeRangeLabel className={`${CLASSNAME}__Label__Min`}>{min}</LocalizeRangeLabel>
           <LocalizeRangeLabel className={`${CLASSNAME}__Label__Max`}>{max}</LocalizeRangeLabel>
