@@ -70,7 +70,7 @@ const TooltipOverlayHTML = styled.div<LocalizeTooltipHTMLProps, LocalizeThemePro
 
       '&::after': {
         ...getTooltipArrowStyleByPlacement(props, theme),
-        content: ' ',
+        content: '""',
         position: 'absolute',
         marginLeft: '-5px',
         borderWidth: '5px',
