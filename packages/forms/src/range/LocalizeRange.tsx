@@ -65,47 +65,56 @@ const LocalizeRangeWrapper = styled.div<LocalizeRangeProps, LocalizeThemeProps>(
     rounded,
   }) => {
     const localizedColor = getLocalizeIntentColor(theme, intent, localize);
-    const { primaryColor, neutralColor, inversedFontColor } = localizedColor;
+    const { primaryColor, neutralColor, fontColor } = localizedColor;
     const localizeScale = getLocalizeScaleBy(scale);
 
     const track: any = {
       content: ' ',
-      background: 'transparent',
-      borderRadius: '6px',
-      pointerEvents: 'none',
+      width: 0,
+      height: 0,
     };
     const thumb: any = {
+      appearance: 'none',
       height: `${localizeScale}rem`,
       width: `${localizeScale}rem`,
-      background: inversedFontColor,
+      marginTop: `-${localizeScale / 2}rem`,
+      background: fontColor,
       border: `1px solid ${neutralColor}`, //$thumb-border,
       borderRadius: rounded ? '50%' : '6px',
+      cursor: 'grab',
+
+      '&:active': {
+        cursor: 'grabbing'
+      },
     };
 
     return {
       position: 'relative',
-      appearance: 'none',
       outline: 'none',
       userSelect: 'none',
-      cursor: 'pointer',
 
-      '&:after': {
-        content: ' ',
+      [`.${CLASSNAME}__Tracker`]: {
         position: 'absolute',
-        top: 0,
-        width: 0,
-        background: primaryColor,
+        right: 0,
+        left: 0,
+        width: '100%',
         height: '8px',
-        left: '1px',
-        zIndex: 1,
+        background: neutralColor,
+        borderRadius: '6px',
+
+        '&::after': {
+          content: '""',
+          position: 'absolute',
+          right: 0,
+          left: 0,
+          width: '5%',
+          height: '8px',
+          background: primaryColor,
+          borderRadius: '6px 0 0 6px',
+        }
       },
-      'input': {
-        WebkitAppearance: 'none',
-        MozAppearance: 'none',
-        '&:focus': {
-          boxShadow: 'none',
-          outline: 'none',
-        },
+
+      input: {
         /**
          * @name Track
          */
@@ -113,8 +122,8 @@ const LocalizeRangeWrapper = styled.div<LocalizeRangeProps, LocalizeThemeProps>(
         '&::-ms-track': track,
         '&::-moz-range-track': track,
         /**
-          * @name Thumb
-          */
+         * @name Thumb
+         */
         '&::-webkit-slider-thumb': thumb,
         '&::-ms-thumb': thumb,
         '&::-moz-range-thumb': thumb,
@@ -126,20 +135,25 @@ const LocalizeRangeWrapper = styled.div<LocalizeRangeProps, LocalizeThemeProps>(
 const LocalizeRangeContainer = styled.div<{}, LocalizeThemeProps>(() => {
   return {
     display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+    alignItems: 'center'
   };
 });
 
 const LocalizeRangeInput = styled.input<{}, LocalizeThemeProps>(() => {
   return {
     appearance: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    background: 'none',
-    height: '100%',
     width: '100%',
-    overflow: 'hidden',
+    outline: 'none',
+    cursor: 'pointer',
+    zIndex: 2,
+  };
+});
+
+const LocalizeRangeTracker = styled.div<{}, LocalizeThemeProps>(() => {
+  return {
+    position: 'absolute',
+    right: 0,
+    left: 0,
   };
 });
 
@@ -186,11 +200,12 @@ const LocalizeRange = React.forwardRef<HTMLInputElement, LocalizeRangeProps>(
       >
         <LocalizeRangeContainer>
           <LocalizeRangeInput {...props} ref={ref} type="range" />
-          <LocalizeRangeLabelWrapper className={`${CLASSNAME}__Label`}>
-            <LocalizeRangeLabel className={`${CLASSNAME}__Label__Min`}>{min}</LocalizeRangeLabel>
-            <LocalizeRangeLabel className={`${CLASSNAME}__Label__Max`}>{max}</LocalizeRangeLabel>
-          </LocalizeRangeLabelWrapper>
+          <LocalizeRangeTracker className={`${CLASSNAME}__Tracker`} />
         </LocalizeRangeContainer>
+        <LocalizeRangeLabelWrapper className={`${CLASSNAME}__Label`}>
+          <LocalizeRangeLabel className={`${CLASSNAME}__Label__Min`}>{min}</LocalizeRangeLabel>
+          <LocalizeRangeLabel className={`${CLASSNAME}__Label__Max`}>{max}</LocalizeRangeLabel>
+        </LocalizeRangeLabelWrapper>
       </LocalizeRangeWrapper>
     );
   },
