@@ -15,9 +15,11 @@ import { getLocalizeIntentColor } from './getLocalizeIntentColor';
 
 const CLASSNAME = '__Localize__Range';
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
-type ExtentionProps = LocalizeProps & InputProps;
+type ExtentionProps = InputProps & LocalizeRootProps;
 
-export interface LocalizeRangeProps extends ExtentionProps {
+export interface LocalizeRangeProps extends ExtentionProps {}
+
+interface LocalizeRootProps extends LocalizeProps {
   /**
    * Set this to change scale
    * @default md
@@ -51,7 +53,14 @@ export interface LocalizeRangeProps extends ExtentionProps {
   vertical?: boolean;
 }
 
-const LocalizeRangeWrapper = styled.div<LocalizeRangeProps, LocalizeThemeProps>(
+interface LocalizeRangeWrapperProps extends LocalizeRootProps {
+  /**
+   * Active Tracker width(%)
+   */
+   activeTrackerWidth: number;
+}
+
+const LocalizeRangeWrapper = styled.div<LocalizeRangeWrapperProps, LocalizeThemeProps>(
   ({
     theme,
     scale = 'md',
@@ -63,13 +72,14 @@ const LocalizeRangeWrapper = styled.div<LocalizeRangeProps, LocalizeThemeProps>(
       inversedFontColor: 'inversed10',
     },
     rounded,
+    activeTrackerWidth,
   }) => {
     const localizedColor = getLocalizeIntentColor(theme, intent, localize);
     const { primaryColor, neutralColor, fontColor } = localizedColor;
     const localizeScale = getLocalizeScaleBy(scale);
 
     const track: any = {
-      content: ' ',
+      content: '""',
       width: 0,
       height: 0,
     };
@@ -77,14 +87,13 @@ const LocalizeRangeWrapper = styled.div<LocalizeRangeProps, LocalizeThemeProps>(
       appearance: 'none',
       height: `${localizeScale}rem`,
       width: `${localizeScale}rem`,
-      marginTop: `-${localizeScale / 2}rem`,
       background: fontColor,
       border: `1px solid ${neutralColor}`, //$thumb-border,
       borderRadius: rounded ? '50%' : '6px',
       cursor: 'grab',
 
       '&:active': {
-        cursor: 'grabbing'
+        cursor: 'grabbing',
       },
     };
 
@@ -94,9 +103,6 @@ const LocalizeRangeWrapper = styled.div<LocalizeRangeProps, LocalizeThemeProps>(
       userSelect: 'none',
 
       [`.${CLASSNAME}__Tracker`]: {
-        position: 'absolute',
-        right: 0,
-        left: 0,
         width: '100%',
         height: '8px',
         background: neutralColor,
@@ -105,13 +111,11 @@ const LocalizeRangeWrapper = styled.div<LocalizeRangeProps, LocalizeThemeProps>(
         '&::after': {
           content: '""',
           position: 'absolute',
-          right: 0,
-          left: 0,
-          width: '5%',
+          width: `${activeTrackerWidth}%`,
           height: '8px',
           background: primaryColor,
           borderRadius: '6px 0 0 6px',
-        }
+        },
       },
 
       input: {
@@ -133,28 +137,22 @@ const LocalizeRangeWrapper = styled.div<LocalizeRangeProps, LocalizeThemeProps>(
 );
 
 const LocalizeRangeContainer = styled.div<{}, LocalizeThemeProps>(() => {
-  return {
-    display: 'flex',
-    alignItems: 'center'
-  };
+  return {};
 });
 
 const LocalizeRangeInput = styled.input<{}, LocalizeThemeProps>(() => {
   return {
     appearance: 'none',
+    position: 'relative',
     width: '100%',
     outline: 'none',
     cursor: 'pointer',
-    zIndex: 2,
+    zIndex: 1,
   };
 });
 
 const LocalizeRangeTracker = styled.div<{}, LocalizeThemeProps>(() => {
-  return {
-    position: 'absolute',
-    right: 0,
-    left: 0,
-  };
+  return {};
 });
 
 const LocalizeRangeLabelWrapper = styled.div<{}, LocalizeThemeProps>(() => {
@@ -163,7 +161,7 @@ const LocalizeRangeLabelWrapper = styled.div<{}, LocalizeThemeProps>(() => {
     alignItems: 'center',
     justifyContent: 'space-between',
     width: '100%',
-    marginTop: '8px',
+    marginTop: '1rem',
   };
 });
 
@@ -188,18 +186,48 @@ const LocalizeRange = React.forwardRef<HTMLInputElement, LocalizeRangeProps>(
     },
     ref,
   ) => {
-    const { min, max } = props;
+    const { min, max, value, defaultValue, onChange } = props;
+
+    const memoizedTrackerSize = React.useMemo(() => {
+      const parsedMin = Number(min);
+      const parsedMax = Number(max);
+      if (!Number.isInteger(parsedMin)) {
+        return parsedMax;
+      }
+      if (!Number.isInteger(parsedMax)) {
+        return 100 - parsedMin;
+      }
+      return parsedMax - parsedMin;
+    }, [min, max]);
+
+    const [currentValue, setCurrentValue] = React.useState<number>(Number(value || defaultValue));
+    const [activeTrackerWidth, setActiveTrackerWidth] = React.useState(memoizedTrackerSize);
+
+    React.useEffect(() => {
+      setActiveTrackerWidth((currentValue / memoizedTrackerSize) * 100);
+    }, [currentValue, memoizedTrackerSize]);
+
+    const onChangeInput = React.useCallback(
+      (e: React.ChangeEvent<HTMLInputElement>) => {
+        setCurrentValue(Number(e.target.value));
+        if (onChange) {
+          onChange(e);
+        }
+      },
+      [onChange],
+    );
+
     return (
       <LocalizeRangeWrapper
-        {...props}
         ref={ref}
         className={classnames(CLASSNAME, className)}
         intent={intent}
         scale={scale}
         rounded={rounded}
+        activeTrackerWidth={activeTrackerWidth}
       >
         <LocalizeRangeContainer>
-          <LocalizeRangeInput {...props} ref={ref} type="range" />
+          <LocalizeRangeInput {...props} ref={ref} type="range" onChange={onChangeInput} />
           <LocalizeRangeTracker className={`${CLASSNAME}__Tracker`} />
         </LocalizeRangeContainer>
         <LocalizeRangeLabelWrapper className={`${CLASSNAME}__Label`}>
