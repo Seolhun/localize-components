@@ -1,7 +1,7 @@
 import React from 'react';
-
 import styled from '@emotion/styled';
 import classnames from 'classnames';
+import { transparentize } from 'polished';
 
 import {
   getLocalizeScaleBy,
@@ -12,7 +12,6 @@ import {
 } from '@seolhun/localize-components-styled-types';
 
 import { getLocalizeIntentColor } from './getLocalizeIntentColor';
-import { transparentize } from 'polished';
 
 const CLASSNAME = '__Localize__Switch';
 type InputProps = React.InputHTMLAttributes<HTMLInputElement>;
@@ -66,7 +65,7 @@ const LocalizeSwitchWrapper = styled.div<LocalizeSwitchProps, LocalizeThemeProps
       [`.${CLASSNAME}__Slider`]: {
         backgroundColor: neutralColor,
       },
-      [`.${CLASSNAME}__Slider:before`]: {
+      [`.${CLASSNAME}__Slider::before`]: {
         height: `calc(${localizeScale}rem - 6px)`,
         width: `calc(${localizeScale}rem - 6px)`,
         backgroundColor: theme.colors.neutral1,
@@ -77,7 +76,7 @@ const LocalizeSwitchWrapper = styled.div<LocalizeSwitchProps, LocalizeThemeProps
       [`input:checked + .${CLASSNAME}__Slider`]: {
         backgroundColor: primaryColor,
       },
-      [`input:checked + .${CLASSNAME}__Slider:before`]: {
+      [`input:checked + .${CLASSNAME}__Slider::before`]: {
         backgroundColor: theme.colors.neutral1,
         borderColor: theme.colors.neutral3,
         transform: `translateX(${localizeScale}rem)`,
@@ -88,7 +87,7 @@ const LocalizeSwitchWrapper = styled.div<LocalizeSwitchProps, LocalizeThemeProps
         backgroundColor: transparentize(0.3, neutralColor),
         cursor: 'not-allowed',
       },
-      [`input:not(:checked):disabled + .${CLASSNAME}__Slider:before`]: {
+      [`input:not(:checked):disabled + .${CLASSNAME}__Slider::before`]: {
         backgroundColor: transparentize(0.3, theme.colors.neutral1),
         borderColor: transparentize(0.3, theme.colors.neutral3),
       },
@@ -97,7 +96,7 @@ const LocalizeSwitchWrapper = styled.div<LocalizeSwitchProps, LocalizeThemeProps
         backgroundColor: transparentize(0.4, primaryColor),
         cursor: 'not-allowed',
       },
-      [`input:disabled + .${CLASSNAME}__Slider:before`]: {
+      [`input:disabled + .${CLASSNAME}__Slider::before`]: {
         backgroundColor: transparentize(0.4, theme.colors.neutral1),
         borderColor: transparentize(0.4, theme.colors.neutral3),
       },
@@ -125,7 +124,7 @@ const StyledSlider = styled.span<LocalizeProps, LocalizeThemeProps>(() => {
     left: 0,
     borderRadius: '35px',
 
-    '&:before': {
+    '&::before': {
       content: '""',
       position: 'absolute',
       left: '2px',

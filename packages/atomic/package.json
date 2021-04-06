@@ -22,7 +22,6 @@
     "lint": "eslint \"src/**/*.{ts,tsx,js,jsx}\"",
     "lint:fix": "eslint \"src/**/*.{ts,tsx,js,jsx}\" --fix",
     "prettier": "prettier --write '**/*.{ts,tsx,js,jsx}'",
-    "bundle": "rollup -c",
     "watch": "rollup -cw",
     "test": "echo 'There are no test'"
   },
@@ -36,7 +35,8 @@
   "dependencies": {
     "@seolhun/localize-components-icon": "^0.6.5",
     "@seolhun/localize-components-styled-types": "^0.6.5",
-    "polished": "^3.6.7"
+    "polished": "^3.6.7",
+    "csstype": "^3.0.5"
   },
   "engines": {
     "node": ">= 6.0.0",

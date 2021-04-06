@@ -9,6 +9,12 @@ const globalStyle = (theme) => css`
     font-size: 16px;
   }
 
+  html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
   h2 {
     color: ${theme.colors.inversed10};
   }

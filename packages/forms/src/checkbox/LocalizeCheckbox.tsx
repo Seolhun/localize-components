@@ -59,7 +59,9 @@ const LocalizeCheckboxWrapper = styled.div<LocalizeCheckboxProps, LocalizeThemeP
     return {
       display: 'inline-flex',
       alignItems: 'center',
+      outline: 'none',
       cursor: 'pointer',
+      userSelect: 'none',
 
       [`.${CLASSNAME}__Label`]: {
         color: inversedFontColor,
@@ -131,10 +133,7 @@ const LocalizeCheckboxLabel = styled.label<{}, LocalizeThemeProps>(() => {
     display: 'inline-flex',
     alignItems: 'center',
     width: '100%',
-    outline: 0,
     transition: 'color 0.3s',
-    cursor: 'pointer',
-    userSelect: 'none',
   };
 });
 
