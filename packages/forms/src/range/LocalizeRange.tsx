@@ -67,7 +67,7 @@ const LocalizeRangeWrapper = styled.div<LocalizeRangeWrapperProps, LocalizeTheme
     intent = 'primary',
     localize = {
       primaryColor: 'primary',
-      neutralColor: 'transparent',
+      neutralColor: 'inversed4',
       fontColor: 'inversed1',
       inversedFontColor: 'inversed10',
     },
@@ -80,8 +80,7 @@ const LocalizeRangeWrapper = styled.div<LocalizeRangeWrapperProps, LocalizeTheme
 
     const track: any = {
       content: '""',
-      width: 0,
-      height: 0,
+      cursor: 'pointer',
     };
     const thumb: any = {
       appearance: 'none',
@@ -96,29 +95,15 @@ const LocalizeRangeWrapper = styled.div<LocalizeRangeWrapperProps, LocalizeTheme
         cursor: 'grabbing',
       },
     };
+    const trackerHeight = '8px';
 
     return {
       position: 'relative',
       outline: 'none',
       userSelect: 'none',
 
-      [`.${CLASSNAME}__Tracker`]: {
-        width: '100%',
-        height: '8px',
-        background: neutralColor,
-        borderRadius: '6px',
-
-        '&::after': {
-          content: '""',
-          position: 'absolute',
-          width: `${activeTrackerWidth}%`,
-          height: '8px',
-          background: primaryColor,
-          borderRadius: '6px 0 0 6px',
-        },
-      },
-
       input: {
+        height: trackerHeight,
         /**
          * @name Track
          */
@@ -131,6 +116,23 @@ const LocalizeRangeWrapper = styled.div<LocalizeRangeWrapperProps, LocalizeTheme
         '&::-webkit-slider-thumb': thumb,
         '&::-ms-thumb': thumb,
         '&::-moz-range-thumb': thumb,
+      },
+
+      [`.${CLASSNAME}__Tracker`]: {
+        top: '6px',
+        width: '100%',
+        height: trackerHeight,
+        background: neutralColor,
+        borderRadius: '6px',
+
+        '&::after': {
+          content: '""',
+          position: 'absolute',
+          width: `${activeTrackerWidth}%`,
+          height: trackerHeight,
+          background: primaryColor,
+          borderRadius: '6px 0 0 6px',
+        },
       },
     };
   },
@@ -145,23 +147,29 @@ const LocalizeRangeInput = styled.input<{}, LocalizeThemeProps>(() => {
     appearance: 'none',
     position: 'relative',
     width: '100%',
+    background: 'transparent',
+    margin: 0,
+    padding: 0,
     outline: 'none',
-    cursor: 'pointer',
     zIndex: 1,
   };
 });
 
 const LocalizeRangeTracker = styled.div<{}, LocalizeThemeProps>(() => {
-  return {};
+  return {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+  };
 });
 
-const LocalizeRangeLabelWrapper = styled.div<{}, LocalizeThemeProps>(() => {
+const LocalizeRangeLabelContainer = styled.div<{}, LocalizeThemeProps>(() => {
   return {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
     width: '100%',
-    marginTop: '1rem',
+    marginTop: '0.5rem',
   };
 });
 
@@ -226,14 +234,15 @@ const LocalizeRange = React.forwardRef<HTMLInputElement, LocalizeRangeProps>(
         rounded={rounded}
         activeTrackerWidth={activeTrackerWidth}
       >
+
         <LocalizeRangeContainer>
           <LocalizeRangeInput {...props} ref={ref} type="range" onChange={onChangeInput} />
           <LocalizeRangeTracker className={`${CLASSNAME}__Tracker`} />
         </LocalizeRangeContainer>
-        <LocalizeRangeLabelWrapper className={`${CLASSNAME}__Label`}>
+        <LocalizeRangeLabelContainer className={`${CLASSNAME}__Label`}>
           <LocalizeRangeLabel className={`${CLASSNAME}__Label__Min`}>{min}</LocalizeRangeLabel>
           <LocalizeRangeLabel className={`${CLASSNAME}__Label__Max`}>{max}</LocalizeRangeLabel>
-        </LocalizeRangeLabelWrapper>
+        </LocalizeRangeLabelContainer>
       </LocalizeRangeWrapper>
     );
   },
