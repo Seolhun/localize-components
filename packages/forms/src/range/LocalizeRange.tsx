@@ -57,7 +57,7 @@ interface LocalizeRangeWrapperProps extends LocalizeRootProps {
   /**
    * Active Tracker width(%)
    */
-   activeTrackerWidth: number;
+  activeTrackerWidth: number;
 }
 
 const LocalizeRangeWrapper = styled.div<LocalizeRangeWrapperProps, LocalizeThemeProps>(
@@ -234,7 +234,6 @@ const LocalizeRange = React.forwardRef<HTMLInputElement, LocalizeRangeProps>(
         rounded={rounded}
         activeTrackerWidth={activeTrackerWidth}
       >
-
         <LocalizeRangeContainer>
           <LocalizeRangeInput {...props} ref={ref} type="range" onChange={onChangeInput} />
           <LocalizeRangeTracker className={`${CLASSNAME}__Tracker`} />
