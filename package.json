@@ -46,7 +46,7 @@
     "@emotion/styled": "^10.0.27",
     "browserslist": "^4.16.0",
     "classnames": "^2.2.6",
-    "core-js": "^3.8.1",
+    "core-js": "^3.10.0",
     "csstype": "^3.0.5",
     "dayjs": "^1.9.7",
     "emotion-theming": "^10.0.27",
